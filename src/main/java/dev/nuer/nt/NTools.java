@@ -1,7 +1,7 @@
 package dev.nuer.nt;
 
 import dev.nuer.nt.cmd.Tools;
-import dev.nuer.nt.event.TrenchBlockBreak;
+import dev.nuer.nt.event.RadialBlockBreak;
 import dev.nuer.nt.file.LoadFile;
 import dev.nuer.nt.method.AddBlocksToBlacklist;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -22,7 +22,7 @@ public final class NTools extends JavaPlugin {
         trenchBlockBlacklist = AddBlocksToBlacklist.addTrenchBlacklist();
         trayBlockWhitelist = AddBlocksToBlacklist.addTrayWhitelist();
         getCommand("Tools").setExecutor(new Tools(this));
-        getServer().getPluginManager().registerEvents(new TrenchBlockBreak(), this);
+        getServer().getPluginManager().registerEvents(new RadialBlockBreak(), this);
     }
 
     @Override

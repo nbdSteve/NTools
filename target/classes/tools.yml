@@ -8,3 +8,12 @@ trench:
     unique-lore: "&7Trench 5x5"
     # 5x5 trench pick
     break-radius: 2
+tray:
+  1:
+    unique-lore: "&7Tray 3x3"
+    # 3x3 trench pick
+    break-radius: 1
+  2:
+    unique-lore: "&7Tray 5x5"
+    # 5x5 trench pick
+    break-radius: 2

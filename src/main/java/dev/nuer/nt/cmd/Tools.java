@@ -21,15 +21,35 @@ public class Tools implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (command.getName().equalsIgnoreCase("Tools")) {
-            ItemStack item = new ItemStack(Material.DIAMOND_PICKAXE);
-            ItemMeta itemMeta = item.getItemMeta();
-            List<String> itemLore = new ArrayList<>();
-            itemLore.add(ChatColor.translateAlternateColorCodes('&', "&7Trench"));
-            itemMeta.setLore(itemLore);
-            item.setItemMeta(itemMeta);
-            Player player = (Player) sender;
-            player.getInventory().addItem(item);
+        if (command.getName().equalsIgnoreCase("tools")) {
+            if (args.length == 1 && args[0].equalsIgnoreCase("3x3")) {
+                ItemStack item = new ItemStack(Material.DIAMOND_PICKAXE);
+                ItemMeta itemMeta = item.getItemMeta();
+                List<String> itemLore = new ArrayList<>();
+                itemLore.add(ChatColor.translateAlternateColorCodes('&', "&7Trench 3x3"));
+                itemMeta.setLore(itemLore);
+                item.setItemMeta(itemMeta);
+                Player player = (Player) sender;
+                player.getInventory().addItem(item);
+            } else if (args.length == 1 && args[0].equalsIgnoreCase("5x5")) {
+                ItemStack item = new ItemStack(Material.DIAMOND_PICKAXE);
+                ItemMeta itemMeta = item.getItemMeta();
+                List<String> itemLore = new ArrayList<>();
+                itemLore.add(ChatColor.translateAlternateColorCodes('&', "&7Trench 5x5"));
+                itemMeta.setLore(itemLore);
+                item.setItemMeta(itemMeta);
+                Player player = (Player) sender;
+                player.getInventory().addItem(item);
+            } else if (args.length == 1 && args[0].equalsIgnoreCase("tray")) {
+                ItemStack item = new ItemStack(Material.DIAMOND_PICKAXE);
+                ItemMeta itemMeta = item.getItemMeta();
+                List<String> itemLore = new ArrayList<>();
+                itemLore.add(ChatColor.translateAlternateColorCodes('&', "&7Tray 3x3"));
+                itemMeta.setLore(itemLore);
+                item.setItemMeta(itemMeta);
+                Player player = (Player) sender;
+                player.getInventory().addItem(item);
+            }
         }
         return true;
     }
