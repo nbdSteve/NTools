@@ -1,0 +1,8 @@
+dev\nuer\nt\NTools.class
+dev\nuer\nt\file\LoadFile.class
+dev\nuer\nt\file\LoadFile$Files.class
+dev\nuer\nt\method\AddBlocksToBlacklist.class
+dev\nuer\nt\file\CreateFile.class
+dev\nuer\nt\method\BlockInBorderCheck.class
+dev\nuer\nt\cmd\Tools.class
+dev\nuer\nt\event\TrenchBlockBreak.class

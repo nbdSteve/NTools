@@ -1,5 +1,5 @@
 name: NTools
-version: ${project.version}
+version: 0.0.1-BETA
 main: dev.nuer.nt.NTools
 api-version: 1.13
 commands:
