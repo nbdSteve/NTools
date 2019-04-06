@@ -1,0 +1,4 @@
+name: NTools
+version: ${project.version}
+main: dev.nuer.nt.NTools
+api-version: 1.13
