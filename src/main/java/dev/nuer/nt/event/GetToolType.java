@@ -5,24 +5,39 @@ import org.bukkit.ChatColor;
 
 import java.util.List;
 
+/**
+ * Gets the type of tool for the event, based on the tools.yml
+ */
 public class GetToolType {
-
+    //Store if the tool is a trench tool
     private boolean isTrenchTool;
+    //Store if the tool is a tray tool
     private boolean isTrayTool;
+    //Store if the tool is a multi-tool
+    private boolean isMultiTool;
+    //Store the type of tool from the tools.yml
     private String toolType;
+    //Store the radius if it is a multi-tool
+    private int multiToolRadius;
 
-    public GetToolType(List<String> itemLore) {
+    protected GetToolType(List<String> itemLore) {
         for (int i = 1; i <= 54; i++) {
-            if (itemLore.contains(ChatColor.translateAlternateColorCodes('&',
-                    NTools.getFiles().get("tools").getString("trench." + i + ".unique-lore")))) {
-                toolType = "trench." + i;
-                isTrenchTool = true;
-                break;
-            } else if (itemLore.contains(ChatColor.translateAlternateColorCodes('&',
-                    NTools.getFiles().get("tools").getString("tray." + i + ".unique-lore")))) {
-                toolType = "tray." + i;
-                isTrayTool = true;
-                break;
+            try {
+                if (itemLore.contains(NTools.getTrenchTools().get(i))) {
+                    toolType = "trench." + i;
+                    isTrenchTool = true;
+                    break;
+                } else if (itemLore.contains(NTools.getTrayTools().get(i))) {
+                    toolType = "tray." + i;
+                    isTrayTool = true;
+                } else if (itemLore.contains(ChatColor.translateAlternateColorCodes('&',
+                        NTools.getFiles().get("tools").getString("multi-tool." + i + ".unique-lore")))) {
+                    toolType = "multi-tool." + i;
+                    isTrayTool = true;
+                    break;
+                }
+            } catch (NullPointerException toolDoesNotExist) {
+                //Do nothing
             }
         }
     }
@@ -35,7 +50,15 @@ public class GetToolType {
         return isTrayTool;
     }
 
+    public boolean getIsMultiTool() {
+        return isMultiTool;
+    }
+
     public String getToolType() {
         return toolType;
+    }
+
+    public int getMultiToolRadius() {
+        return multiToolRadius;
     }
 }

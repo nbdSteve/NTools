@@ -26,6 +26,16 @@ public class AddBlocksToBlacklist {
         return blockBlacklist;
     }
 
+    public static ArrayList<String> createBlocklist(String filePath) {
+        ArrayList<String> blocklist = new ArrayList<>();
+        for (String line :
+                NTools.getFiles().get("config").getStringList(filePath)) {
+            String block = line.toUpperCase();
+            blocklist.add(block);
+        }
+        return blocklist;
+    }
+
     /**
      * Add a list of blocks to the tray whitelist
      *

@@ -1,4 +1,5 @@
 dev\nuer\nt\NTools.class
+dev\nuer\nt\method\AddToolsToMap.class
 dev\nuer\nt\file\LoadFile.class
 dev\nuer\nt\event\GetToolType.class
 dev\nuer\nt\file\CreateFile.class

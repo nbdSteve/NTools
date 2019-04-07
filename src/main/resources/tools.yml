@@ -11,9 +11,47 @@ trench:
 tray:
   1:
     unique-lore: "&7Tray 3x3"
-    # 3x3 trench pick
+    # 3x3 tray pick
     break-radius: 1
   2:
     unique-lore: "&7Tray 5x5"
-    # 5x5 trench pick
+    # 5x5 tray pick
     break-radius: 2
+
+multi-tool:
+  1:
+    unique-lore: "&2&l**Forged**"
+    #
+    mode-unique-id: "&7Mode:"
+    tray-mode-id: "&e&lTRAY"
+    trench-mode-id: "&3&lTRENCH"
+    #
+    radius-unique-id: "&7Radius:"
+    3x3: "&b&l3x3"
+    5x5: "&b&l5x5"
+    7x7: "&b&l7x7"
+    #
+    max-break-radius: 3 #7x7
+    #
+    name: "&a&lForged Pickaxe"
+    #
+    enchantments:
+      - efficiency:5
+      - durability:10
+    #
+    lore:
+      - "&2&l**Forged**"
+      - "&7 "
+      - "&7Mode: {mode}"
+      - "&7Radius: {radius}"
+      - "&7 "
+      - "&a&oThis pickaxe was forged in an unknown place,"
+      - "&a&oits potential is still be realised. Use,"
+      - "&a&oabuse and reap the rewards of this tool."
+    #
+    additional-gui-lore:
+      - "&7 "
+      - "&7Price: &c&l-${price}"
+      - "&7 "
+    #
+    price-in-gui: 125000
