@@ -10,6 +10,8 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.List;
 
 public class RadialBlockBreak implements Listener {
@@ -31,7 +33,10 @@ public class RadialBlockBreak implements Listener {
         //Create a local variable for the item lore
         List<String> itemLore = itemMeta.getLore();
         //Create a local variable for type of trench tool
+        Instant start = Instant.now();
         GetToolType toolType = new GetToolType(itemLore);
+        Instant finish = Instant.now();
+        System.out.print("Queried tool from map, took " + Duration.between(start, finish).toMillis() + "ms");
         //Get the radius of the tool from the tools.yml
         int radiusFromConf = NTools.getFiles().get("tools").getInt(toolType.getToolType() + ".break-radius");
         //If the tool is a multi, get its current radius
