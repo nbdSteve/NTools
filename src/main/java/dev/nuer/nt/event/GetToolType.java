@@ -20,7 +20,7 @@ public class GetToolType {
     //Store the radius if it is a multi-tool
     private int multiToolRadius;
 
-    protected GetToolType(List<String> itemLore) {
+    GetToolType(List<String> itemLore) {
         for (int i = 1; i <= 54; i++) {
             try {
                 if (itemLore.contains(NTools.getTrenchTools().get(i))) {
@@ -30,6 +30,9 @@ public class GetToolType {
                 } else if (itemLore.contains(NTools.getTrayTools().get(i))) {
                     toolType = "tray." + i;
                     isTrayTool = true;
+                } else if (itemLore.contains(NTools.getMultiTools().get(i))) {
+                    toolType = "multi-tool." + i;
+                    break;
                 } else if (itemLore.contains(ChatColor.translateAlternateColorCodes('&',
                         NTools.getFiles().get("tools").getString("multi-tool." + i + ".unique-lore")))) {
                     toolType = "multi-tool." + i;
@@ -42,11 +45,11 @@ public class GetToolType {
         }
     }
 
-    public boolean getIsTrenchTool() {
+    boolean getIsTrenchTool() {
         return isTrenchTool;
     }
 
-    public boolean getIsTrayTool() {
+    boolean getIsTrayTool() {
         return isTrayTool;
     }
 
@@ -54,7 +57,7 @@ public class GetToolType {
         return isMultiTool;
     }
 
-    public String getToolType() {
+    String getToolType() {
         return toolType;
     }
 
