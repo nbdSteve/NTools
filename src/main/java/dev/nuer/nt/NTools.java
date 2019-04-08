@@ -5,6 +5,7 @@ import dev.nuer.nt.event.RadialBlockBreak;
 import dev.nuer.nt.file.LoadFile;
 import dev.nuer.nt.method.AddBlocksToBlacklist;
 import dev.nuer.nt.method.AddToolsToMap;
+import dev.nuer.nt.method.GetMultiToolUnique;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
@@ -26,6 +27,8 @@ public final class NTools extends JavaPlugin {
     private static HashMap<Integer, String> trayTools;
     //Store the map of multi tools, queried in the event class
     private static HashMap<Integer, String> multiTools;
+    private static HashMap<Integer, String> multiToolModeUnique;
+    private static HashMap<Integer, String> multiToolRadiusUnique;
 
     /**
      * Void method to regenerate all of the HashMap associated with the plugin, will update with config
@@ -37,6 +40,8 @@ public final class NTools extends JavaPlugin {
         trenchTools = AddToolsToMap.createToolMap("trench.");
         trayTools = AddToolsToMap.createToolMap("tray.");
         multiTools = AddToolsToMap.createToolMap("multi-tool.");
+        multiToolModeUnique = GetMultiToolUnique.createUniqueLore("multi-tool.", ".mode.unique");
+        multiToolRadiusUnique = GetMultiToolUnique.createUniqueLore("multi-tool.", ".radius.unique");
     }
 
     /**
@@ -103,6 +108,14 @@ public final class NTools extends JavaPlugin {
      */
     public static HashMap<Integer, String> getMultiTools() {
         return multiTools;
+    }
+
+    public static HashMap<Integer, String> getMultiToolModeUnique() {
+        return multiToolModeUnique;
+    }
+
+    public static HashMap<Integer, String> getMultiToolRadiusUnique() {
+        return multiToolRadiusUnique;
     }
 
     /**

@@ -22,14 +22,16 @@ multi-tool:
   1:
     unique-lore: "&2&l**Forged**"
     #
-    mode-unique-id: "&7Mode:"
-    tray-mode-id: "&e&lTRAY"
-    trench-mode-id: "&3&lTRENCH"
+    mode:
+      unique: "&7Mode:"
+      trench: "&e&lTRENCH"
+      tray: "&e&lTRAY"
     #
-    radius-unique-id: "&7Radius:"
-    3x3: "&b&l3x3"
-    5x5: "&b&l5x5"
-    7x7: "&b&l7x7"
+    radius:
+      unique: "&7Radius:"
+      3x3: "&b&l3x3"
+      5x5: "&b&l5x5"
+      7x7: "&b&l7x7"
     #
     max-break-radius: 3 #7x7
     #

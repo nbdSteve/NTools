@@ -3,13 +3,11 @@ package dev.nuer.nt.event;
 import dev.nuer.nt.NTools;
 import dev.nuer.nt.method.BlockInBorderCheck;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
@@ -34,11 +32,17 @@ public class RadialBlockBreak implements Listener {
         List<String> itemLore = itemMeta.getLore();
         //Create a local variable for type of trench tool
         GetToolType toolType = new GetToolType(itemLore);
+        //Get the radius of the tool from the tools.yml
+        int radiusFromConf = NTools.getFiles().get("tools").getInt(toolType.getToolType() + ".break-radius");
+        //If the tool is a multi, get its current radius
+        if (toolType.getIsMultiTool()) {
+            radiusFromConf = toolType.getMultiToolRadius();
+        }
         //Store the break radius for the tool
-        int radiusX = -(NTools.getFiles().get("tools").getInt(toolType.getToolType() + ".break-radius"));
-        int radiusY = -(NTools.getFiles().get("tools").getInt(toolType.getToolType() + ".break-radius"));
-        int radiusZ = -(NTools.getFiles().get("tools").getInt(toolType.getToolType() + ".break-radius"));
-        int radius = (NTools.getFiles().get("tools").getInt(toolType.getToolType() + ".break-radius"));
+        int radiusX = -radiusFromConf;
+        int radiusY = -radiusFromConf;
+        int radiusZ = -radiusFromConf;
+        int radius = radiusFromConf;
         //Store the list of blocks that should not be broken by the tool
         while (radiusY < radius + 1) {
             while (radiusZ < radius + 1) {
@@ -61,32 +65,23 @@ public class RadialBlockBreak implements Listener {
                             if (NTools.getTrenchBlockBlacklist().contains(current)) {
                                 event.setCancelled(true);
                             } else {
-                                addBlockToInv(radialBreak, player);
+                                AddBlocksToPlayerInventory.addBlocks(radialBreak, player);
                             }
                         } else if (toolType.getIsTrayTool()) {
                             if (!NTools.getTrayBlockWhitelist().contains(current)) {
                                 event.setCancelled(true);
                             } else {
-                                addBlockToInv(radialBreak, player);
+                                AddBlocksToPlayerInventory.addBlocks(radialBreak, player);
                             }
                         }
                     }
                     radiusX++;
                 }
-                radiusX = -(NTools.getFiles().get("tools").getInt(toolType.getToolType() +
-                        ".break-radius"));
+                radiusX = -radiusFromConf;
                 radiusZ++;
             }
-            radiusZ = -(NTools.getFiles().get("tools").getInt(toolType.getToolType() + ".break-radius"));
+            radiusZ = -radiusFromConf;
             radiusY++;
         }
-    }
-
-    private void addBlockToInv(BlockPlaceEvent event, Player player) {
-        for (ItemStack item : event.getBlock().getDrops()) {
-            player.getInventory().addItem(item);
-        }
-        event.getBlock().setType(Material.AIR);
-        event.getBlock().getDrops().clear();
     }
 }
