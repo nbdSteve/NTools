@@ -9,48 +9,30 @@ public class GetMultiToolVariables {
 
     public static int getRadius(String toolType, List<String> itemLore) {
         String radius =
-                NTools.getFiles().get("tools").getString(ChatColor.translateAlternateColorCodes('&',
-                        toolType + ".radius.unique"));
-        try {
-            String rad1 =
-                    NTools.getFiles().get("tools").getString(ChatColor.translateAlternateColorCodes('&',
-                            toolType + ".radius.3x3"));
-            String rad2 =
-                    NTools.getFiles().get("tools").getString(ChatColor.translateAlternateColorCodes('&',
-                            toolType + ".radius.5x5"));
-            String rad3 =
-                    NTools.getFiles().get("tools").getString(ChatColor.translateAlternateColorCodes('&',
-                            toolType + ".radius.7x7"));
-            for (int i = 0; i <= itemLore.size(); i++) {
-                String loreLine = itemLore.get(i);
-                if (loreLine.contains(radius)) {
-                    if (loreLine.contains(rad1)) {
-                        return 1;
-                    } else if (loreLine.contains(rad2)) {
-                        return 2;
-                    } else if (loreLine.contains(rad3)) {
-                        return 3;
+                ChatColor.translateAlternateColorCodes('&',
+                        NTools.getFiles().get("tools").getString(toolType + ".radius.unique"));
+        for (String loreLine : itemLore) {
+            if (loreLine.contains(radius)) {
+                for (int i = 3; i <= 54; i += 2) {
+                    String currentRadius = ChatColor.translateAlternateColorCodes('&',
+                            NTools.getFiles().get("tools").getString(toolType + ".radius." + i + "x" + i));
+                    if (loreLine.contains(currentRadius)) {
+                        return i/2;
                     }
                 }
             }
-        } catch (NullPointerException radiusNotInitialized) {
-            //Do nothing, just that radius is not initialized
         }
         return 0;
     }
 
     public static String multiToolType(String toolType, List<String> itemLore) {
-        String mode =
-                NTools.getFiles().get("tools").getString(ChatColor.translateAlternateColorCodes('&',
-                        toolType + ".mode.unique"));
-        String trench =
-                NTools.getFiles().get("tools").getString(ChatColor.translateAlternateColorCodes('&',
-                        toolType + ".mode.trench"));
-        String tray =
-                NTools.getFiles().get("tools").getString(ChatColor.translateAlternateColorCodes('&',
-                        toolType + ".mode.tray"));
-        for (int i = 0; i <= itemLore.size(); i++) {
-            String loreLine = itemLore.get(i);
+        String mode = ChatColor.translateAlternateColorCodes('&',
+                NTools.getFiles().get("tools").getString(toolType + ".mode.unique"));
+        String trench = ChatColor.translateAlternateColorCodes('&',
+                NTools.getFiles().get("tools").getString(toolType + ".mode.trench"));
+        String tray = ChatColor.translateAlternateColorCodes('&',
+                NTools.getFiles().get("tools").getString(toolType + ".mode.tray"));
+        for (String loreLine : itemLore) {
             if (loreLine.contains(mode)) {
                 if (loreLine.contains(trench)) {
                     return "trench";

@@ -37,7 +37,6 @@ public final class NTools extends JavaPlugin {
      * changes.
      */
     public static void loadToolMaps() {
-        Instant start = Instant.now();
         trenchBlockBlacklist = AddBlocksToBlacklist.createBlocklist("trench-block-blacklist");
         trayBlockWhitelist = AddBlocksToBlacklist.createBlocklist("tray-block-whitelist");
         trenchTools = AddToolsToMap.createToolMap("trench.");
@@ -45,8 +44,6 @@ public final class NTools extends JavaPlugin {
         multiTools = AddToolsToMap.createToolMap("multi-tool.");
         multiToolModeUnique = GetMultiToolUnique.createUniqueLore("multi-tool.", ".mode.unique");
         multiToolRadiusUnique = GetMultiToolUnique.createUniqueLore("multi-tool.", ".radius.unique");
-        Instant finish = Instant.now();
-        System.out.print("Queried tool from map, took " + Duration.between(start, finish).toMillis() + "ms");
     }
 
     /**

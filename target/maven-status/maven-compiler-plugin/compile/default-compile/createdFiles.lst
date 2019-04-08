@@ -1,11 +1,9 @@
 dev\nuer\nt\NTools.class
 dev\nuer\nt\event\GetMultiToolVariables.class
-dev\nuer\nt\method\AddToolsToMap.class
 dev\nuer\nt\file\LoadFile.class
 dev\nuer\nt\event\GetToolType.class
 dev\nuer\nt\file\CreateFile.class
 dev\nuer\nt\method\BlockInBorderCheck.class
-dev\nuer\nt\event\AddBlocksToPlayerInventory.class
 dev\nuer\nt\event\RadialBlockBreak.class
 dev\nuer\nt\method\GetMultiToolUnique.class
 dev\nuer\nt\file\LoadFile$Files.class

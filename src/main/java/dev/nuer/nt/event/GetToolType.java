@@ -32,10 +32,6 @@ public class GetToolType {
                     isTrayTool = true;
                 } else if (itemLore.contains(NTools.getMultiTools().get(i))) {
                     toolType = "multi-tool." + i;
-                    break;
-                } else if (itemLore.contains(ChatColor.translateAlternateColorCodes('&',
-                        NTools.getFiles().get("tools").getString("multi-tool." + i + ".unique-lore")))) {
-                    toolType = "multi-tool." + i;
                     isMultiTool = true;
                     //Store mode unique ids
                     if (GetMultiToolVariables.multiToolType(toolType, itemLore).equalsIgnoreCase("trench")) {

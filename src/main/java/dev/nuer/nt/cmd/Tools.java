@@ -16,7 +16,6 @@ import java.util.List;
 public class Tools implements CommandExecutor {
 
     public Tools(NTools nTools) {
-//        nTools = NTools.getPlugin(NTools.class);
     }
 
     @Override
@@ -45,6 +44,17 @@ public class Tools implements CommandExecutor {
                 ItemMeta itemMeta = item.getItemMeta();
                 List<String> itemLore = new ArrayList<>();
                 itemLore.add(ChatColor.translateAlternateColorCodes('&', "&7Tray 3x3"));
+                itemMeta.setLore(itemLore);
+                item.setItemMeta(itemMeta);
+                Player player = (Player) sender;
+                player.getInventory().addItem(item);
+            } else if (args.length == 1 && args[0].equalsIgnoreCase("multi")) {
+                ItemStack item = new ItemStack(Material.DIAMOND_PICKAXE);
+                ItemMeta itemMeta = item.getItemMeta();
+                List<String> itemLore = new ArrayList<>();
+                itemLore.add(ChatColor.translateAlternateColorCodes('&', "&2&l**Forged**"));
+                itemLore.add(ChatColor.translateAlternateColorCodes('&', "&7Mode: &e&lTRENCH"));
+                itemLore.add(ChatColor.translateAlternateColorCodes('&', "&7Radius: &b&l7x7"));
                 itemMeta.setLore(itemLore);
                 item.setItemMeta(itemMeta);
                 Player player = (Player) sender;
