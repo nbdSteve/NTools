@@ -20,6 +20,7 @@ public class GetToolType {
     private String toolType;
     //Store the radius if it is a multi-tool
     private int multiToolRadius;
+    private int toolTypeRawID;
 
     /**
      * Gets the type of tool from the tools.yml for a given item
@@ -31,6 +32,7 @@ public class GetToolType {
     public GetToolType(List<String> itemLore, ItemMeta itemMeta, ItemStack item) {
         for (int i = 1; i <= 54; i++) {
             try {
+                toolTypeRawID = i;
                 //Check to see which type of tool the item is
                 if (itemLore.contains(NTools.getTrenchTools().get(i))) {
                     toolType = "trench." + i;
@@ -52,8 +54,7 @@ public class GetToolType {
                     }
                     //Store radius unique ids
                     multiToolRadius = GetMultiToolVariables.queryToolRadius(toolType, itemLore, itemMeta,
-                            item,
-                            false, false);
+                            item, false, false);
                     break;
                 }
             } catch (NullPointerException toolDoesNotExist) {
@@ -105,5 +106,9 @@ public class GetToolType {
      */
     public int getMultiToolRadius() {
         return multiToolRadius;
+    }
+
+    public int getToolTypeRawID() {
+        return toolTypeRawID;
     }
 }

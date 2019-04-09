@@ -24,27 +24,36 @@ public class GetMultiToolVariables {
      * @param decrementRadius boolean, if the radius should be decremented
      * @return int, tool radius
      */
-    public static int queryToolRadius(String toolType, List<String> itemLore, ItemMeta itemMeta,
+    public static int queryToolRadius(int toolTypeRawID, String toolType, List<String> itemLore, ItemMeta itemMeta,
                                       ItemStack item, boolean incrementRadius, boolean decrementRadius) {
         //Store the unique line of the lore for the radius
-        String radiusLore =
-                ChatColor.translateAlternateColorCodes('&',
-                        NTools.getFiles().get("tools").getString(toolType + ".radius.unique"));
+//        String radiusLore =
+//                ChatColor.translateAlternateColorCodes('&',
+//                        NTools.getFiles().get("tools").getString(toolType + ".radius.unique"));
+        String radiusLore = NTools.getMultiToolRadiusUnique().get(toolTypeRawID).get(0);
         //Store the index of the lore, could for a for loop but figured this might be more efficient
         int index = 0;
         for (String loreLine : itemLore) {
             //Check if the lore contains the radius unique line
             if (loreLine.contains(radiusLore)) {
-                //Check for the current radius
-                for (int radius = 3; radius <= 54; radius += 2) {
-                    String currentRadius = ChatColor.translateAlternateColorCodes('&',
-                            NTools.getFiles().get("tools").getString(toolType + ".radius." + radius + "x" + radius));
-                    if (loreLine.contains(currentRadius)) {
-                        //Return the current radius, increment / decrement if needed
-                        return ChangeRadiusInMeta.changeRadius(incrementRadius, decrementRadius, index, radius, radiusLore,
+                int arrayIndex = 1;
+                while (arrayIndex < NTools.getMultiToolRadiusUnique().get(toolTypeRawID).size()) {
+                    if (loreLine.contains(NTools.getMultiToolRadiusUnique().get(toolTypeRawID).get(arrayIndex))) {
+                        return ChangeRadiusInMeta.changeRadius(incrementRadius, decrementRadius, index, arrayIndex, radiusLore,
                                 toolType, itemLore, itemMeta, item);
                     }
+                    arrayIndex++;
                 }
+//                //Check for the current radius
+//                for (int radius = 3; radius <= 54; radius += 2) {
+//                    String currentRadius = ChatColor.translateAlternateColorCodes('&',
+//                            NTools.getFiles().get("tools").getString(toolType + ".radius." + radius + "x" + radius));
+//                    if (loreLine.contains(currentRadius)) {
+//                        //Return the current radius, increment / decrement if needed
+//                        return ChangeRadiusInMeta.changeRadius(incrementRadius, decrementRadius, index, radius, radiusLore,
+//                                toolType, itemLore, itemMeta, item);
+//                    }
+//                }
             }
             //Increment the index if the line is not found
             index++;

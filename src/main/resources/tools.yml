@@ -29,6 +29,10 @@ multi-tool:
     #
     radius:
       unique: "&7Radius:"
+      IDs:
+        - "&b&l3x3"
+        - "&b&l5x5"
+        - "&b&l7x7"
       3x3: "&b&l3x3"
       5x5: "&b&l5x5"
       7x7: "&b&l7x7"
