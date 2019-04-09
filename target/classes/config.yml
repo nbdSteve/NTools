@@ -8,3 +8,17 @@ trench-block-blacklist:
 tray-block-whitelist:
   - dirt
   - netherrack
+
+gui:
+  multi-tool-options:
+    size: 9
+    name: "&6&lMulti Tool Options"
+    mode-switch:
+      slot: 8
+      name: "&7Click to change tool mode"
+    increase-radius:
+      slot: 2
+      name: "&a&l+Radius"
+    decrease-radius:
+      slot: 3
+      name: "&c&l-Radius"

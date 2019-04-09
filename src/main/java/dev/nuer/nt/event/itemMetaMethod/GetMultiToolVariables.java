@@ -27,9 +27,6 @@ public class GetMultiToolVariables {
     public static int queryToolRadius(int toolTypeRawID, String toolType, List<String> itemLore, ItemMeta itemMeta,
                                       ItemStack item, boolean incrementRadius, boolean decrementRadius) {
         //Store the unique line of the lore for the radius
-//        String radiusLore =
-//                ChatColor.translateAlternateColorCodes('&',
-//                        NTools.getFiles().get("tools").getString(toolType + ".radius.unique"));
         String radiusLore = NTools.getMultiToolRadiusUnique().get(toolTypeRawID).get(0);
         //Store the index of the lore, could for a for loop but figured this might be more efficient
         int index = 0;
@@ -40,20 +37,10 @@ public class GetMultiToolVariables {
                 while (arrayIndex < NTools.getMultiToolRadiusUnique().get(toolTypeRawID).size()) {
                     if (loreLine.contains(NTools.getMultiToolRadiusUnique().get(toolTypeRawID).get(arrayIndex))) {
                         return ChangeRadiusInMeta.changeRadius(incrementRadius, decrementRadius, index, arrayIndex, radiusLore,
-                                toolType, itemLore, itemMeta, item);
+                                toolTypeRawID, itemLore, itemMeta, item);
                     }
                     arrayIndex++;
                 }
-//                //Check for the current radius
-//                for (int radius = 3; radius <= 54; radius += 2) {
-//                    String currentRadius = ChatColor.translateAlternateColorCodes('&',
-//                            NTools.getFiles().get("tools").getString(toolType + ".radius." + radius + "x" + radius));
-//                    if (loreLine.contains(currentRadius)) {
-//                        //Return the current radius, increment / decrement if needed
-//                        return ChangeRadiusInMeta.changeRadius(incrementRadius, decrementRadius, index, radius, radiusLore,
-//                                toolType, itemLore, itemMeta, item);
-//                    }
-//                }
             }
             //Increment the index if the line is not found
             index++;
@@ -64,24 +51,21 @@ public class GetMultiToolVariables {
     /**
      * Query the mode of a multi tool, change it if required
      *
-     * @param toolType   String, the type of tool from the tools.yml
-     * @param itemLore   List<String>, the lore of the item being queried
-     * @param itemMeta   ItemMeta, the meta of the item being queried
-     * @param item       ItemStack, the item being queried
-     * @param changeMode boolean, if the mode should be changed
+     * @param toolTypeRawID int, the type of tool from the tools.yml
+     * @param itemLore      List<String>, the lore of the item being queried
+     * @param itemMeta      ItemMeta, the meta of the item being queried
+     * @param item          ItemStack, the item being queried
+     * @param changeMode    boolean, if the mode should be changed
      * @return
      */
-    public static String queryToolMode(String toolType, List<String> itemLore, ItemMeta itemMeta,
+    public static String queryToolMode(int toolTypeRawID, List<String> itemLore, ItemMeta itemMeta,
                                        ItemStack item, boolean changeMode) {
-        //Store the mode unique line
         String mode = ChatColor.translateAlternateColorCodes('&',
-                NTools.getFiles().get("tools").getString(toolType + ".mode.unique"));
-        //Store the trench unique line
+                NTools.getMultiToolModeUnique().get(toolTypeRawID).get(0));
         String trench = ChatColor.translateAlternateColorCodes('&',
-                NTools.getFiles().get("tools").getString(toolType + ".mode.trench"));
-        //Store the tray unique line
+                NTools.getMultiToolModeUnique().get(toolTypeRawID).get(1));
         String tray = ChatColor.translateAlternateColorCodes('&',
-                NTools.getFiles().get("tools").getString(toolType + ".mode.tray"));
+                NTools.getMultiToolModeUnique().get(toolTypeRawID).get(2));
         int index = 0;
         for (String loreLine : itemLore) {
             //Check if the lore contains the mode unique line

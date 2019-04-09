@@ -3,6 +3,8 @@ package dev.nuer.nt;
 import dev.nuer.nt.cmd.Tools;
 import dev.nuer.nt.event.RadialBlockBreak;
 import dev.nuer.nt.file.LoadFile;
+import dev.nuer.nt.gui.UpgradeGui;
+import dev.nuer.nt.gui.listener.GuiClickListener;
 import dev.nuer.nt.method.AddBlocksToBlacklist;
 import dev.nuer.nt.method.AddToolsToMap;
 import dev.nuer.nt.method.GetMultiToolLoreID;
@@ -29,6 +31,7 @@ public final class NTools extends JavaPlugin {
     private static HashMap<Integer, String> multiTools;
     private static HashMap<Integer, ArrayList<String>> multiToolModeUnique;
     private static HashMap<Integer, ArrayList<String>> multiToolRadiusUnique;
+    public UpgradeGui upgradeGui;
 
     /**
      * Void method to regenerate all of the HashMap associated with the plugin, will update with config
@@ -127,9 +130,11 @@ public final class NTools extends JavaPlugin {
     public void onEnable() {
         files = new LoadFile();
         loadToolMaps();
+        upgradeGui = new UpgradeGui();
         getLogger().info("Loading tools from tools.yml...");
         getCommand("Tools").setExecutor(new Tools(this));
         getServer().getPluginManager().registerEvents(new RadialBlockBreak(), this);
+        getServer().getPluginManager().registerEvents(new GuiClickListener(), this);
     }
 
     /**
@@ -139,5 +144,9 @@ public final class NTools extends JavaPlugin {
     public void onDisable() {
         clearMaps();
         getLogger().info("Cleaning maps...");
+    }
+
+    public UpgradeGui getUpgradeGui() {
+        return upgradeGui;
     }
 }

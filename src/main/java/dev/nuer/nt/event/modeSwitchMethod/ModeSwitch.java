@@ -8,7 +8,9 @@ import java.util.List;
 
 public class ModeSwitch {
 
-    public static void switchMode(String toolType, List<String> itemLore, ItemMeta itemMeta, ItemStack item) {
-        GetMultiToolVariables.queryToolMode(toolType, itemLore, itemMeta, item, true);
+    public static void switchMode(int toolTypeRawID, String toolType, List<String> itemLore,
+                                  ItemMeta itemMeta, ItemStack item) {
+        GetMultiToolVariables.queryToolMode(toolTypeRawID, itemLore, itemMeta, item,
+                true);
     }
 }

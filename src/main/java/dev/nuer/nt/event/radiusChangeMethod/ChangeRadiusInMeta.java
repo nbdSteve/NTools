@@ -2,7 +2,6 @@ package dev.nuer.nt.event.radiusChangeMethod;
 
 import dev.nuer.nt.NTools;
 import dev.nuer.nt.event.itemMetaMethod.UpdateItem;
-import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -21,21 +20,21 @@ public class ChangeRadiusInMeta {
      * @param index      int, index for the line of lore
      * @param radius     int, current radius for the tool
      * @param radiusLore String, radius unique line or lore from tools.yml
-     * @param toolType   String, type of tool from the tools.yml
      * @param itemLore   List<String>, the lore of the item being queried
      * @param itemMeta   ItemMeta, the meta of the item being queried
      * @param item       ItemStack, the item being queried
      * @return int, the tool radius
      */
     public static int changeRadius(boolean increment, boolean decrement, int index, int radius,
-                                   String radiusLore, String toolType, List<String> itemLore,
+                                   String radiusLore, int toolTypeRawID, List<String> itemLore,
                                    ItemMeta itemMeta, ItemStack item) {
         if (increment) {
             try {
-                if ((radius + 2) / 2 <= NTools.getFiles().get("tools").getInt(toolType + ".max-break-radius"
-                )) {
-                    itemLore.set(index, radiusLore + " " + ChatColor.translateAlternateColorCodes('&',
-                            NTools.getFiles().get("tools").getString(toolType + ".radius." + (radius + 2) + "x" + (radius + 2))));
+                int maxRadius = Integer.parseInt(NTools.getMultiToolRadiusUnique().get(toolTypeRawID).get
+                        (NTools.getMultiToolRadiusUnique().get(toolTypeRawID).size() - 1));
+                if (radius + 1 <= maxRadius) {
+                    itemLore.set(index,
+                            radiusLore + " " + NTools.getMultiToolRadiusUnique().get(toolTypeRawID).get(radius + 1));
                     UpdateItem.updateItem(itemLore, itemMeta, item);
                 } else {
                     return -1;
@@ -46,10 +45,11 @@ public class ChangeRadiusInMeta {
         }
         if (decrement) {
             try {
-                if ((radius - 2) / 2 >= NTools.getFiles().get("tools").getInt(toolType + ".min-break-radius"
-                )) {
-                    itemLore.set(index, radiusLore + " " + ChatColor.translateAlternateColorCodes('&',
-                            NTools.getFiles().get("tools").getString(toolType + ".radius." + (radius - 2) + "x" + (radius - 2))));
+                int minRadius = Integer.parseInt(NTools.getMultiToolRadiusUnique().get(toolTypeRawID).get
+                        (NTools.getMultiToolRadiusUnique().get(toolTypeRawID).size() - 2));
+                if (radius - 1 >= minRadius) {
+                    itemLore.set(index,
+                            radiusLore + " " + NTools.getMultiToolRadiusUnique().get(toolTypeRawID).get(radius - 1));
                     UpdateItem.updateItem(itemLore, itemMeta, item);
                 } else {
                     return -1;
@@ -58,6 +58,6 @@ public class ChangeRadiusInMeta {
                 return -1;
             }
         }
-        return radius / 2;
+        return radius;
     }
 }

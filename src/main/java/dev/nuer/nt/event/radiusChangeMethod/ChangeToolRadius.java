@@ -9,19 +9,23 @@ import java.util.List;
 
 public class ChangeToolRadius {
 
-    public static void incrementRadius(String toolType, List<String> itemLore, ItemMeta itemMeta,
-                                       ItemStack item, Player player) {
-        int radius = GetMultiToolVariables.queryToolRadius(toolType, itemLore, itemMeta, item, true, false);
+    public static void incrementRadius(int toolTypeRawID, String toolType, List<String> itemLore,
+                                       ItemMeta itemMeta, ItemStack item, Player player) {
+        int radius = GetMultiToolVariables.queryToolRadius(toolTypeRawID, toolType, itemLore,
+                itemMeta, item, true, false);
         if (radius == -1) {
             //Send player message or close gui
+            player.sendMessage("max");
         }
     }
 
-    public static void decrementRadius(String toolType, List<String> itemLore, ItemMeta itemMeta,
-                                       ItemStack item, Player player) {
-        int radius = GetMultiToolVariables.queryToolRadius(toolType, itemLore, itemMeta, item, false, true);
+    public static void decrementRadius(int toolTypeRawID, String toolType, List<String> itemLore,
+                                       ItemMeta itemMeta, ItemStack item, Player player) {
+        int radius = GetMultiToolVariables.queryToolRadius(toolTypeRawID, toolType, itemLore,
+                itemMeta, item, false, true);
         if (radius == -1) {
             //Send player message or close gui
+            player.sendMessage("min");
         }
     }
 }

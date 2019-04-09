@@ -32,29 +32,32 @@ public class GetToolType {
     public GetToolType(List<String> itemLore, ItemMeta itemMeta, ItemStack item) {
         for (int i = 1; i <= 54; i++) {
             try {
-                toolTypeRawID = i;
                 //Check to see which type of tool the item is
                 if (itemLore.contains(NTools.getTrenchTools().get(i))) {
-                    toolType = "trench." + i;
+                    toolTypeRawID = i;
+                    toolType = "trench." + toolTypeRawID;
                     isTrenchTool = true;
                     break;
                 } else if (itemLore.contains(NTools.getTrayTools().get(i))) {
-                    toolType = "tray." + i;
+                    toolTypeRawID = i;
+                    toolType = "tray." + toolTypeRawID;
                     isTrayTool = true;
                 } else if (itemLore.contains(NTools.getMultiTools().get(i))) {
-                    toolType = "multi-tool." + i;
+                    toolTypeRawID = i;
+                    toolType = "multi-tool." + toolTypeRawID;
                     isMultiTool = true;
                     //Store mode unique ids
-                    if (GetMultiToolVariables.queryToolMode(toolType, itemLore, itemMeta, item,
+                    if (GetMultiToolVariables.queryToolMode(toolTypeRawID, itemLore,
+                            itemMeta, item,
                             false).equalsIgnoreCase("trench")) {
                         isTrenchTool = true;
-                    } else if (GetMultiToolVariables.queryToolMode(toolType, itemLore, itemMeta, item,
-                            false).equalsIgnoreCase("tray")) {
+                    } else if (GetMultiToolVariables.queryToolMode(toolTypeRawID, itemLore,
+                            itemMeta, item, false).equalsIgnoreCase("tray")) {
                         isTrayTool = true;
                     }
                     //Store radius unique ids
-                    multiToolRadius = GetMultiToolVariables.queryToolRadius(toolType, itemLore, itemMeta,
-                            item, false, false);
+                    multiToolRadius = GetMultiToolVariables.queryToolRadius(toolTypeRawID, toolType,
+                            itemLore, itemMeta, item, false, false);
                     break;
                 }
             } catch (NullPointerException toolDoesNotExist) {

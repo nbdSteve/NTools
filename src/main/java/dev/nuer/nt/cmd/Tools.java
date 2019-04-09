@@ -1,9 +1,6 @@
 package dev.nuer.nt.cmd;
 
 import dev.nuer.nt.NTools;
-import dev.nuer.nt.event.itemMetaMethod.GetToolType;
-import dev.nuer.nt.event.modeSwitchMethod.ModeSwitch;
-import dev.nuer.nt.event.radiusChangeMethod.ChangeToolRadius;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -66,26 +63,7 @@ public class Tools implements CommandExecutor {
                 Player player = (Player) sender;
                 player.getInventory().addItem(item);
             } else if (args.length == 1 && args[0].equalsIgnoreCase("switch")) {
-                Player player = (Player) sender;
-                ItemStack item = player.getInventory().getItemInHand();
-                ItemMeta itemMeta = item.getItemMeta();
-                List<String> itemLore = itemMeta.getLore();
-//                ChangeToolRadius.incrementRadius((new GetToolType(itemLore, itemMeta, item).getToolType()), itemLore, itemMeta, item, player);
-                ModeSwitch.switchMode((new GetToolType(itemLore, itemMeta, item).getToolType()), itemLore, itemMeta, item);
-            } else if (args.length == 1 && args[0].equalsIgnoreCase("inc")) {
-                Player player = (Player) sender;
-                ItemStack item = player.getInventory().getItemInHand();
-                ItemMeta itemMeta = item.getItemMeta();
-                List<String> itemLore = itemMeta.getLore();
-                ChangeToolRadius.incrementRadius((new GetToolType(itemLore, itemMeta, item).getToolType()), itemLore, itemMeta, item, player);
-//                ModeSwitch.switchMode((new GetToolType(itemLore, itemMeta, item).getToolType()), itemLore, itemMeta, item);
-            } else if (args.length == 1 && args[0].equalsIgnoreCase("dec")) {
-                Player player = (Player) sender;
-                ItemStack item = player.getInventory().getItemInHand();
-                ItemMeta itemMeta = item.getItemMeta();
-                List<String> itemLore = itemMeta.getLore();
-                ChangeToolRadius.decrementRadius((new GetToolType(itemLore, itemMeta, item).getToolType()), itemLore, itemMeta, item, player);
-//                ModeSwitch.switchMode((new GetToolType(itemLore, itemMeta, item).getToolType()), itemLore, itemMeta, item);
+                NTools.getPlugin(NTools.class).getUpgradeGui().open((Player) sender);
             }
         }
         return true;
