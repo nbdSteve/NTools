@@ -1,7 +1,8 @@
-package dev.nuer.nt.event;
+package dev.nuer.nt.event.itemMetaMethod;
 
 import dev.nuer.nt.NTools;
-import org.bukkit.ChatColor;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
 
@@ -20,9 +21,17 @@ public class GetToolType {
     //Store the radius if it is a multi-tool
     private int multiToolRadius;
 
-    public GetToolType(List<String> itemLore) {
+    /**
+     * Gets the type of tool from the tools.yml for a given item
+     *
+     * @param itemLore List<String>, the lore of the item being queried
+     * @param itemMeta ItemMeta, the meta of the item being queried
+     * @param item     ItemStack, the item being queried
+     */
+    public GetToolType(List<String> itemLore, ItemMeta itemMeta, ItemStack item) {
         for (int i = 1; i <= 54; i++) {
             try {
+                //Check to see which type of tool the item is
                 if (itemLore.contains(NTools.getTrenchTools().get(i))) {
                     toolType = "trench." + i;
                     isTrenchTool = true;
@@ -34,14 +43,17 @@ public class GetToolType {
                     toolType = "multi-tool." + i;
                     isMultiTool = true;
                     //Store mode unique ids
-                    if (GetMultiToolVariables.multiToolType(toolType, itemLore).equalsIgnoreCase("trench")) {
+                    if (GetMultiToolVariables.queryToolMode(toolType, itemLore, itemMeta, item,
+                            false).equalsIgnoreCase("trench")) {
                         isTrenchTool = true;
-                    } else if (GetMultiToolVariables.multiToolType(toolType, itemLore).equalsIgnoreCase(
-                            "tray")) {
+                    } else if (GetMultiToolVariables.queryToolMode(toolType, itemLore, itemMeta, item,
+                            false).equalsIgnoreCase("tray")) {
                         isTrayTool = true;
                     }
                     //Store radius unique ids
-                    multiToolRadius = GetMultiToolVariables.getRadius(toolType, itemLore);
+                    multiToolRadius = GetMultiToolVariables.queryToolRadius(toolType, itemLore, itemMeta,
+                            item,
+                            false, false);
                     break;
                 }
             } catch (NullPointerException toolDoesNotExist) {
@@ -50,22 +62,47 @@ public class GetToolType {
         }
     }
 
+    /**
+     * Getter for trench tool boolean
+     *
+     * @return
+     */
     public boolean getIsTrenchTool() {
         return isTrenchTool;
     }
 
+    /**
+     * Getter for tray tool boolean
+     *
+     * @return
+     */
     public boolean getIsTrayTool() {
         return isTrayTool;
     }
 
+    /**
+     * Getter for multi tool boolean
+     *
+     * @return
+     */
     public boolean getIsMultiTool() {
         return isMultiTool;
     }
 
+    /**
+     * Getter for tool type string
+     *
+     * @return
+     */
     public String getToolType() {
         return toolType;
     }
 
+    /**
+     * Getter for multi tool radius
+     *
+     * @return
+     */
     public int getMultiToolRadius() {
         return multiToolRadius;
     }

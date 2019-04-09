@@ -34,6 +34,7 @@ multi-tool:
       7x7: "&b&l7x7"
     #
     max-break-radius: 3 #7x7
+    min-break-radius: 1 #3x3
     #
     name: "&a&lForged Pickaxe"
     #

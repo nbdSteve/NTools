@@ -1,6 +1,8 @@
 package dev.nuer.nt.event;
 
 import dev.nuer.nt.NTools;
+import dev.nuer.nt.event.itemMetaMethod.GetToolType;
+import dev.nuer.nt.method.player.AddBlocksToPlayerInventory;
 import dev.nuer.nt.method.BlockInBorderCheck;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -10,8 +12,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.List;
 
 public class RadialBlockBreak implements Listener {
@@ -33,7 +33,7 @@ public class RadialBlockBreak implements Listener {
         //Create a local variable for the item lore
         List<String> itemLore = itemMeta.getLore();
         //Create a local variable for type of trench tool
-        GetToolType toolType = new GetToolType(itemLore);
+        GetToolType toolType = new GetToolType(itemLore, itemMeta, player.getInventory().getItemInHand());
         //Get the radius of the tool from the tools.yml
         int radiusFromConf = NTools.getFiles().get("tools").getInt(toolType.getToolType() + ".break-radius");
         //If the tool is a multi, get its current radius

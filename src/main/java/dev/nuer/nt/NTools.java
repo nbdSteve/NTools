@@ -8,8 +8,6 @@ import dev.nuer.nt.method.AddToolsToMap;
 import dev.nuer.nt.method.GetMultiToolUnique;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -56,6 +54,8 @@ public final class NTools extends JavaPlugin {
         trenchTools.clear();
         trayTools.clear();
         multiTools.clear();
+        multiToolModeUnique.clear();
+        multiToolRadiusUnique.clear();
     }
 
     /**
