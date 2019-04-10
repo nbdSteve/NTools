@@ -1,7 +1,9 @@
 dev\nuer\nt\gui\AbstractGui.class
+dev\nuer\nt\gui\MultiToolOptionsGui.class
 dev\nuer\nt\file\LoadFile.class
 dev\nuer\nt\event\ModeSwitchEvent.class
 dev\nuer\nt\event\modeSwitchMethod\ModeSwitch.class
+dev\nuer\nt\method\itemCreation\CraftItem.class
 dev\nuer\nt\gui\listener\GuiClickListener.class
 dev\nuer\nt\event\RadialBlockBreak.class
 dev\nuer\nt\file\LoadFile$Files.class
@@ -13,6 +15,6 @@ dev\nuer\nt\method\BlockInBorderCheck.class
 dev\nuer\nt\method\GetMultiToolLoreID.class
 dev\nuer\nt\gui\AbstractGui$inventoryClickActions.class
 dev\nuer\nt\event\itemMetaMethod\GetToolType.class
+dev\nuer\nt\method\player\PlayerMessage.class
 dev\nuer\nt\method\AddBlocksToBlacklist.class
 dev\nuer\nt\cmd\Tools.class
-dev\nuer\nt\gui\UpgradeGui.class

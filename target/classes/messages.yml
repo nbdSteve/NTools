@@ -1,0 +1,18 @@
+#
+mode-switch:
+  - "&6&lNTools&e: &7You have changed your tools mode."
+
+incremented-radius:
+  - "&6&lNTools&e: &7You have increased your tools break radius."
+
+decremented-radius:
+  - "&6&lNTools&e: &7You have decreased your tools break radius."
+
+max-radius:
+  - "&6&lNTools&e: &7Your tools is already at its maximum break radius."
+
+min-radius:
+  - "&6&lNTools&e: &7Your tools is already at its minimum break radius."
+
+invalid-tool:
+  - "&6&lNTools&e: &7You are unable to configure the item your are currently holding."

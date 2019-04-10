@@ -24,7 +24,9 @@ public class Tools implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("tools")) {
-            if (args.length == 1 && args[0].equalsIgnoreCase("3x3")) {
+            if (args.length == 0) {
+                NTools.getPlugin(NTools.class).getMultiToolOptionsGui().open((Player) sender);
+            } else if (args.length == 1 && args[0].equalsIgnoreCase("3x3")) {
                 ItemStack item = new ItemStack(Material.DIAMOND_PICKAXE);
                 ItemMeta itemMeta = item.getItemMeta();
                 List<String> itemLore = new ArrayList<>();
@@ -63,7 +65,7 @@ public class Tools implements CommandExecutor {
                 Player player = (Player) sender;
                 player.getInventory().addItem(item);
             } else if (args.length == 1 && args[0].equalsIgnoreCase("switch")) {
-                NTools.getPlugin(NTools.class).getUpgradeGui().open((Player) sender);
+                NTools.getPlugin(NTools.class).getMultiToolOptionsGui().open((Player) sender);
             }
         }
         return true;

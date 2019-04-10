@@ -1,6 +1,7 @@
 package dev.nuer.nt.event.radiusChangeMethod;
 
 import dev.nuer.nt.event.itemMetaMethod.GetMultiToolVariables;
+import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -15,7 +16,8 @@ public class ChangeToolRadius {
                 itemMeta, item, true, false);
         if (radius == -1) {
             //Send player message or close gui
-            player.sendMessage("max");
+            player.closeInventory();
+            new PlayerMessage("max-radius", player);
         }
     }
 
@@ -25,7 +27,8 @@ public class ChangeToolRadius {
                 itemMeta, item, false, true);
         if (radius == -1) {
             //Send player message or close gui
-            player.sendMessage("min");
+            player.closeInventory();
+            new PlayerMessage("min-radius", player);
         }
     }
 }
