@@ -17,4 +17,4 @@ dev\nuer\nt\gui\AbstractGui$inventoryClickActions.class
 dev\nuer\nt\event\itemMetaMethod\GetToolType.class
 dev\nuer\nt\method\player\PlayerMessage.class
 dev\nuer\nt\method\AddBlocksToBlacklist.class
-dev\nuer\nt\cmd\Tools.class
+dev\nuer\nt\cmd\Nt.class

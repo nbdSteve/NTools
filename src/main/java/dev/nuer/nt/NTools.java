@@ -1,6 +1,6 @@
 package dev.nuer.nt;
 
-import dev.nuer.nt.cmd.Tools;
+import dev.nuer.nt.cmd.Nt;
 import dev.nuer.nt.event.CrouchClickOpenToolOptionGui;
 import dev.nuer.nt.event.RadialBlockBreak;
 import dev.nuer.nt.file.LoadFile;
@@ -37,7 +37,10 @@ public final class NTools extends JavaPlugin {
     private static HashMap<Integer, ArrayList<String>> multiToolRadiusUnique;
     //Instance of multi tool options gui
     private MultiToolOptionsGui multiToolOptionsGui;
+    //Create a logger for the plugin
     public static Logger LOGGER = Logger.getLogger(NTools.class.getName());
+    //If the plugin should log debug timing messages
+    public static boolean doDebugMessages;
 
     /**
      * Void method to regenerate all of the HashMap associated with the plugin, will update with config
@@ -51,6 +54,9 @@ public final class NTools extends JavaPlugin {
         multiTools = AddToolsToMap.createToolMap("multi-tool.");
         multiToolModeUnique = GetMultiToolLoreID.createUniqueModeIDs("multi-tool.");
         multiToolRadiusUnique = GetMultiToolLoreID.createUniqueRadiusIDs("multi-tool.");
+        LOGGER.info("[NTools] Successfully loaded all tools from tools.yml.");
+        //Get if the plugin should do debug messages
+        doDebugMessages = getFiles().get("config").getBoolean("enable-debug-messages");
     }
 
     /**
@@ -65,6 +71,7 @@ public final class NTools extends JavaPlugin {
         multiTools.clear();
         multiToolModeUnique.clear();
         multiToolRadiusUnique.clear();
+        LOGGER.info("[NTools] Successfully cleared all tools from internal maps.");
     }
 
     /**
@@ -144,16 +151,16 @@ public final class NTools extends JavaPlugin {
      */
     @Override
     public void onEnable() {
-        getLogger().info("Thanks for using NTools, if you find any bugs contact: nbdSteve#0583 on Discord.");
+        LOGGER.info("[NTools] Thanks for using NTools, if you find any bugs contact: nbdSteve#0583 on Discord.");
         //Create files instance
         files = new LoadFile();
         //Load the tool maps
         loadToolMaps();
-        getLogger().info("Successfully loaded all tools from tools.yml...");
         //Create the Gui instances
         multiToolOptionsGui = new MultiToolOptionsGui();
         //Register the commands for the plugin
-        getCommand("Tools").setExecutor(new Tools(this));
+        getCommand("tools").setExecutor(new Nt(this));
+        getCommand("nt").setExecutor(new Nt(this));
         //Register the events for the plugin
         getServer().getPluginManager().registerEvents(new RadialBlockBreak(), this);
         getServer().getPluginManager().registerEvents(new CrouchClickOpenToolOptionGui(), this);
@@ -166,8 +173,7 @@ public final class NTools extends JavaPlugin {
     @Override
     public void onDisable() {
         clearMaps();
-        getLogger().info("Successfully unloaded all of the tools from the plugin...");
-        getLogger().info("Thanks for using NTools, if you find any bugs contact nbdSteve#0583 on Discord.");
+        LOGGER.info("[NTools] Thanks for using NTools, if you find any bugs contact nbdSteve#0583 on Discord.");
     }
 
     /**

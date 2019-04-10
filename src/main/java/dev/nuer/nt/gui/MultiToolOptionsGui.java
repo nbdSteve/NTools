@@ -34,8 +34,8 @@ public class MultiToolOptionsGui extends AbstractGui {
                         new CraftItem((NTools.getFiles().get("config").getString("gui.multi-tool-options." + i + ".material")),
                                 (NTools.getFiles().get("config").getString("gui.multi-tool-options." + i +
                                         ".name")),
-                                (NTools.getFiles().get("config").getStringList("gui.multi-tool-options." + i + ".lore")),
-                                (NTools.getFiles().get("config").getStringList("gui.multi-tool-options." + i + ".enchantments"))).getItem(),
+                                (NTools.getFiles().get("config").getStringList("gui.multi-tool-options." + i + ".lore")), null, null,
+                                (NTools.getFiles().get("config").getStringList("gui.multi-tool-options." + i + ".enchantments")), null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {

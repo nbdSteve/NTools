@@ -2,23 +2,23 @@ package dev.nuer.nt.event;
 
 import dev.nuer.nt.NTools;
 import dev.nuer.nt.event.itemMetaMethod.GetToolType;
-import dev.nuer.nt.method.player.AddBlocksToPlayerInventory;
 import dev.nuer.nt.method.BlockInBorderCheck;
+import dev.nuer.nt.method.player.AddBlocksToPlayerInventory;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.block.BlockDamageEvent;
+import org.bukkit.event.block.BlockIgniteEvent;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.time.Instant;
 import java.util.List;
 
 public class RadialBlockBreak implements Listener {
 
     @EventHandler
-    public void radialBlockBreak(BlockBreakEvent event) {
+    public void radialBlockBreak(BlockDamageEvent event) {
         //Check if the event is in a protected region
         if (event.isCancelled()) {
             return;
@@ -34,10 +34,7 @@ public class RadialBlockBreak implements Listener {
         //Create a local variable for the item lore
         List<String> itemLore = itemMeta.getLore();
         //Create a local variable for type of trench tool
-        long start1 = System.nanoTime();
         GetToolType toolType = new GetToolType(itemLore, itemMeta, player.getInventory().getItemInHand());
-        long finish1 = System.nanoTime();
-        System.out.print("Tool type operation took: " + (finish1 - start1));
         //Get the radius of the tool from the tools.yml
         int radiusFromConf = NTools.getFiles().get("tools").getInt(toolType.getToolType() + ".break-radius");
         //If the tool is a multi, get its current radius
@@ -49,18 +46,16 @@ public class RadialBlockBreak implements Listener {
         int radiusY = -radiusFromConf;
         int radiusZ = -radiusFromConf;
         int radius = radiusFromConf;
-        //Store the list of blocks that should not be broken by the tool
-        long start2 = System.nanoTime();
+        //Store system current time (for optimization checking)
+        long start2 = System.currentTimeMillis();
+        //Do block removal method
         while (radiusY < radius + 1) {
             while (radiusZ < radius + 1) {
                 while (radiusX < radius + 1) {
                     //Creating a new event to check if the radial blocks can be broken
                     //This should support any plugin
-                    BlockPlaceEvent radialBreak =
-                            new BlockPlaceEvent(event.getBlock().getRelative(radiusX, radiusY, radiusZ),
-                                    event.getBlock().getRelative(radiusX, radiusY, radiusZ).getState(),
-                                    event.getBlock().getRelative(radiusX, radiusY, radiusZ),
-                                    player.getItemInHand(), player, false);
+                    BlockBreakEvent radialBreak =
+                            new BlockBreakEvent(event.getBlock().getRelative(radiusX, radiusY, radiusZ), player);
                     String current = radialBreak.getBlock().getType().toString();
                     Bukkit.getPluginManager().callEvent(radialBreak);
                     //Check if the event is cancelled, if true then don't break that block
@@ -90,7 +85,14 @@ public class RadialBlockBreak implements Listener {
             radiusZ = -radiusFromConf;
             radiusY++;
         }
-        long finish2 = System.nanoTime();
-        System.out.print("Removing block operation took: " + (finish2 - start2));
+        //This is to stop message spam if their inventory is full
+        if (AddBlocksToPlayerInventory.messagedPlayers.contains(player)) {
+            AddBlocksToPlayerInventory.messagedPlayers.remove(player);
+        }
+        //Calculate and print the execution time for the method
+        if (NTools.doDebugMessages) {
+            long finish2 = System.currentTimeMillis();
+            NTools.LOGGER.info("[NTools] Trench / Tray block removal operation completed in: " + (finish2 - start2) + "ms");
+        }
     }
 }

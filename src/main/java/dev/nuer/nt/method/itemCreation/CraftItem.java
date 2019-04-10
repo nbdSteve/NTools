@@ -10,56 +10,82 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that handles creating an ItemStack from a list of parameters
+ */
 public class CraftItem {
+    //Store the item stack being created
     private ItemStack item;
+    //Store the item meta
     private ItemMeta itemMeta;
+    //Store the item lore
     private List<String> itemLore;
 
-    public CraftItem(String material, String name, List<String> lore, List<String> enchantments) {
+    /**
+     * Constructor the create an item based off of the parameters
+     *
+     * @param material          String, the item material
+     * @param name              String, the items display name
+     * @param lore              List<String>, list of strings to add as the items lore
+     * @param modeReplacement   String, replacement for {mode} placeholder, can be null
+     * @param radiusReplacement String, replacement for {radius} placeholder, can be null
+     * @param enchantments      List<String>, list of enchantments to add to the item
+     * @param player            Player, player to give the new item to, can be null
+     */
+    public CraftItem(String material, String name, List<String> lore, String modeReplacement,
+                     String radiusReplacement, List<String> enchantments, Player player) {
         item = createItem(material);
         itemMeta = item.getItemMeta();
         if (name != null) {
             itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
         }
-        addLore(lore);
+        addLore(lore, modeReplacement, radiusReplacement);
         itemMeta.setLore(itemLore);
         addEnchantments(enchantments);
         item.setItemMeta(itemMeta);
+        if (player != null) {
+            player.getInventory().addItem(item);
+        }
     }
 
-    public CraftItem(String material, String name, List<String> lore, String placeholder,
-                     String replacement, List<String> enchantments, Player player) {
-        item = createItem(material);
-        itemMeta = item.getItemMeta();
-        if (name != null) {
-            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
-        }
-        addLore(lore);
-        List<String> formattedLore = new ArrayList<>();
-        for (String lineOfLore : itemLore) {
-            lineOfLore.replace(ChatColor.translateAlternateColorCodes('&', placeholder), replacement);
-        }
-        itemLore = formattedLore;
-        itemMeta.setLore(itemLore);
-        addEnchantments(enchantments);
-        item.setItemMeta(itemMeta);
-        player.getInventory().addItem(item);
-    }
-
+    /**
+     * Creates a new item of the given material
+     *
+     * @param material String, material name and damage value
+     * @return
+     */
     private ItemStack createItem(String material) {
         String[] materialParts = material.split(":");
         return new ItemStack(Material.valueOf(materialParts[0].toUpperCase()), 1, Byte.parseByte(materialParts[1]));
     }
 
-    private void addLore(List<String> loreToAdd) {
+    /**
+     * Adds the given lore to an item
+     *
+     * @param loreToAdd         List<String>, the lines of lore to add
+     * @param modeReplacement   String, replacement for the {mode} placeholder
+     * @param radiusReplacement String, replacement for the {radius} placeholder
+     */
+    private void addLore(List<String> loreToAdd, String modeReplacement, String radiusReplacement) {
         itemLore = new ArrayList<>();
-        if (loreToAdd != null) {
+        if (modeReplacement != null) {
+            for (String lineOfLore : loreToAdd) {
+                itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore)
+                        .replace("{radius}", ChatColor.translateAlternateColorCodes('&', modeReplacement))
+                        .replace("{mode}", ChatColor.translateAlternateColorCodes('&', radiusReplacement)));
+            }
+        } else if (loreToAdd != null) {
             for (String lineOfLore : loreToAdd) {
                 itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore));
             }
         }
     }
 
+    /**
+     * Add a list of enchantments to an item
+     *
+     * @param enchantmentsToAdd List<String>, list of enchantments to add
+     */
     private void addEnchantments(List<String> enchantmentsToAdd) {
         if (enchantmentsToAdd != null) {
             for (String enchantment : enchantmentsToAdd) {
@@ -70,14 +96,29 @@ public class CraftItem {
         }
     }
 
+    /**
+     * Getter for the item
+     *
+     * @return
+     */
     public ItemStack getItem() {
         return item;
     }
 
+    /**
+     * Getter for the items meta data
+     *
+     * @return
+     */
     public ItemMeta getItemMeta() {
         return itemMeta;
     }
 
+    /**
+     * Getter for the items lore
+     *
+     * @return
+     */
     public List<String> getItemLore() {
         return itemLore;
     }

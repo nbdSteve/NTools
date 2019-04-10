@@ -1,4 +1,6 @@
 #
+# NTools messages.yml v0.0.1
+#
 mode-switch:
   - "&6&lNTools&e: &7You have changed your tools mode."
 
@@ -18,7 +20,16 @@ invalid-tool:
   - "&6&lNTools&e: &7You are unable to configure the item your are currently holding."
 
 help:
-  - "&6&lNTools&e: &7Please see the github wiki for command & permission help."
+  - "&6&lNTools&e: &7Please see the GitHub wiki for command & permission help."
 
 reload:
-  - "&6&lNTools: &7You have successfully reloaded all files and maps."
+  - "&6&lNTools&e: &7You have successfully reloaded all files and maps."
+
+no-permission:
+  - "&cError: &7You do not have permission to use that."
+
+invalid-command:
+  - "&cError: &7The command you entered was invalid, check your syntax or visit the GitHub wiki for command help."
+
+inventory-full:
+  - "&cWarning: &7Your inventory is full, mined blocks will be deleted and lost."
