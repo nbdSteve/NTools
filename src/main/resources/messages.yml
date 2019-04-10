@@ -16,3 +16,9 @@ min-radius:
 
 invalid-tool:
   - "&6&lNTools&e: &7You are unable to configure the item your are currently holding."
+
+help:
+  - "&6&lNTools&e: &7Please see the github wiki for command & permission help."
+
+reload:
+  - "&6&lNTools: &7You have successfully reloaded all files and maps."

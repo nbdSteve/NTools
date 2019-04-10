@@ -13,6 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Logger;
 
 /**
  * Main class for the NTools plugin
@@ -36,6 +37,7 @@ public final class NTools extends JavaPlugin {
     private static HashMap<Integer, ArrayList<String>> multiToolRadiusUnique;
     //Instance of multi tool options gui
     private MultiToolOptionsGui multiToolOptionsGui;
+    public static Logger LOGGER = Logger.getLogger(NTools.class.getName());
 
     /**
      * Void method to regenerate all of the HashMap associated with the plugin, will update with config
