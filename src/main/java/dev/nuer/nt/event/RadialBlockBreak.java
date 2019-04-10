@@ -12,6 +12,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.time.Instant;
 import java.util.List;
 
 public class RadialBlockBreak implements Listener {
@@ -33,7 +34,10 @@ public class RadialBlockBreak implements Listener {
         //Create a local variable for the item lore
         List<String> itemLore = itemMeta.getLore();
         //Create a local variable for type of trench tool
+        long start1 = System.nanoTime();
         GetToolType toolType = new GetToolType(itemLore, itemMeta, player.getInventory().getItemInHand());
+        long finish1 = System.nanoTime();
+        System.out.print("Tool type operation took: " + (finish1 - start1));
         //Get the radius of the tool from the tools.yml
         int radiusFromConf = NTools.getFiles().get("tools").getInt(toolType.getToolType() + ".break-radius");
         //If the tool is a multi, get its current radius
@@ -46,6 +50,7 @@ public class RadialBlockBreak implements Listener {
         int radiusZ = -radiusFromConf;
         int radius = radiusFromConf;
         //Store the list of blocks that should not be broken by the tool
+        long start2 = System.nanoTime();
         while (radiusY < radius + 1) {
             while (radiusZ < radius + 1) {
                 while (radiusX < radius + 1) {
@@ -85,5 +90,7 @@ public class RadialBlockBreak implements Listener {
             radiusZ = -radiusFromConf;
             radiusY++;
         }
+        long finish2 = System.nanoTime();
+        System.out.print("Removing block operation took: " + (finish2 - start2));
     }
 }

@@ -12,14 +12,21 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
 
+/**
+ * Class that handles the Gui that will allow the player to configure their multi tool
+ */
 public class MultiToolOptionsGui extends AbstractGui {
 
+    /**
+     * Super constructor, add all items with their respective listeners
+     */
     public MultiToolOptionsGui() {
         super(NTools.getFiles().get("config").getInt("gui.multi-tool-options.size"),
                 ChatColor.translateAlternateColorCodes('&', NTools.getFiles().get("config").getString("gui" +
                         ".multi-tool-options.name")));
 
-        for (int i = 1; i < 54; i++) {
+        //Add all of the items from the Gui config to the Gui
+        for (int i = 1; i <= 54; i++) {
             try {
                 final int configItem = i;
                 setItemInSlot((NTools.getFiles().get("config").getInt("gui.multi-tool-options." + i +
@@ -30,32 +37,26 @@ public class MultiToolOptionsGui extends AbstractGui {
                                 (NTools.getFiles().get("config").getStringList("gui.multi-tool-options." + i + ".lore")),
                                 (NTools.getFiles().get("config").getStringList("gui.multi-tool-options." + i + ".enchantments"))).getItem(),
                         player -> {
+                            //Add the respective listeners to items based off the config
                             try {
                                 ItemStack item = player.getInventory().getItemInHand();
                                 ItemMeta itemMeta = item.getItemMeta();
                                 List<String> itemLore = itemMeta.getLore();
                                 if (NTools.getFiles().get("config").getBoolean("gui.multi-tool-options." + configItem + ".switch-mode-when-clicked")) {
-                                    player.closeInventory();
                                     ModeSwitch.switchMode((new GetToolType(itemLore, itemMeta, item).getToolTypeRawID()),
-                                            (new GetToolType(itemLore, itemMeta, item).getToolType()),
-                                            itemLore, itemMeta, item);
-                                    new PlayerMessage("mode-switch", player);
+                                            itemLore, itemMeta, item, player);
                                 }
                                 if (NTools.getFiles().get("config").getBoolean("gui.multi-tool-options." + configItem + ".increase-radius-when-clicked")) {
-                                    player.closeInventory();
                                     ChangeToolRadius.incrementRadius((new GetToolType(itemLore, itemMeta,
                                                     item).getToolTypeRawID()),
                                             (new GetToolType(itemLore, itemMeta, item).getToolType()),
                                             itemLore, itemMeta, item, player);
-                                    new PlayerMessage("incremented-radius", player);
                                 }
                                 if (NTools.getFiles().get("config").getBoolean("gui.multi-tool-options." + configItem + ".decrease-radius-when-clicked")) {
-                                    player.closeInventory();
                                     ChangeToolRadius.decrementRadius((new GetToolType(itemLore, itemMeta,
                                                     item).getToolTypeRawID()),
                                             (new GetToolType(itemLore, itemMeta, item).getToolType()),
                                             itemLore, itemMeta, item, player);
-                                    new PlayerMessage("decremented-radius", player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

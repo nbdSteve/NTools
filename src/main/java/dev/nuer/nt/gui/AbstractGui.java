@@ -8,14 +8,30 @@ import org.bukkit.inventory.ItemStack;
 import java.util.HashMap;
 import java.util.UUID;
 
+/**
+ * Class that handles Gui creation and has methods to check which Gui is open for a player
+ */
 public abstract class AbstractGui {
+    //Store the map of inventories that are created, static so it can be accessed and modified outside the
+    // class
     public static HashMap<UUID, AbstractGui> inventoriesByID = new HashMap<>();
+    //Store the map of inventories that are open for players, static so it can be accessed and modified
+    // outside the class
     public static HashMap<UUID, UUID> openInventories = new HashMap<>();
 
+    //Store the id of the inventory
     private UUID inventoryID;
+    //Store the inventory being created
     private Inventory inventory;
+    //Store the map of actions to be called in the InventoryClickEvent
     private HashMap<Integer, inventoryClickActions> clickActions;
 
+    /**
+     * Constructor the create a new Gui
+     *
+     * @param inventorySize Integer, size of the Gui
+     * @param inventoryName String, name of the Gui
+     */
     public AbstractGui(int inventorySize, String inventoryName) {
         inventoryID = UUID.randomUUID();
         inventory = Bukkit.createInventory(null, inventorySize, inventoryName);
@@ -23,18 +39,31 @@ public abstract class AbstractGui {
         inventoriesByID.put(getInventoryID(), this);
     }
 
-    public Inventory getInventory() {
-        return inventory;
+    /**
+     * Get the inventory map
+     *
+     * @return
+     */
+    public static HashMap<UUID, AbstractGui> getInventoriesByID() {
+        return inventoriesByID;
     }
 
-    public UUID getInventoryID() {
-        return inventoryID;
+    /**
+     * Get the open inventories map
+     *
+     * @return
+     */
+    public static HashMap<UUID, UUID> getOpenInventories() {
+        return openInventories;
     }
 
-    public interface inventoryClickActions {
-        void itemClick(Player player);
-    }
-
+    /**
+     * Will the the given item to the respective slot in the Gui
+     *
+     * @param guiSlot     Integer, slot in the Gui
+     * @param item        ItemStack, the item to place there
+     * @param clickAction the event called when the player clicks this item
+     */
     public void setItemInSlot(int guiSlot, ItemStack item, inventoryClickActions clickAction) {
         inventory.setItem(guiSlot, item);
         if (clickAction != null) {
@@ -42,23 +71,19 @@ public abstract class AbstractGui {
         }
     }
 
+    /**
+     * Void method that will open the inventory for the player
+     *
+     * @param player Player, the player to open the inventory for
+     */
     public void open(Player player) {
         player.openInventory(inventory);
         openInventories.put(player.getUniqueId(), getInventoryID());
     }
 
-    public static HashMap<UUID, AbstractGui> getInventoriesByID() {
-        return inventoriesByID;
-    }
-
-    public static HashMap<UUID, UUID> getOpenInventories() {
-        return openInventories;
-    }
-
-    public HashMap<Integer, inventoryClickActions> getClickActions() {
-        return clickActions;
-    }
-
+    /**
+     * Void method to delete all of the open inventories
+     */
     public void delete() {
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (openInventories.get(player.getUniqueId()).equals(getInventoryID())) {
@@ -66,5 +91,39 @@ public abstract class AbstractGui {
             }
         }
         inventoriesByID.remove(getInventoryID());
+    }
+
+    /**
+     * Getter for the inventory
+     *
+     * @return
+     */
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    /**
+     * Getter for the inventory ID
+     *
+     * @return
+     */
+    public UUID getInventoryID() {
+        return inventoryID;
+    }
+
+    /**
+     * Getter for the inventory actions map
+     *
+     * @return
+     */
+    public HashMap<Integer, inventoryClickActions> getClickActions() {
+        return clickActions;
+    }
+
+    /**
+     * Interface to create a click action
+     */
+    public interface inventoryClickActions {
+        void itemClick(Player player);
     }
 }
