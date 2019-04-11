@@ -44,7 +44,7 @@ gui:
     3:
       slot: 2
       name: "&b&lTray Tools"
-      material: magma_cream:0
+      material: hopper:0
       lore:
         - "&7 "
         - "&7&oClick this to buy tray tools"
@@ -59,7 +59,6 @@ gui:
     name: "&6&lBuy Multi Tools"
     1:
       slot: 0
-      tool-id: 1
       price: 3000000
       name: "&a&lForged Pickaxe"
       material: diamond_pickaxe:0
@@ -109,7 +108,6 @@ gui:
     name: "&6&lBuy Trench Tools"
     1:
       slot: 0
-      tool-id: 1
       price: 800000
       name: "&eTrench Pickaxe &7(&63x3&7)"
       material: diamond_pickaxe:0

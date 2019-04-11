@@ -39,3 +39,6 @@ purchase:
 
 insufficient:
   - "&6&lNTools&e: &7You do not have sufficient funds to purchase that tool / upgrade."
+
+invalid-config:
+  - "&cError: &7There is a problem with the plugins configuration, please contact an admin."

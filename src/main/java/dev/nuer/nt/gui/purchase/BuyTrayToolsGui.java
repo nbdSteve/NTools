@@ -32,9 +32,7 @@ public class BuyTrayToolsGui extends AbstractGui {
                                     new PurchaseTool((NTools.getFiles().get("config").getInt("gui.tray-buy." + configItem + ".price")),
                                             (NTools.getFiles().get("config").getString("gui.tray-buy." + configItem + ".material")),
                                             (NTools.getFiles().get("tools").getString("tray." + configItem + ".name")),
-                                            (NTools.getFiles().get("tools").getStringList("tray." + configItem + ".lore")),
-                                            (NTools.getMultiToolRadiusUnique().get(configItem).get(1)),
-                                            (NTools.getMultiToolModeUnique().get(configItem).get(1)),
+                                            (NTools.getFiles().get("tools").getStringList("tray." + configItem + ".lore")), null, null,
                                             (NTools.getFiles().get("tools").getStringList("tray." + configItem + ".enchantments")), player);
                                 }
                                 if (NTools.getFiles().get("config").getBoolean("gui.tray-buy." + configItem + ".back-button")) {
@@ -42,7 +40,7 @@ public class BuyTrayToolsGui extends AbstractGui {
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();
-                                new PlayerMessage("invalid-tool", player);
+                                new PlayerMessage("invalid-config", player);
                             }
                         });
             } catch (NullPointerException itemNotFound) {

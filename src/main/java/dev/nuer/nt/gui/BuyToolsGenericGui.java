@@ -37,7 +37,7 @@ public class BuyToolsGenericGui extends AbstractGui {
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();
-                                new PlayerMessage("invalid-tool", player);
+                                new PlayerMessage("invalid-config", player);
                             }
                         });
             } catch (NullPointerException itemNotFound) {
