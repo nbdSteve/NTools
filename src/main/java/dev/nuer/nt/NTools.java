@@ -4,13 +4,18 @@ import dev.nuer.nt.cmd.Nt;
 import dev.nuer.nt.event.CrouchClickOpenToolOptionGui;
 import dev.nuer.nt.event.RadialBlockBreak;
 import dev.nuer.nt.file.LoadFile;
-import dev.nuer.nt.gui.MultiToolOptionsGui;
+import dev.nuer.nt.gui.*;
 import dev.nuer.nt.gui.listener.GuiClickListener;
+import dev.nuer.nt.gui.purchase.BuyMultiToolsGui;
+import dev.nuer.nt.gui.purchase.BuyTrayToolsGui;
+import dev.nuer.nt.gui.purchase.BuyTrenchToolsGui;
 import dev.nuer.nt.method.AddBlocksToBlacklist;
 import dev.nuer.nt.method.AddToolsToMap;
 import dev.nuer.nt.method.GetMultiToolLoreID;
+import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Logger;
@@ -37,10 +42,22 @@ public final class NTools extends JavaPlugin {
     private static HashMap<Integer, ArrayList<String>> multiToolRadiusUnique;
     //Instance of multi tool options gui
     private MultiToolOptionsGui multiToolOptionsGui;
+    //Instance of generic buy gui
+    private BuyToolsGenericGui buyToolsGenericGui;
+    //Instance of multi tools gui
+    private BuyMultiToolsGui buyMultiToolsGui;
+    //Instance of trench tools gui
+    private BuyTrenchToolsGui buyTrenchToolsGui;
+    //Instance of tray tools gui
+    private BuyTrayToolsGui buyTrayToolsGui;
     //Create a logger for the plugin
     public static Logger LOGGER = Logger.getLogger(NTools.class.getName());
+    //Store the servers economy
+    public static Economy economy;
     //If the plugin should log debug timing messages
     public static boolean doDebugMessages;
+    //Static way to format price placeholders
+    public static DecimalFormat numberFormat = new DecimalFormat("#,###");
 
     /**
      * Void method to regenerate all of the HashMap associated with the plugin, will update with config
@@ -158,6 +175,17 @@ public final class NTools extends JavaPlugin {
         loadToolMaps();
         //Create the Gui instances
         multiToolOptionsGui = new MultiToolOptionsGui();
+        buyToolsGenericGui = new BuyToolsGenericGui();
+        buyMultiToolsGui = new BuyMultiToolsGui();
+        buyTrenchToolsGui = new BuyTrenchToolsGui();
+        buyTrayToolsGui = new BuyTrayToolsGui();
+        //Get the server econ
+        try {
+            economy = getServer().getServicesManager().getRegistration(Economy.class).getProvider();
+        } catch (NullPointerException economyNotEnabled) {
+            LOGGER.info("[NTools] Vault.jar not found, disabling economy features.");
+            economy = null;
+        }
         //Register the commands for the plugin
         getCommand("tools").setExecutor(new Nt(this));
         getCommand("nt").setExecutor(new Nt(this));
@@ -177,7 +205,43 @@ public final class NTools extends JavaPlugin {
     }
 
     /**
-     * Gets the gui instance
+     * Gets the generic gui instance
+     *
+     * @return
+     */
+    public BuyToolsGenericGui getBuyToolsGenericGui() {
+        return buyToolsGenericGui;
+    }
+
+    /**
+     * Gets the multi tool gui instance
+     *
+     * @return
+     */
+    public BuyMultiToolsGui getBuyMultiToolsGui() {
+        return buyMultiToolsGui;
+    }
+
+    /**
+     * Gets the trench tools gui instance
+     *
+     * @return
+     */
+    public BuyTrenchToolsGui getBuyTrenchToolsGui() {
+        return buyTrenchToolsGui;
+    }
+
+    /**
+     * Gets the tray tools gui instance
+     *
+     * @return
+     */
+    public BuyTrayToolsGui getBuyTrayToolsGui() {
+        return buyTrayToolsGui;
+    }
+
+    /**
+     * Gets the options gui instance
      *
      * @return
      */

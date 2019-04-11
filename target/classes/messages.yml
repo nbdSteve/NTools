@@ -5,7 +5,7 @@ mode-switch:
   - "&6&lNTools&e: &7You have changed your tools mode."
 
 incremented-radius:
-  - "&6&lNTools&e: &7You have increased your tools break radius."
+  - "&6&lNTools&e: &7You have increased your tools break radius, &c-${price}&7."
 
 decremented-radius:
   - "&6&lNTools&e: &7You have decreased your tools break radius."
@@ -33,3 +33,9 @@ invalid-command:
 
 inventory-full:
   - "&cWarning: &7Your inventory is full, mined blocks will be deleted and lost."
+
+purchase:
+  - "&6&lNTools&e: &7Your new tool has been added to your inventory, &c-${price}&7."
+
+insufficient:
+  - "&6&lNTools&e: &7You do not have sufficient funds to purchase that tool / upgrade."

@@ -56,8 +56,8 @@ public class GetToolType {
                         isTrayTool = true;
                     }
                     //Store radius unique ids
-                    multiToolRadius = GetMultiToolVariables.queryToolRadius(toolTypeRawID, toolType,
-                            itemLore, itemMeta, item, false, false);
+                    multiToolRadius = GetMultiToolVariables.queryToolRadius(toolTypeRawID,
+                            itemLore, itemMeta, item, false, false, null);
                     break;
                 }
             } catch (NullPointerException toolDoesNotExist) {

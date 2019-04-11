@@ -2,6 +2,8 @@ package dev.nuer.nt.event.radiusChangeMethod;
 
 import dev.nuer.nt.NTools;
 import dev.nuer.nt.event.itemMetaMethod.UpdateItem;
+import dev.nuer.nt.method.player.PlayerMessage;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -25,17 +27,32 @@ public class ChangeRadiusInMeta {
      * @param item       ItemStack, the item being queried
      * @return int, the tool radius
      */
-    public static int changeRadius(boolean increment, boolean decrement, int index, int radius,
+    public static int changeRadius(boolean increment, boolean decrement, int index, int radius, double priceToUpgrade,
                                    String radiusLore, int toolTypeRawID, List<String> itemLore,
-                                   ItemMeta itemMeta, ItemStack item) {
+                                   ItemMeta itemMeta, ItemStack item, Player player) {
         if (increment) {
             try {
                 int maxRadius = Integer.parseInt(NTools.getMultiToolRadiusUnique().get(toolTypeRawID).get
                         (NTools.getMultiToolRadiusUnique().get(toolTypeRawID).size() - 1));
                 if (radius + 1 <= maxRadius) {
-                    itemLore.set(index,
-                            radiusLore + " " + NTools.getMultiToolRadiusUnique().get(toolTypeRawID).get(radius + 1));
-                    UpdateItem.updateItem(itemLore, itemMeta, item);
+                    if (player != null) {
+                        if (NTools.economy != null) {
+                            if (NTools.economy.getBalance(player) >= priceToUpgrade) {
+                                NTools.economy.withdrawPlayer(player, priceToUpgrade);
+                                itemLore.set(index, radiusLore + " " + NTools.getMultiToolRadiusUnique().get(toolTypeRawID).get(radius + 1));
+                                UpdateItem.updateItem(itemLore, itemMeta, item);
+                                new PlayerMessage("incremented-radius", player, "{price}", NTools.numberFormat.format(priceToUpgrade));
+                            } else {
+                                new PlayerMessage("insufficient", player);
+                            }
+                        } else {
+                            itemLore.set(index, radiusLore + " " + NTools.getMultiToolRadiusUnique().get(toolTypeRawID).get(radius + 1));
+                            UpdateItem.updateItem(itemLore, itemMeta, item);
+                        }
+                    } else {
+                        itemLore.set(index, radiusLore + " " + NTools.getMultiToolRadiusUnique().get(toolTypeRawID).get(radius + 1));
+                        UpdateItem.updateItem(itemLore, itemMeta, item);
+                    }
                 } else {
                     return -1;
                 }

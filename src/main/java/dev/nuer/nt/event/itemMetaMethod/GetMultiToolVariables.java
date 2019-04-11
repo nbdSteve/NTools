@@ -3,6 +3,7 @@ package dev.nuer.nt.event.itemMetaMethod;
 import dev.nuer.nt.NTools;
 import dev.nuer.nt.event.radiusChangeMethod.ChangeRadiusInMeta;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -16,7 +17,6 @@ public class GetMultiToolVariables {
     /**
      * Query the current radius of a given multi tool
      *
-     * @param toolType        String, the tool type for the tools.yml
      * @param itemLore        List<String>, the lore of the item being queried
      * @param itemMeta        ItemMeta, the meta of the item being queried
      * @param item            ItemStack, the item being queried
@@ -24,8 +24,8 @@ public class GetMultiToolVariables {
      * @param decrementRadius boolean, if the radius should be decremented
      * @return int, tool radius
      */
-    public static int queryToolRadius(int toolTypeRawID, String toolType, List<String> itemLore, ItemMeta itemMeta,
-                                      ItemStack item, boolean incrementRadius, boolean decrementRadius) {
+    public static int queryToolRadius(int toolTypeRawID, List<String> itemLore, ItemMeta itemMeta,
+                                      ItemStack item, boolean incrementRadius, boolean decrementRadius, Player player) {
         //Store the unique line of the lore for the radius
         String radiusLore = NTools.getMultiToolRadiusUnique().get(toolTypeRawID).get(0);
         //Store the index of the lore, could for a for loop but figured this might be more efficient
@@ -36,8 +36,9 @@ public class GetMultiToolVariables {
                 int arrayIndex = 1;
                 while (arrayIndex < NTools.getMultiToolRadiusUnique().get(toolTypeRawID).size()) {
                     if (loreLine.contains(NTools.getMultiToolRadiusUnique().get(toolTypeRawID).get(arrayIndex))) {
-                        return ChangeRadiusInMeta.changeRadius(incrementRadius, decrementRadius, index, arrayIndex, radiusLore,
-                                toolTypeRawID, itemLore, itemMeta, item);
+                        double priceToUpgrade = NTools.getFiles().get("tools").getInt("multi-tool." + toolTypeRawID + ".upgrade-cost." + arrayIndex);
+                        return ChangeRadiusInMeta.changeRadius(incrementRadius, decrementRadius, index, arrayIndex, priceToUpgrade,
+                                radiusLore, toolTypeRawID, itemLore, itemMeta, item, player);
                     }
                     arrayIndex++;
                 }

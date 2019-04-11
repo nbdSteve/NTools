@@ -37,6 +37,24 @@ trench:
     enchantments:
       - dig_speed:5
       - durability:10
+  #
+  3:
+    unique-lore: "&6&l**Holes III**"
+    # 7x7 trench pick
+    break-radius: 3
+    #
+    name: "&eTrench Pickaxe &7(&67x7&7)"
+    #
+    lore:
+      - "&6&l**Holes III**"
+      - "&7 "
+      - "&a&oThis pickaxe was forged in an unknown place,"
+      - "&a&oits potential is still be realised. Use,"
+      - "&a&oabuse and reap the rewards of this tool."
+    #
+    enchantments:
+      - dig_speed:5
+      - durability:10
 #
 tray:
   1:
@@ -74,6 +92,24 @@ tray:
     enchantments:
       - dig_speed:5
       - durability:10
+  #
+  3:
+    unique-lore: "&6&l**Gutters III**"
+    # 7x7 tray pick
+    break-radius: 3
+    #
+    name: "&eTray Pickaxe &7(&67x7&7)"
+    #
+    lore:
+      - "&6&l**Gutters III**"
+      - "&7 "
+      - "&a&oThis pickaxe was forged in an unknown place,"
+      - "&a&oits potential is still be realised. Use,"
+      - "&a&oabuse and reap the rewards of this tool."
+    #
+    enchantments:
+      - dig_speed:5
+      - durability:10
 #
 multi-tool:
   1:
@@ -92,6 +128,10 @@ multi-tool:
         - "&b&l3x3"
         - "&b&l5x5"
         - "&b&l7x7"
+    #
+    upgrade-cost:
+      1: 250000 #upgrading from 3x3 to 5x5
+      2: 500000
     #
     name: "&a&lForged Pickaxe"
     #

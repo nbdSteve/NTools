@@ -36,12 +36,12 @@ public class Nt implements CommandExecutor {
             if (args.length == 0) {
                 if (sender instanceof Player) {
                     if (sender.hasPermission("ntools.gui")) {
-                        NTools.getPlugin(NTools.class).getMultiToolOptionsGui().open((Player) sender);
+                        NTools.getPlugin(NTools.class).getBuyToolsGenericGui().open((Player) sender);
                     } else {
                         new PlayerMessage("no-permission", (Player) sender);
                     }
                 } else {
-                    NTools.LOGGER.info("[NTools] The upgrade Gui can only be viewed by players.");
+                    NTools.LOGGER.info("[NTools] The purchase Gui can only be viewed by players.");
                 }
             } else if (args.length == 1) {
                 if (args[0].equalsIgnoreCase("h") || args[0].equalsIgnoreCase("help")) {
@@ -69,6 +69,17 @@ public class Nt implements CommandExecutor {
                         NTools.getFiles().reload();
                         NTools.clearMaps();
                         NTools.loadToolMaps();
+                    }
+                }
+                if (args[0].equalsIgnoreCase("c") || args[0].equalsIgnoreCase("config")) {
+                    if (sender instanceof Player) {
+                        if (sender.hasPermission("ntools.gui.multi")) {
+                            NTools.getPlugin(NTools.class).getMultiToolOptionsGui().open((Player) sender);
+                        } else {
+                            new PlayerMessage("no-permission", (Player) sender);
+                        }
+                    } else {
+                        NTools.LOGGER.info("[NTools] The upgrade Gui can only be viewed by players.");
                     }
                 }
             } else if (args.length == 5) {
