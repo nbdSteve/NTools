@@ -13,29 +13,29 @@ public class BuyTrenchToolsGui extends AbstractGui {
      * Constructor to create a the Gui
      */
     public BuyTrenchToolsGui() {
-        super(NTools.getFiles().get("config").getInt("gui.trench-buy.size"),
-                ChatColor.translateAlternateColorCodes('&', NTools.getFiles().get("config").getString("gui.trench-buy.name")));
+        super(NTools.getFiles().get("trench_purchase_gui").getInt("trench-tool-purchase-gui.size"),
+                ChatColor.translateAlternateColorCodes('&', NTools.getFiles().get("trench_purchase_gui").getString("trench-tool-purchase-gui.name")));
 
         //Add all of the items from the Gui config to the Gui
         for (int i = 1; i <= 54; i++) {
             try {
                 final int configItem = i;
-                setItemInSlot((NTools.getFiles().get("config").getInt("gui.trench-buy." + configItem + ".slot")),
-                        new CraftItem((NTools.getFiles().get("config").getString("gui.trench-buy." + configItem + ".material")),
-                                (NTools.getFiles().get("config").getString("gui.trench-buy." + configItem + ".name")),
-                                (NTools.getFiles().get("config").getStringList("gui.trench-buy." + configItem + ".lore")), null, null,
-                                (NTools.getFiles().get("config").getStringList("gui.trench-buy." + configItem + ".enchantments")), null).getItem(),
+                setItemInSlot((NTools.getFiles().get("trench_purchase_gui").getInt("trench-tool-purchase-gui." + configItem + ".slot")),
+                        new CraftItem((NTools.getFiles().get("trench_purchase_gui").getString("trench-tool-purchase-gui." + configItem + ".material")),
+                                (NTools.getFiles().get("trench_purchase_gui").getString("trench-tool-purchase-gui." + configItem + ".name")),
+                                (NTools.getFiles().get("trench_purchase_gui").getStringList("trench-tool-purchase-gui." + configItem + ".lore")), null, null,
+                                (NTools.getFiles().get("trench_purchase_gui").getStringList("trench-tool-purchase-gui." + configItem + ".enchantments")), null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
-                                if (NTools.getFiles().get("config").getBoolean("gui.trench-buy." + configItem + ".purchasable")) {
-                                    new PurchaseTool((NTools.getFiles().get("config").getInt("gui.trench-buy." + configItem + ".price")),
-                                            (NTools.getFiles().get("config").getString("gui.trench-buy." + configItem + ".material")),
-                                            (NTools.getFiles().get("tools").getString("trench." + configItem + ".name")),
-                                            (NTools.getFiles().get("tools").getStringList("trench." + configItem + ".lore")), null, null,
-                                            (NTools.getFiles().get("tools").getStringList("trench." + configItem + ".enchantments")), player);
+                                if (NTools.getFiles().get("trench_purchase_gui").getBoolean("trench-tool-purchase-gui." + configItem + ".purchasable")) {
+                                    new PurchaseTool((NTools.getFiles().get("trench_purchase_gui").getInt("trench-tool-purchase-gui." + configItem + ".price")),
+                                            (NTools.getFiles().get("trench_purchase_gui").getString("trench-tool-purchase-gui." + configItem + ".material")),
+                                            (NTools.getFiles().get("trench").getString("trench-tools." + configItem + ".name")),
+                                            (NTools.getFiles().get("trench").getStringList("trench-tools." + configItem + ".lore")), null, null,
+                                            (NTools.getFiles().get("trench").getStringList("trench-tools." + configItem + ".enchantments")), player);
                                 }
-                                if (NTools.getFiles().get("config").getBoolean("gui.trench-buy." + configItem + ".back-button")) {
+                                if (NTools.getFiles().get("trench_purchase_gui").getBoolean("trench-tool-purchase-gui." + configItem + ".back-button")) {
                                     NTools.getPlugin(NTools.class).getBuyToolsGenericGui().open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {

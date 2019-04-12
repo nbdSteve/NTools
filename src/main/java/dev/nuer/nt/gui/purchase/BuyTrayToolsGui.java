@@ -13,29 +13,29 @@ public class BuyTrayToolsGui extends AbstractGui {
      * Constructor to create a the Gui
      */
     public BuyTrayToolsGui() {
-        super(NTools.getFiles().get("config").getInt("gui.tray-buy.size"),
-                ChatColor.translateAlternateColorCodes('&', NTools.getFiles().get("config").getString("gui.tray-buy.name")));
+        super(NTools.getFiles().get("tray_purchase_gui").getInt("tray-tool-purchase-gui.size"),
+                ChatColor.translateAlternateColorCodes('&', NTools.getFiles().get("tray_purchase_gui").getString("tray-tool-purchase-gui.name")));
 
         //Add all of the items from the Gui config to the Gui
         for (int i = 1; i <= 54; i++) {
             try {
                 final int configItem = i;
-                setItemInSlot((NTools.getFiles().get("config").getInt("gui.tray-buy." + configItem + ".slot")),
-                        new CraftItem((NTools.getFiles().get("config").getString("gui.tray-buy." + configItem + ".material")),
-                                (NTools.getFiles().get("config").getString("gui.tray-buy." + configItem + ".name")),
-                                (NTools.getFiles().get("config").getStringList("gui.tray-buy." + configItem + ".lore")), null, null,
-                                (NTools.getFiles().get("config").getStringList("gui.tray-buy." + configItem + ".enchantments")), null).getItem(),
+                setItemInSlot((NTools.getFiles().get("tray_purchase_gui").getInt("tray-tool-purchase-gui." + configItem + ".slot")),
+                        new CraftItem((NTools.getFiles().get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".material")),
+                                (NTools.getFiles().get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".name")),
+                                (NTools.getFiles().get("tray_purchase_gui").getStringList("tray-tool-purchase-gui." + configItem + ".lore")), null, null,
+                                (NTools.getFiles().get("tray_purchase_gui").getStringList("tray-tool-purchase-gui." + configItem + ".enchantments")), null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
-                                if (NTools.getFiles().get("config").getBoolean("gui.tray-buy." + configItem + ".purchasable")) {
-                                    new PurchaseTool((NTools.getFiles().get("config").getInt("gui.tray-buy." + configItem + ".price")),
-                                            (NTools.getFiles().get("config").getString("gui.tray-buy." + configItem + ".material")),
-                                            (NTools.getFiles().get("tools").getString("tray." + configItem + ".name")),
-                                            (NTools.getFiles().get("tools").getStringList("tray." + configItem + ".lore")), null, null,
-                                            (NTools.getFiles().get("tools").getStringList("tray." + configItem + ".enchantments")), player);
+                                if (NTools.getFiles().get("tray_purchase_gui").getBoolean("tray-tool-purchase-gui." + configItem + ".purchasable")) {
+                                    new PurchaseTool((NTools.getFiles().get("tray_purchase_gui").getInt("tray-tool-purchase-gui." + configItem + ".price")),
+                                            (NTools.getFiles().get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".material")),
+                                            (NTools.getFiles().get("tray").getString("tray-tools." + configItem + ".name")),
+                                            (NTools.getFiles().get("tray").getStringList("tray-tools." + configItem + ".lore")), null, null,
+                                            (NTools.getFiles().get("tray").getStringList("tray-tools." + configItem + ".enchantments")), player);
                                 }
-                                if (NTools.getFiles().get("config").getBoolean("gui.tray-buy." + configItem + ".back-button")) {
+                                if (NTools.getFiles().get("tray_purchase_gui").getBoolean("tray-tool-purchase-gui." + configItem + ".back-button")) {
                                     NTools.getPlugin(NTools.class).getBuyToolsGenericGui().open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {

@@ -42,3 +42,6 @@ insufficient:
 
 invalid-config:
   - "&cError: &7There is a problem with the plugins configuration, please contact an admin."
+
+sand-wand-cooldown:
+  - "&cCooldown: &7You are on cooldown, &c{time} &7second(s) remaining..."

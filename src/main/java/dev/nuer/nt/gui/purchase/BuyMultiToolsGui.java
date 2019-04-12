@@ -13,35 +13,36 @@ public class BuyMultiToolsGui extends AbstractGui {
      * Constructor to create a the Gui
      */
     public BuyMultiToolsGui() {
-        super(NTools.getFiles().get("config").getInt("gui.multi-buy.size"),
-                ChatColor.translateAlternateColorCodes('&', NTools.getFiles().get("config").getString("gui.multi-buy.name")));
+        super(NTools.getFiles().get("multi_purchase_gui").getInt("multi-tool-purchase-gui.size"),
+                ChatColor.translateAlternateColorCodes('&', NTools.getFiles().get("multi_purchase_gui").getString("multi-tool-purchase-gui.name")));
 
         //Add all of the items from the Gui config to the Gui
         for (int i = 1; i <= 54; i++) {
             try {
                 final int configItem = i;
-                setItemInSlot((NTools.getFiles().get("config").getInt("gui.multi-buy." + configItem + ".slot")),
-                        new CraftItem((NTools.getFiles().get("config").getString("gui.multi-buy." + configItem + ".material")),
-                                (NTools.getFiles().get("config").getString("gui.multi-buy." + configItem + ".name")),
-                                (NTools.getFiles().get("config").getStringList("gui.multi-buy." + configItem + ".lore")), null, null,
-                                (NTools.getFiles().get("config").getStringList("gui.multi-buy." + configItem + ".enchantments")), null).getItem(),
+                setItemInSlot((NTools.getFiles().get("multi_purchase_gui").getInt("multi-tool-purchase-gui." + configItem + ".slot")),
+                        new CraftItem((NTools.getFiles().get("multi_purchase_gui").getString("multi-tool-purchase-gui." + configItem + ".material")),
+                                (NTools.getFiles().get("multi_purchase_gui").getString("multi-tool-purchase-gui." + configItem + ".name")),
+                                (NTools.getFiles().get("multi_purchase_gui").getStringList("multi-tool-purchase-gui." + configItem + ".lore")), null, null,
+                                (NTools.getFiles().get("multi_purchase_gui").getStringList("multi-tool-purchase-gui." + configItem + ".enchantments")), null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
-                                if (NTools.getFiles().get("config").getBoolean("gui.multi-buy." + configItem + ".purchasable")) {
-                                    new PurchaseTool((NTools.getFiles().get("config").getInt("gui.multi-buy." + configItem + ".price")),
-                                            (NTools.getFiles().get("config").getString("gui.multi-buy." + configItem + ".material")),
-                                            (NTools.getFiles().get("tools").getString("multi-tool." + configItem + ".name")),
-                                            (NTools.getFiles().get("tools").getStringList("multi-tool." + configItem + ".lore")),
-                                            (NTools.getMultiToolRadiusUnique().get(configItem).get(1)),
-                                            (NTools.getMultiToolModeUnique().get(configItem).get(1)),
-                                            (NTools.getFiles().get("tools").getStringList("multi-tool." + configItem + ".enchantments")), player);
+                                if (NTools.getFiles().get("multi_purchase_gui").getBoolean("multi-tool-purchase-gui." + configItem + ".purchasable")) {
+                                    new PurchaseTool((NTools.getFiles().get("multi_purchase_gui").getInt("multi-tool-purchase-gui." + configItem + ".price")),
+                                            (NTools.getFiles().get("multi_purchase_gui").getString("multi-tool-purchase-gui." + configItem + ".material")),
+                                            (NTools.getFiles().get("multi").getString("multi-tools." + configItem + ".name")),
+                                            (NTools.getFiles().get("multi").getStringList("multi-tools." + configItem + ".lore")),
+                                            (NTools.multiToolRadiusUnique.get(configItem).get(1)),
+                                            (NTools.multiToolModeUnique.get(configItem).get(1)),
+                                            (NTools.getFiles().get("multi").getStringList("multi-tools." + configItem + ".enchantments")), player);
                                 }
-                                if (NTools.getFiles().get("config").getBoolean("gui.multi-buy." + configItem + ".back-button")) {
+                                if (NTools.getFiles().get("multi_purchase_gui").getBoolean("multi-tool-purchase-gui." + configItem + ".back-button")) {
                                     NTools.getPlugin(NTools.class).getBuyToolsGenericGui().open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();
+                                toolNotFound.printStackTrace();
                                 new PlayerMessage("invalid-config", player);
                             }
                         });

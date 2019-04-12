@@ -95,21 +95,26 @@ public class Nt implements CommandExecutor {
                                 }
                             }
                             if (args[2].equalsIgnoreCase("multi")) {
-                                new CraftItem(args[3], (NTools.getFiles().get("tools").getString("multi-tool." + args[4] + ".name")),
-                                        (NTools.getFiles().get("tools").getStringList("multi-tool." + args[4] + ".lore")),
-                                        (NTools.getMultiToolRadiusUnique().get(Integer.parseInt(args[4])).get(1)),
-                                        (NTools.getMultiToolModeUnique().get(Integer.parseInt(args[4])).get(1)),
-                                        (NTools.getFiles().get("tools").getStringList("multi-tool." + args[4] + ".enchantments")), target);
+                                new CraftItem(args[3], (NTools.getFiles().get("multi").getString("multi-tools." + args[4] + ".name")),
+                                        (NTools.getFiles().get("multi").getStringList("multi-tools." + args[4] + ".lore")),
+                                        (NTools.multiToolRadiusUnique.get(Integer.parseInt(args[4])).get(1)),
+                                        (NTools.multiToolModeUnique.get(Integer.parseInt(args[4])).get(1)),
+                                        (NTools.getFiles().get("multi").getStringList("multi-tools." + args[4] + ".enchantments")), target);
                             }
                             if (args[2].equalsIgnoreCase("trench")) {
-                                new CraftItem(args[3], (NTools.getFiles().get("tools").getString("trench." + args[4] + ".name")),
-                                        (NTools.getFiles().get("tools").getStringList("trench." + args[4] + ".lore")), null, null,
-                                        (NTools.getFiles().get("tools").getStringList("trench." + args[4] + ".enchantments")), target);
+                                new CraftItem(args[3], (NTools.getFiles().get("trench").getString("trench-tools." + args[4] + ".name")),
+                                        (NTools.getFiles().get("trench").getStringList("trench-tools." + args[4] + ".lore")), null, null,
+                                        (NTools.getFiles().get("trench").getStringList("trench-tools." + args[4] + ".enchantments")), target);
                             }
                             if (args[2].equalsIgnoreCase("tray")) {
-                                new CraftItem(args[3], (NTools.getFiles().get("tools").getString("tray." + args[4] + ".name")),
-                                        (NTools.getFiles().get("tools").getStringList("tray." + args[4] + ".lore")), null, null,
-                                        (NTools.getFiles().get("tools").getStringList("tray." + args[4] + ".enchantments")), target);
+                                new CraftItem(args[3], (NTools.getFiles().get("tray").getString("tray-tools." + args[4] + ".name")),
+                                        (NTools.getFiles().get("tray").getStringList("tray-tools." + args[4] + ".lore")), null, null,
+                                        (NTools.getFiles().get("tray").getStringList("tray-tools." + args[4] + ".enchantments")), target);
+                            }
+                            if (args[2].equalsIgnoreCase("sand")) {
+                                new CraftItem(args[3], (NTools.getFiles().get("sand").getString("sand-wands." + args[4] + ".name")),
+                                        (NTools.getFiles().get("sand").getStringList("sand-wands." + args[4] + ".lore")), null, null,
+                                        (NTools.getFiles().get("sand").getStringList("sand-wands." + args[4] + ".enchantments")), target);
                             }
                         } catch (Exception invalidCommandParameters) {
                             if (sender instanceof Player) {

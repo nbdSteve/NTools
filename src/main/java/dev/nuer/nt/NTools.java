@@ -2,11 +2,12 @@ package dev.nuer.nt;
 
 import dev.nuer.nt.cmd.Nt;
 import dev.nuer.nt.event.CrouchClickOpenToolOptionGui;
-import dev.nuer.nt.event.RadialBlockBreak;
+import dev.nuer.nt.event.BlockDamageByPlayer;
 import dev.nuer.nt.file.LoadFile;
 import dev.nuer.nt.gui.*;
 import dev.nuer.nt.gui.listener.GuiClickListener;
 import dev.nuer.nt.gui.purchase.BuyMultiToolsGui;
+import dev.nuer.nt.gui.purchase.BuySandWandsGui;
 import dev.nuer.nt.gui.purchase.BuyTrayToolsGui;
 import dev.nuer.nt.gui.purchase.BuyTrenchToolsGui;
 import dev.nuer.nt.method.AddBlocksToBlacklist;
@@ -18,6 +19,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 /**
@@ -27,9 +29,9 @@ public final class NTools extends JavaPlugin {
     //Store the plugin files
     private static LoadFile files;
     //Store the trench block blacklist
-    private static ArrayList<String> trenchBlockBlacklist;
+    public static ArrayList<String> trenchBlockBlacklist;
     //Store the tray block whitelist
-    private static ArrayList<String> trayBlockWhitelist;
+    public static ArrayList<String> trayBlockWhitelist;
     //Store the map of trench tools, queried in the event class
     private static HashMap<Integer, String> trenchTools;
     //Store the map of tray tools, queried in the event class
@@ -37,9 +39,13 @@ public final class NTools extends JavaPlugin {
     //Store the map of multi tools, queried in the event class
     private static HashMap<Integer, String> multiTools;
     //Store the map of multi tool unique lore and raw tool id
-    private static HashMap<Integer, ArrayList<String>> multiToolModeUnique;
+    public static HashMap<Integer, ArrayList<String>> multiToolModeUnique;
     //Store the map of multi tool unique radius id and raw tool id
-    private static HashMap<Integer, ArrayList<String>> multiToolRadiusUnique;
+    public static HashMap<Integer, ArrayList<String>> multiToolRadiusUnique;
+    //Store the map of sand wands
+    private static HashMap<Integer, String> sandWands;
+    //Store the blocks that can be broken by the sand wands
+    public static ArrayList<String> sandWandBlockWhitelist;
     //Instance of multi tool options gui
     private MultiToolOptionsGui multiToolOptionsGui;
     //Instance of generic buy gui
@@ -50,6 +56,8 @@ public final class NTools extends JavaPlugin {
     private BuyTrenchToolsGui buyTrenchToolsGui;
     //Instance of tray tools gui
     private BuyTrayToolsGui buyTrayToolsGui;
+    //Instance of tray tools gui
+    private BuySandWandsGui buySandWandsGui;
     //Create a logger for the plugin
     public static Logger LOGGER = Logger.getLogger(NTools.class.getName());
     //Store the servers economy
@@ -64,14 +72,16 @@ public final class NTools extends JavaPlugin {
      * changes.
      */
     public static void loadToolMaps() {
-        trenchBlockBlacklist = AddBlocksToBlacklist.createBlocklist("trench-block-blacklist");
-        trayBlockWhitelist = AddBlocksToBlacklist.createBlocklist("tray-block-whitelist");
-        trenchTools = AddToolsToMap.createToolMap("trench.");
-        trayTools = AddToolsToMap.createToolMap("tray.");
-        multiTools = AddToolsToMap.createToolMap("multi-tool.");
-        multiToolModeUnique = GetMultiToolLoreID.createUniqueModeIDs("multi-tool.");
-        multiToolRadiusUnique = GetMultiToolLoreID.createUniqueRadiusIDs("multi-tool.");
-        LOGGER.info("[NTools] Successfully loaded all tools from tools.yml.");
+        trenchBlockBlacklist = AddBlocksToBlacklist.createBlockList("config", "trench-block-blacklist");
+        trayBlockWhitelist = AddBlocksToBlacklist.createBlockList("config", "tray-block-whitelist");
+        sandWandBlockWhitelist = AddBlocksToBlacklist.createBlockList("config", "sand-block-whitelist");
+        trenchTools = AddToolsToMap.createToolMap("trench", "trench-tools.");
+        trayTools = AddToolsToMap.createToolMap("tray", "tray-tools.");
+        multiTools = AddToolsToMap.createToolMap("multi", "multi-tools.");
+        sandWands = AddToolsToMap.createToolMap("sand", "sand-wands.");
+        multiToolModeUnique = GetMultiToolLoreID.createUniqueModeIDs("multi-tools.");
+        multiToolRadiusUnique = GetMultiToolLoreID.createUniqueRadiusIDs("multi-tools.");
+        LOGGER.info("[NTools] Successfully loaded all tools from configuration into internal maps.");
         //Get if the plugin should do debug messages
         doDebugMessages = getFiles().get("config").getBoolean("enable-debug-messages");
     }
@@ -83,9 +93,11 @@ public final class NTools extends JavaPlugin {
     public static void clearMaps() {
         trenchBlockBlacklist.clear();
         trayBlockWhitelist.clear();
+        sandWandBlockWhitelist.clear();
         trenchTools.clear();
         trayTools.clear();
         multiTools.clear();
+        sandWands.clear();
         multiToolModeUnique.clear();
         multiToolRadiusUnique.clear();
         LOGGER.info("[NTools] Successfully cleared all tools from internal maps.");
@@ -100,67 +112,13 @@ public final class NTools extends JavaPlugin {
         return files;
     }
 
-    /**
-     * Gets the blacklisted blocks for the trench tools
-     *
-     * @return ArrayList of Strings
-     */
-    public static ArrayList<String> getTrenchBlockBlacklist() {
-        return trenchBlockBlacklist;
-    }
-
-    /**
-     * Gets the whitelisted blocks for the tray tools
-     *
-     * @return ArrayList of Strings
-     */
-    public static ArrayList<String> getTrayBlockWhitelist() {
-        return trayBlockWhitelist;
-    }
-
-    /**
-     * Gets the trench tools that are loaded from the tools.yml
-     *
-     * @return HashMap of tools and unique-lore
-     */
-    public static HashMap<Integer, String> getTrenchTools() {
-        return trenchTools;
-    }
-
-    /**
-     * Gets the tray tools that are loaded from the tools.yml
-     *
-     * @return HashMap of tools and unique-lore
-     */
-    public static HashMap<Integer, String> getTrayTools() {
-        return trayTools;
-    }
-
-    /**
-     * Gets the multi tools that are loaded from the tools.yml
-     *
-     * @return HashMap of tools and unique-lore
-     */
-    public static HashMap<Integer, String> getMultiTools() {
-        return multiTools;
-    }
-
-    /**
-     * Gets the multi tool unique mode lore lines from the tools.yml
-     *
-     * @return HashMap of mode and raw tool id
-     */
-    public static HashMap<Integer, ArrayList<String>> getMultiToolModeUnique() {
-        return multiToolModeUnique;
-    }
-
-    /**
-     * Gets the multi tool unique radius lore lines from the tools.yml
-     *
-     * @return HashMap of radius and raw tool id
-     */
-    public static HashMap<Integer, ArrayList<String>> getMultiToolRadiusUnique() {
-        return multiToolRadiusUnique;
+    public static HashMap<Integer, String> getToolMap(String mapName) {
+        if (mapName.equalsIgnoreCase("multi")) return multiTools;
+        if (mapName.equalsIgnoreCase("trench")) return trenchTools;
+        if (mapName.equalsIgnoreCase("tray")) return trayTools;
+        if (mapName.equalsIgnoreCase("sand")) return sandWands;
+//        if (mapName.equalsIgnoreCase("lighting")) return lightningWands;
+        return null;
     }
 
     /**
@@ -179,6 +137,7 @@ public final class NTools extends JavaPlugin {
         buyMultiToolsGui = new BuyMultiToolsGui();
         buyTrenchToolsGui = new BuyTrenchToolsGui();
         buyTrayToolsGui = new BuyTrayToolsGui();
+        buySandWandsGui = new BuySandWandsGui();
         //Get the server econ
         try {
             economy = getServer().getServicesManager().getRegistration(Economy.class).getProvider();
@@ -190,7 +149,7 @@ public final class NTools extends JavaPlugin {
         getCommand("tools").setExecutor(new Nt(this));
         getCommand("nt").setExecutor(new Nt(this));
         //Register the events for the plugin
-        getServer().getPluginManager().registerEvents(new RadialBlockBreak(), this);
+        getServer().getPluginManager().registerEvents(new BlockDamageByPlayer(), this);
         getServer().getPluginManager().registerEvents(new CrouchClickOpenToolOptionGui(), this);
         getServer().getPluginManager().registerEvents(new GuiClickListener(), this);
     }
@@ -238,6 +197,15 @@ public final class NTools extends JavaPlugin {
      */
     public BuyTrayToolsGui getBuyTrayToolsGui() {
         return buyTrayToolsGui;
+    }
+
+    /**
+     * Gets the tray tools gui instance
+     *
+     * @return
+     */
+    public BuySandWandsGui getBuySandWandsGui() {
+        return buySandWandsGui;
     }
 
     /**

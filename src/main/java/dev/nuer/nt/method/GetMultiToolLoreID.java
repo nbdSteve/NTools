@@ -20,15 +20,15 @@ public class GetMultiToolLoreID {
     public static HashMap<Integer, ArrayList<String>> createUniqueRadiusIDs(String filePath) {
         HashMap<Integer, ArrayList<String>> toolUniqueRadiusIDs = new HashMap<>();
         for (int i = 1; i <= toolUniqueRadiusIDs.size() + 1; i++) {
-            if (NTools.getFiles().get("tools").getString(filePath + i + ".radius.unique") != null) {
+            if (NTools.getFiles().get("multi").getString(filePath + i + ".radius.unique") != null) {
                 ArrayList<String> multiToolIDs = new ArrayList<>();
                 multiToolIDs.add(ChatColor.translateAlternateColorCodes('&',
-                        NTools.getFiles().get("tools").getString(filePath + i + ".radius.unique")));
-                for (String radiusID : NTools.getFiles().get("tools").getStringList(filePath + i + ".radius.radius-ids")) {
+                        NTools.getFiles().get("multi").getString(filePath + i + ".radius.unique")));
+                for (String radiusID : NTools.getFiles().get("multi").getStringList(filePath + i + ".radius.radius-ids")) {
                     multiToolIDs.add(ChatColor.translateAlternateColorCodes('&', radiusID));
                 }
-                multiToolIDs.add(NTools.getFiles().get("tools").getString(filePath + i + ".radius.min"));
-                multiToolIDs.add(NTools.getFiles().get("tools").getString(filePath + i + ".radius.max"));
+                multiToolIDs.add(NTools.getFiles().get("multi").getString(filePath + i + ".radius.min"));
+                multiToolIDs.add(NTools.getFiles().get("multi").getString(filePath + i + ".radius.max"));
                 toolUniqueRadiusIDs.put(i, multiToolIDs);
             }
         }
@@ -44,14 +44,14 @@ public class GetMultiToolLoreID {
     public static HashMap<Integer, ArrayList<String>> createUniqueModeIDs(String filePath) {
         HashMap<Integer, ArrayList<String>> toolUniqueModeIDs = new HashMap<>();
         for (int i = 1; i <= toolUniqueModeIDs.size() + 1; i++) {
-            if (NTools.getFiles().get("tools").getString(filePath + i + ".mode.unique") != null) {
+            if (NTools.getFiles().get("multi").getString(filePath + i + ".mode.unique") != null) {
                 ArrayList<String> multiToolIDs = new ArrayList<>();
                 multiToolIDs.add(ChatColor.translateAlternateColorCodes('&',
-                        NTools.getFiles().get("tools").getString(filePath + i + ".mode.unique")));
+                        NTools.getFiles().get("multi").getString(filePath + i + ".mode.unique")));
                 multiToolIDs.add(ChatColor.translateAlternateColorCodes('&',
-                        NTools.getFiles().get("tools").getString(filePath + i + ".mode.trench")));
+                        NTools.getFiles().get("multi").getString(filePath + i + ".mode.trench")));
                 multiToolIDs.add(ChatColor.translateAlternateColorCodes('&',
-                        NTools.getFiles().get("tools").getString(filePath + i + ".mode.tray")));
+                        NTools.getFiles().get("multi").getString(filePath + i + ".mode.tray")));
                 toolUniqueModeIDs.put(i, multiToolIDs);
             }
         }

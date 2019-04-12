@@ -16,12 +16,12 @@ public class AddToolsToMap {
      * @param filePath String, path from the tools.yml
      * @return HashMap of tools and unique-lore
      */
-    public static HashMap<Integer, String> createToolMap(String filePath) {
+    public static HashMap<Integer, String> createToolMap(String directory, String filePath) {
         HashMap<Integer, String> toolMap = new HashMap<>();
         for (int i = 1; i <= toolMap.size() + 1; i++) {
-            if (NTools.getFiles().get("tools").getString(filePath + i + ".unique-lore") != null) {
-                toolMap.put(i, ChatColor.translateAlternateColorCodes('&', NTools.getFiles().get("tools"
-                ).getString(filePath + i + ".unique-lore")));
+            if (NTools.getFiles().get(directory).getString(filePath + i + ".unique-lore") != null) {
+                toolMap.put(i, ChatColor.translateAlternateColorCodes('&',
+                        NTools.getFiles().get(directory).getString(filePath + i + ".unique-lore")));
             }
         }
         return toolMap;

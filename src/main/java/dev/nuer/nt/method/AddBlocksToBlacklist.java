@@ -11,42 +11,12 @@ import java.util.ArrayList;
  */
 public class AddBlocksToBlacklist {
 
-    /**
-     * Add a list of blocks to the trench blacklist
-     *
-     * @return
-     */
-    public static ArrayList<String> addTrenchBlacklist() {
-        ArrayList<String> blockBlacklist = new ArrayList<>();
-        for (String line :
-                NTools.getFiles().get("config").getStringList("trench-block-blacklist")) {
+    public static ArrayList<String> createBlockList(String directory, String filePath) {
+        ArrayList<String> blockList = new ArrayList<>();
+        for (String line : NTools.getFiles().get(directory).getStringList(filePath)) {
             String block = line.toUpperCase();
-            blockBlacklist.add(block);
+            blockList.add(block);
         }
-        return blockBlacklist;
-    }
-
-    public static ArrayList<String> createBlocklist(String filePath) {
-        ArrayList<String> blocklist = new ArrayList<>();
-        for (String line :
-                NTools.getFiles().get("config").getStringList(filePath)) {
-            String block = line.toUpperCase();
-            blocklist.add(block);
-        }
-        return blocklist;
-    }
-
-    /**
-     * Add a list of blocks to the tray whitelist
-     *
-     * @return
-     */
-    public static ArrayList<String> addTrayWhitelist() {
-        ArrayList<String> blockWhitelist = new ArrayList<>();
-        for (String line : NTools.getFiles().get("config").getStringList("tray-block-whitelist")) {
-            String block = line.toUpperCase();
-            blockWhitelist.add(block);
-        }
-        return blockWhitelist;
+        return blockList;
     }
 }

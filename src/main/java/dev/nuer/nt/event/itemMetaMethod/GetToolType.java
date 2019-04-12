@@ -18,6 +18,7 @@ public class GetToolType {
     private boolean isMultiTool;
     //Store the type of tool from the tools.yml
     private String toolType;
+    private String directory;
     //Store the radius if it is a multi-tool
     private int multiToolRadius;
     private int toolTypeRawID;
@@ -33,18 +34,25 @@ public class GetToolType {
         for (int i = 1; i <= 54; i++) {
             try {
                 //Check to see which type of tool the item is
-                if (itemLore.contains(NTools.getTrenchTools().get(i))) {
+                if (itemLore.contains(NTools.getToolMap("trench").get(i))) {
                     toolTypeRawID = i;
-                    toolType = "trench." + toolTypeRawID;
+                    directory = "trench";
+                    toolType = "trench-tools." + toolTypeRawID;
                     isTrenchTool = true;
                     break;
-                } else if (itemLore.contains(NTools.getTrayTools().get(i))) {
+                } else if (itemLore.contains(NTools.getToolMap("tray").get(i))) {
                     toolTypeRawID = i;
-                    toolType = "tray." + toolTypeRawID;
+                    directory = "tray";
+                    toolType = "tray-tools." + toolTypeRawID;
                     isTrayTool = true;
-                } else if (itemLore.contains(NTools.getMultiTools().get(i))) {
+                } else if (itemLore.contains(NTools.getToolMap("sand").get(i))){
                     toolTypeRawID = i;
-                    toolType = "multi-tool." + toolTypeRawID;
+                    directory = "sand";
+                    toolType = "sand-wands." + toolTypeRawID;
+                } else if (itemLore.contains(NTools.getToolMap("multi").get(i))) {
+                    toolTypeRawID = i;
+                    directory = "multi";
+                    toolType = "multi-tools." + toolTypeRawID;
                     isMultiTool = true;
                     //Store mode unique ids
                     if (GetMultiToolVariables.queryToolMode(toolTypeRawID, itemLore,
@@ -113,5 +121,9 @@ public class GetToolType {
 
     public int getToolTypeRawID() {
         return toolTypeRawID;
+    }
+
+    public String getDirectory() {
+        return directory;
     }
 }
