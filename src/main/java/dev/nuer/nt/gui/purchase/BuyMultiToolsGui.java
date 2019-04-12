@@ -2,6 +2,7 @@ package dev.nuer.nt.gui.purchase;
 
 import dev.nuer.nt.NTools;
 import dev.nuer.nt.gui.AbstractGui;
+import dev.nuer.nt.initialize.OtherMapInitializer;
 import dev.nuer.nt.method.itemCreation.CraftItem;
 import dev.nuer.nt.method.itemCreation.PurchaseTool;
 import dev.nuer.nt.method.player.PlayerMessage;
@@ -33,12 +34,12 @@ public class BuyMultiToolsGui extends AbstractGui {
                                             (NTools.getFiles().get("multi_purchase_gui").getString("multi-tool-purchase-gui." + configItem + ".material")),
                                             (NTools.getFiles().get("multi").getString("multi-tools." + configItem + ".name")),
                                             (NTools.getFiles().get("multi").getStringList("multi-tools." + configItem + ".lore")),
-                                            (NTools.multiToolRadiusUnique.get(configItem).get(1)),
-                                            (NTools.multiToolModeUnique.get(configItem).get(1)),
+                                            (OtherMapInitializer.multiToolRadiusUnique.get(configItem).get(1)),
+                                            (OtherMapInitializer.multiToolModeUnique.get(configItem).get(1)),
                                             (NTools.getFiles().get("multi").getStringList("multi-tools." + configItem + ".enchantments")), player);
                                 }
                                 if (NTools.getFiles().get("multi_purchase_gui").getBoolean("multi-tool-purchase-gui." + configItem + ".back-button")) {
-                                    NTools.getPlugin(NTools.class).getBuyToolsGenericGui().open(player);
+                                    NTools.getPlugin(NTools.class).getGuiByName("generic-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

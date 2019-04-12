@@ -2,6 +2,7 @@ package dev.nuer.nt.event.miningTool;
 
 import dev.nuer.nt.NTools;
 import dev.nuer.nt.event.itemMetaMethod.GetToolType;
+import dev.nuer.nt.initialize.OtherMapInitializer;
 import dev.nuer.nt.method.BlockInBorderCheck;
 import dev.nuer.nt.method.player.AddBlocksToPlayerInventory;
 import org.bukkit.Bukkit;
@@ -9,8 +10,18 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageEvent;
 
+/**
+ * Class that handles breaking blocks for the trench, tray and multi tools
+ */
 public class BreakBlocksInRadius {
 
+    /**
+     * Void method to break blocks in a given radius
+     *
+     * @param toolType the type of tool
+     * @param event    the event which is being called
+     * @param player   the player who is breaking the blocks
+     */
     public static void breakBlocks(GetToolType toolType, BlockDamageEvent event, Player player) {
         //Get the radius of the tool from the tools.yml
         int radiusFromConf = NTools.getFiles().get(toolType.getDirectory()).getInt(toolType.getToolType() + ".break-radius");
@@ -41,13 +52,13 @@ public class BreakBlocksInRadius {
                             player)) {
                     } else {
                         if (toolType.getIsTrenchTool()) {
-                            if (NTools.trenchBlockBlacklist.contains(currentBlockType)) {
+                            if (OtherMapInitializer.trenchBlockBlacklist.contains(currentBlockType)) {
                                 event.setCancelled(true);
                             } else {
                                 AddBlocksToPlayerInventory.addBlocks(radialBreak.getBlock(), player);
                             }
                         } else if (toolType.getIsTrayTool()) {
-                            if (!NTools.trayBlockWhitelist.contains(currentBlockType)) {
+                            if (!OtherMapInitializer.trayBlockWhitelist.contains(currentBlockType)) {
                                 event.setCancelled(true);
                             } else {
                                 AddBlocksToPlayerInventory.addBlocks(radialBreak.getBlock(), player);

@@ -2,7 +2,6 @@ package dev.nuer.nt.file;
 
 import dev.nuer.nt.NTools;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.plugin.Plugin;
 
 import java.io.File;
 import java.util.HashMap;
@@ -14,8 +13,9 @@ public class LoadFile {
     /**
      * Enum to store each file, this is public so we can call methods on these
      */
+    //LIGHTNING, LIGHTNING_PURCHASE_GUI,
     public enum Files {
-        CONFIG, MESSAGES, TOOLS, LIGHTNING, LIGHTNING_PURCHASE_GUI, MULTI, MULTI_CONFIG_GUI, MULTI_PURCHASE_GUI,
+        CONFIG, MESSAGES, MULTI, MULTI_CONFIG_GUI, MULTI_PURCHASE_GUI,
         SAND, SAND_PURCHASE_GUI, TRAY, TRAY_PURCHASE_GUI, TRENCH, TRENCH_PURCHASE_GUI
     }
 

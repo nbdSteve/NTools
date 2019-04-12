@@ -11,10 +11,18 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
 
+/**
+ * Main event class for the plugin, handles trench, sand, tray and multi tool events
+ */
 public class BlockDamageByPlayer implements Listener {
 
+    /**
+     * Check that the player is holding a valid item
+     *
+     * @param event BlockDamageEvent, event being called to execute code
+     */
     @EventHandler
-    public void radialBlockBreak(BlockDamageEvent event) {
+    public void playerBlockDamage(BlockDamageEvent event) {
         //Check if the event is in a protected region
         if (event.isCancelled()) {
             return;
@@ -31,6 +39,11 @@ public class BlockDamageByPlayer implements Listener {
         List<String> itemLore = itemMeta.getLore();
         //Create a local variable for type of trench tool
         GetToolType toolType = new GetToolType(itemLore, itemMeta, player.getInventory().getItemInHand());
+        //Make sure the tool is valid
+        if (toolType.getToolType() == null) {
+            return;
+        }
+        //Run the respective code for the tool type
         if (toolType.getDirectory().equalsIgnoreCase("sand")) {
             RemoveSandStack.removeStack(toolType, event, player);
         } else {

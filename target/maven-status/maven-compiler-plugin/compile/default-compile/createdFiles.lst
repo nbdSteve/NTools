@@ -12,7 +12,6 @@ dev\nuer\nt\file\CreateFile.class
 dev\nuer\nt\event\sandWand\RemoveSandStack.class
 dev\nuer\nt\method\AddBlocksToBlacklist.class
 dev\nuer\nt\event\miningTool\radiusChangeMethod\ChangeRadiusInMeta.class
-dev\nuer\nt\gui\MultiToolOptionsGui.class
 dev\nuer\nt\event\sandWand\SandRemovalRunnable$1.class
 dev\nuer\nt\gui\BuyToolsGenericGui.class
 dev\nuer\nt\gui\purchase\BuyTrayToolsGui.class

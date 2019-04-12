@@ -36,7 +36,7 @@ public class BuyTrenchToolsGui extends AbstractGui {
                                             (NTools.getFiles().get("trench").getStringList("trench-tools." + configItem + ".enchantments")), player);
                                 }
                                 if (NTools.getFiles().get("trench_purchase_gui").getBoolean("trench-tool-purchase-gui." + configItem + ".back-button")) {
-                                    NTools.getPlugin(NTools.class).getBuyToolsGenericGui().open(player);
+                                    NTools.getPlugin(NTools.class).getGuiByName("generic-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

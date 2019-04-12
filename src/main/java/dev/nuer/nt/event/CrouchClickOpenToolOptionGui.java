@@ -40,7 +40,7 @@ public class CrouchClickOpenToolOptionGui implements Listener {
                 GetToolType toolType = new GetToolType(itemLore, itemMeta,
                         player.getInventory().getItemInHand());
                 if (toolType.getIsMultiTool()) {
-                    NTools.getPlugin(NTools.class).getMultiToolOptionsGui().open(player);
+                    NTools.getPlugin(NTools.class).getGuiByName("multi-config").open(player);
                 }
             }
         }

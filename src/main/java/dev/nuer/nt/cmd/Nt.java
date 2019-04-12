@@ -1,6 +1,9 @@
 package dev.nuer.nt.cmd;
 
 import dev.nuer.nt.NTools;
+import dev.nuer.nt.initialize.GuiInitializer;
+import dev.nuer.nt.initialize.OtherMapInitializer;
+import dev.nuer.nt.initialize.ToolMapInitializer;
 import dev.nuer.nt.method.itemCreation.CraftItem;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.Bukkit;
@@ -36,7 +39,7 @@ public class Nt implements CommandExecutor {
             if (args.length == 0) {
                 if (sender instanceof Player) {
                     if (sender.hasPermission("ntools.gui")) {
-                        NTools.getPlugin(NTools.class).getBuyToolsGenericGui().open((Player) sender);
+                        NTools.getPlugin(NTools.class).getGuiByName("generic-buy").open((Player) sender);
                     } else {
                         new PlayerMessage("no-permission", (Player) sender);
                     }
@@ -58,23 +61,30 @@ public class Nt implements CommandExecutor {
                 if (args[0].equalsIgnoreCase("r") || args[0].equalsIgnoreCase("reload")) {
                     if (sender instanceof Player) {
                         if (sender.hasPermission("ntools.admin")) {
+                            //Reload and instantiate all configuration sections
                             NTools.getFiles().reload();
-                            NTools.clearMaps();
-                            NTools.loadToolMaps();
+                            OtherMapInitializer.clearMaps();
+                            ToolMapInitializer.clearToolMaps();
+                            OtherMapInitializer.initializeMaps();
+                            ToolMapInitializer.initializeToolMaps();
                             new PlayerMessage("reload", (Player) sender);
                         } else {
                             new PlayerMessage("no-permission", (Player) sender);
                         }
                     } else {
+                        //Reload and instantiate all configuration sections
                         NTools.getFiles().reload();
-                        NTools.clearMaps();
-                        NTools.loadToolMaps();
+                        OtherMapInitializer.clearMaps();
+                        ToolMapInitializer.clearToolMaps();
+                        OtherMapInitializer.initializeMaps();
+                        ToolMapInitializer.initializeToolMaps();
+                        NTools.LOGGER.info("[NTools] Reload all tool maps and configuration files.");
                     }
                 }
                 if (args[0].equalsIgnoreCase("c") || args[0].equalsIgnoreCase("config")) {
                     if (sender instanceof Player) {
                         if (sender.hasPermission("ntools.gui.multi")) {
-                            NTools.getPlugin(NTools.class).getMultiToolOptionsGui().open((Player) sender);
+                            NTools.getPlugin(NTools.class).getGuiByName("multi-config").open((Player) sender);
                         } else {
                             new PlayerMessage("no-permission", (Player) sender);
                         }
@@ -97,8 +107,8 @@ public class Nt implements CommandExecutor {
                             if (args[2].equalsIgnoreCase("multi")) {
                                 new CraftItem(args[3], (NTools.getFiles().get("multi").getString("multi-tools." + args[4] + ".name")),
                                         (NTools.getFiles().get("multi").getStringList("multi-tools." + args[4] + ".lore")),
-                                        (NTools.multiToolRadiusUnique.get(Integer.parseInt(args[4])).get(1)),
-                                        (NTools.multiToolModeUnique.get(Integer.parseInt(args[4])).get(1)),
+                                        (OtherMapInitializer.multiToolRadiusUnique.get(Integer.parseInt(args[4])).get(1)),
+                                        (OtherMapInitializer.multiToolModeUnique.get(Integer.parseInt(args[4])).get(1)),
                                         (NTools.getFiles().get("multi").getStringList("multi-tools." + args[4] + ".enchantments")), target);
                             }
                             if (args[2].equalsIgnoreCase("trench")) {

@@ -3,7 +3,6 @@ package dev.nuer.nt.method.player;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.event.block.BlockEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
@@ -17,8 +16,8 @@ public class AddBlocksToPlayerInventory {
     /**
      * Adds the drops from the specified event to the players inventory
      *
-     * @param event  the event to get the drops of
-     * @param player the player who brock the block
+     * @param blockToBreak the event to get the drops of
+     * @param player       the player who brock the block
      */
     public static void addBlocks(Block blockToBreak, Player player) {
         if (!messagedPlayers.contains(player)) {

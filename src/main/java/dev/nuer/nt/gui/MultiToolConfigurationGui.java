@@ -15,12 +15,12 @@ import java.util.List;
 /**
  * Class that handles the Gui that will allow the player to configure their multi tool
  */
-public class MultiToolOptionsGui extends AbstractGui {
+public class MultiToolConfigurationGui extends AbstractGui {
 
     /**
      * Super constructor, add all items with their respective listeners
      */
-    public MultiToolOptionsGui() {
+    public MultiToolConfigurationGui() {
         super(NTools.getFiles().get("multi_config_gui").getInt("multi-tool-config-gui.size"),
                 ChatColor.translateAlternateColorCodes('&', NTools.getFiles().get("multi_config_gui").getString("multi-tool-config-gui.name")));
 

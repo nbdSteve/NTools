@@ -1,6 +1,6 @@
 package dev.nuer.nt.event.itemMetaMethod;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.initialize.ToolMapInitializer;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -21,6 +21,7 @@ public class GetToolType {
     private String directory;
     //Store the radius if it is a multi-tool
     private int multiToolRadius;
+    //Store the integer id from the section of config
     private int toolTypeRawID;
 
     /**
@@ -34,22 +35,22 @@ public class GetToolType {
         for (int i = 1; i <= 54; i++) {
             try {
                 //Check to see which type of tool the item is
-                if (itemLore.contains(NTools.getToolMap("trench").get(i))) {
+                if (itemLore.contains(ToolMapInitializer.trenchTools.get(i))) {
                     toolTypeRawID = i;
                     directory = "trench";
                     toolType = "trench-tools." + toolTypeRawID;
                     isTrenchTool = true;
                     break;
-                } else if (itemLore.contains(NTools.getToolMap("tray").get(i))) {
+                } else if (itemLore.contains(ToolMapInitializer.trayTools.get(i))) {
                     toolTypeRawID = i;
                     directory = "tray";
                     toolType = "tray-tools." + toolTypeRawID;
                     isTrayTool = true;
-                } else if (itemLore.contains(NTools.getToolMap("sand").get(i))){
+                } else if (itemLore.contains(ToolMapInitializer.sandWands.get(i))) {
                     toolTypeRawID = i;
                     directory = "sand";
                     toolType = "sand-wands." + toolTypeRawID;
-                } else if (itemLore.contains(NTools.getToolMap("multi").get(i))) {
+                } else if (itemLore.contains(ToolMapInitializer.multiTools.get(i))) {
                     toolTypeRawID = i;
                     directory = "multi";
                     toolType = "multi-tools." + toolTypeRawID;
@@ -119,10 +120,20 @@ public class GetToolType {
         return multiToolRadius;
     }
 
+    /**
+     * Getter for the raw tool ID
+     *
+     * @return
+     */
     public int getToolTypeRawID() {
         return toolTypeRawID;
     }
 
+    /**
+     * Get for the tools source file directory
+     *
+     * @return
+     */
     public String getDirectory() {
         return directory;
     }

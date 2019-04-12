@@ -2,6 +2,7 @@ package dev.nuer.nt.event.miningTool.radiusChangeMethod;
 
 import dev.nuer.nt.NTools;
 import dev.nuer.nt.event.itemMetaMethod.UpdateItem;
+import dev.nuer.nt.initialize.OtherMapInitializer;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -32,25 +33,25 @@ public class ChangeRadiusInMeta {
                                    ItemMeta itemMeta, ItemStack item, Player player) {
         if (increment) {
             try {
-                int maxRadius = Integer.parseInt(NTools.multiToolRadiusUnique.get(toolTypeRawID).get
-                        (NTools.multiToolRadiusUnique.get(toolTypeRawID).size() - 1));
+                int maxRadius = Integer.parseInt(OtherMapInitializer.multiToolRadiusUnique.get(toolTypeRawID).get
+                        (OtherMapInitializer.multiToolRadiusUnique.get(toolTypeRawID).size() - 1));
                 if (radius + 1 <= maxRadius) {
                     if (player != null) {
                         if (NTools.economy != null) {
                             if (NTools.economy.getBalance(player) >= priceToUpgrade) {
                                 NTools.economy.withdrawPlayer(player, priceToUpgrade);
-                                itemLore.set(index, radiusLore + " " + NTools.multiToolRadiusUnique.get(toolTypeRawID).get(radius + 1));
+                                itemLore.set(index, radiusLore + " " + OtherMapInitializer.multiToolRadiusUnique.get(toolTypeRawID).get(radius + 1));
                                 UpdateItem.updateItem(itemLore, itemMeta, item);
                                 new PlayerMessage("incremented-radius", player, "{price}", NTools.numberFormat.format(priceToUpgrade));
                             } else {
                                 new PlayerMessage("insufficient", player);
                             }
                         } else {
-                            itemLore.set(index, radiusLore + " " + NTools.multiToolRadiusUnique.get(toolTypeRawID).get(radius + 1));
+                            itemLore.set(index, radiusLore + " " + OtherMapInitializer.multiToolRadiusUnique.get(toolTypeRawID).get(radius + 1));
                             UpdateItem.updateItem(itemLore, itemMeta, item);
                         }
                     } else {
-                        itemLore.set(index, radiusLore + " " + NTools.multiToolRadiusUnique.get(toolTypeRawID).get(radius + 1));
+                        itemLore.set(index, radiusLore + " " + OtherMapInitializer.multiToolRadiusUnique.get(toolTypeRawID).get(radius + 1));
                         UpdateItem.updateItem(itemLore, itemMeta, item);
                     }
                 } else {
@@ -62,11 +63,11 @@ public class ChangeRadiusInMeta {
         }
         if (decrement) {
             try {
-                int minRadius = Integer.parseInt(NTools.multiToolRadiusUnique.get(toolTypeRawID).get
-                        (NTools.multiToolRadiusUnique.get(toolTypeRawID).size() - 2));
+                int minRadius = Integer.parseInt(OtherMapInitializer.multiToolRadiusUnique.get(toolTypeRawID).get
+                        (OtherMapInitializer.multiToolRadiusUnique.get(toolTypeRawID).size() - 2));
                 if (radius - 1 >= minRadius) {
                     itemLore.set(index,
-                            radiusLore + " " + NTools.multiToolRadiusUnique.get(toolTypeRawID).get(radius - 1));
+                            radiusLore + " " + OtherMapInitializer.multiToolRadiusUnique.get(toolTypeRawID).get(radius - 1));
                     UpdateItem.updateItem(itemLore, itemMeta, item);
                 } else {
                     return -1;

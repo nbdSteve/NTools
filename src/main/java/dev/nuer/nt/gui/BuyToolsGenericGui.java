@@ -27,16 +27,16 @@ public class BuyToolsGenericGui extends AbstractGui {
                             //Add the respective listeners to items based off the config
                             try {
                                 if (NTools.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-multi")) {
-                                    NTools.getPlugin(NTools.class).getBuyMultiToolsGui().open(player);
+                                    NTools.getPlugin(NTools.class).getGuiByName("multi-buy").open(player);
                                 }
                                 if (NTools.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-trench")) {
-                                    NTools.getPlugin(NTools.class).getBuyTrenchToolsGui().open(player);
+                                    NTools.getPlugin(NTools.class).getGuiByName("trench-buy").open(player);
                                 }
                                 if (NTools.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-tray")) {
-                                    NTools.getPlugin(NTools.class).getBuyTrayToolsGui().open(player);
+                                    NTools.getPlugin(NTools.class).getGuiByName("tray-buy").open(player);
                                 }
                                 if (NTools.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-sand")) {
-                                    NTools.getPlugin(NTools.class).getBuySandWandsGui().open(player);
+                                    NTools.getPlugin(NTools.class).getGuiByName("sand-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

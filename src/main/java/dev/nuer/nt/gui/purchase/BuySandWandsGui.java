@@ -36,7 +36,7 @@ public class BuySandWandsGui extends AbstractGui {
                                             (NTools.getFiles().get("sand").getStringList("sand-wands." + configItem + ".enchantments")), player);
                                 }
                                 if (NTools.getFiles().get("sand_purchase_gui").getBoolean("sand-wand-purchase-gui." + configItem + ".back-button")) {
-                                    NTools.getPlugin(NTools.class).getBuyToolsGenericGui().open(player);
+                                    NTools.getPlugin(NTools.class).getGuiByName("generic-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();
