@@ -75,6 +75,39 @@ public class GetToolType {
         }
     }
 
+    public GetToolType(String typeOfTool, int toolTypeRawID) {
+        //Check to see which type of tool the item is
+        if (typeOfTool.equalsIgnoreCase("trench")) {
+            this.toolTypeRawID = toolTypeRawID;
+            directory = "trench";
+            toolType = "trench-tools." + toolTypeRawID;
+            isTrenchTool = true;
+        } else if (typeOfTool.equalsIgnoreCase("tray")) {
+            this.toolTypeRawID = toolTypeRawID;
+            directory = "tray";
+            toolType = "tray-tools." + toolTypeRawID;
+            isTrayTool = true;
+        } else if (typeOfTool.equalsIgnoreCase("sand")) {
+            this.toolTypeRawID = toolTypeRawID;
+            directory = "sand";
+            toolType = "sand-wands." + toolTypeRawID;
+        } else if (typeOfTool.equalsIgnoreCase("multi")) {
+            this.toolTypeRawID = toolTypeRawID;
+            directory = "multi";
+            toolType = "multi-tools." + toolTypeRawID;
+            isMultiTool = true;
+            //Store mode unique ids
+        }
+    }
+
+    public void getMultiToolMode(String multiToolMode) {
+        if (multiToolMode.equalsIgnoreCase("trench")) {
+            isTrenchTool = true;
+        } else if (multiToolMode.equalsIgnoreCase("tray")) {
+            isTrayTool = true;
+        }
+    }
+
     /**
      * Getter for trench tool boolean
      *

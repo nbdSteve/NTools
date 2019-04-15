@@ -1,6 +1,7 @@
 package dev.nuer.nt.cmd;
 
 import dev.nuer.nt.NTools;
+import dev.nuer.nt.external.NBTHelper;
 import dev.nuer.nt.initialize.GuiInitializer;
 import dev.nuer.nt.initialize.OtherMapInitializer;
 import dev.nuer.nt.initialize.ToolMapInitializer;
@@ -11,6 +12,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 /**
  * Class that handles the /nt and /tools command for the plugin
@@ -112,9 +114,11 @@ public class Nt implements CommandExecutor {
                                         (NTools.getFiles().get("multi").getStringList("multi-tools." + args[4] + ".enchantments")), target);
                             }
                             if (args[2].equalsIgnoreCase("trench")) {
-                                new CraftItem(args[3], (NTools.getFiles().get("trench").getString("trench-tools." + args[4] + ".name")),
+                                CraftItem item = new CraftItem(args[3], (NTools.getFiles().get("trench").getString("trench-tools." + args[4] + ".name")),
                                         (NTools.getFiles().get("trench").getStringList("trench-tools." + args[4] + ".lore")), null, null,
-                                        (NTools.getFiles().get("trench").getStringList("trench-tools." + args[4] + ".enchantments")), target);
+                                        (NTools.getFiles().get("trench").getStringList("trench-tools." + args[4] + ".enchantments")), null);
+                                ItemStack newItem = NBTHelper.addToolData(item.getItem(), "trench", Integer.parseInt(args[4]), false, null);
+                                target.getInventory().addItem(newItem);
                             }
                             if (args[2].equalsIgnoreCase("tray")) {
                                 new CraftItem(args[3], (NTools.getFiles().get("tray").getString("tray-tools." + args[4] + ".name")),

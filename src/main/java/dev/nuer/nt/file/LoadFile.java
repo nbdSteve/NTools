@@ -25,7 +25,7 @@ public class LoadFile {
     public LoadFile() {
         files = new HashMap<>();
         //Load generic files
-        files.put(Files.CONFIG, new CreateFile("config.yml"));
+        files.put(Files.CONFIG, new CreateFile("ntools.yml"));
         files.put(Files.MESSAGES, new CreateFile("messages.yml"));
         //Load lightning wand files
 //        files.put(Files.LIGHTNING, new CreateFile("lightning" + File.separator + "wands.yml"));

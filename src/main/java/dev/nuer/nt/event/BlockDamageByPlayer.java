@@ -1,8 +1,11 @@
 package dev.nuer.nt.event;
 
+import dev.nuer.nt.NTools;
 import dev.nuer.nt.event.itemMetaMethod.GetToolType;
 import dev.nuer.nt.event.miningTool.BreakBlocksInRadius;
 import dev.nuer.nt.event.sandWand.RemoveSandStack;
+import dev.nuer.nt.external.nbtapi.NBTItem;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,6 +18,7 @@ import java.util.List;
  * Main event class for the plugin, handles trench, sand, tray and multi tool events
  */
 public class BlockDamageByPlayer implements Listener {
+    GetToolType toolType;
 
     /**
      * Check that the player is holding a valid item
@@ -30,24 +34,30 @@ public class BlockDamageByPlayer implements Listener {
         //Store the player
         Player player = event.getPlayer();
         //If the players item doesn't have meta / lore, return
-        if (!player.getInventory().getItemInHand().hasItemMeta() || !player.getInventory().getItemInHand().getItemMeta().hasLore()) {
+        if (!player.getItemInHand().hasItemMeta() || !player.getItemInHand().getItemMeta().hasLore()) {
             return;
         }
-        //Create a local variable for the item meta
-        ItemMeta itemMeta = player.getInventory().getItemInHand().getItemMeta();
-        //Create a local variable for the item lore
-        List<String> itemLore = itemMeta.getLore();
-        //Create a local variable for type of trench tool
-        GetToolType toolType = new GetToolType(itemLore, itemMeta, player.getInventory().getItemInHand());
-        //Make sure the tool is valid
-        if (toolType.getToolType() == null) {
+        //Create a new nbt object
+        NBTItem nbtItem = new NBTItem(player.getItemInHand());
+        //Make sure the tool is an ntool
+        if (!nbtItem.getBoolean("ntool")) {
+            return;
+        }
+        //Run task async :)
+        Bukkit.getScheduler().runTaskAsynchronously(NTools.getPlugin(NTools.class), () -> {
+            this.toolType = new GetToolType(nbtItem.getString("ntool.tool.type"), nbtItem.getInteger("ntool.raw.id"));
+            if (toolType.getIsMultiTool()) {
+                toolType.getMultiToolMode(nbtItem.getString("ntool.multi.mode"));
+            }
+        });
+        if (toolType == null) {
             return;
         }
         //Run the respective code for the tool type
         if (toolType.getDirectory().equalsIgnoreCase("sand")) {
             RemoveSandStack.removeStack(toolType, event, player);
         } else {
-            BreakBlocksInRadius.breakBlocks(toolType, event, player);
+            new BreakBlocksInRadius(toolType, event, player);
         }
     }
 }

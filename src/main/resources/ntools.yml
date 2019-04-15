@@ -1,0 +1,69 @@
+# NTools - if you find any bugs please contact nbdSteve#0583 on Discord.
+version: 0.2.2
+
+enable-debug-messages: false
+
+trench-block-blacklist:
+  - bedrock
+  - obsidian
+  - mob_spawner
+  - hopper
+  - chest
+
+tray-block-whitelist:
+  - dirt
+  - netherrack
+
+sand-block-whitelist:
+  - sand
+  - gravel
+  - red_sand
+
+tool-purchase-gui:
+  # generic gui to select a type of tool to buy
+  size: 9
+  name: "&6&lBuy Tools"
+  1:
+    slot: 0
+    name: "&b&lMulti Tools"
+    material: ghast_tear:0
+    lore:
+      - "&7 "
+      - "&7&oClick this to buy multi tools"
+      - "&7 "
+    enchantments:
+      - lure:10
+    open-multi: true
+  2:
+    slot: 1
+    name: "&b&lTrench Tools"
+    material: magma_cream:0
+    lore:
+      - "&7 "
+      - "&7&oClick this to buy trench tools"
+      - "&7 "
+    enchantments:
+      - fire_aspect:10
+    open-trench: true
+  3:
+    slot: 2
+    name: "&b&lTray Tools"
+    material: emerald:0
+    lore:
+      - "&7 "
+      - "&7&oClick this to buy tray tools"
+      - "&7 "
+    enchantments:
+      - fire_aspect:10
+    open-tray: true
+  4:
+    slot: 3
+    name: "&b&lSand Wands"
+    material: clay_ball:0
+    lore:
+      - "&7 "
+      - "&7&oClick this to buy sand wands"
+      - "&7 "
+    enchantments:
+      - fire_aspect:10
+    open-sand: true
