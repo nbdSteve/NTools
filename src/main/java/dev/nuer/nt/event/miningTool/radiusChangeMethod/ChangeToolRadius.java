@@ -22,14 +22,11 @@ public class ChangeToolRadius {
      * @param item          the item being update
      * @param player        the player being queried
      */
-    public static void incrementRadius(int toolTypeRawID, List<String> itemLore,
+    public static void incrementRadius(List<String> itemLore,
                                        ItemMeta itemMeta, ItemStack item, Player player) {
         player.closeInventory();
-        int radius = GetMultiToolVariables.queryToolRadius(toolTypeRawID, itemLore,
+        GetMultiToolVariables.changeToolRadius(itemLore,
                 itemMeta, item, true, false, player);
-        if (radius == -1) {
-            new PlayerMessage("max-radius", player);
-        }
     }
 
     /**
@@ -41,15 +38,10 @@ public class ChangeToolRadius {
      * @param item          the item being update
      * @param player        the player being queried
      */
-    public static void decrementRadius(int toolTypeRawID, List<String> itemLore,
+    public static void decrementRadius(List<String> itemLore,
                                        ItemMeta itemMeta, ItemStack item, Player player) {
         player.closeInventory();
-        int radius = GetMultiToolVariables.queryToolRadius(toolTypeRawID, itemLore,
+        GetMultiToolVariables.changeToolRadius(itemLore,
                 itemMeta, item, false, true, player);
-        if (radius == -1) {
-            new PlayerMessage("min-radius", player);
-        } else {
-            new PlayerMessage("decremented-radius", player);
-        }
     }
 }

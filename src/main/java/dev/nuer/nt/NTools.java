@@ -2,7 +2,7 @@ package dev.nuer.nt;
 
 import dev.nuer.nt.cmd.Nt;
 import dev.nuer.nt.event.BlockDamageByPlayer;
-import dev.nuer.nt.event.CrouchClickOpenToolOptionGui;
+import dev.nuer.nt.event.CrouchRightClickOpenGui;
 import dev.nuer.nt.file.LoadFile;
 import dev.nuer.nt.gui.AbstractGui;
 import dev.nuer.nt.gui.listener.GuiClickListener;
@@ -67,7 +67,7 @@ public final class NTools extends JavaPlugin {
         getCommand("nt").setExecutor(new Nt(this));
         //Register the events for the plugin
         getServer().getPluginManager().registerEvents(new BlockDamageByPlayer(), this);
-        getServer().getPluginManager().registerEvents(new CrouchClickOpenToolOptionGui(), this);
+        getServer().getPluginManager().registerEvents(new CrouchRightClickOpenGui(), this);
         getServer().getPluginManager().registerEvents(new GuiClickListener(), this);
     }
 

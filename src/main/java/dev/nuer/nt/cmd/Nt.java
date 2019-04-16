@@ -1,8 +1,7 @@
 package dev.nuer.nt.cmd;
 
 import dev.nuer.nt.NTools;
-import dev.nuer.nt.external.NBTHelper;
-import dev.nuer.nt.initialize.GuiInitializer;
+import dev.nuer.nt.external.NBTCreator;
 import dev.nuer.nt.initialize.OtherMapInitializer;
 import dev.nuer.nt.initialize.ToolMapInitializer;
 import dev.nuer.nt.method.itemCreation.CraftItem;
@@ -107,28 +106,34 @@ public class Nt implements CommandExecutor {
                                 }
                             }
                             if (args[2].equalsIgnoreCase("multi")) {
-                                new CraftItem(args[3], (NTools.getFiles().get("multi").getString("multi-tools." + args[4] + ".name")),
+                                CraftItem item = new CraftItem(args[3], (NTools.getFiles().get("multi").getString("multi-tools." + args[4] + ".name")),
                                         (NTools.getFiles().get("multi").getStringList("multi-tools." + args[4] + ".lore")),
                                         (OtherMapInitializer.multiToolRadiusUnique.get(Integer.parseInt(args[4])).get(1)),
                                         (OtherMapInitializer.multiToolModeUnique.get(Integer.parseInt(args[4])).get(1)),
-                                        (NTools.getFiles().get("multi").getStringList("multi-tools." + args[4] + ".enchantments")), target);
+                                        (NTools.getFiles().get("multi").getStringList("multi-tools." + args[4] + ".enchantments")), null);
+                                ItemStack newItem = NBTCreator.addToolData(item.getItem(), "multi", Integer.parseInt(args[4]), true, 1);
+                                target.getInventory().addItem(newItem);
                             }
                             if (args[2].equalsIgnoreCase("trench")) {
                                 CraftItem item = new CraftItem(args[3], (NTools.getFiles().get("trench").getString("trench-tools." + args[4] + ".name")),
                                         (NTools.getFiles().get("trench").getStringList("trench-tools." + args[4] + ".lore")), null, null,
                                         (NTools.getFiles().get("trench").getStringList("trench-tools." + args[4] + ".enchantments")), null);
-                                ItemStack newItem = NBTHelper.addToolData(item.getItem(), "trench", Integer.parseInt(args[4]), false, null);
+                                ItemStack newItem = NBTCreator.addToolData(item.getItem(), "trench", Integer.parseInt(args[4]), false, 0);
                                 target.getInventory().addItem(newItem);
                             }
                             if (args[2].equalsIgnoreCase("tray")) {
-                                new CraftItem(args[3], (NTools.getFiles().get("tray").getString("tray-tools." + args[4] + ".name")),
+                                CraftItem item = new CraftItem(args[3], (NTools.getFiles().get("tray").getString("tray-tools." + args[4] + ".name")),
                                         (NTools.getFiles().get("tray").getStringList("tray-tools." + args[4] + ".lore")), null, null,
-                                        (NTools.getFiles().get("tray").getStringList("tray-tools." + args[4] + ".enchantments")), target);
+                                        (NTools.getFiles().get("tray").getStringList("tray-tools." + args[4] + ".enchantments")), null);
+                                ItemStack newItem = NBTCreator.addToolData(item.getItem(), "tray", Integer.parseInt(args[4]), false, 0);
+                                target.getInventory().addItem(newItem);
                             }
                             if (args[2].equalsIgnoreCase("sand")) {
-                                new CraftItem(args[3], (NTools.getFiles().get("sand").getString("sand-wands." + args[4] + ".name")),
+                                CraftItem item = new CraftItem(args[3], (NTools.getFiles().get("sand").getString("sand-wands." + args[4] + ".name")),
                                         (NTools.getFiles().get("sand").getStringList("sand-wands." + args[4] + ".lore")), null, null,
                                         (NTools.getFiles().get("sand").getStringList("sand-wands." + args[4] + ".enchantments")), target);
+                                ItemStack newItem = NBTCreator.addToolData(item.getItem(), "sand", Integer.parseInt(args[4]), false, 0);
+                                target.getInventory().addItem(newItem);
                             }
                         } catch (Exception invalidCommandParameters) {
                             if (sender instanceof Player) {

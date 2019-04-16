@@ -45,10 +45,10 @@ public class MultiToolConfigurationGui extends AbstractGui {
                                     ModeSwitch.switchMode((new GetToolType(itemLore, itemMeta, item).getToolTypeRawID()), itemLore, itemMeta, item, player);
                                 }
                                 if (NTools.getFiles().get("multi_config_gui").getBoolean("multi-tool-config-gui." + configItem + ".increase-radius-when-clicked")) {
-                                    ChangeToolRadius.incrementRadius((new GetToolType(itemLore, itemMeta, item).getToolTypeRawID()), itemLore, itemMeta, item, player);
+                                    ChangeToolRadius.incrementRadius(itemLore, itemMeta, item, player);
                                 }
                                 if (NTools.getFiles().get("multi_config_gui").getBoolean("multi-tool-config-gui." + configItem + ".decrease-radius-when-clicked")) {
-                                    ChangeToolRadius.decrementRadius((new GetToolType(itemLore, itemMeta, item).getToolTypeRawID()), itemLore, itemMeta, item, player);
+                                    ChangeToolRadius.decrementRadius(itemLore, itemMeta, item, player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

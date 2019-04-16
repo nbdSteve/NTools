@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Class that handles PlayerInteractEvent to open the multi tool options Gui
  */
-public class CrouchClickOpenToolOptionGui implements Listener {
+public class CrouchRightClickOpenGui implements Listener {
 
     /**
      * Method called on PlayerInteract
@@ -37,8 +37,7 @@ public class CrouchClickOpenToolOptionGui implements Listener {
                 //Create a local variable for the item lore
                 List<String> itemLore = itemMeta.getLore();
                 //Create a local variable for type of trench tool
-                GetToolType toolType = new GetToolType(itemLore, itemMeta,
-                        player.getInventory().getItemInHand());
+                GetToolType toolType = new GetToolType(itemLore, itemMeta, player.getInventory().getItemInHand());
                 if (toolType.getIsMultiTool()) {
                     NTools.getPlugin(NTools.class).getGuiByName("multi-config").open(player);
                 }
