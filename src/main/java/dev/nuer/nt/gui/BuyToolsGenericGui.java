@@ -22,7 +22,7 @@ public class BuyToolsGenericGui extends AbstractGui {
                         new CraftItem((NTools.getFiles().get("config").getString("tool-purchase-gui." + configItem + ".material")),
                                 (NTools.getFiles().get("config").getString("tool-purchase-gui." + configItem + ".name")),
                                 (NTools.getFiles().get("config").getStringList("tool-purchase-gui." + configItem + ".lore")), null, null,
-                                (NTools.getFiles().get("config").getStringList("tool-purchase-gui." + configItem + ".enchantments")), null).getItem(),
+                                (NTools.getFiles().get("config").getStringList("tool-purchase-gui." + configItem + ".enchantments")), "null", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
@@ -37,6 +37,9 @@ public class BuyToolsGenericGui extends AbstractGui {
                                 }
                                 if (NTools.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-sand")) {
                                     NTools.getPlugin(NTools.class).getGuiByName("sand-buy").open(player);
+                                }
+                                if (NTools.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-lightning")) {
+                                    NTools.getPlugin(NTools.class).getGuiByName("lightning-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

@@ -24,7 +24,7 @@ public class BuyTrayToolsGui extends AbstractGui {
                         new CraftItem((NTools.getFiles().get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".material")),
                                 (NTools.getFiles().get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".name")),
                                 (NTools.getFiles().get("tray_purchase_gui").getStringList("tray-tool-purchase-gui." + configItem + ".lore")), null, null,
-                                (NTools.getFiles().get("tray_purchase_gui").getStringList("tray-tool-purchase-gui." + configItem + ".enchantments")), null).getItem(),
+                                (NTools.getFiles().get("tray_purchase_gui").getStringList("tray-tool-purchase-gui." + configItem + ".enchantments")), "tray", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
@@ -33,7 +33,7 @@ public class BuyTrayToolsGui extends AbstractGui {
                                             (NTools.getFiles().get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".material")),
                                             (NTools.getFiles().get("tray").getString("tray-tools." + configItem + ".name")),
                                             (NTools.getFiles().get("tray").getStringList("tray-tools." + configItem + ".lore")), null, null,
-                                            (NTools.getFiles().get("tray").getStringList("tray-tools." + configItem + ".enchantments")), player);
+                                            (NTools.getFiles().get("tray").getStringList("tray-tools." + configItem + ".enchantments")), "tray", configItem, player);
                                 }
                                 if (NTools.getFiles().get("tray_purchase_gui").getBoolean("tray-tool-purchase-gui." + configItem + ".back-button")) {
                                     NTools.getPlugin(NTools.class).getGuiByName("generic-buy").open(player);

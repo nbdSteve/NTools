@@ -1,7 +1,7 @@
 # NTools - if you find any bugs please contact nbdSteve#0583 on Discord.
-version: 0.2.2
+version: 0.2.4
 
-enable-debug-messages: false
+enable-debug-messages: true
 
 trench-block-blacklist:
   - bedrock
@@ -9,6 +9,7 @@ trench-block-blacklist:
   - mob_spawner
   - hopper
   - chest
+  - glass
 
 tray-block-whitelist:
   - dirt
@@ -67,3 +68,14 @@ tool-purchase-gui:
     enchantments:
       - fire_aspect:10
     open-sand: true
+  5:
+    slot: 4
+    name: "&b&lLightning Wands"
+    material: bowl:0
+    lore:
+      - "&7 "
+      - "&7&oClick this to buy lightning wands"
+      - "&7 "
+    enchantments:
+      - fire_aspect:10
+    open-lightning: true

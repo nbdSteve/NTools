@@ -1,15 +1,17 @@
 package dev.nuer.nt;
 
 import dev.nuer.nt.cmd.Nt;
-import dev.nuer.nt.event.BlockDamageByPlayer;
-import dev.nuer.nt.event.CrouchRightClickOpenGui;
 import dev.nuer.nt.file.LoadFile;
 import dev.nuer.nt.gui.AbstractGui;
 import dev.nuer.nt.gui.listener.GuiClickListener;
 import dev.nuer.nt.initialize.GuiInitializer;
-import dev.nuer.nt.initialize.OtherMapInitializer;
-import dev.nuer.nt.initialize.ToolMapInitializer;
+import dev.nuer.nt.initialize.MapInitializer;
+import dev.nuer.nt.listener.BlockDamageByPlayer;
+import dev.nuer.nt.listener.CrouchRightClickOpenGui;
+import dev.nuer.nt.listener.PlayerInteractWithGround;
+import dev.nuer.nt.listener.ToolsListener;
 import net.milkbowl.vault.economy.Economy;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.text.DecimalFormat;
@@ -24,7 +26,7 @@ public final class NTools extends JavaPlugin {
     //Store the gui instances
     private GuiInitializer pluginGui;
     //Create a logger for the plugin
-    public static Logger LOGGER = Logger.getLogger(NTools.class.getName());
+    public static Logger LOGGER = Bukkit.getLogger();
     //Store the servers economy
     public static Economy economy;
     //If the plugin should log debug timing messages
@@ -50,9 +52,7 @@ public final class NTools extends JavaPlugin {
         //Create files instance
         files = new LoadFile();
         //Load the black / white and unique id list maps
-        OtherMapInitializer.initializeMaps();
-        //Load the tool maps
-        ToolMapInitializer.initializeToolMaps();
+        MapInitializer.initializeMaps();
         //Create the Gui instances
         pluginGui = new GuiInitializer();
         //Get the server econ
@@ -67,6 +67,8 @@ public final class NTools extends JavaPlugin {
         getCommand("nt").setExecutor(new Nt(this));
         //Register the events for the plugin
         getServer().getPluginManager().registerEvents(new BlockDamageByPlayer(), this);
+        getServer().getPluginManager().registerEvents(new PlayerInteractWithGround(), this);
+        getServer().getPluginManager().registerEvents(new ToolsListener(), this);
         getServer().getPluginManager().registerEvents(new CrouchRightClickOpenGui(), this);
         getServer().getPluginManager().registerEvents(new GuiClickListener(), this);
     }
@@ -76,8 +78,7 @@ public final class NTools extends JavaPlugin {
      */
     @Override
     public void onDisable() {
-        OtherMapInitializer.clearMaps();
-        ToolMapInitializer.clearToolMaps();
+        MapInitializer.clearMaps();
         LOGGER.info("[NTools] Thanks for using NTools, if you find any bugs contact nbdSteve#0583 on Discord.");
     }
 

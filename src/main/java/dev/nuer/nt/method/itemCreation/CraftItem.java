@@ -1,5 +1,7 @@
 package dev.nuer.nt.method.itemCreation;
 
+import dev.nuer.nt.external.NBTCreator;
+import dev.nuer.nt.external.nbtapi.NBTItem;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -33,7 +35,7 @@ public class CraftItem {
      * @param player            Player, player to give the new item to, can be null
      */
     public CraftItem(String material, String name, List<String> lore, String modeReplacement,
-                     String radiusReplacement, List<String> enchantments, Player player) {
+                     String radiusReplacement, List<String> enchantments, String typeOfTool, int idFromConfig, Player player) {
         item = createItem(material);
         itemMeta = item.getItemMeta();
         if (name != null) {
@@ -44,7 +46,7 @@ public class CraftItem {
         addEnchantments(enchantments);
         item.setItemMeta(itemMeta);
         if (player != null) {
-            player.getInventory().addItem(item);
+            player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig));
         }
     }
 

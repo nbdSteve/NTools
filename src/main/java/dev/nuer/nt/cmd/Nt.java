@@ -1,9 +1,7 @@
 package dev.nuer.nt.cmd;
 
 import dev.nuer.nt.NTools;
-import dev.nuer.nt.external.NBTCreator;
-import dev.nuer.nt.initialize.OtherMapInitializer;
-import dev.nuer.nt.initialize.ToolMapInitializer;
+import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.itemCreation.CraftItem;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.Bukkit;
@@ -11,7 +9,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 /**
  * Class that handles the /nt and /tools command for the plugin
@@ -64,10 +61,8 @@ public class Nt implements CommandExecutor {
                         if (sender.hasPermission("ntools.admin")) {
                             //Reload and instantiate all configuration sections
                             NTools.getFiles().reload();
-                            OtherMapInitializer.clearMaps();
-                            ToolMapInitializer.clearToolMaps();
-                            OtherMapInitializer.initializeMaps();
-                            ToolMapInitializer.initializeToolMaps();
+                            MapInitializer.clearMaps();
+                            MapInitializer.initializeMaps();
                             new PlayerMessage("reload", (Player) sender);
                         } else {
                             new PlayerMessage("no-permission", (Player) sender);
@@ -75,10 +70,8 @@ public class Nt implements CommandExecutor {
                     } else {
                         //Reload and instantiate all configuration sections
                         NTools.getFiles().reload();
-                        OtherMapInitializer.clearMaps();
-                        ToolMapInitializer.clearToolMaps();
-                        OtherMapInitializer.initializeMaps();
-                        ToolMapInitializer.initializeToolMaps();
+                        MapInitializer.clearMaps();
+                        MapInitializer.initializeMaps();
                         NTools.LOGGER.info("[NTools] Reload all tool maps and configuration files.");
                     }
                 }
@@ -106,34 +99,31 @@ public class Nt implements CommandExecutor {
                                 }
                             }
                             if (args[2].equalsIgnoreCase("multi")) {
-                                CraftItem item = new CraftItem(args[3], (NTools.getFiles().get("multi").getString("multi-tools." + args[4] + ".name")),
+                                new CraftItem(args[3], (NTools.getFiles().get("multi").getString("multi-tools." + args[4] + ".name")),
                                         (NTools.getFiles().get("multi").getStringList("multi-tools." + args[4] + ".lore")),
-                                        (OtherMapInitializer.multiToolRadiusUnique.get(Integer.parseInt(args[4])).get(1)),
-                                        (OtherMapInitializer.multiToolModeUnique.get(Integer.parseInt(args[4])).get(1)),
-                                        (NTools.getFiles().get("multi").getStringList("multi-tools." + args[4] + ".enchantments")), null);
-                                ItemStack newItem = NBTCreator.addToolData(item.getItem(), "multi", Integer.parseInt(args[4]), true, 1);
-                                target.getInventory().addItem(newItem);
+                                        (MapInitializer.multiToolRadiusUnique.get(Integer.parseInt(args[4])).get(1)),
+                                        (MapInitializer.multiToolModeUnique.get(Integer.parseInt(args[4])).get(1)),
+                                        (NTools.getFiles().get("multi").getStringList("multi-tools." + args[4] + ".enchantments")), "multi", Integer.parseInt(args[4]), target);
                             }
                             if (args[2].equalsIgnoreCase("trench")) {
-                                CraftItem item = new CraftItem(args[3], (NTools.getFiles().get("trench").getString("trench-tools." + args[4] + ".name")),
+                                new CraftItem(args[3], (NTools.getFiles().get("trench").getString("trench-tools." + args[4] + ".name")),
                                         (NTools.getFiles().get("trench").getStringList("trench-tools." + args[4] + ".lore")), null, null,
-                                        (NTools.getFiles().get("trench").getStringList("trench-tools." + args[4] + ".enchantments")), null);
-                                ItemStack newItem = NBTCreator.addToolData(item.getItem(), "trench", Integer.parseInt(args[4]), false, 0);
-                                target.getInventory().addItem(newItem);
+                                        (NTools.getFiles().get("trench").getStringList("trench-tools." + args[4] + ".enchantments")), "trench", Integer.parseInt(args[4]), target);
                             }
                             if (args[2].equalsIgnoreCase("tray")) {
-                                CraftItem item = new CraftItem(args[3], (NTools.getFiles().get("tray").getString("tray-tools." + args[4] + ".name")),
+                                new CraftItem(args[3], (NTools.getFiles().get("tray").getString("tray-tools." + args[4] + ".name")),
                                         (NTools.getFiles().get("tray").getStringList("tray-tools." + args[4] + ".lore")), null, null,
-                                        (NTools.getFiles().get("tray").getStringList("tray-tools." + args[4] + ".enchantments")), null);
-                                ItemStack newItem = NBTCreator.addToolData(item.getItem(), "tray", Integer.parseInt(args[4]), false, 0);
-                                target.getInventory().addItem(newItem);
+                                        (NTools.getFiles().get("tray").getStringList("tray-tools." + args[4] + ".enchantments")), "tray", Integer.parseInt(args[4]), target);
                             }
                             if (args[2].equalsIgnoreCase("sand")) {
-                                CraftItem item = new CraftItem(args[3], (NTools.getFiles().get("sand").getString("sand-wands." + args[4] + ".name")),
+                                new CraftItem(args[3], (NTools.getFiles().get("sand").getString("sand-wands." + args[4] + ".name")),
                                         (NTools.getFiles().get("sand").getStringList("sand-wands." + args[4] + ".lore")), null, null,
-                                        (NTools.getFiles().get("sand").getStringList("sand-wands." + args[4] + ".enchantments")), target);
-                                ItemStack newItem = NBTCreator.addToolData(item.getItem(), "sand", Integer.parseInt(args[4]), false, 0);
-                                target.getInventory().addItem(newItem);
+                                        (NTools.getFiles().get("sand").getStringList("sand-wands." + args[4] + ".enchantments")), "sand", Integer.parseInt(args[4]), target);
+                            }
+                            if (args[2].equalsIgnoreCase("lightning")) {
+                                new CraftItem(args[3], (NTools.getFiles().get("lightning").getString("lightning-wands." + args[4] + ".name")),
+                                        (NTools.getFiles().get("lightning").getStringList("lightning-wands." + args[4] + ".lore")), null, null,
+                                        (NTools.getFiles().get("lightning").getStringList("lightning-wands." + args[4] + ".enchantments")), "lightning", Integer.parseInt(args[4]), target);
                             }
                         } catch (Exception invalidCommandParameters) {
                             if (sender instanceof Player) {

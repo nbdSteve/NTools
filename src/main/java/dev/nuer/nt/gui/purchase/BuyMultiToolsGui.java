@@ -2,7 +2,7 @@ package dev.nuer.nt.gui.purchase;
 
 import dev.nuer.nt.NTools;
 import dev.nuer.nt.gui.AbstractGui;
-import dev.nuer.nt.initialize.OtherMapInitializer;
+import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.itemCreation.CraftItem;
 import dev.nuer.nt.method.itemCreation.PurchaseTool;
 import dev.nuer.nt.method.player.PlayerMessage;
@@ -25,7 +25,7 @@ public class BuyMultiToolsGui extends AbstractGui {
                         new CraftItem((NTools.getFiles().get("multi_purchase_gui").getString("multi-tool-purchase-gui." + configItem + ".material")),
                                 (NTools.getFiles().get("multi_purchase_gui").getString("multi-tool-purchase-gui." + configItem + ".name")),
                                 (NTools.getFiles().get("multi_purchase_gui").getStringList("multi-tool-purchase-gui." + configItem + ".lore")), null, null,
-                                (NTools.getFiles().get("multi_purchase_gui").getStringList("multi-tool-purchase-gui." + configItem + ".enchantments")), null).getItem(),
+                                (NTools.getFiles().get("multi_purchase_gui").getStringList("multi-tool-purchase-gui." + configItem + ".enchantments")), "multi", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
@@ -34,9 +34,9 @@ public class BuyMultiToolsGui extends AbstractGui {
                                             (NTools.getFiles().get("multi_purchase_gui").getString("multi-tool-purchase-gui." + configItem + ".material")),
                                             (NTools.getFiles().get("multi").getString("multi-tools." + configItem + ".name")),
                                             (NTools.getFiles().get("multi").getStringList("multi-tools." + configItem + ".lore")),
-                                            (OtherMapInitializer.multiToolRadiusUnique.get(configItem).get(1)),
-                                            (OtherMapInitializer.multiToolModeUnique.get(configItem).get(1)),
-                                            (NTools.getFiles().get("multi").getStringList("multi-tools." + configItem + ".enchantments")), player);
+                                            (MapInitializer.multiToolRadiusUnique.get(configItem).get(1)),
+                                            (MapInitializer.multiToolModeUnique.get(configItem).get(1)),
+                                            (NTools.getFiles().get("multi").getStringList("multi-tools." + configItem + ".enchantments")), "multi", configItem, player);
                                 }
                                 if (NTools.getFiles().get("multi_purchase_gui").getBoolean("multi-tool-purchase-gui." + configItem + ".back-button")) {
                                     NTools.getPlugin(NTools.class).getGuiByName("generic-buy").open(player);

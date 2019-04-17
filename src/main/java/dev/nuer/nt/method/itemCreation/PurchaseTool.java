@@ -24,11 +24,11 @@ public class PurchaseTool {
      * @param player            Player, who to give the tool to
      */
     public PurchaseTool(double price, String material, String name, List<String> lore, String modeReplacement,
-                        String radiusReplacement, List<String> enchantments, Player player) {
+                        String radiusReplacement, List<String> enchantments, String typeOfTool, int idFromConfig, Player player) {
         if (NTools.economy.getBalance(player) >= price) {
             player.closeInventory();
             NTools.economy.withdrawPlayer(player, price);
-            new CraftItem(material, name, lore, modeReplacement, radiusReplacement, enchantments, player);
+            new CraftItem(material, name, lore, modeReplacement, radiusReplacement, enchantments, typeOfTool, idFromConfig, player);
             new PlayerMessage("purchase", player, "{price}", NTools.numberFormat.format(price));
         } else {
             new PlayerMessage("insufficient", player);

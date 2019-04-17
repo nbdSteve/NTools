@@ -15,7 +15,7 @@ public class LoadFile {
      */
     //LIGHTNING, LIGHTNING_PURCHASE_GUI,
     public enum Files {
-        CONFIG, MESSAGES, MULTI, MULTI_CONFIG_GUI, MULTI_PURCHASE_GUI,
+        CONFIG, MESSAGES, LIGHTNING, LIGHTNING_PURCHASE_GUI, MULTI, MULTI_CONFIG_GUI, MULTI_PURCHASE_GUI,
         SAND, SAND_PURCHASE_GUI, TRAY, TRAY_PURCHASE_GUI, TRENCH, TRENCH_PURCHASE_GUI
     }
 
@@ -28,8 +28,8 @@ public class LoadFile {
         files.put(Files.CONFIG, new CreateFile("ntools.yml"));
         files.put(Files.MESSAGES, new CreateFile("messages.yml"));
         //Load lightning wand files
-//        files.put(Files.LIGHTNING, new CreateFile("lightning" + File.separator + "wands.yml"));
-//        files.put(Files.LIGHTNING_PURCHASE_GUI, new CreateFile("lightning" + File.separator + "purchase-gui.yml"));
+        files.put(Files.LIGHTNING, new CreateFile("lightning" + File.separator + "wands.yml"));
+        files.put(Files.LIGHTNING_PURCHASE_GUI, new CreateFile("lightning" + File.separator + "purchase-gui.yml"));
         //Load multi tool files
         files.put(Files.MULTI, new CreateFile("multi" + File.separator + "tools.yml"));
         files.put(Files.MULTI_CONFIG_GUI, new CreateFile("multi" + File.separator + "config-gui.yml"));

@@ -1,7 +1,7 @@
 package dev.nuer.nt.api;
 
 import dev.nuer.nt.NTools;
-import dev.nuer.nt.event.sandWand.SandCooldownCheck;
+import dev.nuer.nt.tools.sand.SandCooldownCheck;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.ServicePriority;

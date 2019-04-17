@@ -1,11 +1,10 @@
 package dev.nuer.nt.gui;
 
 import dev.nuer.nt.NTools;
-import dev.nuer.nt.event.miningTool.modeSwitchMethod.ModeSwitch;
-import dev.nuer.nt.event.miningTool.radiusChangeMethod.ChangeToolRadius;
-import dev.nuer.nt.external.nbtapi.NBTItem;
 import dev.nuer.nt.method.itemCreation.CraftItem;
 import dev.nuer.nt.method.player.PlayerMessage;
+import dev.nuer.nt.tools.multi.ChangeToolRadius;
+import dev.nuer.nt.tools.multi.ModeSwitch;
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -34,7 +33,7 @@ public class MultiToolConfigurationGui extends AbstractGui {
                                 (NTools.getFiles().get("multi_config_gui").getString("multi-tool-config-gui." + configItem +
                                         ".name")),
                                 (NTools.getFiles().get("multi_config_gui").getStringList("multi-tool-config-gui." + configItem + ".lore")), null, null,
-                                (NTools.getFiles().get("multi_config_gui").getStringList("multi-tool-config-gui." + configItem + ".enchantments")), null).getItem(),
+                                (NTools.getFiles().get("multi_config_gui").getStringList("multi-tool-config-gui." + configItem + ".enchantments")), "multi", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
