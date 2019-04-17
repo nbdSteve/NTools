@@ -34,8 +34,13 @@ public class ToolsListener implements Listener {
     @EventHandler
     public void lightningWandStrikeEvent(LightningWandStrikeEvent event) {
         if (!event.isCancelled()) {
-            event.getBlockToStrike().getWorld().strikeLightning(event.getBlockToStrike().getLocation());
-            event.getPlayer().setLastDamage(0);
+            if (event.getCreeperToPower() != null) {
+                event.getBlockToStrike().getWorld().strikeLightningEffect(event.getBlockToStrike().getLocation());
+                event.getCreeperToPower().setPowered(true);
+            } else {
+                event.getBlockToStrike().getWorld().strikeLightning(event.getBlockToStrike().getLocation());
+                event.getPlayer().setLastDamage(0.0);
+            }
         }
     }
 }

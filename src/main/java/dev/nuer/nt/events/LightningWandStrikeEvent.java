@@ -1,6 +1,7 @@
 package dev.nuer.nt.events;
 
 import org.bukkit.block.Block;
+import org.bukkit.entity.Creeper;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
@@ -12,11 +13,22 @@ public class LightningWandStrikeEvent extends Event implements Cancellable {
 
     private Block blockToStrike;
     private Player player;
+    private Creeper creeperToPower;
     private boolean cancel;
 
     public LightningWandStrikeEvent(Block blockToStrike, Player player) {
         this.blockToStrike = blockToStrike;
         this.player = player;
+    }
+
+    public LightningWandStrikeEvent(Block blockToStrike, Player player, Creeper creeperToPower) {
+        this.blockToStrike = blockToStrike;
+        this.player = player;
+        this.creeperToPower = creeperToPower;
+    }
+
+    public static HandlerList getHandlerList() {
+        return handlers;
     }
 
     public Block getBlockToStrike() {
@@ -25,6 +37,10 @@ public class LightningWandStrikeEvent extends Event implements Cancellable {
 
     public Player getPlayer() {
         return player;
+    }
+
+    public Creeper getCreeperToPower() {
+        return creeperToPower;
     }
 
     @Override
@@ -39,10 +55,6 @@ public class LightningWandStrikeEvent extends Event implements Cancellable {
 
     @Override
     public HandlerList getHandlers() {
-        return handlers;
-    }
-
-    public static HandlerList getHandlerList() {
         return handlers;
     }
 }

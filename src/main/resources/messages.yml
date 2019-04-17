@@ -48,3 +48,6 @@ sand-wand-cooldown:
 
 incremented-radius-no-cost:
   - "&aSuccess&7, your tools radius has been increased at no cost."
+
+creeper-already-powered:
+  - "&cError&7, that creeper is already powered."

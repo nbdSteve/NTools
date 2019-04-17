@@ -6,10 +6,7 @@ import dev.nuer.nt.gui.AbstractGui;
 import dev.nuer.nt.gui.listener.GuiClickListener;
 import dev.nuer.nt.initialize.GuiInitializer;
 import dev.nuer.nt.initialize.MapInitializer;
-import dev.nuer.nt.listener.BlockDamageByPlayer;
-import dev.nuer.nt.listener.CrouchRightClickOpenGui;
-import dev.nuer.nt.listener.PlayerInteractWithGround;
-import dev.nuer.nt.listener.ToolsListener;
+import dev.nuer.nt.listener.*;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -68,6 +65,7 @@ public final class NTools extends JavaPlugin {
         //Register the events for the plugin
         getServer().getPluginManager().registerEvents(new BlockDamageByPlayer(), this);
         getServer().getPluginManager().registerEvents(new PlayerInteractWithGround(), this);
+        getServer().getPluginManager().registerEvents(new PlayerInteractWithMob(), this);
         getServer().getPluginManager().registerEvents(new ToolsListener(), this);
         getServer().getPluginManager().registerEvents(new CrouchRightClickOpenGui(), this);
         getServer().getPluginManager().registerEvents(new GuiClickListener(), this);

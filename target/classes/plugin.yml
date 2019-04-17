@@ -1,5 +1,5 @@
 name: NTools
-version: 0.2.4
+version: 0.2.5
 main: dev.nuer.nt.NTools
 author: Nuer
 description: A custom tools plugin
