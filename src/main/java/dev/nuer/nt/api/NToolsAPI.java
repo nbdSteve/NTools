@@ -1,10 +1,9 @@
 package dev.nuer.nt.api;
 
 import dev.nuer.nt.NTools;
+import dev.nuer.nt.tools.lightning.LightningCooldownCheck;
 import dev.nuer.nt.tools.sand.SandCooldownCheck;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.ServicePriority;
 
 public class NToolsAPI {
 
@@ -18,15 +17,29 @@ public class NToolsAPI {
     }
 
     public static NTools getInstance() {
-        Bukkit.getServicesManager().register(NTools.class, null, instance, ServicePriority.High);
+//        Bukkit.getServicesManager().register(NTools.class, null, instance, ServicePriority.High);
         return instance;
     }
 
     public static boolean isOnSandWandCooldown(Player player) {
-        return SandCooldownCheck.sandWandCDT.containsKey(player.getUniqueId());
+        if (SandCooldownCheck.sandWandCDT != null) {
+            return SandCooldownCheck.sandWandCDT.containsKey(player.getUniqueId());
+        }
+        return false;
     }
 
     public static long getSandWandCooldown(Player player) {
-        return SandCooldownCheck.sandWandCDT.get(player.getUniqueId());
+        return SandCooldownCheck.getSandWandCooldown(player);
+    }
+
+    public static boolean isOnLightningWandCooldown(Player player) {
+        if (LightningCooldownCheck.lightningWandCDT != null) {
+            return LightningCooldownCheck.lightningWandCDT.containsKey(player.getUniqueId());
+        }
+        return false;
+    }
+
+    public static long getLightningWandCooldown(Player player) {
+        return LightningCooldownCheck.getLightningWandCooldown(player);
     }
 }

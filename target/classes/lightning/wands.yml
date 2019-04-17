@@ -1,7 +1,5 @@
 lightning-wands:
   1:
-    unique-lore: "&6&l**Thor I**"
-    #
     cooldown: 5
     #
     name: "&eLightning Wand &7(&6Tier I&7)"
@@ -11,15 +9,15 @@ lightning-wands:
       - "&7 "
       - "&7Cooldown: &f&l5 Seconds"
       - "&7 "
-      - "&a&oThis wand was create by the Choomas,"
-      - "&a&oto remove stacks of sand, use it wisely..."
+      - "&a&oThis wand was create by the Venditos,"
+      - "&a&oto strike lightning and charge creepers,"
+      - "&a&ouse and abuse its electrifying potential..."
+      - "&7 "
     #
     enchantments:
       - knockback:3
       - durability:5
   2:
-    unique-lore: "&6&l**Thor II**"
-    #
     cooldown: 3
     #
     name: "&eLightning Wand &7(&6Tier II&7)"
@@ -29,15 +27,15 @@ lightning-wands:
       - "&7 "
       - "&7Cooldown: &f&l3 Seconds"
       - "&7 "
-      - "&a&oThis wand was create by the Choomas,"
-      - "&a&oto remove stacks of sand, use it wisely..."
+      - "&a&oThis wand was create by the Venditos,"
+      - "&a&oto strike lightning and charge creepers,"
+      - "&a&ouse and abuse its electrifying potential..."
+      - "&7 "
     #
     enchantments:
       - knockback:4
       - durability:5
   3:
-    unique-lore: "&6&l**Thor III**"
-    #
     cooldown: 1
     #
     name: "&eLightning Wand &7(&6Tier III&7)"
@@ -47,8 +45,10 @@ lightning-wands:
       - "&7 "
       - "&7Cooldown: &f&l1 Second"
       - "&7 "
-      - "&a&oThis wand was create by the Choomas,"
-      - "&a&oto remove stacks of sand, use it wisely..."
+      - "&a&oThis wand was create by the Venditos,"
+      - "&a&oto strike lightning and charge creepers,"
+      - "&a&ouse and abuse its electrifying potential..."
+      - "&7 "
     #
     enchantments:
       - knockback:5

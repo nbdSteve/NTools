@@ -1,8 +1,10 @@
 package dev.nuer.nt.listener;
 
-import dev.nuer.nt.tools.multi.GetMultiToolVariables;
-import dev.nuer.nt.tools.BreakBlocksInRadius;
 import dev.nuer.nt.external.nbtapi.NBTItem;
+import dev.nuer.nt.initialize.MapInitializer;
+import dev.nuer.nt.tools.BreakBlocksInRadius;
+import dev.nuer.nt.tools.harvest.HarvestBlock;
+import dev.nuer.nt.tools.multi.GetMultiToolVariables;
 import dev.nuer.nt.tools.sand.RemoveSandStack;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -65,8 +67,19 @@ public class BlockDamageByPlayer implements Listener {
         try {
             if (nbtItem.getBoolean("ntool.sand")) {
                 event.setCancelled(true);
-                new RemoveSandStack(event, player, "sand", "sand-wands." + nbtItem.getInteger("ntool" +
-                        ".raw.id"));
+                new RemoveSandStack(event, player, "sand", "sand-wands." +
+                        nbtItem.getInteger("ntool.raw.id"));
+            }
+        } catch (NullPointerException e) {
+            //NBT tag is null because this is not a sand wand
+        }
+        try {
+            if (nbtItem.getBoolean("ntool.harvester")) {
+                event.setCancelled(true);
+                if (MapInitializer.harvesterBlockWhitelist.contains(event.getBlock().getType().toString())) {
+                    HarvestBlock.harvestBlocks(event, player, "harvester", "harvester-tools." +
+                            nbtItem.getInteger("ntool.raw.id"), false);
+                }
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a sand wand

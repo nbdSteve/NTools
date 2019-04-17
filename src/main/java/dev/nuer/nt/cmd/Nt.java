@@ -86,7 +86,7 @@ public class Nt implements CommandExecutor {
                         NTools.LOGGER.info("[NTools] The upgrade Gui can only be viewed by players.");
                     }
                 }
-            } else if (args.length == 5) {
+            } else if (args.length == 5 || args.length == 6) {
                 if (args[0].equalsIgnoreCase("g") || args[0].equalsIgnoreCase("give")) {
                     if (sender.hasPermission("ntools.admin")) {
                         try {
@@ -101,7 +101,7 @@ public class Nt implements CommandExecutor {
                             if (args[2].equalsIgnoreCase("multi")) {
                                 new CraftItem(args[3], (NTools.getFiles().get("multi").getString("multi-tools." + args[4] + ".name")),
                                         (NTools.getFiles().get("multi").getStringList("multi-tools." + args[4] + ".lore")),
-                                        (MapInitializer.multiToolRadiusUnique.get(Integer.parseInt(args[4])).get(1)),
+                                        (MapInitializer.multiToolRadiusUnique.get(Integer.parseInt(args[4])).get(Integer.parseInt(args[5]))),
                                         (MapInitializer.multiToolModeUnique.get(Integer.parseInt(args[4])).get(1)),
                                         (NTools.getFiles().get("multi").getStringList("multi-tools." + args[4] + ".enchantments")), "multi", Integer.parseInt(args[4]), target);
                             }
@@ -124,6 +124,11 @@ public class Nt implements CommandExecutor {
                                 new CraftItem(args[3], (NTools.getFiles().get("lightning").getString("lightning-wands." + args[4] + ".name")),
                                         (NTools.getFiles().get("lightning").getStringList("lightning-wands." + args[4] + ".lore")), null, null,
                                         (NTools.getFiles().get("lightning").getStringList("lightning-wands." + args[4] + ".enchantments")), "lightning", Integer.parseInt(args[4]), target);
+                            }
+                            if (args[2].equalsIgnoreCase("harvester")) {
+                                new CraftItem(args[3], (NTools.getFiles().get("harvester").getString("harvester-tools." + args[4] + ".name")),
+                                        (NTools.getFiles().get("harvester").getStringList("harvester-tools." + args[4] + ".lore")), null, null,
+                                        (NTools.getFiles().get("harvester").getStringList("harvester-tools." + args[4] + ".enchantments")), "harvester", Integer.parseInt(args[4]), target);
                             }
                         } catch (Exception invalidCommandParameters) {
                             if (sender instanceof Player) {

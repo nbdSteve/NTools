@@ -23,6 +23,8 @@ public class GuiInitializer {
     private BuySandWandsGui buySandWandsGui;
     //Instance of lightning wands gui
     private BuyLightningWandsGui buyLightningWandsGui;
+    //Instance of harvester gui
+    private BuyHarvesterToolsGui buyHarvesterToolsGui;
 
     /**
      * Creates a new instance of all Guis for the plugin
@@ -36,6 +38,7 @@ public class GuiInitializer {
         buyTrayToolsGui = new BuyTrayToolsGui();
         buySandWandsGui = new BuySandWandsGui();
         buyLightningWandsGui = new BuyLightningWandsGui();
+        buyHarvesterToolsGui = new BuyHarvesterToolsGui();
     }
 
     /**
@@ -52,6 +55,7 @@ public class GuiInitializer {
         if (guiName.equalsIgnoreCase("tray-buy")) return buyTrayToolsGui;
         if (guiName.equalsIgnoreCase("sand-buy")) return buySandWandsGui;
         if (guiName.equalsIgnoreCase("lightning-buy")) return buyLightningWandsGui;
+        if (guiName.equalsIgnoreCase("harvester-buy")) return buyHarvesterToolsGui;
         return null;
     }
 }

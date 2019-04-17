@@ -20,6 +20,12 @@ sand-block-whitelist:
   - gravel
   - red_sand
 
+harvester-block-whitelist:
+  - sugar_cane_block
+  - cactus
+  - melon_block
+  - pumpkin
+
 tool-purchase-gui:
   # generic gui to select a type of tool to buy
   size: 9
@@ -79,3 +85,14 @@ tool-purchase-gui:
     enchantments:
       - fire_aspect:10
     open-lightning: true
+  6:
+    slot: 5
+    name: "&b&lHarvester Hoes"
+    material: gold_hoe:0
+    lore:
+      - "&7 "
+      - "&7&oClick this to buy harvester hoes"
+      - "&7 "
+    enchantments:
+      - fire_aspect:10
+    open-harvester: true

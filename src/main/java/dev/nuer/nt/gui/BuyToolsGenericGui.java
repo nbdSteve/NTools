@@ -41,6 +41,9 @@ public class BuyToolsGenericGui extends AbstractGui {
                                 if (NTools.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-lightning")) {
                                     NTools.getPlugin(NTools.class).getGuiByName("lightning-buy").open(player);
                                 }
+                                if (NTools.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-harvester")) {
+                                    NTools.getPlugin(NTools.class).getGuiByName("harvester-buy").open(player);
+                                }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();
                                 new PlayerMessage("invalid-config", player);

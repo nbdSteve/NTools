@@ -1,6 +1,5 @@
 trench-tools:
   1:
-    unique-lore: "&6&l**Holes I**"
     # 3x3 trench pick
     break-radius: 1
     #
@@ -18,7 +17,6 @@ trench-tools:
       - durability:5
   #
   2:
-    unique-lore: "&6&l**Holes II**"
     # 5x5 trench pick
     break-radius: 2
     #
@@ -36,7 +34,6 @@ trench-tools:
       - durability:10
   #
   3:
-    unique-lore: "&6&l**Holes III**"
     # 7x7 trench pick
     break-radius: 3
     #

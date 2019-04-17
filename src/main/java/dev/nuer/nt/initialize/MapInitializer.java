@@ -13,6 +13,8 @@ public class MapInitializer {
     public static ArrayList<String> trayBlockWhitelist;
     //Store the blocks that can be broken by the sand wands
     public static ArrayList<String> sandWandBlockWhitelist;
+    //Store the blocks that can be broken and sold by the harvester tools
+    public static ArrayList<String> harvesterBlockWhitelist;
     //Store the map of multi tool unique lore and raw tool id
     public static HashMap<Integer, ArrayList<String>> multiToolModeUnique;
     //Store the map of multi tool unique radius id and raw tool id
@@ -23,6 +25,7 @@ public class MapInitializer {
         trenchBlockBlacklist = AddBlocksToBlacklist.createBlockList("config", "trench-block-blacklist");
         trayBlockWhitelist = AddBlocksToBlacklist.createBlockList("config", "tray-block-whitelist");
         sandWandBlockWhitelist = AddBlocksToBlacklist.createBlockList("config", "sand-block-whitelist");
+        harvesterBlockWhitelist = AddBlocksToBlacklist.createBlockList("config", "harvester-block-whitelist");
         //Load maps specific to multi tool ids
         multiToolModeUnique = GetMultiToolLoreID.createUniqueModeIDs("multi-tools.");
         multiToolRadiusUnique = GetMultiToolLoreID.createUniqueRadiusIDs("multi-tools.");
@@ -33,6 +36,7 @@ public class MapInitializer {
         trenchBlockBlacklist.clear();
         trayBlockWhitelist.clear();
         sandWandBlockWhitelist.clear();
+        harvesterBlockWhitelist.clear();
         //Clear maps specific to multi tool ids
         multiToolModeUnique.clear();
         multiToolRadiusUnique.clear();

@@ -13,10 +13,10 @@ public class LoadFile {
     /**
      * Enum to store each file, this is public so we can call methods on these
      */
-    //LIGHTNING, LIGHTNING_PURCHASE_GUI,
     public enum Files {
         CONFIG, MESSAGES, LIGHTNING, LIGHTNING_PURCHASE_GUI, MULTI, MULTI_CONFIG_GUI, MULTI_PURCHASE_GUI,
-        SAND, SAND_PURCHASE_GUI, TRAY, TRAY_PURCHASE_GUI, TRENCH, TRENCH_PURCHASE_GUI
+        SAND, SAND_PURCHASE_GUI, TRAY, TRAY_PURCHASE_GUI, TRENCH, TRENCH_PURCHASE_GUI, HARVESTER,
+        HARVESTER_PURCHASE_GUI
     }
 
     /**
@@ -43,6 +43,9 @@ public class LoadFile {
         //Load trench tool files
         files.put(Files.TRENCH, new CreateFile("trench" + File.separator + "tools.yml"));
         files.put(Files.TRENCH_PURCHASE_GUI, new CreateFile("trench" + File.separator + "purchase-gui.yml"));
+        //Load harvester tool files
+        files.put(Files.HARVESTER, new CreateFile("harvester" + File.separator + "tools.yml"));
+        files.put(Files.HARVESTER_PURCHASE_GUI, new CreateFile("harvester" + File.separator + "purchase-gui.yml"));
         //Log that files are loaded
         NTools.LOGGER.info("[NTools] Successfully loaded all configuration files...");
     }

@@ -1,7 +1,5 @@
 multi-tools:
   1:
-    unique-lore: "&2&l**Forged**"
-    #
     mode:
       unique: "&7Mode:"
       trench: "&e&lTRENCH"
@@ -9,6 +7,7 @@ multi-tools:
     #
     radius:
       unique: "&7Radius:"
+      starting: 2
       max: 3 #7x7
       min: 1 #3x3
       radius-ids:

@@ -44,7 +44,10 @@ invalid-config:
   - "&cError: &7There is a problem with the plugins configuration, please contact an admin."
 
 sand-wand-cooldown:
-  - "&cCooldown: &7You are on cooldown, &c{time} &7second(s) remaining..."
+  - "&cCooldown: &7You are on sand wand cooldown, &c{time} &7second(s) remaining..."
+
+lightning-wand-cooldown:
+  - "&cCooldown: &7You are on lightning wand cooldown, &c{time} &7second(s) remaining..."
 
 incremented-radius-no-cost:
   - "&aSuccess&7, your tools radius has been increased at no cost."

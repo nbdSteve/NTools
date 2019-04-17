@@ -1,6 +1,6 @@
 lightning-wand-purchase-gui:
   size: 9
-  name: "&6&lBuy Sand Wands"
+  name: "&6&lBuy Lightning Wands"
   1:
     slot: 0
     price: 500000
@@ -11,10 +11,12 @@ lightning-wand-purchase-gui:
       - "&7 "
       - "&7Cooldown: &f&l5 Seconds"
       - "&7 "
-      - "&a&oThis wand was create by the Choomas,"
-      - "&a&oto remove stacks of sand, use it wisely..."
+      - "&a&oThis wand was create by the Venditos,"
+      - "&a&oto strike lightning and charge creepers,"
+      - "&a&ouse and abuse its electrifying potential..."
       - "&7 "
       - "&cPrice: &l-$500,000"
+      - "&7 "
     enchantments:
       - knockback:3
       - durability:5
@@ -29,10 +31,12 @@ lightning-wand-purchase-gui:
       - "&7 "
       - "&7Cooldown: &f&l3 Seconds"
       - "&7 "
-      - "&a&oThis wand was create by the Choomas,"
-      - "&a&oto remove stacks of sand, use it wisely..."
+      - "&a&oThis wand was create by the Venditos,"
+      - "&a&oto strike lightning and charge creepers,"
+      - "&a&ouse and abuse its electrifying potential..."
       - "&7 "
       - "&cPrice: &l-$1,000,000"
+      - "&7 "
     enchantments:
       - knockback:4
       - durability:5
@@ -47,25 +51,28 @@ lightning-wand-purchase-gui:
       - "&7 "
       - "&7Cooldown: &f&l1 Seconds"
       - "&7 "
-      - "&a&oThis wand was create by the Choomas,"
-      - "&a&oto remove stacks of sand, use it wisely..."
+      - "&a&oThis wand was create by the Venditos,"
+      - "&a&oto strike lightning and charge creepers,"
+      - "&a&ouse and abuse its electrifying potential..."
       - "&7 "
       - "&cPrice: &l-$1,500,000"
+      - "&7 "
     enchantments:
       - knockback:5
       - durability:5
     purchasable: true
   4:
     slot: 7
-    name: "&e&lSand Wand Information"
+    name: "&e&lLightning Wand Information"
     material: book:0
     lore:
       - "&7 "
-      - "&7&oSand Wands can be purchased by"
+      - "&7&oLightning Wands can be purchased by"
       - "&7&oleft-clicking the respective tool."
       - "&7 "
-      - "&6&oSand Wands will help when removing"
-      - "&6&osand stacks from your base..."
+      - "&6&oLighting Wands will help when raiding,"
+      - "&6&oright clicking a creeper will super charge it."
+      - "&6&oUse the tool on the ground to strike lightning..."
       - "&7 "
     enchantments:
       - durability:10
