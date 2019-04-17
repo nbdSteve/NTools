@@ -45,3 +45,6 @@ invalid-config:
 
 sand-wand-cooldown:
   - "&cCooldown: &7You are on cooldown, &c{time} &7second(s) remaining..."
+
+incremented-radius-no-cost:
+  - "&aSuccess&7, your tools radius has been increased at no cost."

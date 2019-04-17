@@ -1,6 +1,6 @@
 package dev.nuer.nt.event;
 
-import dev.nuer.nt.event.itemMetaMethod.GetToolType;
+import dev.nuer.nt.event.miningTool.GetMultiToolVariables;
 import dev.nuer.nt.event.miningTool.BreakBlocksInRadius;
 import dev.nuer.nt.event.sandWand.RemoveSandStack;
 import dev.nuer.nt.external.nbtapi.NBTItem;
@@ -13,7 +13,6 @@ import org.bukkit.event.block.BlockDamageEvent;
  * Main event class for the plugin, handles trench, sand, tray and multi tool events
  */
 public class BlockDamageByPlayer implements Listener {
-    GetToolType toolType;
 
     /**
      * Check that the player is holding a valid item
@@ -26,6 +25,7 @@ public class BlockDamageByPlayer implements Listener {
         if (event.isCancelled()) {
             return;
         }
+        event.setCancelled(true);
         //Store the player
         Player player = event.getPlayer();
         //If the players item doesn't have meta / lore, return
@@ -42,31 +42,32 @@ public class BlockDamageByPlayer implements Listener {
                                 "ntool.raw.id"), false, true);
             }
         } catch (NullPointerException e) {
-            //NBT tag is not initialized because this is not a trench tool
+            //NBT tag is null because this is not a trench tool
         }
         try {
             if (nbtItem.getBoolean("ntool.tray")) {
-                new BreakBlocksInRadius(nbtItem, event, player, "trench", "tray-tools." + nbtItem.getInteger(
+                new BreakBlocksInRadius(nbtItem, event, player, "tray", "tray-tools." + nbtItem.getInteger(
                         "ntool.raw.id"), false, false);
             }
         } catch (NullPointerException e) {
-            //NBT tag is not initialized because this is not a tray tool
+            //NBT tag is null because this is not a tray tool
         }
         try {
             if (nbtItem.getBoolean("ntool.multi")) {
                 new BreakBlocksInRadius(nbtItem, event, player, "multi", "multi-tools." + nbtItem.getInteger(
-                        "ntool.raw.id"), true, nbtItem.getBoolean("ntool.multi.trench"));
+                        "ntool.raw.id"), true, GetMultiToolVariables.multiToolIsTrenchTool(nbtItem.getInteger(
+                        "ntool.raw.id"), nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem().getItemMeta(), nbtItem.getItem(), false));
             }
         } catch (NullPointerException e) {
-            //NBT tag is not initialized because this is not a multi tool
+            //NBT tag is null because this is not a multi tool
         }
         try {
             if (nbtItem.getBoolean("ntool.sand")) {
-                new RemoveSandStack(event, player, "sand", "sand-tools." + nbtItem.getInteger("ntool" +
+                new RemoveSandStack(event, player, "sand", "sand-wands." + nbtItem.getInteger("ntool" +
                         ".raw.id"));
             }
         } catch (NullPointerException e) {
-            //NBT tag is not initialized because this is not a sand wand
+            //NBT tag is null because this is not a sand wand
         }
     }
 }

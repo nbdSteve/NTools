@@ -13,11 +13,11 @@ public class NBTCreator {
         if (typeOfTool.equalsIgnoreCase("multi")) nbtItem.setBoolean("ntool.multi", true);
         if (typeOfTool.equalsIgnoreCase("sand")) nbtItem.setBoolean("ntool.sand", true);
         nbtItem.setInteger("ntool.raw.id", idFromConfig);
-        if (isMultiTool) {
-            nbtItem.setBoolean("ntool.multi.trench", true);
-            nbtItem.setInteger("ntool.multi.radius", multiToolMinRad);
-            nbtItem.setInteger("ntool.multi.highest.radius", 2);
-        }
+//        if (isMultiTool) {
+//            nbtItem.setBoolean("ntool.multi.trench", true);
+//            nbtItem.setInteger("ntool.multi.radius", multiToolMinRad);
+//            nbtItem.setInteger("ntool.multi.highest.radius", 4);
+//        }
         return nbtItem.getItem();
     }
 }

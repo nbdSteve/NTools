@@ -1,9 +1,9 @@
 package dev.nuer.nt.gui;
 
 import dev.nuer.nt.NTools;
-import dev.nuer.nt.event.itemMetaMethod.GetToolType;
 import dev.nuer.nt.event.miningTool.modeSwitchMethod.ModeSwitch;
 import dev.nuer.nt.event.miningTool.radiusChangeMethod.ChangeToolRadius;
+import dev.nuer.nt.external.nbtapi.NBTItem;
 import dev.nuer.nt.method.itemCreation.CraftItem;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.ChatColor;
@@ -42,7 +42,7 @@ public class MultiToolConfigurationGui extends AbstractGui {
                                 ItemMeta itemMeta = item.getItemMeta();
                                 List<String> itemLore = itemMeta.getLore();
                                 if (NTools.getFiles().get("multi_config_gui").getBoolean("multi-tool-config-gui." + configItem + ".switch-mode-when-clicked")) {
-                                    ModeSwitch.switchMode((new GetToolType(itemLore, itemMeta, item).getToolTypeRawID()), itemLore, itemMeta, item, player);
+                                    ModeSwitch.switchMode(itemLore, itemMeta, item, player);
                                 }
                                 if (NTools.getFiles().get("multi_config_gui").getBoolean("multi-tool-config-gui." + configItem + ".increase-radius-when-clicked")) {
                                     ChangeToolRadius.incrementRadius(itemLore, itemMeta, item, player);

@@ -1,4 +1,4 @@
-package dev.nuer.nt.event.itemMetaMethod;
+package dev.nuer.nt.method.itemCreation;
 
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -19,8 +19,8 @@ public class UpdateItem {
      */
     public static void updateItem(List<String> itemLore, ItemMeta itemMeta, ItemStack item) {
         short durability = item.getDurability();
+        item.setDurability(durability);
         itemMeta.setLore(itemLore);
         item.setItemMeta(itemMeta);
-        item.setDurability(durability);
     }
 }

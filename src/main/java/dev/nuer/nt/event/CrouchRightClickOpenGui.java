@@ -1,15 +1,12 @@
 package dev.nuer.nt.event;
 
 import dev.nuer.nt.NTools;
-import dev.nuer.nt.event.itemMetaMethod.GetToolType;
+import dev.nuer.nt.external.nbtapi.NBTItem;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.meta.ItemMeta;
-
-import java.util.List;
 
 /**
  * Class that handles PlayerInteractEvent to open the multi tool options Gui
@@ -33,13 +30,13 @@ public class CrouchRightClickOpenGui implements Listener {
                     return;
                 }
                 //Create a local variable for the item meta
-                ItemMeta itemMeta = player.getInventory().getItemInHand().getItemMeta();
-                //Create a local variable for the item lore
-                List<String> itemLore = itemMeta.getLore();
-                //Create a local variable for type of trench tool
-                GetToolType toolType = new GetToolType(itemLore, itemMeta, player.getInventory().getItemInHand());
-                if (toolType.getIsMultiTool()) {
-                    NTools.getPlugin(NTools.class).getGuiByName("multi-config").open(player);
+                NBTItem nbtItem = new NBTItem(player.getItemInHand());
+                try {
+                    if (nbtItem.getBoolean("ntool.multi")) {
+                        NTools.getPlugin(NTools.class).getGuiByName("multi-config").open(player);
+                    }
+                } catch (NullPointerException e) {
+                    //NBT tag is null because this is not a multi tool
                 }
             }
         }
