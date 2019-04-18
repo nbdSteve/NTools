@@ -2,9 +2,11 @@ dev\nuer\nt\events\LightningWandStrikeEvent.class
 dev\nuer\nt\method\CreateMultiToolLoreIDMaps.class
 dev\nuer\nt\listener\PlayerInteract.class
 dev\nuer\nt\gui\AbstractGui.class
+dev\nuer\nt\external\actionbarapi\ActionBarAPI.class
 dev\nuer\nt\external\nbtapi\utils\MinecraftVersion.class
 dev\nuer\nt\external\nbtapi\ClassWrapper.class
 dev\nuer\nt\file\LoadFile.class
+dev\nuer\nt\external\actionbarapi\ActionBarAPI$1.class
 dev\nuer\nt\external\nbtapi\ReflectionMethod.class
 dev\nuer\nt\method\itemCreation\UpdateItem.class
 dev\nuer\nt\gui\purchase\BuyMultiToolsGui.class
@@ -28,6 +30,7 @@ dev\nuer\nt\external\nbtapi\NBTFile.class
 dev\nuer\nt\tools\lightning\CreateLightningStrike.class
 dev\nuer\nt\tools\harvest\IncreasePriceModifier.class
 dev\nuer\nt\method\player\PlayerMessage.class
+dev\nuer\nt\external\actionbarapi\ActionBarMessageEvent.class
 dev\nuer\nt\tools\BreakBlocksInRadius.class
 dev\nuer\nt\gui\MultiToolConfigurationGui.class
 dev\nuer\nt\method\AddToolsToMap.class
@@ -44,6 +47,7 @@ dev\nuer\nt\external\nbtapi\ObjectCreator.class
 dev\nuer\nt\gui\listener\GuiClickListener.class
 dev\nuer\nt\gui\purchase\BuyHarvesterToolsGui.class
 dev\nuer\nt\file\LoadFile$Files.class
+dev\nuer\nt\external\actionbarapi\ActionBarAPI$2.class
 dev\nuer\nt\NTools.class
 dev\nuer\nt\tools\sand\SandCooldownCheck.class
 dev\nuer\nt\tools\multi\ModeSwitch.class

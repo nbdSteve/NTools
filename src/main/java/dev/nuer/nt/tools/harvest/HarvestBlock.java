@@ -1,15 +1,11 @@
 package dev.nuer.nt.tools.harvest;
 
 import dev.nuer.nt.NTools;
+import dev.nuer.nt.external.actionbarapi.ActionBarAPI;
 import dev.nuer.nt.method.player.AddBlocksToPlayerInventory;
-import net.md_5.bungee.api.ChatMessageType;
-import net.md_5.bungee.api.chat.TextComponent;
-import net.minecraft.server.v1_8_R3.ChatComponentText;
-import net.minecraft.server.v1_8_R3.PacketPlayOutChat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageEvent;
@@ -39,15 +35,11 @@ public class HarvestBlock {
                         double priceToDeposit = blockPrice * priceModifier;
                         NTools.economy.depositPlayer(player, priceToDeposit);
                         //Create a message
-                        try {
-                            if (NTools.getFiles().get("config").getBoolean("harvester-action-bar.enabled")) {
-                                String message = NTools.getFiles().get("config").getString("harvester-action-bar.message").replace("{deposit}", new DecimalFormat("##.00").format(priceToDeposit * blocksToHarvest.size()));
-                                PacketPlayOutChat packet = new PacketPlayOutChat(new ChatComponentText(ChatColor.translateAlternateColorCodes('&', message)), (byte) 2);
-                                ((CraftPlayer) player).getHandle().playerConnection.sendPacket(packet);
-                            } else {
-                                HandleSellingMessages.handleSellingMessages(player, priceToDeposit);
-                            }
-                        } catch (Exception e) {
+                        if (NTools.getFiles().get("config").getBoolean("harvester-action-bar.enabled")) {
+                            String message = NTools.getFiles().get("config").getString("harvester-action-bar.message").replace("{deposit}",
+                                    new DecimalFormat("##.00").format(priceToDeposit * blocksToHarvest.size()));
+                            ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
+                        } else {
                             HandleSellingMessages.handleSellingMessages(player, priceToDeposit);
                         }
                     }

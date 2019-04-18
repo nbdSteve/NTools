@@ -1,5 +1,5 @@
 # NTools - if you find any bugs please contact nbdSteve#0583 on Discord.
-version: 0.2.4
+version: 0.2.8
 
 enable-debug-messages: true
 
@@ -28,7 +28,7 @@ harvester-block-prices:
 
 harvester-selling-message-delay: 60
 
-harvester-action-bar: #1.8 feature only, disable if you are using any other version
+harvester-action-bar: # These should work on all versions, pm if they don't
   enabled: true
   message: "&e✦ &6&lAuto Sell &7⊳ &a+&l${deposit} &e✦"
 
