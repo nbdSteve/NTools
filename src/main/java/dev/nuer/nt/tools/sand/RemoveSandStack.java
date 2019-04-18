@@ -22,7 +22,7 @@ public class RemoveSandStack {
                            String filePath) {
         int cooldownFromConfig = NTools.getFiles().get(directory).getInt(filePath + ".cooldown");
         Bukkit.getScheduler().runTaskAsynchronously(NTools.getPlugin(NTools.class), () -> {
-            if (!SandCooldownCheck.isOnSandWandCooldown(player.getUniqueId(), cooldownFromConfig)) {
+            if (!SandCooldownCheck.isOnSandWandCooldown(player.getUniqueId(), cooldownFromConfig, player)) {
                 int positionX = event.getBlock().getX();
                 int positionY = 255;
                 int positionZ = event.getBlock().getZ();

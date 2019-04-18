@@ -6,7 +6,7 @@
 
     <groupId>dev.nuer</groupId>
     <artifactId>NTools</artifactId>
-    <version>0.2.6</version>
+    <version>0.2.8</version>
     <packaging>jar</packaging>
 
     <name>NTools</name>
@@ -79,6 +79,13 @@
             <artifactId>VaultAPI</artifactId>
             <version>1.7</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot</artifactId>
+            <version>1.8.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/lib/CannonSpigot.jar</systemPath>
         </dependency>
     </dependencies>
 </project>

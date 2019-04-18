@@ -126,9 +126,10 @@ public class Nt implements CommandExecutor {
                                         (NTools.getFiles().get("lightning").getStringList("lightning-wands." + args[4] + ".enchantments")), "lightning", Integer.parseInt(args[4]), target);
                             }
                             if (args[2].equalsIgnoreCase("harvester")) {
+                                String[] modifierParts = MapInitializer.harvesterModifierUnique.get(Integer.parseInt(args[4])).get(NTools.getFiles().get("harvester").getInt("harvester-tools." + args[4] + ".modifier.starting")).split("-");
                                 new CraftItem(args[3], (NTools.getFiles().get("harvester").getString("harvester-tools." + args[4] + ".name")),
-                                        (NTools.getFiles().get("harvester").getStringList("harvester-tools." + args[4] + ".lore")), null, null,
-                                        (NTools.getFiles().get("harvester").getStringList("harvester-tools." + args[4] + ".enchantments")), "harvester", Integer.parseInt(args[4]), target);
+                                        (NTools.getFiles().get("harvester").getStringList("harvester-tools." + args[4] + ".lore")), MapInitializer.harvesterModeUnique.get(Integer.parseInt(args[4])).get(1), modifierParts[0],
+                                        (NTools.getFiles().get("harvester").getStringList("harvester-tools." + args[4] + ".enchantments")), "harvester", Integer.parseInt(args[4]), target, true);
                             }
                         } catch (Exception invalidCommandParameters) {
                             if (sender instanceof Player) {

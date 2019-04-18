@@ -18,10 +18,10 @@ public class GetMultiToolVariables {
         NBTItem nbtItem = new NBTItem(item);
         int toolTypeRawID = nbtItem.getInteger("ntool.raw.id");
         int index = 0;
-        String radiusLore = MapInitializer.multiToolRadiusUnique.get(toolTypeRawID).get(index);
+        String radiusUniqueLore = MapInitializer.multiToolRadiusUnique.get(toolTypeRawID).get(index);
         for (String loreLine : itemLore) {
             //Check if the lore contains the radius unique line
-            if (loreLine.contains(radiusLore)) {
+            if (loreLine.contains(radiusUniqueLore)) {
                 int arrayIndex = 1;
                 while (arrayIndex < MapInitializer.multiToolRadiusUnique.get(toolTypeRawID).size()) {
                     if (loreLine.contains(MapInitializer.multiToolRadiusUnique.get(toolTypeRawID).get(arrayIndex))) {
@@ -45,8 +45,8 @@ public class GetMultiToolVariables {
      * @param changeMode    boolean, if the mode should be changed
      * @return
      */
-    public static String queryToolMode(List<String> itemLore, ItemMeta itemMeta,
-                                       ItemStack item, boolean changeMode) {
+    public static boolean multiToolIsTrenchTool(List<String> itemLore, ItemMeta itemMeta,
+                                                ItemStack item, boolean changeMode) {
         NBTItem nbtItem = new NBTItem(item);
         String mode = ChatColor.translateAlternateColorCodes('&',
                 MapInitializer.multiToolModeUnique.get(nbtItem.getInteger("ntool.raw.id")).get(0));
@@ -54,39 +54,6 @@ public class GetMultiToolVariables {
                 MapInitializer.multiToolModeUnique.get(nbtItem.getInteger("ntool.raw.id")).get(1));
         String tray = ChatColor.translateAlternateColorCodes('&',
                 MapInitializer.multiToolModeUnique.get(nbtItem.getInteger("ntool.raw.id")).get(2));
-        int index = 0;
-        for (String loreLine : itemLore) {
-            //Check if the lore contains the mode unique line
-            if (loreLine.contains(mode)) {
-                //Check if the lore contains the trench unique line
-                if (loreLine.contains(trench)) {
-                    //If true change the mode to tray, else return that it is a trench tool
-                    if (changeMode) {
-                        itemLore.set(index, mode + " " + tray);
-                        UpdateItem.updateItem(itemLore, itemMeta, item);
-                    }
-                    return "trench";
-                } else if (loreLine.contains(tray)) {
-                    if (changeMode) {
-                        itemLore.set(index, mode + " " + trench);
-                        UpdateItem.updateItem(itemLore, itemMeta, item);
-                    }
-                    return "tray";
-                }
-            }
-            index++;
-        }
-        return null;
-    }
-
-    public static boolean multiToolIsTrenchTool(int toolTypeRawID, List<String> itemLore, ItemMeta itemMeta,
-                                                ItemStack item, boolean changeMode) {
-        String mode = ChatColor.translateAlternateColorCodes('&',
-                MapInitializer.multiToolModeUnique.get(toolTypeRawID).get(0));
-        String trench = ChatColor.translateAlternateColorCodes('&',
-                MapInitializer.multiToolModeUnique.get(toolTypeRawID).get(1));
-        String tray = ChatColor.translateAlternateColorCodes('&',
-                MapInitializer.multiToolModeUnique.get(toolTypeRawID).get(2));
         int index = 0;
         for (String loreLine : itemLore) {
             //Check if the lore contains the mode unique line

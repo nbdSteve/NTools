@@ -23,7 +23,7 @@ public class CreateLightningStrike {
     public static void createStrikeGround(Player player, String directory, String filePath,
                                           Block blockToStrike) {
         int cooldownFromConfig = NTools.getFiles().get(directory).getInt(filePath + ".cooldown");
-        if (!LightningCooldownCheck.isOnSandWandCooldown(player.getUniqueId(), cooldownFromConfig)) {
+        if (!LightningCooldownCheck.isOnLightningWandCooldown(player.getUniqueId(), cooldownFromConfig, player)) {
             BlockIgniteEvent playerIgnite = new BlockIgniteEvent(blockToStrike,
                     BlockIgniteEvent.IgniteCause.FLINT_AND_STEEL, player);
             Bukkit.getPluginManager().callEvent(playerIgnite);
@@ -45,7 +45,7 @@ public class CreateLightningStrike {
             return;
         }
         int cooldownFromConfig = NTools.getFiles().get(directory).getInt(filePath + ".cooldown");
-        if (!LightningCooldownCheck.isOnSandWandCooldown(player.getUniqueId(), cooldownFromConfig)) {
+        if (!LightningCooldownCheck.isOnLightningWandCooldown(player.getUniqueId(), cooldownFromConfig, player)) {
             BlockIgniteEvent playerIgnite = new BlockIgniteEvent(clickedMob.getLocation().getBlock(),
                     BlockIgniteEvent.IgniteCause.FLINT_AND_STEEL, player);
             Bukkit.getPluginManager().callEvent(playerIgnite);

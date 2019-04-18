@@ -64,7 +64,7 @@ public final class NTools extends JavaPlugin {
         getCommand("nt").setExecutor(new Nt(this));
         //Register the events for the plugin
         getServer().getPluginManager().registerEvents(new BlockDamageByPlayer(), this);
-        getServer().getPluginManager().registerEvents(new PlayerInteractWithGround(), this);
+        getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
         getServer().getPluginManager().registerEvents(new PlayerInteractWithMob(), this);
         getServer().getPluginManager().registerEvents(new ToolsListener(), this);
         getServer().getPluginManager().registerEvents(new CrouchRightClickOpenGui(), this);

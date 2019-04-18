@@ -3,7 +3,9 @@ package dev.nuer.nt.listener;
 import dev.nuer.nt.external.nbtapi.NBTItem;
 import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.tools.BreakBlocksInRadius;
+import dev.nuer.nt.tools.harvest.ChangeMode;
 import dev.nuer.nt.tools.harvest.HarvestBlock;
+import dev.nuer.nt.tools.harvest.IncreasePriceModifier;
 import dev.nuer.nt.tools.multi.GetMultiToolVariables;
 import dev.nuer.nt.tools.sand.RemoveSandStack;
 import org.bukkit.entity.Player;
@@ -58,8 +60,9 @@ public class BlockDamageByPlayer implements Listener {
             if (nbtItem.getBoolean("ntool.multi")) {
                 event.setCancelled(true);
                 new BreakBlocksInRadius(nbtItem, event, player, "multi", "multi-tools." + nbtItem.getInteger(
-                        "ntool.raw.id"), true, GetMultiToolVariables.multiToolIsTrenchTool(nbtItem.getInteger(
-                        "ntool.raw.id"), nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem().getItemMeta(), nbtItem.getItem(), false));
+                        "ntool.raw.id"), true, GetMultiToolVariables.multiToolIsTrenchTool(
+                        nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem().getItemMeta(),
+                        nbtItem.getItem(), false));
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a multi tool
@@ -76,9 +79,11 @@ public class BlockDamageByPlayer implements Listener {
         try {
             if (nbtItem.getBoolean("ntool.harvester")) {
                 event.setCancelled(true);
-                if (MapInitializer.harvesterBlockWhitelist.contains(event.getBlock().getType().toString())) {
-                    HarvestBlock.harvestBlocks(event, player, "harvester", "harvester-tools." +
-                            nbtItem.getInteger("ntool.raw.id"), false);
+                if (MapInitializer.harvesterBlockPrices.get(event.getBlock().getType().toString()) != null) {
+                    HarvestBlock.harvestBlocks(event, player, ChangeMode.harvesterIsSelling(nbtItem.getItem().getItemMeta().getLore(),
+                            nbtItem.getItem().getItemMeta(), nbtItem.getItem(), false),
+                            MapInitializer.harvesterBlockPrices.get(event.getBlock().getType().toString()),
+                            IncreasePriceModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem(), true));
                 }
             }
         } catch (NullPointerException e) {

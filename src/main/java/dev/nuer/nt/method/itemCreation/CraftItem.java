@@ -41,7 +41,23 @@ public class CraftItem {
         if (name != null) {
             itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
         }
-        addLore(lore, modeReplacement, radiusReplacement);
+        addLore(lore, modeReplacement, radiusReplacement, false);
+        itemMeta.setLore(itemLore);
+        addEnchantments(enchantments);
+        item.setItemMeta(itemMeta);
+        if (player != null) {
+            player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig));
+        }
+    }
+
+    public CraftItem(String material, String name, List<String> lore, String modeReplacement,
+                     String modifierReplacement, List<String> enchantments, String typeOfTool, int idFromConfig, Player player, boolean harvester) {
+        item = createItem(material);
+        itemMeta = item.getItemMeta();
+        if (name != null) {
+            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
+        }
+        addLore(lore, modeReplacement, modifierReplacement, harvester);
         itemMeta.setLore(itemLore);
         addEnchantments(enchantments);
         item.setItemMeta(itemMeta);
@@ -68,13 +84,21 @@ public class CraftItem {
      * @param modeReplacement   String, replacement for the {mode} placeholder
      * @param radiusReplacement String, replacement for the {radius} placeholder
      */
-    private void addLore(List<String> loreToAdd, String modeReplacement, String radiusReplacement) {
+    private void addLore(List<String> loreToAdd, String modeReplacement, String radiusReplacement, boolean harvester) {
         itemLore = new ArrayList<>();
         if (modeReplacement != null) {
-            for (String lineOfLore : loreToAdd) {
-                itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore)
-                        .replace("{radius}", ChatColor.translateAlternateColorCodes('&', modeReplacement))
-                        .replace("{mode}", ChatColor.translateAlternateColorCodes('&', radiusReplacement)));
+            if (harvester) {
+                for (String lineOfLore : loreToAdd) {
+                    itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore)
+                            .replace("{modifier}", ChatColor.translateAlternateColorCodes('&', radiusReplacement))
+                            .replace("{mode}", ChatColor.translateAlternateColorCodes('&', modeReplacement)));
+                }
+            }  else {
+                for (String lineOfLore : loreToAdd) {
+                    itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore)
+                            .replace("{radius}", ChatColor.translateAlternateColorCodes('&', modeReplacement))
+                            .replace("{mode}", ChatColor.translateAlternateColorCodes('&', radiusReplacement)));
+                }
             }
         } else if (loreToAdd != null) {
             for (String lineOfLore : loreToAdd) {

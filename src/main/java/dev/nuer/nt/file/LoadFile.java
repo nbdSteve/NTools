@@ -16,7 +16,7 @@ public class LoadFile {
     public enum Files {
         CONFIG, MESSAGES, LIGHTNING, LIGHTNING_PURCHASE_GUI, MULTI, MULTI_CONFIG_GUI, MULTI_PURCHASE_GUI,
         SAND, SAND_PURCHASE_GUI, TRAY, TRAY_PURCHASE_GUI, TRENCH, TRENCH_PURCHASE_GUI, HARVESTER,
-        HARVESTER_PURCHASE_GUI
+        HARVESTER_PURCHASE_GUI, HARVESTER_CONFIG_GUI
     }
 
     /**
@@ -46,6 +46,7 @@ public class LoadFile {
         //Load harvester tool files
         files.put(Files.HARVESTER, new CreateFile("harvester" + File.separator + "tools.yml"));
         files.put(Files.HARVESTER_PURCHASE_GUI, new CreateFile("harvester" + File.separator + "purchase-gui.yml"));
+        files.put(Files.HARVESTER_CONFIG_GUI, new CreateFile("harvester" + File.separator + "config-gui.yml"));
         //Log that files are loaded
         NTools.LOGGER.info("[NTools] Successfully loaded all configuration files...");
     }

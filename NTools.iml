@@ -32,5 +32,14 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.yaml:snakeyaml:1.23" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.milkbowl.vault:VaultAPI:1.7" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.bukkit:bukkit:1.13.1-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: org.spigotmc:spigot:1.8.8">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/lib/CannonSpigot.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

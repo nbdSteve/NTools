@@ -11,10 +11,10 @@ decremented-radius:
   - "&6&lNTools&e: &7You have decreased your tools break radius."
 
 max-radius:
-  - "&6&lNTools&e: &7Your tools is already at its maximum break radius."
+  - "&6&lNTools&e: &7Your tool is already at its maximum break radius."
 
 min-radius:
-  - "&6&lNTools&e: &7Your tools is already at its minimum break radius."
+  - "&6&lNTools&e: &7Your tool is already at its minimum break radius."
 
 invalid-tool:
   - "&6&lNTools&e: &7You are unable to configure the item your are currently holding."
@@ -54,3 +54,18 @@ incremented-radius-no-cost:
 
 creeper-already-powered:
   - "&cError&7, that creeper is already powered."
+
+incremented-modifier:
+  - "&6&lNTools&e: &7You have increased your harvester hoes price modifier, &c-${price}&7."
+
+incremented-modifier-no-cost:
+  - "&aSuccess&7, your harvester hoes price modifier has been increased at no cost."
+
+max-modifier:
+  - "&6&lNTools&e: &7Your harvester hoe is already at its maximum price modifier."
+
+start-selling-by-harvest:
+  - "&6&lNTools&e: &7You have started auto selling crops for &a+&l${price} &7per crop, respectively."
+
+bulk-deposit-by-harvest:
+  - "&6&lNTools&e: &7You have finished harvesting, a grand total of &a+&l${deposit} &7has been deposited into your account."

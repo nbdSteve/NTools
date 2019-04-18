@@ -9,6 +9,9 @@ harvester-tool-purchase-gui:
     lore:
       - "&6&l**Farmer I**"
       - "&7 "
+      - "&7Mode: &e&lSELL"
+      - "&7Booster: &b&l1.0"
+      - "&7 "
       - "&a&oThis wand was create in the Amazon,"
       - "&a&ousing jungle magic to increase sales and"
       - "&a&odecrease labor. Decifer how it works to,"

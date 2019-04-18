@@ -38,6 +38,13 @@ public class CrouchRightClickOpenGui implements Listener {
                 } catch (NullPointerException e) {
                     //NBT tag is null because this is not a multi tool
                 }
+                try {
+                    if (nbtItem.getBoolean("ntool.harvester")) {
+                        NTools.getPlugin(NTools.class).getGuiByName("harvester-config").open(player);
+                    }
+                } catch (NullPointerException e) {
+                    //NBT tag is null because this is not a harvester hoe
+                }
             }
         }
     }

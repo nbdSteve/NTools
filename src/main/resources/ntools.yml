@@ -20,11 +20,25 @@ sand-block-whitelist:
   - gravel
   - red_sand
 
-harvester-block-whitelist:
-  - sugar_cane_block
-  - cactus
-  - melon_block
-  - pumpkin
+harvester-block-prices:
+  - sugar_cane_block:10.78
+  - cactus:13.44
+  - melon_block:18.93
+  - pumpkin:23.48
+
+harvester-selling-message-delay: 60
+
+harvester-action-bar: #1.8 feature only, disable if you are using any other version
+  enabled: true
+  message: "&e✦ &6&lAuto Sell &7⊳ &a+&l${deposit} &e✦"
+
+inventory-full-action-bar:
+  enabled: true
+  message: "&c&l✘ &fYour inventory is &e&l&nFULL&r &c&l✘"
+
+cooldown-action-bar:
+  enabled: true
+  message: "&c&l✘ &6&lCooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
 
 tool-purchase-gui:
   # generic gui to select a type of tool to buy

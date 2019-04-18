@@ -34,4 +34,16 @@ public class PurchaseTool {
             new PlayerMessage("insufficient", player);
         }
     }
+
+    public PurchaseTool(double price, String material, String name, List<String> lore, String modeReplacement,
+                        String modifierReplacement, List<String> enchantments, String typeOfTool, int idFromConfig, Player player, boolean harvester) {
+        if (NTools.economy.getBalance(player) >= price) {
+            player.closeInventory();
+            NTools.economy.withdrawPlayer(player, price);
+            new CraftItem(material, name, lore, modeReplacement, modifierReplacement, enchantments, typeOfTool, idFromConfig, player, harvester);
+            new PlayerMessage("purchase", player, "{price}", NTools.numberFormat.format(price));
+        } else {
+            new PlayerMessage("insufficient", player);
+        }
+    }
 }

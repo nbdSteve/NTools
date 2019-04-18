@@ -2,6 +2,7 @@ package dev.nuer.nt.initialize;
 
 import dev.nuer.nt.gui.AbstractGui;
 import dev.nuer.nt.gui.BuyToolsGenericGui;
+import dev.nuer.nt.gui.HarvesterConfigurationGui;
 import dev.nuer.nt.gui.MultiToolConfigurationGui;
 import dev.nuer.nt.gui.purchase.*;
 
@@ -11,6 +12,8 @@ import dev.nuer.nt.gui.purchase.*;
 public class GuiInitializer {
     //Instance of multi tool options gui
     private MultiToolConfigurationGui multiToolConfigurationGui;
+    //Instance of harvester config gui
+    private HarvesterConfigurationGui harvesterConfigurationGui;
     //Instance of multi tools gui
     private BuyMultiToolsGui buyMultiToolsGui;
     //Instance of generic buy gui
@@ -32,6 +35,7 @@ public class GuiInitializer {
     public GuiInitializer() {
         //Create the Gui instances
         multiToolConfigurationGui = new MultiToolConfigurationGui();
+        harvesterConfigurationGui = new HarvesterConfigurationGui();
         buyToolsGenericGui = new BuyToolsGenericGui();
         buyMultiToolsGui = new BuyMultiToolsGui();
         buyTrenchToolsGui = new BuyTrenchToolsGui();
@@ -56,6 +60,7 @@ public class GuiInitializer {
         if (guiName.equalsIgnoreCase("sand-buy")) return buySandWandsGui;
         if (guiName.equalsIgnoreCase("lightning-buy")) return buyLightningWandsGui;
         if (guiName.equalsIgnoreCase("harvester-buy")) return buyHarvesterToolsGui;
+        if (guiName.equalsIgnoreCase("harvester-config")) return harvesterConfigurationGui;
         return null;
     }
 }

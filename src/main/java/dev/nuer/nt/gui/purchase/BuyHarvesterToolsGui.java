@@ -2,6 +2,7 @@ package dev.nuer.nt.gui.purchase;
 
 import dev.nuer.nt.NTools;
 import dev.nuer.nt.gui.AbstractGui;
+import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.itemCreation.CraftItem;
 import dev.nuer.nt.method.itemCreation.PurchaseTool;
 import dev.nuer.nt.method.player.PlayerMessage;
@@ -25,12 +26,15 @@ public class BuyHarvesterToolsGui extends AbstractGui {
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
+                                String[] modifierParts = MapInitializer.harvesterModifierUnique.get(configItem).get(NTools.getFiles().get("harvester").getInt("harvester-tools." + configItem + ".modifier.starting")).split("-");
                                 if (NTools.getFiles().get("harvester_purchase_gui").getBoolean("harvester-tool-purchase-gui." + configItem + ".purchasable")) {
                                     new PurchaseTool((NTools.getFiles().get("harvester_purchase_gui").getInt("harvester-tool-purchase-gui." + configItem + ".price")),
                                             (NTools.getFiles().get("harvester_purchase_gui").getString("harvester-tool-purchase-gui." + configItem + ".material")),
                                             (NTools.getFiles().get("harvester").getString("harvester-tools." + configItem + ".name")),
-                                            (NTools.getFiles().get("harvester").getStringList("harvester-tools." + configItem + ".lore")), null, null,
-                                            (NTools.getFiles().get("harvester").getStringList("harvester-tools." + configItem + ".enchantments")), "harvester", configItem, player);
+                                            (NTools.getFiles().get("harvester").getStringList("harvester-tools." + configItem + ".lore")),
+                                            (MapInitializer.harvesterModeUnique.get(configItem).get(1)),
+                                            (modifierParts[0]),
+                                            (NTools.getFiles().get("harvester").getStringList("harvester-tools." + configItem + ".enchantments")), "harvester", configItem, player, true);
                                 }
                                 if (NTools.getFiles().get("harvester_purchase_gui").getBoolean("harvester-tool-purchase-gui." + configItem + ".back-button")) {
                                     NTools.getPlugin(NTools.class).getGuiByName("generic-buy").open(player);

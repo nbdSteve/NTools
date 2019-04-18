@@ -23,7 +23,7 @@ public class ModeSwitch {
     public static void switchMode(List<String> itemLore,
                                   ItemMeta itemMeta, ItemStack item, Player player) {
         player.closeInventory();
-        GetMultiToolVariables.queryToolMode(itemLore, itemMeta, item, true);
+        GetMultiToolVariables.multiToolIsTrenchTool(itemLore, itemMeta, item, true);
         new PlayerMessage("mode-switch", player);
     }
 }
