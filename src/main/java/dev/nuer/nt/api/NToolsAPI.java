@@ -7,18 +7,15 @@ import org.bukkit.entity.Player;
 
 public class NToolsAPI {
 
-    final static NTools instance = NTools.getPlugin(NTools.class);
-
     public static boolean isEnabled() {
-        if (instance.isEnabled()) {
+        if (getInstance().isEnabled()) {
             return true;
         }
         return false;
     }
 
     public static NTools getInstance() {
-//        Bukkit.getServicesManager().register(NTools.class, null, instance, ServicePriority.High);
-        return instance;
+        return NTools.getPlugin(NTools.class);
     }
 
     public static boolean isOnSandWandCooldown(Player player) {
