@@ -1,17 +1,7 @@
-harvester-tool-config-gui:
+sell-wand-config-gui:
   size: 18
-  name: "&6&lHarvester Hoe Options"
+  name: "&6&lSell Wand Options"
   1:
-    slot: 5
-    name: "&b&lMode Switch"
-    material: ender_pearl:0
-    lore:
-      - "&7 "
-      - "&7&oClick this to change your tools"
-      - "&7&omode. There are sell and harvest modes."
-      - "&7 "
-    switch-mode-when-clicked: true
-  2:
     slot: 3
     name: "&a&l+Price Modifier"
     material: stained_glass_pane:5
@@ -21,15 +11,15 @@ harvester-tool-config-gui:
       - "&7&oprice modifier by 1 tier."
       - "&7 "
     increase-modifier-when-clicked: true
-  4:
+  2:
     slot: 13
-    name: "&e&lHarvester Hoe Information"
+    name: "&e&lSell Wand Information"
     material: book:0
     lore:
       - "&7 "
-      - "&7&oHarvester Hoes have special properties,"
+      - "&7&oSell Wands have special properties,"
       - "&7&owhich means they can be configured to suit"
-      - "&7&oyour harvesting needs. Click the buttons"
+      - "&7&oyour selling needs. Click the buttons"
       - "&7&oin this gui to configure your tool."
       - "&7 "
       - "&6&oYou must be holding your harvester hoe."

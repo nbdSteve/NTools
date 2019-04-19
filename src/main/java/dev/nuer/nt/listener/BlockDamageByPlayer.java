@@ -5,7 +5,7 @@ import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.tools.BreakBlocksInRadius;
 import dev.nuer.nt.tools.harvest.ChangeMode;
 import dev.nuer.nt.tools.harvest.HarvestBlock;
-import dev.nuer.nt.tools.harvest.IncreasePriceModifier;
+import dev.nuer.nt.tools.PriceModifier;
 import dev.nuer.nt.tools.multi.GetMultiToolVariables;
 import dev.nuer.nt.tools.sand.RemoveSandStack;
 import org.bukkit.entity.Player;
@@ -83,7 +83,7 @@ public class BlockDamageByPlayer implements Listener {
                     HarvestBlock.harvestBlocks(event, player, ChangeMode.harvesterIsSelling(nbtItem.getItem().getItemMeta().getLore(),
                             nbtItem.getItem().getItemMeta(), nbtItem.getItem(), false),
                             MapInitializer.harvesterBlockPrices.get(event.getBlock().getType().toString()),
-                            IncreasePriceModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem(), true));
+                            PriceModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem(), true, MapInitializer.harvesterModifierUnique));
                 }
             }
         } catch (NullPointerException e) {

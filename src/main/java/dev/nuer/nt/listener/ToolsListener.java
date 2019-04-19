@@ -54,16 +54,6 @@ public class ToolsListener implements Listener {
                 if (NTools.economy != null) {
                     AddBlocksToPlayerInventory.sellBlocks(event.getBlockToHarvest(), event.getPlayer());
                     NTools.economy.depositPlayer(event.getPlayer(), event.getBlockPrice());
-                    //Use action bar messages if they are enabled
-                    if (NTools.getFiles().get("config").getBoolean("harvester-action-bar.enabled")) {
-                        //Create the action bar message
-                        String message = NTools.getFiles().get("config").getString("harvester-action-bar.message").replace("{deposit}",
-                                new DecimalFormat("##.00").format(event.getBlockPrice() * event.getNumberOfBlocksToHarvest()));
-                        //Send it to the player
-                        ActionBarAPI.sendActionBar(event.getPlayer(), ChatColor.translateAlternateColorCodes('&', message));
-                    } else {
-                        HandleSellingMessages.handleSellingMessages(event.getPlayer(), event.getBlockPrice());
-                    }
                 }
             } else {
                 AddBlocksToPlayerInventory.addBlocks(event.getBlockToHarvest(), event.getPlayer());

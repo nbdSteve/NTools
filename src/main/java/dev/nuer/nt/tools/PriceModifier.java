@@ -1,29 +1,31 @@
-package dev.nuer.nt.tools.harvest;
+package dev.nuer.nt.tools;
 
 import dev.nuer.nt.NTools;
 import dev.nuer.nt.external.nbtapi.NBTItem;
-import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.itemCreation.UpdateItem;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-public class IncreasePriceModifier {
+public class PriceModifier {
 
-    public static double getCurrentModifier(List<String> itemLore, ItemStack item, boolean getDouble) {
+    public static double getCurrentModifier(List<String> itemLore, ItemStack item, boolean getDouble,
+                                            HashMap<Integer, ArrayList<String>> modifierUniqueIDs) {
         NBTItem nbtItem = new NBTItem(item);
         int toolTypeRawID = nbtItem.getInteger("ntool.raw.id");
         int index = 0;
-        String modifierUniqueLore = MapInitializer.harvesterModifierUnique.get(toolTypeRawID).get(index);
+        String modifierUniqueLore = modifierUniqueIDs.get(toolTypeRawID).get(index);
         for (String loreLine : itemLore) {
             //Check if the lore contains the radius unique line
             if (loreLine.contains(modifierUniqueLore)) {
                 int arrayIndex = 1;
-                while (arrayIndex < MapInitializer.harvesterModifierUnique.get(toolTypeRawID).size()) {
-                    String[] modifierParts = MapInitializer.harvesterModifierUnique.get(toolTypeRawID).get(arrayIndex).split("-");
+                while (arrayIndex < modifierUniqueIDs.get(toolTypeRawID).size()) {
+                    String[] modifierParts = modifierUniqueIDs.get(toolTypeRawID).get(arrayIndex).split("-");
                     if (loreLine.contains(modifierParts[0])) {
                         if (getDouble) {
                             return Double.parseDouble(modifierParts[1]);
@@ -48,24 +50,26 @@ public class IncreasePriceModifier {
      * @param item     the item being update
      * @param player   the player being queried
      */
-    public static void increaseHarvesterModifier(List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player) {
+    public static void increaseHarvesterModifier(List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player,
+                                                 HashMap<Integer, ArrayList<String>> modifierUniqueIDs, String directory, String filePath) {
         player.closeInventory();
-        verifyItemLore(itemLore, itemMeta, item, player);
+        verifyItemLore(itemLore, itemMeta, item, player, modifierUniqueIDs, directory, filePath);
     }
 
-    public static void verifyItemLore(List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player) {
+    public static void verifyItemLore(List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player,
+                                      HashMap<Integer, ArrayList<String>> modifierUniqueIDs, String directory, String filePath) {
         NBTItem nbtItem = new NBTItem(item);
         int toolTypeRawID = nbtItem.getInteger("ntool.raw.id");
         int index = 0;
-        String modifierUniqueLore = MapInitializer.harvesterModifierUnique.get(toolTypeRawID).get(index);
+        String modifierUniqueLore = modifierUniqueIDs.get(toolTypeRawID).get(index);
         for (String loreLine : itemLore) {
             //Check if the lore contains the radius unique line
             if (loreLine.contains(modifierUniqueLore)) {
                 int arrayIndex = 1;
-                while (arrayIndex < MapInitializer.harvesterModifierUnique.get(toolTypeRawID).size()) {
-                    String[] modifierParts = MapInitializer.harvesterModifierUnique.get(toolTypeRawID).get(arrayIndex).split("-");
+                while (arrayIndex < modifierUniqueIDs.get(toolTypeRawID).size()) {
+                    String[] modifierParts = modifierUniqueIDs.get(toolTypeRawID).get(arrayIndex).split("-");
                     if (loreLine.contains(modifierParts[0])) {
-                        increaseModifierInLore(toolTypeRawID, index, modifierUniqueLore, itemLore, itemMeta, item, player);
+                        increaseModifierInLore(toolTypeRawID, index, modifierUniqueLore, itemLore, itemMeta, item, player, modifierUniqueIDs, directory, filePath);
                         return;
                     }
                     arrayIndex++;
@@ -76,13 +80,14 @@ public class IncreasePriceModifier {
         }
     }
 
-    public static void increaseModifierInLore(int toolTypeRawID, int index, String modifierUniqueLore, List<String> itemLore,
-                                              ItemMeta itemMeta, ItemStack item, Player player) {
-        int modifier = (int) getCurrentModifier(itemLore, item, false);
-        double priceToUpgrade = NTools.getFiles().get("harvester").getInt("harvester-tools." + toolTypeRawID + ".upgrade-cost." + modifier);
-        int maxModifier = MapInitializer.multiToolRadiusUnique.get(toolTypeRawID).size() - 3;
+    public static void increaseModifierInLore(int toolTypeRawID, int index, String modifierUniqueLore,
+                                              List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player,
+                                              HashMap<Integer, ArrayList<String>> modifierUniqueIDs, String directory, String filePath) {
+        int modifier = (int) getCurrentModifier(itemLore, item, false, modifierUniqueIDs);
+        double priceToUpgrade = NTools.getFiles().get(directory).getInt(filePath + toolTypeRawID + ".upgrade-cost." + modifier);
+        int maxModifier = modifierUniqueIDs.get(toolTypeRawID).size() - 2;
         if (modifier + 1 <= maxModifier) {
-            String[] modifierParts = MapInitializer.harvesterModifierUnique.get(toolTypeRawID).get(modifier + 1).split("-");
+            String[] modifierParts = modifierUniqueIDs.get(toolTypeRawID).get(modifier + 1).split("-");
             if (NTools.economy != null) {
                 if (NTools.economy.getBalance(player) >= priceToUpgrade) {
                     NTools.economy.withdrawPlayer(player, priceToUpgrade);

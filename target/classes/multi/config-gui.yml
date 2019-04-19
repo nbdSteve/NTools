@@ -37,7 +37,7 @@ multi-tool-config-gui:
     material: book:0
     lore:
       - "&7 "
-      - "&7&oMulti tools have special properties,"
+      - "&7&oMulti Tools have special properties,"
       - "&7&owhich means they can be configured to suit"
       - "&7&oyour trench / tray needs. Click the buttons"
       - "&7&oin this gui to configure your tool."

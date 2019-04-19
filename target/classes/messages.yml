@@ -62,10 +62,13 @@ incremented-modifier-no-cost:
   - "&aSuccess&7, your harvester hoes price modifier has been increased at no cost."
 
 max-modifier:
-  - "&6&lNTools&e: &7Your harvester hoe is already at its maximum price modifier."
+  - "&6&lNTools&e: &7Your tool is already at its maximum price modifier."
 
 start-selling-by-harvest:
   - "&6&lNTools&e: &7You have started auto selling crops for &a+&l${price} &7per crop, respectively."
 
 bulk-deposit-by-harvest:
   - "&6&lNTools&e: &7You have finished harvesting, a grand total of &a+&l${deposit} &7has been deposited into your account."
+
+chest-contents-sell:
+  - "&6&NTools&e: &7All items that can be sold in that chest have been sold for: &a+&l${deposit}&7."

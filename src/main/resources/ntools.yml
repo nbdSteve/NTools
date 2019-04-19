@@ -34,6 +34,10 @@ harvester-action-bar: # These should work on all versions, pm if they don't
   enabled: true
   message: "&e✦ &6&lAuto Sell &7⊳ &a+&l${deposit} &e✦"
 
+sell-wand-action-bar:
+  enabled: true
+  message: "&e✦ &6&lSell Wand &7⊳ &a+&l${deposit} &e✦"
+
 inventory-full-action-bar:
   enabled: true
   message: "&c&l✘ &fYour inventory is &e&l&nFULL&r &c&l✘"
@@ -112,3 +116,14 @@ tool-purchase-gui:
     enchantments:
       - lure:10
     open-harvester: true
+  7:
+    slot: 6
+    name: "&b&lSell Wands"
+    material: stick:0
+    lore:
+      - "&7 "
+      - "&7&oClick this to buy sell wands"
+      - "&7 "
+    enchantments:
+      - lure:10
+    open-sell: true

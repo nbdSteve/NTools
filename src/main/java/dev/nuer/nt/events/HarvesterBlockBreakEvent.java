@@ -14,7 +14,6 @@ public class HarvesterBlockBreakEvent extends Event implements Cancellable {
     private Player player;
     private double blockPrice;
     private boolean isSelling;
-    private int numberOfBlocksToHarvest;
     private boolean cancel;
 
     public HarvesterBlockBreakEvent(Block blockToHarvest, Player player, double blockPrice, boolean isSelling) {
@@ -22,14 +21,6 @@ public class HarvesterBlockBreakEvent extends Event implements Cancellable {
         this.player = player;
         this.blockPrice = blockPrice;
         this.isSelling = isSelling;
-    }
-
-    public HarvesterBlockBreakEvent(Block blockToHarvest, Player player, double blockPrice, boolean isSelling, int numberOfBlocksToHarvest) {
-        this.blockToHarvest = blockToHarvest;
-        this.player = player;
-        this.blockPrice = blockPrice;
-        this.isSelling = isSelling;
-        this.numberOfBlocksToHarvest = numberOfBlocksToHarvest;
     }
 
     public static HandlerList getHandlerList() {
@@ -50,10 +41,6 @@ public class HarvesterBlockBreakEvent extends Event implements Cancellable {
 
     public boolean isSelling() {
         return isSelling;
-    }
-
-    public int getNumberOfBlocksToHarvest() {
-        return numberOfBlocksToHarvest;
     }
 
     @Override

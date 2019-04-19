@@ -1,6 +1,7 @@
-package dev.nuer.nt.gui;
+package dev.nuer.nt.gui.config;
 
 import dev.nuer.nt.NTools;
+import dev.nuer.nt.gui.AbstractGui;
 import dev.nuer.nt.method.itemCreation.CraftItem;
 import dev.nuer.nt.method.player.PlayerMessage;
 import dev.nuer.nt.tools.multi.ChangeToolRadius;

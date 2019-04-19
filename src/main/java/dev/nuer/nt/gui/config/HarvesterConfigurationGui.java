@@ -1,10 +1,12 @@
-package dev.nuer.nt.gui;
+package dev.nuer.nt.gui.config;
 
 import dev.nuer.nt.NTools;
+import dev.nuer.nt.gui.AbstractGui;
+import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.itemCreation.CraftItem;
 import dev.nuer.nt.method.player.PlayerMessage;
 import dev.nuer.nt.tools.harvest.ChangeMode;
-import dev.nuer.nt.tools.harvest.IncreasePriceModifier;
+import dev.nuer.nt.tools.PriceModifier;
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -38,7 +40,7 @@ public class HarvesterConfigurationGui extends AbstractGui {
                                     ChangeMode.switchMode(itemLore, itemMeta, item, player);
                                 }
                                 if (NTools.getFiles().get("harvester_config_gui").getBoolean("harvester-tool-config-gui." + configItem + ".increase-modifier-when-clicked")) {
-                                    IncreasePriceModifier.increaseHarvesterModifier(itemLore, itemMeta, item, player);
+                                    PriceModifier.increaseHarvesterModifier(itemLore, itemMeta, item, player, MapInitializer.harvesterModifierUnique, "harvester", "harvester-tools.");
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();
