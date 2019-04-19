@@ -29,7 +29,7 @@ public final class NTools extends JavaPlugin {
     //If the plugin should log debug timing messages
     public static boolean doDebugMessages;
     //Static way to format price placeholders
-    public static DecimalFormat numberFormat = new DecimalFormat("#,###");
+    public static DecimalFormat numberFormat = new DecimalFormat("#,###.##");
 
     /**
      * Get the plugin files

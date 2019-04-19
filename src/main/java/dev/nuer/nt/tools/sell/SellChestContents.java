@@ -14,8 +14,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import java.text.DecimalFormat;
-
 public class SellChestContents {
 
     public static void sellContents(Block clickedBlock, Player player, String directory, String filePath, double priceModifier) {
@@ -41,6 +39,7 @@ public class SellChestContents {
                 if (item == null || item.getType().equals(Material.AIR)) {
                     continue;
                 } else if (ShopGUIPlus.canBeSold(item, player, usingShopGuiPlus, MapInitializer.sellWandItemPrices)) {
+                    //TODO add custom event
                     double finalPrice = ShopGUIPlus.getItemPrice(item, player, priceModifier, usingShopGuiPlus, MapInitializer.sellWandItemPrices);
                     totalDeposit += finalPrice;
                     NTools.economy.depositPlayer(player, finalPrice);
@@ -51,11 +50,11 @@ public class SellChestContents {
             if (NTools.getFiles().get("config").getBoolean("sell-wand-action-bar.enabled")) {
                 //Create the action bar message
                 String message = NTools.getFiles().get("config").getString("sell-wand-action-bar.message").replace("{deposit}",
-                        new DecimalFormat("#,###.00").format(totalDeposit));
+                        NTools.numberFormat.format(totalDeposit));
                 //Send it to the player
                 ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
             } else {
-                new PlayerMessage("chest-contents-sell", player, "{deposit}", new DecimalFormat("#,###.00").format(totalDeposit));
+                new PlayerMessage("chest-contents-sell", player, "{deposit}", NTools.numberFormat.format(totalDeposit));
             }
         });
     }

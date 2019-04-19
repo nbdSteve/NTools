@@ -6,7 +6,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitTask;
 
-import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -14,7 +13,6 @@ import java.util.UUID;
  * Class that handles sending a delayed message to players for harvester hoes
  */
 public class HandleSellingMessages {
-
     //Store the players who are breaking blocks, and their message cooldown
     public static HashMap<UUID, Long> playersSellingByHarvest;
     //Track the current players deposit amount, before it is given to them
@@ -25,7 +23,6 @@ public class HandleSellingMessages {
     private static int messageDelay = NTools.getFiles().get("config").getInt("harvester-selling-message-delay");
 
     /**
-     *
      * @param player
      * @param sellPrice
      */
@@ -43,7 +40,6 @@ public class HandleSellingMessages {
     }
 
     /**
-     *
      * @param player
      * @param sellPrice
      */
@@ -61,7 +57,7 @@ public class HandleSellingMessages {
         if (playersSellingByHarvest.containsKey(player.getUniqueId())) {
             activeMessageTasks.get(player.getUniqueId()).cancel();
         } else {
-            new PlayerMessage("start-selling-by-harvest", player, "{price}", new DecimalFormat("#,###.00").format(sellPrice));
+            new PlayerMessage("start-selling-by-harvest", player, "{price}", NTools.numberFormat.format(sellPrice));
         }
         //Update the cooldown for a player
         playersSellingByHarvest.put(player.getUniqueId(), System.currentTimeMillis() + (messageDelay * 15));
@@ -70,14 +66,13 @@ public class HandleSellingMessages {
     }
 
     /**
-     *
      * @param player
      */
     private static void sendDelayedMessage(Player player) {
         activeMessageTasks.put(player.getUniqueId(), Bukkit.getScheduler().runTaskLater(NTools.getPlugin(NTools.class), () -> {
             if (playersSellingByHarvest.get(player.getUniqueId()) - System.currentTimeMillis() <= 0) {
                 new PlayerMessage("bulk-deposit-by-harvest", player, "{deposit}",
-                        new DecimalFormat("#,###.00").format(trackPlayerDeposits.get(player.getUniqueId())));
+                        NTools.numberFormat.format(trackPlayerDeposits.get(player.getUniqueId())));
                 playersSellingByHarvest.remove(player.getUniqueId());
                 trackPlayerDeposits.remove(player.getUniqueId());
             }

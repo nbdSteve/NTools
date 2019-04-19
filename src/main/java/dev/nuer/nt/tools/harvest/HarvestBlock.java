@@ -11,7 +11,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageEvent;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class HarvestBlock {
@@ -41,7 +40,7 @@ public class HarvestBlock {
             if (NTools.getFiles().get("config").getBoolean("harvester-action-bar.enabled")) {
                 //Create the action bar message
                 String message = NTools.getFiles().get("config").getString("harvester-action-bar.message").replace("{deposit}",
-                        new DecimalFormat("#,###.00").format(totalDeposit));
+                        NTools.numberFormat.format(totalDeposit));
                 //Send it to the player
                 ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
             } else {
