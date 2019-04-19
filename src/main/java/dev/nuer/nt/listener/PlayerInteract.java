@@ -14,8 +14,16 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+/**
+ * Class that handles plugin events triggered by a player Interacting
+ */
 public class PlayerInteract implements Listener {
 
+    /**
+     * Method for Lightning Wands
+     *
+     * @param event PlayerInteractEvent
+     */
     @EventHandler
     public void playerInteractLightningWand(PlayerInteractEvent event) {
         if (!(event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -42,13 +50,18 @@ public class PlayerInteract implements Listener {
             if (nbtItem.getBoolean("ntool.lightning")) {
                 CreateLightningStrike.createStrikeGround(player, "lightning",
                         "lightning-wands." + nbtItem.getInteger(
-                        "ntool.raw.id"), locationToStrike);
+                                "ntool.raw.id"), locationToStrike);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a trench tool
         }
     }
 
+    /**
+     * Method for Sell Wands
+     *
+     * @param event PlayerInteractEvent
+     */
     @EventHandler
     public void playerInteractSellWand(PlayerInteractEvent event) {
         if (!event.getAction().equals(Action.LEFT_CLICK_BLOCK)) {
@@ -65,17 +78,15 @@ public class PlayerInteract implements Listener {
         //Get the type of tool being used
         try {
             if (nbtItem.getBoolean("ntool.sell")) {
-                Material chestType;
-                if (event.getClickedBlock().getType().equals(Material.CHEST)) {
-                    chestType = Material.CHEST;
-                } else if (event.getClickedBlock().getType().equals(Material.TRAPPED_CHEST)) {
-                    chestType = Material.TRAPPED_CHEST;
-                } else {
+                event.setCancelled(true);
+                if (!event.getClickedBlock().getType().equals(Material.CHEST) ||
+                        !event.getClickedBlock().getType().equals(Material.TRAPPED_CHEST)) {
                     return;
                 }
                 SellChestContents.sellContents(event.getClickedBlock(), player, "sell",
                         "sell-wands." + nbtItem.getInteger("ntool.raw.id"),
-                        PriceModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem(), true, MapInitializer.sellWandModifierUnique));
+                        PriceModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(),
+                                nbtItem.getItem(), true, MapInitializer.sellWandModifierUnique));
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a trench tool

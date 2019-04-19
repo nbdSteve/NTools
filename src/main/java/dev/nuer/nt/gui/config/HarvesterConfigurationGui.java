@@ -5,7 +5,7 @@ import dev.nuer.nt.gui.AbstractGui;
 import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.itemCreation.CraftItem;
 import dev.nuer.nt.method.player.PlayerMessage;
-import dev.nuer.nt.tools.harvest.ChangeMode;
+import dev.nuer.nt.tools.ChangeMode;
 import dev.nuer.nt.tools.PriceModifier;
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
@@ -13,8 +13,14 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
 
+/**
+ * Class that handles the configuration Gui for Harvester Hoes
+ */
 public class HarvesterConfigurationGui extends AbstractGui {
 
+    /**
+     * Constructor to create the Gui, add all items with their respective listeners
+     */
     public HarvesterConfigurationGui() {
         super(NTools.getFiles().get("harvester_config_gui").getInt("harvester-tool-config-gui.size"),
                 ChatColor.translateAlternateColorCodes('&', NTools.getFiles().get("harvester_config_gui").getString("harvester-tool-config-gui.name")));
@@ -37,10 +43,10 @@ public class HarvesterConfigurationGui extends AbstractGui {
                                 ItemMeta itemMeta = item.getItemMeta();
                                 List<String> itemLore = itemMeta.getLore();
                                 if (NTools.getFiles().get("harvester_config_gui").getBoolean("harvester-tool-config-gui." + configItem + ".switch-mode-when-clicked")) {
-                                    ChangeMode.switchMode(itemLore, itemMeta, item, player);
+                                    ChangeMode.switchMode(itemLore, itemMeta, item, player, MapInitializer.harvesterModeUnique);
                                 }
                                 if (NTools.getFiles().get("harvester_config_gui").getBoolean("harvester-tool-config-gui." + configItem + ".increase-modifier-when-clicked")) {
-                                    PriceModifier.increaseHarvesterModifier(itemLore, itemMeta, item, player, MapInitializer.harvesterModifierUnique, "harvester", "harvester-tools.");
+                                    PriceModifier.increasePriceModifier(itemLore, itemMeta, item, player, MapInitializer.harvesterModifierUnique, "harvester", "harvester-tools.");
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

@@ -5,6 +5,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * NBTDataAPI
+ *
+ * Created by tr7zw
+ */
 public class NBTFile extends NBTCompound {
 
     private final File file;

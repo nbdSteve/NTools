@@ -2,6 +2,11 @@ package dev.nuer.nt.external.nbtapi;
 
 import org.bukkit.entity.Entity;
 
+/**
+ * NBTDataAPI
+ *
+ * Created by tr7zw
+ */
 public class NBTEntity extends NBTCompound {
 
     private final Entity ent;

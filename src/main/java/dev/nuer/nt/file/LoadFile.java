@@ -6,6 +6,9 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.io.File;
 import java.util.HashMap;
 
+/**
+ * Class that handles loading / generating files on start up and reload
+ */
 public class LoadFile {
     //HashMap to store the files
     private HashMap<Files, CreateFile> files;
@@ -60,7 +63,7 @@ public class LoadFile {
      * Gets the specified YAML file
      *
      * @param fileName String, the name of the file from the Files enum
-     * @return
+     * @return FileConfiguration, the yaml config for that file
      */
     public FileConfiguration get(String fileName) {
         if (files.containsKey(Files.valueOf(fileName.toUpperCase()))) {

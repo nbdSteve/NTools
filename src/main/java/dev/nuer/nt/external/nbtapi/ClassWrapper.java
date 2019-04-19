@@ -2,6 +2,11 @@ package dev.nuer.nt.external.nbtapi;
 
 import org.bukkit.Bukkit;
 
+/**
+ * NBTDataAPI
+ *
+ * Created by tr7zw
+ */
 public enum ClassWrapper {
     CRAFT_ITEMSTACK("org.bukkit.craftbukkit.", ".inventory.CraftItemStack"),
     CRAFT_ENTITY("org.bukkit.craftbukkit.", ".entity.CraftEntity"),

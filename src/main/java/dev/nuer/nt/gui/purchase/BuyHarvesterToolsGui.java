@@ -8,8 +8,14 @@ import dev.nuer.nt.method.itemCreation.PurchaseTool;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.ChatColor;
 
+/**
+ * Class that handles the purchase Gui for Harvester Hoes
+ */
 public class BuyHarvesterToolsGui extends AbstractGui {
 
+    /**
+     * Constructor to create the Gui, add all items with their respective listeners
+     */
     public BuyHarvesterToolsGui() {
         super(NTools.getFiles().get("harvester_purchase_gui").getInt("harvester-tool-purchase-gui.size"),
                 ChatColor.translateAlternateColorCodes('&', NTools.getFiles().get("harvester_purchase_gui").getString("harvester-tool-purchase-gui.name")));

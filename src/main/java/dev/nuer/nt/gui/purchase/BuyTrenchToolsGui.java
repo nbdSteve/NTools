@@ -7,10 +7,13 @@ import dev.nuer.nt.method.itemCreation.PurchaseTool;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.ChatColor;
 
+/**
+ * Class that handles the purchase Gui for Trench Tools
+ */
 public class BuyTrenchToolsGui extends AbstractGui {
 
     /**
-     * Constructor to create a the Gui
+     * Constructor to create the Gui, add all items with their respective listeners
      */
     public BuyTrenchToolsGui() {
         super(NTools.getFiles().get("trench_purchase_gui").getInt("trench-tool-purchase-gui.size"),

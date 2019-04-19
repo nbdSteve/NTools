@@ -4,6 +4,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+/**
+ * ActionBarMessageEvent class
+ *
+ * Created by ConnorLinfoot
+ */
 public class ActionBarMessageEvent extends Event {
     private static final HandlerList handlers = new HandlerList();
     private final Player player;

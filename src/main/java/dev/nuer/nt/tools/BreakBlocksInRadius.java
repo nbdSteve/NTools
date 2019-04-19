@@ -6,7 +6,7 @@ import dev.nuer.nt.events.TrenchBlockBreakEvent;
 import dev.nuer.nt.external.nbtapi.NBTItem;
 import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.player.AddBlocksToPlayerInventory;
-import dev.nuer.nt.tools.multi.GetMultiToolVariables;
+import dev.nuer.nt.tools.multi.ChangeToolRadius;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -36,7 +36,7 @@ public class BreakBlocksInRadius {
             int radiusFromFile = NTools.getFiles().get(directory).getInt(filePath + ".break-radius");
             //If the tool is a multi, get its current radius
             if (multiTool) {
-                radiusFromFile = GetMultiToolVariables.getToolRadius(item.getItem().getItemMeta().getLore(), item.getItem());
+                radiusFromFile = ChangeToolRadius.getToolRadius(item.getItem().getItemMeta().getLore(), item.getItem());
             }
             //Store the break radius for the tool
             int radiusX = -radiusFromFile;

@@ -2,6 +2,11 @@ package dev.nuer.nt.external.nbtapi;
 
 import org.bukkit.block.BlockState;
 
+/**
+ * NBTDataAPI
+ *
+ * Created by tr7zw
+ */
 public class NBTTileEntity extends NBTCompound {
 
     private final BlockState tile;

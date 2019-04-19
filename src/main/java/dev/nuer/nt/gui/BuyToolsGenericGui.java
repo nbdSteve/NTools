@@ -5,10 +5,13 @@ import dev.nuer.nt.method.itemCreation.CraftItem;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.ChatColor;
 
+/**
+ * Class that handles the standard gui opened with /tools
+ */
 public class BuyToolsGenericGui extends AbstractGui {
 
     /**
-     * Constructor to create a the Gui
+     * Constructor to create the Gui, add all items with their respective listeners
      */
     public BuyToolsGenericGui() {
         super(NTools.getFiles().get("config").getInt("tool-purchase-gui.size"),

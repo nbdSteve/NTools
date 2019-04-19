@@ -5,7 +5,11 @@ import dev.nuer.nt.external.nbtapi.utils.MinecraftVersion;
 
 import java.util.Set;
 
-
+/**
+ * NBTDataAPI
+ *
+ * Created by tr7zw
+ */
 public class NBTCompound {
 
     private String compundName;

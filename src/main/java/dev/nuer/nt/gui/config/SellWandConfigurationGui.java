@@ -12,8 +12,14 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
 
+/**
+ * Class that handles the configuration Gui for Sell Wands
+ */
 public class SellWandConfigurationGui extends AbstractGui {
 
+    /**
+     * Constructor to create the Gui, add all items with their respective listeners
+     */
     public SellWandConfigurationGui() {
         super(NTools.getFiles().get("sell_config_gui").getInt("sell-wand-config-gui.size"),
                 ChatColor.translateAlternateColorCodes('&', NTools.getFiles().get("sell_config_gui").getString("sell-wand-config-gui.name")));
@@ -36,7 +42,7 @@ public class SellWandConfigurationGui extends AbstractGui {
                                 ItemMeta itemMeta = item.getItemMeta();
                                 List<String> itemLore = itemMeta.getLore();
                                 if (NTools.getFiles().get("sell_config_gui").getBoolean("sell-wand-config-gui." + configItem + ".increase-modifier-when-clicked")) {
-                                    PriceModifier.increaseHarvesterModifier(itemLore, itemMeta, item, player, MapInitializer.sellWandModifierUnique, "sell", "sell-wands.");
+                                    PriceModifier.increasePriceModifier(itemLore, itemMeta, item, player, MapInitializer.sellWandModifierUnique, "sell", "sell-wands.");
                                 }
                             } catch (NullPointerException wandNotFound) {
                                 player.closeInventory();

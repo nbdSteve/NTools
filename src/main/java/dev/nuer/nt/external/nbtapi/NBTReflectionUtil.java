@@ -12,6 +12,11 @@ import java.lang.reflect.Method;
 import java.util.Set;
 import java.util.Stack;
 
+/**
+ * NBTDataAPI
+ *
+ * Created by tr7zw
+ */
 public class NBTReflectionUtil {
 
     public static Object getNMSEntity(Entity entity) {

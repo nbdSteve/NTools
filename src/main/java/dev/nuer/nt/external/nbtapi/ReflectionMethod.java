@@ -7,6 +7,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
 
+/**
+ * NBTDataAPI
+ *
+ * Created by tr7zw
+ */
 public enum ReflectionMethod {
 
     COMPOUND_SET_FLOAT(ClassWrapper.NMS_NBTTAGCOMPOUND.getClazz(), new Class[]{String.class, float.class}, MinecraftVersion.MC1_7_R4, new Since(MinecraftVersion.MC1_7_R4, "setFloat")),

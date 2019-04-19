@@ -8,10 +8,13 @@ import dev.nuer.nt.method.itemCreation.PurchaseTool;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.ChatColor;
 
+/**
+ * Class that handles the purchase Gui for Multi Tools
+ */
 public class BuyMultiToolsGui extends AbstractGui {
 
     /**
-     * Constructor to create a the Gui
+     * Constructor to create the Gui, add all items with their respective listeners
      */
     public BuyMultiToolsGui() {
         super(NTools.getFiles().get("multi_purchase_gui").getInt("multi-tool-purchase-gui.size"),

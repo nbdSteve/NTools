@@ -1,5 +1,10 @@
 package dev.nuer.nt.external.nbtapi;
 
+/**
+ * NBTDataAPI
+ *
+ * Created by tr7zw
+ */
 public enum NBTType {
     NBTTagEnd(0),
     NBTTagByte(1),

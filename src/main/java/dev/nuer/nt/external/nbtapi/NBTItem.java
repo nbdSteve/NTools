@@ -2,6 +2,11 @@ package dev.nuer.nt.external.nbtapi;
 
 import org.bukkit.inventory.ItemStack;
 
+/**
+ * NBTDataAPI
+ *
+ * Created by tr7zw
+ */
 public class NBTItem extends NBTCompound {
 
     private ItemStack bukkitItem;

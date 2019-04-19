@@ -12,8 +12,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Class that handles methods related to price modifiers, this for Sell and Harvester tool variants
+ */
 public class PriceModifier {
 
+    /**
+     * Method to get the current price modifier of an item
+     *
+     * @param itemLore          List<String>, the lore to query
+     * @param item              ItemStack, the item to check and make a NBTItem out of
+     * @param getDouble         boolean, if true this will get the current modifier as a double
+     * @param modifierUniqueIDs HashMap<Integer, ArrayList<String>>, the list of unique modifiers IDs to query
+     * @return Double, the price modifier or position in tree.
+     */
     public static double getCurrentModifier(List<String> itemLore, ItemStack item, boolean getDouble,
                                             HashMap<Integer, ArrayList<String>> modifierUniqueIDs) {
         NBTItem nbtItem = new NBTItem(item);
@@ -43,19 +55,31 @@ public class PriceModifier {
     }
 
     /**
-     * Method that will increase the current radius of a tool if it is below the max radius
      *
-     * @param itemLore StringList, lore of the item to update
-     * @param itemMeta ItemMeta, item meta of the item to update
-     * @param item     the item being update
-     * @param player   the player being queried
+     * @param itemLore
+     * @param itemMeta
+     * @param item
+     * @param player
+     * @param modifierUniqueIDs
+     * @param directory
+     * @param filePath
      */
-    public static void increaseHarvesterModifier(List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player,
+    public static void increasePriceModifier(List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player,
                                                  HashMap<Integer, ArrayList<String>> modifierUniqueIDs, String directory, String filePath) {
         player.closeInventory();
         verifyItemLore(itemLore, itemMeta, item, player, modifierUniqueIDs, directory, filePath);
     }
 
+    /**
+     *
+     * @param itemLore
+     * @param itemMeta
+     * @param item
+     * @param player
+     * @param modifierUniqueIDs
+     * @param directory
+     * @param filePath
+     */
     public static void verifyItemLore(List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player,
                                       HashMap<Integer, ArrayList<String>> modifierUniqueIDs, String directory, String filePath) {
         NBTItem nbtItem = new NBTItem(item);
@@ -80,12 +104,25 @@ public class PriceModifier {
         }
     }
 
+    /**
+     *
+     * @param toolTypeRawID
+     * @param index
+     * @param modifierUniqueLore
+     * @param itemLore
+     * @param itemMeta
+     * @param item
+     * @param player
+     * @param modifierUniqueIDs
+     * @param directory
+     * @param filePath
+     */
     public static void increaseModifierInLore(int toolTypeRawID, int index, String modifierUniqueLore,
                                               List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player,
                                               HashMap<Integer, ArrayList<String>> modifierUniqueIDs, String directory, String filePath) {
         int modifier = (int) getCurrentModifier(itemLore, item, false, modifierUniqueIDs);
         double priceToUpgrade = NTools.getFiles().get(directory).getInt(filePath + toolTypeRawID + ".upgrade-cost." + modifier);
-        int maxModifier = modifierUniqueIDs.get(toolTypeRawID).size() - 2;
+        int maxModifier = modifierUniqueIDs.get(toolTypeRawID).size() - 3;
         if (modifier + 1 <= maxModifier) {
             String[] modifierParts = modifierUniqueIDs.get(toolTypeRawID).get(modifier + 1).split("-");
             if (NTools.economy != null) {

@@ -8,6 +8,11 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+/**
+ * ActionBarAPI class
+ *
+ * Created by ConnorLinfoot
+ */
 public class ActionBarAPI {
     private static String nmsver = Bukkit.getServer().getClass().getPackage().getName().substring(
             Bukkit.getServer().getClass().getPackage().getName().lastIndexOf(".") + 1);

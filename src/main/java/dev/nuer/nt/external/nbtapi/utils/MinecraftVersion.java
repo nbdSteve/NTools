@@ -2,6 +2,11 @@ package dev.nuer.nt.external.nbtapi.utils;
 
 import org.bukkit.Bukkit;
 
+/**
+ * NBTDataAPI
+ *
+ * Created by tr7zw
+ */
 public enum MinecraftVersion {
     Unknown(Integer.MAX_VALUE),//Use the newest known mappings
     MC1_7_R4(174),

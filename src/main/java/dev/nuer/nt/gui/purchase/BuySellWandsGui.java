@@ -8,10 +8,13 @@ import dev.nuer.nt.method.itemCreation.PurchaseTool;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.ChatColor;
 
+/**
+ * Class that handles the purchase Gui for Sell Wands
+ */
 public class BuySellWandsGui extends AbstractGui {
 
     /**
-     * Constructor the create a new Gui
+     * Constructor to create the Gui, add all items with their respective listeners
      */
     public BuySellWandsGui() {
         super(NTools.getFiles().get("sell_purchase_gui").getInt("sell-wand-purchase-gui.size"),

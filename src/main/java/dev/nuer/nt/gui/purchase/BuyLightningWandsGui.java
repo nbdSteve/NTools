@@ -7,8 +7,14 @@ import dev.nuer.nt.method.itemCreation.PurchaseTool;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.ChatColor;
 
+/**
+ * Class that handles the purchase Gui for Lightning Wands
+ */
 public class BuyLightningWandsGui extends AbstractGui {
 
+    /**
+     * Constructor to create the Gui, add all items with their respective listeners
+     */
     public BuyLightningWandsGui() {
         super(NTools.getFiles().get("lightning_purchase_gui").getInt("lightning-wand-purchase-gui.size"),
                 ChatColor.translateAlternateColorCodes('&', NTools.getFiles().get("lightning_purchase_gui").getString("lightning-wand-purchase-gui.name")));

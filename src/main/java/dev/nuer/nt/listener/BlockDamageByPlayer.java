@@ -3,10 +3,9 @@ package dev.nuer.nt.listener;
 import dev.nuer.nt.external.nbtapi.NBTItem;
 import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.tools.BreakBlocksInRadius;
-import dev.nuer.nt.tools.harvest.ChangeMode;
-import dev.nuer.nt.tools.harvest.HarvestBlock;
+import dev.nuer.nt.tools.ChangeMode;
 import dev.nuer.nt.tools.PriceModifier;
-import dev.nuer.nt.tools.multi.GetMultiToolVariables;
+import dev.nuer.nt.tools.harvest.HarvestBlock;
 import dev.nuer.nt.tools.sand.RemoveSandStack;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -60,9 +59,9 @@ public class BlockDamageByPlayer implements Listener {
             if (nbtItem.getBoolean("ntool.multi")) {
                 event.setCancelled(true);
                 new BreakBlocksInRadius(nbtItem, event, player, "multi", "multi-tools." + nbtItem.getInteger(
-                        "ntool.raw.id"), true, GetMultiToolVariables.multiToolIsTrenchTool(
+                        "ntool.raw.id"), true, ChangeMode.changeToolMode(
                         nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem().getItemMeta(),
-                        nbtItem.getItem(), false));
+                        nbtItem.getItem(), MapInitializer.multiToolModeUnique, false));
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a multi tool
@@ -80,8 +79,8 @@ public class BlockDamageByPlayer implements Listener {
             if (nbtItem.getBoolean("ntool.harvester")) {
                 event.setCancelled(true);
                 if (MapInitializer.harvesterBlockPrices.get(event.getBlock().getType().toString()) != null) {
-                    HarvestBlock.harvestBlocks(event, player, ChangeMode.harvesterIsSelling(nbtItem.getItem().getItemMeta().getLore(),
-                            nbtItem.getItem().getItemMeta(), nbtItem.getItem(), false),
+                    HarvestBlock.harvestBlocks(event, player, ChangeMode.changeToolMode(nbtItem.getItem().getItemMeta().getLore(),
+                            nbtItem.getItem().getItemMeta(), nbtItem.getItem(), MapInitializer.harvesterModeUnique, false),
                             MapInitializer.harvesterBlockPrices.get(event.getBlock().getType().toString()),
                             PriceModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem(), true, MapInitializer.harvesterModifierUnique));
                 }

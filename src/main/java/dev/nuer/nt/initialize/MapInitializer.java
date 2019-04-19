@@ -1,12 +1,14 @@
 package dev.nuer.nt.initialize;
 
-import dev.nuer.nt.method.AddBlocksToBlacklist;
-import dev.nuer.nt.method.CreateHarvesterLoreIDMaps;
-import dev.nuer.nt.method.CreateMultiToolLoreIDMaps;
+import dev.nuer.nt.method.AddBlocksToList;
+import dev.nuer.nt.method.CreateInternalMaps;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Class that handles initializing and getting maps that are queried in events
+ */
 public class MapInitializer {
     //Store the trench block blacklist
     public static ArrayList<String> trenchBlockBlacklist;
@@ -16,7 +18,7 @@ public class MapInitializer {
     public static ArrayList<String> sandWandBlockWhitelist;
     //Store the blocks that can be broken and sold by the harvester tools
     public static HashMap<String, Double> harvesterBlockPrices;
-    //
+    //Store the blocks that can be sold by sell wands, store prices as well
     public static HashMap<String, Double> sellWandItemPrices;
     //Store the map of multi tool unique lore and raw tool id
     public static HashMap<Integer, ArrayList<String>> multiToolModeUnique;
@@ -31,19 +33,19 @@ public class MapInitializer {
 
     public static void initializeMaps() {
         //Load black / white list maps
-        trenchBlockBlacklist = AddBlocksToBlacklist.createBlockList("config", "trench-block-blacklist");
-        trayBlockWhitelist = AddBlocksToBlacklist.createBlockList("config", "tray-block-whitelist");
-        sandWandBlockWhitelist = AddBlocksToBlacklist.createBlockList("config", "sand-block-whitelist");
-        harvesterBlockPrices = CreateHarvesterLoreIDMaps.createBlockPrices("config", "harvester-block-prices");
-        sellWandItemPrices = CreateHarvesterLoreIDMaps.createBlockPrices("sell_price_list", "prices");
+        trenchBlockBlacklist = AddBlocksToList.createBlockList("config", "trench-block-blacklist");
+        trayBlockWhitelist = AddBlocksToList.createBlockList("config", "tray-block-whitelist");
+        sandWandBlockWhitelist = AddBlocksToList.createBlockList("config", "sand-block-whitelist");
+        harvesterBlockPrices = CreateInternalMaps.createBlockPrices("config", "harvester-block-prices");
+        sellWandItemPrices = CreateInternalMaps.createBlockPrices("sell_price_list", "prices");
         //Load maps specific to multi tool ids
-        multiToolModeUnique = CreateMultiToolLoreIDMaps.createUniqueModeIDs("multi-tools.");
-        multiToolRadiusUnique = CreateMultiToolLoreIDMaps.createUniqueRadiusIDs("multi-tools.");
+        multiToolModeUnique = CreateInternalMaps.createUniqueModeIDs("multi", "multi-tools.", "trench", "tray");
+        multiToolRadiusUnique = CreateInternalMaps.createUniqueModifierIDs("multi", "multi-tools.", "radius");
         //Load maps specific to harvester tool ids
-        harvesterModeUnique = CreateHarvesterLoreIDMaps.createUniqueModeIDs("harvester-tools.");
-        harvesterModifierUnique = CreateHarvesterLoreIDMaps.createUniqueModifierIDs("harvester", "harvester-tools.");
+        harvesterModeUnique = CreateInternalMaps.createUniqueModeIDs("harvester", "harvester-tools.", "sell", "harvest");
+        harvesterModifierUnique = CreateInternalMaps.createUniqueModifierIDs("harvester", "harvester-tools.", "modifier");
         //Load maps specific to sell wands
-        sellWandModifierUnique = CreateHarvesterLoreIDMaps.createUniqueModifierIDs("sell", "sell-wands.");
+        sellWandModifierUnique = CreateInternalMaps.createUniqueModifierIDs("sell", "sell-wands.", "modifier");
     }
 
     public static void clearMaps() {

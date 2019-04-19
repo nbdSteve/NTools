@@ -8,7 +8,7 @@ import dev.nuer.nt.gui.config.SellWandConfigurationGui;
 import dev.nuer.nt.gui.purchase.*;
 
 /**
- * Class that handles creating ang getting a Gui
+ * Class that handles creating and getting a the plugins Gui's
  */
 public class GuiInitializer {
     //Instance of multi tool options gui
@@ -56,7 +56,7 @@ public class GuiInitializer {
      * Gets the specified gui based off of the name
      *
      * @param guiName String, gui name
-     * @return
+     * @return AbstractGui
      */
     public AbstractGui getGuiByName(String guiName) {
         if (guiName.equalsIgnoreCase("multi-config")) return multiToolConfigurationGui;

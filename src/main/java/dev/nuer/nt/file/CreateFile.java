@@ -10,6 +10,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * Class that handles loading .yml files for the plugin
+ */
 public class CreateFile {
     //Register main instance
     private Plugin plugin = NTools.getPlugin(NTools.class);

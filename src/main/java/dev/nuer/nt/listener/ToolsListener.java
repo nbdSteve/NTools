@@ -11,6 +11,9 @@ import org.bukkit.event.Listener;
 
 import java.text.DecimalFormat;
 
+/**
+ * Class that listens for custom plugin events
+ */
 public class ToolsListener implements Listener {
 
     @EventHandler

@@ -2,6 +2,11 @@ package dev.nuer.nt.external.nbtapi.utils;
 
 import com.google.gson.Gson;
 
+/**
+ * NBTDataAPI
+ *
+ * Created by tr7zw
+ */
 public class GsonWrapper {
 
     private static final Gson gson = new Gson();

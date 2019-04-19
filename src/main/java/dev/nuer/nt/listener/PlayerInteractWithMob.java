@@ -9,8 +9,16 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
+/**
+ * Class that handles plugin events cause by a player interacting with a mob
+ */
 public class PlayerInteractWithMob implements Listener {
 
+    /**
+     * Method for Lighting Wands
+     *
+     * @param event PlayerInteractEntityEvent
+     */
     @EventHandler
     public void playerInteractMob(PlayerInteractEntityEvent event) {
         if (event.isCancelled()) {

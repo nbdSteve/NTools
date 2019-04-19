@@ -2,10 +2,11 @@ package dev.nuer.nt.gui.config;
 
 import dev.nuer.nt.NTools;
 import dev.nuer.nt.gui.AbstractGui;
+import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.itemCreation.CraftItem;
 import dev.nuer.nt.method.player.PlayerMessage;
+import dev.nuer.nt.tools.ChangeMode;
 import dev.nuer.nt.tools.multi.ChangeToolRadius;
-import dev.nuer.nt.tools.multi.ModeSwitch;
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -13,12 +14,12 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.List;
 
 /**
- * Class that handles the Gui that will allow the player to configure their multi tool
+ * Class that handles the configuration Gui for Multi Tools
  */
 public class MultiToolConfigurationGui extends AbstractGui {
 
     /**
-     * Super constructor, add all items with their respective listeners
+     * Constructor to create the Gui, add all items with their respective listeners
      */
     public MultiToolConfigurationGui() {
         super(NTools.getFiles().get("multi_config_gui").getInt("multi-tool-config-gui.size"),
@@ -42,7 +43,7 @@ public class MultiToolConfigurationGui extends AbstractGui {
                                 ItemMeta itemMeta = item.getItemMeta();
                                 List<String> itemLore = itemMeta.getLore();
                                 if (NTools.getFiles().get("multi_config_gui").getBoolean("multi-tool-config-gui." + configItem + ".switch-mode-when-clicked")) {
-                                    ModeSwitch.switchMode(itemLore, itemMeta, item, player);
+                                    ChangeMode.switchMode(itemLore, itemMeta, item, player, MapInitializer.multiToolModeUnique);
                                 }
                                 if (NTools.getFiles().get("multi_config_gui").getBoolean("multi-tool-config-gui." + configItem + ".increase-radius-when-clicked")) {
                                     ChangeToolRadius.incrementRadius(itemLore, itemMeta, item, player);

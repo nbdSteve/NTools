@@ -7,10 +7,13 @@ import dev.nuer.nt.method.itemCreation.PurchaseTool;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.ChatColor;
 
+/**
+ * Class that handles the purchase Gui for Tray Tools
+ */
 public class BuyTrayToolsGui extends AbstractGui {
 
     /**
-     * Constructor to create a the Gui
+     * Constructor to create the Gui, add all items with their respective listeners
      */
     public BuyTrayToolsGui() {
         super(NTools.getFiles().get("tray_purchase_gui").getInt("tray-tool-purchase-gui.size"),

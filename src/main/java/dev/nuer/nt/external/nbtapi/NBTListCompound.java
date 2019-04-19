@@ -3,6 +3,11 @@ package dev.nuer.nt.external.nbtapi;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * NBTDataAPI
+ *
+ * Created by tr7zw
+ */
 public class NBTListCompound {
 
     private NBTList owner;

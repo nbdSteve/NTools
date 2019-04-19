@@ -23,17 +23,17 @@ public class SellCooldownCheck {
         if (cooldownInSeconds >= 0) {
             if (sellWandCDT.containsKey(playerUUID)) {
                 long timer = ((sellWandCDT.get(playerUUID) / 1000) + cooldownInSeconds) - (System.currentTimeMillis() / 1000);
-                if (timer >= 0) {
+                if (timer > 0) {
                     if (NTools.getFiles().get("config").getBoolean("cooldown-action-bar.enabled")) {
                         String message = NTools.getFiles().get("config").getString("cooldown-action-bar.message").replace("{time}", String.valueOf(timer));
                         ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
                     } else {
                         new PlayerMessage("sell-wand-cooldown", Bukkit.getPlayer(playerUUID), "{time}", String.valueOf(timer));
                     }
-                    return true;
                 } else {
                     sellWandCDT.remove(playerUUID);
                 }
+                return true;
             } else {
                 sellWandCDT.put(playerUUID, System.currentTimeMillis());
             }

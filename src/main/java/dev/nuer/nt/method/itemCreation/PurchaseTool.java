@@ -12,16 +12,18 @@ import java.util.List;
 public class PurchaseTool {
 
     /**
-     * Method to subtract the price from the players balance and give them the respective tool
+     * Constructor to add an item to a player inventory and remove the price from their account
      *
-     * @param price             Double, price of the tool
-     * @param material          String, the material of the tool
-     * @param name              String, tool name
-     * @param lore              List<String>, tool lore
-     * @param modeReplacement   String, replacement for the mode placeholder
-     * @param radiusReplacement String, replacement for the radius placeholder
-     * @param enchantments      List<String>, tool enchantments
-     * @param player            Player, who to give the tool to
+     * @param price             Double, the price of the tool being bought
+     * @param material          String, the item material
+     * @param name              String, the items display name
+     * @param lore              List<String>, list of strings to add as the items lore
+     * @param modeReplacement   String, replacement for {mode} placeholder, can be null
+     * @param radiusReplacement String, replacement for {radius} placeholder, can be null
+     * @param enchantments      List<String>, list of enchantments to add to the item
+     * @param typeOfTool        String, the type of tool being created
+     * @param idFromConfig      Integer, the raw tool ID from the configuration files
+     * @param player            Player, the player to give the new item to - can be null
      */
     public PurchaseTool(double price, String material, String name, List<String> lore, String modeReplacement,
                         String radiusReplacement, List<String> enchantments, String typeOfTool, int idFromConfig, Player player) {
@@ -35,12 +37,29 @@ public class PurchaseTool {
         }
     }
 
+    /**
+     * Alternative Constructor, this is called for Sell Wands and Harvester Hoes because they use
+     * price modifiers and the placeholder is different.
+     *
+     * @param price               Double, the price of the tool being bought
+     * @param material            String, the item material
+     * @param name                String, the items display name
+     * @param lore                List<String>, list of strings to add as the items lore
+     * @param modeReplacement     String, replacement for {mode} placeholder, can be null
+     * @param modifierReplacement String, replacement for {modifier} placeholder, can be null
+     * @param enchantments        List<String>, list of enchantments to add to the item
+     * @param typeOfTool          String, the type of tool being created
+     * @param idFromConfig        Integer, the raw tool ID from the configuration files
+     * @param player              Player, the player to give the new item to - can be null
+     * @param usePriceModifier    boolean, if the tool is using price modifiers
+     */
     public PurchaseTool(double price, String material, String name, List<String> lore, String modeReplacement,
-                        String modifierReplacement, List<String> enchantments, String typeOfTool, int idFromConfig, Player player, boolean harvester) {
+                        String modifierReplacement, List<String> enchantments, String typeOfTool,
+                        int idFromConfig, Player player, boolean usePriceModifier) {
         if (NTools.economy.getBalance(player) >= price) {
             player.closeInventory();
             NTools.economy.withdrawPlayer(player, price);
-            new CraftItem(material, name, lore, modeReplacement, modifierReplacement, enchantments, typeOfTool, idFromConfig, player, harvester);
+            new CraftItem(material, name, lore, modeReplacement, modifierReplacement, enchantments, typeOfTool, idFromConfig, player, usePriceModifier);
             new PlayerMessage("purchase", player, "{price}", NTools.numberFormat.format(price));
         } else {
             new PlayerMessage("insufficient", player);
