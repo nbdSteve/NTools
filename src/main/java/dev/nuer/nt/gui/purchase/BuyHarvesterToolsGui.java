@@ -26,8 +26,8 @@ public class BuyHarvesterToolsGui extends AbstractGui {
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
-                                String[] modifierParts = MapInitializer.harvesterModifierUnique.get(configItem).get(NTools.getFiles().get("harvester").getInt("harvester-tools." + configItem + ".modifier.starting")).split("-");
                                 if (NTools.getFiles().get("harvester_purchase_gui").getBoolean("harvester-tool-purchase-gui." + configItem + ".purchasable")) {
+                                    String[] modifierParts = MapInitializer.harvesterModifierUnique.get(configItem).get(NTools.getFiles().get("harvester").getInt("harvester-tools." + configItem + ".modifier.starting")).split("-");
                                     new PurchaseTool((NTools.getFiles().get("harvester_purchase_gui").getInt("harvester-tool-purchase-gui." + configItem + ".price")),
                                             (NTools.getFiles().get("harvester_purchase_gui").getString("harvester-tool-purchase-gui." + configItem + ".material")),
                                             (NTools.getFiles().get("harvester").getString("harvester-tools." + configItem + ".name")),

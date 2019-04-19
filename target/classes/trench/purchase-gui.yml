@@ -65,7 +65,7 @@ trench-tool-purchase-gui:
       - "&6&olarge sections of the world..."
       - "&7 "
     enchantments:
-      - durability:10
+      - lure:10
   5:
     slot: 8
     name: "&c&lBack"

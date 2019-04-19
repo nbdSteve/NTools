@@ -1,15 +1,14 @@
 package dev.nuer.nt.listener;
 
+import dev.nuer.nt.NTools;
 import dev.nuer.nt.external.nbtapi.NBTItem;
 import dev.nuer.nt.tools.lightning.CreateLightningStrike;
-import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.util.BlockIterator;
 
 public class PlayerInteract implements Listener {
 
@@ -26,9 +25,11 @@ public class PlayerInteract implements Listener {
         }
         //Create a new nbt object
         NBTItem nbtItem = new NBTItem(player.getItemInHand());
+        //Store the location to Strike
         Block locationToStrike;
+        //Check to target block based on where the user is looking / clicked
         if (event.getAction().equals(Action.RIGHT_CLICK_AIR)) {
-            locationToStrike = player.getTargetBlock(null, 4);
+            locationToStrike = player.getTargetBlock(null, NTools.getFiles().get("config").getInt("lightning-reach-distance"));
         } else {
             locationToStrike = event.getClickedBlock();
         }

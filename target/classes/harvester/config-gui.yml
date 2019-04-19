@@ -35,4 +35,4 @@ harvester-tool-config-gui:
       - "&6&oYou must be holding your harvester hoe."
       - "&7 "
     enchantments:
-      - durability:10
+      - lure:10

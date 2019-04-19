@@ -3,6 +3,8 @@ version: 0.2.8
 
 enable-debug-messages: true
 
+lightning-reach-distance: 3 # How far the lightning will strike if the player right clicks air
+
 trench-block-blacklist:
   - bedrock
   - obsidian
@@ -64,7 +66,7 @@ tool-purchase-gui:
       - "&7&oClick this to buy trench tools"
       - "&7 "
     enchantments:
-      - fire_aspect:10
+      - lure:10
     open-trench: true
   3:
     slot: 2
@@ -75,7 +77,7 @@ tool-purchase-gui:
       - "&7&oClick this to buy tray tools"
       - "&7 "
     enchantments:
-      - fire_aspect:10
+      - lure:10
     open-tray: true
   4:
     slot: 3
@@ -86,7 +88,7 @@ tool-purchase-gui:
       - "&7&oClick this to buy sand wands"
       - "&7 "
     enchantments:
-      - fire_aspect:10
+      - lure:10
     open-sand: true
   5:
     slot: 4
@@ -97,7 +99,7 @@ tool-purchase-gui:
       - "&7&oClick this to buy lightning wands"
       - "&7 "
     enchantments:
-      - fire_aspect:10
+      - lure:10
     open-lightning: true
   6:
     slot: 5
@@ -108,5 +110,5 @@ tool-purchase-gui:
       - "&7&oClick this to buy harvester hoes"
       - "&7 "
     enchantments:
-      - fire_aspect:10
+      - lure:10
     open-harvester: true

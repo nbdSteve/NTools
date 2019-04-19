@@ -1,6 +1,7 @@
 package dev.nuer.nt.tools.harvest;
 
 import dev.nuer.nt.NTools;
+import dev.nuer.nt.events.HarvesterBlockBreakEvent;
 import dev.nuer.nt.external.actionbarapi.ActionBarAPI;
 import dev.nuer.nt.method.player.AddBlocksToPlayerInventory;
 import org.bukkit.Bukkit;
@@ -29,23 +30,24 @@ public class HarvestBlock {
             BlockBreakEvent blockRemoval = new BlockBreakEvent(blocksToHarvest.get(i), player);
             Bukkit.getPluginManager().callEvent(blockRemoval);
             if (!blockRemoval.isCancelled()) {
-                if (sellMode) {
-                    if (NTools.economy != null) {
-                        AddBlocksToPlayerInventory.sellBlocks(blocksToHarvest.get(i), player);
-                        double priceToDeposit = blockPrice * priceModifier;
-                        NTools.economy.depositPlayer(player, priceToDeposit);
-                        //Create a message
-                        if (NTools.getFiles().get("config").getBoolean("harvester-action-bar.enabled")) {
-                            String message = NTools.getFiles().get("config").getString("harvester-action-bar.message").replace("{deposit}",
-                                    new DecimalFormat("##.00").format(priceToDeposit * blocksToHarvest.size()));
-                            ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
-                        } else {
-                            HandleSellingMessages.handleSellingMessages(player, priceToDeposit);
-                        }
-                    }
-                } else {
-                    AddBlocksToPlayerInventory.addBlocks(blocksToHarvest.get(i), player);
-                }
+                double priceToDeposit = blockPrice * priceModifier;
+                Bukkit.getPluginManager().callEvent(new HarvesterBlockBreakEvent(blockRemoval.getBlock(), player, priceToDeposit, sellMode, blocksToHarvest.size()));
+//                if (sellMode) {
+//                    if (NTools.economy != null) {
+//                        AddBlocksToPlayerInventory.sellBlocks(blocksToHarvest.get(i), player);
+//                        NTools.economy.depositPlayer(player, priceToDeposit);
+//                        //Create a message
+//                        if (NTools.getFiles().get("config").getBoolean("harvester-action-bar.enabled")) {
+//                            String message = NTools.getFiles().get("config").getString("harvester-action-bar.message").replace("{deposit}",
+//                                    new DecimalFormat("##.00").format(priceToDeposit * blocksToHarvest.size()));
+//                            ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
+//                        } else {
+//                            HandleSellingMessages.handleSellingMessages(player, priceToDeposit);
+//                        }
+//                    }
+//                } else {
+//                    AddBlocksToPlayerInventory.addBlocks(blocksToHarvest.get(i), player);
+//                }
             }
         }
         AddBlocksToPlayerInventory.messagedPlayers.remove(player);

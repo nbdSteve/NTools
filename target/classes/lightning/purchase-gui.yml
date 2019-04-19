@@ -75,7 +75,7 @@ lightning-wand-purchase-gui:
       - "&6&oUse the tool on the ground to strike lightning..."
       - "&7 "
     enchantments:
-      - durability:10
+      - lure:10
   5:
     slot: 8
     name: "&c&lBack"

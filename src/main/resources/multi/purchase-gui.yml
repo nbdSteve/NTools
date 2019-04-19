@@ -35,7 +35,7 @@ multi-tool-purchase-gui:
       - "&6&oyour trench / tray needs."
       - "&7 "
     enchantments:
-      - durability:10
+      - lure:10
   3:
     slot: 8
     name: "&c&lBack"

@@ -36,7 +36,7 @@ harvester-tool-purchase-gui:
       - "&6&oand harvesting large fields of crops..."
       - "&7 "
     enchantments:
-      - durability:10
+      - lure:10
   3:
     slot: 8
     name: "&c&lBack"
