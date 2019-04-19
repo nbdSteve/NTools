@@ -47,7 +47,7 @@ public class BuyMultiToolsGui extends AbstractGui {
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();
                                 toolNotFound.printStackTrace();
-                                new PlayerMessage("invalid-config", player);
+                                new PlayerMessage("invalid-config", player, "{reason}", "Multi Tool purchase-gui.yml");
                             }
                         });
             } catch (NullPointerException itemNotFound) {

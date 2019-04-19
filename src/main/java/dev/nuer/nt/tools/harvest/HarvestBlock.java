@@ -41,7 +41,7 @@ public class HarvestBlock {
             if (NTools.getFiles().get("config").getBoolean("harvester-action-bar.enabled")) {
                 //Create the action bar message
                 String message = NTools.getFiles().get("config").getString("harvester-action-bar.message").replace("{deposit}",
-                        new DecimalFormat("##.00").format(totalDeposit));
+                        new DecimalFormat("#,###.00").format(totalDeposit));
                 //Send it to the player
                 ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
             } else {

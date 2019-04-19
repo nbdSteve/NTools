@@ -45,7 +45,7 @@ public class BuySellWandsGui extends AbstractGui {
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();
-                                new PlayerMessage("invalid-config", player);
+                                new PlayerMessage("invalid-config", player, "{reason}", "Sell Wand purchase-gui.yml");
                             }
                         });
             } catch (NullPointerException itemNotFound) {

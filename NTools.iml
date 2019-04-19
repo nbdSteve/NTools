@@ -33,9 +33,9 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.milkbowl.vault:VaultAPI:1.7" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.bukkit:bukkit:1.13.1-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="module-library">
-      <library name="Maven: org.spigotmc:spigot:1.8.8">
+      <library name="Maven: net.brcdev:shopgui:1.19.1-SNAPSHOT">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/src/main/lib/CannonSpigot.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/main/lib/ShopGUIPlus-1.19.1-SNAPSHOT [Spigot 1.7-1.12].jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

@@ -41,13 +41,18 @@ insufficient:
   - "&6&lNTools&e: &7You do not have sufficient funds to purchase that tool / upgrade."
 
 invalid-config:
-  - "&cError: &7There is a problem with the plugins configuration, please contact an admin."
+  - "&7--= &6&lNTools&e: &fDebug &7=--"
+  - " - &cError: &7There is a problem with the plugins configuration, please contact an admin."
+  - " - &cReason: &f{reason}&7."
 
 sand-wand-cooldown:
   - "&cCooldown: &7You are on sand wand cooldown, &c{time} &7second(s) remaining..."
 
 lightning-wand-cooldown:
   - "&cCooldown: &7You are on lightning wand cooldown, &c{time} &7second(s) remaining..."
+
+sell-wand-cooldown:
+  - "&cCooldown: &7You are on sell wand cooldown, &c{time} &7second(s) remaining..."
 
 incremented-radius-no-cost:
   - "&aSuccess&7, your tools radius has been increased at no cost."
@@ -72,3 +77,6 @@ bulk-deposit-by-harvest:
 
 chest-contents-sell:
   - "&6&NTools&e: &7All items that can be sold in that chest have been sold for: &a+&l${deposit}&7."
+
+can-not-sell-contents:
+  - "&cError: &7No items in that chest can be sold to the server."

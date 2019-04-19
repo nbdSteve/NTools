@@ -47,7 +47,7 @@ public class BuyHarvesterToolsGui extends AbstractGui {
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();
-                                new PlayerMessage("invalid-config", player);
+                                new PlayerMessage("invalid-config", player, "{reason}", "Harvester Hoe purchase-gui.yml");
                             }
                         });
             } catch (NullPointerException itemNotFound) {

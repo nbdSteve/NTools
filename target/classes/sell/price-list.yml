@@ -1,5 +1,5 @@
 shop-gui-plus-hook: false
-essentials-worth-hook: false
+# essentials-worth-hook: false
 
 prices: # Use this if you do not wish to use the essentials worth.yml or shopguiplus
   - stone:1.01

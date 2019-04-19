@@ -43,7 +43,7 @@ public class BuyTrenchToolsGui extends AbstractGui {
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();
-                                new PlayerMessage("invalid-config", player);
+                                new PlayerMessage("invalid-config", player, "{reason}", "Trench Tool purchase-gui.yml");
                             }
                         });
             } catch (NullPointerException itemNotFound) {

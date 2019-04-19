@@ -52,7 +52,7 @@ public class BuyToolsGenericGui extends AbstractGui {
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();
-                                new PlayerMessage("invalid-config", player);
+                                new PlayerMessage("invalid-config", player, "{reason}", "Generic purchase gui ntools.yml");
                             }
                         });
             } catch (NullPointerException itemNotFound) {

@@ -43,7 +43,7 @@ public class BuyLightningWandsGui extends AbstractGui {
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();
-                                new PlayerMessage("invalid-config", player);
+                                new PlayerMessage("invalid-config", player, "{reason}", "Lightning Wand purchase-gui.yml");
                             }
                         });
             } catch (NullPointerException itemNotFound) {

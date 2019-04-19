@@ -61,7 +61,7 @@ public class HandleSellingMessages {
         if (playersSellingByHarvest.containsKey(player.getUniqueId())) {
             activeMessageTasks.get(player.getUniqueId()).cancel();
         } else {
-            new PlayerMessage("start-selling-by-harvest", player, "{price}", new DecimalFormat("##.00").format(sellPrice));
+            new PlayerMessage("start-selling-by-harvest", player, "{price}", new DecimalFormat("#,###.00").format(sellPrice));
         }
         //Update the cooldown for a player
         playersSellingByHarvest.put(player.getUniqueId(), System.currentTimeMillis() + (messageDelay * 15));
@@ -77,7 +77,7 @@ public class HandleSellingMessages {
         activeMessageTasks.put(player.getUniqueId(), Bukkit.getScheduler().runTaskLater(NTools.getPlugin(NTools.class), () -> {
             if (playersSellingByHarvest.get(player.getUniqueId()) - System.currentTimeMillis() <= 0) {
                 new PlayerMessage("bulk-deposit-by-harvest", player, "{deposit}",
-                        new DecimalFormat("##.00").format(trackPlayerDeposits.get(player.getUniqueId())));
+                        new DecimalFormat("#,###.00").format(trackPlayerDeposits.get(player.getUniqueId())));
                 playersSellingByHarvest.remove(player.getUniqueId());
                 trackPlayerDeposits.remove(player.getUniqueId());
             }

@@ -79,8 +79,8 @@ public class PlayerInteract implements Listener {
         try {
             if (nbtItem.getBoolean("ntool.sell")) {
                 event.setCancelled(true);
-                if (!event.getClickedBlock().getType().equals(Material.CHEST) ||
-                        !event.getClickedBlock().getType().equals(Material.TRAPPED_CHEST)) {
+                if (!(event.getClickedBlock().getType().equals(Material.CHEST) ||
+                        event.getClickedBlock().getType().equals(Material.TRAPPED_CHEST))) {
                     return;
                 }
                 SellChestContents.sellContents(event.getClickedBlock(), player, "sell",

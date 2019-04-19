@@ -1,10 +1,11 @@
 package dev.nuer.nt.tools.sell;
 
 import dev.nuer.nt.NTools;
+import dev.nuer.nt.external.ShopGUIPlus;
 import dev.nuer.nt.external.actionbarapi.ActionBarAPI;
 import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.player.PlayerMessage;
-import dev.nuer.nt.tools.harvest.HandleSellingMessages;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -18,52 +19,51 @@ import java.text.DecimalFormat;
 public class SellChestContents {
 
     public static void sellContents(Block clickedBlock, Player player, String directory, String filePath, double priceModifier) {
-        //Store the tool cooldown
-        int cooldownFromConfig = NTools.getFiles().get(directory).getInt(filePath + ".cooldown");
-        //Store the chest
-        Chest chestToSell = (Chest) clickedBlock.getState();
-        //Store the chests inventory
-        Inventory inventoryToSell = chestToSell.getInventory();
-        if (canSellContents(inventoryToSell)) {
-            if (!SellCooldownCheck.isOnSellWandCooldown(player.getUniqueId(), cooldownFromConfig, player)) {
-                int slot = 0;
-                double totalDeposit = 0;
-                for (ItemStack item : inventoryToSell) {
-                    if (item == null || item.getType().equals(Material.AIR)) {
-                        continue;
-                    } else if (canBeSold(item)) {
-                        double finalPrice = item.getAmount() * MapInitializer.sellWandItemPrices.get(item.getType().toString()) * priceModifier;
-                        totalDeposit += finalPrice;
-                        NTools.economy.depositPlayer(player, finalPrice);
-                        chestToSell.getInventory().setItem(slot, new ItemStack(Material.AIR));
-                    }
-                    slot++;
-                }
-                if (NTools.getFiles().get("config").getBoolean("sell-wand-action-bar.enabled")) {
-                    //Create the action bar message
-                    String message = NTools.getFiles().get("config").getString("sell-wand-action-bar.message").replace("{deposit}",
-                            new DecimalFormat("##.00").format(totalDeposit));
-                    //Send it to the player
-                    ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
-                } else {
-                    new PlayerMessage("chest-contents-sell", player, "{deposit}", new DecimalFormat("##.00").format(totalDeposit));
-                }
+        Bukkit.getScheduler().runTaskAsynchronously(NTools.getPlugin(NTools.class), () -> {
+            //Get if the plugin is using shop gui plus
+            boolean usingShopGuiPlus = ShopGUIPlus.usingShopGUIPlus("sell");
+            //Store the tool cooldown
+            int cooldownFromConfig = NTools.getFiles().get(directory).getInt(filePath + ".cooldown");
+            //Store the chest
+            Chest chestToSell = (Chest) clickedBlock.getState();
+            //Store the chests inventory
+            Inventory inventoryToSell = chestToSell.getInventory();
+            if (!canSellContents(inventoryToSell, player, usingShopGuiPlus)) {
+                new PlayerMessage("can-not-sell-contents", player);
+                return;
             }
-        } else {
-            NTools.LOGGER.info("test");
-            new PlayerMessage("can-not-sell-contents", player);
-        }
+            if (SellCooldownCheck.isOnSellWandCooldown(player.getUniqueId(), cooldownFromConfig, player)) {
+                return;
+            }
+            int slot = 0;
+            double totalDeposit = 0;
+            for (ItemStack item : inventoryToSell) {
+                if (item == null || item.getType().equals(Material.AIR)) {
+                    continue;
+                } else if (ShopGUIPlus.canBeSold(item, player, usingShopGuiPlus, MapInitializer.sellWandItemPrices)) {
+                    double finalPrice = ShopGUIPlus.getItemPrice(item, player, priceModifier, usingShopGuiPlus, MapInitializer.sellWandItemPrices);
+                    totalDeposit += finalPrice;
+                    NTools.economy.depositPlayer(player, finalPrice);
+                    chestToSell.getInventory().setItem(slot, new ItemStack(Material.AIR));
+                }
+                slot++;
+            }
+            if (NTools.getFiles().get("config").getBoolean("sell-wand-action-bar.enabled")) {
+                //Create the action bar message
+                String message = NTools.getFiles().get("config").getString("sell-wand-action-bar.message").replace("{deposit}",
+                        new DecimalFormat("#,###.00").format(totalDeposit));
+                //Send it to the player
+                ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
+            } else {
+                new PlayerMessage("chest-contents-sell", player, "{deposit}", new DecimalFormat("#,###.00").format(totalDeposit));
+            }
+        });
     }
 
-    public static boolean canBeSold(ItemStack item) {
-        return MapInitializer.sellWandItemPrices.get(item.getType().toString()) != null;
-    }
-
-    public static boolean canSellContents(Inventory inventory) {
+    public static boolean canSellContents(Inventory inventory, Player player, boolean usingShopGuiPlus) {
         for (ItemStack item : inventory) {
-            if (canBeSold(item)) {
+            if (ShopGUIPlus.canBeSold(item, player, usingShopGuiPlus, MapInitializer.sellWandItemPrices))
                 return true;
-            }
         }
         return false;
     }

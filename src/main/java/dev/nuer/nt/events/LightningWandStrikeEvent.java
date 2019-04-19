@@ -11,7 +11,6 @@ import org.bukkit.event.HandlerList;
  * Custom event for the Lightning Wands
  */
 public class LightningWandStrikeEvent extends Event implements Cancellable {
-
     private static final HandlerList handlers = new HandlerList();
 
     private Block blockToStrike;

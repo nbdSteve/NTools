@@ -60,8 +60,8 @@ public class Nt implements CommandExecutor {
                     if (sender instanceof Player) {
                         if (sender.hasPermission("ntools.admin")) {
                             //Reload and instantiate all configuration sections
-                            NTools.getFiles().reload();
                             MapInitializer.clearMaps();
+                            NTools.getFiles().reload();
                             MapInitializer.initializeMaps();
                             new PlayerMessage("reload", (Player) sender);
                         } else {
@@ -69,10 +69,10 @@ public class Nt implements CommandExecutor {
                         }
                     } else {
                         //Reload and instantiate all configuration sections
-                        NTools.getFiles().reload();
                         MapInitializer.clearMaps();
+                        NTools.getFiles().reload();
                         MapInitializer.initializeMaps();
-                        NTools.LOGGER.info("[NTools] Reload all tool maps and configuration files.");
+                        NTools.LOGGER.info("[NTools] Reloaded all tool maps and configuration files.");
                     }
                 }
                 if (args[0].equalsIgnoreCase("c") || args[0].equalsIgnoreCase("config")) {
