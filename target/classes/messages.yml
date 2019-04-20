@@ -76,7 +76,22 @@ bulk-deposit-by-harvest:
   - "&6&lNTools&e: &7You have finished harvesting, a grand total of &a+&l${deposit} &7has been deposited into your account."
 
 chest-contents-sell:
-  - "&6&NTools&e: &7All items that can be sold in that chest have been sold for: &a+&l${deposit}&7."
+  - "&6&lNTools&e: &7All items that can be sold in that chest have been sold for: &a+&l${deposit}&7."
 
 can-not-sell-contents:
   - "&cError: &7No items in that chest can be sold to the server."
+
+chest-tnt-craft-contents:
+  - "&6&lNTools&e: &a+{deposit}&7 TNT has been crafted from the gun powder in that chest."
+
+contents-can-not-be-crafted:
+  - "&cError:&7 No TNT can be crafted from the items in that chest."
+
+chest-does-not-contain-tnt:
+  - "&cError:&7 That chest does not contain any TNT."
+
+chest-tnt-bank-contents:
+  - "&6&lNTools&e: &7Successfully banked &a+&l{deposit} &7TNT."
+
+cannot-tnt-bank-without-faction:
+  - "&cError: &7You cannot use a TNT bank without a faction, create a faction to use this feature."

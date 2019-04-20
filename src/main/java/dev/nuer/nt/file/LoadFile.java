@@ -19,7 +19,8 @@ public class LoadFile {
     public enum Files {
         CONFIG, MESSAGES, LIGHTNING, LIGHTNING_PURCHASE_GUI, MULTI, MULTI_CONFIG_GUI, MULTI_PURCHASE_GUI,
         SAND, SAND_PURCHASE_GUI, TRAY, TRAY_PURCHASE_GUI, TRENCH, TRENCH_PURCHASE_GUI, HARVESTER,
-        HARVESTER_PURCHASE_GUI, HARVESTER_CONFIG_GUI, SELL, SELL_PURCHASE_GUI, SELL_PRICE_LIST, SELL_CONFIG_GUI
+        HARVESTER_PURCHASE_GUI, HARVESTER_CONFIG_GUI, SELL, SELL_PURCHASE_GUI, SELL_PRICE_LIST, SELL_CONFIG_GUI,
+        TNT, TNT_PURCHASE_GUI, TNT_CONFIG_GUI
     }
 
     /**
@@ -55,6 +56,10 @@ public class LoadFile {
         files.put(Files.SELL_PURCHASE_GUI, new CreateFile("sell" + File.separator + "purchase-gui.yml"));
         files.put(Files.SELL_PRICE_LIST, new CreateFile("sell" + File.separator + "price-list.yml"));
         files.put(Files.SELL_CONFIG_GUI, new CreateFile("sell" + File.separator + "config-gui.yml"));
+        //Load tnt wand files
+        files.put(Files.TNT, new CreateFile("tnt" + File.separator + "wands.yml"));
+        files.put(Files.TNT_PURCHASE_GUI, new CreateFile("tnt" + File.separator + "purchase-gui.yml"));
+        files.put(Files.TNT_CONFIG_GUI, new CreateFile("tnt" + File.separator + "config-gui.yml"));
         //Log that files are loaded
         NTools.LOGGER.info("[NTools] Successfully loaded all configuration files...");
     }

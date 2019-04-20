@@ -3,9 +3,11 @@ package dev.nuer.nt.listener;
 import dev.nuer.nt.NTools;
 import dev.nuer.nt.external.nbtapi.NBTItem;
 import dev.nuer.nt.initialize.MapInitializer;
+import dev.nuer.nt.tools.ChangeMode;
 import dev.nuer.nt.tools.PriceModifier;
 import dev.nuer.nt.tools.lightning.CreateLightningStrike;
 import dev.nuer.nt.tools.sell.SellChestContents;
+import dev.nuer.nt.tools.tnt.AlterChestContents;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -89,14 +91,19 @@ public class PlayerInteract implements Listener {
                                 nbtItem.getItem(), true, MapInitializer.sellWandModifierUnique));
             }
         } catch (NullPointerException e) {
-            //NBT tag is null because this is not a trench tool
+            //NBT tag is null because this is not a sell wand
         }
         try {
             if (nbtItem.getBoolean("ntool.tnt")) {
-
+                AlterChestContents.manipulateContents(event.getClickedBlock(), player, "tnt",
+                        "tnt-wands." + nbtItem.getInteger("ntool.raw.id"),
+                        PriceModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(),
+                                nbtItem.getItem(), true, MapInitializer.tntWandModifierUnique),
+                        !ChangeMode.changeToolMode(nbtItem.getItem().getItemMeta().getLore(),
+                                nbtItem.getItem().getItemMeta(), nbtItem.getItem(), MapInitializer.tntWandModeUnique, false));
             }
         } catch (NullPointerException e) {
-            //NBT tag is null because this is not a trench tool
+            //NBT tag is null because this is not a tnt wand
         }
     }
 }

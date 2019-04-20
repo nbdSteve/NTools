@@ -20,6 +20,8 @@ public class MapInitializer {
     public static HashMap<String, Double> harvesterBlockPrices;
     //Store the blocks that can be sold by sell wands, store prices as well
     public static HashMap<String, Double> sellWandItemPrices;
+    //Store the tnt crafting recipe and numbers
+    public static HashMap<String, Double> tntWandCraftingRecipe;
     //Store the map of multi tool unique lore and raw tool id
     public static HashMap<Integer, ArrayList<String>> multiToolModeUnique;
     //Store the map of multi tool unique radius id and raw tool id
@@ -30,6 +32,10 @@ public class MapInitializer {
     public static HashMap<Integer, ArrayList<String>> harvesterModifierUnique;
     //Store the map of sell wand price modifier id and raw tool id
     public static HashMap<Integer, ArrayList<String>> sellWandModifierUnique;
+    //Store the map of tnt mode unique id and raw tool id
+    public static HashMap<Integer, ArrayList<String>> tntWandModeUnique;
+    //Store the map of tnt modifier unique id and raw tool id
+    public static HashMap<Integer, ArrayList<String>> tntWandModifierUnique;
 
     public static void initializeMaps() {
         //Load black / white list maps
@@ -38,6 +44,7 @@ public class MapInitializer {
         sandWandBlockWhitelist = AddBlocksToList.createBlockList("config", "sand-block-whitelist");
         harvesterBlockPrices = CreateInternalMaps.createBlockPrices("config", "harvester-block-prices");
         sellWandItemPrices = CreateInternalMaps.createBlockPrices("sell_price_list", "prices");
+        tntWandCraftingRecipe = CreateInternalMaps.createBlockPrices("config", "tnt-wand.crafting-recipe");
         //Load maps specific to multi tool ids
         multiToolModeUnique = CreateInternalMaps.createUniqueModeIDs("multi", "multi-tools.", "trench", "tray");
         multiToolRadiusUnique = CreateInternalMaps.createUniqueModifierIDs("multi", "multi-tools.", "radius");
@@ -46,6 +53,9 @@ public class MapInitializer {
         harvesterModifierUnique = CreateInternalMaps.createUniqueModifierIDs("harvester", "harvester-tools.", "modifier");
         //Load maps specific to sell wands
         sellWandModifierUnique = CreateInternalMaps.createUniqueModifierIDs("sell", "sell-wands.", "modifier");
+        //Load maps specific to tnt wand ids
+        tntWandModeUnique = CreateInternalMaps.createUniqueModeIDs("tnt", "tnt-wands.", "craft", "bank");
+        tntWandModifierUnique = CreateInternalMaps.createUniqueModifierIDs("tnt", "tnt-wands.", "modifier");
     }
 
     public static void clearMaps() {
@@ -55,6 +65,7 @@ public class MapInitializer {
         sandWandBlockWhitelist.clear();
         harvesterBlockPrices.clear();
         sellWandItemPrices.clear();
+        tntWandCraftingRecipe.clear();
         //Clear maps specific to multi tool ids
         multiToolModeUnique.clear();
         multiToolRadiusUnique.clear();
@@ -63,5 +74,8 @@ public class MapInitializer {
         harvesterModifierUnique.clear();
         //Clear maps specific to sell wand ids
         sellWandModifierUnique.clear();
+        //Clear maps specific to tnt wand ids
+        tntWandModeUnique.clear();
+        tntWandModifierUnique.clear();
     }
 }

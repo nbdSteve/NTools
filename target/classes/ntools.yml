@@ -5,6 +5,12 @@ enable-debug-messages: true
 
 lightning-reach-distance: 3 # How far the lightning will strike if the player right clicks air
 
+tnt-wand:
+  savage-factions-hook: false
+  crafting-recipe:
+ #   - sand:2
+    - sulphur:1
+
 trench-block-blacklist:
   - bedrock
   - obsidian
@@ -37,6 +43,11 @@ harvester-action-bar: # These should work on all versions, pm if they don't
 sell-wand-action-bar:
   enabled: true
   message: "&e✦ &6&lSell Wand &7⊳ &a+&l${deposit} &e✦"
+
+tnt-wand-action-bar:
+  enabled: true
+  craft-message: "&e✦ &6&lTNT Crafted &7⊳ &a+&l${deposit} &e✦"
+  bank-message: "&e✦ &6&lTNT Banked &7⊳ &a+&l{deposit} &e✦"
 
 inventory-full-action-bar:
   enabled: true
@@ -127,3 +138,14 @@ tool-purchase-gui:
     enchantments:
       - lure:10
     open-sell: true
+  8:
+    slot: 7
+    name: "&b&lTNT Wands"
+    material: sulphur:0
+    lore:
+      - "&7 "
+      - "&7&oClick this to buy tnt wands"
+      - "&7 "
+    enchantments:
+      - lure:10
+    open-tnt: true

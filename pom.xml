@@ -81,6 +81,13 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>com.massivecraft</groupId>
+            <artifactId>Factions</artifactId>
+            <version>1.6.9.5-U0.2.1-RC-1.5-BETA</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/lib/Factions.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>net.brcdev</groupId>
             <artifactId>shopgui</artifactId>
             <version>1.19.1-SNAPSHOT</version>

@@ -4,6 +4,8 @@ dev\nuer\nt\external\nbtapi\utils\MinecraftVersion.class
 dev\nuer\nt\external\nbtapi\ClassWrapper.class
 dev\nuer\nt\tools\harvest\HandleSellingMessages.class
 dev\nuer\nt\tools\multi\ChangeToolRadius.class
+dev\nuer\nt\tools\tnt\TNTCooldownCheck.class
+dev\nuer\nt\external\FactionIntegration.class
 dev\nuer\nt\tools\harvest\HarvestBlock.class
 dev\nuer\nt\tools\sell\SellChestContents.class
 dev\nuer\nt\external\nbtapi\NBTReflectionUtil.class
@@ -20,6 +22,7 @@ dev\nuer\nt\tools\ChangeMode.class
 dev\nuer\nt\external\nbtapi\NBTType.class
 dev\nuer\nt\listener\CrouchRightClickOpenGui.class
 dev\nuer\nt\gui\config\HarvesterConfigurationGui.class
+dev\nuer\nt\tools\tnt\AlterChestContents.class
 dev\nuer\nt\gui\purchase\BuySandWandsGui.class
 dev\nuer\nt\listener\BlockDamageByPlayer.class
 dev\nuer\nt\gui\BuyToolsGenericGui.class
@@ -28,12 +31,14 @@ dev\nuer\nt\gui\listener\GuiClickListener.class
 dev\nuer\nt\gui\purchase\BuySellWandsGui.class
 dev\nuer\nt\tools\PriceModifier.class
 dev\nuer\nt\external\actionbarapi\ActionBarAPI$2.class
+dev\nuer\nt\tools\tnt\CraftContentsOfChest.class
 dev\nuer\nt\events\TrayBlockBreakEvent.class
 dev\nuer\nt\events\HarvesterBlockBreakEvent.class
 dev\nuer\nt\initialize\MapInitializer.class
 dev\nuer\nt\external\NBTCreator.class
 dev\nuer\nt\gui\purchase\BuyTrenchToolsGui.class
 dev\nuer\nt\cmd\Nt.class
+dev\nuer\nt\gui\config\TNTWandConfigurationGui.class
 dev\nuer\nt\method\itemCreation\PurchaseTool.class
 dev\nuer\nt\events\LightningWandStrikeEvent.class
 dev\nuer\nt\listener\PlayerInteract.class
@@ -55,6 +60,7 @@ dev\nuer\nt\events\SellWandContainerSaleEvent.class
 dev\nuer\nt\file\CreateFile.class
 dev\nuer\nt\method\AddBlocksToList.class
 dev\nuer\nt\tools\BreakBlocksInRadius.class
+dev\nuer\nt\tools\tnt\BankContentsOfChest.class
 dev\nuer\nt\external\nbtapi\utils\GsonWrapper.class
 dev\nuer\nt\external\nbtapi\NBTItem.class
 dev\nuer\nt\method\itemCreation\CraftItem.class
@@ -70,6 +76,7 @@ dev\nuer\nt\tools\sand\SandCooldownCheck.class
 dev\nuer\nt\gui\config\MultiToolConfigurationGui.class
 dev\nuer\nt\tools\sand\RemoveSandStack.class
 dev\nuer\nt\events\TrenchBlockBreakEvent.class
+dev\nuer\nt\gui\purchase\BuyTNTWandsGui.class
 dev\nuer\nt\initialize\GuiInitializer.class
 dev\nuer\nt\gui\AbstractGui$inventoryClickActions.class
 dev\nuer\nt\external\nbtapi\NBTContainer.class

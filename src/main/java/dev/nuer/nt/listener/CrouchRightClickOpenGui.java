@@ -50,7 +50,14 @@ public class CrouchRightClickOpenGui implements Listener {
                         NTools.getPlugin(NTools.class).getGuiByName("sell-config").open(player);
                     }
                 } catch (NullPointerException e) {
-                    //NBT tag is null because this is not a harvester hoe
+                    //NBT tag is null because this is not a sell wand
+                }
+                try {
+                    if (nbtItem.getBoolean("ntool.tnt")) {
+                        NTools.getPlugin(NTools.class).getGuiByName("tnt-config").open(player);
+                    }
+                } catch (NullPointerException e) {
+                    //NBT tag is null because this is not a tnt wand
                 }
             }
         }

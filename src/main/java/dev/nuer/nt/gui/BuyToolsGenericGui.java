@@ -50,6 +50,9 @@ public class BuyToolsGenericGui extends AbstractGui {
                                 if (NTools.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-sell")) {
                                     NTools.getPlugin(NTools.class).getGuiByName("sell-buy").open(player);
                                 }
+                                if (NTools.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-tnt")) {
+                                    NTools.getPlugin(NTools.class).getGuiByName("tnt-buy").open(player);
+                                }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();
                                 new PlayerMessage("invalid-config", player, "{reason}", "Generic purchase gui ntools.yml");
