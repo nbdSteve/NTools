@@ -85,10 +85,10 @@ chest-tnt-craft-contents:
   - "&6&lNTools&e: &a+{deposit}&7 TNT has been crafted from the gun powder in that chest."
 
 contents-can-not-be-crafted:
-  - "&cError:&7 No TNT can be crafted from the items in that chest."
+  - "&cError: &7No TNT can be crafted from the items in that chest."
 
 chest-does-not-contain-tnt:
-  - "&cError:&7 That chest does not contain any TNT."
+  - "&cError: &7That chest does not contain any TNT."
 
 chest-tnt-bank-contents:
   - "&6&lNTools&e: &7Successfully banked &a+&l{deposit} &7TNT."

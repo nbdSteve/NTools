@@ -12,7 +12,7 @@ import org.bukkit.inventory.Inventory;
 
 public class AlterChestContents {
 
-    public static void manipulateContents(Block clickedBlock, Player player, String directory, String filePath, double craftingPrice, boolean bank) {
+    public static void manipulateContents(Block clickedBlock, Player player, String directory, String filePath, double craftingModifier, boolean bank) {
         Bukkit.getScheduler().runTaskAsynchronously(NTools.getPlugin(NTools.class), () -> {
             //Get if the plugin is using shop gui plus
             boolean usingFactions = FactionIntegration.usingFactions("config");
@@ -22,19 +22,21 @@ public class AlterChestContents {
             Chest chestToAlter = (Chest) clickedBlock.getState();
             //Store the chests inventory
             Inventory inventoryToQuery = chestToAlter.getInventory();
-            if (!bank && !CraftContentsOfChest.canCraftContents(inventoryToQuery)) {
+            if (!bank && !CraftContentsOfChest.canCraftContents(inventoryToQuery, craftingModifier)) {
                 new PlayerMessage("contents-can-not-be-crafted", player);
                 return;
-            }
-            if (bank && usingFactions && !BankContentsOfChest.chestContainsTNT(inventoryToQuery)) {
-                new PlayerMessage("chest-does-not-contain-tnt", player);
             }
             if (bank && !usingFactions) {
                 new PlayerMessage("invalid-config", player, "{reason}", "Cannot bank TNT without SavageFactions installed");
                 return;
             }
+            if (bank && usingFactions && !BankContentsOfChest.chestContainsTNT(inventoryToQuery)) {
+                new PlayerMessage("chest-does-not-contain-tnt", player);
+                return;
+            }
             if (usingFactions && !BankContentsOfChest.hasFaciton(player)) {
                 new PlayerMessage("cannot-tnt-bank-without-faction", player);
+                return;
             }
             if (PlayerToolCooldown.isOnCooldown(player, "tnt")) {
                 return;
@@ -44,7 +46,7 @@ public class AlterChestContents {
             if (bank && usingFactions) {
                 BankContentsOfChest.getTNTCountForChest(player, inventoryToQuery, chestToAlter);
             } else {
-                CraftContentsOfChest.craftChestContents(player, inventoryToQuery, craftingPrice, chestToAlter);
+                CraftContentsOfChest.craftChestContents(player, inventoryToQuery, craftingModifier, chestToAlter);
             }
         });
     }

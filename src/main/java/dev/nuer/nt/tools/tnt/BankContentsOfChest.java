@@ -25,7 +25,7 @@ public class BankContentsOfChest {
 
     public static boolean chestContainsTNT(Inventory inventory) {
         for (ItemStack item : inventory) {
-            if (item.getType().equals(Material.TNT)) {
+            if (item != null && item.getType().equals(Material.TNT)) {
                 return true;
             }
         }
@@ -36,7 +36,7 @@ public class BankContentsOfChest {
         int slot = 0;
         HashMap<Material, Integer> materialAndAmount = new HashMap<>();
         for (ItemStack item : inventoryToQuery) {
-            if (item.getType().equals(Material.TNT)) {
+            if (item != null && item.getType().equals(Material.TNT)) {
                 try {
                     int currentAmount = materialAndAmount.get(item.getType());
                     materialAndAmount.put(item.getType(), item.getAmount() + currentAmount);

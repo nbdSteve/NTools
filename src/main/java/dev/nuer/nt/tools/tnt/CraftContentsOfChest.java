@@ -60,14 +60,10 @@ public class CraftContentsOfChest {
         return 0;
     }
 
-    public static boolean canCraftContents(Inventory inventory) {
+    public static boolean canCraftContents(Inventory inventory, double craftingModifier) {
         for (ItemStack item : inventory) {
-            try {
-                if (MapInitializer.tntWandCraftingRecipe.get(item.getType().toString()) != null) {
-                    return item.getAmount() > MapInitializer.tntWandCraftingRecipe.get(item.getType().toString());
-                }
-            } catch (NullPointerException e) {
-                //Recipe does not contain this item
+            if (item != null && MapInitializer.tntWandCraftingRecipe.containsKey(item.getType().toString())) {
+                return item.getAmount() >= MapInitializer.tntWandCraftingRecipe.get(item.getType().toString()) * craftingModifier;
             }
         }
         return false;

@@ -46,7 +46,7 @@ sell-wand-action-bar:
 
 tnt-wand-action-bar:
   enabled: true
-  craft-message: "&e✦ &6&lTNT Crafted &7⊳ &a+&l${deposit} &e✦"
+  craft-message: "&e✦ &6&lTNT Crafted &7⊳ &a+&l{deposit} &e✦"
   bank-message: "&e✦ &6&lTNT Banked &7⊳ &a+&l{deposit} &e✦"
 
 inventory-full-action-bar:
