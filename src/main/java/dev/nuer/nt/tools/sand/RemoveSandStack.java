@@ -4,6 +4,7 @@ import dev.nuer.nt.NTools;
 import dev.nuer.nt.events.SandBlockBreakEvent;
 import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.player.AddBlocksToPlayerInventory;
+import dev.nuer.nt.tools.PlayerToolCooldown;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -22,21 +23,24 @@ public class RemoveSandStack {
                            String filePath) {
         int cooldownFromConfig = NTools.getFiles().get(directory).getInt(filePath + ".cooldown");
         Bukkit.getScheduler().runTaskAsynchronously(NTools.getPlugin(NTools.class), () -> {
-            if (!SandCooldownCheck.isOnSandWandCooldown(player.getUniqueId(), cooldownFromConfig, player)) {
-                int positionX = event.getBlock().getX();
-                int positionY = 255;
-                int positionZ = event.getBlock().getZ();
-                ArrayList<Block> blocksToRemove = new ArrayList<>();
-                while (positionY >= 1) {
-                    String currentBlockType =
-                            player.getWorld().getBlockAt(positionX, positionY, positionZ).getType().toString();
-                    if (MapInitializer.sandWandBlockWhitelist.contains(currentBlockType)) {
-                        blocksToRemove.add(player.getWorld().getBlockAt(positionX, positionY, positionZ));
-                    }
-                    positionY--;
-                }
-                genericSandRemoval(player, blocksToRemove, NTools.getFiles().get(directory).getLong(filePath + ".break-delay"));
+            if (PlayerToolCooldown.isOnCooldown(player, "sand")) {
+                return;
+            } else {
+                PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "sand");
             }
+            int positionX = event.getBlock().getX();
+            int positionY = 255;
+            int positionZ = event.getBlock().getZ();
+            ArrayList<Block> blocksToRemove = new ArrayList<>();
+            while (positionY >= 1) {
+                String currentBlockType =
+                        player.getWorld().getBlockAt(positionX, positionY, positionZ).getType().toString();
+                if (MapInitializer.sandWandBlockWhitelist.contains(currentBlockType)) {
+                    blocksToRemove.add(player.getWorld().getBlockAt(positionX, positionY, positionZ));
+                }
+                positionY--;
+            }
+            genericSandRemoval(player, blocksToRemove, NTools.getFiles().get(directory).getLong(filePath + ".break-delay"));
         });
     }
 

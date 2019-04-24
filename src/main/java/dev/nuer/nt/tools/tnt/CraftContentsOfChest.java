@@ -49,11 +49,8 @@ public class CraftContentsOfChest {
     public static int craftItems(HashMap<Material, Integer> materialAndAmount, double craftingPrice, Chest chestToAlter) {
         for (Material item : materialAndAmount.keySet()) {
             double amountRequired = MapInitializer.tntWandCraftingRecipe.get(item.toString()) * craftingPrice;
-//            System.out.println("Required: " + amountRequired);
             double numberCrafted = materialAndAmount.get(item) / amountRequired;
-//            System.out.println("Crafted: " + numberCrafted);
             double remainder = materialAndAmount.get(item) % amountRequired;
-//            System.out.println("Remainder: " + remainder);
             chestToAlter.getInventory().addItem(new ItemStack(Material.TNT, (int) numberCrafted));
             if (remainder > 0) {
                 chestToAlter.getInventory().addItem(new ItemStack(item, (int) remainder));

@@ -55,7 +55,10 @@ inventory-full-action-bar:
 
 cooldown-action-bar:
   enabled: true
-  message: "&c&l✘ &6&lCooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
+  sell-message: "&c&l✘ &6&lSell Wand Cooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
+  sand-message: "&c&l✘ &6&lSand Wand Cooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
+  lightning-message: "&c&l✘ &6&lLightning Wand Cooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
+  tnt-message: "&c&l✘ &6&lTNT Wand Cooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
 
 tool-purchase-gui:
   # generic gui to select a type of tool to buy

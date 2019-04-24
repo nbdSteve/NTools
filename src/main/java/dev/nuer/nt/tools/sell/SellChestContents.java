@@ -5,6 +5,7 @@ import dev.nuer.nt.external.ShopGUIPlus;
 import dev.nuer.nt.external.actionbarapi.ActionBarAPI;
 import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.player.PlayerMessage;
+import dev.nuer.nt.tools.PlayerToolCooldown;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -30,8 +31,10 @@ public class SellChestContents {
                 new PlayerMessage("can-not-sell-contents", player);
                 return;
             }
-            if (SellCooldownCheck.isOnSellWandCooldown(player.getUniqueId(), cooldownFromConfig, player)) {
+            if (PlayerToolCooldown.isOnCooldown(player, "sell")) {
                 return;
+            } else {
+                PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "sell");
             }
             int slot = 0;
             double totalDeposit = 0;
