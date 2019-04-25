@@ -11,6 +11,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.HashMap;
 import java.util.UUID;
 
+/**
+ * Class that handles all player tool cooldowns for the plugin
+ */
 public class PlayerToolCooldown {
     //Store the players who are on the sell wand cooldown
     private static HashMap<UUID, Integer> playersOnSellWandCooldown = new HashMap<>();

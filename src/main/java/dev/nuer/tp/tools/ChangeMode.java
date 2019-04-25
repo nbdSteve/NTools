@@ -12,16 +12,38 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Class that handles switching a tools mode
+ */
 public class ChangeMode {
 
+    /**
+     * Switch a tools current mode based on its previous one
+     *
+     * @param itemLore      List<String>, the lore being affected
+     * @param itemMeta      ItemMeta, the items meta that is being affected
+     * @param item          ItemStack, the item to update
+     * @param player        Player, the player who is switching modes
+     * @param modeUniqueIDs ArrayList<String>, list of mode unique ids from configuration
+     */
     public static void switchMode(List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player, HashMap<Integer, ArrayList<String>> modeUniqueIDs) {
         player.closeInventory();
         changeToolMode(itemLore, itemMeta, item, modeUniqueIDs, true);
         new PlayerMessage("mode-switch", player);
     }
 
+    /**
+     * Changes a tools mode, return true if the tool is in the first mode
+     *
+     * @param itemLore      List<String>, the lore being affected
+     * @param itemMeta      ItemMeta, the items meta that is being affected
+     * @param item          ItemStack, the item to update
+     * @param modeUniqueIDs ArrayList<String>, list of mode unique ids from configuration
+     * @param changeMode    boolean, if the tools mode should be changed
+     * @return boolean
+     */
     public static boolean changeToolMode(List<String> itemLore, ItemMeta itemMeta, ItemStack item,
-                                             HashMap<Integer, ArrayList<String>> modeUniqueIDs, boolean changeMode) {
+                                         HashMap<Integer, ArrayList<String>> modeUniqueIDs, boolean changeMode) {
         NBTItem nbtItem = new NBTItem(item);
         String mode = ChatColor.translateAlternateColorCodes('&',
                 modeUniqueIDs.get(nbtItem.getInteger("ntool.raw.id")).get(0));

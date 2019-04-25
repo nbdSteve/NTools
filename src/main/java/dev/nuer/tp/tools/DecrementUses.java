@@ -13,8 +13,19 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
+/**
+ * Class that handles to decrement a tools uses
+ */
 public class DecrementUses {
 
+    /**
+     * Method to decrease the number of uses remaining for a tool based on its current uses
+     *
+     * @param player      Player, the player who's tool is being affected
+     * @param typeOfTool  String, the type of tool the player is using
+     * @param item        NBTItem, the item being effected
+     * @param currentUses Integer, the number of uses the tool currently has
+     */
     public static void decrementUses(Player player, String typeOfTool, NBTItem item, int currentUses) {
         //For special tools to not decrease the number of uses
         if (currentUses == -1) {
@@ -31,7 +42,9 @@ public class DecrementUses {
             }
             return;
         }
+        //Store the unique uses line
         String usesUniqueLine = ChatColor.translateAlternateColorCodes('&', ToolsPlus.getFiles().get(typeOfTool).getString(typeOfTool + "-wands." + item.getInteger("ntool.raw.id") + ".uses.unique"));
+        //Store the uses placeholder to update
         String usesReplaceLine = ChatColor.translateAlternateColorCodes('&', ToolsPlus.getFiles().get(typeOfTool).getString(typeOfTool + "-wands." + item.getInteger("ntool.raw.id") + ".uses.update"));
         for (int i = 0; i < item.getItem().getItemMeta().getLore().size(); i++) {
             if (item.getItem().getItemMeta().getLore().get(i).contains(usesUniqueLine)) {

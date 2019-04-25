@@ -23,8 +23,10 @@ public class HandleSellingMessages {
     private static int messageDelay = ToolsPlus.getFiles().get("config").getInt("harvester-selling-message-delay");
 
     /**
-     * @param player
-     * @param sellPrice
+     * Sends a delayed message to the player who is harvesting
+     *
+     * @param player    Player, the player breaking blocks
+     * @param sellPrice double, the sell price of the given block
      */
     public static void handleSellingMessages(Player player, double sellPrice) {
         if (playersSellingByHarvest == null) {
@@ -40,8 +42,10 @@ public class HandleSellingMessages {
     }
 
     /**
-     * @param player
-     * @param sellPrice
+     * Updates the message cooldown for a player
+     *
+     * @param player    Player, the player breaking blocks
+     * @param sellPrice double, the sell price of the given block
      */
     private static void updateMessageCooldown(Player player, double sellPrice) {
         //Deposit the money first
@@ -66,7 +70,9 @@ public class HandleSellingMessages {
     }
 
     /**
-     * @param player
+     * Sends the delayed message to the player
+     *
+     * @param player Player, player to send the message to
      */
     private static void sendDelayedMessage(Player player) {
         activeMessageTasks.put(player.getUniqueId(), Bukkit.getScheduler().runTaskLater(ToolsPlus.getPlugin(ToolsPlus.class), () -> {

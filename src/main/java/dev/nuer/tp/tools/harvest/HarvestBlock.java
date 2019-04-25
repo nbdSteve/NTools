@@ -13,8 +13,20 @@ import org.bukkit.event.block.BlockDamageEvent;
 
 import java.util.ArrayList;
 
+/**
+ * Method to handle harvesting blocks for harvester hoes
+ */
 public class HarvestBlock {
 
+    /**
+     * Method to harvest the blocks for harvester hoes
+     *
+     * @param event         BlockDamageEvent, the event to trigger the harvest
+     * @param player        Player, the player who is using the tool
+     * @param sellMode      boolean, if the tool is in sell mode
+     * @param blockPrice    double, the Price of the block being sold
+     * @param priceModifier double, the modifier to multiply the price by
+     */
     public static void harvestBlocks(BlockDamageEvent event, Player player, boolean sellMode, Double blockPrice, Double priceModifier) {
         ArrayList<Block> blocksToHarvest = new ArrayList<>();
         if (event.getBlock().getType().toString().equalsIgnoreCase("SUGAR_CANE_BLOCK")) {
@@ -50,6 +62,15 @@ public class HarvestBlock {
         AddBlocksToPlayerInventory.messagedPlayers.remove(player);
     }
 
+    /**
+     * Method that handles blocks that are destroyed from the bottom up
+     *
+     * @param yCoordinate     Integer, starting y coordinate
+     * @param event           BlockDamageEvent, the event calling the harvest
+     * @param player          Player, the player breaking the blocks
+     * @param blocksToHarvest ArrayList<Block>, the blocks to be broken
+     * @param sugarCane       boolean, if the block is sugar cane
+     */
     public static void connectedBlockRemoval(int yCoordinate, BlockDamageEvent event, Player player, ArrayList<Block> blocksToHarvest, boolean sugarCane) {
         if (sugarCane) {
             while (player.getWorld().getBlockAt(event.getBlock().getX(), yCoordinate, event.getBlock().getZ()).
