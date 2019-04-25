@@ -37,6 +37,9 @@ public class MapInitializer {
     //Store the map of tnt modifier unique id and raw tool id
     public static HashMap<Integer, ArrayList<String>> tntWandModifierUnique;
 
+    /**
+     * Method to create the internal maps with the correct values from the configuration files
+     */
     public static void initializeMaps() {
         //Load black / white list maps
         trenchBlockBlacklist = AddBlocksToList.createBlockList("config", "trench-block-blacklist");
@@ -58,6 +61,9 @@ public class MapInitializer {
         tntWandModifierUnique = CreateInternalMaps.createUniqueModifierIDs("tnt", "tnt-wands.", "modifier");
     }
 
+    /**
+     * Method to clear all of the internal maps
+     */
     public static void clearMaps() {
         //Clear black / white list maps
         trenchBlockBlacklist.clear();

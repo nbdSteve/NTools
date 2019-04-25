@@ -11,7 +11,7 @@ import org.bukkit.event.Listener;
 /**
  * Class that listens for custom plugin events
  */
-public class ToolsListener implements Listener {
+public class CustomToolEventsListener implements Listener {
 
     @EventHandler
     public void blockBreakByTrenchTool(TrenchBlockBreakEvent event) {

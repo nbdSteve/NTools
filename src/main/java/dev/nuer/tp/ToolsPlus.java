@@ -1,6 +1,6 @@
 package dev.nuer.tp;
 
-import dev.nuer.tp.cmd.Nt;
+import dev.nuer.tp.cmd.ToolsCmd;
 import dev.nuer.tp.file.LoadFile;
 import dev.nuer.tp.gui.AbstractGui;
 import dev.nuer.tp.gui.listener.GuiClickListener;
@@ -63,13 +63,13 @@ public final class ToolsPlus extends JavaPlugin {
             economy = null;
         }
         //Register the commands for the plugin
-        getCommand("tools").setExecutor(new Nt(this));
-        getCommand("nt").setExecutor(new Nt(this));
+        getCommand("tools").setExecutor(new ToolsCmd(this));
+        getCommand("nt").setExecutor(new ToolsCmd(this));
         //Register the events for the plugin
         getServer().getPluginManager().registerEvents(new BlockDamageByPlayer(), this);
         getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
         getServer().getPluginManager().registerEvents(new PlayerInteractWithMob(), this);
-        getServer().getPluginManager().registerEvents(new ToolsListener(), this);
+        getServer().getPluginManager().registerEvents(new CustomToolEventsListener(), this);
         getServer().getPluginManager().registerEvents(new CrouchRightClickOpenGui(), this);
         getServer().getPluginManager().registerEvents(new GuiClickListener(), this);
     }

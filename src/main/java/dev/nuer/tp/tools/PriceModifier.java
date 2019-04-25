@@ -55,30 +55,32 @@ public class PriceModifier {
     }
 
     /**
+     * Method to increase the price modifier of a tool
      *
-     * @param itemLore
-     * @param itemMeta
-     * @param item
-     * @param player
-     * @param modifierUniqueIDs
-     * @param directory
-     * @param filePath
+     * @param itemLore          List<String>, the items lore to edit
+     * @param itemMeta          ItemMeta, the items meta
+     * @param item              ItemStack, the item being affected
+     * @param player            Player, the player who's tools is being updated
+     * @param modifierUniqueIDs String, the modifier id
+     * @param directory         String, the directory to get the modifier from
+     * @param filePath          String, the modifier file path from the configuration
      */
     public static void increasePriceModifier(List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player,
-                                                 HashMap<Integer, ArrayList<String>> modifierUniqueIDs, String directory, String filePath) {
+                                             HashMap<Integer, ArrayList<String>> modifierUniqueIDs, String directory, String filePath) {
         player.closeInventory();
         verifyItemLore(itemLore, itemMeta, item, player, modifierUniqueIDs, directory, filePath);
     }
 
     /**
+     * Method to increase the modifier if it is in the lore
      *
-     * @param itemLore
-     * @param itemMeta
-     * @param item
-     * @param player
-     * @param modifierUniqueIDs
-     * @param directory
-     * @param filePath
+     * @param itemLore          List<String>, the items lore to edit
+     * @param itemMeta          ItemMeta, the items meta
+     * @param item              ItemStack, the item being affected
+     * @param player            Player, the player who's tools is being updated
+     * @param modifierUniqueIDs String, the modifier id
+     * @param directory         String, the directory to get the modifier from
+     * @param filePath          String, the modifier file path from the configuration
      */
     public static void verifyItemLore(List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player,
                                       HashMap<Integer, ArrayList<String>> modifierUniqueIDs, String directory, String filePath) {
@@ -105,17 +107,18 @@ public class PriceModifier {
     }
 
     /**
+     * Method to increase the modifier in the tools lore
      *
-     * @param toolTypeRawID
-     * @param index
-     * @param modifierUniqueLore
-     * @param itemLore
-     * @param itemMeta
-     * @param item
-     * @param player
-     * @param modifierUniqueIDs
-     * @param directory
-     * @param filePath
+     * @param toolTypeRawID      Integer, the raw tool id from the configuration
+     * @param index              Integer, the index of the lore to change
+     * @param modifierUniqueLore String, the modifier id from the configuration
+     * @param itemLore           List<String>, the items lore to edit
+     * @param itemMeta           ItemMeta, the items meta
+     * @param item               ItemStack, the item being affected
+     * @param player             Player, the player whos tools is being updated
+     * @param modifierUniqueIDs  String, the modifier id
+     * @param directory          String, the directory to get the modifier from
+     * @param filePath           String, the modifier file path from the configuration
      */
     public static void increaseModifierInLore(int toolTypeRawID, int index, String modifierUniqueLore,
                                               List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player,

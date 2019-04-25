@@ -6,6 +6,9 @@ import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+/**
+ * Custom craft event for TNT Wands
+ */
 public class TNTWandCraftEvent extends Event implements Cancellable {
     private static final HandlerList handlers = new HandlerList();
 

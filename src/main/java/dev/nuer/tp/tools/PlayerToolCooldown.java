@@ -12,11 +12,20 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class PlayerToolCooldown {
+    //Store the players who are on the sell wand cooldown
     private static HashMap<UUID, Integer> playersOnSellWandCooldown = new HashMap<>();
+    //Store the players who are on the sand wand cooldown
     private static HashMap<UUID, Integer> playersOnSandWandCooldown = new HashMap<>();
+    //Store the players who are on the lightning wand cooldown
     private static HashMap<UUID, Integer> playersOnLightningWandCooldown = new HashMap<>();
+    //Store the players who are on the tnt wand cooldown
     private static HashMap<UUID, Integer> playersOnTntWandCooldown = new HashMap<>();
 
+    /**
+     * @param player
+     * @param delayInSeconds
+     * @param cooldownToolType
+     */
     public static void setPlayerOnCooldown(Player player, int delayInSeconds, String cooldownToolType) {
         if (delayInSeconds < 0) {
             return;
@@ -41,6 +50,13 @@ public class PlayerToolCooldown {
         }.runTaskTimer(ToolsPlus.getPlugin(ToolsPlus.class), 0L, 20L);
     }
 
+    /**
+     * Check if the player is on a tool cooldown
+     *
+     * @param player           Player, the player to check
+     * @param cooldownToolType String, the type of tool for the cooldown
+     * @return boolean
+     */
     public static boolean isOnCooldown(Player player, String cooldownToolType) {
         if (getCooldownMap(cooldownToolType).get(player.getUniqueId()) != null) {
             return true;
@@ -48,6 +64,14 @@ public class PlayerToolCooldown {
         return false;
     }
 
+    /**
+     * Gets the players remaining cooldown in seconds
+     *
+     * @param player             Player, the player  to query
+     * @param cooldownToolType   String, the type of cooldown
+     * @param sendPlayerResponse boolean, if a message will be sent to the player
+     * @return
+     */
     public static int getCooldownRemaining(Player player, String cooldownToolType, boolean sendPlayerResponse) {
         if (sendPlayerResponse) {
             if (ToolsPlus.getFiles().get("config").getBoolean("cooldown-action-bar.enabled")) {
@@ -60,6 +84,12 @@ public class PlayerToolCooldown {
         return getCooldownMap(cooldownToolType).get(player.getUniqueId());
     }
 
+    /**
+     * Gets the cooldown map for a tool
+     *
+     * @param cooldownToolType String, the type of tool for the cooldown
+     * @return HashMap<UUID, Integer>
+     */
     public static HashMap<UUID, Integer> getCooldownMap(String cooldownToolType) {
         if (cooldownToolType.equalsIgnoreCase("sell")) return playersOnSellWandCooldown;
         if (cooldownToolType.equalsIgnoreCase("sand")) return playersOnSandWandCooldown;

@@ -14,13 +14,14 @@ import org.bukkit.entity.Player;
 /**
  * Class that handles the /nt and /tools command for the plugin
  */
-public class Nt implements CommandExecutor {
+public class ToolsCmd implements CommandExecutor {
+
     /**
      * Constructor to make the command class work
      *
      * @param toolsPlus
      */
-    public Nt(ToolsPlus toolsPlus) {
+    public ToolsCmd(ToolsPlus toolsPlus) {
     }
 
     /**

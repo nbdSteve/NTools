@@ -41,6 +41,12 @@ public class AddBlocksToPlayerInventory {
         blockToBreak.getDrops().clear();
     }
 
+    /**
+     * Method to sell blocks, used for harvester hoes - the items are removed but not added to the players inventory
+     *
+     * @param blockToBreak the event to get the drops of
+     * @param player       the player who brock the block
+     */
     public static void sellBlocks(Block blockToBreak, Player player) {
         if (!messagedPlayers.contains(player)) {
             messagedPlayers.add(player);

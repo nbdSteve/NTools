@@ -12,8 +12,7 @@ import java.util.UUID;
  * Class that handles Gui creation and has methods to check which Gui is open for a player
  */
 public abstract class AbstractGui {
-    //Store the map of inventories that are created, static so it can be accessed and modified outside the
-    // class
+    //Store the map of inventories that are created, static so it can be accessed and modified outside the class
     public static HashMap<UUID, AbstractGui> inventoriesByID = new HashMap<>();
     //Store the map of inventories that are open for players, static so it can be accessed and modified
     // outside the class

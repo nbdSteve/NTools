@@ -12,6 +12,14 @@ import java.util.HashMap;
  */
 public class CreateInternalMaps {
 
+    /**
+     * Method that creates a HashMap that contains the modifiers IDs for a respective tool
+     *
+     * @param directory    String, the directory to get the modifiers from
+     * @param filePath     String, file path to get modifiers from inside the configuration
+     * @param modifierType String, the type of modifier; radius, modifier
+     * @return HashMap<Integer, ArrayList < String>>
+     */
     public static HashMap<Integer, ArrayList<String>> createUniqueModifierIDs(String directory, String filePath, String modifierType) {
         HashMap<Integer, ArrayList<String>> toolUniqueModifierIDs = new HashMap<>();
         for (int i = 1; i <= toolUniqueModifierIDs.size() + 1; i++) {
@@ -30,6 +38,15 @@ public class CreateInternalMaps {
         return toolUniqueModifierIDs;
     }
 
+    /**
+     * Method that creates a HashMap that contains the mode IDs for a respective tool
+     *
+     * @param directory String, the directory to get the modes from
+     * @param filePath  String, file path to get modes from inside the configuration
+     * @param mode1     String, the first mode to add
+     * @param mode2     String, the second mode to add
+     * @return HashMap<Integer, ArrayList < String>>
+     */
     public static HashMap<Integer, ArrayList<String>> createUniqueModeIDs(String directory, String filePath,
                                                                           String mode1, String mode2) {
         HashMap<Integer, ArrayList<String>> toolUniqueModeIDs = new HashMap<>();
@@ -48,6 +65,13 @@ public class CreateInternalMaps {
         return toolUniqueModeIDs;
     }
 
+    /**
+     * Creates a HashMap of blocks and their respective sell price, used for sell wands
+     *
+     * @param directory String, the directory to get the prices from
+     * @param filePath  String, file path to get prices from inside the configuration
+     * @return HashMap<String, Double>
+     */
     public static HashMap<String, Double> createBlockPrices(String directory, String filePath) {
         HashMap<String, Double> blockPrices = new HashMap<>();
         for (String block : ToolsPlus.getFiles().get(directory).getStringList(filePath)) {
