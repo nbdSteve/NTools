@@ -70,7 +70,7 @@ public class BlockDamageByPlayer implements Listener {
             if (nbtItem.getBoolean("ntool.sand")) {
                 event.setCancelled(true);
                 new RemoveSandStack(event, player, "sand", "sand-wands." +
-                        nbtItem.getInteger("ntool.raw.id"));
+                        nbtItem.getInteger("ntool.raw.id"), nbtItem);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a sand wand

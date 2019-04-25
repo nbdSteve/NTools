@@ -1,6 +1,6 @@
 package dev.nuer.nt.file;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.io.File;
@@ -61,7 +61,7 @@ public class LoadFile {
         files.put(Files.TNT_PURCHASE_GUI, new CreateFile("tnt" + File.separator + "purchase-gui.yml"));
         files.put(Files.TNT_CONFIG_GUI, new CreateFile("tnt" + File.separator + "config-gui.yml"));
         //Log that files are loaded
-        NTools.LOGGER.info("[NTools] Successfully loaded all configuration files...");
+        ToolsPlus.LOGGER.info("[ToolsPlus] Successfully loaded all configuration files...");
     }
 
     /**
@@ -84,6 +84,6 @@ public class LoadFile {
         for (Files file : Files.values()) {
             files.get(file).reload();
         }
-        NTools.LOGGER.info("[NTools] Reloading configuration files...");
+        ToolsPlus.LOGGER.info("[ToolsPlus] Reloading configuration files...");
     }
 }

@@ -1,6 +1,6 @@
 package dev.nuer.nt.tools;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.external.actionbarapi.ActionBarAPI;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.Bukkit;
@@ -38,7 +38,7 @@ public class PlayerToolCooldown {
                 }
                 timer--;
             }
-        }.runTaskTimer(NTools.getPlugin(NTools.class), 0L, 20L);
+        }.runTaskTimer(ToolsPlus.getPlugin(ToolsPlus.class), 0L, 20L);
     }
 
     public static boolean isOnCooldown(Player player, String cooldownToolType) {
@@ -50,8 +50,8 @@ public class PlayerToolCooldown {
 
     public static int getCooldownRemaining(Player player, String cooldownToolType, boolean sendPlayerResponse) {
         if (sendPlayerResponse) {
-            if (NTools.getFiles().get("config").getBoolean("cooldown-action-bar.enabled")) {
-                String message = NTools.getFiles().get("config").getString("cooldown-action-bar." + cooldownToolType + "-message").replace("{time}", String.valueOf(getCooldownMap(cooldownToolType).get(player.getUniqueId())));
+            if (ToolsPlus.getFiles().get("config").getBoolean("cooldown-action-bar.enabled")) {
+                String message = ToolsPlus.getFiles().get("config").getString("cooldown-action-bar." + cooldownToolType + "-message").replace("{time}", String.valueOf(getCooldownMap(cooldownToolType).get(player.getUniqueId())));
                 ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
             } else {
                 new PlayerMessage("wand-cooldown", Bukkit.getPlayer(player.getUniqueId()), "{time}", String.valueOf(getCooldownMap(cooldownToolType).get(player.getUniqueId())));

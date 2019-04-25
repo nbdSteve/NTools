@@ -1,8 +1,10 @@
 package dev.nuer.nt.tools.lightning;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.events.LightningWandStrikeEvent;
+import dev.nuer.nt.external.nbtapi.NBTItem;
 import dev.nuer.nt.method.player.PlayerMessage;
+import dev.nuer.nt.tools.DecrementUses;
 import dev.nuer.nt.tools.PlayerToolCooldown;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
@@ -21,18 +23,19 @@ public class CreateLightningStrike {
      * @param filePath
      * @param blockToStrike
      */
-    public static void createStrikeGround(Player player, String directory, String filePath,
-                                          Block blockToStrike) {
-        int cooldownFromConfig = NTools.getFiles().get(directory).getInt(filePath + ".cooldown");
-        if (PlayerToolCooldown.isOnCooldown(player, "lightning")) {
-            return;
-        } else {
-            PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "lightning");
-        }
+    public static void createStrikeGround(Player player, String directory, String filePath, Block blockToStrike,
+                                           NBTItem nbtItem) {
+        int cooldownFromConfig = ToolsPlus.getFiles().get(directory).getInt(filePath + ".cooldown");
         BlockIgniteEvent playerIgnite = new BlockIgniteEvent(blockToStrike,
                 BlockIgniteEvent.IgniteCause.FLINT_AND_STEEL, player);
         Bukkit.getPluginManager().callEvent(playerIgnite);
         if (!playerIgnite.isCancelled()) {
+            if (PlayerToolCooldown.isOnCooldown(player, "lightning")) {
+                return;
+            } else {
+                DecrementUses.decrementUses(player, "lightning", nbtItem, nbtItem.getInteger("ntool.uses"));
+                PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "lightning");
+            }
             Bukkit.getPluginManager().callEvent(new LightningWandStrikeEvent(blockToStrike, player));
         }
     }
@@ -43,21 +46,23 @@ public class CreateLightningStrike {
      * @param filePath
      * @param clickedMob
      */
-    public static void createMobStrike(Player player, String directory, String filePath, Creeper clickedMob) {
+    public static void createMobStrike(Player player, String directory, String filePath, Creeper clickedMob,
+                                       NBTItem nbtItem) {
         if (clickedMob.isPowered()) {
             new PlayerMessage("creeper-already-powered", player);
             return;
         }
-        int cooldownFromConfig = NTools.getFiles().get(directory).getInt(filePath + ".cooldown");
-        if (PlayerToolCooldown.isOnCooldown(player, "lightning")) {
-            return;
-        } else {
-            PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "lightning");
-        }
+        int cooldownFromConfig = ToolsPlus.getFiles().get(directory).getInt(filePath + ".cooldown");
         BlockIgniteEvent playerIgnite = new BlockIgniteEvent(clickedMob.getLocation().getBlock(),
                 BlockIgniteEvent.IgniteCause.FLINT_AND_STEEL, player);
         Bukkit.getPluginManager().callEvent(playerIgnite);
         if (!playerIgnite.isCancelled()) {
+            if (PlayerToolCooldown.isOnCooldown(player, "lightning")) {
+                return;
+            } else {
+                DecrementUses.decrementUses(player, "lightning", nbtItem, nbtItem.getInteger("ntool.uses"));
+                PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "lightning");
+            }
             Bukkit.getPluginManager().callEvent(new LightningWandStrikeEvent(clickedMob.getLocation().getBlock(), player, clickedMob));
         }
     }

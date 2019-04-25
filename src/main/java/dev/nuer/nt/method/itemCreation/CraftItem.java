@@ -1,6 +1,6 @@
 package dev.nuer.nt.method.itemCreation;
 
-import dev.nuer.nt.external.NBTCreator;
+import dev.nuer.nt.ToolsPlus;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -48,7 +48,11 @@ public class CraftItem {
         addEnchantments(enchantments);
         item.setItemMeta(itemMeta);
         if (player != null) {
-            player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig));
+            if (typeOfTool.equalsIgnoreCase("trench") || typeOfTool.equalsIgnoreCase("tray") || typeOfTool.equalsIgnoreCase("multi")) {
+                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig, ToolsPlus.getFiles().get(typeOfTool).getBoolean(typeOfTool + "-tools." + idFromConfig + ".omni-tool")));
+            } else {
+                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig));
+            }
         }
     }
 

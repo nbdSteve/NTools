@@ -1,5 +1,5 @@
 #
-# NTools messages.yml v0.0.1
+# ToolsPlus messages.yml v0.0.1
 #
 mode-switch:
   - "&6&lNTools&e: &7You have changed your tools mode."
@@ -95,3 +95,6 @@ chest-tnt-bank-contents:
 
 cannot-tnt-bank-without-faction:
   - "&cError: &7You cannot use a TNT bank without a faction, create a faction to use this feature."
+
+wand-uses-break:
+  - "&cError: &7Your {item} wand has run out of uses, it has been destroyed."

@@ -1,6 +1,6 @@
 package dev.nuer.nt.file;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 public class CreateFile {
     //Register main instance
-    private Plugin plugin = NTools.getPlugin(NTools.class);
+    private Plugin plugin = ToolsPlus.getPlugin(ToolsPlus.class);
     //YAML configuration for the file
     private YamlConfiguration yamlFile;
     //Store the file name for later use

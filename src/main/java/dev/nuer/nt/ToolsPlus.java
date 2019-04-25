@@ -7,6 +7,7 @@ import dev.nuer.nt.gui.listener.GuiClickListener;
 import dev.nuer.nt.initialize.GuiInitializer;
 import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.listener.*;
+import dev.nuer.nt.tools.multi.OmniFunctionality;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -15,9 +16,9 @@ import java.text.DecimalFormat;
 import java.util.logging.Logger;
 
 /**
- * Main class for the NTools plugin
+ * Main class for the ToolsPlus plugin
  */
-public final class NTools extends JavaPlugin {
+public final class ToolsPlus extends JavaPlugin {
     //Store the plugin files
     private static LoadFile files;
     //Store the gui instances
@@ -45,18 +46,20 @@ public final class NTools extends JavaPlugin {
      */
     @Override
     public void onEnable() {
-        LOGGER.info("[NTools] Thanks for using NTools, if you find any bugs contact nbdSteve#0583 on Discord.");
+        LOGGER.info("[ToolsPlus] Thanks for using ToolsPlus, if you find any bugs contact nbdSteve#0583 on Discord.");
         //Create files instance
         files = new LoadFile();
         //Load the black / white and unique id list maps
         MapInitializer.initializeMaps();
         //Create the Gui instances
         pluginGui = new GuiInitializer();
+        //Load the omni tool block lists
+        OmniFunctionality.loadOmniToolBlocks();
         //Get the server econ
         try {
             economy = getServer().getServicesManager().getRegistration(Economy.class).getProvider();
         } catch (NullPointerException economyNotEnabled) {
-            LOGGER.info("[NTools] Vault.jar not found, disabling economy features.");
+            LOGGER.info("[ToolsPlus] Vault.jar not found, disabling economy features.");
             economy = null;
         }
         //Register the commands for the plugin
@@ -77,7 +80,7 @@ public final class NTools extends JavaPlugin {
     @Override
     public void onDisable() {
         MapInitializer.clearMaps();
-        LOGGER.info("[NTools] Thanks for using NTools, if you find any bugs contact nbdSteve#0583 on Discord.");
+        LOGGER.info("[ToolsPlus] Thanks for using ToolsPlus, if you find any bugs contact nbdSteve#0583 on Discord.");
     }
 
     /**

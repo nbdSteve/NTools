@@ -1,6 +1,6 @@
 package dev.nuer.nt.tools.tnt;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.external.actionbarapi.ActionBarAPI;
 import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.player.PlayerMessage;
@@ -15,12 +15,12 @@ import java.util.HashMap;
 
 public class CraftContentsOfChest {
 
-    public static void craftChestContents(Player player, Inventory inventoryToQuery, double craftingPrice, Chest chestToAlter) {
+    public static void craftChestContents(Player player, double craftingPrice, Chest chestToAlter) {
         int slot = 0;
         HashMap<Material, Integer> materialAndAmount = new HashMap<>();
-        for (ItemStack item : inventoryToQuery) {
+        for (ItemStack item : chestToAlter.getInventory()) {
             try {
-                if (MapInitializer.tntWandCraftingRecipe.get(item.getType().toString()) != null) {
+                if (!item.hasItemMeta() && MapInitializer.tntWandCraftingRecipe.get(item.getType().toString()) != null) {
                     try {
                         int currentAmount = materialAndAmount.get(item.getType());
                         materialAndAmount.put(item.getType(), item.getAmount() + currentAmount);
@@ -35,14 +35,14 @@ public class CraftContentsOfChest {
             slot++;
         }
         int numberCrafted = craftItems(materialAndAmount, craftingPrice, chestToAlter);
-        if (NTools.getFiles().get("config").getBoolean("tnt-wand-action-bar.enabled")) {
+        if (ToolsPlus.getFiles().get("config").getBoolean("tnt-wand-action-bar.enabled")) {
             //Create the action bar message
-            String message = NTools.getFiles().get("config").getString("tnt-wand-action-bar.craft-message").replace("{deposit}",
-                    NTools.numberFormat.format(numberCrafted));
+            String message = ToolsPlus.getFiles().get("config").getString("tnt-wand-action-bar.craft-message").replace("{deposit}",
+                    ToolsPlus.numberFormat.format(numberCrafted));
             //Send it to the player
             ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
         } else {
-            new PlayerMessage("chest-tnt-craft-contents", player, "{deposit}", NTools.numberFormat.format(numberCrafted));
+            new PlayerMessage("chest-tnt-craft-contents", player, "{deposit}", ToolsPlus.numberFormat.format(numberCrafted));
         }
     }
 

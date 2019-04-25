@@ -1,13 +1,13 @@
-name: NTools
-version: 0.3.4
-main: dev.nuer.nt.NTools
+name: ToolsPlus
+version: 0.3.6
+main: dev.nuer.nt.ToolsPlus
 author: Nuer
 description: A custom tools plugin
 api-version: 1.13
 commands:
   tools:
     usage: /<command>
-    description: Base command for NTools. See GitHub wiki for command help
+    description: Base command for ToolsPlus. See GitHub wiki for command help
   nt:
     usage: /<command>
-    description: Base command for NTools. See GitHub wiki for command help
+    description: Base command for ToolsPlus. See GitHub wiki for command help

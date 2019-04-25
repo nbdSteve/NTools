@@ -1,5 +1,6 @@
 tray-tools:
   1:
+    omni-tool: false
     # 3x3 tray pick
     break-radius: 1
     #
@@ -17,6 +18,7 @@ tray-tools:
       - durability:5
   #
   2:
+    omni-tool: false
     # 5x5 tray pick
     break-radius: 2
     #
@@ -34,6 +36,7 @@ tray-tools:
       - durability:10
   #
   3:
+    omni-tool: false
     # 7x7 tray pick
     break-radius: 3
     #

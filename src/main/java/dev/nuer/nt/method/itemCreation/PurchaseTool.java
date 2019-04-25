@@ -1,6 +1,6 @@
 package dev.nuer.nt.method.itemCreation;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.entity.Player;
 
@@ -27,11 +27,11 @@ public class PurchaseTool {
      */
     public PurchaseTool(double price, String material, String name, List<String> lore, String modeReplacement,
                         String radiusReplacement, List<String> enchantments, String typeOfTool, int idFromConfig, Player player) {
-        if (NTools.economy.getBalance(player) >= price) {
+        if (ToolsPlus.economy.getBalance(player) >= price) {
             player.closeInventory();
-            NTools.economy.withdrawPlayer(player, price);
+            ToolsPlus.economy.withdrawPlayer(player, price);
             new CraftItem(material, name, lore, modeReplacement, radiusReplacement, enchantments, typeOfTool, idFromConfig, player);
-            new PlayerMessage("purchase", player, "{price}", NTools.numberFormat.format(price));
+            new PlayerMessage("purchase", player, "{price}", ToolsPlus.numberFormat.format(price));
         } else {
             new PlayerMessage("insufficient", player);
         }
@@ -56,11 +56,11 @@ public class PurchaseTool {
     public PurchaseTool(double price, String material, String name, List<String> lore, String modeReplacement,
                         String modifierReplacement, List<String> enchantments, String typeOfTool,
                         int idFromConfig, Player player, boolean usePriceModifier) {
-        if (NTools.economy.getBalance(player) >= price) {
+        if (ToolsPlus.economy.getBalance(player) >= price) {
             player.closeInventory();
-            NTools.economy.withdrawPlayer(player, price);
+            ToolsPlus.economy.withdrawPlayer(player, price);
             new CraftItem(material, name, lore, modeReplacement, modifierReplacement, enchantments, typeOfTool, idFromConfig, player, usePriceModifier);
-            new PlayerMessage("purchase", player, "{price}", NTools.numberFormat.format(price));
+            new PlayerMessage("purchase", player, "{price}", ToolsPlus.numberFormat.format(price));
         } else {
             new PlayerMessage("insufficient", player);
         }

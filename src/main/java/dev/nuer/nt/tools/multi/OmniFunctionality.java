@@ -1,20 +1,48 @@
 package dev.nuer.nt.tools.multi;
 
+import dev.nuer.nt.ToolsPlus;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+
 public class OmniFunctionality {
 
-    public void changeToolType(Block block, Player player) {
-        if (block.getType().equals(Material.DIRT)) {
-            player.getItemInHand().setType(Material.DIAMOND_SHOVEL);
+    public static ArrayList<String> spadeBlockTypes;
+    public static ArrayList<String> pickaxeBlockTypes;
+    public static ArrayList<String> axeBlockTypes;
+
+    public static void changeToolType(Block block, Player player) {
+        if (spadeBlockTypes.contains(block.getType().toString()) && !player.getItemInHand().getType().equals(Material.getMaterial("DIAMOND_SPADE"))) {
+            player.getItemInHand().setType(Material.getMaterial("DIAMOND_SPADE"));
         }
-        if (block.getType().equals(Material.STONE)) {
+        if (pickaxeBlockTypes.contains(block.getType().toString()) && !player.getItemInHand().getType().equals(Material.DIAMOND_PICKAXE)) {
             player.getItemInHand().setType(Material.DIAMOND_PICKAXE);
         }
-        if (block.getType().equals(Material.OAK_WOOD)) {
+        if (axeBlockTypes.contains(block.getType().toString()) && !player.getItemInHand().getType().equals(Material.DIAMOND_AXE)) {
             player.getItemInHand().setType(Material.DIAMOND_AXE);
         }
+    }
+
+    public static void loadOmniToolBlocks() {
+        spadeBlockTypes = new ArrayList<>();
+        pickaxeBlockTypes = new ArrayList<>();
+        axeBlockTypes = new ArrayList<>();
+        for (String blockType : ToolsPlus.getFiles().get("config").getStringList("omni-config.shovel-blocks")) {
+            spadeBlockTypes.add(blockType.toUpperCase());
+        }
+        for (String blockType : ToolsPlus.getFiles().get("config").getStringList("omni-config.pickaxe-blocks")) {
+            pickaxeBlockTypes.add(blockType.toUpperCase());
+        }
+        for (String blockType : ToolsPlus.getFiles().get("config").getStringList("omni-config.axe-blocks")) {
+            axeBlockTypes.add(blockType.toUpperCase());
+        }
+    }
+
+    public static void clearOmniLists() {
+        spadeBlockTypes.clear();
+        pickaxeBlockTypes.clear();
+        axeBlockTypes.clear();
     }
 }

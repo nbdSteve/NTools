@@ -1,6 +1,6 @@
 package dev.nuer.nt.tools.harvest;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -20,7 +20,7 @@ public class HandleSellingMessages {
     //Store the active message tasks associated with a player
     public static HashMap<UUID, BukkitTask> activeMessageTasks;
     //Store the message delay for the plugin
-    private static int messageDelay = NTools.getFiles().get("config").getInt("harvester-selling-message-delay");
+    private static int messageDelay = ToolsPlus.getFiles().get("config").getInt("harvester-selling-message-delay");
 
     /**
      * @param player
@@ -45,7 +45,7 @@ public class HandleSellingMessages {
      */
     private static void updateMessageCooldown(Player player, double sellPrice) {
         //Deposit the money first
-        NTools.economy.depositPlayer(player, sellPrice);
+        ToolsPlus.economy.depositPlayer(player, sellPrice);
         //Increment the players total deposit, create one if they don't have one
         if (trackPlayerDeposits.get(player.getUniqueId()) != null) {
             double newCurrentTotal = trackPlayerDeposits.get(player.getUniqueId()) + sellPrice;
@@ -57,7 +57,7 @@ public class HandleSellingMessages {
         if (playersSellingByHarvest.containsKey(player.getUniqueId())) {
             activeMessageTasks.get(player.getUniqueId()).cancel();
         } else {
-            new PlayerMessage("start-selling-by-harvest", player, "{price}", NTools.numberFormat.format(sellPrice));
+            new PlayerMessage("start-selling-by-harvest", player, "{price}", ToolsPlus.numberFormat.format(sellPrice));
         }
         //Update the cooldown for a player
         playersSellingByHarvest.put(player.getUniqueId(), System.currentTimeMillis() + (messageDelay * 15));
@@ -69,10 +69,10 @@ public class HandleSellingMessages {
      * @param player
      */
     private static void sendDelayedMessage(Player player) {
-        activeMessageTasks.put(player.getUniqueId(), Bukkit.getScheduler().runTaskLater(NTools.getPlugin(NTools.class), () -> {
+        activeMessageTasks.put(player.getUniqueId(), Bukkit.getScheduler().runTaskLater(ToolsPlus.getPlugin(ToolsPlus.class), () -> {
             if (playersSellingByHarvest.get(player.getUniqueId()) - System.currentTimeMillis() <= 0) {
                 new PlayerMessage("bulk-deposit-by-harvest", player, "{deposit}",
-                        NTools.numberFormat.format(trackPlayerDeposits.get(player.getUniqueId())));
+                        ToolsPlus.numberFormat.format(trackPlayerDeposits.get(player.getUniqueId())));
                 playersSellingByHarvest.remove(player.getUniqueId());
                 trackPlayerDeposits.remove(player.getUniqueId());
             }

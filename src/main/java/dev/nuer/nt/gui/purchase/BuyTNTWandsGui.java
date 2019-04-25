@@ -1,6 +1,6 @@
 package dev.nuer.nt.gui.purchase;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.gui.AbstractGui;
 import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.itemCreation.CraftItem;
@@ -17,32 +17,32 @@ public class BuyTNTWandsGui extends AbstractGui {
      * Constructor to create the Gui, add all items with their respective listeners
      */
     public BuyTNTWandsGui() {
-        super(NTools.getFiles().get("tnt_purchase_gui").getInt("tnt-wand-purchase-gui.size"),
-                ChatColor.translateAlternateColorCodes('&', NTools.getFiles().get("tnt_purchase_gui").getString("tnt-wand-purchase-gui.name")));
+        super(ToolsPlus.getFiles().get("tnt_purchase_gui").getInt("tnt-wand-purchase-gui.size"),
+                ChatColor.translateAlternateColorCodes('&', ToolsPlus.getFiles().get("tnt_purchase_gui").getString("tnt-wand-purchase-gui.name")));
 
         //Add all of the items from the Gui config to the Gui
         for (int i = 1; i <= 54; i++) {
             try {
                 final int configItem = i;
-                setItemInSlot((NTools.getFiles().get("tnt_purchase_gui").getInt("tnt-wand-purchase-gui." + configItem + ".slot")),
-                        new CraftItem((NTools.getFiles().get("tnt_purchase_gui").getString("tnt-wand-purchase-gui." + configItem + ".material")),
-                                (NTools.getFiles().get("tnt_purchase_gui").getString("tnt-wand-purchase-gui." + configItem + ".name")),
-                                (NTools.getFiles().get("tnt_purchase_gui").getStringList("tnt-wand-purchase-gui." + configItem + ".lore")), null, null,
-                                (NTools.getFiles().get("tnt_purchase_gui").getStringList("tnt-wand-purchase-gui." + configItem + ".enchantments")), "tnt", 0, null).getItem(),
+                setItemInSlot((ToolsPlus.getFiles().get("tnt_purchase_gui").getInt("tnt-wand-purchase-gui." + configItem + ".slot")),
+                        new CraftItem(ToolsPlus.getFiles().get("tnt_purchase_gui").getString("tnt-wand-purchase-gui." + configItem + ".material"),
+                                ToolsPlus.getFiles().get("tnt_purchase_gui").getString("tnt-wand-purchase-gui." + configItem + ".name"),
+                                ToolsPlus.getFiles().get("tnt_purchase_gui").getStringList("tnt-wand-purchase-gui." + configItem + ".lore"), null, null,
+                                ToolsPlus.getFiles().get("tnt_purchase_gui").getStringList("tnt-wand-purchase-gui." + configItem + ".enchantments"), "tnt", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
-                                if (NTools.getFiles().get("tnt_purchase_gui").getBoolean("tnt-wand-purchase-gui." + configItem + ".purchasable")) {
-                                    String[] modifierParts = MapInitializer.tntWandModifierUnique.get(configItem).get(NTools.getFiles().get("tnt").getInt("tnt-wands." + configItem + ".modifier.starting")).split("-");
-                                    new PurchaseTool((NTools.getFiles().get("tnt_purchase_gui").getInt("tnt-wand-purchase-gui." + configItem + ".price")),
-                                            (NTools.getFiles().get("tnt_purchase_gui").getString("tnt-wand-purchase-gui." + configItem + ".material")),
-                                            (NTools.getFiles().get("tnt").getString("tnt-wands." + configItem + ".name")),
-                                            (NTools.getFiles().get("tnt").getStringList("tnt-wands." + configItem + ".lore")),
-                                            (MapInitializer.tntWandModeUnique.get(configItem).get(1)), (modifierParts[0]),
-                                            (NTools.getFiles().get("tnt").getStringList("tnt-wands." + configItem + ".enchantments")), "tnt", configItem, player, true);
+                                if (ToolsPlus.getFiles().get("tnt_purchase_gui").getBoolean("tnt-wand-purchase-gui." + configItem + ".purchasable")) {
+                                    String[] modifierParts = MapInitializer.tntWandModifierUnique.get(configItem).get(ToolsPlus.getFiles().get("tnt").getInt("tnt-wands." + configItem + ".modifier.starting")).split("-");
+                                    new PurchaseTool(ToolsPlus.getFiles().get("tnt_purchase_gui").getInt("tnt-wand-purchase-gui." + configItem + ".price"),
+                                            ToolsPlus.getFiles().get("tnt_purchase_gui").getString("tnt-wand-purchase-gui." + configItem + ".material"),
+                                            ToolsPlus.getFiles().get("tnt").getString("tnt-wands." + configItem + ".name"),
+                                            ToolsPlus.getFiles().get("tnt").getStringList("tnt-wands." + configItem + ".lore"),
+                                            MapInitializer.tntWandModeUnique.get(configItem).get(1), modifierParts[0],
+                                            ToolsPlus.getFiles().get("tnt").getStringList("tnt-wands." + configItem + ".enchantments"), "tnt", configItem, player, true);
                                 }
-                                if (NTools.getFiles().get("tnt_purchase_gui").getBoolean("tnt-wand-purchase-gui." + configItem + ".back-button")) {
-                                    NTools.getPlugin(NTools.class).getGuiByName("generic-buy").open(player);
+                                if (ToolsPlus.getFiles().get("tnt_purchase_gui").getBoolean("tnt-wand-purchase-gui." + configItem + ".back-button")) {
+                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 toolNotFound.printStackTrace();

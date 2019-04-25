@@ -1,6 +1,6 @@
 package dev.nuer.nt.tools.multi;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.external.nbtapi.NBTItem;
 import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.itemCreation.UpdateItem;
@@ -122,20 +122,20 @@ public class ChangeToolRadius {
     public static void changeRadius(int toolTypeRawID, int index, String radiusLore, List<String> itemLore,
                                     ItemMeta itemMeta, ItemStack item, boolean increment, boolean decrement, Player player) {
         int radius = ChangeToolRadius.getToolRadius(itemLore, item);
-        double priceToUpgrade = NTools.getFiles().get("multi").getInt("multi-tools." + toolTypeRawID + ".upgrade-cost." + radius);
+        double priceToUpgrade = ToolsPlus.getFiles().get("multi").getInt("multi-tools." + toolTypeRawID + ".upgrade-cost." + radius);
         if (increment) {
             int maxRadius =
                     Integer.parseInt(MapInitializer.multiToolRadiusUnique.get(toolTypeRawID).get
                             (MapInitializer.multiToolRadiusUnique.get(toolTypeRawID).size() - 2));
             if (radius + 1 <= maxRadius) {
-                if (NTools.economy != null) {
-                    if (NTools.economy.getBalance(player) >= priceToUpgrade) {
-                        NTools.economy.withdrawPlayer(player, priceToUpgrade);
+                if (ToolsPlus.economy != null) {
+                    if (ToolsPlus.economy.getBalance(player) >= priceToUpgrade) {
+                        ToolsPlus.economy.withdrawPlayer(player, priceToUpgrade);
                         itemLore.set(index,
                                 radiusLore + " " + MapInitializer.multiToolRadiusUnique.get(toolTypeRawID).get(radius + 1));
                         UpdateItem.updateItem(itemLore, itemMeta, item);
                         new PlayerMessage("incremented-radius", player, "{price}",
-                                NTools.numberFormat.format(priceToUpgrade));
+                                ToolsPlus.numberFormat.format(priceToUpgrade));
                     } else {
                         new PlayerMessage("insufficient", player);
                     }

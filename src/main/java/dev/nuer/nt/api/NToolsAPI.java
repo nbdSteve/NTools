@@ -1,13 +1,13 @@
 package dev.nuer.nt.api;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.tools.PlayerToolCooldown;
 import org.bukkit.entity.Player;
 
 public class NToolsAPI {
 
-    public static NTools getInstance() {
-        return NTools.getPlugin(NTools.class);
+    public static ToolsPlus getInstance() {
+        return ToolsPlus.getPlugin(ToolsPlus.class);
     }
 
     public static boolean isEnabled() {

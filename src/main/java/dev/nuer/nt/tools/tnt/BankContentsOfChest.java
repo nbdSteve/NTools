@@ -1,7 +1,7 @@
 package dev.nuer.nt.tools.tnt;
 
 import com.massivecraft.factions.FPlayers;
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.external.actionbarapi.ActionBarAPI;
 import dev.nuer.nt.method.player.PlayerMessage;
 import org.bukkit.ChatColor;
@@ -32,11 +32,11 @@ public class BankContentsOfChest {
         return false;
     }
 
-    public static void getTNTCountForChest(Player player, Inventory inventoryToQuery, Chest chestToAlter) {
+    public static void getTNTCountForChest(Player player, Chest chestToAlter) {
         int slot = 0;
         HashMap<Material, Integer> materialAndAmount = new HashMap<>();
-        for (ItemStack item : inventoryToQuery) {
-            if (item != null && item.getType().equals(Material.TNT)) {
+        for (ItemStack item : chestToAlter.getInventory()) {
+            if (!item.hasItemMeta() && item != null && item.getType().equals(Material.TNT)) {
                 try {
                     int currentAmount = materialAndAmount.get(item.getType());
                     materialAndAmount.put(item.getType(), item.getAmount() + currentAmount);
@@ -49,14 +49,14 @@ public class BankContentsOfChest {
         }
         int tntDeposited = materialAndAmount.get(Material.TNT);
         addTNTToBank(player, tntDeposited);
-        if (NTools.getFiles().get("config").getBoolean("tnt-wand-action-bar.enabled")) {
+        if (ToolsPlus.getFiles().get("config").getBoolean("tnt-wand-action-bar.enabled")) {
             //Create the action bar message
-            String message = NTools.getFiles().get("config").getString("tnt-wand-action-bar.bank-message").replace("{deposit}",
-                    NTools.numberFormat.format(tntDeposited));
+            String message = ToolsPlus.getFiles().get("config").getString("tnt-wand-action-bar.bank-message").replace("{deposit}",
+                    ToolsPlus.numberFormat.format(tntDeposited));
             //Send it to the player
             ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
         } else {
-            new PlayerMessage("chest-tnt-bank-contents", player, "{deposit}", NTools.numberFormat.format(tntDeposited));
+            new PlayerMessage("chest-tnt-bank-contents", player, "{deposit}", ToolsPlus.numberFormat.format(tntDeposited));
         }
     }
 }

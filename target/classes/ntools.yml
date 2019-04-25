@@ -1,15 +1,25 @@
-# NTools - if you find any bugs please contact nbdSteve#0583 on Discord.
-version: 0.2.8
+# ToolsPlus - if you find any bugs please contact nbdSteve#0583 on Discord.
+version: 0.3.6
 
-enable-debug-messages: true
+enable-debug-messages: false
 
 lightning-reach-distance: 3 # How far the lightning will strike if the player right clicks air
 
 tnt-wand:
   savage-factions-hook: false
-  crafting-recipe:
- #   - sand:2
+  crafting-recipe: # Currently only 1 item is supported - leave this as is for the moment.
     - sulphur:1
+
+omni-config:
+  shovel-blocks:
+    - dirt
+    - grass
+  pickaxe-blocks:
+    - stone
+    - cobblestone
+  axe-blocks:
+    - wood
+    - log
 
 trench-block-blacklist:
   - bedrock
@@ -53,6 +63,7 @@ inventory-full-action-bar:
   enabled: true
   message: "&c&l✘ &fYour inventory is &e&l&nFULL&r &c&l✘"
 
+# Action bar sent to player when they are on cooldown
 cooldown-action-bar:
   enabled: true
   sell-message: "&c&l✘ &6&lSell Wand Cooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
@@ -60,6 +71,15 @@ cooldown-action-bar:
   lightning-message: "&c&l✘ &6&lLightning Wand Cooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
   tnt-message: "&c&l✘ &6&lTNT Wand Cooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
 
+# Action bar sent to player when their wand breaks
+wand-break-action-bar:
+  enabled: true
+  sell-message: "&c&l✘ &7Your sell wand ran out of uses, it was destroyed... &c&l✘"
+  sand-message: "&c&l✘ &7Your sand wand ran out of uses, it was destroyed... &c&l✘"
+  lightning-message: "&c&l✘ &7Your lightning wand ran out of uses, it was destroyed... &c&l✘"
+  tnt-message: "&c&l✘ &7Your tnt wand ran out of uses, it was destroyed... &c&l✘"
+
+# gui opened with the /tools command
 tool-purchase-gui:
   # generic gui to select a type of tool to buy
   size: 9

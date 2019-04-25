@@ -1,6 +1,6 @@
 package dev.nuer.nt.gui.purchase;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.gui.AbstractGui;
 import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.itemCreation.CraftItem;
@@ -17,31 +17,31 @@ public class BuySellWandsGui extends AbstractGui {
      * Constructor to create the Gui, add all items with their respective listeners
      */
     public BuySellWandsGui() {
-        super(NTools.getFiles().get("sell_purchase_gui").getInt("sell-wand-purchase-gui.size"),
-                ChatColor.translateAlternateColorCodes('&', NTools.getFiles().get("sell_purchase_gui").getString("sell-wand-purchase-gui.name")));
+        super(ToolsPlus.getFiles().get("sell_purchase_gui").getInt("sell-wand-purchase-gui.size"),
+                ChatColor.translateAlternateColorCodes('&', ToolsPlus.getFiles().get("sell_purchase_gui").getString("sell-wand-purchase-gui.name")));
 
         //Add all of the items from the Gui config to the Gui
         for (int i = 1; i <= 54; i++) {
             try {
                 final int configItem = i;
-                setItemInSlot((NTools.getFiles().get("sell_purchase_gui").getInt("sell-wand-purchase-gui." + configItem + ".slot")),
-                        new CraftItem((NTools.getFiles().get("sell_purchase_gui").getString("sell-wand-purchase-gui." + configItem + ".material")),
-                                (NTools.getFiles().get("sell_purchase_gui").getString("sell-wand-purchase-gui." + configItem + ".name")),
-                                (NTools.getFiles().get("sell_purchase_gui").getStringList("sell-wand-purchase-gui." + configItem + ".lore")), null, null,
-                                (NTools.getFiles().get("sell_purchase_gui").getStringList("sell-wand-purchase-gui." + configItem + ".enchantments")), "sell", 0, null).getItem(),
+                setItemInSlot(ToolsPlus.getFiles().get("sell_purchase_gui").getInt("sell-wand-purchase-gui." + configItem + ".slot"),
+                        new CraftItem(ToolsPlus.getFiles().get("sell_purchase_gui").getString("sell-wand-purchase-gui." + configItem + ".material"),
+                                ToolsPlus.getFiles().get("sell_purchase_gui").getString("sell-wand-purchase-gui." + configItem + ".name"),
+                                ToolsPlus.getFiles().get("sell_purchase_gui").getStringList("sell-wand-purchase-gui." + configItem + ".lore"), null, null,
+                                ToolsPlus.getFiles().get("sell_purchase_gui").getStringList("sell-wand-purchase-gui." + configItem + ".enchantments"), "sell", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
-                                if (NTools.getFiles().get("sell_purchase_gui").getBoolean("sell-wand-purchase-gui." + configItem + ".purchasable")) {
-                                    String[] modifierParts = MapInitializer.sellWandModifierUnique.get(configItem).get(NTools.getFiles().get("sell").getInt("sell-wands." + configItem + ".modifier.starting")).split("-");
-                                    new PurchaseTool((NTools.getFiles().get("sell_purchase_gui").getInt("sell-wand-purchase-gui." + configItem + ".price")),
-                                            (NTools.getFiles().get("sell_purchase_gui").getString("sell-wand-purchase-gui." + configItem + ".material")),
-                                            (NTools.getFiles().get("sell").getString("sell-wands." + configItem + ".name")),
-                                            (NTools.getFiles().get("sell").getStringList("sell-wands." + configItem + ".lore")), "debug", (modifierParts[0]),
-                                            (NTools.getFiles().get("sell").getStringList("sell-wands." + configItem + ".enchantments")), "sell", configItem, player, true);
+                                if (ToolsPlus.getFiles().get("sell_purchase_gui").getBoolean("sell-wand-purchase-gui." + configItem + ".purchasable")) {
+                                    String[] modifierParts = MapInitializer.sellWandModifierUnique.get(configItem).get(ToolsPlus.getFiles().get("sell").getInt("sell-wands." + configItem + ".modifier.starting")).split("-");
+                                    new PurchaseTool(ToolsPlus.getFiles().get("sell_purchase_gui").getInt("sell-wand-purchase-gui." + configItem + ".price"),
+                                            ToolsPlus.getFiles().get("sell_purchase_gui").getString("sell-wand-purchase-gui." + configItem + ".material"),
+                                            ToolsPlus.getFiles().get("sell").getString("sell-wands." + configItem + ".name"),
+                                            ToolsPlus.getFiles().get("sell").getStringList("sell-wands." + configItem + ".lore"), "debug", modifierParts[0],
+                                            ToolsPlus.getFiles().get("sell").getStringList("sell-wands." + configItem + ".enchantments"), "sell", configItem, player, true);
                                 }
-                                if (NTools.getFiles().get("sell_purchase_gui").getBoolean("sell-wand-purchase-gui." + configItem + ".back-button")) {
-                                    NTools.getPlugin(NTools.class).getGuiByName("generic-buy").open(player);
+                                if (ToolsPlus.getFiles().get("sell_purchase_gui").getBoolean("sell-wand-purchase-gui." + configItem + ".back-button")) {
+                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

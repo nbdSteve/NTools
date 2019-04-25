@@ -15,8 +15,10 @@ multi-tools:
         - "&b&l5x5"
         - "&b&l7x7"
     #
+    omni-tool: true
+    #
     upgrade-cost:
-      1: 250000 #upgrading from 3x3 to 5x5
+      1: 250000 #upgrading from tier 1 to tier 2
       2: 500000
     #
     name: "&a&lForged Pickaxe"

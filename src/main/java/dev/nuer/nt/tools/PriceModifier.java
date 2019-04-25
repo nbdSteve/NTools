@@ -1,6 +1,6 @@
 package dev.nuer.nt.tools;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.external.nbtapi.NBTItem;
 import dev.nuer.nt.method.itemCreation.UpdateItem;
 import dev.nuer.nt.method.player.PlayerMessage;
@@ -121,17 +121,17 @@ public class PriceModifier {
                                               List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player,
                                               HashMap<Integer, ArrayList<String>> modifierUniqueIDs, String directory, String filePath) {
         int modifier = (int) getCurrentModifier(itemLore, item, false, modifierUniqueIDs);
-        double priceToUpgrade = NTools.getFiles().get(directory).getInt(filePath + toolTypeRawID + ".upgrade-cost." + modifier);
+        double priceToUpgrade = ToolsPlus.getFiles().get(directory).getInt(filePath + toolTypeRawID + ".upgrade-cost." + modifier);
         int maxModifier = modifierUniqueIDs.get(toolTypeRawID).size() - 3;
         if (modifier + 1 <= maxModifier) {
             String[] modifierParts = modifierUniqueIDs.get(toolTypeRawID).get(modifier + 1).split("-");
-            if (NTools.economy != null) {
-                if (NTools.economy.getBalance(player) >= priceToUpgrade) {
-                    NTools.economy.withdrawPlayer(player, priceToUpgrade);
+            if (ToolsPlus.economy != null) {
+                if (ToolsPlus.economy.getBalance(player) >= priceToUpgrade) {
+                    ToolsPlus.economy.withdrawPlayer(player, priceToUpgrade);
                     itemLore.set(index, modifierUniqueLore + " " + modifierParts[0]);
                     UpdateItem.updateItem(itemLore, itemMeta, item);
                     new PlayerMessage("incremented-modifier", player, "{price}",
-                            NTools.numberFormat.format(priceToUpgrade));
+                            ToolsPlus.numberFormat.format(priceToUpgrade));
                 } else {
                     new PlayerMessage("insufficient", player);
                 }

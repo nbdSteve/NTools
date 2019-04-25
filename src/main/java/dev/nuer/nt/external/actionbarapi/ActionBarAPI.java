@@ -1,6 +1,6 @@
 package dev.nuer.nt.external.actionbarapi;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -82,7 +82,7 @@ public class ActionBarAPI {
                 public void run() {
                     sendActionBar(player, "");
                 }
-            }.runTaskLater(NTools.getPlugin(NTools.class), duration + 1);
+            }.runTaskLater(ToolsPlus.getPlugin(ToolsPlus.class), duration + 1);
         }
         // Re-sends the messages every 3 seconds so it doesn't go away from the player's screen.
         while (duration > 40) {
@@ -92,7 +92,7 @@ public class ActionBarAPI {
                 public void run() {
                     sendActionBar(player, message);
                 }
-            }.runTaskLater(NTools.getPlugin(NTools.class), (long) duration);
+            }.runTaskLater(ToolsPlus.getPlugin(ToolsPlus.class), (long) duration);
         }
     }
 

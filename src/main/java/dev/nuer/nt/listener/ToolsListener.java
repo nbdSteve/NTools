@@ -1,15 +1,12 @@
 package dev.nuer.nt.listener;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.events.*;
-import dev.nuer.nt.external.actionbarapi.ActionBarAPI;
 import dev.nuer.nt.method.player.AddBlocksToPlayerInventory;
-import dev.nuer.nt.tools.harvest.HandleSellingMessages;
-import org.bukkit.ChatColor;
+import dev.nuer.nt.tools.tnt.BankContentsOfChest;
+import dev.nuer.nt.tools.tnt.CraftContentsOfChest;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-
-import java.text.DecimalFormat;
 
 /**
  * Class that listens for custom plugin events
@@ -45,7 +42,6 @@ public class ToolsListener implements Listener {
                 event.getCreeperToPower().setPowered(true);
             } else {
                 event.getBlockToStrike().getWorld().strikeLightning(event.getBlockToStrike().getLocation());
-                event.getPlayer().setLastDamage(0.0);
             }
         }
     }
@@ -54,13 +50,34 @@ public class ToolsListener implements Listener {
     public void harvesterBlockBreakEvent(HarvesterBlockBreakEvent event) {
         if (!event.isCancelled()) {
             if (event.isSelling()) {
-                if (NTools.economy != null) {
+                if (ToolsPlus.economy != null) {
                     AddBlocksToPlayerInventory.sellBlocks(event.getBlockToHarvest(), event.getPlayer());
-                    NTools.economy.depositPlayer(event.getPlayer(), event.getBlockPrice());
+                    ToolsPlus.economy.depositPlayer(event.getPlayer(), event.getBlockPrice());
                 }
             } else {
                 AddBlocksToPlayerInventory.addBlocks(event.getBlockToHarvest(), event.getPlayer());
             }
+        }
+    }
+
+    @EventHandler
+    public void sellWandChestSaleEvent(SellWandContainerSaleEvent event) {
+        if (!event.isCancelled()) {
+            ToolsPlus.economy.depositPlayer(event.getPlayer(), event.getItemPrice());
+        }
+    }
+
+    @EventHandler
+    public void tntCraftContentsEvent(TNTWandCraftEvent event) {
+        if (!event.isCancelled()) {
+            CraftContentsOfChest.craftChestContents(event.getPlayer(), event.getCraftingModifier(), event.getChestBeingAffected());
+        }
+    }
+
+    @EventHandler
+    public void tntBankContentsEvent(TNTWandBankEvent event) {
+        if (!event.isCancelled()) {
+            BankContentsOfChest.getTNTCountForChest(event.getPlayer(), event.getChestBeingAffected());
         }
     }
 }

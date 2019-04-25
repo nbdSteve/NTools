@@ -1,6 +1,6 @@
 package dev.nuer.nt.method.player;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
@@ -16,7 +16,7 @@ public class PlayerMessage {
      * @param p        the player to send to
      */
     public PlayerMessage(String filePath, Player p) {
-        for (String line : NTools.getFiles().get("messages").getStringList(filePath)) {
+        for (String line : ToolsPlus.getFiles().get("messages").getStringList(filePath)) {
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', line));
         }
     }
@@ -30,7 +30,7 @@ public class PlayerMessage {
      * @param replacement the replacement
      */
     public PlayerMessage(String filePath, Player p, String placeHolder, String replacement) {
-        for (String line : NTools.getFiles().get("messages").getStringList(filePath)) {
+        for (String line : ToolsPlus.getFiles().get("messages").getStringList(filePath)) {
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', line).replace(placeHolder,
                     replacement));
         }

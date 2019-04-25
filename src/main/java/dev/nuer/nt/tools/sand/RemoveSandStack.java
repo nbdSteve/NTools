@@ -1,9 +1,11 @@
 package dev.nuer.nt.tools.sand;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.events.SandBlockBreakEvent;
+import dev.nuer.nt.external.nbtapi.NBTItem;
 import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.method.player.AddBlocksToPlayerInventory;
+import dev.nuer.nt.tools.DecrementUses;
 import dev.nuer.nt.tools.PlayerToolCooldown;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
@@ -20,12 +22,13 @@ import java.util.ArrayList;
 public class RemoveSandStack {
 
     public RemoveSandStack(BlockDamageEvent event, Player player, String directory,
-                           String filePath) {
-        int cooldownFromConfig = NTools.getFiles().get(directory).getInt(filePath + ".cooldown");
-        Bukkit.getScheduler().runTaskAsynchronously(NTools.getPlugin(NTools.class), () -> {
+                           String filePath, NBTItem nbtItem) {
+        int cooldownFromConfig = ToolsPlus.getFiles().get(directory).getInt(filePath + ".cooldown");
+        Bukkit.getScheduler().runTaskAsynchronously(ToolsPlus.getPlugin(ToolsPlus.class), () -> {
             if (PlayerToolCooldown.isOnCooldown(player, "sand")) {
                 return;
             } else {
+                DecrementUses.decrementUses(player, "sand", nbtItem, nbtItem.getInteger("ntool.uses"));
                 PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "sand");
             }
             int positionX = event.getBlock().getX();
@@ -40,7 +43,7 @@ public class RemoveSandStack {
                 }
                 positionY--;
             }
-            genericSandRemoval(player, blocksToRemove, NTools.getFiles().get(directory).getLong(filePath + ".break-delay"));
+            genericSandRemoval(player, blocksToRemove, ToolsPlus.getFiles().get(directory).getLong(filePath + ".break-delay"));
         });
     }
 
@@ -76,6 +79,6 @@ public class RemoveSandStack {
                     this.cancel();
                 }
             }
-        }.runTaskTimer(NTools.getPlugin(NTools.class), 0, breakDelay);
+        }.runTaskTimer(ToolsPlus.getPlugin(ToolsPlus.class), 0, breakDelay);
     }
 }

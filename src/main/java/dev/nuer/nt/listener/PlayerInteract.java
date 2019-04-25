@@ -1,6 +1,6 @@
 package dev.nuer.nt.listener;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.external.nbtapi.NBTItem;
 import dev.nuer.nt.initialize.MapInitializer;
 import dev.nuer.nt.tools.ChangeMode;
@@ -8,12 +8,14 @@ import dev.nuer.nt.tools.PriceModifier;
 import dev.nuer.nt.tools.lightning.CreateLightningStrike;
 import dev.nuer.nt.tools.sell.SellChestContents;
 import dev.nuer.nt.tools.tnt.AlterChestContents;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 /**
@@ -43,7 +45,7 @@ public class PlayerInteract implements Listener {
         Block locationToStrike;
         //Check to target block based on where the user is looking / clicked
         if (event.getAction().equals(Action.RIGHT_CLICK_AIR)) {
-            locationToStrike = player.getTargetBlock(null, NTools.getFiles().get("config").getInt("lightning-reach-distance"));
+            locationToStrike = player.getTargetBlock(null, ToolsPlus.getFiles().get("config").getInt("lightning-reach-distance"));
         } else {
             locationToStrike = event.getClickedBlock();
         }
@@ -52,7 +54,7 @@ public class PlayerInteract implements Listener {
             if (nbtItem.getBoolean("ntool.lightning")) {
                 CreateLightningStrike.createStrikeGround(player, "lightning",
                         "lightning-wands." + nbtItem.getInteger(
-                                "ntool.raw.id"), locationToStrike);
+                                "ntool.raw.id"), locationToStrike, nbtItem);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a trench tool
@@ -85,22 +87,33 @@ public class PlayerInteract implements Listener {
                         event.getClickedBlock().getType().equals(Material.TRAPPED_CHEST))) {
                     return;
                 }
+                BlockBreakEvent chestSell = new BlockBreakEvent(event.getClickedBlock(), player);
+                Bukkit.getPluginManager().callEvent(chestSell);
+                if (chestSell.isCancelled()) {
+                    return;
+                }
                 SellChestContents.sellContents(event.getClickedBlock(), player, "sell",
                         "sell-wands." + nbtItem.getInteger("ntool.raw.id"),
                         PriceModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(),
-                                nbtItem.getItem(), true, MapInitializer.sellWandModifierUnique));
+                                nbtItem.getItem(), true, MapInitializer.sellWandModifierUnique), nbtItem);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a sell wand
         }
         try {
             if (nbtItem.getBoolean("ntool.tnt")) {
+                event.setCancelled(true);
+                BlockBreakEvent tntCraft = new BlockBreakEvent(event.getClickedBlock(), player);
+                Bukkit.getPluginManager().callEvent(tntCraft);
+                if (tntCraft.isCancelled()) {
+                    return;
+                }
                 AlterChestContents.manipulateContents(event.getClickedBlock(), player, "tnt",
                         "tnt-wands." + nbtItem.getInteger("ntool.raw.id"),
                         PriceModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(),
                                 nbtItem.getItem(), true, MapInitializer.tntWandModifierUnique),
                         !ChangeMode.changeToolMode(nbtItem.getItem().getItemMeta().getLore(),
-                                nbtItem.getItem().getItemMeta(), nbtItem.getItem(), MapInitializer.tntWandModeUnique, false));
+                                nbtItem.getItem().getItemMeta(), nbtItem.getItem(), MapInitializer.tntWandModeUnique, false), nbtItem);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a tnt wand

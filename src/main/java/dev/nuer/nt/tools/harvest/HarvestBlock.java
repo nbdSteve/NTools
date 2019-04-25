@@ -1,6 +1,6 @@
 package dev.nuer.nt.tools.harvest;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.events.HarvesterBlockBreakEvent;
 import dev.nuer.nt.external.actionbarapi.ActionBarAPI;
 import dev.nuer.nt.method.player.AddBlocksToPlayerInventory;
@@ -37,10 +37,10 @@ public class HarvestBlock {
             }
         }
         if (sellMode) {
-            if (NTools.getFiles().get("config").getBoolean("harvester-action-bar.enabled")) {
+            if (ToolsPlus.getFiles().get("config").getBoolean("harvester-action-bar.enabled")) {
                 //Create the action bar message
-                String message = NTools.getFiles().get("config").getString("harvester-action-bar.message").replace("{deposit}",
-                        NTools.numberFormat.format(totalDeposit));
+                String message = ToolsPlus.getFiles().get("config").getString("harvester-action-bar.message").replace("{deposit}",
+                        ToolsPlus.numberFormat.format(totalDeposit));
                 //Send it to the player
                 ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
             } else {

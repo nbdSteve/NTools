@@ -40,7 +40,7 @@ public class PlayerInteractWithMob implements Listener {
             if (nbtItem.getBoolean("ntool.lightning")) {
                 CreateLightningStrike.createMobStrike(player, "lightning",
                         "lightning-wands." + nbtItem.getInteger("ntool.raw.id"),
-                        (Creeper) event.getRightClicked());
+                        (Creeper) event.getRightClicked(), nbtItem);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a trench tool

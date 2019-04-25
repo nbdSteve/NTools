@@ -9,7 +9,9 @@ sand-wand-purchase-gui:
     lore:
       - "&6&l**Stack Remover I**"
       - "&7 "
-      - "&7Cooldown: &f&l5 Seconds"
+      - "&7Cooldown: &f&l7 Seconds"
+      - "&7 "
+      - "&7Uses Remaining: &f&l250"
       - "&7 "
       - "&a&oThis wand was created by the Choomas,"
       - "&a&oto remove stacks of sand, use it wisely..."
@@ -28,7 +30,9 @@ sand-wand-purchase-gui:
     lore:
       - "&6&l**Stack Remover II**"
       - "&7 "
-      - "&7Cooldown: &f&l3 Seconds"
+      - "&7Cooldown: &f&l5 Seconds"
+      - "&7 "
+      - "&7Uses Remaining: &f&l250"
       - "&7 "
       - "&a&oThis wand was created by the Choomas,"
       - "&a&oto remove stacks of sand, use it wisely..."
@@ -47,7 +51,9 @@ sand-wand-purchase-gui:
     lore:
       - "&6&l**Stack Remover III**"
       - "&7 "
-      - "&7Cooldown: &f&l1 Second"
+      - "&7Cooldown: &f&l3 Second"
+      - "&7 "
+      - "&7Uses Remaining: &f&l250"
       - "&7 "
       - "&a&oThis wand was created by the Choomas,"
       - "&a&oto remove stacks of sand, use it wisely..."

@@ -9,7 +9,9 @@ lightning-wand-purchase-gui:
     lore:
       - "&6&l**Thor I**"
       - "&7 "
-      - "&7Cooldown: &f&l5 Seconds"
+      - "&7Cooldown: &f&l7 Seconds"
+      - "&7 "
+      - "&7Uses Remaining: &f&l250"
       - "&7 "
       - "&a&oThis wand was create by the Venditos,"
       - "&a&oto strike lightning and charge creepers,"
@@ -29,7 +31,9 @@ lightning-wand-purchase-gui:
     lore:
       - "&6&l**Thor II**"
       - "&7 "
-      - "&7Cooldown: &f&l3 Seconds"
+      - "&7Cooldown: &f&l5 Seconds"
+      - "&7 "
+      - "&7Uses Remaining: &f&l250"
       - "&7 "
       - "&a&oThis wand was create by the Venditos,"
       - "&a&oto strike lightning and charge creepers,"
@@ -49,7 +53,9 @@ lightning-wand-purchase-gui:
     lore:
       - "&6&l**Thor III**"
       - "&7 "
-      - "&7Cooldown: &f&l1 Seconds"
+      - "&7Cooldown: &f&l3 Seconds"
+      - "&7 "
+      - "&7Uses Remaining: &f&l250"
       - "&7 "
       - "&a&oThis wand was create by the Venditos,"
       - "&a&oto strike lightning and charge creepers,"

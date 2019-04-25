@@ -1,6 +1,6 @@
 package dev.nuer.nt.listener;
 
-import dev.nuer.nt.NTools;
+import dev.nuer.nt.ToolsPlus;
 import dev.nuer.nt.external.nbtapi.NBTItem;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -33,28 +33,28 @@ public class CrouchRightClickOpenGui implements Listener {
                 NBTItem nbtItem = new NBTItem(player.getItemInHand());
                 try {
                     if (nbtItem.getBoolean("ntool.multi")) {
-                        NTools.getPlugin(NTools.class).getGuiByName("multi-config").open(player);
+                        ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("multi-config").open(player);
                     }
                 } catch (NullPointerException e) {
                     //NBT tag is null because this is not a multi tool
                 }
                 try {
                     if (nbtItem.getBoolean("ntool.harvester")) {
-                        NTools.getPlugin(NTools.class).getGuiByName("harvester-config").open(player);
+                        ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("harvester-config").open(player);
                     }
                 } catch (NullPointerException e) {
                     //NBT tag is null because this is not a harvester hoe
                 }
                 try {
                     if (nbtItem.getBoolean("ntool.sell")) {
-                        NTools.getPlugin(NTools.class).getGuiByName("sell-config").open(player);
+                        ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("sell-config").open(player);
                     }
                 } catch (NullPointerException e) {
                     //NBT tag is null because this is not a sell wand
                 }
                 try {
                     if (nbtItem.getBoolean("ntool.tnt")) {
-                        NTools.getPlugin(NTools.class).getGuiByName("tnt-config").open(player);
+                        ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("tnt-config").open(player);
                     }
                 } catch (NullPointerException e) {
                     //NBT tag is null because this is not a tnt wand
