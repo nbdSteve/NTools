@@ -19,7 +19,7 @@ public class ToolsCmd implements CommandExecutor {
     /**
      * Constructor to make the command class work
      *
-     * @param toolsPlus
+     * @param toolsPlus ToolsPlus, main instance
      */
     public ToolsCmd(ToolsPlus toolsPlus) {
     }
@@ -154,7 +154,7 @@ public class ToolsCmd implements CommandExecutor {
                 }
             } else {
                 if (sender instanceof Player) {
-                    if (sender.hasPermission("ntools.gui")) {
+                    if (sender.hasPermission("toolsplus.gui")) {
                         new PlayerMessage("invalid-command", (Player) sender);
                     } else {
                         new PlayerMessage("no-permission", (Player) sender);

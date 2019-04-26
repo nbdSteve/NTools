@@ -18,13 +18,16 @@ import org.bukkit.event.block.BlockIgniteEvent;
 public class CreateLightningStrike {
 
     /**
-     * @param player
-     * @param directory
-     * @param filePath
-     * @param blockToStrike
+     * Creates a lightning strike on the ground where the player has clicked
+     *
+     * @param player        Player, the player using the lightning wand
+     * @param directory     String, the file to get values from
+     * @param filePath      String, the internal path from the configuration
+     * @param blockToStrike Block, the block to strike
+     * @param nbtItem       NBTItem, the item used by the player
      */
     public static void createStrikeGround(Player player, String directory, String filePath, Block blockToStrike,
-                                           NBTItem nbtItem) {
+                                          NBTItem nbtItem) {
         int cooldownFromConfig = ToolsPlus.getFiles().get(directory).getInt(filePath + ".cooldown");
         BlockIgniteEvent playerIgnite = new BlockIgniteEvent(blockToStrike,
                 BlockIgniteEvent.IgniteCause.FLINT_AND_STEEL, player);
@@ -41,10 +44,13 @@ public class CreateLightningStrike {
     }
 
     /**
-     * @param player
-     * @param directory
-     * @param filePath
-     * @param clickedMob
+     * Creates a lightning strike on the top of the mob that the player clicked
+     *
+     * @param player     Player, the player using the lightning wand
+     * @param directory  String, the file to get values from
+     * @param filePath   String, the internal path from the configuration
+     * @param clickedMob Creeper, the mob to strike
+     * @param nbtItem    NBTItem, the item used by the player
      */
     public static void createMobStrike(Player player, String directory, String filePath, Creeper clickedMob,
                                        NBTItem nbtItem) {

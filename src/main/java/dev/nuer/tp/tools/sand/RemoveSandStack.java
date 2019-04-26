@@ -21,6 +21,15 @@ import java.util.ArrayList;
  */
 public class RemoveSandStack {
 
+    /**
+     * Will remove the vertical pillar of sand when a player has clicked it
+     *
+     * @param event     BlockDamageEvent, the event triggering the sand removal
+     * @param player    Player, the player who clicked
+     * @param directory String, the file to read values from
+     * @param filePath  String, the internal file path to get values from
+     * @param nbtItem   NBTItem, the item used
+     */
     public RemoveSandStack(BlockDamageEvent event, Player player, String directory,
                            String filePath, NBTItem nbtItem) {
         int cooldownFromConfig = ToolsPlus.getFiles().get(directory).getInt(filePath + ".cooldown");

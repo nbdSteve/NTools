@@ -13,8 +13,22 @@ import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.entity.Player;
 
+/**
+ * Class that handles alerting the chest contents for tnt wands
+ */
 public class AlterChestContents {
 
+    /**
+     * Crafts the gunpowder in a chest, or banks the tnt
+     *
+     * @param clickedBlock     Block, the block being clicked
+     * @param player           Player, the player who clicked
+     * @param directory        String, the file to read values from
+     * @param filePath         String, the internal path from the configuration
+     * @param craftingModifier double, the number of pieces of an item required to craft a tnt
+     * @param bank             boolean, if the tool is in bank mode
+     * @param nbtItem          NBTItem, the item being used
+     */
     public static void manipulateContents(Block clickedBlock, Player player, String directory, String filePath,
                                           double craftingModifier, boolean bank, NBTItem nbtItem) {
         Bukkit.getScheduler().runTaskAsynchronously(ToolsPlus.getPlugin(ToolsPlus.class), () -> {

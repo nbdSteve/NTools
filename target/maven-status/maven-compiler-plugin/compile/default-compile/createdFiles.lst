@@ -1,3 +1,4 @@
+dev\nuer\tp\cmd\ToolsCmd.class
 dev\nuer\tp\external\nbtapi\NBTItem.class
 dev\nuer\tp\gui\AbstractGui.class
 dev\nuer\tp\events\LightningWandStrikeEvent.class
@@ -55,7 +56,6 @@ dev\nuer\tp\gui\purchase\BuyHarvesterToolsGui.class
 dev\nuer\tp\tools\sell\GetSellableItemPrices.class
 dev\nuer\tp\events\SandBlockBreakEvent.class
 dev\nuer\tp\external\actionbarapi\ActionBarAPI$2.class
-dev\nuer\tp\cmd\Nt.class
 dev\nuer\tp\gui\purchase\BuyLightningWandsGui.class
 dev\nuer\tp\tools\harvest\HarvestBlock.class
 dev\nuer\tp\gui\purchase\BuySellWandsGui.class
@@ -64,7 +64,6 @@ dev\nuer\tp\events\TNTWandCraftEvent.class
 dev\nuer\tp\external\nbtapi\NBTCompound.class
 dev\nuer\tp\gui\purchase\BuyTrayToolsGui.class
 dev\nuer\tp\external\nbtapi\ReflectionMethod.class
-dev\nuer\tp\listener\ToolsListener.class
 dev\nuer\tp\tools\BreakBlocksInRadius.class
 dev\nuer\tp\tools\tnt\AlterChestContents.class
 dev\nuer\tp\gui\config\HarvesterConfigurationGui.class
@@ -81,3 +80,4 @@ dev\nuer\tp\initialize\GuiInitializer.class
 dev\nuer\tp\method\AddBlocksToList.class
 dev\nuer\tp\gui\AbstractGui$inventoryClickActions.class
 dev\nuer\tp\listener\BlockDamageByPlayer.class
+dev\nuer\tp\listener\CustomToolEventsListener.class

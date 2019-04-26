@@ -7,12 +7,24 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 
+/**
+ * Class that handles omni functionality for tools, this is switching what type of tool the player is holding
+ * based on the block they are breaking
+ */
 public class OmniFunctionality {
-
+    //Store the blocks to be broken by shovels
     public static ArrayList<String> spadeBlockTypes;
+    //Store the blocks to be broken by pickaxes
     public static ArrayList<String> pickaxeBlockTypes;
+    //Store the blocks to be broken by axes
     public static ArrayList<String> axeBlockTypes;
 
+    /**
+     * Method to change the tool that the player is currently holding, updates in their hand
+     *
+     * @param block  Block, the block being broken
+     * @param player Player, the player breaking
+     */
     public static void changeToolType(Block block, Player player) {
         if (spadeBlockTypes.contains(block.getType().toString()) && !player.getItemInHand().getType().equals(Material.getMaterial("DIAMOND_SPADE"))) {
             player.getItemInHand().setType(Material.getMaterial("DIAMOND_SPADE"));
@@ -25,6 +37,9 @@ public class OmniFunctionality {
         }
     }
 
+    /**
+     * Method to load the blocks broken by respective tools from the configuration
+     */
     public static void loadOmniToolBlocks() {
         spadeBlockTypes = new ArrayList<>();
         pickaxeBlockTypes = new ArrayList<>();
@@ -40,6 +55,9 @@ public class OmniFunctionality {
         }
     }
 
+    /**
+     * Clears the tools blocks lists
+     */
     public static void clearOmniLists() {
         spadeBlockTypes.clear();
         pickaxeBlockTypes.clear();
