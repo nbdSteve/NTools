@@ -13,8 +13,18 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
 
+/**
+ * Class handles crafting the contents of a chest for tnt wands
+ */
 public class CraftContentsOfChest {
 
+    /**
+     * Crafts the respective items into their recipe in a chest
+     *
+     * @param player        Player, the player who is crafting
+     * @param craftingPrice double, the cost of crafting (in items)
+     * @param chestToAlter  Chest, the chest to craft from
+     */
     public static void craftChestContents(Player player, double craftingPrice, Chest chestToAlter) {
         int slot = 0;
         HashMap<Material, Integer> materialAndAmount = new HashMap<>();
@@ -46,6 +56,14 @@ public class CraftContentsOfChest {
         }
     }
 
+    /**
+     * Returns the amount of an item that was crafted
+     *
+     * @param materialAndAmount HashMap<Material, Integer>, the amount of a given material in the chest
+     * @param craftingPrice     double, the price of crafting (in items)
+     * @param chestToAlter      Chest, the chest to craft from
+     * @return
+     */
     public static int craftItems(HashMap<Material, Integer> materialAndAmount, double craftingPrice, Chest chestToAlter) {
         for (Material item : materialAndAmount.keySet()) {
             double amountRequired = MapInitializer.tntWandCraftingRecipe.get(item.toString()) * craftingPrice;
@@ -60,6 +78,13 @@ public class CraftContentsOfChest {
         return 0;
     }
 
+    /**
+     * Returns true if the chest contains items that can be crafted
+     *
+     * @param inventory        Inventory, the inventory to check
+     * @param craftingModifier double, the cost of crafting (in items)
+     * @return
+     */
     public static boolean canCraftContents(Inventory inventory, double craftingModifier) {
         for (ItemStack item : inventory) {
             if (item != null && MapInitializer.tntWandCraftingRecipe.containsKey(item.getType().toString())) {

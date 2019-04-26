@@ -13,16 +13,37 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
 
+/**
+ * Class that handles sending tnt to a players faction bank
+ */
 public class BankContentsOfChest {
 
+    /**
+     * Return true if the player has a faction
+     *
+     * @param player Player, the player to check
+     * @return boolean
+     */
     public static boolean hasFaciton(Player player) {
         return FPlayers.getInstance().getByPlayer(player).hasFaction();
     }
 
+    /**
+     * Adds the specified amount of tnt to a players faction bank
+     *
+     * @param player   Player, the player who is getting tnt
+     * @param tntToAdd Integer, the amount of tnt to add
+     */
     public static void addTNTToBank(Player player, int tntToAdd) {
         FPlayers.getInstance().getByPlayer(player).getFaction().addTnt(tntToAdd);
     }
 
+    /**
+     * Returns true if the clicked chest contains tnt
+     *
+     * @param inventory Inventory, the inventory to check
+     * @return boolean
+     */
     public static boolean chestContainsTNT(Inventory inventory) {
         for (ItemStack item : inventory) {
             if (item != null && item.getType().equals(Material.TNT)) {
@@ -32,6 +53,12 @@ public class BankContentsOfChest {
         return false;
     }
 
+    /**
+     * Gets the amount of tnt inside a chest
+     *
+     * @param player       Player, the player who clicked
+     * @param chestToAlter Chest, the inventory to check
+     */
     public static void getTNTCountForChest(Player player, Chest chestToAlter) {
         int slot = 0;
         HashMap<Material, Integer> materialAndAmount = new HashMap<>();

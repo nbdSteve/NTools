@@ -18,8 +18,21 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+/**
+ * Class that handles selling the contents on a chest
+ */
 public class SellChestContents {
 
+    /**
+     * Sells the contents of a given chest
+     *
+     * @param clickedBlock  Block, the chest that was clicked
+     * @param player        Player, the player who is trying to sell items
+     * @param directory     String, the file to read values from
+     * @param filePath      String, the internal file path in the configuration
+     * @param priceModifier double, the amount to multiply the base sell price by
+     * @param nbtItem       NBTItem, the item being used
+     */
     public static void sellContents(Block clickedBlock, Player player, String directory, String filePath, double priceModifier,
                                     NBTItem nbtItem) {
         Bukkit.getScheduler().runTaskAsynchronously(ToolsPlus.getPlugin(ToolsPlus.class), () -> {
@@ -69,6 +82,14 @@ public class SellChestContents {
         });
     }
 
+    /**
+     * Returns true if the clicked chest contents can be sold to the server
+     *
+     * @param inventory        Inventory, the inventory to check
+     * @param player           Player, player who is selling
+     * @param usingShopGuiPlus boolean, if the plugin should hook with ShopGUIPlus
+     * @return boolean
+     */
     public static boolean canSellContents(Inventory inventory, Player player, boolean usingShopGuiPlus) {
         for (ItemStack item : inventory) {
             if (GetSellableItemPrices.canBeSold(item, player, usingShopGuiPlus, MapInitializer.sellWandItemPrices))

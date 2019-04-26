@@ -1,17 +1,21 @@
 # ToolsPlus - if you find any bugs please contact nbdSteve#0583 on Discord.
-version: 0.3.6
+version: 0.3.7
 
+# Enable this if you want to see debug timings for trench and tray tools
 enable-debug-messages: false
 
-lightning-reach-distance: 3 # How far the lightning will strike if the player right clicks air
+# How far the lightning will strike if the player right clicks air
+lightning-reach-distance: 3
 
+# Tnt wand config
 tnt-wand:
   savage-factions-hook: false
   crafting-recipe: # Currently only 1 item is supported - leave this as is for the moment.
     - sulphur:1
 
+# Configuration for omni tool blocks
 omni-config:
-  shovel-blocks:
+  shovel-blocks: # Tool will change to a shovel when these blocks are broken
     - dirt
     - grass
   pickaxe-blocks:
@@ -21,6 +25,7 @@ omni-config:
     - wood
     - log
 
+# Block blacklist for trench tools
 trench-block-blacklist:
   - bedrock
   - obsidian
@@ -29,36 +34,44 @@ trench-block-blacklist:
   - chest
   - glass
 
+# Block whitelist for tray tools
 tray-block-whitelist:
   - dirt
   - netherrack
 
+# Block whitelist for sand wands
 sand-block-whitelist:
   - sand
   - gravel
   - red_sand
 
+# Harvester hoe block price list, use doubles
 harvester-block-prices:
   - sugar_cane_block:10.78
   - cactus:13.44
   - melon_block:18.93
   - pumpkin:23.48
 
+# If harvester hoes are using delayed messages, they will be sent after this many ticks
 harvester-selling-message-delay: 60
 
+# Action bar sent to player when they use a harvester hoe
 harvester-action-bar: # These should work on all versions, pm if they don't
   enabled: true
   message: "&e✦ &6&lAuto Sell &7⊳ &a+&l${deposit} &e✦"
 
+# Action bar sent to player when they use a sell wand
 sell-wand-action-bar:
   enabled: true
   message: "&e✦ &6&lSell Wand &7⊳ &a+&l${deposit} &e✦"
 
+# Action bar sent to player when they use a tnt wand
 tnt-wand-action-bar:
   enabled: true
   craft-message: "&e✦ &6&lTNT Crafted &7⊳ &a+&l{deposit} &e✦"
   bank-message: "&e✦ &6&lTNT Banked &7⊳ &a+&l{deposit} &e✦"
 
+# Action bar sent to player when their inventory is full and they try to use a tool
 inventory-full-action-bar:
   enabled: true
   message: "&c&l✘ &fYour inventory is &e&l&nFULL&r &c&l✘"
