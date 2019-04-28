@@ -24,6 +24,7 @@ public class Reload {
                 MapInitializer.clearMaps();
                 OmniFunctionality.clearOmniLists();
                 ToolsPlus.getFiles().reload();
+                ToolsPlus.instantiateGuis();
                 MapInitializer.initializeMaps();
                 OmniFunctionality.loadOmniToolBlocks();
                 new PlayerMessage("reload", (Player) sender);
@@ -35,6 +36,7 @@ public class Reload {
             MapInitializer.clearMaps();
             OmniFunctionality.clearOmniLists();
             ToolsPlus.getFiles().reload();
+            ToolsPlus.instantiateGuis();
             MapInitializer.initializeMaps();
             OmniFunctionality.loadOmniToolBlocks();
             ToolsPlus.LOGGER.info("[ToolsPlus] Reloaded all tool maps and configuration files.");

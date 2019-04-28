@@ -70,6 +70,7 @@ dev\nuer\tp\tools\tnt\AlterChestContents.class
 dev\nuer\tp\gui\config\HarvesterConfigurationGui.class
 dev\nuer\tp\method\itemCreation\CraftItem.class
 dev\nuer\tp\tools\ChangeMode.class
+dev\nuer\tp\method\VersionChecker.class
 dev\nuer\tp\cmd\sub\Help.class
 dev\nuer\tp\gui\purchase\BuyMultiToolsGui.class
 dev\nuer\tp\external\actionbarapi\ActionBarMessageEvent.class

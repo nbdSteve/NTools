@@ -1,4 +1,9 @@
 # ToolsPlus messages
+outdated-version:
+  - "&7--= &6&lToolsPlus&e: &fUpdater &7=--"
+  - " - &7You are using version &fTools+ v{currentVersion}&7, which is out of date."
+  - " - &7Please &e&l*UPDATE*&7 to the latest version, &fTools+ v{latestVersion}&7."
+
 mode-switch:
   - "&6&lToolsPlus&e: &7You have changed your tools mode."
 

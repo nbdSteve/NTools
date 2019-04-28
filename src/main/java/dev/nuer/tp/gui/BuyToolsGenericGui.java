@@ -53,6 +53,9 @@ public class BuyToolsGenericGui extends AbstractGui {
                                 if (ToolsPlus.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-tnt")) {
                                     ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("tnt-buy").open(player);
                                 }
+                                if (ToolsPlus.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".exit-gui")) {
+                                    player.closeInventory();
+                                }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();
                                 new PlayerMessage("invalid-config", player, "{reason}", "Generic purchase gui toolsplus.yml");

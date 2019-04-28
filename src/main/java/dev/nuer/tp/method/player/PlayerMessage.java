@@ -12,27 +12,44 @@ public class PlayerMessage {
     /**
      * Send a default message to the player
      *
-     * @param filePath the message to be sent
-     * @param p        the player to send to
+     * @param filePath String, internal message path
+     * @param player   Player, the player to send to
      */
-    public PlayerMessage(String filePath, Player p) {
+    public PlayerMessage(String filePath, Player player) {
         for (String line : ToolsPlus.getFiles().get("messages").getStringList(filePath)) {
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', line));
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', line));
         }
     }
 
     /**
      * Send a message that has a placeholder in it
      *
-     * @param filePath    the message to be sent
-     * @param p           the player to send to
-     * @param placeHolder the thing to replace
-     * @param replacement the replacement
+     * @param filePath    String, internal message path
+     * @param player      Player, the player to send to
+     * @param placeHolder String, the thing to replace
+     * @param replacement String, the replacement
      */
-    public PlayerMessage(String filePath, Player p, String placeHolder, String replacement) {
+    public PlayerMessage(String filePath, Player player, String placeHolder, String replacement) {
         for (String line : ToolsPlus.getFiles().get("messages").getStringList(filePath)) {
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', line).replace(placeHolder,
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', line).replace(placeHolder,
                     replacement));
+        }
+    }
+
+    /**
+     * Send a message that has 2 placeholders in it
+     *
+     * @param filePath     String, internal message path
+     * @param player       Player, the player to send to
+     * @param placeHolder  String, the thing to replace
+     * @param replacement  String, the replacement
+     * @param placeHolder2 String, the second thing to replace
+     * @param replacement2 String, the second replacement
+     */
+    public PlayerMessage(String filePath, Player player, String placeHolder, String replacement, String placeHolder2, String replacement2) {
+        for (String line : ToolsPlus.getFiles().get("messages").getStringList(filePath)) {
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', line).replace(placeHolder,
+                    replacement).replace(placeHolder2, replacement2));
         }
     }
 }

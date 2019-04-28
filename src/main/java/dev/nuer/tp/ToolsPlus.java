@@ -7,6 +7,7 @@ import dev.nuer.tp.gui.listener.GuiClickListener;
 import dev.nuer.tp.initialize.GuiInitializer;
 import dev.nuer.tp.initialize.MapInitializer;
 import dev.nuer.tp.listener.*;
+import dev.nuer.tp.method.VersionChecker;
 import dev.nuer.tp.tools.OmniFunctionality;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
@@ -22,7 +23,7 @@ public final class ToolsPlus extends JavaPlugin {
     //Store the plugin files
     private static LoadFile files;
     //Store the gui instances
-    private GuiInitializer pluginGui;
+    private static GuiInitializer pluginGui;
     //Create a logger for the plugin
     public static Logger LOGGER = Bukkit.getLogger();
     //Store the servers economy
@@ -52,14 +53,14 @@ public final class ToolsPlus extends JavaPlugin {
         //Load the black / white and unique id list maps
         MapInitializer.initializeMaps();
         //Create the Gui instances
-        pluginGui = new GuiInitializer();
+        instantiateGuis();
         //Load the omni tool block lists
         OmniFunctionality.loadOmniToolBlocks();
         //Get the server econ
         try {
             economy = getServer().getServicesManager().getRegistration(Economy.class).getProvider();
         } catch (NullPointerException economyNotEnabled) {
-            LOGGER.info("[ToolsPlus] Vault.jar not found, disabling economy features.");
+            LOGGER.info("[ToolsPlus] Unable to find economy instance, disabling economy features.");
             economy = null;
         }
         //Register the commands for the plugin
@@ -71,6 +72,10 @@ public final class ToolsPlus extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new CustomToolEventsListener(), this);
         getServer().getPluginManager().registerEvents(new CrouchRightClickOpenGui(), this);
         getServer().getPluginManager().registerEvents(new GuiClickListener(), this);
+        //Check that the plugin is in the latest version
+//        VersionChecker.checkVersion(null);
+//        getServer().getPluginManager().registerEvents(new VersionChecker(), this);
+
     }
 
     /**
@@ -79,14 +84,22 @@ public final class ToolsPlus extends JavaPlugin {
     @Override
     public void onDisable() {
         MapInitializer.clearMaps();
+        OmniFunctionality.clearOmniLists();
         LOGGER.info("[ToolsPlus] Thanks for using ToolsPlus, if you find any bugs contact nbdSteve#0583 on Discord.");
+    }
+
+    /**
+     * Creates a new instance of the plugins Guis, called on start up and reload
+     */
+    public static void instantiateGuis() {
+        pluginGui = new GuiInitializer();
     }
 
     /**
      * Gets the specified gui based off of the name
      *
      * @param guiName String, gui name
-     * @return
+     * @return AbstractGui
      */
     public AbstractGui getGuiByName(String guiName) {
         return pluginGui.getGuiByName(guiName);

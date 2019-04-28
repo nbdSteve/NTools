@@ -82,8 +82,8 @@ public class LoadFile {
      * Reloads all of the files in the Files enum
      */
     public void reload() {
-        for (Files file : Files.values()) {
-            files.get(file).reload();
+        for (CreateFile file : files.values()) {
+            file.reload();
         }
         ToolsPlus.LOGGER.info("[ToolsPlus] Reloading configuration files...");
     }

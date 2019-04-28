@@ -62,8 +62,7 @@ public class CreateFile {
             yamlFile.load(file);
         } catch (InvalidConfigurationException e) {
             plugin.getLogger().severe("The supplied file " + fileName +
-                    " is not in the correct format, plugin contact the developer. Disabling the plugin");
-            plugin.getServer().getPluginManager().disablePlugin(plugin);
+                    " is not in the correct format, plugin check your YAML syntax.");
         } catch (FileNotFoundException e) {
             plugin.getLogger().severe("The supplied file " + fileName +
                     " was not found, plugin contact the developer. Disabling the plugin.");

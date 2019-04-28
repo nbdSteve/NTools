@@ -2,8 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e794939-1ea2-419b-b8f1-d1977c2fd48e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/ToolsCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/ToolsCmd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/sub/Give.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/sub/Give.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/VersionChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ToolsPlus-0.4.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/method/VersionChecker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/sub/Reload.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/sub/Reload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/file/CreateFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/file/CreateFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/file/LoadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/file/LoadFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/gui/BuyToolsGenericGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/gui/BuyToolsGenericGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/player/PlayerMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/player/PlayerMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/toolsplus.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/toolsplus.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ToolsPlus-0.3.8-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/ToolsPlus-0.3.9.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ToolsPlus-0.3.8.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/ToolsPlus-0.4.0-shaded.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/nuer/tp/ToolsPlus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/ToolsPlus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/nuer/tp/cmd/sub/Reload.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/cmd/sub/Reload.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/nuer/tp/file/CreateFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/file/CreateFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/nuer/tp/file/LoadFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/file/LoadFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/nuer/tp/gui/BuyToolsGenericGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/gui/BuyToolsGenericGui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/nuer/tp/method/player/PlayerMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/method/player/PlayerMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolsplus.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/toolsplus.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-ToolsPlus-0.3.8.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-ToolsPlus-0.4.0.jar" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,70 +45,41 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/api/ToolsPlusAPI.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+            <state relative-caret-position="111">
+              <caret line="68" column="35" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
+              <folding>
+                <element signature="e#3166#3167#0" expanded="true" />
+                <element signature="e#3214#3215#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/ToolsCmd.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/player/PlayerMessage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="63" column="100" lean-forward="true" selection-start-line="63" selection-start-column="100" selection-end-line="63" selection-end-column="100" />
+            <state relative-caret-position="469">
+              <caret line="43" column="55" lean-forward="true" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="64" column="46" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/OmniFunctionality.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="59" column="69" selection-start-line="59" selection-start-column="69" selection-end-line="59" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/file/LoadFile.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/messages.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
-              <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/sub/Give.java">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="92" column="127" selection-start-line="92" selection-start-column="127" selection-end-line="92" selection-end-column="127" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/sub/Reload.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="192">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -98,7 +95,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>not initialized</find>
       <find>changeToolRadius</find>
       <find>GetToolType</find>
       <find>getToolRadius</find>
@@ -128,6 +124,7 @@
       <find>NTools</find>
       <find>reload</find>
       <find>wool</find>
+      <find>&quot;config&quot;</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -136,11 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/tnt/purchase-gui.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/nt/tools/DecrementUses.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/nt/cmd/Nt.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/Nt.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/api/ToolsPlusAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/events/TNTWandBankEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/events/TNTWandCraftEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/external/FactionIntegration.java" />
@@ -175,18 +167,23 @@
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/CmdManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/ReloadCmd.java" />
         <option value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/sub/Help.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/sub/Reload.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/multi/OmniFunctionality.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/OmniFunctionality.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/file/LoadFile.java" />
         <option value="$PROJECT_DIR$/src/main/resources/omni-block-list.yml" />
-        <option value="$PROJECT_DIR$/src/main/resources/messages.yml" />
-        <option value="$PROJECT_DIR$/src/main/resources/toolsplus.yml" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/sub/Give.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/ToolsCmd.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/gui/BuyToolsGenericGui.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/file/LoadFile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/initialize/GuiInitializer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/file/CreateFile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/sub/Reload.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/messages.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/toolsplus.yml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/VersionChecker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/player/PlayerMessage.java" />
       </list>
     </option>
   </component>
@@ -216,7 +213,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-2509" />
+    <option name="x" value="-1928" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1096" />
@@ -229,8 +226,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -271,7 +268,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="tp" type="462c0819:PsiDirectoryNode" />
-              <item name="cmd" type="462c0819:PsiDirectoryNode" />
+              <item name="method" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NTools" type="b2602c69:ProjectViewProjectNode" />
@@ -280,36 +277,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="tp" type="462c0819:PsiDirectoryNode" />
-              <item name="cmd" type="462c0819:PsiDirectoryNode" />
-              <item name="sub" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NTools" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tp" type="462c0819:PsiDirectoryNode" />
-              <item name="file" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NTools" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tp" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NTools" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tp" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
-              <item name="multi" type="462c0819:PsiDirectoryNode" />
+              <item name="method" type="462c0819:PsiDirectoryNode" />
+              <item name="player" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NTools" type="b2602c69:ProjectViewProjectNode" />
@@ -398,8 +367,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20042644" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20255864" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -414,58 +384,20 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="8" side_tool="true" visible="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32917964" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286119" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3271028" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" visible="true" weight="0.09168444" />
+      <window_info active="true" anchor="right" id="Maven" order="4" visible="true" weight="0.0858209" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/PlayerToolCooldown.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/DecrementUses.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="26" column="76" selection-start-line="26" selection-start-column="76" selection-end-line="26" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/ChangeMode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264">
-          <caret line="35" column="73" selection-start-line="35" selection-start-column="73" selection-end-line="35" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/harvest/HandleSellingMessages.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1608">
-          <caret line="74" column="58" selection-start-line="74" selection-start-column="58" selection-end-line="74" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/harvest/HarvestBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="71" column="65" selection-start-line="71" selection-start-column="65" selection-end-line="71" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/multi/ChangeToolRadius.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2208">
@@ -665,13 +597,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/trench/purchase-gui.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/trench/tools.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
@@ -679,39 +604,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/SubCmd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/CmdManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/ReloadCmd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#223#224#0" expanded="true" />
-            <element signature="e#250#251#0" expanded="true" />
-            <element signature="e#292#293#0" expanded="true" />
-            <element signature="e#319#320#0" expanded="true" />
-            <element signature="e#436#437#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/SubCmd.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/CmdManager.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/ReloadCmd.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/sub/Help.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -722,52 +617,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/api/ToolsPlusAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/file/LoadFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/OmniFunctionality.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="59" column="69" selection-start-line="59" selection-start-column="69" selection-end-line="59" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/omni-block-list.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/toolsplus.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/messages.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" column="12" lean-forward="true" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -778,9 +631,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/api/ToolsPlusAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/trench/purchase-gui.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-429">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/ToolsCmd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="63" column="100" selection-start-line="63" selection-start-column="100" selection-end-line="63" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/gui/BuyToolsGenericGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="56" column="60" selection-start-line="56" selection-start-column="60" selection-end-line="56" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/sub/Give.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
+        <state relative-caret-position="958">
           <caret line="92" column="127" selection-start-line="92" selection-start-column="127" selection-end-line="92" selection-end-column="127" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -788,10 +669,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/initialize/GuiInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/file/CreateFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="81" column="34" lean-forward="true" selection-start-line="81" selection-start-column="34" selection-end-line="81" selection-end-column="34" />
+          <folding>
+            <element signature="e#3409#3410#0" expanded="true" />
+            <element signature="e#3440#3441#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/file/LoadFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="86" column="9" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/OmniFunctionality.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="59" column="69" selection-start-line="59" selection-start-column="69" selection-end-line="59" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/sub/Reload.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+        <state relative-caret-position="264">
+          <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/toolsplus.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/messages.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/VersionChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="984">
+          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -800,15 +744,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="64" column="46" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
+        <state relative-caret-position="111">
+          <caret line="68" column="35" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
+          <folding>
+            <element signature="e#3166#3167#0" expanded="true" />
+            <element signature="e#3214#3215#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/ToolsCmd.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/player/PlayerMessage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="63" column="100" lean-forward="true" selection-start-line="63" selection-start-column="100" selection-end-line="63" selection-end-column="100" />
+        <state relative-caret-position="469">
+          <caret line="43" column="55" lean-forward="true" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
         </state>
       </provider>
     </entry>
