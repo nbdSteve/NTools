@@ -61,7 +61,7 @@ public class ToolsCmd implements CommandExecutor {
                 if (sender instanceof Player) {
                     if (sender.hasPermission("toolsplus.gui")) {
                         new PlayerMessage("invalid-command", (Player) sender, "{reason}",
-                                "The arguments you entered where incorrect, please refer to the wiki.");
+                                "The arguments you entered where incorrect, please refer to the wiki");
                     } else {
                         new PlayerMessage("no-permission", (Player) sender);
                     }

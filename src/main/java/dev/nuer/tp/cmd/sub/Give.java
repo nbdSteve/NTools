@@ -35,7 +35,7 @@ public class Give {
                 if (args.length == 5 && args[2].equalsIgnoreCase("multi")) {
                     if (sender instanceof Player) {
                         new PlayerMessage("invalid-command", (Player) sender, "{reason}",
-                                "Giving a multi tool requires a starting radius (6th argument).");
+                                "Giving a multi tool requires a starting radius (6th argument)");
                     } else {
                         ToolsPlus.LOGGER.info("[ToolsPlus] Invalid command, check the GitHub wiki for command help.");
                     }
@@ -90,7 +90,7 @@ public class Give {
                 if (sender instanceof Player) {
                     invalidCommandParameters.printStackTrace();
                     new PlayerMessage("invalid-command", (Player) sender, "{reason}",
-                            "An error occurred. Please check your command syntax, then your configuration (stack trace console).");
+                            "An error occurred. Please check your command syntax, then your configuration (stack trace console)");
                 } else {
                     ToolsPlus.LOGGER.info("[ToolsPlus] Invalid command, check the GitHub wiki for command help.");
                 }
