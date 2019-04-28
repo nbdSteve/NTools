@@ -1,9 +1,16 @@
 # ToolsPlus
-ToolsPlus is a trench & tray plugin that aims to reduce the about of time players spend mining. It is primarily designed for the Factions gamemode, however, the plugins functionality and support is not limited to this mode. The plugin supports any gamemode / server type.
+ToolsPlus is a comprehensive and expandable custom tools plugin developed for Minecraft using the Spigot API. The plugins aim is to add special tools to that game that will reduce the amount of time player spend on labourious tasks. It is primarily designed for the Factions gamemode, however, the plugins functionality and support is not limited to this mode. The plugin supports any gamemode / server type.
 
-ToolsPlus can be downloaded from the GitHub repository, [here](https://github.com/nbdSteve/NTools/blob/master/target/ToolsPlus-0.3.7.jar).
+#### Tools Currently Supported:
+ToolsPlus currently contains the following tools; Harvester Hoes, Trench Tools, Multi / Omni Tools, Tray Tools, Sell Wands, Lightning Wands, Sand Wands and TNT Wands. However, more can be added in future versions.
 
-For more information about the plugin, permissions, and commands please refer to the [wiki](https://github.com/nbdSteve/NTools/wiki).
+---
+
+ToolsPlus can be downloaded from the [McMarket](https://www.mc-market.org/resources/7291/) or [Spigot](https://www.spigotmc.org/resources/tools.66897/) resource pages.
+
+For more information about the plugin, permissions, and commands please refer to the [wiki](https://github.com/nbdSteve/ToolsPlus/wiki).
+
+---
 
 ## Authors
 * Stephen Goodhill - *[Nuer](https://nuer.dev)*
