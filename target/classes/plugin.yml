@@ -1,19 +1,11 @@
 name: ToolsPlus
-version: 0.3.7
+version: 0.3.8
 main: dev.nuer.tp.ToolsPlus
 author: Nuer
 description: A custom tools plugin
 api-version: 1.13
 commands:
-  tools:
-    usage: /<command>
-    description: Base command for ToolsPlus. See GitHub wiki for command help
-  toolsplus:
-    usage: /<command>
-    description: Base command for ToolsPlus. See GitHub wiki for command help
-  tool:
-    usage: /<command>
-    description: Base command for ToolsPlus. See GitHub wiki for command help
   nt:
     usage: /<command>
     description: Base command for ToolsPlus. See GitHub wiki for command help
+    aliases: [tools, tool, toolsplus]

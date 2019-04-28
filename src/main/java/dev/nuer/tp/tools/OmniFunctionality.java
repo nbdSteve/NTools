@@ -1,4 +1,4 @@
-package dev.nuer.tp.tools.multi;
+package dev.nuer.tp.tools;
 
 import dev.nuer.tp.ToolsPlus;
 import org.bukkit.Material;
@@ -26,14 +26,21 @@ public class OmniFunctionality {
      * @param player Player, the player breaking
      */
     public static void changeToolType(Block block, Player player) {
-        if (spadeBlockTypes.contains(block.getType().toString()) && !player.getItemInHand().getType().equals(Material.getMaterial("DIAMOND_SPADE"))) {
-            player.getItemInHand().setType(Material.getMaterial("DIAMOND_SPADE"));
+        String itemInHand = player.getItemInHand().getType().toString();
+        String[] materialType;
+        try {
+            materialType = itemInHand.split("_");
+        } catch (Exception notATool) {
+            return;
         }
-        if (pickaxeBlockTypes.contains(block.getType().toString()) && !player.getItemInHand().getType().equals(Material.DIAMOND_PICKAXE)) {
-            player.getItemInHand().setType(Material.DIAMOND_PICKAXE);
+        if (spadeBlockTypes.contains(block.getType().toString()) && !player.getItemInHand().getType().equals(Material.getMaterial(materialType[0] + "_SPADE"))) {
+            player.getItemInHand().setType(Material.getMaterial(materialType[0] + "_SPADE"));
         }
-        if (axeBlockTypes.contains(block.getType().toString()) && !player.getItemInHand().getType().equals(Material.DIAMOND_AXE)) {
-            player.getItemInHand().setType(Material.DIAMOND_AXE);
+        if (pickaxeBlockTypes.contains(block.getType().toString()) && !player.getItemInHand().getType().equals(Material.getMaterial(materialType[0] + "_PICKAXE"))) {
+            player.getItemInHand().setType(Material.getMaterial(materialType[0] + "_PICKAXE"));
+        }
+        if (axeBlockTypes.contains(block.getType().toString()) && !player.getItemInHand().getType().equals(Material.getMaterial(materialType[0] + "_AXE"))) {
+            player.getItemInHand().setType(Material.getMaterial(materialType[0] + "_AXE"));
         }
     }
 
@@ -44,13 +51,13 @@ public class OmniFunctionality {
         spadeBlockTypes = new ArrayList<>();
         pickaxeBlockTypes = new ArrayList<>();
         axeBlockTypes = new ArrayList<>();
-        for (String blockType : ToolsPlus.getFiles().get("config").getStringList("omni-config.shovel-blocks")) {
+        for (String blockType : ToolsPlus.getFiles().get("omni_config").getStringList("omni-config.shovel-blocks")) {
             spadeBlockTypes.add(blockType.toUpperCase());
         }
-        for (String blockType : ToolsPlus.getFiles().get("config").getStringList("omni-config.pickaxe-blocks")) {
+        for (String blockType : ToolsPlus.getFiles().get("omni_config").getStringList("omni-config.pickaxe-blocks")) {
             pickaxeBlockTypes.add(blockType.toUpperCase());
         }
-        for (String blockType : ToolsPlus.getFiles().get("config").getStringList("omni-config.axe-blocks")) {
+        for (String blockType : ToolsPlus.getFiles().get("omni_config").getStringList("omni-config.axe-blocks")) {
             axeBlockTypes.add(blockType.toUpperCase());
         }
     }

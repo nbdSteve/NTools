@@ -20,7 +20,7 @@ public class LoadFile {
         CONFIG, MESSAGES, LIGHTNING, LIGHTNING_PURCHASE_GUI, MULTI, MULTI_CONFIG_GUI, MULTI_PURCHASE_GUI,
         SAND, SAND_PURCHASE_GUI, TRAY, TRAY_PURCHASE_GUI, TRENCH, TRENCH_PURCHASE_GUI, HARVESTER,
         HARVESTER_PURCHASE_GUI, HARVESTER_CONFIG_GUI, SELL, SELL_PURCHASE_GUI, SELL_PRICE_LIST, SELL_CONFIG_GUI,
-        TNT, TNT_PURCHASE_GUI, TNT_CONFIG_GUI
+        TNT, TNT_PURCHASE_GUI, TNT_CONFIG_GUI, OMNI_CONFIG
     }
 
     /**
@@ -31,6 +31,7 @@ public class LoadFile {
         //Load generic files
         files.put(Files.CONFIG, new CreateFile("toolsplus.yml"));
         files.put(Files.MESSAGES, new CreateFile("messages.yml"));
+        files.put(Files.OMNI_CONFIG, new CreateFile("omni-block-list.yml"));
         //Load lightning wand files
         files.put(Files.LIGHTNING, new CreateFile("lightning" + File.separator + "wands.yml"));
         files.put(Files.LIGHTNING_PURCHASE_GUI, new CreateFile("lightning" + File.separator + "purchase-gui.yml"));

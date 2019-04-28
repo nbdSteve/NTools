@@ -8,7 +8,6 @@ dev\nuer\tp\external\actionbarapi\ActionBarAPI$1.class
 dev\nuer\tp\method\itemCreation\NBTCreator.class
 dev\nuer\tp\external\actionbarapi\ActionBarAPI.class
 dev\nuer\tp\gui\config\MultiToolConfigurationGui.class
-dev\nuer\tp\tools\multi\OmniFunctionality.class
 dev\nuer\tp\gui\purchase\BuySandWandsGui.class
 dev\nuer\tp\external\nbtapi\utils\MinecraftVersion.class
 dev\nuer\tp\method\player\AddBlocksToPlayerInventory.class
@@ -36,6 +35,7 @@ dev\nuer\tp\method\player\PlayerMessage.class
 dev\nuer\tp\initialize\MapInitializer.class
 dev\nuer\tp\gui\BuyToolsGenericGui.class
 dev\nuer\tp\tools\PriceModifier.class
+dev\nuer\tp\tools\OmniFunctionality.class
 dev\nuer\tp\tools\lightning\CreateLightningStrike.class
 dev\nuer\tp\listener\CrouchRightClickOpenGui.class
 dev\nuer\tp\listener\PlayerInteractWithMob.class
@@ -50,6 +50,7 @@ dev\nuer\tp\external\nbtapi\NBTListCompound.class
 dev\nuer\tp\tools\PlayerToolCooldown.class
 dev\nuer\tp\tools\DecrementUses.class
 dev\nuer\tp\events\TNTWandBankEvent.class
+dev\nuer\tp\cmd\sub\Give.class
 dev\nuer\tp\file\CreateFile.class
 dev\nuer\tp\external\nbtapi\ClassWrapper.class
 dev\nuer\tp\gui\purchase\BuyHarvesterToolsGui.class
@@ -69,11 +70,13 @@ dev\nuer\tp\tools\tnt\AlterChestContents.class
 dev\nuer\tp\gui\config\HarvesterConfigurationGui.class
 dev\nuer\tp\method\itemCreation\CraftItem.class
 dev\nuer\tp\tools\ChangeMode.class
+dev\nuer\tp\cmd\sub\Help.class
 dev\nuer\tp\gui\purchase\BuyMultiToolsGui.class
 dev\nuer\tp\external\actionbarapi\ActionBarMessageEvent.class
 dev\nuer\tp\gui\config\SellWandConfigurationGui.class
 dev\nuer\tp\listener\PlayerInteract.class
 dev\nuer\tp\external\nbtapi\ObjectCreator.class
+dev\nuer\tp\cmd\sub\Reload.class
 dev\nuer\tp\external\nbtapi\ReflectionMethod$Since.class
 dev\nuer\tp\events\TrayBlockBreakEvent.class
 dev\nuer\tp\initialize\GuiInitializer.class

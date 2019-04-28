@@ -8,6 +8,7 @@ C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\tools\DecrementUses.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\method\itemCreation\UpdateItem.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\tools\PriceModifier.java
+C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\cmd\sub\Give.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\external\nbtapi\utils\GsonWrapper.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\gui\purchase\BuyTNTWandsGui.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\file\LoadFile.java
@@ -33,7 +34,6 @@ C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\tools\sell\GetSellableItemPrices.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\external\nbtapi\NBTList.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\external\nbtapi\NBTItem.java
-C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\tools\multi\OmniFunctionality.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\initialize\GuiInitializer.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\external\ShopGUIPlusIntegration.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\method\player\AddBlocksToPlayerInventory.java
@@ -69,8 +69,11 @@ C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\events\SandBlockBreakEvent.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\external\actionbarapi\ActionBarAPI.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\tools\tnt\AlterChestContents.java
+C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\cmd\sub\Reload.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\events\HarvesterBlockBreakEvent.java
+C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\tools\OmniFunctionality.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\external\nbtapi\NBTType.java
+C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\cmd\sub\Help.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\tools\tnt\BankContentsOfChest.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\tools\harvest\HarvestBlock.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\events\LightningWandStrikeEvent.java

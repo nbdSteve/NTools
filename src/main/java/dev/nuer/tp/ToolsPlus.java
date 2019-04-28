@@ -7,7 +7,7 @@ import dev.nuer.tp.gui.listener.GuiClickListener;
 import dev.nuer.tp.initialize.GuiInitializer;
 import dev.nuer.tp.initialize.MapInitializer;
 import dev.nuer.tp.listener.*;
-import dev.nuer.tp.tools.multi.OmniFunctionality;
+import dev.nuer.tp.tools.OmniFunctionality;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -63,7 +63,6 @@ public final class ToolsPlus extends JavaPlugin {
             economy = null;
         }
         //Register the commands for the plugin
-        getCommand("tools").setExecutor(new ToolsCmd(this));
         getCommand("nt").setExecutor(new ToolsCmd(this));
         //Register the events for the plugin
         getServer().getPluginManager().registerEvents(new BlockDamageByPlayer(), this);

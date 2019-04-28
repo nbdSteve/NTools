@@ -7,7 +7,6 @@ import dev.nuer.tp.external.nbtapi.NBTItem;
 import dev.nuer.tp.initialize.MapInitializer;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
 import dev.nuer.tp.tools.multi.ChangeToolRadius;
-import dev.nuer.tp.tools.multi.OmniFunctionality;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
