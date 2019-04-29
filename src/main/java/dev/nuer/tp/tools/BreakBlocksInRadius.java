@@ -22,8 +22,8 @@ public class BreakBlocksInRadius {
     /**
      * Void method to break blocks in a given radius
      *
-     * @param event    the event which is being called
-     * @param player   the player who is breaking the blocks
+     * @param event  the event which is being called
+     * @param player the player who is breaking the blocks
      */
     public BreakBlocksInRadius(NBTItem item, BlockDamageEvent event, Player player, String directory,
                                String filePath, boolean multiTool, boolean trenchTool) {
@@ -96,7 +96,7 @@ public class BreakBlocksInRadius {
         //Log stats if enabled
         if (ToolsPlus.debugMode) {
             long finish = System.currentTimeMillis();
-            ToolsPlus.LOGGER.info("[Tools+] Mining tool block removal operation completed in: " + (finish - start) + "ms");
+            ToolsPlus.LOGGER.info("[Tools+] (Trench / Tray Debug) Block removal operation completed in: " + (finish - start) + "ms");
         }
     }
 }

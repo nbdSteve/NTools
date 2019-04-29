@@ -3,8 +3,8 @@ package dev.nuer.tp.tools.tnt;
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.external.actionbarapi.ActionBarAPI;
 import dev.nuer.tp.initialize.MapInitializer;
+import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.player.PlayerMessage;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Chest;
 import org.bukkit.entity.Player;
@@ -30,10 +30,10 @@ public class CraftContentsOfChest {
         HashMap<Material, Integer> materialAndAmount = new HashMap<>();
         for (ItemStack item : chestToAlter.getInventory()) {
             try {
-                if (!item.hasItemMeta() && MapInitializer.tntWandCraftingRecipe.get(item.getType().toString()) != null) {
+                if (!item.hasItemMeta() && MapInitializer.tntWandCraftingRecipe.containsKey(item.getType().toString())) {
                     try {
-                        int currentAmount = materialAndAmount.get(item.getType());
-                        materialAndAmount.put(item.getType(), item.getAmount() + currentAmount);
+                        int newAmount = item.getAmount() + materialAndAmount.get(item.getType());
+                        materialAndAmount.put(item.getType(), newAmount);
                     } catch (Exception e) {
                         materialAndAmount.put(item.getType(), item.getAmount());
                     }
@@ -50,7 +50,7 @@ public class CraftContentsOfChest {
             String message = ToolsPlus.getFiles().get("config").getString("tnt-wand-action-bar.craft-message").replace("{deposit}",
                     ToolsPlus.numberFormat.format(numberCrafted));
             //Send it to the player
-            ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
+            ActionBarAPI.sendActionBar(player, Chat.applyColor(message));
         } else {
             new PlayerMessage("chest-tnt-craft-contents", player, "{deposit}", ToolsPlus.numberFormat.format(numberCrafted));
         }
@@ -65,17 +65,15 @@ public class CraftContentsOfChest {
      * @return
      */
     public static int craftItems(HashMap<Material, Integer> materialAndAmount, double craftingPrice, Chest chestToAlter) {
+        int maxCraftable = getMaxCratable(materialAndAmount, craftingPrice);
         for (Material item : materialAndAmount.keySet()) {
-            double amountRequired = MapInitializer.tntWandCraftingRecipe.get(item.toString()) * craftingPrice;
-            double numberCrafted = materialAndAmount.get(item) / amountRequired;
-            double remainder = materialAndAmount.get(item) % amountRequired;
-            chestToAlter.getInventory().addItem(new ItemStack(Material.TNT, (int) numberCrafted));
+            double remainder = materialAndAmount.get(item) - (maxCraftable * (MapInitializer.tntWandCraftingRecipe.get(item.toString()) * craftingPrice));
             if (remainder > 0) {
                 chestToAlter.getInventory().addItem(new ItemStack(item, (int) remainder));
             }
-            return (int) numberCrafted;
         }
-        return 0;
+        chestToAlter.getInventory().addItem(new ItemStack(Material.TNT, maxCraftable));
+        return maxCraftable;
     }
 
     /**
@@ -83,14 +81,67 @@ public class CraftContentsOfChest {
      *
      * @param inventory        Inventory, the inventory to check
      * @param craftingModifier double, the cost of crafting (in items)
-     * @return
+     * @return boolean
      */
     public static boolean canCraftContents(Inventory inventory, double craftingModifier) {
+        HashMap<String, Integer> itemAmounts = new HashMap<>();
         for (ItemStack item : inventory) {
             if (item != null && MapInitializer.tntWandCraftingRecipe.containsKey(item.getType().toString())) {
-                return item.getAmount() >= MapInitializer.tntWandCraftingRecipe.get(item.getType().toString()) * craftingModifier;
+                if (itemAmounts.get(item.getType().toString()) == null) {
+                    itemAmounts.put(item.getType().toString(), item.getAmount());
+                } else {
+                    int newAmount = itemAmounts.get(item.getType().toString()) + item.getAmount();
+                    itemAmounts.put(item.getType().toString(), newAmount);
+                }
             }
         }
-        return false;
+        //Check that each item has the required amount
+        for (String item : MapInitializer.tntWandCraftingRecipe.keySet()) {
+            try {
+                if (itemAmounts.get(item) < MapInitializer.tntWandCraftingRecipe.get(item) * craftingModifier) {
+                    return false;
+                }
+            } catch (NullPointerException e) {
+                //This is thrown if the required item is not in the chest
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Calculates the maximum number of tnt blocks that can be crafted for that inventory
+     *
+     * @param materialAndAmount HashMap<Material, Integer>, the map of material and total item amounts
+     * @param craftingPrice     Double, the price per item for a single block
+     * @return Integer
+     */
+    public static int getMaxCratable(HashMap<Material, Integer> materialAndAmount, double craftingPrice) {
+        HashMap<Material, Double> maxCraftAmounts = new HashMap<>();
+        for (Material item : materialAndAmount.keySet()) {
+            double amountRequired = MapInitializer.tntWandCraftingRecipe.get(item.toString()) * craftingPrice;
+            double numberCrafted = materialAndAmount.get(item) / amountRequired;
+            maxCraftAmounts.put(item, numberCrafted);
+        }
+        double maxAmount = 0;
+        for (Material item : maxCraftAmounts.keySet()) {
+            if (ToolsPlus.debugMode) {
+                ToolsPlus.LOGGER.info("[Tools+] (TnT Wand Debug) Current max craftable: " + maxCraftAmounts.get(item));
+            }
+            if (maxCraftAmounts.keySet().iterator().hasNext()) {
+                if (ToolsPlus.debugMode) {
+                    ToolsPlus.LOGGER.info("[Tools+] (TnT Wand Debug) Next max craftable: " + maxCraftAmounts.get(maxCraftAmounts.keySet().iterator().next()));
+                }
+                if (maxCraftAmounts.get(maxCraftAmounts.keySet().iterator().next()) < maxCraftAmounts.get(item)) {
+                    maxAmount = maxCraftAmounts.get(maxCraftAmounts.keySet().iterator().next());
+                } else {
+                    maxAmount = maxCraftAmounts.get(item);
+                }
+            }
+        }
+        if (ToolsPlus.debugMode) {
+            ToolsPlus.LOGGER.info("[Tools+] (TnT Wand Debug) Final max craftable: " + maxAmount);
+        }
+        return (int) maxAmount;
     }
 }

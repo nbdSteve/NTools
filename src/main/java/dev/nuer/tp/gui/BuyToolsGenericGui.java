@@ -1,6 +1,7 @@
 package dev.nuer.tp.gui;
 
 import dev.nuer.tp.ToolsPlus;
+import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.itemCreation.CraftItem;
 import dev.nuer.tp.method.player.PlayerMessage;
 import org.bukkit.ChatColor;
@@ -15,7 +16,7 @@ public class BuyToolsGenericGui extends AbstractGui {
      */
     public BuyToolsGenericGui() {
         super(ToolsPlus.getFiles().get("config").getInt("tool-purchase-gui.size"),
-                ChatColor.translateAlternateColorCodes('&', ToolsPlus.getFiles().get("config").getString("tool-purchase-gui.name")));
+                Chat.applyColor(ToolsPlus.getFiles().get("config").getString("tool-purchase-gui.name")));
 
         //Add all of the items from the Gui config to the Gui
         for (int i = 1; i <= 54; i++) {

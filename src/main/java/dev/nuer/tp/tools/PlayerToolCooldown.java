@@ -2,6 +2,7 @@ package dev.nuer.tp.tools;
 
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.external.actionbarapi.ActionBarAPI;
+import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.player.PlayerMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -79,7 +80,7 @@ public class PlayerToolCooldown {
         if (sendPlayerResponse) {
             if (ToolsPlus.getFiles().get("config").getBoolean("cooldown-action-bar.enabled")) {
                 String message = ToolsPlus.getFiles().get("config").getString("cooldown-action-bar." + cooldownToolType + "-message").replace("{time}", String.valueOf(getCooldownMap(cooldownToolType).get(player.getUniqueId())));
-                ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
+                ActionBarAPI.sendActionBar(player, Chat.applyColor(message));
             } else {
                 new PlayerMessage("wand-cooldown", Bukkit.getPlayer(player.getUniqueId()), "{time}", String.valueOf(getCooldownMap(cooldownToolType).get(player.getUniqueId())));
             }

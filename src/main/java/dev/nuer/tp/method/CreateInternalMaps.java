@@ -25,10 +25,9 @@ public class CreateInternalMaps {
         for (int i = 1; i <= toolUniqueModifierIDs.size() + 1; i++) {
             if (ToolsPlus.getFiles().get(directory).getString(filePath + i + "." + modifierType + ".unique") != null) {
                 ArrayList<String> toolModifierIDs = new ArrayList<>();
-                toolModifierIDs.add(ChatColor.translateAlternateColorCodes('&',
-                        ToolsPlus.getFiles().get(directory).getString(filePath + i + "." + modifierType + ".unique")));
+                toolModifierIDs.add(Chat.applyColor(ToolsPlus.getFiles().get(directory).getString(filePath + i + "." + modifierType + ".unique")));
                 for (String modifierID : ToolsPlus.getFiles().get(directory).getStringList(filePath + i + "." + modifierType + ".lore-ids")) {
-                    toolModifierIDs.add(ChatColor.translateAlternateColorCodes('&', modifierID));
+                    toolModifierIDs.add(Chat.applyColor(modifierID));
                 }
                 toolModifierIDs.add(ToolsPlus.getFiles().get(directory).getString(filePath + i + "." + modifierType + ".max"));
                 toolModifierIDs.add(ToolsPlus.getFiles().get(directory).getString(filePath + i + "." + modifierType + ".min"));
@@ -53,12 +52,9 @@ public class CreateInternalMaps {
         for (int i = 1; i <= toolUniqueModeIDs.size() + 1; i++) {
             if (ToolsPlus.getFiles().get(directory).getString(filePath + i + ".mode.unique") != null) {
                 ArrayList<String> toolModeIDs = new ArrayList<>();
-                toolModeIDs.add(ChatColor.translateAlternateColorCodes('&',
-                        ToolsPlus.getFiles().get(directory).getString(filePath + i + ".mode.unique")));
-                toolModeIDs.add(ChatColor.translateAlternateColorCodes('&',
-                        ToolsPlus.getFiles().get(directory).getString(filePath + i + ".mode." + mode1)));
-                toolModeIDs.add(ChatColor.translateAlternateColorCodes('&',
-                        ToolsPlus.getFiles().get(directory).getString(filePath + i + ".mode." + mode2)));
+                toolModeIDs.add(Chat.applyColor(ToolsPlus.getFiles().get(directory).getString(filePath + i + ".mode.unique")));
+                toolModeIDs.add(Chat.applyColor(ToolsPlus.getFiles().get(directory).getString(filePath + i + ".mode." + mode1)));
+                toolModeIDs.add(Chat.applyColor(ToolsPlus.getFiles().get(directory).getString(filePath + i + ".mode." + mode2)));
                 toolUniqueModeIDs.put(i, toolModeIDs);
             }
         }

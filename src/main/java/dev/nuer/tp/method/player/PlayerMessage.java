@@ -1,6 +1,7 @@
 package dev.nuer.tp.method.player;
 
 import dev.nuer.tp.ToolsPlus;
+import dev.nuer.tp.method.Chat;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
@@ -17,7 +18,7 @@ public class PlayerMessage {
      */
     public PlayerMessage(String filePath, Player player) {
         for (String line : ToolsPlus.getFiles().get("messages").getStringList(filePath)) {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', line));
+            player.sendMessage(Chat.applyColor(line));
         }
     }
 
@@ -31,7 +32,7 @@ public class PlayerMessage {
      */
     public PlayerMessage(String filePath, Player player, String placeHolder, String replacement) {
         for (String line : ToolsPlus.getFiles().get("messages").getStringList(filePath)) {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', line).replace(placeHolder,
+            player.sendMessage(Chat.applyColor(line).replace(placeHolder,
                     replacement));
         }
     }
@@ -48,7 +49,7 @@ public class PlayerMessage {
      */
     public PlayerMessage(String filePath, Player player, String placeHolder, String replacement, String placeHolder2, String replacement2) {
         for (String line : ToolsPlus.getFiles().get("messages").getStringList(filePath)) {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', line).replace(placeHolder,
+            player.sendMessage(Chat.applyColor(line).replace(placeHolder,
                     replacement).replace(placeHolder2, replacement2));
         }
     }

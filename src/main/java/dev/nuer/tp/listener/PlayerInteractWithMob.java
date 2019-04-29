@@ -21,18 +21,14 @@ public class PlayerInteractWithMob implements Listener {
      */
     @EventHandler
     public void playerInteractMob(PlayerInteractEntityEvent event) {
-        if (event.isCancelled()) {
-            return;
-        }
-        if (!event.getRightClicked().getType().equals(EntityType.CREEPER)) {
-            return;
-        }
+        //Check if the event is cancelled
+        if (event.isCancelled()) return;
+        //Verify that the mob is a creeper
+        if (!event.getRightClicked().getType().equals(EntityType.CREEPER)) return;
         //Store the player
         Player player = event.getPlayer();
         //If the players item doesn't have meta / lore, return
-        if (!player.getItemInHand().hasItemMeta() || !player.getItemInHand().getItemMeta().hasLore()) {
-            return;
-        }
+        if (!player.getItemInHand().hasItemMeta() || !player.getItemInHand().getItemMeta().hasLore()) return;
         //Create a new nbt object
         NBTItem nbtItem = new NBTItem(player.getItemInHand());
         //Get the type of tool being used

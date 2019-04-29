@@ -30,17 +30,14 @@ public class PlayerInteract implements Listener {
      */
     @EventHandler
     public void playerInteractLightningWand(PlayerInteractEvent event) {
-        if (!(event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK))) {
+        if (!(event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)))
             return;
-        }
         //Store the player
         Player player = event.getPlayer();
         //If the players item doesn't have meta / lore, return
-        if (!player.getItemInHand().hasItemMeta() || !player.getItemInHand().getItemMeta().hasLore()) {
-            return;
-        }
+        if (!event.getItem().hasItemMeta() || !event.getItem().getItemMeta().hasLore()) return;
         //Create a new nbt object
-        NBTItem nbtItem = new NBTItem(player.getItemInHand());
+        NBTItem nbtItem = new NBTItem(event.getItem());
         //Store the location to Strike
         Block locationToStrike;
         //Check to target block based on where the user is looking / clicked
@@ -67,31 +64,27 @@ public class PlayerInteract implements Listener {
      * @param event PlayerInteractEvent
      */
     @EventHandler
-    public void playerInteractSellWand(PlayerInteractEvent event) {
-        if (!event.getAction().equals(Action.LEFT_CLICK_BLOCK)) {
-            return;
-        }
+    public void playerLeftClickInteractWithWand(PlayerInteractEvent event) {
+        if (!event.getAction().equals(Action.LEFT_CLICK_BLOCK)) return;
         //Store the player
         Player player = event.getPlayer();
         //If the players item doesn't have meta / lore, return
-        if (!player.getItemInHand().hasItemMeta() || !player.getItemInHand().getItemMeta().hasLore()) {
-            return;
-        }
+        if (!event.getItem().hasItemMeta() || !event.getItem().getItemMeta().hasLore()) return;
         //Create a new nbt object
         NBTItem nbtItem = new NBTItem(player.getItemInHand());
         //Get the type of tool being used
         try {
             if (nbtItem.getBoolean("ntool.sell")) {
-                event.setCancelled(true);
-                if (!(event.getClickedBlock().getType().equals(Material.CHEST) ||
-                        event.getClickedBlock().getType().equals(Material.TRAPPED_CHEST))) {
+                if (!(event.getClickedBlock().getType().equals(Material.CHEST)
+                        || event.getClickedBlock().getType().equals(Material.TRAPPED_CHEST))) {
                     return;
                 }
+                //Create a new block break event to ensure that the player can sell that chest
                 BlockBreakEvent chestSell = new BlockBreakEvent(event.getClickedBlock(), player);
                 Bukkit.getPluginManager().callEvent(chestSell);
-                if (chestSell.isCancelled()) {
-                    return;
-                }
+                //Check if the event is cancelled
+                if (chestSell.isCancelled()) return;
+                //Run the code to sell the items
                 SellChestContents.sellContents(event.getClickedBlock(), player, "sell",
                         "sell-wands." + nbtItem.getInteger("ntool.raw.id"),
                         PriceModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(),
@@ -102,12 +95,12 @@ public class PlayerInteract implements Listener {
         }
         try {
             if (nbtItem.getBoolean("ntool.tnt")) {
-                event.setCancelled(true);
+                //Create a new block break event to ensure that the player can modify that chest
                 BlockBreakEvent tntCraft = new BlockBreakEvent(event.getClickedBlock(), player);
                 Bukkit.getPluginManager().callEvent(tntCraft);
-                if (tntCraft.isCancelled()) {
-                    return;
-                }
+                //Check if the event is cancelled
+                if (tntCraft.isCancelled()) return;
+                //Run the code for the tnt wand
                 AlterChestContents.manipulateContents(event.getClickedBlock(), player, "tnt",
                         "tnt-wands." + nbtItem.getInteger("ntool.raw.id"),
                         PriceModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(),

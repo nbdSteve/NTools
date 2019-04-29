@@ -25,17 +25,13 @@ public class BlockDamageByPlayer implements Listener {
     @EventHandler
     public void playerBlockDamage(BlockDamageEvent event) {
         //Check if the event is in a protected region
-        if (event.isCancelled()) {
-            return;
-        }
+        if (event.isCancelled()) return;
         //Store the player
         Player player = event.getPlayer();
         //If the players item doesn't have meta / lore, return
-        if (!player.getItemInHand().hasItemMeta() || !player.getItemInHand().getItemMeta().hasLore()) {
-            return;
-        }
+        if (!event.getItemInHand().hasItemMeta() || !event.getItemInHand().getItemMeta().hasLore()) return;
         //Create a new nbt object
-        NBTItem nbtItem = new NBTItem(player.getItemInHand());
+        NBTItem nbtItem = new NBTItem(event.getItemInHand());
         //Get the type of tool being used
         try {
             if (nbtItem.getBoolean("ntool.trench")) {

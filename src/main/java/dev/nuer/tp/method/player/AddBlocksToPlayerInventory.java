@@ -2,6 +2,7 @@ package dev.nuer.tp.method.player;
 
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.external.actionbarapi.ActionBarAPI;
+import dev.nuer.tp.method.Chat;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -28,7 +29,7 @@ public class AddBlocksToPlayerInventory {
             if (player.getInventory().firstEmpty() == -1) {
                 if (ToolsPlus.getFiles().get("config").getBoolean("inventory-full-action-bar.enabled")) {
                     String message = ToolsPlus.getFiles().get("config").getString("inventory-full-action-bar.message");
-                    ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
+                    ActionBarAPI.sendActionBar(player, Chat.applyColor(message));
                 } else {
                     new PlayerMessage("inventory-full", player);
                 }
@@ -53,7 +54,7 @@ public class AddBlocksToPlayerInventory {
             if (player.getInventory().firstEmpty() == -1) {
                 if (ToolsPlus.getFiles().get("config").getBoolean("inventory-full-action-bar.enabled")) {
                     String message = ToolsPlus.getFiles().get("config").getString("inventory-full-action-bar.message");
-                    ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
+                    ActionBarAPI.sendActionBar(player, Chat.applyColor(message));
                 } else {
                     new PlayerMessage("inventory-full", player);
                 }

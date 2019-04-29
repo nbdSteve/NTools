@@ -15,69 +15,77 @@ public class CustomToolEventsListener implements Listener {
 
     @EventHandler
     public void blockBreakByTrenchTool(TrenchBlockBreakEvent event) {
-        if (!event.isCancelled()) {
-            AddBlocksToPlayerInventory.addBlocks(event.getBlockToBeBroken(), event.getPlayer());
-        }
+        //Check if the event is cancelled
+        if (event.isCancelled()) return;
+        //Run the code for trench tools
+        AddBlocksToPlayerInventory.addBlocks(event.getBlockToBeBroken(), event.getPlayer());
     }
 
     @EventHandler
     public void blockBreakByTrayTool(TrayBlockBreakEvent event) {
-        if (!event.isCancelled()) {
-            AddBlocksToPlayerInventory.addBlocks(event.getBlockToBeBroken(), event.getPlayer());
-        }
+        //Check if the event is cancelled
+        if (event.isCancelled()) return;
+        //Run the code for tray tools
+        AddBlocksToPlayerInventory.addBlocks(event.getBlockToBeBroken(), event.getPlayer());
     }
 
     @EventHandler
     public void sandWandBlockBreak(SandBlockBreakEvent event) {
-        if (!event.isCancelled()) {
-            AddBlocksToPlayerInventory.addBlocks(event.getBlockToBeBroken(), event.getPlayer());
-        }
+        //Check if the event is cancelled
+        if (event.isCancelled()) return;
+        //Run the code for sand wands
+        AddBlocksToPlayerInventory.addBlocks(event.getBlockToBeBroken(), event.getPlayer());
     }
 
     @EventHandler
     public void lightningWandStrikeEvent(LightningWandStrikeEvent event) {
-        if (!event.isCancelled()) {
-            if (event.getCreeperToPower() != null) {
-                event.getBlockToStrike().getWorld().strikeLightningEffect(event.getBlockToStrike().getLocation());
-                event.getCreeperToPower().setPowered(true);
-            } else {
-                event.getBlockToStrike().getWorld().strikeLightning(event.getBlockToStrike().getLocation());
-            }
+        //Check if the event is cancelled
+        if (event.isCancelled()) return;
+        //Run the code for lightning wands
+        if (event.getCreeperToPower() != null) {
+            event.getBlockToStrike().getWorld().strikeLightningEffect(event.getBlockToStrike().getLocation());
+            event.getCreeperToPower().setPowered(true);
+        } else {
+            event.getBlockToStrike().getWorld().strikeLightning(event.getBlockToStrike().getLocation());
         }
     }
 
     @EventHandler
     public void harvesterBlockBreakEvent(HarvesterBlockBreakEvent event) {
-        if (!event.isCancelled()) {
-            if (event.isSelling()) {
-                if (ToolsPlus.economy != null) {
-                    AddBlocksToPlayerInventory.sellBlocks(event.getBlockToHarvest(), event.getPlayer());
-                    ToolsPlus.economy.depositPlayer(event.getPlayer(), event.getBlockPrice());
-                }
-            } else {
-                AddBlocksToPlayerInventory.addBlocks(event.getBlockToHarvest(), event.getPlayer());
+        //Check if the event is cancelled
+        if (event.isCancelled()) return;
+        //Run the code for harvester tools
+        if (event.isSelling()) {
+            if (ToolsPlus.economy != null) {
+                AddBlocksToPlayerInventory.sellBlocks(event.getBlockToHarvest(), event.getPlayer());
+                ToolsPlus.economy.depositPlayer(event.getPlayer(), event.getBlockPrice());
             }
+        } else {
+            AddBlocksToPlayerInventory.addBlocks(event.getBlockToHarvest(), event.getPlayer());
         }
     }
 
     @EventHandler
     public void sellWandChestSaleEvent(SellWandContainerSaleEvent event) {
-        if (!event.isCancelled()) {
-            ToolsPlus.economy.depositPlayer(event.getPlayer(), event.getItemPrice());
-        }
+        //Check if the event is cancelled
+        if (event.isCancelled()) return;
+        //Run the code for sell wands
+        ToolsPlus.economy.depositPlayer(event.getPlayer(), event.getItemPrice());
     }
 
     @EventHandler
     public void tntCraftContentsEvent(TNTWandCraftEvent event) {
-        if (!event.isCancelled()) {
-            CraftContentsOfChest.craftChestContents(event.getPlayer(), event.getCraftingModifier(), event.getChestBeingAffected());
-        }
+        //Check if the event is cancelled
+        if (event.isCancelled()) return;
+        //Run the code for tnt craft wands
+        CraftContentsOfChest.craftChestContents(event.getPlayer(), event.getCraftingModifier(), event.getChestBeingAffected());
     }
 
     @EventHandler
     public void tntBankContentsEvent(TNTWandBankEvent event) {
-        if (!event.isCancelled()) {
-            BankContentsOfChest.getTNTCountForChest(event.getPlayer(), event.getChestBeingAffected());
-        }
+        //Check if the event is cancelled
+        if (event.isCancelled()) return;
+        //Run the code for tnt bank wands
+        BankContentsOfChest.getTNTCountForChest(event.getPlayer(), event.getChestBeingAffected());
     }
 }

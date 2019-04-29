@@ -3,6 +3,7 @@ package dev.nuer.tp.gui.purchase;
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.gui.AbstractGui;
 import dev.nuer.tp.initialize.MapInitializer;
+import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.itemCreation.CraftItem;
 import dev.nuer.tp.method.itemCreation.PurchaseTool;
 import dev.nuer.tp.method.player.PlayerMessage;
@@ -18,7 +19,7 @@ public class BuyMultiToolsGui extends AbstractGui {
      */
     public BuyMultiToolsGui() {
         super(ToolsPlus.getFiles().get("multi_purchase_gui").getInt("multi-tool-purchase-gui.size"),
-                ChatColor.translateAlternateColorCodes('&', ToolsPlus.getFiles().get("multi_purchase_gui").getString("multi-tool-purchase-gui.name")));
+                Chat.applyColor(ToolsPlus.getFiles().get("multi_purchase_gui").getString("multi-tool-purchase-gui.name")));
 
         //Add all of the items from the Gui config to the Gui
         for (int i = 1; i <= 54; i++) {

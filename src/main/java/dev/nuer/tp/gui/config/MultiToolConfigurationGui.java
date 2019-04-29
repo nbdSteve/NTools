@@ -3,6 +3,7 @@ package dev.nuer.tp.gui.config;
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.gui.AbstractGui;
 import dev.nuer.tp.initialize.MapInitializer;
+import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.itemCreation.CraftItem;
 import dev.nuer.tp.method.player.PlayerMessage;
 import dev.nuer.tp.tools.ChangeMode;
@@ -23,7 +24,7 @@ public class MultiToolConfigurationGui extends AbstractGui {
      */
     public MultiToolConfigurationGui() {
         super(ToolsPlus.getFiles().get("multi_config_gui").getInt("multi-tool-config-gui.size"),
-                ChatColor.translateAlternateColorCodes('&', ToolsPlus.getFiles().get("multi_config_gui").getString("multi-tool-config-gui.name")));
+                Chat.applyColor(ToolsPlus.getFiles().get("multi_config_gui").getString("multi-tool-config-gui.name")));
 
         //Add all of the items from the Gui config to the Gui
         for (int i = 1; i <= 54; i++) {

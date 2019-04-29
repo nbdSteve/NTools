@@ -27,14 +27,15 @@ public class OmniFunctionality {
      */
     public static void changeToolType(Block block, Player player) {
         String itemInHand = player.getItemInHand().getType().toString();
+        String shovelMaterial = "_" + ToolsPlus.getFiles().get("omni_config").getString("omni-config.shovel-material-name").toUpperCase();
         String[] materialType;
         try {
             materialType = itemInHand.split("_");
         } catch (Exception notATool) {
             return;
         }
-        if (spadeBlockTypes.contains(block.getType().toString()) && !player.getItemInHand().getType().equals(Material.getMaterial(materialType[0] + "_SPADE"))) {
-            player.getItemInHand().setType(Material.getMaterial(materialType[0] + "_SPADE"));
+        if (spadeBlockTypes.contains(block.getType().toString()) && !player.getItemInHand().getType().equals(Material.getMaterial(materialType[0] + shovelMaterial))) {
+            player.getItemInHand().setType(Material.getMaterial(materialType[0] + shovelMaterial));
         }
         if (pickaxeBlockTypes.contains(block.getType().toString()) && !player.getItemInHand().getType().equals(Material.getMaterial(materialType[0] + "_PICKAXE"))) {
             player.getItemInHand().setType(Material.getMaterial(materialType[0] + "_PICKAXE"));

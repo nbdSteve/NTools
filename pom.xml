@@ -6,7 +6,7 @@
 
     <groupId>dev.nuer.tp</groupId>
     <artifactId>ToolsPlus</artifactId>
-    <version>0.4.2</version>
+    <version>0.4.3</version>
     <packaging>jar</packaging>
 
     <name>ToolsPlus</name>

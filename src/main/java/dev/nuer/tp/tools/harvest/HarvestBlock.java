@@ -3,6 +3,7 @@ package dev.nuer.tp.tools.harvest;
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.events.HarvesterBlockBreakEvent;
 import dev.nuer.tp.external.actionbarapi.ActionBarAPI;
+import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -54,7 +55,7 @@ public class HarvestBlock {
                 String message = ToolsPlus.getFiles().get("config").getString("harvester-action-bar.message").replace("{deposit}",
                         ToolsPlus.numberFormat.format(totalDeposit));
                 //Send it to the player
-                ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
+                ActionBarAPI.sendActionBar(player, Chat.applyColor(message));
             } else {
                 HandleSellingMessages.handleSellingMessages(player, totalDeposit);
             }

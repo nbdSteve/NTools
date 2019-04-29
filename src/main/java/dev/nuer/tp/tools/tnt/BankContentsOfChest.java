@@ -3,6 +3,7 @@ package dev.nuer.tp.tools.tnt;
 import com.massivecraft.factions.FPlayers;
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.external.actionbarapi.ActionBarAPI;
+import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.player.PlayerMessage;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -81,7 +82,7 @@ public class BankContentsOfChest {
             String message = ToolsPlus.getFiles().get("config").getString("tnt-wand-action-bar.bank-message").replace("{deposit}",
                     ToolsPlus.numberFormat.format(tntDeposited));
             //Send it to the player
-            ActionBarAPI.sendActionBar(player, ChatColor.translateAlternateColorCodes('&', message));
+            ActionBarAPI.sendActionBar(player, Chat.applyColor(message));
         } else {
             new PlayerMessage("chest-tnt-bank-contents", player, "{deposit}", ToolsPlus.numberFormat.format(tntDeposited));
         }

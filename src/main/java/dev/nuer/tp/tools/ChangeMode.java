@@ -1,6 +1,7 @@
 package dev.nuer.tp.tools;
 
 import dev.nuer.tp.external.nbtapi.NBTItem;
+import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.itemCreation.UpdateItem;
 import dev.nuer.tp.method.player.PlayerMessage;
 import org.bukkit.ChatColor;
@@ -45,12 +46,9 @@ public class ChangeMode {
     public static boolean changeToolMode(List<String> itemLore, ItemMeta itemMeta, ItemStack item,
                                          HashMap<Integer, ArrayList<String>> modeUniqueIDs, boolean changeMode) {
         NBTItem nbtItem = new NBTItem(item);
-        String mode = ChatColor.translateAlternateColorCodes('&',
-                modeUniqueIDs.get(nbtItem.getInteger("ntool.raw.id")).get(0));
-        String mode1 = ChatColor.translateAlternateColorCodes('&',
-                modeUniqueIDs.get(nbtItem.getInteger("ntool.raw.id")).get(1));
-        String mode2 = ChatColor.translateAlternateColorCodes('&',
-                modeUniqueIDs.get(nbtItem.getInteger("ntool.raw.id")).get(2));
+        String mode = Chat.applyColor(modeUniqueIDs.get(nbtItem.getInteger("ntool.raw.id")).get(0));
+        String mode1 = Chat.applyColor(modeUniqueIDs.get(nbtItem.getInteger("ntool.raw.id")).get(1));
+        String mode2 = Chat.applyColor(modeUniqueIDs.get(nbtItem.getInteger("ntool.raw.id")).get(2));
         int index = 0;
         for (String loreLine : itemLore) {
             //Check if the lore contains the mode unique line

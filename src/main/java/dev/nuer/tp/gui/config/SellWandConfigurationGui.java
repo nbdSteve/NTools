@@ -3,6 +3,7 @@ package dev.nuer.tp.gui.config;
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.gui.AbstractGui;
 import dev.nuer.tp.initialize.MapInitializer;
+import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.itemCreation.CraftItem;
 import dev.nuer.tp.method.player.PlayerMessage;
 import dev.nuer.tp.tools.PriceModifier;
@@ -22,7 +23,7 @@ public class SellWandConfigurationGui extends AbstractGui {
      */
     public SellWandConfigurationGui() {
         super(ToolsPlus.getFiles().get("sell_config_gui").getInt("sell-wand-config-gui.size"),
-                ChatColor.translateAlternateColorCodes('&', ToolsPlus.getFiles().get("sell_config_gui").getString("sell-wand-config-gui.name")));
+                Chat.applyColor(ToolsPlus.getFiles().get("sell_config_gui").getString("sell-wand-config-gui.name")));
 
         //Add all of the items from the Gui config to the Gui
         for (int i = 1; i <= 54; i++) {

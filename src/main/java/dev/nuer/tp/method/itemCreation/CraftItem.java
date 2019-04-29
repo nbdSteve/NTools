@@ -1,6 +1,7 @@
 package dev.nuer.tp.method.itemCreation;
 
 import dev.nuer.tp.ToolsPlus;
+import dev.nuer.tp.method.Chat;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -39,7 +40,7 @@ public class CraftItem {
         item = createItem(material);
         itemMeta = item.getItemMeta();
         if (name != null) {
-            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
+            itemMeta.setDisplayName(Chat.applyColor(name));
         }
         addLore(lore, "debug", "debug", "debug", "debug", "debug", "debug");
         itemMeta.setLore(itemLore);
@@ -80,7 +81,7 @@ public class CraftItem {
         item = createItem(material);
         itemMeta = item.getItemMeta();
         if (name != null) {
-            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
+            itemMeta.setDisplayName(Chat.applyColor(name));
         }
         addLore(lore, modePlaceholder, modeReplacement, modifierPlaceholder, modifierReplacement, usesPlaceholder, usesReplacement);
         itemMeta.setLore(itemLore);
@@ -130,11 +131,10 @@ public class CraftItem {
                          String usesReplacement) {
         itemLore = new ArrayList<>();
         for (String lineOfLore : loreToAdd) {
-            itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore)
-                    .replace(modePlaceholder, ChatColor.translateAlternateColorCodes('&', modeReplacement))
-                    .replace(modifierPlaceholder, ChatColor.translateAlternateColorCodes('&',
-                            modifierReplacement))
-                    .replace(usesPlaceholder, ChatColor.translateAlternateColorCodes('&', usesReplacement)));
+            itemLore.add(Chat.applyColor(lineOfLore)
+                    .replace(modePlaceholder, Chat.applyColor(modeReplacement))
+                    .replace(modifierPlaceholder, Chat.applyColor(modifierReplacement))
+                    .replace(usesPlaceholder, Chat.applyColor(usesReplacement)));
         }
     }
 

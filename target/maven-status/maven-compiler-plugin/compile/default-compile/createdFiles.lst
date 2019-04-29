@@ -36,6 +36,7 @@ dev\nuer\tp\initialize\MapInitializer.class
 dev\nuer\tp\gui\BuyToolsGenericGui.class
 dev\nuer\tp\tools\PriceModifier.class
 dev\nuer\tp\tools\OmniFunctionality.class
+dev\nuer\tp\method\Chat.class
 dev\nuer\tp\tools\lightning\CreateLightningStrike.class
 dev\nuer\tp\listener\CrouchRightClickOpenGui.class
 dev\nuer\tp\listener\PlayerInteractWithMob.class
