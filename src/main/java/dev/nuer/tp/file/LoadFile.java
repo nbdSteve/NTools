@@ -29,7 +29,7 @@ public class LoadFile {
     public LoadFile() {
         files = new HashMap<>();
         //Load generic files
-        files.put(Files.CONFIG, new CreateFile("toolsplus.yml"));
+        files.put(Files.CONFIG, new CreateFile("tools+.yml"));
         files.put(Files.MESSAGES, new CreateFile("messages.yml"));
         files.put(Files.OMNI_CONFIG, new CreateFile("omni-block-list.yml"));
         //Load lightning wand files
@@ -62,7 +62,7 @@ public class LoadFile {
         files.put(Files.TNT_PURCHASE_GUI, new CreateFile("tnt" + File.separator + "purchase-gui.yml"));
         files.put(Files.TNT_CONFIG_GUI, new CreateFile("tnt" + File.separator + "config-gui.yml"));
         //Log that files are loaded
-        ToolsPlus.LOGGER.info("[ToolsPlus] Successfully loaded all configuration files...");
+        ToolsPlus.LOGGER.info("[Tools+] Successfully loaded all configuration files...");
     }
 
     /**
@@ -85,6 +85,6 @@ public class LoadFile {
         for (CreateFile file : files.values()) {
             file.reload();
         }
-        ToolsPlus.LOGGER.info("[ToolsPlus] Reloading configuration files...");
+        ToolsPlus.LOGGER.info("[Tools+] Reloading configuration files...");
     }
 }

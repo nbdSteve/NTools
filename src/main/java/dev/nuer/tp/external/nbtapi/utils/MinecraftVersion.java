@@ -37,16 +37,10 @@ public enum MinecraftVersion {
             return version;
         }
         final String ver = Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3];
-//        System.out.println("[ToolsPlus] Found Spigot: " + ver + "! Trying to find NMS support");
         try {
             version = MinecraftVersion.valueOf(ver.replace("v", "MC"));
         } catch (IllegalArgumentException ex) {
             version = MinecraftVersion.Unknown;
-        }
-        if (version != Unknown) {
-//            System.out.println("[ToolsPlus] NMS support '" + version.name() + "' loaded!");
-        } else {
-//            System.out.println("[ToolsPlus] Wasn't able to find NMS Support! Some functions may not work!");
         }
         return version;
     }

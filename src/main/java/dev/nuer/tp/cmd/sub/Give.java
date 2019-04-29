@@ -28,7 +28,7 @@ public class Give {
                         new PlayerMessage("invalid-command", (Player) sender, "{reason}",
                                 "The player you are trying to give that tool to is not online.");
                     } else {
-                        ToolsPlus.LOGGER.info("[ToolsPlus] Invalid command, check the GitHub wiki for command help.");
+                        ToolsPlus.LOGGER.info("[Tools+] Invalid command, check the GitHub wiki for command help.");
                     }
                     return;
                 }
@@ -37,7 +37,7 @@ public class Give {
                         new PlayerMessage("invalid-command", (Player) sender, "{reason}",
                                 "Giving a multi tool requires a starting radius (6th argument)");
                     } else {
-                        ToolsPlus.LOGGER.info("[ToolsPlus] Invalid command, check the GitHub wiki for command help.");
+                        ToolsPlus.LOGGER.info("[Tools+] Invalid command, check the GitHub wiki for command help.");
                     }
                     return;
                 }
@@ -92,7 +92,7 @@ public class Give {
                     new PlayerMessage("invalid-command", (Player) sender, "{reason}",
                             "An error occurred. Please check your command syntax, then your configuration (stack trace console)");
                 } else {
-                    ToolsPlus.LOGGER.info("[ToolsPlus] Invalid command, check the GitHub wiki for command help.");
+                    ToolsPlus.LOGGER.info("[Tools+] Invalid command, check the GitHub wiki for command help.");
                 }
             }
         } else {

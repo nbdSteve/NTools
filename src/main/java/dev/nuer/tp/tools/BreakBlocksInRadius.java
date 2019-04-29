@@ -94,9 +94,9 @@ public class BreakBlocksInRadius {
         //Send the player a message about full inv
         AddBlocksToPlayerInventory.messagedPlayers.remove(player);
         //Log stats if enabled
-        if (ToolsPlus.doDebugMessages) {
+        if (ToolsPlus.debugMode) {
             long finish = System.currentTimeMillis();
-            ToolsPlus.LOGGER.info("[ToolsPlus] Mining tool block removal operation completed in: " + (finish - start) + "ms");
+            ToolsPlus.LOGGER.info("[Tools+] Mining tool block removal operation completed in: " + (finish - start) + "ms");
         }
     }
 }

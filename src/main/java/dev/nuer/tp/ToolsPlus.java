@@ -11,13 +11,14 @@ import dev.nuer.tp.method.VersionChecker;
 import dev.nuer.tp.tools.OmniFunctionality;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.text.DecimalFormat;
 import java.util.logging.Logger;
 
 /**
- * Main class for the ToolsPlus plugin
+ * Main class for the Tools+ plugin
  */
 public final class ToolsPlus extends JavaPlugin {
     //Store the plugin files
@@ -29,7 +30,7 @@ public final class ToolsPlus extends JavaPlugin {
     //Store the servers economy
     public static Economy economy;
     //If the plugin should log debug timing messages
-    public static boolean doDebugMessages;
+    public static boolean debugMode;
     //Static way to format price placeholders
     public static DecimalFormat numberFormat = new DecimalFormat("#,###.##");
 
@@ -47,7 +48,7 @@ public final class ToolsPlus extends JavaPlugin {
      */
     @Override
     public void onEnable() {
-        LOGGER.info("[ToolsPlus] Thanks for using ToolsPlus, if you find any bugs contact nbdSteve#0583 on Discord.");
+        LOGGER.info("[Tools+] Thanks for using ToolsPlus, if you find any bugs contact nbdSteve#0583 on Discord.");
         //Create files instance
         files = new LoadFile();
         //Load the black / white and unique id list maps
@@ -56,13 +57,15 @@ public final class ToolsPlus extends JavaPlugin {
         instantiateGuis();
         //Load the omni tool block lists
         OmniFunctionality.loadOmniToolBlocks();
-        //Get the server econ
+        //Get the server economy
         try {
             economy = getServer().getServicesManager().getRegistration(Economy.class).getProvider();
         } catch (NullPointerException economyNotEnabled) {
-            LOGGER.info("[ToolsPlus] Unable to find economy instance, disabling economy features.");
+            LOGGER.info("[Tools+] Unable to find economy instance, disabling economy features.");
             economy = null;
         }
+        //Get if the plugin is in debug mode
+        updateDebugMode();
         //Register the commands for the plugin
         getCommand("nt").setExecutor(new ToolsCmd(this));
         //Register the events for the plugin
@@ -85,7 +88,7 @@ public final class ToolsPlus extends JavaPlugin {
     public void onDisable() {
         MapInitializer.clearMaps();
         OmniFunctionality.clearOmniLists();
-        LOGGER.info("[ToolsPlus] Thanks for using ToolsPlus, if you find any bugs contact nbdSteve#0583 on Discord.");
+        LOGGER.info("[Tools+] Thanks for using ToolsPlus, if you find any bugs contact nbdSteve#0583 on Discord.");
     }
 
     /**
@@ -103,5 +106,9 @@ public final class ToolsPlus extends JavaPlugin {
      */
     public AbstractGui getGuiByName(String guiName) {
         return pluginGui.getGuiByName(guiName);
+    }
+
+    public static void updateDebugMode() {
+        debugMode = getFiles().get("config").getBoolean("enable-debug");
     }
 }

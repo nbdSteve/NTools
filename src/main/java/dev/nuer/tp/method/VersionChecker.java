@@ -31,7 +31,7 @@ public class VersionChecker implements Listener {
             URLConnection urlConn = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + resourceKey).openConnection();
             String version = new BufferedReader(new InputStreamReader(urlConn.getInputStream())).readLine();
             if (!version.equalsIgnoreCase(ToolsPlus.getFiles().get("config").getString("version"))) {
-                ToolsPlus.LOGGER.severe("[ToolsPlus] There is a new version of Tools+ available for download, please update to the latest version.");
+                ToolsPlus.LOGGER.severe("[Tools+] There is a new version of Tools+ available for download, please update to the latest version.");
                 if (player != null) {
                     new PlayerMessage("outdated-version", player, "{currentVersion}",
                             ToolsPlus.getFiles().get("config").getString("version"), "{latestVersion}", version);

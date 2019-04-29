@@ -23,7 +23,7 @@ public class Help {
                 new PlayerMessage("no-permission", (Player) sender);
             }
         } else {
-            ToolsPlus.LOGGER.info("[ToolsPlus] The help message can only be viewed by players.");
+            ToolsPlus.LOGGER.info("[Tools+] The help message can only be viewed by players.");
         }
     }
 }

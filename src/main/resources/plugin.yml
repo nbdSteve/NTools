@@ -5,7 +5,7 @@ author: Nuer
 description: A custom tools plugin
 api-version: 1.13
 commands:
-  nt:
+  t+:
     usage: /<command>
-    description: Base command for ToolsPlus. See GitHub wiki for command help
-    aliases: [tools, tool, toolsplus]
+    description: Base command for Tools+, please see the GitHub wiki pages for command & permission help.
+    aliases: [nt, tool, tools, toolsplus]

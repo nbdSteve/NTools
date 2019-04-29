@@ -34,8 +34,7 @@ public class ToolsCmd implements CommandExecutor {
      */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (command.getName().equalsIgnoreCase("nt") || command.getName().equalsIgnoreCase("tools")
-                || command.getName().equalsIgnoreCase("toolsplus") || command.getName().equalsIgnoreCase("tool")) {
+        if (command.getName().equalsIgnoreCase("t+")) {
             if (args.length == 0) {
                 if (sender instanceof Player) {
                     if (sender.hasPermission("toolsplus.gui")) {
@@ -44,7 +43,7 @@ public class ToolsCmd implements CommandExecutor {
                         new PlayerMessage("no-permission", (Player) sender);
                     }
                 } else {
-                    ToolsPlus.LOGGER.info("[ToolsPlus] The purchase Gui can only be viewed by players.");
+                    ToolsPlus.LOGGER.info("[Tools+] The purchase Gui can only be viewed by players.");
                 }
             } else if (args.length == 1) {
                 if (args[0].equalsIgnoreCase("h") || args[0].equalsIgnoreCase("help")) {
@@ -66,7 +65,7 @@ public class ToolsCmd implements CommandExecutor {
                         new PlayerMessage("no-permission", (Player) sender);
                     }
                 } else {
-                    ToolsPlus.LOGGER.info("[ToolsPlus] Invalid command, check the GitHub wiki for command help.");
+                    ToolsPlus.LOGGER.info("[Tools+] Invalid command, check the GitHub wiki for command help.");
                 }
             }
         }

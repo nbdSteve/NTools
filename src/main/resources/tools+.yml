@@ -1,8 +1,8 @@
 # ToolsPlus - if you find any bugs please contact nbdSteve#0583 on Discord.
-version: 0.4.0
+version: 0.4.1
 
 # Enable this if you want to see debug timings for trench and tray tools
-enable-debug-messages: false
+enable-debug: false
 
 # How far the lightning will strike if the player right clicks air
 lightning-reach-distance: 3
