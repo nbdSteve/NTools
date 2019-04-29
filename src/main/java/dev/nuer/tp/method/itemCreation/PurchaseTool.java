@@ -25,12 +25,11 @@ public class PurchaseTool {
      * @param idFromConfig      Integer, the raw tool ID from the configuration files
      * @param player            Player, the player to give the new item to - can be null
      */
-    public PurchaseTool(double price, String material, String name, List<String> lore, String modeReplacement,
-                        String radiusReplacement, List<String> enchantments, String typeOfTool, int idFromConfig, Player player) {
+    public PurchaseTool(double price, String material, String name, List<String> lore, List<String> enchantments, String typeOfTool, int idFromConfig, Player player) {
         if (ToolsPlus.economy.getBalance(player) >= price) {
             player.closeInventory();
             ToolsPlus.economy.withdrawPlayer(player, price);
-            new CraftItem(material, name, lore, modeReplacement, radiusReplacement, enchantments, typeOfTool, idFromConfig, player);
+            new CraftItem(material, name, lore, enchantments, typeOfTool, idFromConfig, player);
             new PlayerMessage("purchase", player, "{price}", ToolsPlus.numberFormat.format(price));
         } else {
             new PlayerMessage("insufficient", player);
@@ -51,15 +50,15 @@ public class PurchaseTool {
      * @param typeOfTool          String, the type of tool being created
      * @param idFromConfig        Integer, the raw tool ID from the configuration files
      * @param player              Player, the player to give the new item to - can be null
-     * @param usePriceModifier    boolean, if the tool is using price modifiers
      */
-    public PurchaseTool(double price, String material, String name, List<String> lore, String modeReplacement,
-                        String modifierReplacement, List<String> enchantments, String typeOfTool,
-                        int idFromConfig, Player player, boolean usePriceModifier) {
+    public PurchaseTool(double price, String material, String name, List<String> lore, List<String> enchantments, String typeOfTool,
+                        int idFromConfig, Player player, String modePlaceholder, String modeReplacement, String modifierPlaceholder,
+                        String modifierReplacement, String usesPlaceholder, String usesReplacement) {
         if (ToolsPlus.economy.getBalance(player) >= price) {
             player.closeInventory();
             ToolsPlus.economy.withdrawPlayer(player, price);
-            new CraftItem(material, name, lore, modeReplacement, modifierReplacement, enchantments, typeOfTool, idFromConfig, player, usePriceModifier);
+            new CraftItem(material, name, lore, enchantments, typeOfTool, idFromConfig, player, modePlaceholder,
+                    modeReplacement, modifierPlaceholder, modifierReplacement, usesPlaceholder, usesReplacement);
             new PlayerMessage("purchase", player, "{price}", ToolsPlus.numberFormat.format(price));
         } else {
             new PlayerMessage("insufficient", player);

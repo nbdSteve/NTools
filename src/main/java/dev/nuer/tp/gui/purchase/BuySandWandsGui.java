@@ -26,7 +26,7 @@ public class BuySandWandsGui extends AbstractGui {
                 setItemInSlot((ToolsPlus.getFiles().get("sand_purchase_gui").getInt("sand-wand-purchase-gui." + configItem + ".slot")),
                         new CraftItem(ToolsPlus.getFiles().get("sand_purchase_gui").getString("sand-wand-purchase-gui." + configItem + ".material"),
                                 ToolsPlus.getFiles().get("sand_purchase_gui").getString("sand-wand-purchase-gui." + configItem + ".name"),
-                                ToolsPlus.getFiles().get("sand_purchase_gui").getStringList("sand-wand-purchase-gui." + configItem + ".lore"), null, null,
+                                ToolsPlus.getFiles().get("sand_purchase_gui").getStringList("sand-wand-purchase-gui." + configItem + ".lore"),
                                 ToolsPlus.getFiles().get("sand_purchase_gui").getStringList("sand-wand-purchase-gui." + configItem + ".enchantments"), "sand", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
@@ -35,8 +35,10 @@ public class BuySandWandsGui extends AbstractGui {
                                     new PurchaseTool(ToolsPlus.getFiles().get("sand_purchase_gui").getInt("sand-wand-purchase-gui." + configItem + ".price"),
                                             ToolsPlus.getFiles().get("sand_purchase_gui").getString("sand-wand-purchase-gui." + configItem + ".material"),
                                             ToolsPlus.getFiles().get("sand").getString("sand-wands." + configItem + ".name"),
-                                            ToolsPlus.getFiles().get("sand").getStringList("sand-wands." + configItem + ".lore"), null, null,
-                                            ToolsPlus.getFiles().get("sand").getStringList("sand-wands." + configItem + ".enchantments"), "sand", configItem, player);
+                                            ToolsPlus.getFiles().get("sand").getStringList("sand-wands." + configItem + ".lore"),
+                                            ToolsPlus.getFiles().get("sand").getStringList("sand-wands." + configItem + ".enchantments"), "sand", configItem, player,
+                                            "debug", "debug", "debug", "debug",
+                                            "{uses}", ToolsPlus.getFiles().get("sand").getString("sand-wands." + configItem + ".uses.starting"));
                                 }
                                 if (ToolsPlus.getFiles().get("sand_purchase_gui").getBoolean("sand-wand-purchase-gui." + configItem + ".back-button")) {
                                     ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);

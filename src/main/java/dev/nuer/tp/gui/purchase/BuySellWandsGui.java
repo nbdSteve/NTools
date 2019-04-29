@@ -27,7 +27,7 @@ public class BuySellWandsGui extends AbstractGui {
                 setItemInSlot(ToolsPlus.getFiles().get("sell_purchase_gui").getInt("sell-wand-purchase-gui." + configItem + ".slot"),
                         new CraftItem(ToolsPlus.getFiles().get("sell_purchase_gui").getString("sell-wand-purchase-gui." + configItem + ".material"),
                                 ToolsPlus.getFiles().get("sell_purchase_gui").getString("sell-wand-purchase-gui." + configItem + ".name"),
-                                ToolsPlus.getFiles().get("sell_purchase_gui").getStringList("sell-wand-purchase-gui." + configItem + ".lore"), null, null,
+                                ToolsPlus.getFiles().get("sell_purchase_gui").getStringList("sell-wand-purchase-gui." + configItem + ".lore"),
                                 ToolsPlus.getFiles().get("sell_purchase_gui").getStringList("sell-wand-purchase-gui." + configItem + ".enchantments"), "sell", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
@@ -37,8 +37,10 @@ public class BuySellWandsGui extends AbstractGui {
                                     new PurchaseTool(ToolsPlus.getFiles().get("sell_purchase_gui").getInt("sell-wand-purchase-gui." + configItem + ".price"),
                                             ToolsPlus.getFiles().get("sell_purchase_gui").getString("sell-wand-purchase-gui." + configItem + ".material"),
                                             ToolsPlus.getFiles().get("sell").getString("sell-wands." + configItem + ".name"),
-                                            ToolsPlus.getFiles().get("sell").getStringList("sell-wands." + configItem + ".lore"), "debug", modifierParts[0],
-                                            ToolsPlus.getFiles().get("sell").getStringList("sell-wands." + configItem + ".enchantments"), "sell", configItem, player, true);
+                                            ToolsPlus.getFiles().get("sell").getStringList("sell-wands." + configItem + ".lore"),
+                                            ToolsPlus.getFiles().get("sell").getStringList("sell-wands." + configItem + ".enchantments"), "sell", configItem, player,
+                                            "debug", "debug", "{modifier}", modifierParts[0],
+                                            "{uses}", ToolsPlus.getFiles().get("sell").getString("sell-wands." + configItem + ".uses.starting"));
                                 }
                                 if (ToolsPlus.getFiles().get("sell_purchase_gui").getBoolean("sell-wand-purchase-gui." + configItem + ".back-button")) {
                                     ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);

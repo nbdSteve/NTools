@@ -23,6 +23,50 @@ public class CraftItem {
     //Store the item lore
     private List<String> itemLore;
 
+    public CraftItem(String material, String name, List<String> lore, List<String> enchantments,
+                     String typeOfTool, int idFromConfig, Player player) {
+        item = createItem(material);
+        itemMeta = item.getItemMeta();
+        if (name != null) {
+            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
+        }
+        addLore(lore, "debug", "debug", "debug", "debug", "debug", "debug");
+        itemMeta.setLore(itemLore);
+        addEnchantments(enchantments);
+        item.setItemMeta(itemMeta);
+        if (player != null) {
+            if (typeOfTool.equalsIgnoreCase("trench") || typeOfTool.equalsIgnoreCase("tray") || typeOfTool.equalsIgnoreCase("multi")) {
+                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig,
+                        ToolsPlus.getFiles().get(typeOfTool).getBoolean(typeOfTool + "-tools." + idFromConfig + ".omni-tool")));
+            } else {
+                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig));
+            }
+        }
+    }
+
+    public CraftItem(String material, String name, List<String> lore, List<String> enchantments,
+                     String typeOfTool, int idFromConfig, Player player, String modePlaceholder,
+                     String modeReplacement, String modifierPlaceholder, String modifierReplacement,
+                     String usesPlaceholder, String usesReplacement) {
+        item = createItem(material);
+        itemMeta = item.getItemMeta();
+        if (name != null) {
+            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
+        }
+        addLore(lore, modePlaceholder, modeReplacement, modifierPlaceholder, modifierReplacement, usesPlaceholder, usesReplacement);
+        itemMeta.setLore(itemLore);
+        addEnchantments(enchantments);
+        item.setItemMeta(itemMeta);
+        if (player != null) {
+            if (typeOfTool.equalsIgnoreCase("trench") || typeOfTool.equalsIgnoreCase("tray") || typeOfTool.equalsIgnoreCase("multi")) {
+                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig,
+                        ToolsPlus.getFiles().get(typeOfTool).getBoolean(typeOfTool + "-tools." + idFromConfig + ".omni-tool")));
+            } else {
+                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig));
+            }
+        }
+    }
+
     /**
      * Constructor that will create a new ItemStack based off of the parameters
      *
@@ -36,25 +80,27 @@ public class CraftItem {
      * @param idFromConfig      Integer, the raw tool ID from the configuration files
      * @param player            Player, the player to give the new item to - can be null
      */
-    public CraftItem(String material, String name, List<String> lore, String modeReplacement,
-                     String radiusReplacement, List<String> enchantments, String typeOfTool, int idFromConfig, Player player) {
-        item = createItem(material);
-        itemMeta = item.getItemMeta();
-        if (name != null) {
-            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
-        }
-        addLore(lore, modeReplacement, radiusReplacement, false);
-        itemMeta.setLore(itemLore);
-        addEnchantments(enchantments);
-        item.setItemMeta(itemMeta);
-        if (player != null) {
-            if (typeOfTool.equalsIgnoreCase("trench") || typeOfTool.equalsIgnoreCase("tray") || typeOfTool.equalsIgnoreCase("multi")) {
-                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig, ToolsPlus.getFiles().get(typeOfTool).getBoolean(typeOfTool + "-tools." + idFromConfig + ".omni-tool")));
-            } else {
-                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig));
-            }
-        }
-    }
+//    public CraftItem(String material, String name, List<String> lore, String modeReplacement,
+//                     String radiusReplacement, List<String> enchantments, String typeOfTool,
+//                     int idFromConfig, Player player) {
+//        item = createItem(material);
+//        itemMeta = item.getItemMeta();
+//        if (name != null) {
+//            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
+//        }
+//        addLore(lore, modeReplacement, radiusReplacement, false);
+//        itemMeta.setLore(itemLore);
+//        addEnchantments(enchantments);
+//        item.setItemMeta(itemMeta);
+//        if (player != null) {
+//            if (typeOfTool.equalsIgnoreCase("trench") || typeOfTool.equalsIgnoreCase("tray") || typeOfTool.equalsIgnoreCase("multi")) {
+//                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig,
+//                        ToolsPlus.getFiles().get(typeOfTool).getBoolean(typeOfTool + "-tools." + idFromConfig + ".omni-tool")));
+//            } else {
+//                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig));
+//            }
+//        }
+//    }
 
     /**
      * Alternative Constructor, this is called for Sell Wands and Harvester Hoes because they use
@@ -71,22 +117,22 @@ public class CraftItem {
      * @param player              Player, the player to give the new item to - can be null
      * @param usePriceModifier    boolean, if the tool is using price modifiers
      */
-    public CraftItem(String material, String name, List<String> lore, String modeReplacement,
-                     String modifierReplacement, List<String> enchantments, String typeOfTool,
-                     int idFromConfig, Player player, boolean usePriceModifier) {
-        item = createItem(material);
-        itemMeta = item.getItemMeta();
-        if (name != null) {
-            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
-        }
-        addLore(lore, modeReplacement, modifierReplacement, usePriceModifier);
-        itemMeta.setLore(itemLore);
-        addEnchantments(enchantments);
-        item.setItemMeta(itemMeta);
-        if (player != null) {
-            player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig));
-        }
-    }
+//    public CraftItem(String material, String name, List<String> lore, String modeReplacement,
+//                     String modifierReplacement, List<String> enchantments, String typeOfTool,
+//                     int idFromConfig, Player player, boolean usePriceModifier) {
+//        item = createItem(material);
+//        itemMeta = item.getItemMeta();
+//        if (name != null) {
+//            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
+//        }
+//        addLore(lore, modeReplacement, modifierReplacement, usePriceModifier);
+//        itemMeta.setLore(itemLore);
+//        addEnchantments(enchantments);
+//        item.setItemMeta(itemMeta);
+//        if (player != null) {
+//            player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig));
+//        }
+//    }
 
     /**
      * Creates a new item of the given material
@@ -96,7 +142,8 @@ public class CraftItem {
      */
     private ItemStack createItem(String material) {
         String[] materialParts = material.split(":");
-        return new ItemStack(Material.valueOf(materialParts[0].toUpperCase()), 1, Byte.parseByte(materialParts[1]));
+        return new ItemStack(Material.valueOf(materialParts[0].toUpperCase()), 1,
+                Byte.parseByte(materialParts[1]));
     }
 
     /**
@@ -107,26 +154,42 @@ public class CraftItem {
      * @param radiusReplacement String, replacement for the {radius} placeholder
      * @param usePriceModifier  boolean, if the tool uses price modifiers
      */
-    private void addLore(List<String> loreToAdd, String modeReplacement, String radiusReplacement, boolean usePriceModifier) {
+//    private void addLore(List<String> loreToAdd, String modeReplacement, String radiusReplacement,
+//                         boolean usePriceModifier) {
+//        itemLore = new ArrayList<>();
+//        if (modeReplacement != null) {
+//            if (usePriceModifier) {
+//                for (String lineOfLore : loreToAdd) {
+//                    itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore)
+//                            .replace("{modifier}", ChatColor.translateAlternateColorCodes('&',
+//                                    radiusReplacement))
+//                            .replace("{mode}", ChatColor.translateAlternateColorCodes('&', modeReplacement)));
+//                }
+//            } else {
+//                for (String lineOfLore : loreToAdd) {
+//                    itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore)
+//                            .replace("{radius}", ChatColor.translateAlternateColorCodes('&',
+//                                    radiusReplacement))
+//                            .replace("{mode}", ChatColor.translateAlternateColorCodes('&', modeReplacement)));
+//                }
+//            }
+//        } else if (loreToAdd != null) {
+//            for (String lineOfLore : loreToAdd) {
+//                itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore));
+//            }
+//        }
+//    }
+
+    private void addLore(List<String> loreToAdd, String modePlaceholder, String modeReplacement,
+                         String modifierPlaceholder, String modifierReplacement, String usesPlaceholder,
+                         String usesReplacement) {
         itemLore = new ArrayList<>();
-        if (modeReplacement != null) {
-            if (usePriceModifier) {
-                for (String lineOfLore : loreToAdd) {
-                    itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore)
-                            .replace("{modifier}", ChatColor.translateAlternateColorCodes('&', radiusReplacement))
-                            .replace("{mode}", ChatColor.translateAlternateColorCodes('&', modeReplacement)));
-                }
-            } else {
-                for (String lineOfLore : loreToAdd) {
-                    itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore)
-                            .replace("{radius}", ChatColor.translateAlternateColorCodes('&', modeReplacement))
-                            .replace("{mode}", ChatColor.translateAlternateColorCodes('&', radiusReplacement)));
-                }
-            }
-        } else if (loreToAdd != null) {
-            for (String lineOfLore : loreToAdd) {
-                itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore));
-            }
+        for (String lineOfLore : loreToAdd) {
+            itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore)
+                    .replace(modePlaceholder, ChatColor.translateAlternateColorCodes('&', modeReplacement))
+                    .replace(modifierPlaceholder, ChatColor.translateAlternateColorCodes('&',
+                            modifierReplacement))
+                    .replace(usesPlaceholder, ChatColor.translateAlternateColorCodes('&', usesReplacement)));
         }
     }
 

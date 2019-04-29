@@ -32,7 +32,7 @@ public class MultiToolConfigurationGui extends AbstractGui {
                 setItemInSlot(ToolsPlus.getFiles().get("multi_config_gui").getInt("multi-tool-config-gui." + configItem + ".slot"),
                         new CraftItem(ToolsPlus.getFiles().get("multi_config_gui").getString("multi-tool-config-gui." + configItem + ".material"),
                                 ToolsPlus.getFiles().get("multi_config_gui").getString("multi-tool-config-gui." + configItem + ".name"),
-                                ToolsPlus.getFiles().get("multi_config_gui").getStringList("multi-tool-config-gui." + configItem + ".lore"), null, null,
+                                ToolsPlus.getFiles().get("multi_config_gui").getStringList("multi-tool-config-gui." + configItem + ".lore"),
                                 ToolsPlus.getFiles().get("multi_config_gui").getStringList("multi-tool-config-gui." + configItem + ".enchantments"), "multi", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config

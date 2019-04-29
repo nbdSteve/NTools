@@ -27,7 +27,7 @@ public class BuyTNTWandsGui extends AbstractGui {
                 setItemInSlot((ToolsPlus.getFiles().get("tnt_purchase_gui").getInt("tnt-wand-purchase-gui." + configItem + ".slot")),
                         new CraftItem(ToolsPlus.getFiles().get("tnt_purchase_gui").getString("tnt-wand-purchase-gui." + configItem + ".material"),
                                 ToolsPlus.getFiles().get("tnt_purchase_gui").getString("tnt-wand-purchase-gui." + configItem + ".name"),
-                                ToolsPlus.getFiles().get("tnt_purchase_gui").getStringList("tnt-wand-purchase-gui." + configItem + ".lore"), null, null,
+                                ToolsPlus.getFiles().get("tnt_purchase_gui").getStringList("tnt-wand-purchase-gui." + configItem + ".lore"),
                                 ToolsPlus.getFiles().get("tnt_purchase_gui").getStringList("tnt-wand-purchase-gui." + configItem + ".enchantments"), "tnt", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
@@ -38,8 +38,9 @@ public class BuyTNTWandsGui extends AbstractGui {
                                             ToolsPlus.getFiles().get("tnt_purchase_gui").getString("tnt-wand-purchase-gui." + configItem + ".material"),
                                             ToolsPlus.getFiles().get("tnt").getString("tnt-wands." + configItem + ".name"),
                                             ToolsPlus.getFiles().get("tnt").getStringList("tnt-wands." + configItem + ".lore"),
-                                            MapInitializer.tntWandModeUnique.get(configItem).get(1), modifierParts[0],
-                                            ToolsPlus.getFiles().get("tnt").getStringList("tnt-wands." + configItem + ".enchantments"), "tnt", configItem, player, true);
+                                            ToolsPlus.getFiles().get("tnt").getStringList("tnt-wands." + configItem + ".enchantments"), "tnt", configItem, player,
+                                            "{mode}", MapInitializer.tntWandModeUnique.get(configItem).get(1), "{modifier}", modifierParts[0],
+                                            "{uses}", ToolsPlus.getFiles().get("tnt").getString("tnt-wands." + configItem + ".uses.starting"));
                                 }
                                 if (ToolsPlus.getFiles().get("tnt_purchase_gui").getBoolean("tnt-wand-purchase-gui." + configItem + ".back-button")) {
                                     ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);

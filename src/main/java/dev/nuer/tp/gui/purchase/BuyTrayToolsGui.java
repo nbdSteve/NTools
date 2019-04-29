@@ -26,7 +26,7 @@ public class BuyTrayToolsGui extends AbstractGui {
                 setItemInSlot((ToolsPlus.getFiles().get("tray_purchase_gui").getInt("tray-tool-purchase-gui." + configItem + ".slot")),
                         new CraftItem(ToolsPlus.getFiles().get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".material"),
                                 ToolsPlus.getFiles().get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".name"),
-                                ToolsPlus.getFiles().get("tray_purchase_gui").getStringList("tray-tool-purchase-gui." + configItem + ".lore"), null, null,
+                                ToolsPlus.getFiles().get("tray_purchase_gui").getStringList("tray-tool-purchase-gui." + configItem + ".lore"),
                                 ToolsPlus.getFiles().get("tray_purchase_gui").getStringList("tray-tool-purchase-gui." + configItem + ".enchantments"), "tray", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
@@ -35,7 +35,7 @@ public class BuyTrayToolsGui extends AbstractGui {
                                     new PurchaseTool(ToolsPlus.getFiles().get("tray_purchase_gui").getInt("tray-tool-purchase-gui." + configItem + ".price"),
                                             ToolsPlus.getFiles().get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".material"),
                                             ToolsPlus.getFiles().get("tray").getString("tray-tools." + configItem + ".name"),
-                                            ToolsPlus.getFiles().get("tray").getStringList("tray-tools." + configItem + ".lore"), null, null,
+                                            ToolsPlus.getFiles().get("tray").getStringList("tray-tools." + configItem + ".lore"),
                                             ToolsPlus.getFiles().get("tray").getStringList("tray-tools." + configItem + ".enchantments"), "tray", configItem, player);
                                 }
                                 if (ToolsPlus.getFiles().get("tray_purchase_gui").getBoolean("tray-tool-purchase-gui." + configItem + ".back-button")) {

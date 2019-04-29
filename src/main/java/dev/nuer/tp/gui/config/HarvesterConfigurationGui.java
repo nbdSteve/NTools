@@ -32,7 +32,7 @@ public class HarvesterConfigurationGui extends AbstractGui {
                 setItemInSlot(ToolsPlus.getFiles().get("harvester_config_gui").getInt("harvester-tool-config-gui." + configItem + ".slot"),
                         new CraftItem(ToolsPlus.getFiles().get("harvester_config_gui").getString("harvester-tool-config-gui." + configItem + ".material"),
                                 ToolsPlus.getFiles().get("harvester_config_gui").getString("harvester-tool-config-gui." + configItem + ".name"),
-                                ToolsPlus.getFiles().get("harvester_config_gui").getStringList("harvester-tool-config-gui." + configItem + ".lore"), null, null,
+                                ToolsPlus.getFiles().get("harvester_config_gui").getStringList("harvester-tool-config-gui." + configItem + ".lore"),
                                 ToolsPlus.getFiles().get("harvester_config_gui").getStringList("harvester-tool-config-gui." + configItem + ".enchantments"), "harvester", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config

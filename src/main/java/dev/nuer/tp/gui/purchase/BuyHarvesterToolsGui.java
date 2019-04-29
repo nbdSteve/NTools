@@ -27,7 +27,7 @@ public class BuyHarvesterToolsGui extends AbstractGui {
                 setItemInSlot(ToolsPlus.getFiles().get("harvester_purchase_gui").getInt("harvester-tool-purchase-gui." + configItem + ".slot"),
                         new CraftItem(ToolsPlus.getFiles().get("harvester_purchase_gui").getString("harvester-tool-purchase-gui." + configItem + ".material"),
                                 ToolsPlus.getFiles().get("harvester_purchase_gui").getString("harvester-tool-purchase-gui." + configItem + ".name"),
-                                ToolsPlus.getFiles().get("harvester_purchase_gui").getStringList("harvester-tool-purchase-gui." + configItem + ".lore"), null, null,
+                                ToolsPlus.getFiles().get("harvester_purchase_gui").getStringList("harvester-tool-purchase-gui." + configItem + ".lore"),
                                 ToolsPlus.getFiles().get("harvester_purchase_gui").getStringList("harvester-tool-purchase-gui." + configItem + ".enchantments"), "harvester", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
@@ -38,8 +38,9 @@ public class BuyHarvesterToolsGui extends AbstractGui {
                                             ToolsPlus.getFiles().get("harvester_purchase_gui").getString("harvester-tool-purchase-gui." + configItem + ".material"),
                                             ToolsPlus.getFiles().get("harvester").getString("harvester-tools." + configItem + ".name"),
                                             ToolsPlus.getFiles().get("harvester").getStringList("harvester-tools." + configItem + ".lore"),
-                                            MapInitializer.harvesterModeUnique.get(configItem).get(1), modifierParts[0],
-                                            ToolsPlus.getFiles().get("harvester").getStringList("harvester-tools." + configItem + ".enchantments"), "harvester", configItem, player, true);
+                                            ToolsPlus.getFiles().get("harvester").getStringList("harvester-tools." + configItem + ".enchantments"), "harvester", configItem, player,
+                                            "{mode}", MapInitializer.harvesterModeUnique.get(configItem).get(1),
+                                            "{modifier}", modifierParts[0], "debug", "debug");
                                 }
                                 if (ToolsPlus.getFiles().get("harvester_purchase_gui").getBoolean("harvester-tool-purchase-gui." + configItem + ".back-button")) {
                                     ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);

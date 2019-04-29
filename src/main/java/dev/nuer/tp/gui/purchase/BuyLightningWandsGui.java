@@ -26,7 +26,7 @@ public class BuyLightningWandsGui extends AbstractGui {
                 setItemInSlot(ToolsPlus.getFiles().get("lightning_purchase_gui").getInt("lightning-wand-purchase-gui." + configItem + ".slot"),
                         new CraftItem(ToolsPlus.getFiles().get("lightning_purchase_gui").getString("lightning-wand-purchase-gui." + configItem + ".material"),
                                 ToolsPlus.getFiles().get("lightning_purchase_gui").getString("lightning-wand-purchase-gui." + configItem + ".name"),
-                                ToolsPlus.getFiles().get("lightning_purchase_gui").getStringList("lightning-wand-purchase-gui." + configItem + ".lore"), null, null,
+                                ToolsPlus.getFiles().get("lightning_purchase_gui").getStringList("lightning-wand-purchase-gui." + configItem + ".lore"),
                                 ToolsPlus.getFiles().get("lightning_purchase_gui").getStringList("lightning-wand-purchase-gui." + configItem + ".enchantments"), "lightning", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
@@ -35,8 +35,10 @@ public class BuyLightningWandsGui extends AbstractGui {
                                     new PurchaseTool(ToolsPlus.getFiles().get("lightning_purchase_gui").getInt("lightning-wand-purchase-gui." + configItem + ".price"),
                                             ToolsPlus.getFiles().get("lightning_purchase_gui").getString("lightning-wand-purchase-gui." + configItem + ".material"),
                                             ToolsPlus.getFiles().get("lightning").getString("lightning-wands." + configItem + ".name"),
-                                            ToolsPlus.getFiles().get("lightning").getStringList("lightning-wands." + configItem + ".lore"), null, null,
-                                            ToolsPlus.getFiles().get("lightning").getStringList("lightning-wands." + configItem + ".enchantments"), "lightning", configItem, player);
+                                            ToolsPlus.getFiles().get("lightning").getStringList("lightning-wands." + configItem + ".lore"),
+                                            ToolsPlus.getFiles().get("lightning").getStringList("lightning-wands." + configItem + ".enchantments"),
+                                            "lightning", configItem, player, "debug", "debug", "debug", "debug",
+                                            "{uses}", ToolsPlus.getFiles().get("lightning").getString("lightning-wands." + configItem + ".uses.starting"));
                                 }
                                 if (ToolsPlus.getFiles().get("lightning_purchase_gui").getBoolean("lightning-wand-purchase-gui." + configItem + ".back-button")) {
                                     ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);

@@ -27,7 +27,7 @@ public class BuyMultiToolsGui extends AbstractGui {
                 setItemInSlot((ToolsPlus.getFiles().get("multi_purchase_gui").getInt("multi-tool-purchase-gui." + configItem + ".slot")),
                         new CraftItem(ToolsPlus.getFiles().get("multi_purchase_gui").getString("multi-tool-purchase-gui." + configItem + ".material"),
                                 ToolsPlus.getFiles().get("multi_purchase_gui").getString("multi-tool-purchase-gui." + configItem + ".name"),
-                                ToolsPlus.getFiles().get("multi_purchase_gui").getStringList("multi-tool-purchase-gui." + configItem + ".lore"), null, null,
+                                ToolsPlus.getFiles().get("multi_purchase_gui").getStringList("multi-tool-purchase-gui." + configItem + ".lore"),
                                 ToolsPlus.getFiles().get("multi_purchase_gui").getStringList("multi-tool-purchase-gui." + configItem + ".enchantments"), "multi", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
@@ -37,9 +37,10 @@ public class BuyMultiToolsGui extends AbstractGui {
                                             ToolsPlus.getFiles().get("multi_purchase_gui").getString("multi-tool-purchase-gui." + configItem + ".material"),
                                             ToolsPlus.getFiles().get("multi").getString("multi-tools." + configItem + ".name"),
                                             ToolsPlus.getFiles().get("multi").getStringList("multi-tools." + configItem + ".lore"),
+                                            ToolsPlus.getFiles().get("multi").getStringList("multi-tools." + configItem + ".enchantments"), "multi", configItem, player,
+                                            "{mode}", MapInitializer.multiToolModeUnique.get(configItem).get(1), "{radius",
                                             MapInitializer.multiToolRadiusUnique.get(configItem).get(ToolsPlus.getFiles().get("multi").getInt("multi-tools." + configItem + ".radius.starting")),
-                                            MapInitializer.multiToolModeUnique.get(configItem).get(1),
-                                            ToolsPlus.getFiles().get("multi").getStringList("multi-tools." + configItem + ".enchantments"), "multi", configItem, player);
+                                            "debug", "debug");
                                 }
                                 if (ToolsPlus.getFiles().get("multi_purchase_gui").getBoolean("multi-tool-purchase-gui." + configItem + ".back-button")) {
                                     ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);
