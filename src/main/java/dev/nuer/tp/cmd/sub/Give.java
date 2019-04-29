@@ -8,6 +8,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * Class that handles the give argument of the main command
  */
@@ -34,13 +38,15 @@ public class Give {
                 }
                 int toolStartingModifier = 1;
                 if (args.length == 6) {
-                    toolStartingModifier = Integer.parseInt(args[5]);
+                    toolStartingModifier = verifyStartingModifier((Player) sender, args[5], args[2]);
                 }
                 String startingUses = null;
                 try {
                     startingUses = ToolsPlus.getFiles().get(args[2]).getString(args[2] +  "-wands." + args[4] + ".uses.starting");
                     if (args.length == 6) {
                         startingUses = args[5];
+                    } else if (args.length == 7) {
+                        startingUses = args[6];
                     }
                 } catch (NullPointerException e) {
                     //Not a wand just disregard
@@ -122,5 +128,26 @@ public class Give {
                 new PlayerMessage("no-permission", (Player) sender);
             }
         }
+    }
+
+    public static int verifyStartingModifier(Player player, String startingModifier, String typeOfTool) {
+        int modifier = 1;
+        try {
+            modifier = Integer.parseInt(startingModifier);
+        } catch (NumberFormatException e) {
+            return modifier;
+        }
+        if (modifier < 1 || modifier > getMap(typeOfTool).values().size()) {
+            new PlayerMessage("invalid-command", player, "{reason}", "That modifier is not defined for that tool");
+        }
+        return modifier;
+    }
+
+    public static HashMap<Integer, ArrayList<String>> getMap(String typeOfTool) {
+        if (typeOfTool.equalsIgnoreCase("multi")) return MapInitializer.multiToolRadiusUnique;
+        if (typeOfTool.equalsIgnoreCase("harvester")) return MapInitializer.harvesterModifierUnique;
+        if (typeOfTool.equalsIgnoreCase("sell")) return MapInitializer.sellWandModifierUnique;
+        if (typeOfTool.equalsIgnoreCase("tnt")) return MapInitializer.tntWandModifierUnique;
+        return null;
     }
 }
