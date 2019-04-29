@@ -39,7 +39,7 @@ public class CraftItem {
                 player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig,
                         ToolsPlus.getFiles().get(typeOfTool).getBoolean(typeOfTool + "-tools." + idFromConfig + ".omni-tool")));
             } else {
-                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig));
+                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig, 0));
             }
         }
     }
@@ -62,7 +62,13 @@ public class CraftItem {
                 player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig,
                         ToolsPlus.getFiles().get(typeOfTool).getBoolean(typeOfTool + "-tools." + idFromConfig + ".omni-tool")));
             } else {
-                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig));
+                int uses;
+                try {
+                    uses = Integer.parseInt(usesReplacement);
+                } catch (NumberFormatException e) {
+                    uses = -1;
+                }
+                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig, uses));
             }
         }
     }

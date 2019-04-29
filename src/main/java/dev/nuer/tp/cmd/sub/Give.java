@@ -36,11 +36,11 @@ public class Give {
                 if (args.length == 6) {
                     toolStartingModifier = Integer.parseInt(args[5]);
                 }
-                String startingUses;
+                String startingUses = null;
                 try {
                     startingUses = ToolsPlus.getFiles().get(args[2]).getString(args[2] +  "-wands." + args[4] + ".uses.starting");
                     if (args.length == 6) {
-                        startingUses = args[6];
+                        startingUses = args[5];
                     }
                 } catch (NullPointerException e) {
                     //Not a wand just disregard
@@ -73,13 +73,14 @@ public class Give {
                             ToolsPlus.getFiles().get("sand").getStringList("sand-wands." + args[4] + ".lore"),
                             ToolsPlus.getFiles().get("sand").getStringList("sand-wands." + args[4] + ".enchantments"),
                             "sand", Integer.parseInt(args[4]), target, "debug", "debug",
-                            "debug", "debug", "{uses}", args[5]);
+                            "debug", "debug", "{uses}", startingUses);
                 }
                 if (args[2].equalsIgnoreCase("lightning")) {
                     new CraftItem(args[3], ToolsPlus.getFiles().get("lightning").getString("lightning-wands" + "." + args[4] + ".name"),
                             ToolsPlus.getFiles().get("lightning").getStringList("lightning-wands." + args[4] + ".lore"),
                             ToolsPlus.getFiles().get("lightning").getStringList("lightning-wands." + args[4] + ".enchantments"),
-                            "lightning", Integer.parseInt(args[4]), target);
+                            "lightning", Integer.parseInt(args[4]), target, "debug", "debug", "debug", "debug",
+                            "{uses}", startingUses);
                 }
                 if (args[2].equalsIgnoreCase("harvester")) {
                     String[] modifierParts = MapInitializer.harvesterModifierUnique.get(Integer.parseInt(args[4])).get(ToolsPlus.getFiles().get("harvester").getInt("harvester-tools." + args[4] + ".modifier.starting")).split("-");
@@ -95,7 +96,7 @@ public class Give {
                             ToolsPlus.getFiles().get("sell").getStringList("sell-wands." + args[4] + ".lore"),
                             ToolsPlus.getFiles().get("sell").getStringList("sell-wands." + args[4] + ".enchantments"),
                             "sell", Integer.parseInt(args[4]), target, "debug", "debug",
-                            "{modifier}", modifierParts[(toolStartingModifier - 1)], "{uses}", args[5]);
+                            "{modifier}", modifierParts[(toolStartingModifier - 1)], "{uses}", startingUses);
                 }
                 if (args[2].equalsIgnoreCase("tnt")) {
                     String[] modifierParts =
@@ -105,7 +106,7 @@ public class Give {
                             ToolsPlus.getFiles().get("tnt").getStringList("tnt-wands." + args[4] + ".lore"),
                             ToolsPlus.getFiles().get("tnt").getStringList("tnt-wands." + args[4] + ".enchantments"),
                             "tnt", Integer.parseInt(args[4]), target, "{mode}", MapInitializer.tntWandModeUnique.get(Integer.parseInt(args[4])).get(1),
-                            "{modifier}", modifierParts[(toolStartingModifier - 1)], "{uses}", args[5]);
+                            "{modifier}", modifierParts[(toolStartingModifier - 1)], "{uses}", startingUses);
                 }
             } catch (Exception invalidCommandParameters) {
                 if (sender instanceof Player) {

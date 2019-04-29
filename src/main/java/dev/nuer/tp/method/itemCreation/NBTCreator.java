@@ -17,11 +17,11 @@ public class NBTCreator {
      * @param idFromConfig Integer, the raw ID from the configuration files
      * @return
      */
-    public static ItemStack addToolData(ItemStack item, String typeOfTool, int idFromConfig) {
+    public static ItemStack addToolData(ItemStack item, String typeOfTool, int idFromConfig, int startingUses) {
         NBTItem nbtItem = new NBTItem(item);
         nbtItem.setBoolean("ntool." + typeOfTool, true);
         nbtItem.setInteger("ntool.raw.id", idFromConfig);
-        nbtItem.setInteger("ntool.uses", ToolsPlus.getFiles().get(typeOfTool).getInt(typeOfTool + "-wands." + idFromConfig + ".uses.starting"));
+        nbtItem.setInteger("ntool.uses", startingUses);
         return nbtItem.getItem();
     }
 
