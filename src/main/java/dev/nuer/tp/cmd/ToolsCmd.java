@@ -52,7 +52,7 @@ public class ToolsCmd implements CommandExecutor {
                 if (args[0].equalsIgnoreCase("r") || args[0].equalsIgnoreCase("reload")) {
                     Reload.onCmd(sender);
                 }
-            } else if (args.length == 5 || args.length == 6) {
+            } else if (args.length == 5 || args.length == 6 || args.length == 7) {
                 if (args[0].equalsIgnoreCase("g") || args[0].equalsIgnoreCase("give")) {
                     Give.onCmd(sender, args);
                 }

@@ -23,6 +23,17 @@ public class CraftItem {
     //Store the item lore
     private List<String> itemLore;
 
+    /**
+     * Create a new item with the desired parameters
+     *
+     * @param material     String, the item material
+     * @param name         String, the items display name
+     * @param lore         List<String>, list of strings to add as the items lore
+     * @param enchantments List<String>, list of enchantments to add to the item
+     * @param typeOfTool   String, the type of tool being created
+     * @param idFromConfig Integer, the raw tool ID from the configuration files
+     * @param player       Player, the player to give the new item to - can be null
+     */
     public CraftItem(String material, String name, List<String> lore, List<String> enchantments,
                      String typeOfTool, int idFromConfig, Player player) {
         item = createItem(material);
@@ -44,6 +55,24 @@ public class CraftItem {
         }
     }
 
+    /**
+     * Create a new item with the desired placeholders to fill in the items lore.
+     * If the item is not using one, set it to "debug"
+     *
+     * @param material            String, the item material
+     * @param name                String, the items display name
+     * @param lore                List<String>, list of strings to add as the items lore
+     * @param enchantments        List<String>, list of enchantments to add to the item
+     * @param typeOfTool          String, the type of tool being created
+     * @param idFromConfig        Integer, the raw tool ID from the configuration files
+     * @param player              Player, the player to give the new item to - can be null
+     * @param modePlaceholder     String, placeholder for the tools mode
+     * @param modeReplacement     String, replacement for the mode placeholder
+     * @param modifierPlaceholder String, placeholder for the tools modifier
+     * @param modifierReplacement String, replacement for the modifier placeholder
+     * @param usesPlaceholder     String, placeholder for the tools uses
+     * @param usesReplacement     String, replacement for the uses placeholder
+     */
     public CraftItem(String material, String name, List<String> lore, List<String> enchantments,
                      String typeOfTool, int idFromConfig, Player player, String modePlaceholder,
                      String modeReplacement, String modifierPlaceholder, String modifierReplacement,
@@ -74,73 +103,6 @@ public class CraftItem {
     }
 
     /**
-     * Constructor that will create a new ItemStack based off of the parameters
-     *
-     * @param material          String, the item material
-     * @param name              String, the items display name
-     * @param lore              List<String>, list of strings to add as the items lore
-     * @param modeReplacement   String, replacement for {mode} placeholder, can be null
-     * @param radiusReplacement String, replacement for {radius} placeholder, can be null
-     * @param enchantments      List<String>, list of enchantments to add to the item
-     * @param typeOfTool        String, the type of tool being created
-     * @param idFromConfig      Integer, the raw tool ID from the configuration files
-     * @param player            Player, the player to give the new item to - can be null
-     */
-//    public CraftItem(String material, String name, List<String> lore, String modeReplacement,
-//                     String radiusReplacement, List<String> enchantments, String typeOfTool,
-//                     int idFromConfig, Player player) {
-//        item = createItem(material);
-//        itemMeta = item.getItemMeta();
-//        if (name != null) {
-//            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
-//        }
-//        addLore(lore, modeReplacement, radiusReplacement, false);
-//        itemMeta.setLore(itemLore);
-//        addEnchantments(enchantments);
-//        item.setItemMeta(itemMeta);
-//        if (player != null) {
-//            if (typeOfTool.equalsIgnoreCase("trench") || typeOfTool.equalsIgnoreCase("tray") || typeOfTool.equalsIgnoreCase("multi")) {
-//                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig,
-//                        ToolsPlus.getFiles().get(typeOfTool).getBoolean(typeOfTool + "-tools." + idFromConfig + ".omni-tool")));
-//            } else {
-//                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig));
-//            }
-//        }
-//    }
-
-    /**
-     * Alternative Constructor, this is called for Sell Wands and Harvester Hoes because they use
-     * price modifiers and the placeholder is different.
-     *
-     * @param material            String, the item material
-     * @param name                String, the items display name
-     * @param lore                List<String>, list of strings to add as the items lore
-     * @param modeReplacement     String, replacement for {mode} placeholder, can be null
-     * @param modifierReplacement String, replacement for {modifier} placeholder, can be null
-     * @param enchantments        List<String>, list of enchantments to add to the item
-     * @param typeOfTool          String, the type of tool being created
-     * @param idFromConfig        Integer, the raw tool ID from the configuration files
-     * @param player              Player, the player to give the new item to - can be null
-     * @param usePriceModifier    boolean, if the tool is using price modifiers
-     */
-//    public CraftItem(String material, String name, List<String> lore, String modeReplacement,
-//                     String modifierReplacement, List<String> enchantments, String typeOfTool,
-//                     int idFromConfig, Player player, boolean usePriceModifier) {
-//        item = createItem(material);
-//        itemMeta = item.getItemMeta();
-//        if (name != null) {
-//            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
-//        }
-//        addLore(lore, modeReplacement, modifierReplacement, usePriceModifier);
-//        itemMeta.setLore(itemLore);
-//        addEnchantments(enchantments);
-//        item.setItemMeta(itemMeta);
-//        if (player != null) {
-//            player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig));
-//        }
-//    }
-
-    /**
      * Creates a new item of the given material
      *
      * @param material String, material name and damage value
@@ -153,39 +115,16 @@ public class CraftItem {
     }
 
     /**
-     * Adds the given lore to an item
+     * Adds the desired lore to an item, replacing the appropriate placeholders
      *
-     * @param loreToAdd         List<String>, the lines of lore to add
-     * @param modeReplacement   String, replacement for the {mode} placeholder
-     * @param radiusReplacement String, replacement for the {radius} placeholder
-     * @param usePriceModifier  boolean, if the tool uses price modifiers
+     * @param loreToAdd           List<String>, the lore to add
+     * @param modePlaceholder     String, placeholder for the tools mode
+     * @param modeReplacement     String, replacement for the mode placeholder
+     * @param modifierPlaceholder String, placeholder for the tools modifier
+     * @param modifierReplacement String, replacement for the modifier placeholder
+     * @param usesPlaceholder     String, placeholder for the tools uses
+     * @param usesReplacement     String, replacement for the uses placeholder
      */
-//    private void addLore(List<String> loreToAdd, String modeReplacement, String radiusReplacement,
-//                         boolean usePriceModifier) {
-//        itemLore = new ArrayList<>();
-//        if (modeReplacement != null) {
-//            if (usePriceModifier) {
-//                for (String lineOfLore : loreToAdd) {
-//                    itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore)
-//                            .replace("{modifier}", ChatColor.translateAlternateColorCodes('&',
-//                                    radiusReplacement))
-//                            .replace("{mode}", ChatColor.translateAlternateColorCodes('&', modeReplacement)));
-//                }
-//            } else {
-//                for (String lineOfLore : loreToAdd) {
-//                    itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore)
-//                            .replace("{radius}", ChatColor.translateAlternateColorCodes('&',
-//                                    radiusReplacement))
-//                            .replace("{mode}", ChatColor.translateAlternateColorCodes('&', modeReplacement)));
-//                }
-//            }
-//        } else if (loreToAdd != null) {
-//            for (String lineOfLore : loreToAdd) {
-//                itemLore.add(ChatColor.translateAlternateColorCodes('&', lineOfLore));
-//            }
-//        }
-//    }
-
     private void addLore(List<String> loreToAdd, String modePlaceholder, String modeReplacement,
                          String modifierPlaceholder, String modifierReplacement, String usesPlaceholder,
                          String usesReplacement) {

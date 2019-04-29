@@ -8,7 +8,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -36,16 +35,20 @@ public class Give {
                     }
                     return;
                 }
+                //Create the starting modifier for the tool
                 int toolStartingModifier = 1;
-                if (args.length == 6) {
-                    toolStartingModifier = verifyStartingModifier((Player) sender, args[5], args[2]);
+                if ((args.length == 6 || args.length == 7) &&
+                        (args[2].equalsIgnoreCase("multi") || args[2].equalsIgnoreCase("sell")
+                                || args[2].equalsIgnoreCase("harvester") || args[2].equalsIgnoreCase("tnt"))) {
+                    toolStartingModifier = verifyStartingModifier(sender, args[5], args[2], Integer.parseInt(args[4]));
                 }
+                //Get the starting uses from the configuration, or reset for command
                 String startingUses = null;
                 try {
-                    startingUses = ToolsPlus.getFiles().get(args[2]).getString(args[2] +  "-wands." + args[4] + ".uses.starting");
-                    if (args.length == 6) {
+                    startingUses = ToolsPlus.getFiles().get(args[2]).getString(args[2] + "-wands." + args[4] + ".uses.starting");
+                    if (args.length == 6 && (args[2].equalsIgnoreCase("lightning") || args[2].equalsIgnoreCase("sand"))) {
                         startingUses = args[5];
-                    } else if (args.length == 7) {
+                    } else if (args.length == 7 && (args[2].equalsIgnoreCase("sell") || args[2].equalsIgnoreCase("tnt"))) {
                         startingUses = args[6];
                     }
                 } catch (NullPointerException e) {
@@ -89,30 +92,30 @@ public class Give {
                             "{uses}", startingUses);
                 }
                 if (args[2].equalsIgnoreCase("harvester")) {
-                    String[] modifierParts = MapInitializer.harvesterModifierUnique.get(Integer.parseInt(args[4])).get(ToolsPlus.getFiles().get("harvester").getInt("harvester-tools." + args[4] + ".modifier.starting")).split("-");
+                    String[] modifierParts = MapInitializer.harvesterModifierUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier).split("-");
                     new CraftItem(args[3], ToolsPlus.getFiles().get("harvester").getString("harvester-tools" + "." + args[4] + ".name"),
                             ToolsPlus.getFiles().get("harvester").getStringList("harvester-tools." + args[4] + ".lore"),
                             ToolsPlus.getFiles().get("harvester").getStringList("harvester-tools." + args[4] + ".enchantments"), "harvester",
-                            Integer.parseInt(args[4]), target, "{mode}", MapInitializer.harvesterModeUnique.get(Integer.parseInt(args[4])).get(1), "{modifier}", modifierParts[(toolStartingModifier - 1)], "debug", "debug");
+                            Integer.parseInt(args[4]), target, "{mode}", MapInitializer.harvesterModeUnique.get(Integer.parseInt(args[4])).get(1), "{modifier}", modifierParts[0], "debug", "debug");
                 }
                 if (args[2].equalsIgnoreCase("sell")) {
-                    String[] modifierParts = MapInitializer.sellWandModifierUnique.get(Integer.parseInt(args[4])).get(ToolsPlus.getFiles().get("sell").getInt("sell-wands." + args[4] + ".modifier.starting")).split("-");
+                    String[] modifierParts = MapInitializer.sellWandModifierUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier).split("-");
                     new CraftItem(args[3],
                             ToolsPlus.getFiles().get("sell").getString("sell-wands." + args[4] + ".name"),
                             ToolsPlus.getFiles().get("sell").getStringList("sell-wands." + args[4] + ".lore"),
                             ToolsPlus.getFiles().get("sell").getStringList("sell-wands." + args[4] + ".enchantments"),
                             "sell", Integer.parseInt(args[4]), target, "debug", "debug",
-                            "{modifier}", modifierParts[(toolStartingModifier - 1)], "{uses}", startingUses);
+                            "{modifier}", modifierParts[0], "{uses}", startingUses);
                 }
                 if (args[2].equalsIgnoreCase("tnt")) {
                     String[] modifierParts =
-                            MapInitializer.tntWandModifierUnique.get(Integer.parseInt(args[4])).get(ToolsPlus.getFiles().get("tnt").getInt("tnt-wands." + args[4] + ".modifier.starting")).split("-");
+                            MapInitializer.tntWandModifierUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier).split("-");
                     new CraftItem(args[3],
                             ToolsPlus.getFiles().get("tnt").getString("tnt-wands." + args[4] + ".name"),
                             ToolsPlus.getFiles().get("tnt").getStringList("tnt-wands." + args[4] + ".lore"),
                             ToolsPlus.getFiles().get("tnt").getStringList("tnt-wands." + args[4] + ".enchantments"),
                             "tnt", Integer.parseInt(args[4]), target, "{mode}", MapInitializer.tntWandModeUnique.get(Integer.parseInt(args[4])).get(1),
-                            "{modifier}", modifierParts[(toolStartingModifier - 1)], "{uses}", startingUses);
+                            "{modifier}", modifierParts[0], "{uses}", startingUses);
                 }
             } catch (Exception invalidCommandParameters) {
                 if (sender instanceof Player) {
@@ -130,19 +133,39 @@ public class Give {
         }
     }
 
-    public static int verifyStartingModifier(Player player, String startingModifier, String typeOfTool) {
+    /**
+     * Checks that the modifier the player is trying to apply is valid
+     *
+     * @param sender           CommandSender, person sending the command
+     * @param startingModifier String, the modifier to set
+     * @param typeOfTool       String, the type of tool; sell, multi etc.
+     * @param toolID           Integer, the id from config
+     * @return
+     */
+    public static int verifyStartingModifier(CommandSender sender, String startingModifier, String typeOfTool, int toolID) {
         int modifier = 1;
         try {
             modifier = Integer.parseInt(startingModifier);
         } catch (NumberFormatException e) {
             return modifier;
         }
-        if (modifier < 1 || modifier > getMap(typeOfTool).values().size()) {
-            new PlayerMessage("invalid-command", player, "{reason}", "That modifier is not defined for that tool");
+        if (modifier < 1 || modifier > getMap(typeOfTool).get(toolID).size() - 3) {
+            if (sender instanceof Player) {
+                new PlayerMessage("invalid-command", (Player) sender, "{reason}", "The modifier: " + startingModifier + ", is not defined for that tool");
+            } else {
+                ToolsPlus.LOGGER.severe("[Tools+] The modifier you entered: " + startingModifier + ", is not defined for that tool.");
+            }
+            return 1;
         }
         return modifier;
     }
 
+    /**
+     * Returns the modifier map for that tool
+     *
+     * @param typeOfTool String, the type of tool; sell, multi etc.
+     * @return HashMap<Integer, ArrayList < String>>
+     */
     public static HashMap<Integer, ArrayList<String>> getMap(String typeOfTool) {
         if (typeOfTool.equalsIgnoreCase("multi")) return MapInitializer.multiToolRadiusUnique;
         if (typeOfTool.equalsIgnoreCase("harvester")) return MapInitializer.harvesterModifierUnique;

@@ -38,7 +38,7 @@ public class BuyMultiToolsGui extends AbstractGui {
                                             ToolsPlus.getFiles().get("multi").getString("multi-tools." + configItem + ".name"),
                                             ToolsPlus.getFiles().get("multi").getStringList("multi-tools." + configItem + ".lore"),
                                             ToolsPlus.getFiles().get("multi").getStringList("multi-tools." + configItem + ".enchantments"), "multi", configItem, player,
-                                            "{mode}", MapInitializer.multiToolModeUnique.get(configItem).get(1), "{radius",
+                                            "{mode}", MapInitializer.multiToolModeUnique.get(configItem).get(1), "{radius}",
                                             MapInitializer.multiToolRadiusUnique.get(configItem).get(ToolsPlus.getFiles().get("multi").getInt("multi-tools." + configItem + ".radius.starting")),
                                             "debug", "debug");
                                 }

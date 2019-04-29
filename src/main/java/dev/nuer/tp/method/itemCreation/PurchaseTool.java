@@ -14,16 +14,14 @@ public class PurchaseTool {
     /**
      * Constructor to add an item to a player inventory and remove the price from their account
      *
-     * @param price             Double, the price of the tool being bought
-     * @param material          String, the item material
-     * @param name              String, the items display name
-     * @param lore              List<String>, list of strings to add as the items lore
-     * @param modeReplacement   String, replacement for {mode} placeholder, can be null
-     * @param radiusReplacement String, replacement for {radius} placeholder, can be null
-     * @param enchantments      List<String>, list of enchantments to add to the item
-     * @param typeOfTool        String, the type of tool being created
-     * @param idFromConfig      Integer, the raw tool ID from the configuration files
-     * @param player            Player, the player to give the new item to - can be null
+     * @param price        Double, the price of the tool being bought
+     * @param material     String, the item material
+     * @param name         String, the items display name
+     * @param lore         List<String>, list of strings to add as the items lore
+     * @param enchantments List<String>, list of enchantments to add to the item
+     * @param typeOfTool   String, the type of tool being created
+     * @param idFromConfig Integer, the raw tool ID from the configuration files
+     * @param player       Player, the player to give the new item to - can be null
      */
     public PurchaseTool(double price, String material, String name, List<String> lore, List<String> enchantments, String typeOfTool, int idFromConfig, Player player) {
         if (ToolsPlus.economy.getBalance(player) >= price) {
@@ -44,12 +42,16 @@ public class PurchaseTool {
      * @param material            String, the item material
      * @param name                String, the items display name
      * @param lore                List<String>, list of strings to add as the items lore
-     * @param modeReplacement     String, replacement for {mode} placeholder, can be null
-     * @param modifierReplacement String, replacement for {modifier} placeholder, can be null
      * @param enchantments        List<String>, list of enchantments to add to the item
      * @param typeOfTool          String, the type of tool being created
      * @param idFromConfig        Integer, the raw tool ID from the configuration files
      * @param player              Player, the player to give the new item to - can be null
+     * @param modePlaceholder     String, placeholder for the tools mode
+     * @param modeReplacement     String, replacement for the mode placeholder
+     * @param modifierPlaceholder String, placeholder for the tools modifier
+     * @param modifierReplacement String, replacement for the modifier placeholder
+     * @param usesPlaceholder     String, placeholder for the tools uses
+     * @param usesReplacement     String, replacement for the uses placeholder
      */
     public PurchaseTool(double price, String material, String name, List<String> lore, List<String> enchantments, String typeOfTool,
                         int idFromConfig, Player player, String modePlaceholder, String modeReplacement, String modifierPlaceholder,

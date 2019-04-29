@@ -63,7 +63,7 @@ public class BankContentsOfChest {
         int slot = 0;
         HashMap<Material, Integer> materialAndAmount = new HashMap<>();
         for (ItemStack item : chestToAlter.getInventory()) {
-            if (!item.hasItemMeta() && item != null && item.getType().equals(Material.TNT)) {
+            if (item != null && !item.hasItemMeta() && item.getType().equals(Material.TNT)) {
                 try {
                     int currentAmount = materialAndAmount.get(item.getType());
                     materialAndAmount.put(item.getType(), item.getAmount() + currentAmount);

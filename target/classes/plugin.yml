@@ -8,4 +8,4 @@ commands:
   t+:
     usage: /<command>
     description: Base command for Tools+, please see the GitHub wiki pages for command & permission help.
-    aliases: [nt, tool, tools, toolsplus]
+    aliases: [nt, tool, tool+, tools, tools+, toolsplus]
