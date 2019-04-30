@@ -7,8 +7,7 @@ import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.itemCreation.CraftItem;
 import dev.nuer.tp.method.player.PlayerMessage;
 import dev.nuer.tp.tools.ChangeMode;
-import dev.nuer.tp.tools.PriceModifier;
-import org.bukkit.ChatColor;
+import dev.nuer.tp.tools.AlterToolModifier;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -38,14 +37,14 @@ public class HarvesterConfigurationGui extends AbstractGui {
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
-                                ItemStack item = player.getInventory().getItemInHand();
+                                ItemStack item = player.getItemInHand();
                                 ItemMeta itemMeta = item.getItemMeta();
                                 List<String> itemLore = itemMeta.getLore();
                                 if (ToolsPlus.getFiles().get("harvester_config_gui").getBoolean("harvester-tool-config-gui." + configItem + ".switch-mode-when-clicked")) {
                                     ChangeMode.switchMode(itemLore, itemMeta, item, player, MapInitializer.harvesterModeUnique);
                                 }
                                 if (ToolsPlus.getFiles().get("harvester_config_gui").getBoolean("harvester-tool-config-gui." + configItem + ".increase-modifier-when-clicked")) {
-                                    PriceModifier.increasePriceModifier(itemLore, itemMeta, item, player, MapInitializer.harvesterModifierUnique, "harvester", "harvester-tools.");
+                                    AlterToolModifier.increasePriceModifier(itemLore, itemMeta, item, player, MapInitializer.harvesterModifierUnique, "harvester", "harvester-tools.");
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

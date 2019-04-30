@@ -4,7 +4,7 @@ import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.external.nbtapi.NBTItem;
 import dev.nuer.tp.initialize.MapInitializer;
 import dev.nuer.tp.tools.ChangeMode;
-import dev.nuer.tp.tools.PriceModifier;
+import dev.nuer.tp.tools.AlterToolModifier;
 import dev.nuer.tp.tools.lightning.CreateLightningStrike;
 import dev.nuer.tp.tools.sell.SellChestContents;
 import dev.nuer.tp.tools.tnt.AlterChestContents;
@@ -35,7 +35,7 @@ public class PlayerInteract implements Listener {
         //Store the player
         Player player = event.getPlayer();
         //If the players item doesn't have meta / lore, return
-        if (!event.getItem().hasItemMeta() || !event.getItem().getItemMeta().hasLore()) return;
+        if (event.getItem() == null || !event.getItem().hasItemMeta() || !event.getItem().getItemMeta().hasLore()) return;
         //Create a new nbt object
         NBTItem nbtItem = new NBTItem(event.getItem());
         //Store the location to Strike
@@ -69,7 +69,7 @@ public class PlayerInteract implements Listener {
         //Store the player
         Player player = event.getPlayer();
         //If the players item doesn't have meta / lore, return
-        if (!event.getItem().hasItemMeta() || !event.getItem().getItemMeta().hasLore()) return;
+        if (event.getItem() == null || !event.getItem().hasItemMeta() || !event.getItem().getItemMeta().hasLore()) return;
         //Create a new nbt object
         NBTItem nbtItem = new NBTItem(player.getItemInHand());
         //Get the type of tool being used
@@ -87,7 +87,7 @@ public class PlayerInteract implements Listener {
                 //Run the code to sell the items
                 SellChestContents.sellContents(event.getClickedBlock(), player, "sell",
                         "sell-wands." + nbtItem.getInteger("ntool.raw.id"),
-                        PriceModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(),
+                        AlterToolModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(),
                                 nbtItem.getItem(), true, MapInitializer.sellWandModifierUnique), nbtItem);
             }
         } catch (NullPointerException e) {
@@ -103,7 +103,7 @@ public class PlayerInteract implements Listener {
                 //Run the code for the tnt wand
                 AlterChestContents.manipulateContents(event.getClickedBlock(), player, "tnt",
                         "tnt-wands." + nbtItem.getInteger("ntool.raw.id"),
-                        PriceModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(),
+                        AlterToolModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(),
                                 nbtItem.getItem(), true, MapInitializer.tntWandModifierUnique),
                         !ChangeMode.changeToolMode(nbtItem.getItem().getItemMeta().getLore(),
                                 nbtItem.getItem().getItemMeta(), nbtItem.getItem(), MapInitializer.tntWandModeUnique, false), nbtItem);

@@ -24,6 +24,8 @@ public class PlayerToolCooldown {
     private static HashMap<UUID, Integer> playersOnLightningWandCooldown = new HashMap<>();
     //Store the players who are on the tnt wand cooldown
     private static HashMap<UUID, Integer> playersOnTntWandCooldown = new HashMap<>();
+    //Store the players who are on the aqua wand cooldown
+    private static HashMap<UUID, Integer> playersOnAquaWandCooldown = new HashMap<>();
 
     /**
      * @param player
@@ -99,6 +101,7 @@ public class PlayerToolCooldown {
         if (cooldownToolType.equalsIgnoreCase("sand")) return playersOnSandWandCooldown;
         if (cooldownToolType.equalsIgnoreCase("lightning")) return playersOnLightningWandCooldown;
         if (cooldownToolType.equalsIgnoreCase("tnt")) return playersOnTntWandCooldown;
+        if (cooldownToolType.equalsIgnoreCase("aqua")) return playersOnAquaWandCooldown;
         return null;
     }
 }

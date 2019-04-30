@@ -3,7 +3,7 @@ sell-wand-config-gui:
   name: "&6&lSell Wand Options"
   1:
     slot: 3
-    name: "&a&l+Price Modifier"
+    name: "&a&lIncrease Price Modifier"
     material: stained_glass_pane:5
     lore:
       - "&7 "

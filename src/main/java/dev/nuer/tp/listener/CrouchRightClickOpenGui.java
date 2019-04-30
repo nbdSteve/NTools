@@ -60,5 +60,12 @@ public class CrouchRightClickOpenGui implements Listener {
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a tnt wand
         }
+        try {
+            if (nbtItem.getBoolean("ntool.aqua")) {
+                ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("aqua-config").open(player);
+            }
+        } catch (NullPointerException e) {
+            //NBT tag is null because this is not a aqua wand
+        }
     }
 }

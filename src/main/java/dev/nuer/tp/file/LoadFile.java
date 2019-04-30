@@ -20,7 +20,7 @@ public class LoadFile {
         CONFIG, MESSAGES, LIGHTNING, LIGHTNING_PURCHASE_GUI, MULTI, MULTI_CONFIG_GUI, MULTI_PURCHASE_GUI,
         SAND, SAND_PURCHASE_GUI, TRAY, TRAY_PURCHASE_GUI, TRENCH, TRENCH_PURCHASE_GUI, HARVESTER,
         HARVESTER_PURCHASE_GUI, HARVESTER_CONFIG_GUI, SELL, SELL_PURCHASE_GUI, SELL_PRICE_LIST, SELL_CONFIG_GUI,
-        TNT, TNT_PURCHASE_GUI, TNT_CONFIG_GUI, OMNI_CONFIG
+        TNT, TNT_PURCHASE_GUI, TNT_CONFIG_GUI, OMNI_CONFIG, AQUA, AQUA_PURCHASE_GUI, AQUA_CONFIG_GUI
     }
 
     /**
@@ -61,6 +61,10 @@ public class LoadFile {
         files.put(Files.TNT, new CreateFile("tnt" + File.separator + "wands.yml"));
         files.put(Files.TNT_PURCHASE_GUI, new CreateFile("tnt" + File.separator + "purchase-gui.yml"));
         files.put(Files.TNT_CONFIG_GUI, new CreateFile("tnt" + File.separator + "config-gui.yml"));
+        //Load aqua wand files
+        files.put(Files.AQUA, new CreateFile("aqua" + File.separator + "wands.yml"));
+        files.put(Files.AQUA_PURCHASE_GUI, new CreateFile("aqua" + File.separator + "purchase-gui.yml"));
+        files.put(Files.AQUA_CONFIG_GUI, new CreateFile("aqua" + File.separator + "config-gui.yml"));
         //Log that files are loaded
         ToolsPlus.LOGGER.info("[Tools+] Successfully loaded all configuration files...");
     }

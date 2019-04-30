@@ -54,6 +54,9 @@ public class BuyToolsGenericGui extends AbstractGui {
                                 if (ToolsPlus.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-tnt")) {
                                     ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("tnt-buy").open(player);
                                 }
+                                if (ToolsPlus.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-aqua")) {
+                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("aqua-buy").open(player);
+                                }
                                 if (ToolsPlus.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".exit-gui")) {
                                     player.closeInventory();
                                 }

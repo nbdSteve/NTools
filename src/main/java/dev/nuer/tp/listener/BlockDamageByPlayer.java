@@ -1,10 +1,11 @@
 package dev.nuer.tp.listener;
 
+import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.external.nbtapi.NBTItem;
 import dev.nuer.tp.initialize.MapInitializer;
 import dev.nuer.tp.tools.BreakBlocksInRadius;
 import dev.nuer.tp.tools.ChangeMode;
-import dev.nuer.tp.tools.PriceModifier;
+import dev.nuer.tp.tools.AlterToolModifier;
 import dev.nuer.tp.tools.harvest.HarvestBlock;
 import dev.nuer.tp.tools.sand.RemoveSandStack;
 import org.bukkit.entity.Player;
@@ -37,7 +38,7 @@ public class BlockDamageByPlayer implements Listener {
             if (nbtItem.getBoolean("ntool.trench")) {
                 event.setCancelled(true);
                 new BreakBlocksInRadius(nbtItem, event, player, "trench",
-                        "trench-tools." + nbtItem.getInteger("ntool.raw.id"), false, true);
+                        "trench-tools." + nbtItem.getInteger("ntool.raw.id"), false, true, false);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a trench tool
@@ -46,7 +47,7 @@ public class BlockDamageByPlayer implements Listener {
             if (nbtItem.getBoolean("ntool.tray")) {
                 event.setCancelled(true);
                 new BreakBlocksInRadius(nbtItem, event, player, "tray", "tray-tools." + nbtItem.getInteger(
-                        "ntool.raw.id"), false, false);
+                        "ntool.raw.id"), false, false, false);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a tray tool
@@ -57,10 +58,19 @@ public class BlockDamageByPlayer implements Listener {
                 new BreakBlocksInRadius(nbtItem, event, player, "multi", "multi-tools." + nbtItem.getInteger(
                         "ntool.raw.id"), true, ChangeMode.changeToolMode(
                         nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem().getItemMeta(),
-                        nbtItem.getItem(), MapInitializer.multiToolModeUnique, false));
+                        nbtItem.getItem(), MapInitializer.multiToolModeUnique, false), false);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a multi tool
+        }
+        try {
+            if (nbtItem.getBoolean("ntool.aqua")) {
+                event.setCancelled(true);
+                new BreakBlocksInRadius(nbtItem, event, player, "aqua", "aqua-wands." + nbtItem.getInteger(
+                        "ntool.raw.id"), false, false, true);
+            }
+        } catch (NullPointerException e) {
+            //NBT tag is null because this is not a aqua wand
         }
         try {
             if (nbtItem.getBoolean("ntool.sand")) {
@@ -78,7 +88,7 @@ public class BlockDamageByPlayer implements Listener {
                     HarvestBlock.harvestBlocks(event, player, ChangeMode.changeToolMode(nbtItem.getItem().getItemMeta().getLore(),
                             nbtItem.getItem().getItemMeta(), nbtItem.getItem(), MapInitializer.harvesterModeUnique, false),
                             MapInitializer.harvesterBlockPrices.get(event.getBlock().getType().toString()),
-                            PriceModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem(), true, MapInitializer.harvesterModifierUnique));
+                            AlterToolModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem(), true, MapInitializer.harvesterModifierUnique));
                 }
             }
         } catch (NullPointerException e) {

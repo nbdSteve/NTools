@@ -1,6 +1,6 @@
-multi-tool-config-gui:
+aqua-wand-config-gui:
   size: 18
-  name: "&6&lMulti Tool Options"
+  name: "&6&lAqua Wand Options"
   1:
     slot: 5
     name: "&b&lSwitch Tool Mode"
@@ -8,41 +8,41 @@ multi-tool-config-gui:
     lore:
       - "&7 "
       - "&7&oClick this to change your tools"
-      - "&7&omode. There are tray and trench modes."
+      - "&7&omode. There are melt and drain modes."
       - "&7 "
     switch-mode-when-clicked: true
   2:
     slot: 3
-    name: "&a&lIncrease Radius"
+    name: "&a&lIncrease Reach"
     material: stained_glass_pane:5
     lore:
       - "&7 "
       - "&7&oClick to increase your tools"
-      - "&7&obreak radius by 1 block."
+      - "&7&oaquatic reach by 1 block."
       - "&7 "
     increase-radius-when-clicked: true
   3:
     slot: 2
-    name: "&c&lDecrease Radius"
+    name: "&c&l-Decrease Reach"
     material: stained_glass_pane:14
     lore:
       - "&7 "
       - "&7&oClick to decrease your tools"
-      - "&7&obreak radius by 1 block."
+      - "&7&oaquatic reach by 1 block."
       - "&7 "
     decrease-radius-when-clicked: true
   4:
     slot: 13
-    name: "&e&lMulti Tool Information"
+    name: "&e&lAqua Wand Information"
     material: book:0
     lore:
       - "&7 "
-      - "&7&oMulti Tools have special properties,"
+      - "&7&oAqua wands have special properties,"
       - "&7&owhich means they can be configured to suit"
-      - "&7&oyour trench / tray needs. Click the buttons"
-      - "&7&oin this gui to configure your tool."
+      - "&7&oyour melting and draining needs. Click the"
+      - "&7&obuttons in this gui to configure your tool."
       - "&7 "
-      - "&6&oYou must be holding your multi tool."
+      - "&6&oYou must be holding your aqua wand."
       - "&7 "
     enchantments:
       - lure:10

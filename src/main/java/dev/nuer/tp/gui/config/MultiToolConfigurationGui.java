@@ -38,17 +38,17 @@ public class MultiToolConfigurationGui extends AbstractGui {
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
-                                ItemStack item = player.getInventory().getItemInHand();
+                                ItemStack item = player.getItemInHand();
                                 ItemMeta itemMeta = item.getItemMeta();
                                 List<String> itemLore = itemMeta.getLore();
                                 if (ToolsPlus.getFiles().get("multi_config_gui").getBoolean("multi-tool-config-gui." + configItem + ".switch-mode-when-clicked")) {
                                     ChangeMode.switchMode(itemLore, itemMeta, item, player, MapInitializer.multiToolModeUnique);
                                 }
                                 if (ToolsPlus.getFiles().get("multi_config_gui").getBoolean("multi-tool-config-gui." + configItem + ".increase-radius-when-clicked")) {
-                                    ChangeToolRadius.incrementRadius(itemLore, itemMeta, item, player);
+                                    ChangeToolRadius.incrementRadius(itemLore, itemMeta, item, player, "multi", "multi-tools.", MapInitializer.multiToolRadiusUnique);
                                 }
                                 if (ToolsPlus.getFiles().get("multi_config_gui").getBoolean("multi-tool-config-gui." + configItem + ".decrease-radius-when-clicked")) {
-                                    ChangeToolRadius.decrementRadius(itemLore, itemMeta, item, player);
+                                    ChangeToolRadius.decrementRadius(itemLore, itemMeta, item, player, "multi", "multi-tools.", MapInitializer.multiToolRadiusUnique);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

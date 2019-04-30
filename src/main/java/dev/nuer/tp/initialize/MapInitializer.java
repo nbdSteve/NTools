@@ -36,6 +36,10 @@ public class MapInitializer {
     public static HashMap<Integer, ArrayList<String>> tntWandModeUnique;
     //Store the map of tnt modifier unique id and raw tool id
     public static HashMap<Integer, ArrayList<String>> tntWandModifierUnique;
+    //Store the map of aqua wand mode unique id and raw tool id
+    public static HashMap<Integer, ArrayList<String>> aquaWandModeUnique;
+    //Store the map of aqua wand radius unique id and raw tool id
+    public static HashMap<Integer, ArrayList<String>> aquaWandRadiusUnique;
 
     /**
      * Method to create the internal maps with the correct values from the configuration files
@@ -59,6 +63,9 @@ public class MapInitializer {
         //Load maps specific to tnt wand ids
         tntWandModeUnique = CreateInternalMaps.createUniqueModeIDs("tnt", "tnt-wands.", "craft", "bank");
         tntWandModifierUnique = CreateInternalMaps.createUniqueModifierIDs("tnt", "tnt-wands.", "modifier");
+        //Load maps specific to aqua wand ids
+        aquaWandModeUnique = CreateInternalMaps.createUniqueModeIDs("aqua", "aqua-wands.", "melt", "drain");
+        aquaWandRadiusUnique = CreateInternalMaps.createUniqueModifierIDs("aqua", "aqua-wands.", "radius");
     }
 
     /**
@@ -83,5 +90,8 @@ public class MapInitializer {
         //Clear maps specific to tnt wand ids
         tntWandModeUnique.clear();
         tntWandModifierUnique.clear();
+        //Clear maps specific to aqua wand ids
+        aquaWandModeUnique.clear();
+        aquaWandRadiusUnique.clear();
     }
 }

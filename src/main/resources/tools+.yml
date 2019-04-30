@@ -1,5 +1,5 @@
 # ToolsPlus - if you find any bugs please contact nbdSteve#0583 on Discord.
-version: 0.4.3
+version: 1.3.2
 
 # Enable this if you want to see debug timings for trench and tray tools
 enable-debug: false
@@ -79,6 +79,7 @@ cooldown-action-bar:
   sand-message: "&c&l✘ &6&lSand Wand Cooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
   lightning-message: "&c&l✘ &6&lLightning Wand Cooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
   tnt-message: "&c&l✘ &6&lTNT Wand Cooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
+  aqua-message: "&c&l✘ &6&lAqua Wand Cooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
 
 # Action bar sent to player when their wand breaks
 wand-break-action-bar:
@@ -87,6 +88,7 @@ wand-break-action-bar:
   sand-message: "&c&l✘ &7Your sand wand ran out of uses, it was destroyed... &c&l✘"
   lightning-message: "&c&l✘ &7Your lightning wand ran out of uses, it was destroyed... &c&l✘"
   tnt-message: "&c&l✘ &7Your tnt wand ran out of uses, it was destroyed... &c&l✘"
+  aqua-message: "&c&l✘ &7Your aqua wand ran out of uses, it was destroyed... &c&l✘"
 
 # gui opened with the /tools command
 tool-purchase-gui:
@@ -182,6 +184,17 @@ tool-purchase-gui:
       - lure:10
     open-tnt: true
   9:
+    slot: 8
+    name: "&b&lAqua Wands"
+    material: stick:0
+    lore:
+      - "&7 "
+      - "&7&oClick this to buy aqua wands."
+      - "&7 "
+    enchantments:
+      - lure:10
+    open-aqua: true
+  10:
     slot: 13
     name: "&c&lExit"
     material: barrier:0

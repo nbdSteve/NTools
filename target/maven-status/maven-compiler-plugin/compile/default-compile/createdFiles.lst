@@ -14,6 +14,7 @@ dev\nuer\tp\method\player\AddBlocksToPlayerInventory.class
 dev\nuer\tp\file\LoadFile$Files.class
 dev\nuer\tp\tools\tnt\BankContentsOfChest.class
 dev\nuer\tp\tools\sand\RemoveSandStack$1.class
+dev\nuer\tp\gui\config\AquaWandConfigurationGui.class
 dev\nuer\tp\external\nbtapi\NBTContainer.class
 dev\nuer\tp\events\TrenchBlockBreakEvent.class
 dev\nuer\tp\gui\listener\GuiClickListener.class
@@ -34,7 +35,7 @@ dev\nuer\tp\tools\sand\RemoveSandStack.class
 dev\nuer\tp\method\player\PlayerMessage.class
 dev\nuer\tp\initialize\MapInitializer.class
 dev\nuer\tp\gui\BuyToolsGenericGui.class
-dev\nuer\tp\tools\PriceModifier.class
+dev\nuer\tp\tools\AlterToolModifier.class
 dev\nuer\tp\tools\OmniFunctionality.class
 dev\nuer\tp\method\Chat.class
 dev\nuer\tp\tools\lightning\CreateLightningStrike.class
@@ -67,6 +68,7 @@ dev\nuer\tp\external\nbtapi\NBTCompound.class
 dev\nuer\tp\gui\purchase\BuyTrayToolsGui.class
 dev\nuer\tp\external\nbtapi\ReflectionMethod.class
 dev\nuer\tp\tools\BreakBlocksInRadius.class
+dev\nuer\tp\gui\purchase\BuyAquaWandsGui.class
 dev\nuer\tp\tools\tnt\AlterChestContents.class
 dev\nuer\tp\gui\config\HarvesterConfigurationGui.class
 dev\nuer\tp\method\itemCreation\CraftItem.class

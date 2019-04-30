@@ -6,8 +6,7 @@ import dev.nuer.tp.initialize.MapInitializer;
 import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.itemCreation.CraftItem;
 import dev.nuer.tp.method.player.PlayerMessage;
-import dev.nuer.tp.tools.PriceModifier;
-import org.bukkit.ChatColor;
+import dev.nuer.tp.tools.AlterToolModifier;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -37,11 +36,11 @@ public class SellWandConfigurationGui extends AbstractGui {
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
-                                ItemStack item = player.getInventory().getItemInHand();
+                                ItemStack item = player.getItemInHand();
                                 ItemMeta itemMeta = item.getItemMeta();
                                 List<String> itemLore = itemMeta.getLore();
                                 if (ToolsPlus.getFiles().get("sell_config_gui").getBoolean("sell-wand-config-gui." + configItem + ".increase-modifier-when-clicked")) {
-                                    PriceModifier.increasePriceModifier(itemLore, itemMeta, item, player, MapInitializer.sellWandModifierUnique, "sell", "sell-wands.");
+                                    AlterToolModifier.increasePriceModifier(itemLore, itemMeta, item, player, MapInitializer.sellWandModifierUnique, "sell", "sell-wands.");
                                 }
                             } catch (NullPointerException wandNotFound) {
                                 player.closeInventory();

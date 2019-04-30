@@ -2,10 +2,7 @@ package dev.nuer.tp.initialize;
 
 import dev.nuer.tp.gui.AbstractGui;
 import dev.nuer.tp.gui.BuyToolsGenericGui;
-import dev.nuer.tp.gui.config.HarvesterConfigurationGui;
-import dev.nuer.tp.gui.config.MultiToolConfigurationGui;
-import dev.nuer.tp.gui.config.SellWandConfigurationGui;
-import dev.nuer.tp.gui.config.TNTWandConfigurationGui;
+import dev.nuer.tp.gui.config.*;
 import dev.nuer.tp.gui.purchase.*;
 
 /**
@@ -20,6 +17,8 @@ public class GuiInitializer {
     private SellWandConfigurationGui sellWandConfigurationGui;
     //Instance of tnt wand config gui
     private TNTWandConfigurationGui tntWandConfigurationGui;
+    //Instance of aqua wand config gui
+    private AquaWandConfigurationGui aquaWandConfigurationGui;
     //Instance of multi tools gui
     private BuyMultiToolsGui buyMultiToolsGui;
     //Instance of generic buy gui
@@ -38,6 +37,8 @@ public class GuiInitializer {
     private BuySellWandsGui buySellWandsGui;
     //Instance of tnt purchase gui
     private BuyTNTWandsGui buyTNTWandsGui;
+    //Instance of aqua purchase gui
+    private BuyAquaWandsGui buyAquaWandsGui;
 
     /**
      * Creates a new instance of all Guis for the plugin
@@ -48,6 +49,7 @@ public class GuiInitializer {
         harvesterConfigurationGui = new HarvesterConfigurationGui();
         sellWandConfigurationGui = new SellWandConfigurationGui();
         tntWandConfigurationGui = new TNTWandConfigurationGui();
+        aquaWandConfigurationGui = new AquaWandConfigurationGui();
         buyToolsGenericGui = new BuyToolsGenericGui();
         buyMultiToolsGui = new BuyMultiToolsGui();
         buyTrenchToolsGui = new BuyTrenchToolsGui();
@@ -57,6 +59,7 @@ public class GuiInitializer {
         buyHarvesterToolsGui = new BuyHarvesterToolsGui();
         buySellWandsGui = new BuySellWandsGui();
         buyTNTWandsGui = new BuyTNTWandsGui();
+        buyAquaWandsGui = new BuyAquaWandsGui();
     }
 
     /**
@@ -79,6 +82,8 @@ public class GuiInitializer {
         if (guiName.equalsIgnoreCase("sell-config")) return sellWandConfigurationGui;
         if (guiName.equalsIgnoreCase("tnt-buy")) return buyTNTWandsGui;
         if (guiName.equalsIgnoreCase("tnt-config")) return tntWandConfigurationGui;
+        if (guiName.equalsIgnoreCase("aqua-buy")) return buyAquaWandsGui;
+        if (guiName.equalsIgnoreCase("aqua-config")) return aquaWandConfigurationGui;
         return null;
     }
 }

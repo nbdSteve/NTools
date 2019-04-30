@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Class that handles methods related to price modifiers, this for Sell and Harvester tool variants
  */
-public class PriceModifier {
+public class AlterToolModifier {
 
     /**
      * Method to get the current price modifier of an item

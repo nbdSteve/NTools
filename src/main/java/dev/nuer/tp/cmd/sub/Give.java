@@ -38,17 +38,23 @@ public class Give {
                 //Create the starting modifier for the tool
                 int toolStartingModifier = 1;
                 if ((args.length == 6 || args.length == 7) &&
-                        (args[2].equalsIgnoreCase("multi") || args[2].equalsIgnoreCase("sell")
-                                || args[2].equalsIgnoreCase("harvester") || args[2].equalsIgnoreCase("tnt"))) {
+                        (args[2].equalsIgnoreCase("multi")
+                                || args[2].equalsIgnoreCase("sell")
+                                || args[2].equalsIgnoreCase("harvester")
+                                || args[2].equalsIgnoreCase("tnt")
+                                || args[2].equalsIgnoreCase("aqua"))) {
                     toolStartingModifier = verifyStartingModifier(sender, args[5], args[2], Integer.parseInt(args[4]));
                 }
                 //Get the starting uses from the configuration, or reset for command
                 String startingUses = null;
                 try {
                     startingUses = ToolsPlus.getFiles().get(args[2]).getString(args[2] + "-wands." + args[4] + ".uses.starting");
-                    if (args.length == 6 && (args[2].equalsIgnoreCase("lightning") || args[2].equalsIgnoreCase("sand"))) {
+                    if (args.length == 6 && (args[2].equalsIgnoreCase("lightning")
+                            || args[2].equalsIgnoreCase("sand"))) {
                         startingUses = args[5];
-                    } else if (args.length == 7 && (args[2].equalsIgnoreCase("sell") || args[2].equalsIgnoreCase("tnt"))) {
+                    } else if (args.length == 7 && (args[2].equalsIgnoreCase("sell")
+                            || args[2].equalsIgnoreCase("tnt")
+                            || args[2].equalsIgnoreCase("aqua"))) {
                         startingUses = args[6];
                     }
                 } catch (NullPointerException e) {
@@ -117,6 +123,14 @@ public class Give {
                             "tnt", Integer.parseInt(args[4]), target, "{mode}", MapInitializer.tntWandModeUnique.get(Integer.parseInt(args[4])).get(1),
                             "{modifier}", modifierParts[0], "{uses}", startingUses);
                 }
+                if (args[2].equalsIgnoreCase("aqua")) {
+                    new CraftItem(args[3],
+                            ToolsPlus.getFiles().get("aqua").getString("aqua-wands." + args[4] + ".name"),
+                            ToolsPlus.getFiles().get("aqua").getStringList("aqua-wands." + args[4] + ".lore"),
+                            ToolsPlus.getFiles().get("aqua").getStringList("aqua-wands." + args[4] + ".enchantments"),
+                            "aqua", Integer.parseInt(args[4]), target, "{mode}", MapInitializer.aquaWandModeUnique.get(Integer.parseInt(args[4])).get(1),
+                            "{radius}", MapInitializer.aquaWandRadiusUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier), "{uses}", startingUses);
+                }
             } catch (Exception invalidCommandParameters) {
                 if (sender instanceof Player) {
                     invalidCommandParameters.printStackTrace();
@@ -164,13 +178,14 @@ public class Give {
      * Returns the modifier map for that tool
      *
      * @param typeOfTool String, the type of tool; sell, multi etc.
-     * @return HashMap<Integer, ArrayList < String>>
+     * @return HashMap<Integer, ArrayList <String>>
      */
     public static HashMap<Integer, ArrayList<String>> getMap(String typeOfTool) {
         if (typeOfTool.equalsIgnoreCase("multi")) return MapInitializer.multiToolRadiusUnique;
         if (typeOfTool.equalsIgnoreCase("harvester")) return MapInitializer.harvesterModifierUnique;
         if (typeOfTool.equalsIgnoreCase("sell")) return MapInitializer.sellWandModifierUnique;
         if (typeOfTool.equalsIgnoreCase("tnt")) return MapInitializer.tntWandModifierUnique;
+        if (typeOfTool.equalsIgnoreCase("aqua")) return MapInitializer.aquaWandRadiusUnique;
         return null;
     }
 }

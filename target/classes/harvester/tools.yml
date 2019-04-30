@@ -26,7 +26,7 @@ harvester-tools:
       - "&7Mode: {mode}"
       - "&7Booster: {modifier}"
       - "&7 "
-      - "&a&oThis wand was create in the Amazon,"
+      - "&a&oThis wand was created in the Amazon,"
       - "&a&ousing jungle magic to increase sales and"
       - "&a&odecrease labor. Decifer how it works to,"
       - "&a&oharness this tools untapped potential..."
