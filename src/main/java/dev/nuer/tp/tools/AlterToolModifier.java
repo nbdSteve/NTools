@@ -141,7 +141,7 @@ public class AlterToolModifier {
             } else {
                 itemLore.set(index, modifierUniqueLore + " " + modifierParts[0]);
                 UpdateItem.updateItem(itemLore, itemMeta, item);
-                new PlayerMessage("incremented-modifier-no-cost", player);
+                new PlayerMessage("incremented-modifier", player, "{price}", "FREE");
             }
         } else {
             new PlayerMessage("max-modifier", player);

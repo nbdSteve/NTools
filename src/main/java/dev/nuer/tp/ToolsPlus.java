@@ -50,7 +50,8 @@ public final class ToolsPlus extends JavaPlugin {
      */
     @Override
     public void onEnable() {
-        LOGGER.info("[Tools+] Thanks for using ToolsPlus, if you find any bugs contact nbdSteve#0583 on Discord.");
+        LOGGER.info("[Tools+] Thank you for choosing to use Tools+!");
+        LOGGER.info("[Tools+] If you find any bugs please contact nbdSteve#0583 on Discord.");
         //Get the instance
         instance = this;
         //Create files instance
@@ -82,7 +83,6 @@ public final class ToolsPlus extends JavaPlugin {
         //Check that the plugin is in the latest version
 //        VersionChecker.checkVersion(null);
 //        getServer().getPluginManager().registerEvents(new VersionChecker(), this);
-
     }
 
     /**
@@ -92,7 +92,8 @@ public final class ToolsPlus extends JavaPlugin {
     public void onDisable() {
         MapInitializer.clearMaps();
         OmniFunctionality.clearOmniLists();
-        LOGGER.info("[Tools+] Thanks for using ToolsPlus, if you find any bugs contact nbdSteve#0583 on Discord.");
+        LOGGER.info("[Tools+] Thank you for choosing to use Tools+!");
+        LOGGER.info("[Tools+] If you find any bugs please contact nbdSteve#0583 on Discord.");
     }
 
     /**

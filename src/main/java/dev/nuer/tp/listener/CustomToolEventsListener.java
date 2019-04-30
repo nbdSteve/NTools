@@ -31,7 +31,7 @@ public class CustomToolEventsListener implements Listener {
     }
 
     @EventHandler
-    public void sandWandBlockBreak(SandBlockBreakEvent event) {
+    public void sandWandBlockBreak(SandWandBlockBreakEvent event) {
         //Check if the event is cancelled
         if (event.isCancelled()) return;
         //Run the code for sand wands

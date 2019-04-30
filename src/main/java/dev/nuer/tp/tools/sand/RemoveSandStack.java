@@ -1,7 +1,7 @@
 package dev.nuer.tp.tools.sand;
 
 import dev.nuer.tp.ToolsPlus;
-import dev.nuer.tp.events.SandBlockBreakEvent;
+import dev.nuer.tp.events.SandWandBlockBreakEvent;
 import dev.nuer.tp.external.nbtapi.NBTItem;
 import dev.nuer.tp.initialize.MapInitializer;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
@@ -76,7 +76,7 @@ public class RemoveSandStack {
                         Bukkit.getPluginManager().callEvent(stackRemove);
                         if (!stackRemove.isCancelled()) {
                             if (MapInitializer.sandWandBlockWhitelist.contains(currentBlockType)) {
-                                Bukkit.getPluginManager().callEvent(new SandBlockBreakEvent(stackRemove.getBlock(), player));
+                                Bukkit.getPluginManager().callEvent(new SandWandBlockBreakEvent(stackRemove.getBlock(), player));
                             }
                         }
                     }

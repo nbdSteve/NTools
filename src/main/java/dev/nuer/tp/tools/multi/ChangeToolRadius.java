@@ -2,7 +2,6 @@ package dev.nuer.tp.tools.multi;
 
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.external.nbtapi.NBTItem;
-import dev.nuer.tp.initialize.MapInitializer;
 import dev.nuer.tp.method.itemCreation.UpdateItem;
 import dev.nuer.tp.method.player.PlayerMessage;
 import org.bukkit.entity.Player;
@@ -144,10 +143,9 @@ public class ChangeToolRadius {
                         new PlayerMessage("insufficient", player);
                     }
                 } else {
-                    itemLore.set(index,
-                            radiusLore + " " + radiusUniqueMap.get(toolTypeRawID).get(radius + 1));
+                    itemLore.set(index, radiusLore + " " + radiusUniqueMap.get(toolTypeRawID).get(radius + 1));
                     UpdateItem.updateItem(itemLore, itemMeta, item);
-                    new PlayerMessage("incremented-radius-no-cost", player);
+                    new PlayerMessage("incremented-radius", player, "{price}", "FREE");
                 }
             } else {
                 new PlayerMessage("max-radius", player);
@@ -158,8 +156,7 @@ public class ChangeToolRadius {
             int minRadius =
                     Integer.parseInt(radiusUniqueMap.get(toolTypeRawID).get(radiusUniqueMap.get(toolTypeRawID).size() - 1));
             if (radius - 1 >= minRadius) {
-                itemLore.set(index,
-                        radiusLore + " " + radiusUniqueMap.get(toolTypeRawID).get(radius - 1));
+                itemLore.set(index, radiusLore + " " + radiusUniqueMap.get(toolTypeRawID).get(radius - 1));
                 UpdateItem.updateItem(itemLore, itemMeta, item);
                 new PlayerMessage("decremented-radius", player);
             } else {

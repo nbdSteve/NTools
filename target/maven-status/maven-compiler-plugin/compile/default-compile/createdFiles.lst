@@ -3,6 +3,7 @@ dev\nuer\tp\external\nbtapi\NBTItem.class
 dev\nuer\tp\gui\AbstractGui.class
 dev\nuer\tp\events\LightningWandStrikeEvent.class
 dev\nuer\tp\gui\purchase\BuyTrenchToolsGui.class
+dev\nuer\tp\events\SandWandBlockBreakEvent.class
 dev\nuer\tp\external\nbtapi\NBTType.class
 dev\nuer\tp\external\actionbarapi\ActionBarAPI$1.class
 dev\nuer\tp\method\itemCreation\NBTCreator.class
@@ -59,7 +60,6 @@ dev\nuer\tp\file\CreateFile.class
 dev\nuer\tp\external\nbtapi\ClassWrapper.class
 dev\nuer\tp\gui\purchase\BuyHarvesterToolsGui.class
 dev\nuer\tp\tools\sell\GetSellableItemPrices.class
-dev\nuer\tp\events\SandBlockBreakEvent.class
 dev\nuer\tp\external\actionbarapi\ActionBarAPI$2.class
 dev\nuer\tp\gui\purchase\BuyLightningWandsGui.class
 dev\nuer\tp\tools\harvest\HarvestBlock.class

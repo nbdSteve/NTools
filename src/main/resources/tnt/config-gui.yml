@@ -7,7 +7,7 @@ tnt-wand-config-gui:
     material: ender_pearl:0
     lore:
       - "&7 "
-      - "&7&oClick this to change your tools"
+      - "&7&oClick this to change your TNT Wands"
       - "&7&omode. There are craft and bank modes."
       - "&7 "
     switch-mode-when-clicked: true
@@ -17,7 +17,7 @@ tnt-wand-config-gui:
     material: stained_glass_pane:5
     lore:
       - "&7 "
-      - "&7&oClick to decrease your tools"
+      - "&7&oClick to decrease your TNT Wands"
       - "&7&ocrafting cost per item by 1 tier."
       - "&7 "
     increase-modifier-when-clicked: true
@@ -32,7 +32,7 @@ tnt-wand-config-gui:
       - "&7&oyour explosion needs. Click the buttons"
       - "&7&oin this gui to configure your wand."
       - "&7 "
-      - "&6&oYou must be holding your TNT wand."
+      - "&6&oYou must be holding your TNT Wand."
       - "&7 "
     enchantments:
       - lure:1

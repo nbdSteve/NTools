@@ -16,8 +16,8 @@ aqua-wands:
         - "&b&l7x7"
     #
     upgrade-cost:
-      1: 2500000 # upgrading from tier 1 to tier 2
-      2: 2500000
+      1: 545000 # upgrading from tier 1 to tier 2
+      2: 545000
     #
     cooldown: 5
     #

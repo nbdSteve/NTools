@@ -32,21 +32,21 @@ public class CreateFile {
         file = new File(plugin.getDataFolder(), fileName);
         if (!file.exists()) {
             plugin.saveResource(fileName, false);
-            ToolsPlus.LOGGER.info("[Tools+] The supplied file " + fileName + " was not found, creating it now.");
+            ToolsPlus.LOGGER.info("[Tools+] The plugin file " + fileName + " was not found, loading it now.");
         }
         yamlFile = new YamlConfiguration();
         try {
             yamlFile.load(file);
         } catch (InvalidConfigurationException e) {
-            ToolsPlus.LOGGER.severe("[Tools+] The supplied file " + fileName +
+            ToolsPlus.LOGGER.severe("[Tools+] The plugin file " + fileName +
                     " is not in the correct format, please contact the developer. Disabling the plugin");
             plugin.getServer().getPluginManager().disablePlugin(plugin);
         } catch (FileNotFoundException e) {
-            ToolsPlus.LOGGER.severe("[Tools+] The supplied file " + fileName +
+            ToolsPlus.LOGGER.severe("[Tools+] The plugin file " + fileName +
                     " was not found, please contact the developer. Disabling the plugin.");
             plugin.getServer().getPluginManager().disablePlugin(plugin);
         } catch (IOException e) {
-            ToolsPlus.LOGGER.severe("[Tools+] The supplied file " + fileName +
+            ToolsPlus.LOGGER.severe("[Tools+] The plugin file " + fileName +
                     " could not be loaded, please contact the developer. Disabling the plugin.");
             plugin.getServer().getPluginManager().disablePlugin(plugin);
         }
@@ -61,14 +61,14 @@ public class CreateFile {
         try {
             yamlFile.load(file);
         } catch (InvalidConfigurationException e) {
-            ToolsPlus.LOGGER.severe("[Tools+] The supplied file " + fileName +
+            ToolsPlus.LOGGER.severe("[Tools+] The plugin file " + fileName +
                     " is not in the correct format, plugin check your YAML syntax.");
         } catch (FileNotFoundException e) {
-            ToolsPlus.LOGGER.severe("[Tools+] The supplied file " + fileName +
+            ToolsPlus.LOGGER.severe("[Tools+] The plugin file " + fileName +
                     " was not found, plugin contact the developer. Disabling the plugin.");
             plugin.getServer().getPluginManager().disablePlugin(plugin);
         } catch (IOException e) {
-            ToolsPlus.LOGGER.severe("[Tools+] The supplied file " + fileName +
+            ToolsPlus.LOGGER.severe("[Tools+] The plugin file " + fileName +
                     " could not be loaded, plugin contact the developer. Disabling the plugin.");
             plugin.getServer().getPluginManager().disablePlugin(plugin);
         }

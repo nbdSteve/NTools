@@ -53,9 +53,6 @@ min-radius:
 max-radius:
   - "&6&lTools+&e: &7Your tool is already at its maximum break radius."
 
-incremented-radius-no-cost:
-  - "&aSuccess&7, your tools radius has been increased at no cost."
-
 wand-cooldown:
   - "&cCooldown: &7You are on {item} wand cooldown, &c{time} &7second(s) remaining..."
 
@@ -67,9 +64,6 @@ incremented-modifier:
 
 max-modifier:
   - "&6&lTools+&e: &7Your tool is already at its maximum price modifier."
-
-incremented-modifier-no-cost:
-  - "&aSuccess&7, your harvester hoes price modifier has been increased at no cost."
 
 start-selling-by-harvest:
   - "&6&lTools+&e: &7You have started auto selling crops for &a+&l${price} &7per crop, respectively."

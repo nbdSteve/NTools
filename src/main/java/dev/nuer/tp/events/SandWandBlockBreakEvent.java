@@ -9,14 +9,14 @@ import org.bukkit.event.HandlerList;
 /**
  * Custom event for the Sand Wands
  */
-public class SandBlockBreakEvent extends Event implements Cancellable {
+public class SandWandBlockBreakEvent extends Event implements Cancellable {
     private static final HandlerList handlers = new HandlerList();
 
     private Block blockToBeBroken;
     private Player player;
     private boolean cancel;
 
-    public SandBlockBreakEvent(Block blockToBeBroken, Player player) {
+    public SandWandBlockBreakEvent(Block blockToBeBroken, Player player) {
         this.blockToBeBroken = blockToBeBroken;
         this.player = player;
     }
