@@ -8,7 +8,7 @@ aqua-wands:
     radius:
       unique: "&7Radius:"
       starting: 1
-      max: 4 # will be the minimum required
+      max: 3
       min: 1
       lore-ids:
         - "&b&l3x3"
@@ -23,7 +23,7 @@ aqua-wands:
     #
     uses:
       unique: "&7Uses Remaining:"
-      starting: 250
+      starting: 20
       update: "&f&l{uses}"
     #
     name: "&eAqua Wand &7(&6Tier I&7)"

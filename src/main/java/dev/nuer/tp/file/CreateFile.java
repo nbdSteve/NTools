@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 public class CreateFile {
     //Register main instance
-    private Plugin plugin = ToolsPlus.getPlugin(ToolsPlus.class);
+    private Plugin plugin = ToolsPlus.instance;
     //YAML configuration for the file
     private YamlConfiguration yamlFile;
     //Store the file name for later use

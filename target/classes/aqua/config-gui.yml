@@ -23,7 +23,7 @@ aqua-wand-config-gui:
     increase-radius-when-clicked: true
   3:
     slot: 2
-    name: "&c&l-Decrease Reach"
+    name: "&c&lDecrease Reach"
     material: stained_glass_pane:14
     lore:
       - "&7 "
@@ -45,4 +45,4 @@ aqua-wand-config-gui:
       - "&6&oYou must be holding your aqua wand."
       - "&7 "
     enchantments:
-      - lure:10
+      - lure:1

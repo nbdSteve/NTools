@@ -25,4 +25,4 @@ sell-wand-config-gui:
       - "&6&oYou must be holding your harvester hoe."
       - "&7 "
     enchantments:
-      - lure:10
+      - lure:1

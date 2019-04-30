@@ -31,7 +31,7 @@ public class AlterChestContents {
      */
     public static void manipulateContents(Block clickedBlock, Player player, String directory, String filePath,
                                           double craftingModifier, boolean bank, NBTItem nbtItem) {
-        Bukkit.getScheduler().runTaskAsynchronously(ToolsPlus.getPlugin(ToolsPlus.class), () -> {
+        Bukkit.getScheduler().runTaskAsynchronously(ToolsPlus.instance, () -> {
             //Get if the plugin is using shop gui plus
             boolean usingFactions = FactionIntegration.usingFactions("config");
             //Store the tool cooldown
@@ -57,7 +57,7 @@ public class AlterChestContents {
             if (PlayerToolCooldown.isOnCooldown(player, "tnt")) {
                 return;
             } else {
-                DecrementUses.decrementUses(player, "tnt", nbtItem, nbtItem.getInteger("ntool.uses"));
+                DecrementUses.decrementUses(player, "tnt", nbtItem, nbtItem.getInteger("tools+.uses"));
                 PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "tnt");
             }
             if (bank && usingFactions) {

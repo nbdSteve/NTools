@@ -44,7 +44,7 @@ public class BuyHarvesterToolsGui extends AbstractGui {
                                             "{modifier}", modifierParts[0], "debug", "debug");
                                 }
                                 if (ToolsPlus.getFiles().get("harvester_purchase_gui").getBoolean("harvester-tool-purchase-gui." + configItem + ".back-button")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("generic-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

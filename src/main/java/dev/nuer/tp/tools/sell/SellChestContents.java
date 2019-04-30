@@ -36,7 +36,7 @@ public class SellChestContents {
      */
     public static void sellContents(Block clickedBlock, Player player, String directory, String filePath, double priceModifier,
                                     NBTItem nbtItem) {
-        Bukkit.getScheduler().runTaskAsynchronously(ToolsPlus.getPlugin(ToolsPlus.class), () -> {
+        Bukkit.getScheduler().runTaskAsynchronously(ToolsPlus.instance, () -> {
             //Get if the plugin is using shop gui plus
             boolean usingShopGuiPlus = ShopGUIPlusIntegration.usingShopGUIPlus("sell");
             //Store the tool cooldown
@@ -52,7 +52,7 @@ public class SellChestContents {
             if (PlayerToolCooldown.isOnCooldown(player, "sell")) {
                 return;
             } else {
-                DecrementUses.decrementUses(player, "sell", nbtItem, nbtItem.getInteger("ntool.uses"));
+                DecrementUses.decrementUses(player, "sell", nbtItem, nbtItem.getInteger("tools+.uses"));
                 PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "sell");
             }
             int slot = 0;

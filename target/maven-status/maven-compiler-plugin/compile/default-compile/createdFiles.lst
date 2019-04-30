@@ -12,6 +12,7 @@ dev\nuer\tp\gui\purchase\BuySandWandsGui.class
 dev\nuer\tp\external\nbtapi\utils\MinecraftVersion.class
 dev\nuer\tp\method\player\AddBlocksToPlayerInventory.class
 dev\nuer\tp\file\LoadFile$Files.class
+dev\nuer\tp\initialize\CreateInternalMaps.class
 dev\nuer\tp\tools\tnt\BankContentsOfChest.class
 dev\nuer\tp\tools\sand\RemoveSandStack$1.class
 dev\nuer\tp\gui\config\AquaWandConfigurationGui.class
@@ -35,14 +36,15 @@ dev\nuer\tp\tools\sand\RemoveSandStack.class
 dev\nuer\tp\method\player\PlayerMessage.class
 dev\nuer\tp\initialize\MapInitializer.class
 dev\nuer\tp\gui\BuyToolsGenericGui.class
+dev\nuer\tp\events\AquaWandMeltIceEvent.class
 dev\nuer\tp\tools\AlterToolModifier.class
 dev\nuer\tp\tools\OmniFunctionality.class
 dev\nuer\tp\method\Chat.class
 dev\nuer\tp\tools\lightning\CreateLightningStrike.class
+dev\nuer\tp\events\AquaWandDrainLiquidEvent.class
 dev\nuer\tp\listener\CrouchRightClickOpenGui.class
 dev\nuer\tp\listener\PlayerInteractWithMob.class
 dev\nuer\tp\events\SellWandContainerSaleEvent.class
-dev\nuer\tp\method\CreateInternalMaps.class
 dev\nuer\tp\file\LoadFile.class
 dev\nuer\tp\tools\tnt\CraftContentsOfChest.class
 dev\nuer\tp\tools\sell\SellChestContents.class

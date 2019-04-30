@@ -40,7 +40,7 @@ public class BuyTrenchToolsGui extends AbstractGui {
                                             ToolsPlus.getFiles().get("trench").getStringList("trench-tools." + configItem + ".enchantments"), "trench", configItem, player);
                                 }
                                 if (ToolsPlus.getFiles().get("trench_purchase_gui").getBoolean("trench-tool-purchase-gui." + configItem + ".back-button")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("generic-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

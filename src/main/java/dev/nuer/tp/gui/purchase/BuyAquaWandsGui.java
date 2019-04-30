@@ -43,7 +43,7 @@ public class BuyAquaWandsGui extends AbstractGui {
                                             "{uses}", ToolsPlus.getFiles().get("aqua").getString("aqua-wands." + configItem + ".uses.starting"));
                                 }
                                 if (ToolsPlus.getFiles().get("aqua_purchase_gui").getBoolean("aqua-wand-purchase-gui." + configItem + ".back-button")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("generic-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 toolNotFound.printStackTrace();

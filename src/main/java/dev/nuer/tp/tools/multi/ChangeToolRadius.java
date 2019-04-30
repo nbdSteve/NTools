@@ -27,7 +27,7 @@ public class ChangeToolRadius {
      */
     public static int getToolRadius(List<String> itemLore, ItemStack item, HashMap<Integer, ArrayList<String>> radiusUniqueMap) {
         NBTItem nbtItem = new NBTItem(item);
-        int toolTypeRawID = nbtItem.getInteger("ntool.raw.id");
+        int toolTypeRawID = nbtItem.getInteger("tools+.raw.id");
         int index = 0;
         String radiusUniqueLore = radiusUniqueMap.get(toolTypeRawID).get(index);
         for (String loreLine : itemLore) {
@@ -90,7 +90,7 @@ public class ChangeToolRadius {
                                         boolean incrementRadius, boolean decrementRadius, Player player,
                                         String directory, String filePath, HashMap<Integer, ArrayList<String>> radiusUniqueMap) {
         NBTItem nbtItem = new NBTItem(item);
-        int toolTypeRawID = nbtItem.getInteger("ntool.raw.id");
+        int toolTypeRawID = nbtItem.getInteger("tools+.raw.id");
         int index = 0;
         String radiusLore = radiusUniqueMap.get(toolTypeRawID).get(index);
         for (String loreLine : itemLore) {

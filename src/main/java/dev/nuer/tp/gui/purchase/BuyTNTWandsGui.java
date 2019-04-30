@@ -44,7 +44,7 @@ public class BuyTNTWandsGui extends AbstractGui {
                                             "{uses}", ToolsPlus.getFiles().get("tnt").getString("tnt-wands." + configItem + ".uses.starting"));
                                 }
                                 if (ToolsPlus.getFiles().get("tnt_purchase_gui").getBoolean("tnt-wand-purchase-gui." + configItem + ".back-button")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("generic-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 toolNotFound.printStackTrace();

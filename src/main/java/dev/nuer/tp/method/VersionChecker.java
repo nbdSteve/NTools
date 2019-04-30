@@ -45,7 +45,7 @@ public class VersionChecker implements Listener {
     @EventHandler
     public void join(PlayerJoinEvent event) {
         if (event.getPlayer().isOp()) {
-            Bukkit.getScheduler().runTaskLater(ToolsPlus.getPlugin(ToolsPlus.class), () -> {
+            Bukkit.getScheduler().runTaskLater(ToolsPlus.instance, () -> {
                 checkVersion(event.getPlayer());
             }, 5L);
         }

@@ -46,9 +46,9 @@ public class ChangeMode {
     public static boolean changeToolMode(List<String> itemLore, ItemMeta itemMeta, ItemStack item,
                                          HashMap<Integer, ArrayList<String>> modeUniqueIDs, boolean changeMode) {
         NBTItem nbtItem = new NBTItem(item);
-        String mode = Chat.applyColor(modeUniqueIDs.get(nbtItem.getInteger("ntool.raw.id")).get(0));
-        String mode1 = Chat.applyColor(modeUniqueIDs.get(nbtItem.getInteger("ntool.raw.id")).get(1));
-        String mode2 = Chat.applyColor(modeUniqueIDs.get(nbtItem.getInteger("ntool.raw.id")).get(2));
+        String mode = Chat.applyColor(modeUniqueIDs.get(nbtItem.getInteger("tools+.raw.id")).get(0));
+        String mode1 = Chat.applyColor(modeUniqueIDs.get(nbtItem.getInteger("tools+.raw.id")).get(1));
+        String mode2 = Chat.applyColor(modeUniqueIDs.get(nbtItem.getInteger("tools+.raw.id")).get(2));
         int index = 0;
         for (String loreLine : itemLore) {
             //Check if the lore contains the mode unique line

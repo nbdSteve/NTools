@@ -53,7 +53,7 @@ public class PlayerToolCooldown {
                 }
                 timer--;
             }
-        }.runTaskTimer(ToolsPlus.getPlugin(ToolsPlus.class), 0L, 20L);
+        }.runTaskTimer(ToolsPlus.instance, 0L, 20L);
     }
 
     /**

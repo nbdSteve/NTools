@@ -7,26 +7,29 @@ multi-tools:
     #
     radius:
       unique: "&7Radius:"
-      starting: 2
-      max: 3 #7x7
+      starting: 1
+      max: 4 #9x9
       min: 1 #3x3
       lore-ids:
         - "&b&l3x3"
         - "&b&l5x5"
         - "&b&l7x7"
+        - "&b&l9x9"
     #
     omni-tool: true
     #
     upgrade-cost:
-      1: 250000 #upgrading from tier 1 to tier 2
-      2: 500000
+      1: 485000 #upgrading from tier 1 to tier 2
+      2: 515000
+      3: 590000
     #
-    name: "&a&lForged Pickaxe"
+    name: "&eForged Pickaxe &7(&6Tier I&7)"
     #
     lore:
-      - "&2&l**Forged**"
+      - "&6&l**Iron Forged I**"
       - "&7 "
       - "&7Mode: {mode}"
+      - "&7 "
       - "&7Radius: {radius}"
       - "&7 "
       - "&a&oThis pickaxe was forged in an unknown place,"

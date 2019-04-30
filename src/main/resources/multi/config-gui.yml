@@ -13,7 +13,7 @@ multi-tool-config-gui:
     switch-mode-when-clicked: true
   2:
     slot: 3
-    name: "&a&lIncrease Radius"
+    name: "&a&lIncrease Break Radius"
     material: stained_glass_pane:5
     lore:
       - "&7 "
@@ -23,7 +23,7 @@ multi-tool-config-gui:
     increase-radius-when-clicked: true
   3:
     slot: 2
-    name: "&c&lDecrease Radius"
+    name: "&c&lDecrease Break Radius"
     material: stained_glass_pane:14
     lore:
       - "&7 "
@@ -45,4 +45,4 @@ multi-tool-config-gui:
       - "&6&oYou must be holding your multi tool."
       - "&7 "
     enchantments:
-      - lure:10
+      - lure:1

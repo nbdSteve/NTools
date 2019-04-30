@@ -42,7 +42,7 @@ public class BuyLightningWandsGui extends AbstractGui {
                                             "{uses}", ToolsPlus.getFiles().get("lightning").getString("lightning-wands." + configItem + ".uses.starting"));
                                 }
                                 if (ToolsPlus.getFiles().get("lightning_purchase_gui").getBoolean("lightning-wand-purchase-gui." + configItem + ".back-button")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("generic-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

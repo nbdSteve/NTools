@@ -21,6 +21,8 @@ import java.util.logging.Logger;
  * Main class for the Tools+ plugin
  */
 public final class ToolsPlus extends JavaPlugin {
+    //Store the plugins main instance
+    public static ToolsPlus instance;
     //Store the plugin files
     private static LoadFile files;
     //Store the gui instances
@@ -49,6 +51,8 @@ public final class ToolsPlus extends JavaPlugin {
     @Override
     public void onEnable() {
         LOGGER.info("[Tools+] Thanks for using ToolsPlus, if you find any bugs contact nbdSteve#0583 on Discord.");
+        //Get the instance
+        instance = this;
         //Create files instance
         files = new LoadFile();
         //Load the black / white and unique id list maps
@@ -67,7 +71,7 @@ public final class ToolsPlus extends JavaPlugin {
         //Get if the plugin is in debug mode
         updateDebugMode();
         //Register the commands for the plugin
-        getCommand("nt").setExecutor(new ToolsCmd(this));
+        getCommand("t+").setExecutor(new ToolsCmd(this));
         //Register the events for the plugin
         getServer().getPluginManager().registerEvents(new BlockDamageByPlayer(), this);
         getServer().getPluginManager().registerEvents(new PlayerInteract(), this);

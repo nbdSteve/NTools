@@ -48,10 +48,10 @@ public class PlayerInteract implements Listener {
         }
         //Get the type of tool being used
         try {
-            if (nbtItem.getBoolean("ntool.lightning")) {
+            if (nbtItem.getBoolean("tools+.lightning")) {
                 CreateLightningStrike.createStrikeGround(player, "lightning",
                         "lightning-wands." + nbtItem.getInteger(
-                                "ntool.raw.id"), locationToStrike, nbtItem);
+                                "tools+.raw.id"), locationToStrike, nbtItem);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a trench tool
@@ -74,7 +74,7 @@ public class PlayerInteract implements Listener {
         NBTItem nbtItem = new NBTItem(player.getItemInHand());
         //Get the type of tool being used
         try {
-            if (nbtItem.getBoolean("ntool.sell")) {
+            if (nbtItem.getBoolean("tools+.sell")) {
                 if (!(event.getClickedBlock().getType().equals(Material.CHEST)
                         || event.getClickedBlock().getType().equals(Material.TRAPPED_CHEST))) {
                     return;
@@ -86,7 +86,7 @@ public class PlayerInteract implements Listener {
                 if (chestSell.isCancelled()) return;
                 //Run the code to sell the items
                 SellChestContents.sellContents(event.getClickedBlock(), player, "sell",
-                        "sell-wands." + nbtItem.getInteger("ntool.raw.id"),
+                        "sell-wands." + nbtItem.getInteger("tools+.raw.id"),
                         AlterToolModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(),
                                 nbtItem.getItem(), true, MapInitializer.sellWandModifierUnique), nbtItem);
             }
@@ -94,7 +94,7 @@ public class PlayerInteract implements Listener {
             //NBT tag is null because this is not a sell wand
         }
         try {
-            if (nbtItem.getBoolean("ntool.tnt")) {
+            if (nbtItem.getBoolean("tools+.tnt")) {
                 //Create a new block break event to ensure that the player can modify that chest
                 BlockBreakEvent tntCraft = new BlockBreakEvent(event.getClickedBlock(), player);
                 Bukkit.getPluginManager().callEvent(tntCraft);
@@ -102,7 +102,7 @@ public class PlayerInteract implements Listener {
                 if (tntCraft.isCancelled()) return;
                 //Run the code for the tnt wand
                 AlterChestContents.manipulateContents(event.getClickedBlock(), player, "tnt",
-                        "tnt-wands." + nbtItem.getInteger("ntool.raw.id"),
+                        "tnt-wands." + nbtItem.getInteger("tools+.raw.id"),
                         AlterToolModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(),
                                 nbtItem.getItem(), true, MapInitializer.tntWandModifierUnique),
                         !ChangeMode.changeToolMode(nbtItem.getItem().getItemMeta().getLore(),

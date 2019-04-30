@@ -40,7 +40,7 @@ public class BuyTrayToolsGui extends AbstractGui {
                                             ToolsPlus.getFiles().get("tray").getStringList("tray-tools." + configItem + ".enchantments"), "tray", configItem, player);
                                 }
                                 if (ToolsPlus.getFiles().get("tray_purchase_gui").getBoolean("tray-tool-purchase-gui." + configItem + ".back-button")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("generic-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

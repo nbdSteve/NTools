@@ -44,7 +44,7 @@ public class BuySellWandsGui extends AbstractGui {
                                             "{uses}", ToolsPlus.getFiles().get("sell").getString("sell-wands." + configItem + ".uses.starting"));
                                 }
                                 if (ToolsPlus.getFiles().get("sell_purchase_gui").getBoolean("sell-wand-purchase-gui." + configItem + ".back-button")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("generic-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

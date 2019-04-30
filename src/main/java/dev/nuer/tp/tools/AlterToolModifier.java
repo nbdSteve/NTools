@@ -29,7 +29,7 @@ public class AlterToolModifier {
     public static double getCurrentModifier(List<String> itemLore, ItemStack item, boolean getDouble,
                                             HashMap<Integer, ArrayList<String>> modifierUniqueIDs) {
         NBTItem nbtItem = new NBTItem(item);
-        int toolTypeRawID = nbtItem.getInteger("ntool.raw.id");
+        int toolTypeRawID = nbtItem.getInteger("tools+.raw.id");
         int index = 0;
         String modifierUniqueLore = modifierUniqueIDs.get(toolTypeRawID).get(index);
         for (String loreLine : itemLore) {
@@ -85,7 +85,7 @@ public class AlterToolModifier {
     public static void verifyItemLore(List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player,
                                       HashMap<Integer, ArrayList<String>> modifierUniqueIDs, String directory, String filePath) {
         NBTItem nbtItem = new NBTItem(item);
-        int toolTypeRawID = nbtItem.getInteger("ntool.raw.id");
+        int toolTypeRawID = nbtItem.getInteger("tools+.raw.id");
         int index = 0;
         String modifierUniqueLore = modifierUniqueIDs.get(toolTypeRawID).get(index);
         for (String loreLine : itemLore) {

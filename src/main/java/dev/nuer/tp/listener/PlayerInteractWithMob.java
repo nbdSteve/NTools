@@ -33,9 +33,9 @@ public class PlayerInteractWithMob implements Listener {
         NBTItem nbtItem = new NBTItem(player.getItemInHand());
         //Get the type of tool being used
         try {
-            if (nbtItem.getBoolean("ntool.lightning")) {
+            if (nbtItem.getBoolean("tools+.lightning")) {
                 CreateLightningStrike.createMobStrike(player, "lightning",
-                        "lightning-wands." + nbtItem.getInteger("ntool.raw.id"),
+                        "lightning-wands." + nbtItem.getInteger("tools+.raw.id"),
                         (Creeper) event.getRightClicked(), nbtItem);
             }
         } catch (NullPointerException e) {

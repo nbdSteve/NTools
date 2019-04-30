@@ -44,7 +44,7 @@ public class BuyMultiToolsGui extends AbstractGui {
                                             "debug", "debug");
                                 }
                                 if (ToolsPlus.getFiles().get("multi_purchase_gui").getBoolean("multi-tool-purchase-gui." + configItem + ".back-button")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("generic-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

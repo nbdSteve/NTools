@@ -31,31 +31,31 @@ public class BuyToolsGenericGui extends AbstractGui {
                             //Add the respective listeners to items based off the config
                             try {
                                 if (ToolsPlus.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-multi")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("multi-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("multi-buy").open(player);
                                 }
                                 if (ToolsPlus.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-trench")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("trench-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("trench-buy").open(player);
                                 }
                                 if (ToolsPlus.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-tray")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("tray-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("tray-buy").open(player);
                                 }
                                 if (ToolsPlus.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-sand")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("sand-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("sand-buy").open(player);
                                 }
                                 if (ToolsPlus.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-lightning")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("lightning-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("lightning-buy").open(player);
                                 }
                                 if (ToolsPlus.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-harvester")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("harvester-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("harvester-buy").open(player);
                                 }
                                 if (ToolsPlus.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-sell")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("sell-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("sell-buy").open(player);
                                 }
                                 if (ToolsPlus.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-tnt")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("tnt-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("tnt-buy").open(player);
                                 }
                                 if (ToolsPlus.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".open-aqua")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("aqua-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("aqua-buy").open(player);
                                 }
                                 if (ToolsPlus.getFiles().get("config").getBoolean("tool-purchase-gui." + configItem + ".exit-gui")) {
                                     player.closeInventory();

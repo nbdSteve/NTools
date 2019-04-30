@@ -19,9 +19,9 @@ public class NBTCreator {
      */
     public static ItemStack addToolData(ItemStack item, String typeOfTool, int idFromConfig, int startingUses) {
         NBTItem nbtItem = new NBTItem(item);
-        nbtItem.setBoolean("ntool." + typeOfTool, true);
-        nbtItem.setInteger("ntool.raw.id", idFromConfig);
-        nbtItem.setInteger("ntool.uses", startingUses);
+        nbtItem.setBoolean("tools+." + typeOfTool, true);
+        nbtItem.setInteger("tools+.raw.id", idFromConfig);
+        nbtItem.setInteger("tools+.uses", startingUses);
         return nbtItem.getItem();
     }
 
@@ -36,10 +36,10 @@ public class NBTCreator {
      */
     public static ItemStack addToolData(ItemStack item, String typeOfTool, int idFromConfig, boolean omniTool) {
         NBTItem nbtItem = new NBTItem(item);
-        nbtItem.setBoolean("ntool." + typeOfTool, true);
-        nbtItem.setInteger("ntool.raw.id", idFromConfig);
+        nbtItem.setBoolean("tools+." + typeOfTool, true);
+        nbtItem.setInteger("tools+.raw.id", idFromConfig);
         if (omniTool) {
-            nbtItem.setBoolean("ntool.omni", true);
+            nbtItem.setBoolean("tools+.omni", true);
         }
         return nbtItem.getItem();
     }

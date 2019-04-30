@@ -23,16 +23,16 @@ tnt-wand-config-gui:
     increase-modifier-when-clicked: true
   4:
     slot: 13
-    name: "&e&lTnT Wand Information"
+    name: "&e&lTNT Wand Information"
     material: book:0
     lore:
       - "&7 "
-      - "&7&oTnT wands have special properties,"
+      - "&7&oTNT wands have special properties,"
       - "&7&owhich means they can be configured to suit"
       - "&7&oyour explosion needs. Click the buttons"
       - "&7&oin this gui to configure your wand."
       - "&7 "
-      - "&6&oYou must be holding your TnT wand."
+      - "&6&oYou must be holding your TNT wand."
       - "&7 "
     enchantments:
-      - lure:10
+      - lure:1

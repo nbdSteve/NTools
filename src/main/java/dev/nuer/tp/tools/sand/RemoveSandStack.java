@@ -33,11 +33,11 @@ public class RemoveSandStack {
     public RemoveSandStack(BlockDamageEvent event, Player player, String directory,
                            String filePath, NBTItem nbtItem) {
         int cooldownFromConfig = ToolsPlus.getFiles().get(directory).getInt(filePath + ".cooldown");
-        Bukkit.getScheduler().runTaskAsynchronously(ToolsPlus.getPlugin(ToolsPlus.class), () -> {
+        Bukkit.getScheduler().runTaskAsynchronously(ToolsPlus.instance, () -> {
             if (PlayerToolCooldown.isOnCooldown(player, "sand")) {
                 return;
             } else {
-                DecrementUses.decrementUses(player, "sand", nbtItem, nbtItem.getInteger("ntool.uses"));
+                DecrementUses.decrementUses(player, "sand", nbtItem, nbtItem.getInteger("tools+.uses"));
                 PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "sand");
             }
             int positionX = event.getBlock().getX();
@@ -88,6 +88,6 @@ public class RemoveSandStack {
                     this.cancel();
                 }
             }
-        }.runTaskTimer(ToolsPlus.getPlugin(ToolsPlus.class), 0, breakDelay);
+        }.runTaskTimer(ToolsPlus.instance, 0, breakDelay);
     }
 }

@@ -42,7 +42,7 @@ public class BuySandWandsGui extends AbstractGui {
                                             "{uses}", ToolsPlus.getFiles().get("sand").getString("sand-wands." + configItem + ".uses.starting"));
                                 }
                                 if (ToolsPlus.getFiles().get("sand_purchase_gui").getBoolean("sand-wand-purchase-gui." + configItem + ".back-button")) {
-                                    ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open(player);
+                                    ToolsPlus.instance.getGuiByName("generic-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

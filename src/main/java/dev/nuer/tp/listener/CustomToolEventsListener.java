@@ -5,6 +5,7 @@ import dev.nuer.tp.events.*;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
 import dev.nuer.tp.tools.tnt.BankContentsOfChest;
 import dev.nuer.tp.tools.tnt.CraftContentsOfChest;
+import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -85,7 +86,23 @@ public class CustomToolEventsListener implements Listener {
     public void tntBankContentsEvent(TNTWandBankEvent event) {
         //Check if the event is cancelled
         if (event.isCancelled()) return;
-        //Run the code for tnt bank wands
+        //Run the code for tnt bank method
         BankContentsOfChest.getTNTCountForChest(event.getPlayer(), event.getChestBeingAffected());
+    }
+
+    @EventHandler
+    public void aquaWandMeltIceEvent(AquaWandMeltIceEvent event) {
+        //Check if the event is cancelled
+        if (event.isCancelled()) return;
+        //Run code for the aqua melt method
+        event.getBlockToMelt().setType(Material.WATER);
+    }
+
+    @EventHandler
+    public void aquaWandDrainLiquidEvent(AquaWandDrainLiquidEvent event) {
+        //Check if the event is cancelled
+        if (event.isCancelled()) return;
+        //Run code for the aqua drain liquid method
+        event.getBlockToDrain().setType(Material.AIR);
     }
 }

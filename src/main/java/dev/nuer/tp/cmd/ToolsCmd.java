@@ -37,8 +37,8 @@ public class ToolsCmd implements CommandExecutor {
         if (command.getName().equalsIgnoreCase("t+")) {
             if (args.length == 0) {
                 if (sender instanceof Player) {
-                    if (sender.hasPermission("toolsplus.gui")) {
-                        ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("generic-buy").open((Player) sender);
+                    if (sender.hasPermission("tools+.gui")) {
+                        ToolsPlus.instance.getGuiByName("generic-buy").open((Player) sender);
                     } else {
                         new PlayerMessage("no-permission", (Player) sender);
                     }
@@ -58,7 +58,7 @@ public class ToolsCmd implements CommandExecutor {
                 }
             } else {
                 if (sender instanceof Player) {
-                    if (sender.hasPermission("toolsplus.gui")) {
+                    if (sender.hasPermission("tools+.gui")) {
                         new PlayerMessage("invalid-command", (Player) sender, "{reason}",
                                 "The arguments you entered where incorrect, please refer to the wiki");
                     } else {

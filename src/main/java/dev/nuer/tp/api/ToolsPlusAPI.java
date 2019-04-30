@@ -15,7 +15,7 @@ public class ToolsPlusAPI {
      * @return ToolsPlus
      */
     public static ToolsPlus getInstance() {
-        return ToolsPlus.getPlugin(ToolsPlus.class);
+        return ToolsPlus.instance;
     }
 
     /**

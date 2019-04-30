@@ -82,7 +82,7 @@ public class ActionBarAPI {
                 public void run() {
                     sendActionBar(player, "");
                 }
-            }.runTaskLater(ToolsPlus.getPlugin(ToolsPlus.class), duration + 1);
+            }.runTaskLater(ToolsPlus.instance, duration + 1);
         }
         // Re-sends the messages every 3 seconds so it doesn't go away from the player's screen.
         while (duration > 40) {
@@ -92,7 +92,7 @@ public class ActionBarAPI {
                 public void run() {
                     sendActionBar(player, message);
                 }
-            }.runTaskLater(ToolsPlus.getPlugin(ToolsPlus.class), (long) duration);
+            }.runTaskLater(ToolsPlus.instance, (long) duration);
         }
     }
 

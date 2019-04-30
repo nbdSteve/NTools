@@ -44,16 +44,16 @@ public class DecrementUses {
             return;
         }
         //Store the unique uses line
-        String usesUniqueLine = Chat.applyColor(ToolsPlus.getFiles().get(typeOfTool).getString(typeOfTool + "-wands." + item.getInteger("ntool.raw.id") + ".uses.unique"));
+        String usesUniqueLine = Chat.applyColor(ToolsPlus.getFiles().get(typeOfTool).getString(typeOfTool + "-wands." + item.getInteger("tools+.raw.id") + ".uses.unique"));
         //Store the uses placeholder to update
-        String usesReplaceLine = Chat.applyColor(ToolsPlus.getFiles().get(typeOfTool).getString(typeOfTool + "-wands." + item.getInteger("ntool.raw.id") + ".uses.update"));
+        String usesReplaceLine = Chat.applyColor(ToolsPlus.getFiles().get(typeOfTool).getString(typeOfTool + "-wands." + item.getInteger("tools+.raw.id") + ".uses.update"));
         for (int i = 0; i < item.getItem().getItemMeta().getLore().size(); i++) {
             if (item.getItem().getItemMeta().getLore().get(i).contains(usesUniqueLine)) {
                 //Remove the item from their hand
-                item.setInteger("ntool.uses", currentUses--);
+                item.setInteger("tools+.uses", currentUses--);
                 List<String> itemLore = item.getItem().getItemMeta().getLore();
                 //Update the lore with the new line
-                itemLore.set(i, usesUniqueLine + " " + usesReplaceLine.replace("{uses}", String.valueOf(item.getInteger("ntool.uses"))));
+                itemLore.set(i, usesUniqueLine + " " + usesReplaceLine.replace("{uses}", String.valueOf(item.getInteger("tools+.uses"))));
                 UpdateItem.updateItem(itemLore, item.getItem().getItemMeta(), item.getItem());
                 player.setItemInHand(item.getItem());
             }

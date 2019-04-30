@@ -33,36 +33,36 @@ public class CrouchRightClickOpenGui implements Listener {
         NBTItem nbtItem = new NBTItem(event.getItem());
         //See which tool it is and open the respective gui
         try {
-            if (nbtItem.getBoolean("ntool.multi")) {
-                ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("multi-config").open(player);
+            if (nbtItem.getBoolean("tools+.multi")) {
+                ToolsPlus.instance.getGuiByName("multi-config").open(player);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a multi tool
         }
         try {
-            if (nbtItem.getBoolean("ntool.harvester")) {
-                ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("harvester-config").open(player);
+            if (nbtItem.getBoolean("tools+.harvester")) {
+                ToolsPlus.instance.getGuiByName("harvester-config").open(player);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a harvester hoe
         }
         try {
-            if (nbtItem.getBoolean("ntool.sell")) {
-                ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("sell-config").open(player);
+            if (nbtItem.getBoolean("tools+.sell")) {
+                ToolsPlus.instance.getGuiByName("sell-config").open(player);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a sell wand
         }
         try {
-            if (nbtItem.getBoolean("ntool.tnt")) {
-                ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("tnt-config").open(player);
+            if (nbtItem.getBoolean("tools+.tnt")) {
+                ToolsPlus.instance.getGuiByName("tnt-config").open(player);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a tnt wand
         }
         try {
-            if (nbtItem.getBoolean("ntool.aqua")) {
-                ToolsPlus.getPlugin(ToolsPlus.class).getGuiByName("aqua-config").open(player);
+            if (nbtItem.getBoolean("tools+.aqua")) {
+                ToolsPlus.instance.getGuiByName("aqua-config").open(player);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a aqua wand

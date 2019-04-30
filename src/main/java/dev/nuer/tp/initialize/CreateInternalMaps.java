@@ -1,6 +1,7 @@
-package dev.nuer.tp.method;
+package dev.nuer.tp.initialize;
 
 import dev.nuer.tp.ToolsPlus;
+import dev.nuer.tp.method.Chat;
 import org.bukkit.ChatColor;
 
 import java.util.ArrayList;

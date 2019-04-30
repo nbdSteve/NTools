@@ -75,7 +75,7 @@ public class HandleSellingMessages {
      * @param player Player, player to send the message to
      */
     private static void sendDelayedMessage(Player player) {
-        activeMessageTasks.put(player.getUniqueId(), Bukkit.getScheduler().runTaskLater(ToolsPlus.getPlugin(ToolsPlus.class), () -> {
+        activeMessageTasks.put(player.getUniqueId(), Bukkit.getScheduler().runTaskLater(ToolsPlus.instance, () -> {
             if (playersSellingByHarvest.get(player.getUniqueId()) - System.currentTimeMillis() <= 0) {
                 new PlayerMessage("bulk-deposit-by-harvest", player, "{deposit}",
                         ToolsPlus.numberFormat.format(trackPlayerDeposits.get(player.getUniqueId())));
