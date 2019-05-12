@@ -14,7 +14,7 @@ tnt-wand-config-gui:
   2:
     slot: 3
     name: "&a&lDecrease Crafting Cost"
-    material: stained_glass_pane:5
+    material: brown_mushroom:0
     lore:
       - "&7 "
       - "&7&oClick to decrease your TNT Wands"

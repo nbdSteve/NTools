@@ -23,7 +23,6 @@ sand-wands:
       - "&7 "
     #
     enchantments:
-      - knockback:1
       - durability:5
   2:
     cooldown: 5
@@ -49,7 +48,7 @@ sand-wands:
       - "&7 "
     #
     enchantments:
-      - knockback:2
+      - knockback:1
       - durability:5
   3:
     cooldown: 3
@@ -75,25 +74,5 @@ sand-wands:
       - "&7 "
     #
     enchantments:
-      - knockback:3
+      - knockback:2
       - durability:5
-  4:
-    cooldown: -1
-    #
-    break-delay: 1
-    #
-    uses:
-      starting: -1
-    #
-    name: "&eSand Wand &7(&6Tier DONOR&7)"
-    #
-    lore:
-      - "&6&l**Stack Remover X**"
-      - "&7 "
-      - "&a&oThis wand was created by the Choomas,"
-      - "&a&oto remove stacks of sand, use it wisely..."
-      - "&7 "
-    #
-    enchantments:
-      - knockback:5
-      - durability:10

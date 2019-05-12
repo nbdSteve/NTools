@@ -2,6 +2,7 @@ package dev.nuer.tp.file;
 
 import dev.nuer.tp.ToolsPlus;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.util.HashMap;
@@ -75,7 +76,7 @@ public class LoadFile {
      * @param fileName String, the name of the file from the Files enum
      * @return FileConfiguration, the yaml config for that file
      */
-    public FileConfiguration get(String fileName) {
+    public YamlConfiguration get(String fileName) {
         if (files.containsKey(Files.valueOf(fileName.toUpperCase()))) {
             return files.get(Files.valueOf(fileName.toUpperCase())).get();
         }

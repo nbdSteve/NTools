@@ -22,7 +22,6 @@ lightning-wands:
       - "&7 "
     #
     enchantments:
-      - fire_aspect:1
       - durability:5
   2:
     cooldown: 5
@@ -47,7 +46,7 @@ lightning-wands:
       - "&7 "
     #
     enchantments:
-      - fire_aspect:2
+      - fire_aspect:1
       - durability:5
   3:
     cooldown: 3
@@ -72,24 +71,5 @@ lightning-wands:
       - "&7 "
     #
     enchantments:
-      - fire_aspect:3
+      - fire_aspect:2
       - durability:5
-  4:
-    cooldown: -1
-    #
-    uses:
-      starting: -1
-    #
-    name: "&eLightning Wand &7(&6Tier DONOR&7)"
-    #
-    lore:
-      - "&6&l**Thor X**"
-      - "&7 "
-      - "&a&oThis wand was create by the Venditos,"
-      - "&a&oto strike lightning and charge creepers,"
-      - "&a&ouse and abuse its electrifying potential..."
-      - "&7 "
-    #
-    enchantments:
-      - knockback:5
-      - durability:10

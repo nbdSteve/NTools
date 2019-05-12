@@ -14,7 +14,7 @@ harvester-tool-config-gui:
   2:
     slot: 3
     name: "&a&lIncrease Price Modifier"
-    material: stained_glass_pane:5
+    material: brown_mushroom:0
     lore:
       - "&7 "
       - "&7&oClick to increase your Harvester Hoes"

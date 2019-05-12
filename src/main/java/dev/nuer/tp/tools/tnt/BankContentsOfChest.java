@@ -46,7 +46,7 @@ public class BankContentsOfChest {
      * @return boolean
      */
     public static boolean chestContainsTNT(Inventory inventory) {
-        for (ItemStack item : inventory) {
+        for (ItemStack item : inventory.getContents()) {
             if (item != null && item.getType().equals(Material.TNT)) {
                 return true;
             }
@@ -63,7 +63,7 @@ public class BankContentsOfChest {
     public static void getTNTCountForChest(Player player, Chest chestToAlter) {
         int slot = 0;
         HashMap<Material, Integer> materialAndAmount = new HashMap<>();
-        for (ItemStack item : chestToAlter.getInventory()) {
+        for (ItemStack item : chestToAlter.getInventory().getContents()) {
             if (item != null && !item.hasItemMeta() && item.getType().equals(Material.TNT)) {
                 try {
                     int currentAmount = materialAndAmount.get(item.getType());

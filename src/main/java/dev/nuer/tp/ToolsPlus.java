@@ -63,9 +63,9 @@ public final class ToolsPlus extends JavaPlugin {
         //Load the omni tool block lists
         OmniFunctionality.loadOmniToolBlocks();
         //Get the server economy
-        try {
+        if (Bukkit.getPluginManager().getPlugin("Vault") != null) {
             economy = getServer().getServicesManager().getRegistration(Economy.class).getProvider();
-        } catch (NullPointerException economyNotEnabled) {
+        } else {
             LOGGER.info("[Tools+] Unable to find economy instance, disabling economy features.");
             economy = null;
         }

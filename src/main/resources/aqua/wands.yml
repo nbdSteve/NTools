@@ -45,5 +45,5 @@ aqua-wands:
       - "&7 "
     #
     enchantments:
-      - fire_aspect:5
-      - durability:10
+      - fire_aspect:2
+      - durability:5

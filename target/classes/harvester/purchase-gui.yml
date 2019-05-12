@@ -5,7 +5,7 @@ harvester-tool-purchase-gui:
     slot: 0
     price: 750000
     name: "&eHarvester Tool &7(&6Tier I&7)"
-    material: gold_hoe:0
+    material: iron_hoe:0
     lore:
       - "&6&l**Farmer I**"
       - "&7 "

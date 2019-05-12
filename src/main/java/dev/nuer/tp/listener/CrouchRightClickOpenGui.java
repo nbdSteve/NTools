@@ -19,7 +19,7 @@ public class CrouchRightClickOpenGui implements Listener {
      * @param event PlayerInteractEvent
      */
     @EventHandler
-    public void openMultiToolOptionsGui(PlayerInteractEvent event) {
+    public void openToolConfigurationGui(PlayerInteractEvent event) {
         //Store the player
         Player player = event.getPlayer();
         //Check player is crouched
@@ -28,7 +28,8 @@ public class CrouchRightClickOpenGui implements Listener {
         if (!(event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)))
             return;
         //Check that the item has meta and lore
-        if (!event.getItem().hasItemMeta() || !event.getItem().getItemMeta().hasLore()) return;
+        if (event.getItem() == null || !event.getItem().hasItemMeta() || !event.getItem().getItemMeta().hasLore())
+            return;
         //Create a local variable for the item meta
         NBTItem nbtItem = new NBTItem(event.getItem());
         //See which tool it is and open the respective gui

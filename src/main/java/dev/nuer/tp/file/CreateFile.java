@@ -79,7 +79,7 @@ public class CreateFile {
      *
      * @return yaml configuration
      */
-    public FileConfiguration get() {
+    public YamlConfiguration get() {
         return yamlFile;
     }
 }

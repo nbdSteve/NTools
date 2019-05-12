@@ -31,40 +31,36 @@ public class AlterChestContents {
      */
     public static void manipulateContents(Block clickedBlock, Player player, String directory, String filePath,
                                           double craftingModifier, boolean bank, NBTItem nbtItem) {
-        Bukkit.getScheduler().runTaskAsynchronously(ToolsPlus.instance, () -> {
-            //Get if the plugin is using shop gui plus
-            boolean usingFactions = FactionIntegration.usingFactions("config");
-            //Store the tool cooldown
-            int cooldownFromConfig = ToolsPlus.getFiles().get(directory).getInt(filePath + ".cooldown");
-            //Store the chest
-            Chest chestToAlter = (Chest) clickedBlock.getState();
-            if (!bank && !CraftContentsOfChest.canCraftContents(chestToAlter.getInventory(), craftingModifier)) {
-                new PlayerMessage("contents-can-not-be-crafted", player);
-                return;
-            }
-            if (bank && !usingFactions) {
-                new PlayerMessage("invalid-config", player, "{reason}", "Cannot bank TNT without SavageFactions installed");
-                return;
-            }
-            if (bank && usingFactions && !BankContentsOfChest.chestContainsTNT(chestToAlter.getInventory())) {
-                new PlayerMessage("chest-does-not-contain-tnt", player);
-                return;
-            }
-            if (usingFactions && !BankContentsOfChest.hasFaciton(player)) {
-                new PlayerMessage("cannot-tnt-bank-without-faction", player);
-                return;
-            }
-            if (PlayerToolCooldown.isOnCooldown(player, "tnt")) {
-                return;
-            } else {
-                DecrementUses.decrementUses(player, "tnt", nbtItem, nbtItem.getInteger("tools+.uses"));
-                PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "tnt");
-            }
-            if (bank && usingFactions) {
-                Bukkit.getPluginManager().callEvent(new TNTWandBankEvent(chestToAlter, player));
-            } else {
-                Bukkit.getPluginManager().callEvent(new TNTWandCraftEvent(chestToAlter, player, craftingModifier));
-            }
-        });
+        //Verify that the player is not on cooldown
+        if (PlayerToolCooldown.isOnCooldown(player, "tnt")) return;
+        //Get if the plugin is using shop gui plus
+        boolean usingFactions = FactionIntegration.usingFactions("config");
+        //Store the tool cooldown
+        int cooldownFromConfig = ToolsPlus.getFiles().get(directory).getInt(filePath + ".cooldown");
+        //Store the chest
+        Chest chestToAlter = (Chest) clickedBlock.getState();
+        if (!bank && !CraftContentsOfChest.canCraftContents(chestToAlter.getInventory(), craftingModifier)) {
+            new PlayerMessage("contents-can-not-be-crafted", player);
+            return;
+        }
+        if (bank && !usingFactions) {
+            new PlayerMessage("invalid-config", player, "{reason}", "Cannot bank TNT without SavageFactions installed");
+            return;
+        }
+        if (bank && usingFactions && !BankContentsOfChest.chestContainsTNT(chestToAlter.getInventory())) {
+            new PlayerMessage("chest-does-not-contain-tnt", player);
+            return;
+        }
+        if (usingFactions && !BankContentsOfChest.hasFaciton(player)) {
+            new PlayerMessage("cannot-tnt-bank-without-faction", player);
+            return;
+        }
+        DecrementUses.decrementUses(player, "tnt", nbtItem, nbtItem.getInteger("tools+.uses"));
+        PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "tnt");
+        if (bank && usingFactions) {
+            Bukkit.getPluginManager().callEvent(new TNTWandBankEvent(chestToAlter, player));
+        } else {
+            Bukkit.getPluginManager().callEvent(new TNTWandCraftEvent(chestToAlter, player, craftingModifier));
+        }
     }
 }

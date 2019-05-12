@@ -19,7 +19,6 @@ sand-wand-purchase-gui:
       - "&7Price: &c&l$220,000"
       - "&7 "
     enchantments:
-      - knockback:1
       - durability:5
     purchasable: true
   2:
@@ -40,7 +39,7 @@ sand-wand-purchase-gui:
       - "&7Price: &c&l$310,000"
       - "&7 "
     enchantments:
-      - knockback:2
+      - knockback:1
       - durability:5
     purchasable: true
   3:
@@ -61,7 +60,7 @@ sand-wand-purchase-gui:
       - "&7Price: &c&l$460,000"
       - "&7 "
     enchantments:
-      - knockback:3
+      - knockback:2
       - durability:5
     purchasable: true
   4:

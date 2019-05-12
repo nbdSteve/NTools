@@ -28,7 +28,7 @@ public class CraftContentsOfChest {
     public static void craftChestContents(Player player, double craftingPrice, Chest chestToAlter) {
         int slot = 0;
         HashMap<Material, Integer> materialAndAmount = new HashMap<>();
-        for (ItemStack item : chestToAlter.getInventory()) {
+        for (ItemStack item : chestToAlter.getInventory().getContents()) {
             try {
                 if (!item.hasItemMeta() && MapInitializer.tntWandCraftingRecipe.containsKey(item.getType().toString())) {
                     try {
@@ -85,7 +85,7 @@ public class CraftContentsOfChest {
      */
     public static boolean canCraftContents(Inventory inventory, double craftingModifier) {
         HashMap<String, Integer> itemAmounts = new HashMap<>();
-        for (ItemStack item : inventory) {
+        for (ItemStack item : inventory.getContents()) {
             if (item != null && MapInitializer.tntWandCraftingRecipe.containsKey(item.getType().toString())) {
                 if (itemAmounts.get(item.getType().toString()) == null) {
                     itemAmounts.put(item.getType().toString(), item.getAmount());

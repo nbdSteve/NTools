@@ -16,12 +16,16 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageEvent;
 
+import java.util.ArrayList;
+
 /**
  * Class that handles breaking blocks for the trench, tray and multi tools
  */
 public class BreakBlocksInRadius {
     //Store that the code for aqua tool has been run
     private boolean aquaCodeIsRun = false;
+    //Store the array list of blocks to be broken
+    private ArrayList<Block> breakableBlocks = new ArrayList<>();
 
     /**
      * Void method to break blocks in a given radius
@@ -31,6 +35,8 @@ public class BreakBlocksInRadius {
      */
     public BreakBlocksInRadius(NBTItem item, BlockDamageEvent event, Player player, String directory,
                                String filePath, boolean multiTool, boolean trenchTool, boolean aquaWand) {
+        //Verify that the player is not on cooldown
+        if (PlayerToolCooldown.isOnCooldown(player, "aqua")) return;
         //Create a new array of block coordinates in relation to the source block
         long start = System.currentTimeMillis();
         //Calculate the total area that needs to be removed, run this async for better performance on main
@@ -43,7 +49,6 @@ public class BreakBlocksInRadius {
                 radiusFromFile = ChangeToolRadius.getToolRadius(item.getItem().getItemMeta().getLore(), item.getItem(), MapInitializer.multiToolRadiusUnique);
             }
             if (aquaWand) {
-                if (PlayerToolCooldown.isOnCooldown(player, "aqua")) return;
                 radiusFromFile = ChangeToolRadius.getToolRadius(item.getItem().getItemMeta().getLore(), item.getItem(), MapInitializer.aquaWandRadiusUnique);
             }
             if (item.getBoolean("tools+.omni")) {
@@ -62,17 +67,18 @@ public class BreakBlocksInRadius {
                         if (currentBlock.getType().equals(Material.AIR)) {
                             //Air block, do nothing
                         } else {
-                            BlockBreakEvent radialBreak = new BlockBreakEvent(currentBlock, player);
-                            Bukkit.getServer().getPluginManager().callEvent(radialBreak);
                             if (aquaWand) {
-                                //Run aqua wand melt / drain methods
-                                aquaWandMethod(radialBreak, player, item, currentBlock);
+                                if (currentBlock.getType().equals(Material.ICE) || currentBlock.isLiquid()) {
+                                    this.breakableBlocks.add(currentBlock);
+                                }
                             } else if (trenchTool) {
-                                //Run trench tool break methods
-                                trenchToolMethod(radialBreak, player, currentBlock);
+                                if (!MapInitializer.trenchBlockBlacklist.contains(currentBlock.getType().toString())) {
+                                    this.breakableBlocks.add(currentBlock);
+                                }
                             } else {
-                                //Run tray tool break methods
-                                trayToolMethod(radialBreak, player, currentBlock);
+                                if (MapInitializer.trayBlockWhitelist.contains(currentBlock.getType().toString())) {
+                                    this.breakableBlocks.add(currentBlock);
+                                }
                             }
                         }
                         radiusX++;
@@ -83,16 +89,16 @@ public class BreakBlocksInRadius {
                 radiusZ = -radiusFromFile;
                 radiusY++;
             }
-        });
-        //Run this task just a fraction later otherwise the boolean is not updated
-        if (aquaWand) {
-            Bukkit.getScheduler().runTaskLater(ToolsPlus.instance, () -> {
+            Bukkit.getScheduler().runTask(ToolsPlus.instance, () -> {
+                for (Block block : breakableBlocks) {
+                    breakBlock(block, player, item, aquaWand, trenchTool);
+                }
                 if (aquaCodeIsRun) {
                     DecrementUses.decrementUses(player, "aqua", item, item.getInteger("tools+.uses"));
                     PlayerToolCooldown.setPlayerOnCooldown(player, ToolsPlus.getFiles().get(directory).getInt(filePath + ".cooldown"), "aqua");
                 }
-            }, 2L);
-        }
+            });
+        });
         //Send the player a message about full inv
         AddBlocksToPlayerInventory.messagedPlayers.remove(player);
         //Log stats if enabled
@@ -103,73 +109,47 @@ public class BreakBlocksInRadius {
     }
 
     /**
+     * Breaks to given block based on the tool being used
+     *
+     * @param block      Block, the block to the broken
+     * @param player     Player, the player breaking the block
+     * @param item       NBTItem, the item being used
+     * @param aquaWand   boolean, if the tool is an aqua wand
+     * @param trenchTool boolean, if the tool is a trench tool
+     */
+    private void breakBlock(Block block, Player player, NBTItem item, boolean aquaWand, boolean trenchTool) {
+        BlockBreakEvent radialBreak = new BlockBreakEvent(block, player);
+        Bukkit.getPluginManager().callEvent(radialBreak);
+        if (radialBreak.isCancelled()) return;
+        if (aquaWand) {
+            aquaWandMethod(block, player, item);
+        } else if (trenchTool) {
+            Bukkit.getPluginManager().callEvent(new TrenchBlockBreakEvent(block, player));
+        } else {
+            Bukkit.getPluginManager().callEvent(new TrayBlockBreakEvent(block, player));
+        }
+    }
+
+    /**
      * Method that handles aqua wand block melting and draining
      *
-     * @param event        BlockBreakEvent, the new event being called
-     * @param item         NBTItem, the item being used
      * @param currentBlock Block, the block to check
+     * @param player       Player, the player breaking
+     * @param item         NBTItem, the item being used
      */
-    private void aquaWandMethod(BlockBreakEvent event, Player player, NBTItem item, Block currentBlock) {
-        //Check that the event is not cancelled
-        if (event.isCancelled()) return;
+    private void aquaWandMethod(Block currentBlock, Player player, NBTItem item) {
         //Check which mode the players tool is in
         if (ChangeMode.changeToolMode(item.getItem().getItemMeta().getLore(), item.getItem().getItemMeta(),
                 item.getItem(), MapInitializer.aquaWandModeUnique, false)) {
             if (currentBlock.getType().equals(Material.ICE)) {
                 this.aquaCodeIsRun = true;
-                Bukkit.getScheduler().runTask(ToolsPlus.instance, () -> {
-                    Bukkit.getPluginManager().callEvent(new AquaWandMeltIceEvent(currentBlock, player));
-                });
+                Bukkit.getPluginManager().callEvent(new AquaWandMeltIceEvent(currentBlock, player));
             }
         } else {
             if (currentBlock.isLiquid()) {
                 this.aquaCodeIsRun = true;
-                Bukkit.getScheduler().runTask(ToolsPlus.instance, () -> {
-                    Bukkit.getPluginManager().callEvent(new AquaWandDrainLiquidEvent(currentBlock, player));
-                });
+                Bukkit.getPluginManager().callEvent(new AquaWandDrainLiquidEvent(currentBlock, player));
             }
-        }
-    }
-
-    /**
-     * Method that handles trench block breaking
-     *
-     * @param event        BlockBreakEvent, the new event being called
-     * @param player       Player, player using the tool
-     * @param currentBlock Block, the block to check
-     */
-    private void trenchToolMethod(BlockBreakEvent event, Player player, Block currentBlock) {
-        //Check that the block should be broken
-        if (MapInitializer.trenchBlockBlacklist.contains(currentBlock.getType().toString())) {
-            event.setCancelled(true);
-        } else {
-            //Check that the event is not cancelled
-            if (event.isCancelled()) return;
-            //Run the task to break the blocks sync
-            Bukkit.getScheduler().runTask(ToolsPlus.instance, () -> {
-                Bukkit.getPluginManager().callEvent(new TrenchBlockBreakEvent(currentBlock, player));
-            });
-        }
-    }
-
-    /**
-     * Method that handles tray block breaking
-     *
-     * @param event        BlockBreakEvent, the new event being called
-     * @param player       Player, player using the tool
-     * @param currentBlock Block, the block to check
-     */
-    private void trayToolMethod(BlockBreakEvent event, Player player, Block currentBlock) {
-        //Check that the block should be broken
-        if (!MapInitializer.trayBlockWhitelist.contains(currentBlock.getType().toString())) {
-            event.setCancelled(true);
-        } else {
-            //Check that the event is not cancelled
-            if (event.isCancelled()) return;
-            //Run the task to break the blocks sync
-            Bukkit.getScheduler().runTask(ToolsPlus.instance, () -> {
-                Bukkit.getPluginManager().callEvent(new TrayBlockBreakEvent(currentBlock, player));
-            });
         }
     }
 }

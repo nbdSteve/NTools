@@ -5,7 +5,7 @@ tnt-wand-purchase-gui:
     slot: 0
     price: 420000
     name: "&eTNT Wand &7(&6Tier I&7)"
-    material: sulphur:0
+    material: bone:0
     lore:
       - "&6&l**Detonate I**"
       - "&7 "
@@ -30,7 +30,7 @@ tnt-wand-purchase-gui:
     slot: 1
     price: 600000
     name: "&eTNT Wand &7(&6Tier II&7)"
-    material: sulphur:0
+    material: bone:0
     lore:
       - "&6&l**Detonate II**"
       - "&7 "
@@ -55,7 +55,7 @@ tnt-wand-purchase-gui:
     slot: 2
     price: 830000
     name: "&eTNT Wand &7(&6Tier III&7)"
-    material: sulphur:0
+    material: bone:0
     lore:
       - "&6&l**Detonate III**"
       - "&7 "

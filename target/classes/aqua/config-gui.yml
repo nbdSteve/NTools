@@ -14,7 +14,7 @@ aqua-wand-config-gui:
   2:
     slot: 3
     name: "&a&lIncrease Reach"
-    material: stained_glass_pane:5
+    material: brown_mushroom:0
     lore:
       - "&7 "
       - "&7&oClick to increase your tools"
@@ -24,7 +24,7 @@ aqua-wand-config-gui:
   3:
     slot: 2
     name: "&c&lDecrease Reach"
-    material: stained_glass_pane:14
+    material: red_mushroom:0
     lore:
       - "&7 "
       - "&7&oClick to decrease your tools"
