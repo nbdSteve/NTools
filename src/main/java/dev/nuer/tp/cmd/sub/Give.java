@@ -1,7 +1,8 @@
 package dev.nuer.tp.cmd.sub;
 
 import dev.nuer.tp.ToolsPlus;
-import dev.nuer.tp.initialize.MapInitializer;
+import dev.nuer.tp.managers.FileManager;
+import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.method.itemCreation.CraftItem;
 import dev.nuer.tp.method.player.PlayerMessage;
 import org.bukkit.Bukkit;
@@ -23,7 +24,7 @@ public class Give {
      * @param args   String[], list of command arguments
      */
     public static void onCmd(CommandSender sender, String[] args) {
-        if (sender.hasPermission("toolsplus.admin")) {
+        if (sender.hasPermission("tools+.admin")) {
             try {
                 Player target = Bukkit.getPlayer(args[1]);
                 if (!Bukkit.getOnlinePlayers().contains(target)) {
@@ -48,7 +49,7 @@ public class Give {
                 //Get the starting uses from the configuration, or reset for command
                 String startingUses = null;
                 try {
-                    startingUses = ToolsPlus.getFiles().get(args[2]).getString(args[2] + "-wands." + args[4] + ".uses.starting");
+                    startingUses = FileManager.get(args[2]).getString(args[2] + "-wands." + args[4] + ".uses.starting");
                     if (args.length == 6 && (args[2].equalsIgnoreCase("lightning")
                             || args[2].equalsIgnoreCase("sand"))) {
                         startingUses = args[5];
@@ -62,74 +63,74 @@ public class Give {
                 }
                 if (args[2].equalsIgnoreCase("multi")) {
                     new CraftItem(args[3],
-                            ToolsPlus.getFiles().get("multi").getString("multi-tools." + args[4] + ".name"),
-                            ToolsPlus.getFiles().get("multi").getStringList("multi-tools." + args[4] + ".lore"),
-                            ToolsPlus.getFiles().get("multi").getStringList("multi-tools." + args[4] + ".enchantments"),
-                            "multi", Integer.parseInt(args[4]), target, "{mode}", MapInitializer.multiToolModeUnique.get(Integer.parseInt(args[4])).get(1),
-                            "{radius}", MapInitializer.multiToolRadiusUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier), "debug", "debug");
+                            FileManager.get("multi").getString("multi-tools." + args[4] + ".name"),
+                            FileManager.get("multi").getStringList("multi-tools." + args[4] + ".lore"),
+                            FileManager.get("multi").getStringList("multi-tools." + args[4] + ".enchantments"),
+                            "multi", Integer.parseInt(args[4]), target, "{mode}", ToolsAttributeManager.multiToolModeUnique.get(Integer.parseInt(args[4])).get(1),
+                            "{radius}", ToolsAttributeManager.multiToolRadiusUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier), "debug", "debug");
                 }
                 if (args[2].equalsIgnoreCase("trench")) {
                     new CraftItem(args[3],
-                            ToolsPlus.getFiles().get("trench").getString("trench-tools." + args[4] + ".name"),
-                            ToolsPlus.getFiles().get("trench").getStringList("trench-tools." + args[4] + ".lore"),
-                            ToolsPlus.getFiles().get("trench").getStringList("trench-tools." + args[4] + ".enchantments"),
+                            FileManager.get("trench").getString("trench-tools." + args[4] + ".name"),
+                            FileManager.get("trench").getStringList("trench-tools." + args[4] + ".lore"),
+                            FileManager.get("trench").getStringList("trench-tools." + args[4] + ".enchantments"),
                             "trench", Integer.parseInt(args[4]), target);
                 }
                 if (args[2].equalsIgnoreCase("tray")) {
                     new CraftItem(args[3],
-                            ToolsPlus.getFiles().get("tray").getString("tray-tools." + args[4] + ".name"),
-                            ToolsPlus.getFiles().get("tray").getStringList("tray-tools." + args[4] + ".lore"),
-                            ToolsPlus.getFiles().get("tray").getStringList("tray-tools." + args[4] + ".enchantments"),
+                            FileManager.get("tray").getString("tray-tools." + args[4] + ".name"),
+                            FileManager.get("tray").getStringList("tray-tools." + args[4] + ".lore"),
+                            FileManager.get("tray").getStringList("tray-tools." + args[4] + ".enchantments"),
                             "tray", Integer.parseInt(args[4]), target);
                 }
                 if (args[2].equalsIgnoreCase("sand")) {
                     new CraftItem(args[3],
-                            ToolsPlus.getFiles().get("sand").getString("sand-wands." + args[4] + ".name"),
-                            ToolsPlus.getFiles().get("sand").getStringList("sand-wands." + args[4] + ".lore"),
-                            ToolsPlus.getFiles().get("sand").getStringList("sand-wands." + args[4] + ".enchantments"),
+                            FileManager.get("sand").getString("sand-wands." + args[4] + ".name"),
+                            FileManager.get("sand").getStringList("sand-wands." + args[4] + ".lore"),
+                            FileManager.get("sand").getStringList("sand-wands." + args[4] + ".enchantments"),
                             "sand", Integer.parseInt(args[4]), target, "debug", "debug",
                             "debug", "debug", "{uses}", startingUses);
                 }
                 if (args[2].equalsIgnoreCase("lightning")) {
-                    new CraftItem(args[3], ToolsPlus.getFiles().get("lightning").getString("lightning-wands" + "." + args[4] + ".name"),
-                            ToolsPlus.getFiles().get("lightning").getStringList("lightning-wands." + args[4] + ".lore"),
-                            ToolsPlus.getFiles().get("lightning").getStringList("lightning-wands." + args[4] + ".enchantments"),
+                    new CraftItem(args[3], FileManager.get("lightning").getString("lightning-wands" + "." + args[4] + ".name"),
+                            FileManager.get("lightning").getStringList("lightning-wands." + args[4] + ".lore"),
+                            FileManager.get("lightning").getStringList("lightning-wands." + args[4] + ".enchantments"),
                             "lightning", Integer.parseInt(args[4]), target, "debug", "debug", "debug", "debug",
                             "{uses}", startingUses);
                 }
                 if (args[2].equalsIgnoreCase("harvester")) {
-                    String[] modifierParts = MapInitializer.harvesterModifierUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier).split("-");
-                    new CraftItem(args[3], ToolsPlus.getFiles().get("harvester").getString("harvester-tools" + "." + args[4] + ".name"),
-                            ToolsPlus.getFiles().get("harvester").getStringList("harvester-tools." + args[4] + ".lore"),
-                            ToolsPlus.getFiles().get("harvester").getStringList("harvester-tools." + args[4] + ".enchantments"), "harvester",
-                            Integer.parseInt(args[4]), target, "{mode}", MapInitializer.harvesterModeUnique.get(Integer.parseInt(args[4])).get(1), "{modifier}", modifierParts[0], "debug", "debug");
+                    String[] modifierParts = ToolsAttributeManager.harvesterModifierUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier).split("-");
+                    new CraftItem(args[3], FileManager.get("harvester").getString("harvester-tools" + "." + args[4] + ".name"),
+                            FileManager.get("harvester").getStringList("harvester-tools." + args[4] + ".lore"),
+                            FileManager.get("harvester").getStringList("harvester-tools." + args[4] + ".enchantments"), "harvester",
+                            Integer.parseInt(args[4]), target, "{mode}", ToolsAttributeManager.harvesterModeUnique.get(Integer.parseInt(args[4])).get(1), "{modifier}", modifierParts[0], "debug", "debug");
                 }
                 if (args[2].equalsIgnoreCase("sell")) {
-                    String[] modifierParts = MapInitializer.sellWandModifierUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier).split("-");
+                    String[] modifierParts = ToolsAttributeManager.sellWandModifierUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier).split("-");
                     new CraftItem(args[3],
-                            ToolsPlus.getFiles().get("sell").getString("sell-wands." + args[4] + ".name"),
-                            ToolsPlus.getFiles().get("sell").getStringList("sell-wands." + args[4] + ".lore"),
-                            ToolsPlus.getFiles().get("sell").getStringList("sell-wands." + args[4] + ".enchantments"),
+                            FileManager.get("sell").getString("sell-wands." + args[4] + ".name"),
+                            FileManager.get("sell").getStringList("sell-wands." + args[4] + ".lore"),
+                            FileManager.get("sell").getStringList("sell-wands." + args[4] + ".enchantments"),
                             "sell", Integer.parseInt(args[4]), target, "debug", "debug",
                             "{modifier}", modifierParts[0], "{uses}", startingUses);
                 }
                 if (args[2].equalsIgnoreCase("tnt")) {
                     String[] modifierParts =
-                            MapInitializer.tntWandModifierUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier).split("-");
+                            ToolsAttributeManager.tntWandModifierUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier).split("-");
                     new CraftItem(args[3],
-                            ToolsPlus.getFiles().get("tnt").getString("tnt-wands." + args[4] + ".name"),
-                            ToolsPlus.getFiles().get("tnt").getStringList("tnt-wands." + args[4] + ".lore"),
-                            ToolsPlus.getFiles().get("tnt").getStringList("tnt-wands." + args[4] + ".enchantments"),
-                            "tnt", Integer.parseInt(args[4]), target, "{mode}", MapInitializer.tntWandModeUnique.get(Integer.parseInt(args[4])).get(1),
+                            FileManager.get("tnt").getString("tnt-wands." + args[4] + ".name"),
+                            FileManager.get("tnt").getStringList("tnt-wands." + args[4] + ".lore"),
+                            FileManager.get("tnt").getStringList("tnt-wands." + args[4] + ".enchantments"),
+                            "tnt", Integer.parseInt(args[4]), target, "{mode}", ToolsAttributeManager.tntWandModeUnique.get(Integer.parseInt(args[4])).get(1),
                             "{modifier}", modifierParts[0], "{uses}", startingUses);
                 }
                 if (args[2].equalsIgnoreCase("aqua")) {
                     new CraftItem(args[3],
-                            ToolsPlus.getFiles().get("aqua").getString("aqua-wands." + args[4] + ".name"),
-                            ToolsPlus.getFiles().get("aqua").getStringList("aqua-wands." + args[4] + ".lore"),
-                            ToolsPlus.getFiles().get("aqua").getStringList("aqua-wands." + args[4] + ".enchantments"),
-                            "aqua", Integer.parseInt(args[4]), target, "{mode}", MapInitializer.aquaWandModeUnique.get(Integer.parseInt(args[4])).get(1),
-                            "{radius}", MapInitializer.aquaWandRadiusUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier), "{uses}", startingUses);
+                            FileManager.get("aqua").getString("aqua-wands." + args[4] + ".name"),
+                            FileManager.get("aqua").getStringList("aqua-wands." + args[4] + ".lore"),
+                            FileManager.get("aqua").getStringList("aqua-wands." + args[4] + ".enchantments"),
+                            "aqua", Integer.parseInt(args[4]), target, "{mode}", ToolsAttributeManager.aquaWandModeUnique.get(Integer.parseInt(args[4])).get(1),
+                            "{radius}", ToolsAttributeManager.aquaWandRadiusUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier), "{uses}", startingUses);
                 }
             } catch (Exception invalidCommandParameters) {
                 if (sender instanceof Player) {
@@ -181,11 +182,11 @@ public class Give {
      * @return HashMap<Integer, ArrayList <String>>
      */
     public static HashMap<Integer, ArrayList<String>> getMap(String typeOfTool) {
-        if (typeOfTool.equalsIgnoreCase("multi")) return MapInitializer.multiToolRadiusUnique;
-        if (typeOfTool.equalsIgnoreCase("harvester")) return MapInitializer.harvesterModifierUnique;
-        if (typeOfTool.equalsIgnoreCase("sell")) return MapInitializer.sellWandModifierUnique;
-        if (typeOfTool.equalsIgnoreCase("tnt")) return MapInitializer.tntWandModifierUnique;
-        if (typeOfTool.equalsIgnoreCase("aqua")) return MapInitializer.aquaWandRadiusUnique;
+        if (typeOfTool.equalsIgnoreCase("multi")) return ToolsAttributeManager.multiToolRadiusUnique;
+        if (typeOfTool.equalsIgnoreCase("harvester")) return ToolsAttributeManager.harvesterModifierUnique;
+        if (typeOfTool.equalsIgnoreCase("sell")) return ToolsAttributeManager.sellWandModifierUnique;
+        if (typeOfTool.equalsIgnoreCase("tnt")) return ToolsAttributeManager.tntWandModifierUnique;
+        if (typeOfTool.equalsIgnoreCase("aqua")) return ToolsAttributeManager.aquaWandRadiusUnique;
         return null;
     }
 }

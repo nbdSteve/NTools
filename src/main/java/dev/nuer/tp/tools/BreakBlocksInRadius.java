@@ -5,8 +5,9 @@ import dev.nuer.tp.events.AquaWandDrainLiquidEvent;
 import dev.nuer.tp.events.AquaWandMeltIceEvent;
 import dev.nuer.tp.events.TrayBlockBreakEvent;
 import dev.nuer.tp.events.TrenchBlockBreakEvent;
-import dev.nuer.tp.external.nbtapi.NBTItem;
-import dev.nuer.tp.initialize.MapInitializer;
+import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.managers.FileManager;
+import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
 import dev.nuer.tp.tools.multi.ChangeToolRadius;
 import org.bukkit.Bukkit;
@@ -43,13 +44,13 @@ public class BreakBlocksInRadius {
         // thread
         Bukkit.getScheduler().runTaskAsynchronously(ToolsPlus.instance, () -> {
             //Get the radius of the tool from the tools.yml
-            int radiusFromFile = ToolsPlus.getFiles().get(directory).getInt(filePath + ".break-radius");
+            int radiusFromFile = FileManager.get(directory).getInt(filePath + ".break-radius");
             //If the tool is a multi, get its current radius
             if (multiTool) {
-                radiusFromFile = ChangeToolRadius.getToolRadius(item.getItem().getItemMeta().getLore(), item.getItem(), MapInitializer.multiToolRadiusUnique);
+                radiusFromFile = ChangeToolRadius.getToolRadius(item.getItem().getItemMeta().getLore(), item.getItem(), ToolsAttributeManager.multiToolRadiusUnique);
             }
             if (aquaWand) {
-                radiusFromFile = ChangeToolRadius.getToolRadius(item.getItem().getItemMeta().getLore(), item.getItem(), MapInitializer.aquaWandRadiusUnique);
+                radiusFromFile = ChangeToolRadius.getToolRadius(item.getItem().getItemMeta().getLore(), item.getItem(), ToolsAttributeManager.aquaWandRadiusUnique);
             }
             if (item.getBoolean("tools+.omni")) {
                 OmniFunctionality.changeToolType(event.getBlock(), player);
@@ -72,11 +73,11 @@ public class BreakBlocksInRadius {
                                     this.breakableBlocks.add(currentBlock);
                                 }
                             } else if (trenchTool) {
-                                if (!MapInitializer.trenchBlockBlacklist.contains(currentBlock.getType().toString())) {
+                                if (!ToolsAttributeManager.trenchBlockBlacklist.contains(currentBlock.getType().toString())) {
                                     this.breakableBlocks.add(currentBlock);
                                 }
                             } else {
-                                if (MapInitializer.trayBlockWhitelist.contains(currentBlock.getType().toString())) {
+                                if (ToolsAttributeManager.trayBlockWhitelist.contains(currentBlock.getType().toString())) {
                                     this.breakableBlocks.add(currentBlock);
                                 }
                             }
@@ -95,7 +96,7 @@ public class BreakBlocksInRadius {
                 }
                 if (aquaCodeIsRun) {
                     DecrementUses.decrementUses(player, "aqua", item, item.getInteger("tools+.uses"));
-                    PlayerToolCooldown.setPlayerOnCooldown(player, ToolsPlus.getFiles().get(directory).getInt(filePath + ".cooldown"), "aqua");
+                    PlayerToolCooldown.setPlayerOnCooldown(player, FileManager.get(directory).getInt(filePath + ".cooldown"), "aqua");
                 }
             });
         });
@@ -140,7 +141,7 @@ public class BreakBlocksInRadius {
     private void aquaWandMethod(Block currentBlock, Player player, NBTItem item) {
         //Check which mode the players tool is in
         if (ChangeMode.changeToolMode(item.getItem().getItemMeta().getLore(), item.getItem().getItemMeta(),
-                item.getItem(), MapInitializer.aquaWandModeUnique, false)) {
+                item.getItem(), ToolsAttributeManager.aquaWandModeUnique, false)) {
             if (currentBlock.getType().equals(Material.ICE)) {
                 this.aquaCodeIsRun = true;
                 Bukkit.getPluginManager().callEvent(new AquaWandMeltIceEvent(currentBlock, player));

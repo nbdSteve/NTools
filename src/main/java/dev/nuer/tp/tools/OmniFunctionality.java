@@ -1,6 +1,6 @@
 package dev.nuer.tp.tools;
 
-import dev.nuer.tp.ToolsPlus;
+import dev.nuer.tp.managers.FileManager;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -27,7 +27,7 @@ public class OmniFunctionality {
      */
     public static void changeToolType(Block block, Player player) {
         String itemInHand = player.getItemInHand().getType().toString();
-        String shovelMaterial = "_" + ToolsPlus.getFiles().get("omni_config").getString("omni-config.shovel-material-name").toUpperCase();
+        String shovelMaterial = "_" + FileManager.get("omni_config").getString("omni-config.shovel-material-name").toUpperCase();
         String[] materialType;
         try {
             materialType = itemInHand.split("_");
@@ -52,13 +52,13 @@ public class OmniFunctionality {
         spadeBlockTypes = new ArrayList<>();
         pickaxeBlockTypes = new ArrayList<>();
         axeBlockTypes = new ArrayList<>();
-        for (String blockType : ToolsPlus.getFiles().get("omni_config").getStringList("omni-config.shovel-blocks")) {
+        for (String blockType : FileManager.get("omni_config").getStringList("omni-config.shovel-blocks")) {
             spadeBlockTypes.add(blockType.toUpperCase());
         }
-        for (String blockType : ToolsPlus.getFiles().get("omni_config").getStringList("omni-config.pickaxe-blocks")) {
+        for (String blockType : FileManager.get("omni_config").getStringList("omni-config.pickaxe-blocks")) {
             pickaxeBlockTypes.add(blockType.toUpperCase());
         }
-        for (String blockType : ToolsPlus.getFiles().get("omni_config").getStringList("omni-config.axe-blocks")) {
+        for (String blockType : FileManager.get("omni_config").getStringList("omni-config.axe-blocks")) {
             axeBlockTypes.add(blockType.toUpperCase());
         }
     }

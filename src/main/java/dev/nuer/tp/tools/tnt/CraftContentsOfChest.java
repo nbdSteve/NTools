@@ -1,8 +1,9 @@
 package dev.nuer.tp.tools.tnt;
 
 import dev.nuer.tp.ToolsPlus;
-import dev.nuer.tp.external.actionbarapi.ActionBarAPI;
-import dev.nuer.tp.initialize.MapInitializer;
+import dev.nuer.tp.support.actionbarapi.ActionBarAPI;
+import dev.nuer.tp.managers.FileManager;
+import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.player.PlayerMessage;
 import org.bukkit.Material;
@@ -30,7 +31,7 @@ public class CraftContentsOfChest {
         HashMap<Material, Integer> materialAndAmount = new HashMap<>();
         for (ItemStack item : chestToAlter.getInventory().getContents()) {
             try {
-                if (!item.hasItemMeta() && MapInitializer.tntWandCraftingRecipe.containsKey(item.getType().toString())) {
+                if (!item.hasItemMeta() && ToolsAttributeManager.tntWandCraftingRecipe.containsKey(item.getType().toString())) {
                     try {
                         int newAmount = item.getAmount() + materialAndAmount.get(item.getType());
                         materialAndAmount.put(item.getType(), newAmount);
@@ -45,9 +46,9 @@ public class CraftContentsOfChest {
             slot++;
         }
         int numberCrafted = craftItems(materialAndAmount, craftingPrice, chestToAlter);
-        if (ToolsPlus.getFiles().get("config").getBoolean("tnt-wand-action-bar.enabled")) {
+        if (FileManager.get("config").getBoolean("tnt-wand-action-bar.enabled")) {
             //Create the action bar message
-            String message = ToolsPlus.getFiles().get("config").getString("tnt-wand-action-bar.craft-message").replace("{deposit}",
+            String message = FileManager.get("config").getString("tnt-wand-action-bar.craft-message").replace("{deposit}",
                     ToolsPlus.numberFormat.format(numberCrafted));
             //Send it to the player
             ActionBarAPI.sendActionBar(player, Chat.applyColor(message));
@@ -67,7 +68,7 @@ public class CraftContentsOfChest {
     public static int craftItems(HashMap<Material, Integer> materialAndAmount, double craftingPrice, Chest chestToAlter) {
         int maxCraftable = getMaxCratable(materialAndAmount, craftingPrice);
         for (Material item : materialAndAmount.keySet()) {
-            double remainder = materialAndAmount.get(item) - (maxCraftable * (MapInitializer.tntWandCraftingRecipe.get(item.toString()) * craftingPrice));
+            double remainder = materialAndAmount.get(item) - (maxCraftable * (ToolsAttributeManager.tntWandCraftingRecipe.get(item.toString()) * craftingPrice));
             if (remainder > 0) {
                 chestToAlter.getInventory().addItem(new ItemStack(item, (int) remainder));
             }
@@ -86,7 +87,7 @@ public class CraftContentsOfChest {
     public static boolean canCraftContents(Inventory inventory, double craftingModifier) {
         HashMap<String, Integer> itemAmounts = new HashMap<>();
         for (ItemStack item : inventory.getContents()) {
-            if (item != null && MapInitializer.tntWandCraftingRecipe.containsKey(item.getType().toString())) {
+            if (item != null && ToolsAttributeManager.tntWandCraftingRecipe.containsKey(item.getType().toString())) {
                 if (itemAmounts.get(item.getType().toString()) == null) {
                     itemAmounts.put(item.getType().toString(), item.getAmount());
                 } else {
@@ -96,9 +97,9 @@ public class CraftContentsOfChest {
             }
         }
         //Check that each item has the required amount
-        for (String item : MapInitializer.tntWandCraftingRecipe.keySet()) {
+        for (String item : ToolsAttributeManager.tntWandCraftingRecipe.keySet()) {
             try {
-                if (itemAmounts.get(item) < MapInitializer.tntWandCraftingRecipe.get(item) * craftingModifier) {
+                if (itemAmounts.get(item) < ToolsAttributeManager.tntWandCraftingRecipe.get(item) * craftingModifier) {
                     return false;
                 }
             } catch (NullPointerException e) {
@@ -119,7 +120,7 @@ public class CraftContentsOfChest {
     public static int getMaxCratable(HashMap<Material, Integer> materialAndAmount, double craftingPrice) {
         HashMap<Material, Double> maxCraftAmounts = new HashMap<>();
         for (Material item : materialAndAmount.keySet()) {
-            double amountRequired = MapInitializer.tntWandCraftingRecipe.get(item.toString()) * craftingPrice;
+            double amountRequired = ToolsAttributeManager.tntWandCraftingRecipe.get(item.toString()) * craftingPrice;
             double numberCrafted = materialAndAmount.get(item) / amountRequired;
             maxCraftAmounts.put(item, numberCrafted);
         }

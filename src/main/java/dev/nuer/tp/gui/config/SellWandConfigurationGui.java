@@ -1,8 +1,8 @@
 package dev.nuer.tp.gui.config;
 
-import dev.nuer.tp.ToolsPlus;
+import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.gui.AbstractGui;
-import dev.nuer.tp.initialize.MapInitializer;
+import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.itemCreation.CraftItem;
 import dev.nuer.tp.method.player.PlayerMessage;
@@ -21,26 +21,26 @@ public class SellWandConfigurationGui extends AbstractGui {
      * Constructor to create the Gui, add all items with their respective listeners
      */
     public SellWandConfigurationGui() {
-        super(ToolsPlus.getFiles().get("sell_config_gui").getInt("sell-wand-config-gui.size"),
-                Chat.applyColor(ToolsPlus.getFiles().get("sell_config_gui").getString("sell-wand-config-gui.name")));
+        super(FileManager.get("sell_config_gui").getInt("sell-wand-config-gui.size"),
+                Chat.applyColor(FileManager.get("sell_config_gui").getString("sell-wand-config-gui.name")));
 
         //Add all of the items from the Gui config to the Gui
         for (int i = 1; i <= 54; i++) {
             try {
                 final int configItem = i;
-                setItemInSlot(ToolsPlus.getFiles().get("sell_config_gui").getInt("sell-wand-config-gui." + configItem + ".slot"),
-                        new CraftItem(ToolsPlus.getFiles().get("sell_config_gui").getString("sell-wand-config-gui." + configItem + ".material"),
-                                ToolsPlus.getFiles().get("sell_config_gui").getString("sell-wand-config-gui." + configItem + ".name"),
-                                ToolsPlus.getFiles().get("sell_config_gui").getStringList("sell-wand-config-gui." + configItem + ".lore"),
-                                ToolsPlus.getFiles().get("sell_config_gui").getStringList("sell-wand-config-gui." + configItem + ".enchantments"), "sell", 0, null).getItem(),
+                setItemInSlot(FileManager.get("sell_config_gui").getInt("sell-wand-config-gui." + configItem + ".slot"),
+                        new CraftItem(FileManager.get("sell_config_gui").getString("sell-wand-config-gui." + configItem + ".material"),
+                                FileManager.get("sell_config_gui").getString("sell-wand-config-gui." + configItem + ".name"),
+                                FileManager.get("sell_config_gui").getStringList("sell-wand-config-gui." + configItem + ".lore"),
+                                FileManager.get("sell_config_gui").getStringList("sell-wand-config-gui." + configItem + ".enchantments"), "sell", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
                                 ItemStack item = player.getItemInHand();
                                 ItemMeta itemMeta = item.getItemMeta();
                                 List<String> itemLore = itemMeta.getLore();
-                                if (ToolsPlus.getFiles().get("sell_config_gui").getBoolean("sell-wand-config-gui." + configItem + ".increase-modifier-when-clicked")) {
-                                    AlterToolModifier.increasePriceModifier(itemLore, itemMeta, item, player, MapInitializer.sellWandModifierUnique, "sell", "sell-wands.");
+                                if (FileManager.get("sell_config_gui").getBoolean("sell-wand-config-gui." + configItem + ".increase-modifier-when-clicked")) {
+                                    AlterToolModifier.increasePriceModifier(itemLore, itemMeta, item, player, ToolsAttributeManager.sellWandModifierUnique, "sell", "sell-wands.");
                                 }
                             } catch (NullPointerException wandNotFound) {
                                 player.closeInventory();

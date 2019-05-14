@@ -1,12 +1,12 @@
 package dev.nuer.tp.gui.purchase;
 
-import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.gui.AbstractGui;
+import dev.nuer.tp.managers.FileManager;
+import dev.nuer.tp.managers.GuiManager;
 import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.itemCreation.CraftItem;
 import dev.nuer.tp.method.itemCreation.PurchaseTool;
 import dev.nuer.tp.method.player.PlayerMessage;
-import org.bukkit.ChatColor;
 
 /**
  * Class that handles the purchase Gui for Tray Tools
@@ -17,30 +17,30 @@ public class BuyTrayToolsGui extends AbstractGui {
      * Constructor to create the Gui, add all items with their respective listeners
      */
     public BuyTrayToolsGui() {
-        super(ToolsPlus.getFiles().get("tray_purchase_gui").getInt("tray-tool-purchase-gui.size"),
-                Chat.applyColor(ToolsPlus.getFiles().get("tray_purchase_gui").getString("tray-tool-purchase-gui.name")));
+        super(FileManager.get("tray_purchase_gui").getInt("tray-tool-purchase-gui.size"),
+                Chat.applyColor(FileManager.get("tray_purchase_gui").getString("tray-tool-purchase-gui.name")));
 
         //Add all of the items from the Gui config to the Gui
         for (int i = 1; i <= 54; i++) {
             try {
                 final int configItem = i;
-                setItemInSlot((ToolsPlus.getFiles().get("tray_purchase_gui").getInt("tray-tool-purchase-gui." + configItem + ".slot")),
-                        new CraftItem(ToolsPlus.getFiles().get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".material"),
-                                ToolsPlus.getFiles().get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".name"),
-                                ToolsPlus.getFiles().get("tray_purchase_gui").getStringList("tray-tool-purchase-gui." + configItem + ".lore"),
-                                ToolsPlus.getFiles().get("tray_purchase_gui").getStringList("tray-tool-purchase-gui." + configItem + ".enchantments"), "tray", 0, null).getItem(),
+                setItemInSlot((FileManager.get("tray_purchase_gui").getInt("tray-tool-purchase-gui." + configItem + ".slot")),
+                        new CraftItem(FileManager.get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".material"),
+                                FileManager.get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".name"),
+                                FileManager.get("tray_purchase_gui").getStringList("tray-tool-purchase-gui." + configItem + ".lore"),
+                                FileManager.get("tray_purchase_gui").getStringList("tray-tool-purchase-gui." + configItem + ".enchantments"), "tray", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
-                                if (ToolsPlus.getFiles().get("tray_purchase_gui").getBoolean("tray-tool-purchase-gui." + configItem + ".purchasable")) {
-                                    new PurchaseTool(ToolsPlus.getFiles().get("tray_purchase_gui").getInt("tray-tool-purchase-gui." + configItem + ".price"),
-                                            ToolsPlus.getFiles().get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".material"),
-                                            ToolsPlus.getFiles().get("tray").getString("tray-tools." + configItem + ".name"),
-                                            ToolsPlus.getFiles().get("tray").getStringList("tray-tools." + configItem + ".lore"),
-                                            ToolsPlus.getFiles().get("tray").getStringList("tray-tools." + configItem + ".enchantments"), "tray", configItem, player);
+                                if (FileManager.get("tray_purchase_gui").getBoolean("tray-tool-purchase-gui." + configItem + ".purchasable")) {
+                                    new PurchaseTool(FileManager.get("tray_purchase_gui").getInt("tray-tool-purchase-gui." + configItem + ".price"),
+                                            FileManager.get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".material"),
+                                            FileManager.get("tray").getString("tray-tools." + configItem + ".name"),
+                                            FileManager.get("tray").getStringList("tray-tools." + configItem + ".lore"),
+                                            FileManager.get("tray").getStringList("tray-tools." + configItem + ".enchantments"), "tray", configItem, player);
                                 }
-                                if (ToolsPlus.getFiles().get("tray_purchase_gui").getBoolean("tray-tool-purchase-gui." + configItem + ".back-button")) {
-                                    ToolsPlus.instance.getGuiByName("generic-buy").open(player);
+                                if (FileManager.get("tray_purchase_gui").getBoolean("tray-tool-purchase-gui." + configItem + ".back-button")) {
+                                    GuiManager.getGui("generic-buy").open(player);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

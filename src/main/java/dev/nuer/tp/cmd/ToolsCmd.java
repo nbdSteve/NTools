@@ -4,6 +4,7 @@ import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.cmd.sub.Give;
 import dev.nuer.tp.cmd.sub.Help;
 import dev.nuer.tp.cmd.sub.Reload;
+import dev.nuer.tp.managers.GuiManager;
 import dev.nuer.tp.method.player.PlayerMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -38,7 +39,7 @@ public class ToolsCmd implements CommandExecutor {
             if (args.length == 0) {
                 if (sender instanceof Player) {
                     if (sender.hasPermission("tools+.gui")) {
-                        ToolsPlus.instance.getGuiByName("generic-buy").open((Player) sender);
+                        GuiManager.getGui("generic-buy").open((Player) sender);
                     } else {
                         new PlayerMessage("no-permission", (Player) sender);
                     }

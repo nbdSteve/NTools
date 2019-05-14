@@ -1,8 +1,7 @@
 package dev.nuer.tp.method.itemCreation;
 
-import dev.nuer.tp.ToolsPlus;
+import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.Chat;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -49,7 +48,7 @@ public class CraftItem {
         if (player != null) {
             if (typeOfTool.equalsIgnoreCase("trench") || typeOfTool.equalsIgnoreCase("tray") || typeOfTool.equalsIgnoreCase("multi")) {
                 player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig,
-                        ToolsPlus.getFiles().get(typeOfTool).getBoolean(typeOfTool + "-tools." + idFromConfig + ".omni-tool")));
+                        FileManager.get(typeOfTool).getBoolean(typeOfTool + "-tools." + idFromConfig + ".omni-tool")));
             } else {
                 player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig, 0));
             }
@@ -90,7 +89,7 @@ public class CraftItem {
         if (player != null) {
             if (typeOfTool.equalsIgnoreCase("trench") || typeOfTool.equalsIgnoreCase("tray") || typeOfTool.equalsIgnoreCase("multi")) {
                 player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig,
-                        ToolsPlus.getFiles().get(typeOfTool).getBoolean(typeOfTool + "-tools." + idFromConfig + ".omni-tool")));
+                        FileManager.get(typeOfTool).getBoolean(typeOfTool + "-tools." + idFromConfig + ".omni-tool")));
             } else {
                 int uses;
                 try {

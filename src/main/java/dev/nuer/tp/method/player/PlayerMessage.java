@@ -1,8 +1,7 @@
 package dev.nuer.tp.method.player;
 
-import dev.nuer.tp.ToolsPlus;
+import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.Chat;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 /**
@@ -17,7 +16,7 @@ public class PlayerMessage {
      * @param player   Player, the player to send to
      */
     public PlayerMessage(String filePath, Player player) {
-        for (String line : ToolsPlus.getFiles().get("messages").getStringList(filePath)) {
+        for (String line : FileManager.get("messages").getStringList(filePath)) {
             player.sendMessage(Chat.applyColor(line));
         }
     }
@@ -31,7 +30,7 @@ public class PlayerMessage {
      * @param replacement String, the replacement
      */
     public PlayerMessage(String filePath, Player player, String placeHolder, String replacement) {
-        for (String line : ToolsPlus.getFiles().get("messages").getStringList(filePath)) {
+        for (String line : FileManager.get("messages").getStringList(filePath)) {
             player.sendMessage(Chat.applyColor(line).replace(placeHolder,
                     replacement));
         }
@@ -48,7 +47,7 @@ public class PlayerMessage {
      * @param replacement2 String, the second replacement
      */
     public PlayerMessage(String filePath, Player player, String placeHolder, String replacement, String placeHolder2, String replacement2) {
-        for (String line : ToolsPlus.getFiles().get("messages").getStringList(filePath)) {
+        for (String line : FileManager.get("messages").getStringList(filePath)) {
             player.sendMessage(Chat.applyColor(line).replace(placeHolder,
                     replacement).replace(placeHolder2, replacement2));
         }

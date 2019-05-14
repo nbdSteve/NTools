@@ -2,11 +2,11 @@ package dev.nuer.tp.tools.harvest;
 
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.events.HarvesterBlockBreakEvent;
-import dev.nuer.tp.external.actionbarapi.ActionBarAPI;
+import dev.nuer.tp.support.actionbarapi.ActionBarAPI;
+import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -50,9 +50,9 @@ public class HarvestBlock {
             }
         }
         if (sellMode) {
-            if (ToolsPlus.getFiles().get("config").getBoolean("harvester-action-bar.enabled")) {
+            if (FileManager.get("config").getBoolean("harvester-action-bar.enabled")) {
                 //Create the action bar message
-                String message = ToolsPlus.getFiles().get("config").getString("harvester-action-bar.message").replace("{deposit}",
+                String message = FileManager.get("config").getString("harvester-action-bar.message").replace("{deposit}",
                         ToolsPlus.numberFormat.format(totalDeposit));
                 //Send it to the player
                 ActionBarAPI.sendActionBar(player, Chat.applyColor(message));

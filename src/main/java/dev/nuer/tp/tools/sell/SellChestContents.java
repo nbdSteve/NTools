@@ -2,10 +2,11 @@ package dev.nuer.tp.tools.sell;
 
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.events.SellWandContainerSaleEvent;
-import dev.nuer.tp.external.ShopGUIPlusIntegration;
-import dev.nuer.tp.external.actionbarapi.ActionBarAPI;
-import dev.nuer.tp.external.nbtapi.NBTItem;
-import dev.nuer.tp.initialize.MapInitializer;
+import dev.nuer.tp.support.ShopGUIPlusIntegration;
+import dev.nuer.tp.support.actionbarapi.ActionBarAPI;
+import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.managers.FileManager;
+import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.player.PlayerMessage;
 import dev.nuer.tp.tools.DecrementUses;
@@ -40,7 +41,7 @@ public class SellChestContents {
         //Get if the plugin is using shop gui plus
         boolean usingShopGuiPlus = ShopGUIPlusIntegration.usingShopGUIPlus("sell");
         //Store the tool cooldown
-        int cooldownFromConfig = ToolsPlus.getFiles().get(directory).getInt(filePath + ".cooldown");
+        int cooldownFromConfig = FileManager.get(directory).getInt(filePath + ".cooldown");
         //Store the chest
         Chest chestToSell = (Chest) clickedBlock.getState();
         //Store the chests inventory
@@ -56,8 +57,8 @@ public class SellChestContents {
         for (ItemStack item : inventoryToSell.getContents()) {
             if (item == null || item.getType().equals(Material.AIR)) {
                 continue;
-            } else if (GetSellableItemPrices.canBeSold(item, player, usingShopGuiPlus, MapInitializer.sellWandItemPrices)) {
-                double finalPrice = GetSellableItemPrices.getItemPrice(item, player, priceModifier, usingShopGuiPlus, MapInitializer.sellWandItemPrices);
+            } else if (GetSellableItemPrices.canBeSold(item, player, usingShopGuiPlus, ToolsAttributeManager.sellWandItemPrices)) {
+                double finalPrice = GetSellableItemPrices.getItemPrice(item, player, priceModifier, usingShopGuiPlus, ToolsAttributeManager.sellWandItemPrices);
                 SellWandContainerSaleEvent sellChestEvent = new SellWandContainerSaleEvent(chestToSell, player, item, finalPrice);
                 Bukkit.getPluginManager().callEvent(sellChestEvent);
                 if (!sellChestEvent.isCancelled()) {
@@ -67,9 +68,9 @@ public class SellChestContents {
             }
             slot++;
         }
-        if (ToolsPlus.getFiles().get("config").getBoolean("sell-wand-action-bar.enabled")) {
+        if (FileManager.get("config").getBoolean("sell-wand-action-bar.enabled")) {
             //Create the action bar message
-            String message = ToolsPlus.getFiles().get("config").getString("sell-wand-action-bar.message").replace("{deposit}",
+            String message = FileManager.get("config").getString("sell-wand-action-bar.message").replace("{deposit}",
                     ToolsPlus.numberFormat.format(totalDeposit));
             //Send it to the player
             ActionBarAPI.sendActionBar(player, Chat.applyColor(message));
@@ -88,7 +89,7 @@ public class SellChestContents {
      */
     public static boolean canSellContents(Inventory inventory, Player player, boolean usingShopGuiPlus) {
         for (ItemStack item : inventory.getContents()) {
-            if (GetSellableItemPrices.canBeSold(item, player, usingShopGuiPlus, MapInitializer.sellWandItemPrices))
+            if (GetSellableItemPrices.canBeSold(item, player, usingShopGuiPlus, ToolsAttributeManager.sellWandItemPrices))
                 return true;
         }
         return false;

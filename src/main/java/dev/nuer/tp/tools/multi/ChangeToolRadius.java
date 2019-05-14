@@ -1,7 +1,8 @@
 package dev.nuer.tp.tools.multi;
 
 import dev.nuer.tp.ToolsPlus;
-import dev.nuer.tp.external.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.itemCreation.UpdateItem;
 import dev.nuer.tp.method.player.PlayerMessage;
 import org.bukkit.entity.Player;
@@ -127,7 +128,7 @@ public class ChangeToolRadius {
                                     ItemMeta itemMeta, ItemStack item, boolean increment, boolean decrement, Player player,
                                     String directory, String filePath, HashMap<Integer, ArrayList<String>> radiusUniqueMap) {
         int radius = ChangeToolRadius.getToolRadius(itemLore, item, radiusUniqueMap);
-        double priceToUpgrade = ToolsPlus.getFiles().get(directory).getInt(filePath + toolTypeRawID + ".upgrade-cost." + radius);
+        double priceToUpgrade = FileManager.get(directory).getInt(filePath + toolTypeRawID + ".upgrade-cost." + radius);
         if (increment) {
             int maxRadius =
                     Integer.parseInt(radiusUniqueMap.get(toolTypeRawID).get(radiusUniqueMap.get(toolTypeRawID).size() - 2));

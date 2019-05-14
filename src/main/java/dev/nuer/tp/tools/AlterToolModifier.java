@@ -1,7 +1,8 @@
 package dev.nuer.tp.tools;
 
 import dev.nuer.tp.ToolsPlus;
-import dev.nuer.tp.external.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.itemCreation.UpdateItem;
 import dev.nuer.tp.method.player.PlayerMessage;
 import org.bukkit.entity.Player;
@@ -124,7 +125,7 @@ public class AlterToolModifier {
                                               List<String> itemLore, ItemMeta itemMeta, ItemStack item, Player player,
                                               HashMap<Integer, ArrayList<String>> modifierUniqueIDs, String directory, String filePath) {
         int modifier = (int) getCurrentModifier(itemLore, item, false, modifierUniqueIDs);
-        double priceToUpgrade = ToolsPlus.getFiles().get(directory).getInt(filePath + toolTypeRawID + ".upgrade-cost." + modifier);
+        double priceToUpgrade = FileManager.get(directory).getInt(filePath + toolTypeRawID + ".upgrade-cost." + modifier);
         int maxModifier = modifierUniqueIDs.get(toolTypeRawID).size() - 3;
         if (modifier + 1 <= maxModifier) {
             String[] modifierParts = modifierUniqueIDs.get(toolTypeRawID).get(modifier + 1).split("-");

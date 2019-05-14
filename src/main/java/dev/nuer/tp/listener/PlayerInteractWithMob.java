@@ -1,6 +1,6 @@
 package dev.nuer.tp.listener;
 
-import dev.nuer.tp.external.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbtapi.NBTItem;
 import dev.nuer.tp.tools.lightning.CreateLightningStrike;
 import org.bukkit.entity.Creeper;
 import org.bukkit.entity.EntityType;

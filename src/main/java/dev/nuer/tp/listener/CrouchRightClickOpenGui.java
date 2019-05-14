@@ -1,7 +1,7 @@
 package dev.nuer.tp.listener;
 
-import dev.nuer.tp.ToolsPlus;
-import dev.nuer.tp.external.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.managers.GuiManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -35,35 +35,35 @@ public class CrouchRightClickOpenGui implements Listener {
         //See which tool it is and open the respective gui
         try {
             if (nbtItem.getBoolean("tools+.multi")) {
-                ToolsPlus.instance.getGuiByName("multi-config").open(player);
+                GuiManager.getGui("multi-config").open(player);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a multi tool
         }
         try {
             if (nbtItem.getBoolean("tools+.harvester")) {
-                ToolsPlus.instance.getGuiByName("harvester-config").open(player);
+                GuiManager.getGui("harvester-config").open(player);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a harvester hoe
         }
         try {
             if (nbtItem.getBoolean("tools+.sell")) {
-                ToolsPlus.instance.getGuiByName("sell-config").open(player);
+                GuiManager.getGui("sell-config").open(player);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a sell wand
         }
         try {
             if (nbtItem.getBoolean("tools+.tnt")) {
-                ToolsPlus.instance.getGuiByName("tnt-config").open(player);
+                GuiManager.getGui("tnt-config").open(player);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a tnt wand
         }
         try {
             if (nbtItem.getBoolean("tools+.aqua")) {
-                ToolsPlus.instance.getGuiByName("aqua-config").open(player);
+                GuiManager.getGui("aqua-config").open(player);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a aqua wand

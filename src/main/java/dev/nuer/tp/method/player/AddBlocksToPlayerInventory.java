@@ -1,9 +1,8 @@
 package dev.nuer.tp.method.player;
 
-import dev.nuer.tp.ToolsPlus;
-import dev.nuer.tp.external.actionbarapi.ActionBarAPI;
+import dev.nuer.tp.support.actionbarapi.ActionBarAPI;
+import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.Chat;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -27,8 +26,8 @@ public class AddBlocksToPlayerInventory {
         if (!messagedPlayers.contains(player)) {
             messagedPlayers.add(player);
             if (player.getInventory().firstEmpty() == -1) {
-                if (ToolsPlus.getFiles().get("config").getBoolean("inventory-full-action-bar.enabled")) {
-                    String message = ToolsPlus.getFiles().get("config").getString("inventory-full-action-bar.message");
+                if (FileManager.get("config").getBoolean("inventory-full-action-bar.enabled")) {
+                    String message = FileManager.get("config").getString("inventory-full-action-bar.message");
                     ActionBarAPI.sendActionBar(player, Chat.applyColor(message));
                 } else {
                     new PlayerMessage("inventory-full", player);
@@ -52,8 +51,8 @@ public class AddBlocksToPlayerInventory {
         if (!messagedPlayers.contains(player)) {
             messagedPlayers.add(player);
             if (player.getInventory().firstEmpty() == -1) {
-                if (ToolsPlus.getFiles().get("config").getBoolean("inventory-full-action-bar.enabled")) {
-                    String message = ToolsPlus.getFiles().get("config").getString("inventory-full-action-bar.message");
+                if (FileManager.get("config").getBoolean("inventory-full-action-bar.enabled")) {
+                    String message = FileManager.get("config").getString("inventory-full-action-bar.message");
                     ActionBarAPI.sendActionBar(player, Chat.applyColor(message));
                 } else {
                     new PlayerMessage("inventory-full", player);

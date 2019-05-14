@@ -1,6 +1,6 @@
 package dev.nuer.tp.method;
 
-import dev.nuer.tp.ToolsPlus;
+import dev.nuer.tp.managers.FileManager;
 
 import java.util.ArrayList;
 
@@ -20,7 +20,7 @@ public class AddBlocksToList {
      */
     public static ArrayList<String> createBlockList(String directory, String filePath) {
         ArrayList<String> blockList = new ArrayList<>();
-        for (String line : ToolsPlus.getFiles().get(directory).getStringList(filePath)) {
+        for (String line : FileManager.get(directory).getStringList(filePath)) {
             String block = line.toUpperCase();
             blockList.add(block);
         }

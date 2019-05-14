@@ -1,10 +1,10 @@
 package dev.nuer.tp.listener;
 
-import dev.nuer.tp.ToolsPlus;
-import dev.nuer.tp.external.nbtapi.NBTItem;
-import dev.nuer.tp.initialize.MapInitializer;
-import dev.nuer.tp.tools.ChangeMode;
+import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.managers.FileManager;
+import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.tools.AlterToolModifier;
+import dev.nuer.tp.tools.ChangeMode;
 import dev.nuer.tp.tools.lightning.CreateLightningStrike;
 import dev.nuer.tp.tools.sell.SellChestContents;
 import dev.nuer.tp.tools.tnt.AlterChestContents;
@@ -42,7 +42,7 @@ public class PlayerInteract implements Listener {
         Block locationToStrike;
         //Check to target block based on where the user is looking / clicked
         if (event.getAction().equals(Action.RIGHT_CLICK_AIR)) {
-            locationToStrike = player.getTargetBlock(null, ToolsPlus.getFiles().get("config").getInt("lightning-reach-distance"));
+            locationToStrike = player.getTargetBlock(null, FileManager.get("config").getInt("lightning-reach-distance"));
         } else {
             locationToStrike = event.getClickedBlock();
         }
@@ -88,7 +88,7 @@ public class PlayerInteract implements Listener {
                 SellChestContents.sellContents(event.getClickedBlock(), player, "sell",
                         "sell-wands." + nbtItem.getInteger("tools+.raw.id"),
                         AlterToolModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(),
-                                nbtItem.getItem(), true, MapInitializer.sellWandModifierUnique), nbtItem);
+                                nbtItem.getItem(), true, ToolsAttributeManager.sellWandModifierUnique), nbtItem);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a sell wand
@@ -104,9 +104,9 @@ public class PlayerInteract implements Listener {
                 AlterChestContents.manipulateContents(event.getClickedBlock(), player, "tnt",
                         "tnt-wands." + nbtItem.getInteger("tools+.raw.id"),
                         AlterToolModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(),
-                                nbtItem.getItem(), true, MapInitializer.tntWandModifierUnique),
+                                nbtItem.getItem(), true, ToolsAttributeManager.tntWandModifierUnique),
                         !ChangeMode.changeToolMode(nbtItem.getItem().getItemMeta().getLore(),
-                                nbtItem.getItem().getItemMeta(), nbtItem.getItem(), MapInitializer.tntWandModeUnique, false), nbtItem);
+                                nbtItem.getItem().getItemMeta(), nbtItem.getItem(), ToolsAttributeManager.tntWandModeUnique, false), nbtItem);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a tnt wand

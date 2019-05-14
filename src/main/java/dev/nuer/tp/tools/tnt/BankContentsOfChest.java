@@ -2,10 +2,10 @@ package dev.nuer.tp.tools.tnt;
 
 import com.massivecraft.factions.FPlayers;
 import dev.nuer.tp.ToolsPlus;
-import dev.nuer.tp.external.actionbarapi.ActionBarAPI;
+import dev.nuer.tp.support.actionbarapi.ActionBarAPI;
+import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.player.PlayerMessage;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Chest;
 import org.bukkit.entity.Player;
@@ -77,9 +77,9 @@ public class BankContentsOfChest {
         }
         int tntDeposited = materialAndAmount.get(Material.TNT);
         addTNTToBank(player, tntDeposited);
-        if (ToolsPlus.getFiles().get("config").getBoolean("tnt-wand-action-bar.enabled")) {
+        if (FileManager.get("config").getBoolean("tnt-wand-action-bar.enabled")) {
             //Create the action bar message
-            String message = ToolsPlus.getFiles().get("config").getString("tnt-wand-action-bar.bank-message").replace("{deposit}",
+            String message = FileManager.get("config").getString("tnt-wand-action-bar.bank-message").replace("{deposit}",
                     ToolsPlus.numberFormat.format(tntDeposited));
             //Send it to the player
             ActionBarAPI.sendActionBar(player, Chat.applyColor(message));

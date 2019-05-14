@@ -1,8 +1,8 @@
 package dev.nuer.tp.gui.config;
 
-import dev.nuer.tp.ToolsPlus;
+import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.gui.AbstractGui;
-import dev.nuer.tp.initialize.MapInitializer;
+import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.itemCreation.CraftItem;
 import dev.nuer.tp.method.player.PlayerMessage;
@@ -22,32 +22,32 @@ public class AquaWandConfigurationGui extends AbstractGui {
      * Constructor to create the Gui, add all items with their respective listeners
      */
     public AquaWandConfigurationGui() {
-        super(ToolsPlus.getFiles().get("aqua_config_gui").getInt("aqua-wand-config-gui.size"),
-                Chat.applyColor(ToolsPlus.getFiles().get("aqua_config_gui").getString("aqua-wand-config-gui.name")));
+        super(FileManager.get("aqua_config_gui").getInt("aqua-wand-config-gui.size"),
+                Chat.applyColor(FileManager.get("aqua_config_gui").getString("aqua-wand-config-gui.name")));
 
         //Add all of the items from the Gui config to the Gui
         for (int i = 1; i <= 54; i++) {
             try {
                 final int configItem = i;
-                setItemInSlot(ToolsPlus.getFiles().get("aqua_config_gui").getInt("aqua-wand-config-gui." + configItem + ".slot"),
-                        new CraftItem(ToolsPlus.getFiles().get("aqua_config_gui").getString("aqua-wand-config-gui." + configItem + ".material"),
-                                ToolsPlus.getFiles().get("aqua_config_gui").getString("aqua-wand-config-gui." + configItem + ".name"),
-                                ToolsPlus.getFiles().get("aqua_config_gui").getStringList("aqua-wand-config-gui." + configItem + ".lore"),
-                                ToolsPlus.getFiles().get("aqua_config_gui").getStringList("aqua-wand-config-gui." + configItem + ".enchantments"), "aqua", 0, null).getItem(),
+                setItemInSlot(FileManager.get("aqua_config_gui").getInt("aqua-wand-config-gui." + configItem + ".slot"),
+                        new CraftItem(FileManager.get("aqua_config_gui").getString("aqua-wand-config-gui." + configItem + ".material"),
+                                FileManager.get("aqua_config_gui").getString("aqua-wand-config-gui." + configItem + ".name"),
+                                FileManager.get("aqua_config_gui").getStringList("aqua-wand-config-gui." + configItem + ".lore"),
+                                FileManager.get("aqua_config_gui").getStringList("aqua-wand-config-gui." + configItem + ".enchantments"), "aqua", 0, null).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
                                 ItemStack item = player.getItemInHand();
                                 ItemMeta itemMeta = item.getItemMeta();
                                 List<String> itemLore = itemMeta.getLore();
-                                if (ToolsPlus.getFiles().get("aqua_config_gui").getBoolean("aqua-wand-config-gui." + configItem + ".switch-mode-when-clicked")) {
-                                    ChangeMode.switchMode(itemLore, itemMeta, item, player, MapInitializer.aquaWandModeUnique);
+                                if (FileManager.get("aqua_config_gui").getBoolean("aqua-wand-config-gui." + configItem + ".switch-mode-when-clicked")) {
+                                    ChangeMode.switchMode(itemLore, itemMeta, item, player, ToolsAttributeManager.aquaWandModeUnique);
                                 }
-                                if (ToolsPlus.getFiles().get("aqua_config_gui").getBoolean("aqua-wand-config-gui." + configItem + ".increase-radius-when-clicked")) {
-                                    ChangeToolRadius.incrementRadius(itemLore, itemMeta, item, player, "aqua", "aqua-wands.", MapInitializer.aquaWandRadiusUnique);
+                                if (FileManager.get("aqua_config_gui").getBoolean("aqua-wand-config-gui." + configItem + ".increase-radius-when-clicked")) {
+                                    ChangeToolRadius.incrementRadius(itemLore, itemMeta, item, player, "aqua", "aqua-wands.", ToolsAttributeManager.aquaWandRadiusUnique);
                                 }
-                                if (ToolsPlus.getFiles().get("aqua_config_gui").getBoolean("aqua-wand-config-gui." + configItem + ".decrease-radius-when-clicked")) {
-                                    ChangeToolRadius.decrementRadius(itemLore, itemMeta, item, player, "aqua", "aqua-wands.", MapInitializer.aquaWandRadiusUnique);
+                                if (FileManager.get("aqua_config_gui").getBoolean("aqua-wand-config-gui." + configItem + ".decrease-radius-when-clicked")) {
+                                    ChangeToolRadius.decrementRadius(itemLore, itemMeta, item, player, "aqua", "aqua-wands.", ToolsAttributeManager.aquaWandRadiusUnique);
                                 }
                             } catch (NullPointerException toolNotFound) {
                                 player.closeInventory();

@@ -1,10 +1,10 @@
 package dev.nuer.tp.tools.tnt;
 
-import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.events.TNTWandBankEvent;
 import dev.nuer.tp.events.TNTWandCraftEvent;
-import dev.nuer.tp.external.FactionIntegration;
-import dev.nuer.tp.external.nbtapi.NBTItem;
+import dev.nuer.tp.support.FactionIntegration;
+import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.player.PlayerMessage;
 import dev.nuer.tp.tools.DecrementUses;
 import dev.nuer.tp.tools.PlayerToolCooldown;
@@ -36,7 +36,7 @@ public class AlterChestContents {
         //Get if the plugin is using shop gui plus
         boolean usingFactions = FactionIntegration.usingFactions("config");
         //Store the tool cooldown
-        int cooldownFromConfig = ToolsPlus.getFiles().get(directory).getInt(filePath + ".cooldown");
+        int cooldownFromConfig = FileManager.get(directory).getInt(filePath + ".cooldown");
         //Store the chest
         Chest chestToAlter = (Chest) clickedBlock.getState();
         if (!bank && !CraftContentsOfChest.canCraftContents(chestToAlter.getInventory(), craftingModifier)) {

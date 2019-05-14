@@ -1,6 +1,7 @@
 package dev.nuer.tp.tools.harvest;
 
 import dev.nuer.tp.ToolsPlus;
+import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.player.PlayerMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -20,7 +21,7 @@ public class HandleSellingMessages {
     //Store the active message tasks associated with a player
     public static HashMap<UUID, BukkitTask> activeMessageTasks;
     //Store the message delay for the plugin
-    private static int messageDelay = ToolsPlus.getFiles().get("config").getInt("harvester-selling-message-delay");
+    private static int messageDelay = FileManager.get("config").getInt("harvester-selling-message-delay");
 
     /**
      * Sends a delayed message to the player who is harvesting

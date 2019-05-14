@@ -1,7 +1,6 @@
 package dev.nuer.tp.method.itemCreation;
 
-import dev.nuer.tp.ToolsPlus;
-import dev.nuer.tp.external.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbtapi.NBTItem;
 import org.bukkit.inventory.ItemStack;
 
 /**

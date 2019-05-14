@@ -1,8 +1,8 @@
 package dev.nuer.tp.tools.lightning;
 
-import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.events.LightningWandStrikeEvent;
-import dev.nuer.tp.external.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.player.PlayerMessage;
 import dev.nuer.tp.tools.DecrementUses;
 import dev.nuer.tp.tools.PlayerToolCooldown;
@@ -28,7 +28,7 @@ public class CreateLightningStrike {
      */
     public static void createStrikeGround(Player player, String directory, String filePath, Block blockToStrike,
                                           NBTItem nbtItem) {
-        int cooldownFromConfig = ToolsPlus.getFiles().get(directory).getInt(filePath + ".cooldown");
+        int cooldownFromConfig = FileManager.get(directory).getInt(filePath + ".cooldown");
         BlockIgniteEvent playerIgnite = new BlockIgniteEvent(blockToStrike,
                 BlockIgniteEvent.IgniteCause.FLINT_AND_STEEL, player);
         Bukkit.getPluginManager().callEvent(playerIgnite);
@@ -58,7 +58,7 @@ public class CreateLightningStrike {
             new PlayerMessage("creeper-already-powered", player);
             return;
         }
-        int cooldownFromConfig = ToolsPlus.getFiles().get(directory).getInt(filePath + ".cooldown");
+        int cooldownFromConfig = FileManager.get(directory).getInt(filePath + ".cooldown");
         BlockIgniteEvent playerIgnite = new BlockIgniteEvent(clickedMob.getLocation().getBlock(),
                 BlockIgniteEvent.IgniteCause.FLINT_AND_STEEL, player);
         Bukkit.getPluginManager().callEvent(playerIgnite);

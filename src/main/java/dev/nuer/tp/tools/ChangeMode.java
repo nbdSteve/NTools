@@ -1,10 +1,9 @@
 package dev.nuer.tp.tools;
 
-import dev.nuer.tp.external.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbtapi.NBTItem;
 import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.itemCreation.UpdateItem;
 import dev.nuer.tp.method.player.PlayerMessage;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;

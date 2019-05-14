@@ -1,8 +1,7 @@
 package dev.nuer.tp.listener;
 
-import dev.nuer.tp.ToolsPlus;
-import dev.nuer.tp.external.nbtapi.NBTItem;
-import dev.nuer.tp.initialize.MapInitializer;
+import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.tools.BreakBlocksInRadius;
 import dev.nuer.tp.tools.ChangeMode;
 import dev.nuer.tp.tools.AlterToolModifier;
@@ -58,7 +57,7 @@ public class BlockDamageByPlayer implements Listener {
                 new BreakBlocksInRadius(nbtItem, event, player, "multi", "multi-tools." + nbtItem.getInteger(
                         "tools+.raw.id"), true, ChangeMode.changeToolMode(
                         nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem().getItemMeta(),
-                        nbtItem.getItem(), MapInitializer.multiToolModeUnique, false), false);
+                        nbtItem.getItem(), ToolsAttributeManager.multiToolModeUnique, false), false);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a multi tool
@@ -84,11 +83,11 @@ public class BlockDamageByPlayer implements Listener {
         try {
             if (nbtItem.getBoolean("tools+.harvester")) {
                 event.setCancelled(true);
-                if (MapInitializer.harvesterBlockPrices.get(event.getBlock().getType().toString()) != null) {
+                if (ToolsAttributeManager.harvesterBlockPrices.get(event.getBlock().getType().toString()) != null) {
                     HarvestBlock.harvestBlocks(event, player, ChangeMode.changeToolMode(nbtItem.getItem().getItemMeta().getLore(),
-                            nbtItem.getItem().getItemMeta(), nbtItem.getItem(), MapInitializer.harvesterModeUnique, false),
-                            MapInitializer.harvesterBlockPrices.get(event.getBlock().getType().toString()),
-                            AlterToolModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem(), true, MapInitializer.harvesterModifierUnique));
+                            nbtItem.getItem().getItemMeta(), nbtItem.getItem(), ToolsAttributeManager.harvesterModeUnique, false),
+                            ToolsAttributeManager.harvesterBlockPrices.get(event.getBlock().getType().toString()),
+                            AlterToolModifier.getCurrentModifier(nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem(), true, ToolsAttributeManager.harvesterModifierUnique));
                 }
             }
         } catch (NullPointerException e) {

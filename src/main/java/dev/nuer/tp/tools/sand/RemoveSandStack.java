@@ -2,8 +2,9 @@ package dev.nuer.tp.tools.sand;
 
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.events.SandWandBlockBreakEvent;
-import dev.nuer.tp.external.nbtapi.NBTItem;
-import dev.nuer.tp.initialize.MapInitializer;
+import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.managers.FileManager;
+import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
 import dev.nuer.tp.tools.DecrementUses;
 import dev.nuer.tp.tools.PlayerToolCooldown;
@@ -32,7 +33,7 @@ public class RemoveSandStack {
      */
     public RemoveSandStack(BlockDamageEvent event, Player player, String directory,
                            String filePath, NBTItem nbtItem) {
-        int cooldownFromConfig = ToolsPlus.getFiles().get(directory).getInt(filePath + ".cooldown");
+        int cooldownFromConfig = FileManager.get(directory).getInt(filePath + ".cooldown");
         Bukkit.getScheduler().runTaskAsynchronously(ToolsPlus.instance, () -> {
             if (PlayerToolCooldown.isOnCooldown(player, "sand")) {
                 return;
@@ -47,12 +48,12 @@ public class RemoveSandStack {
             while (positionY >= 1) {
                 String currentBlockType =
                         player.getWorld().getBlockAt(positionX, positionY, positionZ).getType().toString();
-                if (MapInitializer.sandWandBlockWhitelist.contains(currentBlockType)) {
+                if (ToolsAttributeManager.sandWandBlockWhitelist.contains(currentBlockType)) {
                     blocksToRemove.add(player.getWorld().getBlockAt(positionX, positionY, positionZ));
                 }
                 positionY--;
             }
-            genericSandRemoval(player, blocksToRemove, ToolsPlus.getFiles().get(directory).getLong(filePath + ".break-delay"));
+            genericSandRemoval(player, blocksToRemove, FileManager.get(directory).getLong(filePath + ".break-delay"));
         });
     }
 
@@ -71,11 +72,11 @@ public class RemoveSandStack {
             public void run() {
                 if (arrayPosition < blocksToRemove.size()) {
                     String currentBlockType = blocksToRemove.get(arrayPosition).getType().toString();
-                    if (MapInitializer.sandWandBlockWhitelist.contains(currentBlockType)) {
+                    if (ToolsAttributeManager.sandWandBlockWhitelist.contains(currentBlockType)) {
                         BlockBreakEvent stackRemove = new BlockBreakEvent(blocksToRemove.get(arrayPosition), player);
                         Bukkit.getPluginManager().callEvent(stackRemove);
                         if (!stackRemove.isCancelled()) {
-                            if (MapInitializer.sandWandBlockWhitelist.contains(currentBlockType)) {
+                            if (ToolsAttributeManager.sandWandBlockWhitelist.contains(currentBlockType)) {
                                 Bukkit.getPluginManager().callEvent(new SandWandBlockBreakEvent(stackRemove.getBlock(), player));
                             }
                         }

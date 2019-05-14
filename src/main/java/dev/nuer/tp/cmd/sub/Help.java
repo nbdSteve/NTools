@@ -17,7 +17,7 @@ public class Help {
      */
     public static void onCmd(CommandSender sender) {
         if (sender instanceof Player) {
-            if (sender.hasPermission("toolsplus.help")) {
+            if (sender.hasPermission("tools+.help")) {
                 new PlayerMessage("help", (Player) sender);
             } else {
                 new PlayerMessage("no-permission", (Player) sender);

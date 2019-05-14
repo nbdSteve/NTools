@@ -1,13 +1,12 @@
 package dev.nuer.tp.tools;
 
-import dev.nuer.tp.ToolsPlus;
-import dev.nuer.tp.external.actionbarapi.ActionBarAPI;
-import dev.nuer.tp.external.nbtapi.NBTItem;
+import dev.nuer.tp.support.actionbarapi.ActionBarAPI;
+import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.itemCreation.UpdateItem;
 import dev.nuer.tp.method.player.PlayerMessage;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -35,8 +34,8 @@ public class DecrementUses {
         //Break the tool if it is out of uses
         if (currentUses-- <= 1) {
             player.setItemInHand(new ItemStack(Material.AIR));
-            if (ToolsPlus.getFiles().get("config").getBoolean("wand-break-action-bar.enabled")) {
-                String message = ToolsPlus.getFiles().get("config").getString("wand-break-action-bar." + typeOfTool + "-message");
+            if (FileManager.get("config").getBoolean("wand-break-action-bar.enabled")) {
+                String message = FileManager.get("config").getString("wand-break-action-bar." + typeOfTool + "-message");
                 ActionBarAPI.sendActionBar(player, Chat.applyColor(message));
             } else {
                 new PlayerMessage("wand-uses-break", Bukkit.getPlayer(player.getUniqueId()), "{item}", typeOfTool);
@@ -44,9 +43,9 @@ public class DecrementUses {
             return;
         }
         //Store the unique uses line
-        String usesUniqueLine = Chat.applyColor(ToolsPlus.getFiles().get(typeOfTool).getString(typeOfTool + "-wands." + item.getInteger("tools+.raw.id") + ".uses.unique"));
+        String usesUniqueLine = Chat.applyColor(FileManager.get(typeOfTool).getString(typeOfTool + "-wands." + item.getInteger("tools+.raw.id") + ".uses.unique"));
         //Store the uses placeholder to update
-        String usesReplaceLine = Chat.applyColor(ToolsPlus.getFiles().get(typeOfTool).getString(typeOfTool + "-wands." + item.getInteger("tools+.raw.id") + ".uses.update"));
+        String usesReplaceLine = Chat.applyColor(FileManager.get(typeOfTool).getString(typeOfTool + "-wands." + item.getInteger("tools+.raw.id") + ".uses.update"));
         for (int i = 0; i < item.getItem().getItemMeta().getLore().size(); i++) {
             if (item.getItem().getItemMeta().getLore().get(i).contains(usesUniqueLine)) {
                 //Remove the item from their hand

@@ -1,17 +1,15 @@
 package dev.nuer.tp;
 
 import dev.nuer.tp.cmd.ToolsCmd;
-import dev.nuer.tp.file.LoadFile;
-import dev.nuer.tp.gui.AbstractGui;
+import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.gui.listener.GuiClickListener;
-import dev.nuer.tp.initialize.GuiInitializer;
-import dev.nuer.tp.initialize.MapInitializer;
+import dev.nuer.tp.managers.GuiManager;
+import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.listener.*;
 import dev.nuer.tp.method.VersionChecker;
 import dev.nuer.tp.tools.OmniFunctionality;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.text.DecimalFormat;
@@ -23,10 +21,6 @@ import java.util.logging.Logger;
 public final class ToolsPlus extends JavaPlugin {
     //Store the plugins main instance
     public static ToolsPlus instance;
-    //Store the plugin files
-    private static LoadFile files;
-    //Store the gui instances
-    private static GuiInitializer pluginGui;
     //Create a logger for the plugin
     public static Logger LOGGER = Bukkit.getLogger();
     //Store the servers economy
@@ -37,15 +31,6 @@ public final class ToolsPlus extends JavaPlugin {
     public static DecimalFormat numberFormat = new DecimalFormat("#,###.##");
 
     /**
-     * Get the plugin files
-     *
-     * @return LoadFiles instance
-     */
-    public static LoadFile getFiles() {
-        return files;
-    }
-
-    /**
      * Method called on plugin start up
      */
     @Override
@@ -54,12 +39,12 @@ public final class ToolsPlus extends JavaPlugin {
         LOGGER.info("[Tools+] If you find any bugs please contact nbdSteve#0583 on Discord.");
         //Get the instance
         instance = this;
-        //Create files instance
-        files = new LoadFile();
+        //Load internal plugin files
+        FileManager.load();
         //Load the black / white and unique id list maps
-        MapInitializer.initializeMaps();
+        ToolsAttributeManager.load();
         //Create the Gui instances
-        instantiateGuis();
+        GuiManager.load();
         //Load the omni tool block lists
         OmniFunctionality.loadOmniToolBlocks();
         //Get the server economy
@@ -81,8 +66,8 @@ public final class ToolsPlus extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new CrouchRightClickOpenGui(), this);
         getServer().getPluginManager().registerEvents(new GuiClickListener(), this);
         //Check that the plugin is in the latest version
-//        VersionChecker.checkVersion(null);
-//        getServer().getPluginManager().registerEvents(new VersionChecker(), this);
+        VersionChecker.checkVersion(null);
+        getServer().getPluginManager().registerEvents(new VersionChecker(), this);
     }
 
     /**
@@ -90,30 +75,16 @@ public final class ToolsPlus extends JavaPlugin {
      */
     @Override
     public void onDisable() {
-        MapInitializer.clearMaps();
+        ToolsAttributeManager.clear();
         OmniFunctionality.clearOmniLists();
         LOGGER.info("[Tools+] Thank you for choosing to use Tools+!");
         LOGGER.info("[Tools+] If you find any bugs please contact nbdSteve#0583 on Discord.");
     }
 
     /**
-     * Creates a new instance of the plugins Guis, called on start up and reload
+     * Updates whether the plugin is in debug more or not
      */
-    public static void instantiateGuis() {
-        pluginGui = new GuiInitializer();
-    }
-
-    /**
-     * Gets the specified gui based off of the name
-     *
-     * @param guiName String, gui name
-     * @return AbstractGui
-     */
-    public AbstractGui getGuiByName(String guiName) {
-        return pluginGui.getGuiByName(guiName);
-    }
-
     public static void updateDebugMode() {
-        debugMode = getFiles().get("config").getBoolean("enable-debug");
+        debugMode = FileManager.get("config").getBoolean("enable-debug");
     }
 }
