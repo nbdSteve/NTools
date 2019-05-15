@@ -16,9 +16,9 @@ smelt-wands:
       - "&7 "
       - "&7Uses Remaining: &f&l{uses}"
       - "&7 "
-      - "&a&oThis wand was created in Azcabalde,"
-      - "&a&ousing controversial forging methods to"
-      - "&a&odecrease labor and increase crafting..."
+      - "&a&oThis wand was created near Venesticle,"
+      - "&a&oforged in an ancient blast furnace, it has"
+      - "&a&oretained its heat and smelting power..."
       - "&7 "
     #
     enchantments:
@@ -40,9 +40,9 @@ smelt-wands:
       - "&7 "
       - "&7Uses Remaining: &f&l{uses}"
       - "&7 "
-      - "&a&oThis wand was created in Azcabalde,"
-      - "&a&ousing controversial forging methods to"
-      - "&a&odecrease labor and increase crafting..."
+      - "&a&oThis wand was created near Venesticle,"
+      - "&a&oforged in an ancient blast furnace, it has"
+      - "&a&oretained its heat and smelting power..."
       - "&7 "
     #
     enchantments:
@@ -64,9 +64,9 @@ smelt-wands:
       - "&7 "
       - "&7Uses Remaining: &f&l{uses}"
       - "&7 "
-      - "&a&oThis wand was created in Azcabalde,"
-      - "&a&ousing controversial forging methods to"
-      - "&a&odecrease labor and increase crafting..."
+      - "&a&oThis wand was created near Venesticle,"
+      - "&a&oforged in an ancient blast furnace, it has"
+      - "&a&oretained its heat and smelting power..."
       - "&7 "
     #
     enchantments:
