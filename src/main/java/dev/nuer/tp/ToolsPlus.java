@@ -64,6 +64,7 @@ public final class ToolsPlus extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerInteractWithMob(), this);
         getServer().getPluginManager().registerEvents(new CustomToolEventsListener(), this);
         getServer().getPluginManager().registerEvents(new CrouchRightClickOpenGui(), this);
+        getServer().getPluginManager().registerEvents(new PlayerToolInteractionListener(), this);
         getServer().getPluginManager().registerEvents(new GuiClickListener(), this);
         //Check that the plugin is in the latest version
         VersionChecker.checkVersion(null);

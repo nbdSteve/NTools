@@ -6,6 +6,7 @@ dev\nuer\tp\events\SandWandBlockBreakEvent.class
 dev\nuer\tp\method\itemCreation\NBTCreator.class
 dev\nuer\tp\support\nbtapi\NBTCompound.class
 dev\nuer\tp\gui\config\MultiToolConfigurationGui.class
+dev\nuer\tp\listener\PlayerToolInteractionListener.class
 dev\nuer\tp\gui\purchase\BuySandWandsGui.class
 dev\nuer\tp\method\player\AddBlocksToPlayerInventory.class
 dev\nuer\tp\tools\tnt\BankContentsOfChest.class
@@ -94,3 +95,4 @@ dev\nuer\tp\method\AddBlocksToList.class
 dev\nuer\tp\gui\AbstractGui$inventoryClickActions.class
 dev\nuer\tp\listener\BlockDamageByPlayer.class
 dev\nuer\tp\listener\CustomToolEventsListener.class
+dev\nuer\tp\method\VerifyTool.class
