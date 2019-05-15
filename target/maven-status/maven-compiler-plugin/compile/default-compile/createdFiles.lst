@@ -9,6 +9,8 @@ dev\nuer\tp\gui\config\MultiToolConfigurationGui.class
 dev\nuer\tp\gui\purchase\BuySandWandsGui.class
 dev\nuer\tp\method\player\AddBlocksToPlayerInventory.class
 dev\nuer\tp\tools\tnt\BankContentsOfChest.class
+dev\nuer\tp\tools\smelt\SmeltContentsOfChest.class
+dev\nuer\tp\events\SmeltWandConversionEvent.class
 dev\nuer\tp\tools\sand\RemoveSandStack$1.class
 dev\nuer\tp\gui\config\AquaWandConfigurationGui.class
 dev\nuer\tp\support\nbtapi\ReflectionMethod$Since.class
@@ -80,9 +82,11 @@ dev\nuer\tp\support\nbtapi\ReflectionMethod.class
 dev\nuer\tp\method\VersionChecker.class
 dev\nuer\tp\cmd\sub\Help.class
 dev\nuer\tp\gui\purchase\BuyMultiToolsGui.class
+dev\nuer\tp\gui\purchase\BuySmeltWandsGui.class
 dev\nuer\tp\gui\config\SellWandConfigurationGui.class
 dev\nuer\tp\listener\PlayerInteract.class
 dev\nuer\tp\managers\FileManager.class
+dev\nuer\tp\tools\smelt\SmeltStorageContents.class
 dev\nuer\tp\cmd\sub\Reload.class
 dev\nuer\tp\events\TrayBlockBreakEvent.class
 dev\nuer\tp\support\actionbarapi\ActionBarMessageEvent.class

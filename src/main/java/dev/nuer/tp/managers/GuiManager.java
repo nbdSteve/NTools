@@ -39,6 +39,8 @@ public class GuiManager {
     private static BuyTNTWandsGui buyTNTWandsGui;
     //Instance of aqua purchase gui
     private static BuyAquaWandsGui buyAquaWandsGui;
+    //Instance of smelt purchase gui
+    private static BuySmeltWandsGui buySmeltWandsGui;
 
     /**
      * Creates a new instance of all Guis for the plugin
@@ -60,6 +62,7 @@ public class GuiManager {
         buySellWandsGui = new BuySellWandsGui();
         buyTNTWandsGui = new BuyTNTWandsGui();
         buyAquaWandsGui = new BuyAquaWandsGui();
+        buySmeltWandsGui = new BuySmeltWandsGui();
     }
 
     /**
@@ -84,6 +87,7 @@ public class GuiManager {
         if (guiName.equalsIgnoreCase("tnt-config")) return tntWandConfigurationGui;
         if (guiName.equalsIgnoreCase("aqua-buy")) return buyAquaWandsGui;
         if (guiName.equalsIgnoreCase("aqua-config")) return aquaWandConfigurationGui;
+        if (guiName.equalsIgnoreCase("smelt-buy")) return buySmeltWandsGui;
         return null;
     }
 }

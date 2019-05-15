@@ -2,6 +2,7 @@ package dev.nuer.tp.managers;
 
 import dev.nuer.tp.method.CreateInternalMaps;
 import dev.nuer.tp.method.AddBlocksToList;
+import org.bukkit.Material;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +23,8 @@ public class ToolsAttributeManager {
     public static HashMap<String, Double> sellWandItemPrices;
     //Store the tnt crafting recipe and numbers
     public static HashMap<String, Double> tntWandCraftingRecipe;
+    //Store the smelt conversions
+    public static HashMap<Material, Material> smeltBlockConversions;
     //Store the map of multi tool unique lore and raw tool id
     public static HashMap<Integer, ArrayList<String>> multiToolModeUnique;
     //Store the map of multi tool unique radius id and raw tool id
@@ -52,6 +55,7 @@ public class ToolsAttributeManager {
         harvesterBlockPrices = CreateInternalMaps.createBlockPrices("config", "harvester-block-prices");
         sellWandItemPrices = CreateInternalMaps.createBlockPrices("sell_price_list", "prices");
         tntWandCraftingRecipe = CreateInternalMaps.createBlockPrices("config", "tnt-wand.crafting-recipe");
+        smeltBlockConversions = CreateInternalMaps.loadSmeltItemConversions("smelt_item_conversions", "conversions");
         //Load maps specific to multi tool ids
         multiToolModeUnique = CreateInternalMaps.createUniqueModeIDs("multi", "multi-tools.", "trench", "tray");
         multiToolRadiusUnique = CreateInternalMaps.createUniqueModifierIDs("multi", "multi-tools.", "radius");
@@ -79,6 +83,7 @@ public class ToolsAttributeManager {
         harvesterBlockPrices.clear();
         sellWandItemPrices.clear();
         tntWandCraftingRecipe.clear();
+        smeltBlockConversions.clear();
         //Clear maps specific to multi tool ids
         multiToolModeUnique.clear();
         multiToolRadiusUnique.clear();

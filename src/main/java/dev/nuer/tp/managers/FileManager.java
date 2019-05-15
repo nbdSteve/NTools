@@ -21,7 +21,8 @@ public class FileManager {
         CONFIG, MESSAGES, LIGHTNING, LIGHTNING_PURCHASE_GUI, MULTI, MULTI_CONFIG_GUI, MULTI_PURCHASE_GUI,
         SAND, SAND_PURCHASE_GUI, TRAY, TRAY_PURCHASE_GUI, TRENCH, TRENCH_PURCHASE_GUI, HARVESTER,
         HARVESTER_PURCHASE_GUI, HARVESTER_CONFIG_GUI, SELL, SELL_PURCHASE_GUI, SELL_PRICE_LIST, SELL_CONFIG_GUI,
-        TNT, TNT_PURCHASE_GUI, TNT_CONFIG_GUI, OMNI_CONFIG, AQUA, AQUA_PURCHASE_GUI, AQUA_CONFIG_GUI
+        TNT, TNT_PURCHASE_GUI, TNT_CONFIG_GUI, OMNI_CONFIG, AQUA, AQUA_PURCHASE_GUI, AQUA_CONFIG_GUI, SMELT,
+        SMELT_PURCHASE_GUI, SMELT_ITEM_CONVERSIONS
     }
 
     /**
@@ -66,6 +67,10 @@ public class FileManager {
         files.put(Files.AQUA, new PluginFile("aqua" + File.separator + "wands.yml"));
         files.put(Files.AQUA_PURCHASE_GUI, new PluginFile("aqua" + File.separator + "purchase-gui.yml"));
         files.put(Files.AQUA_CONFIG_GUI, new PluginFile("aqua" + File.separator + "config-gui.yml"));
+        //Load smelt wand files
+        files.put(Files.SMELT, new PluginFile("smelt" + File.separator + "wands.yml"));
+        files.put(Files.SMELT_PURCHASE_GUI, new PluginFile("smelt" + File.separator + "purchase-gui.yml"));
+        files.put(Files.SMELT_ITEM_CONVERSIONS, new PluginFile("smelt" + File.separator + "item-conversions.yml"));
         //Log that files are loaded
         ToolsPlus.LOGGER.info("[Tools+] Successfully loaded all configuration files...");
     }

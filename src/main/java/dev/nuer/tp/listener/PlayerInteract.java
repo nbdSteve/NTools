@@ -7,6 +7,7 @@ import dev.nuer.tp.tools.AlterToolModifier;
 import dev.nuer.tp.tools.ChangeMode;
 import dev.nuer.tp.tools.lightning.CreateLightningStrike;
 import dev.nuer.tp.tools.sell.SellChestContents;
+import dev.nuer.tp.tools.smelt.SmeltStorageContents;
 import dev.nuer.tp.tools.tnt.AlterChestContents;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -95,6 +96,10 @@ public class PlayerInteract implements Listener {
         }
         try {
             if (nbtItem.getBoolean("tools+.tnt")) {
+                if (!(event.getClickedBlock().getType().equals(Material.CHEST)
+                        || event.getClickedBlock().getType().equals(Material.TRAPPED_CHEST))) {
+                    return;
+                }
                 //Create a new block break event to ensure that the player can modify that chest
                 BlockBreakEvent tntCraft = new BlockBreakEvent(event.getClickedBlock(), player);
                 Bukkit.getPluginManager().callEvent(tntCraft);
@@ -107,6 +112,21 @@ public class PlayerInteract implements Listener {
                                 nbtItem.getItem(), true, ToolsAttributeManager.tntWandModifierUnique),
                         !ChangeMode.changeToolMode(nbtItem.getItem().getItemMeta().getLore(),
                                 nbtItem.getItem().getItemMeta(), nbtItem.getItem(), ToolsAttributeManager.tntWandModeUnique, false), nbtItem);
+            }
+        } catch (NullPointerException e) {
+            //NBT tag is null because this is not a tnt wand
+        }
+        try {
+            if (nbtItem.getBoolean("tools+.smelt")) {
+                if (!(event.getClickedBlock().getType().equals(Material.CHEST)
+                        || event.getClickedBlock().getType().equals(Material.TRAPPED_CHEST))) {
+                    return;
+                }
+                BlockBreakEvent smeltConvert = new BlockBreakEvent(event.getClickedBlock(), player);
+                Bukkit.getPluginManager().callEvent(smeltConvert);
+                if (smeltConvert.isCancelled()) return;
+                SmeltStorageContents.smeltContents(event.getClickedBlock(), player, "smelt",
+                        "smelt-wands." + nbtItem.getInteger("tools+.raw.id"), nbtItem);
             }
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a tnt wand

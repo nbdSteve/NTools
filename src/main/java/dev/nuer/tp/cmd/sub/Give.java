@@ -51,7 +51,8 @@ public class Give {
                 try {
                     startingUses = FileManager.get(args[2]).getString(args[2] + "-wands." + args[4] + ".uses.starting");
                     if (args.length == 6 && (args[2].equalsIgnoreCase("lightning")
-                            || args[2].equalsIgnoreCase("sand"))) {
+                            || args[2].equalsIgnoreCase("sand")
+                            || args[2].equalsIgnoreCase("smelt"))) {
                         startingUses = args[5];
                     } else if (args.length == 7 && (args[2].equalsIgnoreCase("sell")
                             || args[2].equalsIgnoreCase("tnt")
@@ -132,6 +133,14 @@ public class Give {
                             "aqua", Integer.parseInt(args[4]), target, "{mode}", ToolsAttributeManager.aquaWandModeUnique.get(Integer.parseInt(args[4])).get(1),
                             "{radius}", ToolsAttributeManager.aquaWandRadiusUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier), "{uses}", startingUses);
                 }
+                if (args[2].equalsIgnoreCase("smelt")) {
+                    new CraftItem(args[3],
+                            FileManager.get("smelt").getString("smelt-wands." + args[4] + ".name"),
+                            FileManager.get("smelt").getStringList("smelt-wands." + args[4] + ".lore"),
+                            FileManager.get("smelt").getStringList("smelt-wands." + args[4] + ".enchantments"),
+                            "smelt", Integer.parseInt(args[4]), target, "debug", "debug",
+                            "debug", "debug", "{uses}", startingUses);
+                }
             } catch (Exception invalidCommandParameters) {
                 if (sender instanceof Player) {
                     invalidCommandParameters.printStackTrace();
@@ -179,7 +188,7 @@ public class Give {
      * Returns the modifier map for that tool
      *
      * @param typeOfTool String, the type of tool; sell, multi etc.
-     * @return HashMap<Integer, ArrayList <String>>
+     * @return HashMap<Integer, ArrayList < String>>
      */
     public static HashMap<Integer, ArrayList<String>> getMap(String typeOfTool) {
         if (typeOfTool.equalsIgnoreCase("multi")) return ToolsAttributeManager.multiToolRadiusUnique;

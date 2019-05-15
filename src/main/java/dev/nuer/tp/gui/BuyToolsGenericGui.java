@@ -57,6 +57,9 @@ public class BuyToolsGenericGui extends AbstractGui {
                                 if (FileManager.get("config").getBoolean("tool-purchase-gui." + configItem + ".open-aqua")) {
                                     GuiManager.getGui("aqua-buy").open(player);
                                 }
+                                if (FileManager.get("config").getBoolean("tool-purchase-gui." + configItem + ".open-smelt")) {
+                                    GuiManager.getGui("smelt-buy").open(player);
+                                }
                                 if (FileManager.get("config").getBoolean("tool-purchase-gui." + configItem + ".exit-gui")) {
                                     player.closeInventory();
                                 }

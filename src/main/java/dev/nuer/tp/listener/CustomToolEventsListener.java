@@ -3,6 +3,7 @@ package dev.nuer.tp.listener;
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.events.*;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
+import dev.nuer.tp.tools.smelt.SmeltContentsOfChest;
 import dev.nuer.tp.tools.tnt.BankContentsOfChest;
 import dev.nuer.tp.tools.tnt.CraftContentsOfChest;
 import org.bukkit.Material;
@@ -104,5 +105,13 @@ public class CustomToolEventsListener implements Listener {
         if (event.isCancelled()) return;
         //Run code for the aqua drain liquid method
         event.getBlockToDrain().setType(Material.AIR);
+    }
+
+    @EventHandler
+    public void chestSmeltEvent(SmeltWandConversionEvent event) {
+        //Check if the event is cancelled
+        if (event.isCancelled()) return;
+        //Run code to smelt the chests contents
+        SmeltContentsOfChest.smeltChestContents(event.getPlayer(), event.getChestBeingAffected().getInventory());
     }
 }

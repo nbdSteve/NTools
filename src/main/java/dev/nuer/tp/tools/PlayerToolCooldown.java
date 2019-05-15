@@ -1,10 +1,10 @@
 package dev.nuer.tp.tools;
 
 import dev.nuer.tp.ToolsPlus;
-import dev.nuer.tp.support.actionbarapi.ActionBarAPI;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.player.PlayerMessage;
+import dev.nuer.tp.support.actionbarapi.ActionBarAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -26,11 +26,15 @@ public class PlayerToolCooldown {
     private static HashMap<UUID, Integer> playersOnTntWandCooldown = new HashMap<>();
     //Store the players who are on the aqua wand cooldown
     private static HashMap<UUID, Integer> playersOnAquaWandCooldown = new HashMap<>();
+    //Store the players who are on the smelt wand cooldown
+    private static HashMap<UUID, Integer> playersOnSmeltWandCooldown = new HashMap<>();
 
     /**
-     * @param player
-     * @param delayInSeconds
-     * @param cooldownToolType
+     * Sets the respective player on the respective cooldown
+     *
+     * @param player           Player, the player to set on cooldown
+     * @param delayInSeconds   Integer, the length of cooldown
+     * @param cooldownToolType String, the tool type
      */
     public static void setPlayerOnCooldown(Player player, int delayInSeconds, String cooldownToolType) {
         if (delayInSeconds < 0) {
@@ -102,6 +106,7 @@ public class PlayerToolCooldown {
         if (cooldownToolType.equalsIgnoreCase("lightning")) return playersOnLightningWandCooldown;
         if (cooldownToolType.equalsIgnoreCase("tnt")) return playersOnTntWandCooldown;
         if (cooldownToolType.equalsIgnoreCase("aqua")) return playersOnAquaWandCooldown;
+        if (cooldownToolType.equalsIgnoreCase("smelt")) return playersOnSmeltWandCooldown;
         return null;
     }
 }

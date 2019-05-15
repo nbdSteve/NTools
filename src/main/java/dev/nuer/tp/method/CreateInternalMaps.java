@@ -1,7 +1,8 @@
 package dev.nuer.tp.method;
 
+import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.managers.FileManager;
-import dev.nuer.tp.method.Chat;
+import org.bukkit.Material;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -75,5 +76,21 @@ public class CreateInternalMaps {
             blockPrices.put(blockAndPrice[0].toUpperCase(), Double.parseDouble(blockAndPrice[1]));
         }
         return blockPrices;
+    }
+
+    /**
+     * Creates a HashMap of an items initial state and then the smelted state
+     *
+     * @param directory String the directory to get conversions from
+     * @param filePath  String, file path to get conversions from inside the configuration
+     * @return HashMap<Material, Material>
+     */
+    public static HashMap<Material, Material> loadSmeltItemConversions(String directory, String filePath) {
+        HashMap<Material, Material> itemConversions = new HashMap<>();
+        for (String materialToConvert : FileManager.get(directory).getStringList(filePath)) {
+            String[] materials = materialToConvert.split(":");
+            itemConversions.put(Material.getMaterial(materials[0].toUpperCase()), Material.getMaterial(materials[1].toUpperCase()));
+        }
+        return itemConversions;
     }
 }
