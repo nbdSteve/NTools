@@ -50,20 +50,19 @@ public class SellChestContents {
             new PlayerMessage("can-not-sell-contents", player);
             return;
         }
-            DecrementUses.decrementUses(player, "sell", nbtItem, nbtItem.getInteger("tools+.uses"));
-            PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "sell");
+        DecrementUses.decrementUses(player, "sell", nbtItem, nbtItem.getInteger("tools+.uses"));
+        PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "sell");
         int slot = 0;
         double totalDeposit = 0;
         for (ItemStack item : inventoryToSell.getContents()) {
-            if (item == null || item.getType().equals(Material.AIR)) {
-                continue;
-            } else if (GetSellableItemPrices.canBeSold(item, player, usingShopGuiPlus, ToolsAttributeManager.sellWandItemPrices)) {
+            if (GetSellableItemPrices.canBeSold(item, player, usingShopGuiPlus, ToolsAttributeManager.sellWandItemPrices)) {
                 double finalPrice = GetSellableItemPrices.getItemPrice(item, player, priceModifier, usingShopGuiPlus, ToolsAttributeManager.sellWandItemPrices);
                 SellWandContainerSaleEvent sellChestEvent = new SellWandContainerSaleEvent(chestToSell, player, item, finalPrice);
                 Bukkit.getPluginManager().callEvent(sellChestEvent);
                 if (!sellChestEvent.isCancelled()) {
                     totalDeposit += finalPrice;
                     chestToSell.getInventory().setItem(slot, new ItemStack(Material.AIR));
+                    chestToSell.update();
                 }
             }
             slot++;

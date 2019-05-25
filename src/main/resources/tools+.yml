@@ -13,6 +13,22 @@ tnt-wand:
     - sulphur:1 # Change this to gunpowder if you are using more recent versions (1.8+)
     - sand:1
 
+# Chunk block blacklist
+chunk-buster-block-blacklist:
+  - bedrock
+  - obsidian
+  - mob_spawner
+  - hopper
+  - chest
+  - trapped_chest
+  - glass
+  - dispenser
+  - dropper
+  - ender_portal_frame
+  - ender_portal
+  - ender_chest
+  - web
+
 # Block blacklist for Trench Tools
 trench-block-blacklist:
   - bedrock

@@ -84,6 +84,7 @@ dev\nuer\tp\method\VersionChecker.class
 dev\nuer\tp\cmd\sub\Help.class
 dev\nuer\tp\gui\purchase\BuyMultiToolsGui.class
 dev\nuer\tp\gui\purchase\BuySmeltWandsGui.class
+dev\nuer\tp\tools\chunk\ChunkRemoval.class
 dev\nuer\tp\gui\config\SellWandConfigurationGui.class
 dev\nuer\tp\listener\PlayerInteract.class
 dev\nuer\tp\managers\FileManager.class
