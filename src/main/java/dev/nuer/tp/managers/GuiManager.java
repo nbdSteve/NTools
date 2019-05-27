@@ -19,6 +19,8 @@ public class GuiManager {
     private static TNTWandConfigurationGui tntWandConfigurationGui;
     //Instance of aqua wand config gui
     private static AquaWandConfigurationGui aquaWandConfigurationGui;
+    //Instance of chunk tool config gui
+    private static ChunkToolConfigurationGui chunkToolConfigurationGui;
     //Instance of multi tools gui
     private static BuyMultiToolsGui buyMultiToolsGui;
     //Instance of generic buy gui
@@ -41,6 +43,8 @@ public class GuiManager {
     private static BuyAquaWandsGui buyAquaWandsGui;
     //Instance of smelt purchase gui
     private static BuySmeltWandsGui buySmeltWandsGui;
+    //Instance of chunk purchase gui
+    private static BuyChunkToolsGui buyChunkToolsGui;
 
     /**
      * Creates a new instance of all Guis for the plugin
@@ -52,6 +56,7 @@ public class GuiManager {
         sellWandConfigurationGui = new SellWandConfigurationGui();
         tntWandConfigurationGui = new TNTWandConfigurationGui();
         aquaWandConfigurationGui = new AquaWandConfigurationGui();
+        chunkToolConfigurationGui = new ChunkToolConfigurationGui();
         buyToolsGenericGui = new BuyToolsGenericGui();
         buyMultiToolsGui = new BuyMultiToolsGui();
         buyTrenchToolsGui = new BuyTrenchToolsGui();
@@ -63,6 +68,7 @@ public class GuiManager {
         buyTNTWandsGui = new BuyTNTWandsGui();
         buyAquaWandsGui = new BuyAquaWandsGui();
         buySmeltWandsGui = new BuySmeltWandsGui();
+        buyChunkToolsGui = new BuyChunkToolsGui();
     }
 
     /**
@@ -88,6 +94,8 @@ public class GuiManager {
         if (guiName.equalsIgnoreCase("aqua-buy")) return buyAquaWandsGui;
         if (guiName.equalsIgnoreCase("aqua-config")) return aquaWandConfigurationGui;
         if (guiName.equalsIgnoreCase("smelt-buy")) return buySmeltWandsGui;
+        if (guiName.equalsIgnoreCase("chunk-config")) return chunkToolConfigurationGui;
+        if (guiName.equalsIgnoreCase("chunk-buy")) return buyChunkToolsGui;
         return null;
     }
 }

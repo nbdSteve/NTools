@@ -22,7 +22,7 @@ public class VersionChecker implements Listener {
     //Store the resource key from spigot
     private static String resourceKey = "66897";
     //Store the current version internally
-    private static String pluginVersion = "1.4.3.1";
+    private static String pluginVersion = "1.5.0.1";
 
     /**
      * Checks the latest version against the current version

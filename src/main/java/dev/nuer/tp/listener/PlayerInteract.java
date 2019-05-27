@@ -5,7 +5,10 @@ import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.tools.AlterToolModifier;
 import dev.nuer.tp.tools.ChangeMode;
+import dev.nuer.tp.tools.chunk.ChunkQueueManipulation;
+import dev.nuer.tp.tools.chunk.ChunkRemoval;
 import dev.nuer.tp.tools.lightning.CreateLightningStrike;
+import dev.nuer.tp.tools.multi.ChangeToolRadius;
 import dev.nuer.tp.tools.sell.SellChestContents;
 import dev.nuer.tp.tools.smelt.SmeltStorageContents;
 import dev.nuer.tp.tools.tnt.AlterChestContents;
@@ -39,23 +42,40 @@ public class PlayerInteract implements Listener {
         if (event.getItem() == null || !event.getItem().hasItemMeta() || !event.getItem().getItemMeta().hasLore()) return;
         //Create a new nbt object
         NBTItem nbtItem = new NBTItem(event.getItem());
-        //Store the location to Strike
-        Block locationToStrike;
-        //Check to target block based on where the user is looking / clicked
-        if (event.getAction().equals(Action.RIGHT_CLICK_AIR)) {
-            locationToStrike = player.getTargetBlock(null, FileManager.get("config").getInt("lightning-reach-distance"));
-        } else {
-            locationToStrike = event.getClickedBlock();
-        }
         //Get the type of tool being used
         try {
             if (nbtItem.getBoolean("tools+.lightning")) {
+                //Store the location to Strike
+                Block locationToStrike;
+                //Check to target block based on where the user is looking / clicked
+                if (event.getAction().equals(Action.RIGHT_CLICK_AIR)) {
+                    locationToStrike = player.getTargetBlock(null, FileManager.get("config").getInt("lightning-reach-distance"));
+                } else {
+                    locationToStrike = event.getClickedBlock();
+                }
+                //Run the code to strike the ground
                 CreateLightningStrike.createStrikeGround(player, "lightning",
                         "lightning-wands." + nbtItem.getInteger(
                                 "tools+.raw.id"), locationToStrike, nbtItem);
             }
         } catch (NullPointerException e) {
-            //NBT tag is null because this is not a trench tool
+            //NBT tag is null because this is not a lightning wand
+        }
+        try {
+            if (nbtItem.getBoolean("tools+.chunk")) {
+                event.setCancelled(true);
+                if (player.isSneaking()) return;
+                if (ChunkRemoval.pendingChunks.contains(player.getLocation().getChunk())) {
+                    ChunkQueueManipulation.removeChunksFromQueue(player.getLocation().getChunk(), player,
+                            ChangeToolRadius.getToolRadius(nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem(), ToolsAttributeManager.chunkToolRadiusUnique));
+                } else {
+                    ChunkRemoval.removeChunksInRadius(player.getLocation().getChunk(), player,
+                            ChangeToolRadius.getToolRadius(nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem(), ToolsAttributeManager.chunkToolRadiusUnique));
+                }
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            //NBT tag is null because this is not a chunk tool
         }
     }
 

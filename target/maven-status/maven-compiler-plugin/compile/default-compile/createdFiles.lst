@@ -12,6 +12,7 @@ dev\nuer\tp\method\player\AddBlocksToPlayerInventory.class
 dev\nuer\tp\tools\tnt\BankContentsOfChest.class
 dev\nuer\tp\tools\smelt\SmeltContentsOfChest.class
 dev\nuer\tp\events\SmeltWandConversionEvent.class
+dev\nuer\tp\gui\purchase\BuyChunkToolsGui.class
 dev\nuer\tp\tools\sand\RemoveSandStack$1.class
 dev\nuer\tp\gui\config\AquaWandConfigurationGui.class
 dev\nuer\tp\support\nbtapi\ReflectionMethod$Since.class
@@ -34,10 +35,12 @@ dev\nuer\tp\gui\config\TNTWandConfigurationGui.class
 dev\nuer\tp\events\HarvesterBlockBreakEvent.class
 dev\nuer\tp\tools\sand\RemoveSandStack.class
 dev\nuer\tp\method\player\PlayerMessage.class
+dev\nuer\tp\gui\config\ChunkToolConfigurationGui.class
 dev\nuer\tp\gui\BuyToolsGenericGui.class
 dev\nuer\tp\support\nbtapi\NBTItem.class
 dev\nuer\tp\events\AquaWandMeltIceEvent.class
 dev\nuer\tp\support\actionbarapi\ActionBarAPI$1.class
+dev\nuer\tp\events\BlockRemovalByChunkToolEvent.class
 dev\nuer\tp\tools\AlterToolModifier.class
 dev\nuer\tp\tools\OmniFunctionality.class
 dev\nuer\tp\method\Chat.class
@@ -54,7 +57,9 @@ dev\nuer\tp\support\nbtapi\ClassWrapper.class
 dev\nuer\tp\support\FactionIntegration.class
 dev\nuer\tp\tools\tnt\CraftContentsOfChest.class
 dev\nuer\tp\tools\sell\SellChestContents.class
+dev\nuer\tp\tools\chunk\ChunkRemoval$1.class
 dev\nuer\tp\tools\PlayerToolCooldown.class
+dev\nuer\tp\tools\chunk\ChunkQueueManipulation.class
 dev\nuer\tp\tools\DecrementUses.class
 dev\nuer\tp\events\TNTWandBankEvent.class
 dev\nuer\tp\cmd\sub\Give.class
@@ -67,6 +72,7 @@ dev\nuer\tp\support\nbtapi\NBTListCompound.class
 dev\nuer\tp\gui\purchase\BuyLightningWandsGui.class
 dev\nuer\tp\tools\harvest\HarvestBlock.class
 dev\nuer\tp\gui\purchase\BuySellWandsGui.class
+dev\nuer\tp\tools\chunk\ChunkRemoval$2.class
 dev\nuer\tp\tools\PlayerToolCooldown$1.class
 dev\nuer\tp\events\TNTWandCraftEvent.class
 dev\nuer\tp\gui\purchase\BuyTrayToolsGui.class

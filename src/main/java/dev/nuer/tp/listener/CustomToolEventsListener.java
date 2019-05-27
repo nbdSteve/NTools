@@ -6,6 +6,7 @@ import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
 import dev.nuer.tp.tools.smelt.SmeltContentsOfChest;
 import dev.nuer.tp.tools.tnt.BankContentsOfChest;
 import dev.nuer.tp.tools.tnt.CraftContentsOfChest;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -113,5 +114,13 @@ public class CustomToolEventsListener implements Listener {
         if (event.isCancelled()) return;
         //Run code to smelt the chests contents
         SmeltContentsOfChest.smeltChestContents(event.getPlayer(), event.getChestBeingAffected().getInventory());
+    }
+
+    @EventHandler
+    public void chunkToolBlockBreak(BlockRemovalByChunkToolEvent event) {
+        //Check if the event is cancelled
+        if (event.isCancelled()) return;
+        //Run code to remove the block
+        event.getBlockToBeBroken().setType(Material.AIR);
     }
 }

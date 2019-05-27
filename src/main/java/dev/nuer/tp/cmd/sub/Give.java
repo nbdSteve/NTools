@@ -43,7 +43,8 @@ public class Give {
                                 || args[2].equalsIgnoreCase("sell")
                                 || args[2].equalsIgnoreCase("harvester")
                                 || args[2].equalsIgnoreCase("tnt")
-                                || args[2].equalsIgnoreCase("aqua"))) {
+                                || args[2].equalsIgnoreCase("aqua")
+                                || args[2].equalsIgnoreCase("chunk"))) {
                     toolStartingModifier = verifyStartingModifier(sender, args[5], args[2], Integer.parseInt(args[4]));
                 }
                 //Get the starting uses from the configuration, or reset for command
@@ -140,6 +141,14 @@ public class Give {
                             FileManager.get("smelt").getStringList("smelt-wands." + args[4] + ".enchantments"),
                             "smelt", Integer.parseInt(args[4]), target, "debug", "debug",
                             "debug", "debug", "{uses}", startingUses);
+                }
+                if (args[2].equalsIgnoreCase("chunk")) {
+                    new CraftItem(args[3],
+                            FileManager.get("chunk").getString("chunk-tools." + args[4] + ".name"),
+                            FileManager.get("chunk").getStringList("chunk-tools." + args[4] + ".lore"),
+                            FileManager.get("chunk").getStringList("chunk-tools." + args[4] + ".enchantments"),
+                            "chunk", Integer.parseInt(args[4]), target, "debug", "debug",
+                            "{radius}", ToolsAttributeManager.chunkToolRadiusUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier), "debug", "debug");
                 }
             } catch (Exception invalidCommandParameters) {
                 if (sender instanceof Player) {

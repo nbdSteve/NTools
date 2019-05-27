@@ -6,6 +6,8 @@ import dev.nuer.tp.cmd.sub.Help;
 import dev.nuer.tp.cmd.sub.Reload;
 import dev.nuer.tp.managers.GuiManager;
 import dev.nuer.tp.method.player.PlayerMessage;
+import dev.nuer.tp.tools.chunk.ChunkQueueManipulation;
+import dev.nuer.tp.tools.chunk.ChunkRemoval;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -53,6 +55,14 @@ public class ToolsCmd implements CommandExecutor {
                 if (args[0].equalsIgnoreCase("r") || args[0].equalsIgnoreCase("reload")) {
                     Reload.onCmd(sender);
                 }
+//                if (args[0].equalsIgnoreCase("ct")) {
+//                    Player p = (Player) sender;
+//                    ChunkRemoval.removeChunksInRadius(p.getLocation().getChunk(), p, 0);
+//                }
+//                if (args[0].equalsIgnoreCase("ctr")) {
+//                    Player p = (Player) sender;
+//                    ChunkQueueManipulation.removeChunkFromQueue(p.getLocation().getChunk(), p);
+//                }
             } else if (args.length == 5 || args.length == 6 || args.length == 7) {
                 if (args[0].equalsIgnoreCase("g") || args[0].equalsIgnoreCase("give")) {
                     Give.onCmd(sender, args);

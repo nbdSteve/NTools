@@ -68,5 +68,12 @@ public class CrouchRightClickOpenGui implements Listener {
         } catch (NullPointerException e) {
             //NBT tag is null because this is not a aqua wand
         }
+        try {
+            if (nbtItem.getBoolean("tools+.chunk")) {
+                GuiManager.getGui("chunk-config").open(player);
+            }
+        } catch (NullPointerException e) {
+            //NBT tag is null because this is not a chunk tool
+        }
     }
 }

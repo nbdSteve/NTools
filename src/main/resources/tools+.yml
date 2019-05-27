@@ -13,22 +13,6 @@ tnt-wand:
     - sulphur:1 # Change this to gunpowder if you are using more recent versions (1.8+)
     - sand:1
 
-# Chunk block blacklist
-chunk-buster-block-blacklist:
-  - bedrock
-  - obsidian
-  - mob_spawner
-  - hopper
-  - chest
-  - trapped_chest
-  - glass
-  - dispenser
-  - dropper
-  - ender_portal_frame
-  - ender_portal
-  - ender_chest
-  - web
-
 # Block blacklist for Trench Tools
 trench-block-blacklist:
   - bedrock
@@ -208,7 +192,7 @@ tool-purchase-gui:
   9:
     slot: 8
     name: "&b&lAqua Wands"
-    material: stick:0
+    material: bucket:0
     lore:
       - "&7 "
       - "&7&oClick this to buy aqua wands."
@@ -228,6 +212,17 @@ tool-purchase-gui:
       - lure:1
     open-smelt: true
   11:
+    slot: 10
+    name: "&b&lChunk Buster Tools"
+    material: feather:0
+    lore:
+      - "&7 "
+      - "&7&oClick this to buy chunk buster tools."
+      - "&7 "
+    enchantments:
+      - lure:1
+    open-chunk: true
+  12:
     slot: 17
     name: "&c&lExit"
     material: barrier:0
