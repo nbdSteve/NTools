@@ -21,14 +21,16 @@ import java.util.logging.Logger;
 public final class ToolsPlus extends JavaPlugin {
     //Store the plugins main instance
     public static ToolsPlus instance;
-    //Create a logger for the plugin
-    public static Logger LOGGER = Bukkit.getLogger();
     //Store the servers economy
     public static Economy economy;
     //If the plugin should log debug timing messages
     public static boolean debugMode;
     //Static way to format price placeholders
     public static DecimalFormat numberFormat = new DecimalFormat("#,###.##");
+    //Create a logger for the plugin
+    public static Logger LOGGER = Bukkit.getLogger();
+    //Store the plugin version
+    public static String version = "1.5.0.3";
 
     /**
      * Method called on plugin start up

@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Class that handles removing all of the blocks in a given chunk
  */
 public class ChunkRemoval {
-    //Arraylist containing all of the chunks that are pending removal
+    //ArrayList containing all of the chunks that are pending removal
     public static ArrayList<Chunk> pendingChunks = new ArrayList<>();
 
     /**

@@ -9,19 +9,9 @@
     <list default="true" id="7e794939-1ea2-419b-b8f1-d1977c2fd48e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/gui/purchase/BuyChunkToolsGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/gui/purchase/BuyChunkToolsGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/player/PlayerMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/player/PlayerMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/chunk/ChunkQueueManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/chunk/ChunkQueueManipulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/VersionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/VersionChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/chunk/ChunkRemoval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/chunk/ChunkRemoval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/nuer/tp/method/player/PlayerMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/method/player/PlayerMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/nuer/tp/tools/chunk/ChunkQueueManipulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/tools/chunk/ChunkQueueManipulation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/nuer/tp/tools/chunk/ChunkRemoval$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/tools/chunk/ChunkRemoval$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/nuer/tp/tools/chunk/ChunkRemoval$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/tools/chunk/ChunkRemoval$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/nuer/tp/tools/chunk/ChunkRemoval.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/tools/chunk/ChunkRemoval.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,7 +25,16 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -45,11 +44,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/gui/purchase/BuyChunkToolsGui.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/chunk/ChunkQueueManipulation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
-              <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+            <state relative-caret-position="281">
+              <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/chunk/ChunkRemoval.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -127,11 +138,9 @@
         <option value="$PROJECT_DIR$/src/main/resources/smelt/purchase-gui.yml" />
         <option value="$PROJECT_DIR$/src/main/resources/smelt/item-conversions.yml" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/listener/BucketFillListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/VerifyTool.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/listener/PlayerBucketInteractionListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/sell/SellChestContents.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/VersionChecker.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/listener/PlayerToolInteractionListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/events/BlockRemovalByChunkTool.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/events/BlockRemovalByChunkToolEvent.java" />
@@ -151,12 +160,14 @@
         <option value="$PROJECT_DIR$/src/main/resources/chunk/purchase-gui.yml" />
         <option value="$PROJECT_DIR$/src/main/resources/chunk/config-gui.yml" />
         <option value="$PROJECT_DIR$/src/main/resources/chunk/chunk-tool-config.yml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/chunk/ChunkQueueManipulation.java" />
         <option value="$PROJECT_DIR$/src/main/resources/messages.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/chunk/ChunkRemoval.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/player/PlayerMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/gui/purchase/BuyChunkToolsGui.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/VersionChecker.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/chunk/ChunkRemoval.java" />
       </list>
     </option>
   </component>
@@ -239,25 +250,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="tp" type="462c0819:PsiDirectoryNode" />
-              <item name="method" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NTools" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tp" type="462c0819:PsiDirectoryNode" />
-              <item name="method" type="462c0819:PsiDirectoryNode" />
-              <item name="player" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NTools" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tp" type="462c0819:PsiDirectoryNode" />
               <item name="tools" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -281,8 +273,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -361,7 +353,7 @@
     <frame x="-1928" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18763326" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18976545" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -370,7 +362,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3276414" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3778015" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3778015" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -383,7 +375,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info active="true" anchor="right" id="Maven" order="4" visible="true" weight="0.0858209" />
+      <window_info anchor="right" id="Maven" order="4" visible="true" weight="0.0858209" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
@@ -462,24 +454,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1272">
-          <caret line="66" column="95" selection-start-line="66" selection-start-column="95" selection-end-line="66" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/sell/GetSellableItemPrices.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-228">
           <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/VersionChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -748,30 +726,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/chunk/ChunkRemoval.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="71" column="67" selection-start-line="71" selection-start-column="67" selection-end-line="71" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/chunk/ChunkQueueManipulation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/player/PlayerMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2208">
           <caret line="94" column="57" selection-start-line="94" selection-start-column="57" selection-end-line="94" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/gui/purchase/BuyChunkToolsGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="718">
+          <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/method/VersionChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -782,10 +764,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/gui/purchase/BuyChunkToolsGui.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/chunk/ChunkQueueManipulation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+        <state relative-caret-position="281">
+          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/chunk/ChunkRemoval.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

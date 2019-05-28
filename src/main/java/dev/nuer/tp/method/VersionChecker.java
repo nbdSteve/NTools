@@ -21,8 +21,6 @@ import java.net.URLConnection;
 public class VersionChecker implements Listener {
     //Store the resource key from spigot
     private static String resourceKey = "66897";
-    //Store the current version internally
-    private static String pluginVersion = "1.5.0.1";
 
     /**
      * Checks the latest version against the current version
@@ -33,11 +31,11 @@ public class VersionChecker implements Listener {
         try {
             URLConnection urlConn = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + resourceKey).openConnection();
             String version = new BufferedReader(new InputStreamReader(urlConn.getInputStream())).readLine();
-            if (!version.equalsIgnoreCase(pluginVersion)) {
+            if (!version.equalsIgnoreCase(ToolsPlus.version)) {
                 ToolsPlus.LOGGER.severe("[Tools+] There is a new version of Tools+ available for download, please update to the latest version.");
                 if (player != null) {
                     new PlayerMessage("outdated-version", player, "{currentVersion}",
-                            pluginVersion, "{latestVersion}", version);
+                            ToolsPlus.version, "{latestVersion}", version);
                 }
             }
         } catch (IOException e) {
