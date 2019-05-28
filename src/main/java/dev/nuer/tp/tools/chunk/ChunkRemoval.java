@@ -18,35 +18,50 @@ import java.util.ArrayList;
  * Class that handles removing all of the blocks in a given chunk
  */
 public class ChunkRemoval {
-
+    //Arraylist containing all of the chunks that are pending removal
     public static ArrayList<Chunk> pendingChunks = new ArrayList<>();
 
+    /**
+     * Removes all of the chunks in the specified radius based off of the players location
+     *
+     * @param startingChunk Chunk, the centre chunk
+     * @param player        Player, the player using the tool
+     * @param radius        int, the tools chunk radius
+     */
     public static void removeChunksInRadius(Chunk startingChunk, Player player, int radius) {
-        int chunkX = radius-1, chunkZ = radius-1;
+        int chunksAddedToQueue = 0;
+        int chunksAlreadyQueued = 0;
+        int chunkX = radius - 1, chunkZ = radius - 1;
         while (chunkZ > -radius) {
             while (chunkX > -radius) {
                 Chunk chunk = player.getWorld().getChunkAt(startingChunk.getX() + chunkX, startingChunk.getZ() + chunkZ);
-                removeChunk(chunk, player);
+                if (pendingChunks.contains(chunk)) {
+                    chunksAlreadyQueued++;
+                } else {
+                    chunksAddedToQueue++;
+                    pendingChunks.add(chunk);
+                    removeChunk(chunk, player);
+                }
                 chunkX--;
             }
-            chunkX = radius-1;
+            chunkX = radius - 1;
             chunkZ--;
         }
+        new PlayerMessage("update-chunk-queue", player,
+                "{x}", String.valueOf(startingChunk.getX()),
+                "{z}", String.valueOf(startingChunk.getZ()),
+                "{chunksAdded}", String.valueOf(chunksAddedToQueue),
+                "{chunksAlreadyQueued}", String.valueOf(chunksAlreadyQueued));
     }
 
+    /**
+     * Removes the specified chunk
+     *
+     * @param chunkToRemove Chunk, the chunk to remove
+     * @param player        Player, the player using the tool
+     */
     private static void removeChunk(Chunk chunkToRemove, Player player) {
         //if (pendingChunks == null) pendingChunks = new ArrayList<>();
-        if (pendingChunks.contains(chunkToRemove)) {
-            new PlayerMessage("chunk-already-queued", player,
-                    "{x}", String.valueOf(chunkToRemove.getX()),
-                    "{z}", String.valueOf(chunkToRemove.getZ()));
-            return;
-        } else {
-            new PlayerMessage("chunk-added-to-queue", player,
-                    "{x}", String.valueOf(chunkToRemove.getX()),
-                    "{z}", String.valueOf(chunkToRemove.getZ()));
-            pendingChunks.add(chunkToRemove);
-        }
         new BukkitRunnable() {
             int delay = FileManager.get("chunk_tool_config").getInt("chunk-removal-delay");
 
@@ -55,9 +70,6 @@ public class ChunkRemoval {
                 if (delay > 0) {
                     delay--;
                 } else if (pendingChunks.contains(chunkToRemove)) {
-                    new PlayerMessage("starting-chunk-removal", player,
-                            "{x}", String.valueOf(chunkToRemove.getX()),
-                            "{z}", String.valueOf(chunkToRemove.getZ()));
                     chunkRemovalTask(chunkToRemove, player);
                     cancel();
                 } else {
@@ -67,6 +79,12 @@ public class ChunkRemoval {
         }.runTaskTimer(ToolsPlus.instance, 0L, 20L);
     }
 
+    /**
+     * Creates a BukkitTask to remove all of the blocks inside the specified chunk
+     *
+     * @param chunkToRemove Chunk, the chunk to remove
+     * @param player        Player, the player using the tool
+     */
     private static void chunkRemovalTask(Chunk chunkToRemove, Player player) {
         ArrayList<Block> blocksToRemove = new ArrayList<>();
         Bukkit.getScheduler().runTaskAsynchronously(ToolsPlus.instance, () -> {
