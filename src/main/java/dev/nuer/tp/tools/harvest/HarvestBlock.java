@@ -2,15 +2,20 @@ package dev.nuer.tp.tools.harvest;
 
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.events.HarvesterBlockBreakEvent;
-import dev.nuer.tp.support.actionbarapi.ActionBarAPI;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
+import dev.nuer.tp.method.player.PlayerMessage;
+import dev.nuer.tp.support.actionbarapi.ActionBarAPI;
+import dev.nuer.tp.support.nbtapi.NBTItem;
 import org.bukkit.Bukkit;
+import org.bukkit.CropState;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageEvent;
+import org.bukkit.material.Crops;
 
 import java.util.ArrayList;
 
@@ -34,6 +39,15 @@ public class HarvestBlock {
             connectedBlockRemoval(event.getBlock().getY(), event, player, blocksToHarvest, true);
         } else if (event.getBlock().getType().toString().equalsIgnoreCase("CACTUS")) {
             connectedBlockRemoval(event.getBlock().getY(), event, player, blocksToHarvest, false);
+        } else if (event.getBlock().getState().getData() instanceof Crops) {
+            if (((Crops) event.getBlock().getState().getData()).getState() == CropState.RIPE) {
+                blocksToHarvest.add(event.getBlock());
+            } else {
+                new PlayerMessage("crop-not-ripe-to-harvest", player);
+                return;
+            }
+        } else if (event.getBlock().getType().equals(Material.CARROT) || event.getBlock().getType().equals(Material.POTATO)) {
+            blocksToHarvest.add(event.getBlock());
         } else {
             blocksToHarvest.add(event.getBlock());
         }
@@ -87,4 +101,26 @@ public class HarvestBlock {
             }
         }
     }
+
+//    public static void doCropReplant(Block block, NBTItem item) {
+//        ToolsPlus.LOGGER.info("Called");
+//        ToolsPlus.LOGGER.info("Called 1");
+//        if (block.getType().equals(Material.POTATO)
+//                || block.getType().equals(Material.CARROT)) {
+//            ToolsPlus.LOGGER.info("Called 3");
+//            block.setType(block.getType());
+//        } else if (block.getState().getData() instanceof Crops) {
+//            ToolsPlus.LOGGER.info("Called 2");
+//            block.setType(Material.getMaterial(FileManager.get("harvester_tool_config").getString("seeds-replant-name").toUpperCase()));
+//        }
+//    }
+//
+//    public static boolean isCrop(Block block) {
+//        if (block.getType().equals(Material.POTATO)
+//                || block.getType().equals(Material.CARROT)
+//                || block.getState().getData() instanceof Crops) {
+//            return true;
+//        }
+//        return false;
+//    }
 }

@@ -71,6 +71,9 @@ start-selling-by-harvest:
 bulk-deposit-by-harvest:
   - "&6&lTools+&e: &7You have finished harvesting, a grand total of &a+&l${deposit} &7has been deposited into your account."
 
+crop-not-ripe-to-harvest:
+  - "&cError: &7That crop is not ripe yet, it cannot be harvested / sold."
+
 can-not-sell-contents:
   - "&cError: &7No items in that chest can be sold to the server."
 

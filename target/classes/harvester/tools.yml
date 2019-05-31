@@ -1,5 +1,8 @@
 harvester-tools:
   1:
+    # -- Not implemented --
+    # auto-replant: true
+    #
     mode:
       unique: "&7Mode:"
       sell: "&e&lAUTO SELL"

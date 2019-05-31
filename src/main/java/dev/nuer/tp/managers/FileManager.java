@@ -20,9 +20,10 @@ public class FileManager {
     public enum Files {
         CONFIG, MESSAGES, LIGHTNING, LIGHTNING_PURCHASE_GUI, MULTI, MULTI_CONFIG_GUI, MULTI_PURCHASE_GUI,
         SAND, SAND_PURCHASE_GUI, TRAY, TRAY_PURCHASE_GUI, TRENCH, TRENCH_PURCHASE_GUI, HARVESTER,
-        HARVESTER_PURCHASE_GUI, HARVESTER_CONFIG_GUI, SELL, SELL_PURCHASE_GUI, SELL_PRICE_LIST, SELL_CONFIG_GUI,
-        TNT, TNT_PURCHASE_GUI, TNT_CONFIG_GUI, OMNI_CONFIG, AQUA, AQUA_PURCHASE_GUI, AQUA_CONFIG_GUI, SMELT,
-        SMELT_PURCHASE_GUI, SMELT_ITEM_CONVERSIONS, CHUNK, CHUNK_PURCHASE_GUI, CHUNK_CONFIG_GUI, CHUNK_TOOL_CONFIG
+        HARVESTER_PURCHASE_GUI, HARVESTER_CONFIG_GUI, HARVESTER_TOOL_CONFIG, SELL, SELL_PURCHASE_GUI,
+        SELL_PRICE_LIST, SELL_CONFIG_GUI, TNT, TNT_PURCHASE_GUI, TNT_CONFIG_GUI, OMNI_CONFIG, AQUA,
+        AQUA_PURCHASE_GUI, AQUA_CONFIG_GUI, SMELT, SMELT_PURCHASE_GUI, SMELT_ITEM_CONVERSIONS, CHUNK,
+        CHUNK_PURCHASE_GUI, CHUNK_CONFIG_GUI, CHUNK_TOOL_CONFIG
     }
 
     /**
@@ -54,6 +55,7 @@ public class FileManager {
         files.put(Files.HARVESTER, new PluginFile("harvester" + File.separator + "tools.yml"));
         files.put(Files.HARVESTER_PURCHASE_GUI, new PluginFile("harvester" + File.separator + "purchase-gui.yml"));
         files.put(Files.HARVESTER_CONFIG_GUI, new PluginFile("harvester" + File.separator + "config-gui.yml"));
+        files.put(Files.HARVESTER_TOOL_CONFIG, new PluginFile("harvester" + File.separator + "harvester-tool-config.yml"));
         //Load sell wand files
         files.put(Files.SELL, new PluginFile("sell" + File.separator + "wands.yml"));
         files.put(Files.SELL_PURCHASE_GUI, new PluginFile("sell" + File.separator + "purchase-gui.yml"));

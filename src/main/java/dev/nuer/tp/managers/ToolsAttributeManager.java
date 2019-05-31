@@ -54,7 +54,7 @@ public class ToolsAttributeManager {
         trenchBlockBlacklist = AddBlocksToList.createBlockList("config", "trench-block-blacklist");
         trayBlockWhitelist = AddBlocksToList.createBlockList("config", "tray-block-whitelist");
         sandWandBlockWhitelist = AddBlocksToList.createBlockList("config", "sand-block-whitelist");
-        harvesterBlockPrices = CreateInternalMaps.createBlockPrices("config", "harvester-block-prices");
+        harvesterBlockPrices = CreateInternalMaps.createBlockPrices("harvester_tool_config", "block-prices");
         sellWandItemPrices = CreateInternalMaps.createBlockPrices("sell_price_list", "prices");
         tntWandCraftingRecipe = CreateInternalMaps.createBlockPrices("config", "tnt-wand.crafting-recipe");
         smeltBlockConversions = CreateInternalMaps.loadSmeltItemConversions("smelt_item_conversions", "conversions");
