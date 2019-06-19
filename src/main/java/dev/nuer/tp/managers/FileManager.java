@@ -23,7 +23,7 @@ public class FileManager {
         HARVESTER_PURCHASE_GUI, HARVESTER_CONFIG_GUI, HARVESTER_TOOL_CONFIG, SELL, SELL_PURCHASE_GUI,
         SELL_PRICE_LIST, SELL_CONFIG_GUI, TNT, TNT_PURCHASE_GUI, TNT_CONFIG_GUI, OMNI_CONFIG, AQUA,
         AQUA_PURCHASE_GUI, AQUA_CONFIG_GUI, SMELT, SMELT_PURCHASE_GUI, SMELT_ITEM_CONVERSIONS, CHUNK,
-        CHUNK_PURCHASE_GUI, CHUNK_CONFIG_GUI, CHUNK_TOOL_CONFIG
+        CHUNK_PURCHASE_GUI, CHUNK_CONFIG_GUI, CHUNK_WAND_CONFIG
     }
 
     /**
@@ -73,11 +73,11 @@ public class FileManager {
         files.put(Files.SMELT, new PluginFile("smelt" + File.separator + "wands.yml"));
         files.put(Files.SMELT_PURCHASE_GUI, new PluginFile("smelt" + File.separator + "purchase-gui.yml"));
         files.put(Files.SMELT_ITEM_CONVERSIONS, new PluginFile("smelt" + File.separator + "item-conversions.yml"));
-        // Load chunk tools files
-        files.put(Files.CHUNK, new PluginFile("chunk" + File.separator + "tools.yml"));
+        // Load chunk wands files
+        files.put(Files.CHUNK, new PluginFile("chunk" + File.separator + "wands.yml"));
         files.put(Files.CHUNK_PURCHASE_GUI, new PluginFile("chunk" + File.separator + "purchase-gui.yml"));
         files.put(Files.CHUNK_CONFIG_GUI, new PluginFile("chunk" + File.separator + "config-gui.yml"));
-        files.put(Files.CHUNK_TOOL_CONFIG, new PluginFile("chunk" + File.separator + "chunk-tool-config.yml"));
+        files.put(Files.CHUNK_WAND_CONFIG, new PluginFile("chunk" + File.separator + "chunk-wand-config.yml"));
         //Log that files are loaded
         ToolsPlus.LOGGER.info("[Tools+] Successfully loaded all configuration files...");
     }

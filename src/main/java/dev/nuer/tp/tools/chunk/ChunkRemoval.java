@@ -4,6 +4,9 @@ import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.events.BlockRemovalByChunkToolEvent;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.player.PlayerMessage;
+import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.tools.DecrementUses;
+import dev.nuer.tp.tools.PlayerToolCooldown;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Material;
@@ -28,7 +31,14 @@ public class ChunkRemoval {
      * @param player        Player, the player using the tool
      * @param radius        int, the tools chunk radius
      */
-    public static void removeChunksInRadius(Chunk startingChunk, Player player, int radius) {
+    public static void removeChunksInRadius(Chunk startingChunk, Player player, int radius, NBTItem nbtItem) {
+        int cooldownFromConfig = FileManager.get("chunk").getInt("chunk-wands." + nbtItem.getInteger("tools+.raw.id") + ".cooldown");
+        if (PlayerToolCooldown.isOnCooldown(player, "chunk")) {
+            return;
+        } else {
+            DecrementUses.decrementUses(player, "chunk", nbtItem, nbtItem.getInteger("tools+.uses"));
+            PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "chunk");
+        }
         int chunksAddedToQueue = 0;
         int chunksAlreadyQueued = 0;
         int chunkX = radius - 1, chunkZ = radius - 1;
@@ -63,7 +73,7 @@ public class ChunkRemoval {
     private static void removeChunk(Chunk chunkToRemove, Player player) {
         //if (pendingChunks == null) pendingChunks = new ArrayList<>();
         new BukkitRunnable() {
-            int delay = FileManager.get("chunk_tool_config").getInt("chunk-removal-delay");
+            int delay = FileManager.get("chunk_wand_config").getInt("chunk-removal-delay");
 
             @Override
             public void run() {
@@ -94,7 +104,7 @@ public class ChunkRemoval {
                     while (x < 16) {
                         if (chunkToRemove.getBlock(x, y, z).getType().equals(Material.AIR)) {
                             //continue;
-                        } else if (FileManager.get("chunk_tool_config").getStringList("buster-block-blacklist").contains(chunkToRemove.getBlock(x, y, z).getType().toString().toLowerCase())) {
+                        } else if (FileManager.get("chunk_wand_config").getStringList("buster-block-blacklist").contains(chunkToRemove.getBlock(x, y, z).getType().toString().toLowerCase())) {
                             //continue;
                         } else {
                             blocksToRemove.add(chunkToRemove.getBlock(x, y, z));
@@ -113,7 +123,7 @@ public class ChunkRemoval {
                 @Override
                 public void run() {
                     if (indexOfArray < blocksToRemove.size()) {
-                        for (int i = 0; i < FileManager.get("chunk_tool_config").getInt("removal-grouping-size"); i++) {
+                        for (int i = 0; i < FileManager.get("chunk_wand_config").getInt("removal-grouping-size"); i++) {
                             try {
                                 BlockBreakEvent blockBreak = new BlockBreakEvent(blocksToRemove.get(indexOfArray), player);
                                 Bukkit.getPluginManager().callEvent(blockBreak);
@@ -133,7 +143,7 @@ public class ChunkRemoval {
                         pendingChunks.remove(chunkToRemove);
                     }
                 }
-            }.runTaskTimer(ToolsPlus.instance, 0L, FileManager.get("chunk_tool_config").getInt("delay-between-grouping-removal"));
+            }.runTaskTimer(ToolsPlus.instance, 0L, FileManager.get("chunk_wand_config").getInt("delay-between-grouping-removal"));
         });
     }
 }

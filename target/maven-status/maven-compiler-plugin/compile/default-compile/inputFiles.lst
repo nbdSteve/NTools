@@ -36,7 +36,6 @@ C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\events\AquaWandDrainLiquidEvent.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\method\fileCreation\PluginFile.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\support\nbtapi\NBTCompound.java
-C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\gui\purchase\BuyChunkToolsGui.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\support\ShopGUIPlusIntegration.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\tools\tnt\CraftContentsOfChest.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\events\TrenchBlockBreakEvent.java
@@ -61,11 +60,11 @@ C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\cmd\ToolsCmd.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\method\Chat.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\gui\purchase\BuySellWandsGui.java
+C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\gui\config\ChunkWandConfigurationGui.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\gui\config\TNTWandConfigurationGui.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\support\nbtapi\NBTListCompound.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\tools\ChangeMode.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\support\nbtapi\ReflectionMethod.java
-C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\gui\config\ChunkToolConfigurationGui.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\events\BlockRemovalByChunkToolEvent.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\listener\CrouchRightClickOpenGui.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\managers\GuiManager.java
@@ -91,6 +90,7 @@ C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\gui\purchase\BuyAquaWandsGui.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\support\nbtapi\NBTReflectionUtil.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\cmd\sub\Help.java
+C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\gui\purchase\BuyChunkWandsGui.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\tools\tnt\BankContentsOfChest.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\tools\harvest\HarvestBlock.java
 C:\Users\deeb0\Desktop\minecraft\Intellj Plugins\FrontierFactionsPlugins\NTools\src\main\java\dev\nuer\tp\events\LightningWandStrikeEvent.java

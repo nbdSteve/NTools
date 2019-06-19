@@ -70,12 +70,12 @@ public class PlayerInteract implements Listener {
                             ChangeToolRadius.getToolRadius(nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem(), ToolsAttributeManager.chunkToolRadiusUnique));
                 } else {
                     ChunkRemoval.removeChunksInRadius(player.getLocation().getChunk(), player,
-                            ChangeToolRadius.getToolRadius(nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem(), ToolsAttributeManager.chunkToolRadiusUnique));
+                            ChangeToolRadius.getToolRadius(nbtItem.getItem().getItemMeta().getLore(), nbtItem.getItem(), ToolsAttributeManager.chunkToolRadiusUnique), nbtItem);
                 }
             }
         } catch (NullPointerException e) {
             e.printStackTrace();
-            //NBT tag is null because this is not a chunk tool
+            //NBT tag is null because this is not a chunk wand
         }
     }
 

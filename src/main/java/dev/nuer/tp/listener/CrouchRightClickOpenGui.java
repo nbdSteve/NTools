@@ -98,7 +98,7 @@ public class CrouchRightClickOpenGui implements Listener {
                 }
             }
         } catch (NullPointerException e) {
-            //NBT tag is null because this is not a chunk tool
+            //NBT tag is null because this is not a chunk wand
         }
     }
 }

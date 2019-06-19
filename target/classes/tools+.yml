@@ -82,6 +82,7 @@ cooldown-action-bar:
   tnt-message: "&c&l✘ &6&lTNT Wand Cooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
   aqua-message: "&c&l✘ &6&lAqua Wand Cooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
   smelt-message: "&c&l✘ &6&lSmelt Wand Cooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
+  chunk-message: "&c&l✘ &6&lChunk Wand Cooldown &7⊳ &e{time} &7second(s) remaining... &c&l✘"
 
 # Action bar sent to player when their wand breaks after running out of uses
 wand-break-action-bar:
@@ -92,6 +93,7 @@ wand-break-action-bar:
   tnt-message: "&c&l✘ &7Your tnt wand ran out of uses, it was destroyed... &c&l✘"
   aqua-message: "&c&l✘ &7Your aqua wand ran out of uses, it was destroyed... &c&l✘"
   smelt-message: "&c&l✘ &7Your smelt wand ran out of uses, it was destroyed... &c&l✘"
+  chunk-message: "&c&l✘ &7Your chunk wand ran out of uses, it was destroyed... &c&l✘"
 
 # gui opened with the /tools command
 tool-purchase-gui:
@@ -210,11 +212,11 @@ tool-purchase-gui:
     open-smelt: true
   11:
     slot: 10
-    name: "&b&lChunk Buster Tools"
+    name: "&b&lChunk Buster Wands"
     material: feather:0
     lore:
       - "&7 "
-      - "&7&oClick this to buy chunk buster tools."
+      - "&7&oClick this to buy chunk buster wands."
       - "&7 "
     enchantments:
       - lure:1

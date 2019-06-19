@@ -43,7 +43,7 @@ public class ToolsAttributeManager {
     public static HashMap<Integer, ArrayList<String>> aquaWandModeUnique;
     //Store the map of aqua wand radius unique id and raw tool id
     public static HashMap<Integer, ArrayList<String>> aquaWandRadiusUnique;
-    //Store the map of chunk tool radius unique id and raw tool id
+    //Store the map of chunk wand radius unique id and raw tool id
     public static HashMap<Integer, ArrayList<String>> chunkToolRadiusUnique;
 
     /**
@@ -72,8 +72,8 @@ public class ToolsAttributeManager {
         //Load maps specific to aqua wand ids
         aquaWandModeUnique = CreateInternalMaps.createUniqueModeIDs("aqua", "aqua-wands.", "melt", "drain");
         aquaWandRadiusUnique = CreateInternalMaps.createUniqueModifierIDs("aqua", "aqua-wands.", "radius");
-        //Load maps specific to chunk tool ids
-        chunkToolRadiusUnique = CreateInternalMaps.createUniqueModifierIDs("chunk", "chunk-tools.", "radius");
+        //Load maps specific to chunk wand ids
+        chunkToolRadiusUnique = CreateInternalMaps.createUniqueModifierIDs("chunk", "chunk-wands.", "radius");
     }
 
     /**
@@ -102,7 +102,7 @@ public class ToolsAttributeManager {
         //Clear maps specific to aqua wand ids
         aquaWandModeUnique.clear();
         aquaWandRadiusUnique.clear();
-        //Clear maps specific to chunk tools
+        //Clear maps specific to chunk wands
         chunkToolRadiusUnique.clear();
     }
 }

@@ -28,6 +28,8 @@ public class PlayerToolCooldown {
     private static HashMap<UUID, Integer> playersOnAquaWandCooldown = new HashMap<>();
     //Store the players who are on the smelt wand cooldown
     private static HashMap<UUID, Integer> playersOnSmeltWandCooldown = new HashMap<>();
+    //Store the players who are on the chunk wand cooldown
+    private static HashMap<UUID, Integer> playersOnChunkWandCooldown = new HashMap<>();
 
     /**
      * Sets the respective player on the respective cooldown
@@ -107,6 +109,7 @@ public class PlayerToolCooldown {
         if (cooldownToolType.equalsIgnoreCase("tnt")) return playersOnTntWandCooldown;
         if (cooldownToolType.equalsIgnoreCase("aqua")) return playersOnAquaWandCooldown;
         if (cooldownToolType.equalsIgnoreCase("smelt")) return playersOnSmeltWandCooldown;
+        if (cooldownToolType.equalsIgnoreCase("chunk")) return playersOnChunkWandCooldown;
         return null;
     }
 }
