@@ -30,7 +30,7 @@ public class Give {
                 if (!Bukkit.getOnlinePlayers().contains(target)) {
                     if (sender instanceof Player) {
                         new PlayerMessage("invalid-command", (Player) sender, "{reason}",
-                                "The player you are trying to give that tool to is not online.");
+                                "The player you are trying to give that tool to is not online");
                     } else {
                         ToolsPlus.LOGGER.info("[Tools+] Invalid command, check the GitHub wiki for command help.");
                     }
@@ -38,7 +38,7 @@ public class Give {
                 }
                 //Create the starting modifier for the tool
                 int toolStartingModifier = 1;
-                if ((args.length == 6 || args.length == 7) &&
+                if ((args.length == 6 || args.length == 7 || args.length == 8) &&
                         (args[2].equalsIgnoreCase("multi")
                                 || args[2].equalsIgnoreCase("sell")
                                 || args[2].equalsIgnoreCase("harvester")
@@ -46,6 +46,14 @@ public class Give {
                                 || args[2].equalsIgnoreCase("aqua")
                                 || args[2].equalsIgnoreCase("chunk"))) {
                     toolStartingModifier = verifyStartingModifier(sender, args[5], args[2], Integer.parseInt(args[4]));
+                }
+                int startingMode = 1;
+                if (args.length == 7 && (args[2].equalsIgnoreCase("harvester")
+                        || args[2].equalsIgnoreCase("multi"))) {
+                    startingMode = Integer.parseInt(args[6]);
+                } else if (args.length == 8 && (args[2].equalsIgnoreCase("tnt")
+                        || args[2].equalsIgnoreCase("aqua"))) {
+                    startingMode = Integer.parseInt(args[7]);
                 }
                 //Get the starting uses from the configuration, or reset for command
                 String startingUses = null;
@@ -68,7 +76,7 @@ public class Give {
                             FileManager.get("multi").getString("multi-tools." + args[4] + ".name"),
                             FileManager.get("multi").getStringList("multi-tools." + args[4] + ".lore"),
                             FileManager.get("multi").getStringList("multi-tools." + args[4] + ".enchantments"),
-                            "multi", Integer.parseInt(args[4]), target, "{mode}", ToolsAttributeManager.multiToolModeUnique.get(Integer.parseInt(args[4])).get(1),
+                            "multi", Integer.parseInt(args[4]), target, "{mode}", ToolsAttributeManager.multiToolModeUnique.get(Integer.parseInt(args[4])).get(startingMode),
                             "{radius}", ToolsAttributeManager.multiToolRadiusUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier), "debug", "debug");
                 }
                 if (args[2].equalsIgnoreCase("trench")) {
@@ -105,7 +113,8 @@ public class Give {
                     new CraftItem(args[3], FileManager.get("harvester").getString("harvester-tools" + "." + args[4] + ".name"),
                             FileManager.get("harvester").getStringList("harvester-tools." + args[4] + ".lore"),
                             FileManager.get("harvester").getStringList("harvester-tools." + args[4] + ".enchantments"), "harvester",
-                            Integer.parseInt(args[4]), target, "{mode}", ToolsAttributeManager.harvesterModeUnique.get(Integer.parseInt(args[4])).get(1), "{modifier}", modifierParts[0], "debug", "debug");
+                            Integer.parseInt(args[4]), target, "{mode}", ToolsAttributeManager.harvesterModeUnique.get(Integer.parseInt(args[4])).get(startingMode),
+                            "{modifier}", modifierParts[0], "debug", "debug");
                 }
                 if (args[2].equalsIgnoreCase("sell")) {
                     String[] modifierParts = ToolsAttributeManager.sellWandModifierUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier).split("-");
@@ -123,7 +132,7 @@ public class Give {
                             FileManager.get("tnt").getString("tnt-wands." + args[4] + ".name"),
                             FileManager.get("tnt").getStringList("tnt-wands." + args[4] + ".lore"),
                             FileManager.get("tnt").getStringList("tnt-wands." + args[4] + ".enchantments"),
-                            "tnt", Integer.parseInt(args[4]), target, "{mode}", ToolsAttributeManager.tntWandModeUnique.get(Integer.parseInt(args[4])).get(1),
+                            "tnt", Integer.parseInt(args[4]), target, "{mode}", ToolsAttributeManager.tntWandModeUnique.get(Integer.parseInt(args[4])).get(startingMode),
                             "{modifier}", modifierParts[0], "{uses}", startingUses);
                 }
                 if (args[2].equalsIgnoreCase("aqua")) {
@@ -131,7 +140,7 @@ public class Give {
                             FileManager.get("aqua").getString("aqua-wands." + args[4] + ".name"),
                             FileManager.get("aqua").getStringList("aqua-wands." + args[4] + ".lore"),
                             FileManager.get("aqua").getStringList("aqua-wands." + args[4] + ".enchantments"),
-                            "aqua", Integer.parseInt(args[4]), target, "{mode}", ToolsAttributeManager.aquaWandModeUnique.get(Integer.parseInt(args[4])).get(1),
+                            "aqua", Integer.parseInt(args[4]), target, "{mode}", ToolsAttributeManager.aquaWandModeUnique.get(Integer.parseInt(args[4])).get(startingMode),
                             "{radius}", ToolsAttributeManager.aquaWandRadiusUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier), "{uses}", startingUses);
                 }
                 if (args[2].equalsIgnoreCase("smelt")) {

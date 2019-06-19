@@ -118,6 +118,7 @@ public class ChunkRemoval {
                                 BlockBreakEvent blockBreak = new BlockBreakEvent(blocksToRemove.get(indexOfArray), player);
                                 Bukkit.getPluginManager().callEvent(blockBreak);
                                 if (!blockBreak.isCancelled()) {
+                                    blockBreak.setCancelled(true);
                                     //Call custom event
                                     Bukkit.getPluginManager().callEvent(new BlockRemovalByChunkToolEvent(blocksToRemove.get(indexOfArray), player));
                                 }

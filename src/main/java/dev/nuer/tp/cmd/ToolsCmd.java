@@ -55,15 +55,7 @@ public class ToolsCmd implements CommandExecutor {
                 if (args[0].equalsIgnoreCase("r") || args[0].equalsIgnoreCase("reload")) {
                     Reload.onCmd(sender);
                 }
-//                if (args[0].equalsIgnoreCase("ct")) {
-//                    Player p = (Player) sender;
-//                    ChunkRemoval.removeChunksInRadius(p.getLocation().getChunk(), p, 0);
-//                }
-//                if (args[0].equalsIgnoreCase("ctr")) {
-//                    Player p = (Player) sender;
-//                    ChunkQueueManipulation.removeChunkFromQueue(p.getLocation().getChunk(), p);
-//                }
-            } else if (args.length == 5 || args.length == 6 || args.length == 7) {
+            } else if (args.length == 5 || args.length == 6 || args.length == 7 || args.length == 8) {
                 if (args[0].equalsIgnoreCase("g") || args[0].equalsIgnoreCase("give")) {
                     Give.onCmd(sender, args);
                 }
