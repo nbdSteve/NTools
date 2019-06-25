@@ -31,7 +31,7 @@ public class GetSellableItemPrices {
                 new PlayerMessage("invalid-config", player, "{reason}", "ShopGuiPlus player data not loaded");
             }
         }
-        return itemPrices.get(item.getType().toString()) * item.getAmount() * priceModifier;
+        return itemPrices.get(item.getType().toString() + ":" + item.getDurability()) * item.getAmount() * priceModifier;
     }
 
     /**
@@ -44,10 +44,7 @@ public class GetSellableItemPrices {
      * @return boolean
      */
     public static boolean canBeSold(ItemStack item, Player player, boolean usingShopGuiPlus, HashMap<String, Double> itemPrices) {
-        if (item == null) {
-            return false;
-        }
-        if (item.hasItemMeta()) {
+        if (item == null || item.hasItemMeta()) {
             return false;
         }
         if (usingShopGuiPlus) {
@@ -57,6 +54,6 @@ public class GetSellableItemPrices {
                 new PlayerMessage("invalid-config", player, "{reason}", "ShopGuiPlus player data not loaded");
             }
         }
-        return itemPrices.get(item.getType().toString()) != null;
+        return itemPrices.get(item.getType().toString() + ":" + item.getDurability()) != null;
     }
 }

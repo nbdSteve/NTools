@@ -1,6 +1,5 @@
 package dev.nuer.tp.method;
 
-import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.managers.FileManager;
 import org.bukkit.Material;
 
@@ -76,6 +75,23 @@ public class CreateInternalMaps {
             blockPrices.put(blockAndPrice[0].toUpperCase(), Double.parseDouble(blockAndPrice[1]));
         }
         return blockPrices;
+    }
+
+    /**
+     * Creates a HashMap of blocks with their data value and their respective price. This is used for sell
+     * wands so that players can set the price for blocks with data values
+     *
+     * @param directory String, the directory to get the prices from
+     * @param filePath  String, file path to get prices from inside the configuration
+     * @return HashMap<String, Double>
+     */
+    public static HashMap<String, Double> createSellWandPrices(String directory, String filePath) {
+        HashMap<String, Double> priceList = new HashMap<>();
+        for (String block : FileManager.get(directory).getStringList(filePath)) {
+            String[] blockAndPrice = block.split(":");
+            priceList.put(blockAndPrice[0].toUpperCase() + ":" + blockAndPrice[1], Double.parseDouble(blockAndPrice[2]));
+        }
+        return priceList;
     }
 
     /**

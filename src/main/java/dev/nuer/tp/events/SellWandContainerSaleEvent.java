@@ -1,10 +1,10 @@
 package dev.nuer.tp.events;
 
-import org.bukkit.block.Chest;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -13,14 +13,14 @@ import org.bukkit.inventory.ItemStack;
 public class SellWandContainerSaleEvent extends Event implements Cancellable {
     private static final HandlerList handlers = new HandlerList();
 
-    private Chest chestToSell;
+    private Inventory inventoryToSell;
     private Player player;
     private ItemStack itemBeingSold;
     private double itemPrice;
     private boolean cancel;
 
-    public SellWandContainerSaleEvent(Chest chestToSell, Player player, ItemStack itemBeingSold, double itemPrice) {
-        this.chestToSell = chestToSell;
+    public SellWandContainerSaleEvent(Inventory inventoryToSell, Player player, ItemStack itemBeingSold, double itemPrice) {
+        this.inventoryToSell = inventoryToSell;
         this.player = player;
         this.itemBeingSold = itemBeingSold;
         this.itemPrice = itemPrice;
@@ -30,8 +30,8 @@ public class SellWandContainerSaleEvent extends Event implements Cancellable {
         return handlers;
     }
 
-    public Chest getChestToSell() {
-        return chestToSell;
+    public Inventory getInventoryToSell() {
+        return inventoryToSell;
     }
 
     public Player getPlayer() {

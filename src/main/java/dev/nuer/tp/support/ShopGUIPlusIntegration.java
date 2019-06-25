@@ -16,6 +16,6 @@ public class ShopGUIPlusIntegration {
      */
     public static boolean usingShopGUIPlus(String directory) {
         if (!FileManager.get(directory + "_price_list").getBoolean("shop-gui-plus-hook")) return false;
-        return Bukkit.getPluginManager().getPlugin("ShopGUIPlusIntegration") != null;
+        return Bukkit.getPluginManager().getPlugin("ShopGUIPlus") != null;
     }
 }

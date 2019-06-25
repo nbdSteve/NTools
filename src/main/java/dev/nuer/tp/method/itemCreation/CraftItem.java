@@ -110,6 +110,11 @@ public class CraftItem {
      */
     private ItemStack createItem(String material) {
         String[] materialParts = material.split(":");
+        if (materialParts.length == 3) {
+            ItemStack is =  new ItemStack(Material.valueOf(materialParts[0].toUpperCase()), 1, Byte.parseByte(materialParts[1]));
+            is.setDurability(Short.parseShort(materialParts[2]));
+            return is;
+        }
         return new ItemStack(Material.valueOf(materialParts[0].toUpperCase()), 1,
                 Byte.parseByte(materialParts[1]));
     }

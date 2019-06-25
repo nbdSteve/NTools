@@ -2,20 +2,20 @@ package dev.nuer.tp.tools.sell;
 
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.events.SellWandContainerSaleEvent;
-import dev.nuer.tp.support.ShopGUIPlusIntegration;
-import dev.nuer.tp.support.actionbarapi.ActionBarAPI;
-import dev.nuer.tp.support.nbtapi.NBTItem;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.player.PlayerMessage;
+import dev.nuer.tp.support.ShopGUIPlusIntegration;
+import dev.nuer.tp.support.actionbarapi.ActionBarAPI;
+import dev.nuer.tp.support.nbtapi.NBTItem;
 import dev.nuer.tp.tools.DecrementUses;
 import dev.nuer.tp.tools.PlayerToolCooldown;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.DoubleChestInventory;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
@@ -44,25 +44,38 @@ public class SellChestContents {
         int cooldownFromConfig = FileManager.get(directory).getInt(filePath + ".cooldown");
         //Store the chest
         Chest chestToSell = (Chest) clickedBlock.getState();
-        //Store the chests inventory
+        //Check if the inventory is a double chest or not
+        DoubleChestInventory doubleChestInventory = null;
+        try {
+            doubleChestInventory = (DoubleChestInventory) chestToSell.getInventory();
+        } catch (ClassCastException e) {
+            //Do nothing, the chest is single inventory
+        }
+        //Store the inventory
         Inventory inventoryToSell = chestToSell.getInventory();
+        if (doubleChestInventory != null) {
+            inventoryToSell = doubleChestInventory;
+        }
+        //Check if the items can be sold
         if (!canSellContents(inventoryToSell, player, usingShopGuiPlus)) {
             new PlayerMessage("can-not-sell-contents", player);
             return;
         }
+        //Decrement tool uses
         DecrementUses.decrementUses(player, "sell", nbtItem, nbtItem.getInteger("tools+.uses"));
+        //Set the player on cooldown
         PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "sell");
         int slot = 0;
+        //Increment the total player deposit
         double totalDeposit = 0;
         for (ItemStack item : inventoryToSell.getContents()) {
             if (GetSellableItemPrices.canBeSold(item, player, usingShopGuiPlus, ToolsAttributeManager.sellWandItemPrices)) {
                 double finalPrice = GetSellableItemPrices.getItemPrice(item, player, priceModifier, usingShopGuiPlus, ToolsAttributeManager.sellWandItemPrices);
-                SellWandContainerSaleEvent sellChestEvent = new SellWandContainerSaleEvent(chestToSell, player, item, finalPrice);
+                SellWandContainerSaleEvent sellChestEvent = new SellWandContainerSaleEvent(inventoryToSell, player, item, finalPrice);
                 Bukkit.getPluginManager().callEvent(sellChestEvent);
                 if (!sellChestEvent.isCancelled()) {
                     totalDeposit += finalPrice;
-                    chestToSell.getInventory().setItem(slot, new ItemStack(Material.AIR));
-                    chestToSell.update();
+                    if (doubleChestInventory != null) doubleChestInventory.clear(slot); else chestToSell.getInventory().clear(slot);
                 }
             }
             slot++;
