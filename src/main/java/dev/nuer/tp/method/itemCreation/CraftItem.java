@@ -2,6 +2,7 @@ package dev.nuer.tp.method.itemCreation;
 
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.Chat;
+import dev.nuer.tp.method.player.PlayerMessage;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -30,13 +31,9 @@ public class CraftItem {
      * @param name         String, the items display name
      * @param lore         List<String>, list of strings to add as the items lore
      * @param enchantments List<String>, list of enchantments to add to the item
-     * @param typeOfTool   String, the type of tool being created
-     * @param idFromConfig Integer, the raw tool ID from the configuration files
-     * @param player       Player, the player to give the new item to - can be null
      */
-    public CraftItem(String material, String name, List<String> lore, List<String> enchantments,
-                     String typeOfTool, int idFromConfig, Player player) {
-        item = createItem(material);
+    public CraftItem(String material, String name, List<String> lore, List<String> enchantments) {
+        item = createItem(material, null);
         itemMeta = item.getItemMeta();
         if (name != null) {
             itemMeta.setDisplayName(Chat.applyColor(name));
@@ -45,14 +42,6 @@ public class CraftItem {
         itemMeta.setLore(itemLore);
         addEnchantments(enchantments);
         item.setItemMeta(itemMeta);
-        if (player != null) {
-            if (typeOfTool.equalsIgnoreCase("trench") || typeOfTool.equalsIgnoreCase("tray") || typeOfTool.equalsIgnoreCase("multi")) {
-                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig,
-                        FileManager.get(typeOfTool).getBoolean(typeOfTool + "-tools." + idFromConfig + ".omni-tool")));
-            } else {
-                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig, 0));
-            }
-        }
     }
 
     /**
@@ -77,7 +66,7 @@ public class CraftItem {
                      String typeOfTool, int idFromConfig, Player player, String modePlaceholder,
                      String modeReplacement, String modifierPlaceholder, String modifierReplacement,
                      String usesPlaceholder, String usesReplacement) {
-        item = createItem(material);
+        item = createItem(material, player);
         itemMeta = item.getItemMeta();
         if (name != null) {
             itemMeta.setDisplayName(Chat.applyColor(name));
@@ -87,18 +76,14 @@ public class CraftItem {
         addEnchantments(enchantments);
         item.setItemMeta(itemMeta);
         if (player != null) {
-            if (typeOfTool.equalsIgnoreCase("trench") || typeOfTool.equalsIgnoreCase("tray") || typeOfTool.equalsIgnoreCase("multi")) {
-                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig,
-                        FileManager.get(typeOfTool).getBoolean(typeOfTool + "-tools." + idFromConfig + ".omni-tool")));
-            } else {
-                int uses;
-                try {
-                    uses = Integer.parseInt(usesReplacement);
-                } catch (NumberFormatException e) {
-                    uses = -1;
-                }
-                player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig, uses));
+            int uses;
+            try {
+                uses = Integer.parseInt(usesReplacement);
+            } catch (NumberFormatException e) {
+                uses = -1;
             }
+            player.getInventory().addItem(NBTCreator.addToolData(item, typeOfTool, idFromConfig, uses,
+                    FileManager.get(typeOfTool).getBoolean(typeOfTool + "-tools." + idFromConfig + ".omni-tool")));
         }
     }
 
@@ -108,15 +93,22 @@ public class CraftItem {
      * @param material String, material name and damage value
      * @return ItemStack
      */
-    private ItemStack createItem(String material) {
+    private ItemStack createItem(String material, Player player) {
         String[] materialParts = material.split(":");
-        if (materialParts.length == 3) {
-            ItemStack is =  new ItemStack(Material.valueOf(materialParts[0].toUpperCase()), 1, Byte.parseByte(materialParts[1]));
-            is.setDurability(Short.parseShort(materialParts[2]));
-            return is;
+        try {
+            if (materialParts.length == 3) {
+                ItemStack is = new ItemStack(Material.valueOf(materialParts[0].toUpperCase()), 1, Byte.parseByte(materialParts[1]));
+                is.setDurability(Short.parseShort(materialParts[2]));
+                return is;
+            }
+            return new ItemStack(Material.valueOf(materialParts[0].toUpperCase()), 1,
+                    Byte.parseByte(materialParts[1]));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            new PlayerMessage("invalid-command", player, "{reason}",
+                    "The item type entered was invalid or wrong, please check the Bukkit material ENUM's. You have been given an iron hoe instead");
+            return new ItemStack(Material.IRON_HOE);
         }
-        return new ItemStack(Material.valueOf(materialParts[0].toUpperCase()), 1,
-                Byte.parseByte(materialParts[1]));
     }
 
     /**

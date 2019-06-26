@@ -29,7 +29,7 @@ public class BuySellWandsGui extends AbstractGui {
                         new CraftItem(FileManager.get("sell_purchase_gui").getString("sell-wand-purchase-gui." + configItem + ".material"),
                                 FileManager.get("sell_purchase_gui").getString("sell-wand-purchase-gui." + configItem + ".name"),
                                 FileManager.get("sell_purchase_gui").getStringList("sell-wand-purchase-gui." + configItem + ".lore"),
-                                FileManager.get("sell_purchase_gui").getStringList("sell-wand-purchase-gui." + configItem + ".enchantments"), "sell", 0, null).getItem(),
+                                FileManager.get("sell_purchase_gui").getStringList("sell-wand-purchase-gui." + configItem + ".enchantments")).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {

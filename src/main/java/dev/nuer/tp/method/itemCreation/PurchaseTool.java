@@ -12,29 +12,6 @@ import java.util.List;
 public class PurchaseTool {
 
     /**
-     * Constructor to add an item to a player inventory and remove the price from their account
-     *
-     * @param price        Double, the price of the tool being bought
-     * @param material     String, the item material
-     * @param name         String, the items display name
-     * @param lore         List<String>, list of strings to add as the items lore
-     * @param enchantments List<String>, list of enchantments to add to the item
-     * @param typeOfTool   String, the type of tool being created
-     * @param idFromConfig Integer, the raw tool ID from the configuration files
-     * @param player       Player, the player to give the new item to - can be null
-     */
-    public PurchaseTool(double price, String material, String name, List<String> lore, List<String> enchantments, String typeOfTool, int idFromConfig, Player player) {
-        if (ToolsPlus.economy.getBalance(player) >= price) {
-            player.closeInventory();
-            ToolsPlus.economy.withdrawPlayer(player, price);
-            new CraftItem(material, name, lore, enchantments, typeOfTool, idFromConfig, player);
-            new PlayerMessage("purchase", player, "{price}", ToolsPlus.numberFormat.format(price));
-        } else {
-            new PlayerMessage("insufficient", player);
-        }
-    }
-
-    /**
      * Alternative Constructor, this is called for Sell Wands and Harvester Hoes because they use
      * price modifiers and the placeholder is different.
      *

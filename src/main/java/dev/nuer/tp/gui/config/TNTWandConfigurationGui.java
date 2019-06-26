@@ -30,7 +30,7 @@ public class TNTWandConfigurationGui extends AbstractGui {
                         new CraftItem(FileManager.get("tnt_config_gui").getString("tnt-wand-config-gui." + configItem + ".material"),
                                 FileManager.get("tnt_config_gui").getString("tnt-wand-config-gui." + configItem + ".name"),
                                 FileManager.get("tnt_config_gui").getStringList("tnt-wand-config-gui." + configItem + ".lore"),
-                                FileManager.get("tnt_config_gui").getStringList("tnt-wand-config-gui." + configItem + ".enchantments"), "tnt", 0, null).getItem(),
+                                FileManager.get("tnt_config_gui").getStringList("tnt-wand-config-gui." + configItem + ".enchantments")).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {

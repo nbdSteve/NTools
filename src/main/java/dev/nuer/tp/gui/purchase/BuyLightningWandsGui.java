@@ -28,7 +28,7 @@ public class BuyLightningWandsGui extends AbstractGui {
                         new CraftItem(FileManager.get("lightning_purchase_gui").getString("lightning-wand-purchase-gui." + configItem + ".material"),
                                 FileManager.get("lightning_purchase_gui").getString("lightning-wand-purchase-gui." + configItem + ".name"),
                                 FileManager.get("lightning_purchase_gui").getStringList("lightning-wand-purchase-gui." + configItem + ".lore"),
-                                FileManager.get("lightning_purchase_gui").getStringList("lightning-wand-purchase-gui." + configItem + ".enchantments"), "lightning", 0, null).getItem(),
+                                FileManager.get("lightning_purchase_gui").getStringList("lightning-wand-purchase-gui." + configItem + ".enchantments")).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {

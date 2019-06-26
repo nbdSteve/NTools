@@ -28,7 +28,7 @@ public class BuyTrayToolsGui extends AbstractGui {
                         new CraftItem(FileManager.get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".material"),
                                 FileManager.get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".name"),
                                 FileManager.get("tray_purchase_gui").getStringList("tray-tool-purchase-gui." + configItem + ".lore"),
-                                FileManager.get("tray_purchase_gui").getStringList("tray-tool-purchase-gui." + configItem + ".enchantments"), "tray", 0, null).getItem(),
+                                FileManager.get("tray_purchase_gui").getStringList("tray-tool-purchase-gui." + configItem + ".enchantments")).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
@@ -37,7 +37,9 @@ public class BuyTrayToolsGui extends AbstractGui {
                                             FileManager.get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".material"),
                                             FileManager.get("tray").getString("tray-tools." + configItem + ".name"),
                                             FileManager.get("tray").getStringList("tray-tools." + configItem + ".lore"),
-                                            FileManager.get("tray").getStringList("tray-tools." + configItem + ".enchantments"), "tray", configItem, player);
+                                            FileManager.get("tray").getStringList("tray-tools." + configItem + ".enchantments"), "tray", configItem, player,
+                                            "debug", "debug", "debug", "debug",
+                                            "{uses}", FileManager.get("tray").getString("tray-tools." + configItem + ".uses.starting"));
                                 }
                                 if (FileManager.get("tray_purchase_gui").getBoolean("tray-tool-purchase-gui." + configItem + ".back-button")) {
                                     GuiManager.getGui("generic-buy").open(player);

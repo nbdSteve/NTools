@@ -5,6 +5,7 @@ import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.tools.BreakBlocksInRadius;
 import dev.nuer.tp.tools.ChangeMode;
 import dev.nuer.tp.tools.AlterToolModifier;
+import dev.nuer.tp.tools.DecrementUses;
 import dev.nuer.tp.tools.harvest.HarvestBlock;
 import dev.nuer.tp.tools.sand.RemoveSandStack;
 import org.bukkit.entity.Player;
@@ -84,6 +85,9 @@ public class BlockDamageByPlayer implements Listener {
             if (nbtItem.getBoolean("tools+.harvester")) {
                 event.setCancelled(true);
                 if (ToolsAttributeManager.harvesterBlockPrices.get(event.getBlock().getType().toString()) != null) {
+                    //Decrease the tools uses
+                    DecrementUses.decrementUses(player, "harvester-tool", nbtItem, nbtItem.getInteger("tools+.uses"));
+                    //Harvest the blocks
                     HarvestBlock.harvestBlocks(event, player, ChangeMode.changeToolMode(nbtItem.getItem().getItemMeta().getLore(),
                             nbtItem.getItem().getItemMeta(), nbtItem.getItem(), ToolsAttributeManager.harvesterModeUnique, false),
                             ToolsAttributeManager.harvesterBlockPrices.get(event.getBlock().getType().toString()),

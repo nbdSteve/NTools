@@ -14,32 +14,35 @@ public class NBTCreator {
      * @param item         ItemStack, the item to tag
      * @param typeOfTool   String, the type of tool being created
      * @param idFromConfig Integer, the raw ID from the configuration files
-     * @return
+     * @return ItemStack
      */
-    public static ItemStack addToolData(ItemStack item, String typeOfTool, int idFromConfig, int startingUses) {
+    public static ItemStack addToolData(ItemStack item, String typeOfTool, int idFromConfig, int startingUses, boolean omniTool) {
         NBTItem nbtItem = new NBTItem(item);
         nbtItem.setBoolean("tools+." + typeOfTool, true);
         nbtItem.setInteger("tools+.raw.id", idFromConfig);
         nbtItem.setInteger("tools+.uses", startingUses);
-        return nbtItem.getItem();
-    }
-
-    /**
-     * Adds the flags required for the tool to be registered by the plugin
-     *
-     * @param item         ItemStack, the item to tag
-     * @param typeOfTool   String, the type of tool being created
-     * @param idFromConfig Integer, the raw ID from the configuration files
-     * @param omniTool     boolean, if the tool should have omni functionality
-     * @return
-     */
-    public static ItemStack addToolData(ItemStack item, String typeOfTool, int idFromConfig, boolean omniTool) {
-        NBTItem nbtItem = new NBTItem(item);
-        nbtItem.setBoolean("tools+." + typeOfTool, true);
-        nbtItem.setInteger("tools+.raw.id", idFromConfig);
         if (omniTool) {
             nbtItem.setBoolean("tools+.omni", true);
         }
         return nbtItem.getItem();
     }
+//
+//    /**
+//     * Adds the flags required for the tool to be registered by the plugin
+//     *
+//     * @param item         ItemStack, the item to tag
+//     * @param typeOfTool   String, the type of tool being created
+//     * @param idFromConfig Integer, the raw ID from the configuration files
+//     * @param omniTool     boolean, if the tool should have omni functionality
+//     * @return ItemStack
+//     */
+//    public static ItemStack addToolData(ItemStack item, String typeOfTool, int idFromConfig, boolean omniTool) {
+//        NBTItem nbtItem = new NBTItem(item);
+//        nbtItem.setBoolean("tools+." + typeOfTool, true);
+//        nbtItem.setInteger("tools+.raw.id", idFromConfig);
+//        if (omniTool) {
+//            nbtItem.setBoolean("tools+.omni", true);
+//        }
+//        return nbtItem.getItem();
+//    }
 }

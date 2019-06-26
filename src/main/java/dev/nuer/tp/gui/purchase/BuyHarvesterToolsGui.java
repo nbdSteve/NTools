@@ -29,7 +29,7 @@ public class BuyHarvesterToolsGui extends AbstractGui {
                         new CraftItem(FileManager.get("harvester_purchase_gui").getString("harvester-tool-purchase-gui." + configItem + ".material"),
                                 FileManager.get("harvester_purchase_gui").getString("harvester-tool-purchase-gui." + configItem + ".name"),
                                 FileManager.get("harvester_purchase_gui").getStringList("harvester-tool-purchase-gui." + configItem + ".lore"),
-                                FileManager.get("harvester_purchase_gui").getStringList("harvester-tool-purchase-gui." + configItem + ".enchantments"), "harvester", 0, null).getItem(),
+                                FileManager.get("harvester_purchase_gui").getStringList("harvester-tool-purchase-gui." + configItem + ".enchantments")).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
@@ -41,7 +41,8 @@ public class BuyHarvesterToolsGui extends AbstractGui {
                                             FileManager.get("harvester").getStringList("harvester-tools." + configItem + ".lore"),
                                             FileManager.get("harvester").getStringList("harvester-tools." + configItem + ".enchantments"), "harvester", configItem, player,
                                             "{mode}", ToolsAttributeManager.harvesterModeUnique.get(configItem).get(1),
-                                            "{modifier}", modifierParts[0], "debug", "debug");
+                                            "{modifier}", modifierParts[0],
+                                            "{uses}", FileManager.get("harvester").getString("harvester-tools." + configItem + ".uses.starting"));
                                 }
                                 if (FileManager.get("harvester_purchase_gui").getBoolean("harvester-tool-purchase-gui." + configItem + ".back-button")) {
                                     GuiManager.getGui("generic-buy").open(player);

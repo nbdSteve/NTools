@@ -8,6 +8,7 @@ import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
 import dev.nuer.tp.method.player.PlayerMessage;
 import dev.nuer.tp.support.actionbarapi.ActionBarAPI;
 import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.tools.DecrementUses;
 import org.bukkit.Bukkit;
 import org.bukkit.CropState;
 import org.bukkit.Material;
@@ -34,7 +35,9 @@ public class HarvestBlock {
      * @param priceModifier double, the modifier to multiply the price by
      */
     public static void harvestBlocks(BlockDamageEvent event, Player player, boolean sellMode, Double blockPrice, Double priceModifier) {
+        //Check an arraylist of the blocks being harvested
         ArrayList<Block> blocksToHarvest = new ArrayList<>();
+        //Check if the crop is one of these edge cases
         if (event.getBlock().getType().toString().equalsIgnoreCase("SUGAR_CANE_BLOCK")) {
             connectedBlockRemoval(event.getBlock().getY(), event, player, blocksToHarvest, true);
         } else if (event.getBlock().getType().toString().equalsIgnoreCase("CACTUS")) {

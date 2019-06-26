@@ -29,7 +29,7 @@ public class BuyMultiToolsGui extends AbstractGui {
                         new CraftItem(FileManager.get("multi_purchase_gui").getString("multi-tool-purchase-gui." + configItem + ".material"),
                                 FileManager.get("multi_purchase_gui").getString("multi-tool-purchase-gui." + configItem + ".name"),
                                 FileManager.get("multi_purchase_gui").getStringList("multi-tool-purchase-gui." + configItem + ".lore"),
-                                FileManager.get("multi_purchase_gui").getStringList("multi-tool-purchase-gui." + configItem + ".enchantments"), "multi", 0, null).getItem(),
+                                FileManager.get("multi_purchase_gui").getStringList("multi-tool-purchase-gui." + configItem + ".enchantments")).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
@@ -41,7 +41,7 @@ public class BuyMultiToolsGui extends AbstractGui {
                                             FileManager.get("multi").getStringList("multi-tools." + configItem + ".enchantments"), "multi", configItem, player,
                                             "{mode}", ToolsAttributeManager.multiToolModeUnique.get(configItem).get(1), "{radius}",
                                             ToolsAttributeManager.multiToolRadiusUnique.get(configItem).get(FileManager.get("multi").getInt("multi-tools." + configItem + ".radius.starting")),
-                                            "debug", "debug");
+                                            "{uses}", FileManager.get("multi").getString("multi-tools." + configItem + ".uses.starting"));
                                 }
                                 if (FileManager.get("multi_purchase_gui").getBoolean("multi-tool-purchase-gui." + configItem + ".back-button")) {
                                     GuiManager.getGui("generic-buy").open(player);

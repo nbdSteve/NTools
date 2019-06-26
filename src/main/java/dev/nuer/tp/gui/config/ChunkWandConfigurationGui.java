@@ -33,7 +33,7 @@ public class ChunkWandConfigurationGui extends AbstractGui {
                         new CraftItem(FileManager.get("chunk_config_gui").getString("chunk-wand-config-gui." + configItem + ".material"),
                                 FileManager.get("chunk_config_gui").getString("chunk-wand-config-gui." + configItem + ".name"),
                                 FileManager.get("chunk_config_gui").getStringList("chunk-wand-config-gui." + configItem + ".lore"),
-                                FileManager.get("chunk_config_gui").getStringList("chunk-wand-config-gui." + configItem + ".enchantments"), "aqua", 0, null).getItem(),
+                                FileManager.get("chunk_config_gui").getStringList("chunk-wand-config-gui." + configItem + ".enchantments")).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {

@@ -5,10 +5,10 @@ import dev.nuer.tp.events.AquaWandDrainLiquidEvent;
 import dev.nuer.tp.events.AquaWandMeltIceEvent;
 import dev.nuer.tp.events.TrayBlockBreakEvent;
 import dev.nuer.tp.events.TrenchBlockBreakEvent;
-import dev.nuer.tp.support.nbtapi.NBTItem;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
+import dev.nuer.tp.support.nbtapi.NBTItem;
 import dev.nuer.tp.tools.multi.ChangeToolRadius;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -25,6 +25,10 @@ import java.util.ArrayList;
 public class BreakBlocksInRadius {
     //Store that the code for aqua tool has been run
     private boolean aquaCodeIsRun = false;
+    //Store if trench code has been run
+    private boolean trenchCodeRun = false;
+    //Store if tray code has been run
+    private boolean trayCodeRun = false;
     //Store the array list of blocks to be broken
     private ArrayList<Block> breakableBlocks = new ArrayList<>();
 
@@ -97,6 +101,18 @@ public class BreakBlocksInRadius {
                 if (aquaCodeIsRun) {
                     DecrementUses.decrementUses(player, "aqua-wand", item, item.getInteger("tools+.uses"));
                     PlayerToolCooldown.setPlayerOnCooldown(player, FileManager.get(directory).getInt(filePath + ".cooldown"), "aqua");
+                } else if (trenchCodeRun) {
+                    if (multiTool) {
+                        DecrementUses.decrementUses(player, "multi-tool", item, item.getInteger("tools+.uses"));
+                    } else {
+                        DecrementUses.decrementUses(player, "trench-tool", item, item.getInteger("tools+.uses"));
+                    }
+                } else if (trayCodeRun) {
+                    if (multiTool) {
+                        DecrementUses.decrementUses(player, "multi-tool", item, item.getInteger("tools+.uses"));
+                    } else {
+                        DecrementUses.decrementUses(player, "tray-tool", item, item.getInteger("tools+.uses"));
+                    }
                 }
             });
         });
@@ -126,8 +142,10 @@ public class BreakBlocksInRadius {
             aquaWandMethod(block, player, item);
         } else if (trenchTool) {
             Bukkit.getPluginManager().callEvent(new TrenchBlockBreakEvent(block, player));
+            trenchCodeRun = true;
         } else {
             Bukkit.getPluginManager().callEvent(new TrayBlockBreakEvent(block, player));
+            trayCodeRun = true;
         }
     }
 

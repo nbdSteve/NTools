@@ -28,7 +28,7 @@ public class BuySmeltWandsGui extends AbstractGui {
                         new CraftItem(FileManager.get("smelt_purchase_gui").getString("smelt-wand-purchase-gui." + configItem + ".material"),
                                 FileManager.get("smelt_purchase_gui").getString("smelt-wand-purchase-gui." + configItem + ".name"),
                                 FileManager.get("smelt_purchase_gui").getStringList("smelt-wand-purchase-gui." + configItem + ".lore"),
-                                FileManager.get("smelt_purchase_gui").getStringList("smelt-wand-purchase-gui." + configItem + ".enchantments"), "smelt", 0, null).getItem(),
+                                FileManager.get("smelt_purchase_gui").getStringList("smelt-wand-purchase-gui." + configItem + ".enchantments")).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {

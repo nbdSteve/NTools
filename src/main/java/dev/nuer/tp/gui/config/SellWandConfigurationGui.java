@@ -32,7 +32,7 @@ public class SellWandConfigurationGui extends AbstractGui {
                         new CraftItem(FileManager.get("sell_config_gui").getString("sell-wand-config-gui." + configItem + ".material"),
                                 FileManager.get("sell_config_gui").getString("sell-wand-config-gui." + configItem + ".name"),
                                 FileManager.get("sell_config_gui").getStringList("sell-wand-config-gui." + configItem + ".lore"),
-                                FileManager.get("sell_config_gui").getStringList("sell-wand-config-gui." + configItem + ".enchantments"), "sell", 0, null).getItem(),
+                                FileManager.get("sell_config_gui").getStringList("sell-wand-config-gui." + configItem + ".enchantments")).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {

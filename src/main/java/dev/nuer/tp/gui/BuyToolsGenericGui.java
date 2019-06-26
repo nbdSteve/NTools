@@ -26,7 +26,7 @@ public class BuyToolsGenericGui extends AbstractGui {
                         new CraftItem(FileManager.get("config").getString("tool-purchase-gui." + configItem + ".material"),
                                 FileManager.get("config").getString("tool-purchase-gui." + configItem + ".name"),
                                 FileManager.get("config").getStringList("tool-purchase-gui." + configItem + ".lore"),
-                                FileManager.get("config").getStringList("tool-purchase-gui." + configItem + ".enchantments"), "null", 0, null).getItem(),
+                                FileManager.get("config").getStringList("tool-purchase-gui." + configItem + ".enchantments")).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {

@@ -33,7 +33,7 @@ public class AquaWandConfigurationGui extends AbstractGui {
                         new CraftItem(FileManager.get("aqua_config_gui").getString("aqua-wand-config-gui." + configItem + ".material"),
                                 FileManager.get("aqua_config_gui").getString("aqua-wand-config-gui." + configItem + ".name"),
                                 FileManager.get("aqua_config_gui").getStringList("aqua-wand-config-gui." + configItem + ".lore"),
-                                FileManager.get("aqua_config_gui").getStringList("aqua-wand-config-gui." + configItem + ".enchantments"), "aqua", 0, null).getItem(),
+                                FileManager.get("aqua_config_gui").getStringList("aqua-wand-config-gui." + configItem + ".enchantments")).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {

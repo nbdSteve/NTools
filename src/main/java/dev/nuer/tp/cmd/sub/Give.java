@@ -9,6 +9,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import javax.xml.transform.stax.StAXResult;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -48,25 +49,38 @@ public class Give {
                     toolStartingModifier = verifyStartingModifier(sender, args[5], args[2], Integer.parseInt(args[4]));
                 }
                 int startingMode = 1;
-                if (args.length == 7 && (args[2].equalsIgnoreCase("harvester")
+                if (args.length == 8 && (args[2].equalsIgnoreCase("tnt")
+                        || args[2].equalsIgnoreCase("aqua")
+                        || args[2].equalsIgnoreCase("harvester")
                         || args[2].equalsIgnoreCase("multi"))) {
-                    startingMode = Integer.parseInt(args[6]);
-                } else if (args.length == 8 && (args[2].equalsIgnoreCase("tnt")
-                        || args[2].equalsIgnoreCase("aqua"))) {
                     startingMode = Integer.parseInt(args[7]);
+                }
+                //Store the string for the items file path
+                String toolTypePath;
+                if (args[2].equalsIgnoreCase("trench")
+                        || args[2].equalsIgnoreCase("tray")
+                        || args[2].equalsIgnoreCase("multi")
+                        || args[2].equalsIgnoreCase("harvester")) {
+                    toolTypePath = "-tools.";
+                } else {
+                    toolTypePath = "-wands.";
                 }
                 //Get the starting uses from the configuration, or reset for command
                 String startingUses = null;
                 try {
-                    startingUses = FileManager.get(args[2]).getString(args[2] + "-wands." + args[4] + ".uses.starting");
+                    startingUses = FileManager.get(args[2]).getString(args[2] + toolTypePath + args[4] + ".uses.starting");
                     if (args.length == 6 && (args[2].equalsIgnoreCase("lightning")
                             || args[2].equalsIgnoreCase("sand")
-                            || args[2].equalsIgnoreCase("smelt"))) {
+                            || args[2].equalsIgnoreCase("smelt")
+                            || args[2].equalsIgnoreCase("trench")
+                            || args[2].equalsIgnoreCase("tray"))) {
                         startingUses = args[5];
                     } else if (args.length >= 7 && (args[2].equalsIgnoreCase("sell")
                             || args[2].equalsIgnoreCase("tnt")
                             || args[2].equalsIgnoreCase("aqua")
-                            || args[2].equalsIgnoreCase("chunk"))) {
+                            || args[2].equalsIgnoreCase("chunk")
+                            || args[2].equalsIgnoreCase("multi")
+                            || args[2].equalsIgnoreCase("harvester"))) {
                         startingUses = args[6];
                     }
                 } catch (NullPointerException e) {
@@ -78,21 +92,23 @@ public class Give {
                             FileManager.get("multi").getStringList("multi-tools." + args[4] + ".lore"),
                             FileManager.get("multi").getStringList("multi-tools." + args[4] + ".enchantments"),
                             "multi", Integer.parseInt(args[4]), target, "{mode}", ToolsAttributeManager.multiToolModeUnique.get(Integer.parseInt(args[4])).get(startingMode),
-                            "{radius}", ToolsAttributeManager.multiToolRadiusUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier), "debug", "debug");
+                            "{radius}", ToolsAttributeManager.multiToolRadiusUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier), "{uses}", startingUses);
                 }
                 if (args[2].equalsIgnoreCase("trench")) {
                     new CraftItem(args[3],
                             FileManager.get("trench").getString("trench-tools." + args[4] + ".name"),
                             FileManager.get("trench").getStringList("trench-tools." + args[4] + ".lore"),
                             FileManager.get("trench").getStringList("trench-tools." + args[4] + ".enchantments"),
-                            "trench", Integer.parseInt(args[4]), target);
+                            "trench", Integer.parseInt(args[4]), target, "debug", "debug",
+                            "debug", "debug", "{uses}", startingUses);
                 }
                 if (args[2].equalsIgnoreCase("tray")) {
                     new CraftItem(args[3],
                             FileManager.get("tray").getString("tray-tools." + args[4] + ".name"),
                             FileManager.get("tray").getStringList("tray-tools." + args[4] + ".lore"),
                             FileManager.get("tray").getStringList("tray-tools." + args[4] + ".enchantments"),
-                            "tray", Integer.parseInt(args[4]), target);
+                            "tray", Integer.parseInt(args[4]), target, "debug", "debug",
+                            "debug", "debug", "{uses}", startingUses);
                 }
                 if (args[2].equalsIgnoreCase("sand")) {
                     new CraftItem(args[3],
@@ -115,7 +131,7 @@ public class Give {
                             FileManager.get("harvester").getStringList("harvester-tools." + args[4] + ".lore"),
                             FileManager.get("harvester").getStringList("harvester-tools." + args[4] + ".enchantments"), "harvester",
                             Integer.parseInt(args[4]), target, "{mode}", ToolsAttributeManager.harvesterModeUnique.get(Integer.parseInt(args[4])).get(startingMode),
-                            "{modifier}", modifierParts[0], "debug", "debug");
+                            "{modifier}", modifierParts[0], "{uses}", startingUses);
                 }
                 if (args[2].equalsIgnoreCase("sell")) {
                     String[] modifierParts = ToolsAttributeManager.sellWandModifierUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier).split("-");

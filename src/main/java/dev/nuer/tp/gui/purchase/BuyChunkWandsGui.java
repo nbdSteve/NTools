@@ -29,7 +29,7 @@ public class BuyChunkWandsGui extends AbstractGui {
                         new CraftItem(FileManager.get("chunk_purchase_gui").getString("chunk-wand-purchase-gui." + configItem + ".material"),
                                 FileManager.get("chunk_purchase_gui").getString("chunk-wand-purchase-gui." + configItem + ".name"),
                                 FileManager.get("chunk_purchase_gui").getStringList("chunk-wand-purchase-gui." + configItem + ".lore"),
-                                FileManager.get("chunk_purchase_gui").getStringList("chunk-wand-purchase-gui." + configItem + ".enchantments"), "chunk", 0, null).getItem(),
+                                FileManager.get("chunk_purchase_gui").getStringList("chunk-wand-purchase-gui." + configItem + ".enchantments")).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {

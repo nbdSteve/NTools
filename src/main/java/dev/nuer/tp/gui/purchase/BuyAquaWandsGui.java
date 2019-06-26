@@ -29,7 +29,7 @@ public class BuyAquaWandsGui extends AbstractGui {
                         new CraftItem(FileManager.get("aqua_purchase_gui").getString("aqua-wand-purchase-gui." + configItem + ".material"),
                                 FileManager.get("aqua_purchase_gui").getString("aqua-wand-purchase-gui." + configItem + ".name"),
                                 FileManager.get("aqua_purchase_gui").getStringList("aqua-wand-purchase-gui." + configItem + ".lore"),
-                                FileManager.get("aqua_purchase_gui").getStringList("aqua-wand-purchase-gui." + configItem + ".enchantments"), "aqua", 0, null).getItem(),
+                                FileManager.get("aqua_purchase_gui").getStringList("aqua-wand-purchase-gui." + configItem + ".enchantments")).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {

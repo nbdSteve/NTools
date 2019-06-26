@@ -29,7 +29,7 @@ public class BuyTNTWandsGui extends AbstractGui {
                         new CraftItem(FileManager.get("tnt_purchase_gui").getString("tnt-wand-purchase-gui." + configItem + ".material"),
                                 FileManager.get("tnt_purchase_gui").getString("tnt-wand-purchase-gui." + configItem + ".name"),
                                 FileManager.get("tnt_purchase_gui").getStringList("tnt-wand-purchase-gui." + configItem + ".lore"),
-                                FileManager.get("tnt_purchase_gui").getStringList("tnt-wand-purchase-gui." + configItem + ".enchantments"), "tnt", 0, null).getItem(),
+                                FileManager.get("tnt_purchase_gui").getStringList("tnt-wand-purchase-gui." + configItem + ".enchantments")).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {

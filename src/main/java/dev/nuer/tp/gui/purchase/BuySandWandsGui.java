@@ -28,7 +28,7 @@ public class BuySandWandsGui extends AbstractGui {
                         new CraftItem(FileManager.get("sand_purchase_gui").getString("sand-wand-purchase-gui." + configItem + ".material"),
                                 FileManager.get("sand_purchase_gui").getString("sand-wand-purchase-gui." + configItem + ".name"),
                                 FileManager.get("sand_purchase_gui").getStringList("sand-wand-purchase-gui." + configItem + ".lore"),
-                                FileManager.get("sand_purchase_gui").getStringList("sand-wand-purchase-gui." + configItem + ".enchantments"), "sand", 0, null).getItem(),
+                                FileManager.get("sand_purchase_gui").getStringList("sand-wand-purchase-gui." + configItem + ".enchantments")).getItem(),
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
