@@ -5,6 +5,7 @@ import dev.nuer.tp.events.AquaWandDrainLiquidEvent;
 import dev.nuer.tp.events.AquaWandMeltIceEvent;
 import dev.nuer.tp.events.TrayBlockBreakEvent;
 import dev.nuer.tp.events.TrenchBlockBreakEvent;
+import dev.nuer.tp.listener.BlockBreakListener;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
@@ -136,16 +137,32 @@ public class BreakBlocksInRadius {
      */
     private void breakBlock(Block block, Player player, NBTItem item, boolean aquaWand, boolean trenchTool) {
         BlockBreakEvent radialBreak = new BlockBreakEvent(block, player);
-        Bukkit.getPluginManager().callEvent(radialBreak);
-        if (radialBreak.isCancelled()) return;
         if (aquaWand) {
-            aquaWandMethod(block, player, item);
+            //Check if the tool should affect other plugins for all of the blocks broken, if not then store the block
+            if (!FileManager.get("config").getBoolean("register-all-block-break.aqua-wands")) BlockBreakListener.pendingBlocks.add(block);
+            //Call the block break event
+            Bukkit.getPluginManager().callEvent(radialBreak);
+            //If the event is cancelled and it is affecting other plugins return, if not affecting the block wont be added to list
+            if (radialBreak.isCancelled() && FileManager.get("config").getBoolean("register-all-block-break.aqua-wands")) return;
+            if (!BlockBreakListener.pendingBlocks.contains(block)) {
+                aquaWandMethod(block, player, item);
+            }
         } else if (trenchTool) {
-            Bukkit.getPluginManager().callEvent(new TrenchBlockBreakEvent(block, player));
-            trenchCodeRun = true;
+            if (!FileManager.get("config").getBoolean("register-all-block-break.trench-tools")) BlockBreakListener.pendingBlocks.add(block);
+            Bukkit.getPluginManager().callEvent(radialBreak);
+            if (radialBreak.isCancelled() && FileManager.get("config").getBoolean("register-all-block-break.trench-tools")) return;
+            if (!BlockBreakListener.pendingBlocks.contains(block)) {
+                Bukkit.getPluginManager().callEvent(new TrenchBlockBreakEvent(block, player));
+                trenchCodeRun = true;
+            }
         } else {
-            Bukkit.getPluginManager().callEvent(new TrayBlockBreakEvent(block, player));
-            trayCodeRun = true;
+            if (!FileManager.get("config").getBoolean("register-all-block-break.tray-tools")) BlockBreakListener.pendingBlocks.add(block);
+            Bukkit.getPluginManager().callEvent(radialBreak);
+            if (radialBreak.isCancelled() && FileManager.get("config").getBoolean("register-all-block-break.tray-tools")) return;
+            if (!BlockBreakListener.pendingBlocks.contains(block)) {
+                Bukkit.getPluginManager().callEvent(new TrayBlockBreakEvent(block, player));
+                trayCodeRun = true;
+            }
         }
     }
 

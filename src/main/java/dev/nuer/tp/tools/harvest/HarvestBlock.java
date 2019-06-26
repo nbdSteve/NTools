@@ -2,6 +2,7 @@ package dev.nuer.tp.tools.harvest;
 
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.events.HarvesterBlockBreakEvent;
+import dev.nuer.tp.listener.BlockBreakListener;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
@@ -57,9 +58,16 @@ public class HarvestBlock {
         double totalDeposit = 0;
         //need to iterate from the top down
         for (int i = blocksToHarvest.size() - 1; i >= 0; i--) {
+            //Generate a new block break event for the coming block
             BlockBreakEvent blockRemoval = new BlockBreakEvent(blocksToHarvest.get(i), player);
+            //Check if the tool should affect other plugins for all of the blocks broken, if not then store the block
+            if (!FileManager.get("config").getBoolean("register-all-block-break.harvester-tools"))
+                BlockBreakListener.pendingBlocks.add(blocksToHarvest.get(i));
+            //Call the block break event
             Bukkit.getPluginManager().callEvent(blockRemoval);
-            if (!blockRemoval.isCancelled()) {
+            //If the event is cancelled and it is affecting other plugins return, if not affecting the block wont be added to list
+            if (blockRemoval.isCancelled() && FileManager.get("config").getBoolean("register-all-block-break.harvester-tools")) return;
+            if (!BlockBreakListener.pendingBlocks.contains(blocksToHarvest.get(i))) {
                 double priceToDeposit = blockPrice * priceModifier;
                 Bukkit.getPluginManager().callEvent(new HarvesterBlockBreakEvent(
                         blockRemoval.getBlock(), player, priceToDeposit, sellMode));

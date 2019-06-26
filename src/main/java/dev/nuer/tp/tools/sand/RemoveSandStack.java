@@ -2,10 +2,11 @@ package dev.nuer.tp.tools.sand;
 
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.events.SandWandBlockBreakEvent;
-import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.listener.BlockBreakListener;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
+import dev.nuer.tp.support.nbtapi.NBTItem;
 import dev.nuer.tp.tools.DecrementUses;
 import dev.nuer.tp.tools.PlayerToolCooldown;
 import org.bukkit.Bukkit;
@@ -73,12 +74,18 @@ public class RemoveSandStack {
                 if (arrayPosition < blocksToRemove.size()) {
                     String currentBlockType = blocksToRemove.get(arrayPosition).getType().toString();
                     if (ToolsAttributeManager.sandWandBlockWhitelist.contains(currentBlockType)) {
+                        //Generate a new block break event for the coming block
                         BlockBreakEvent stackRemove = new BlockBreakEvent(blocksToRemove.get(arrayPosition), player);
+                        //Check if the tool should affect other plugins for all of the blocks broken, if not then store the block
+                        if (!FileManager.get("config").getBoolean("register-all-block-break.sand-wands"))
+                            BlockBreakListener.pendingBlocks.add(blocksToRemove.get(arrayPosition));
+                        //Call the block break event
                         Bukkit.getPluginManager().callEvent(stackRemove);
-                        if (!stackRemove.isCancelled()) {
-                            if (ToolsAttributeManager.sandWandBlockWhitelist.contains(currentBlockType)) {
-                                Bukkit.getPluginManager().callEvent(new SandWandBlockBreakEvent(stackRemove.getBlock(), player));
-                            }
+                        //If the event is cancelled and it is affecting other plugins return, if not affecting the block wont be added to list
+                        if (stackRemove.isCancelled() && FileManager.get("config").getBoolean("register-all-block-break.sand-wands"))
+                            return;
+                        if (!BlockBreakListener.pendingBlocks.contains(blocksToRemove.get(arrayPosition))) {
+                            Bukkit.getPluginManager().callEvent(new SandWandBlockBreakEvent(stackRemove.getBlock(), player));
                         }
                     }
                     arrayPosition++;

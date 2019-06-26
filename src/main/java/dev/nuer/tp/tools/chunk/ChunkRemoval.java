@@ -2,6 +2,7 @@ package dev.nuer.tp.tools.chunk;
 
 import dev.nuer.tp.ToolsPlus;
 import dev.nuer.tp.events.BlockRemovalByChunkToolEvent;
+import dev.nuer.tp.listener.BlockBreakListener;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.player.PlayerMessage;
 import dev.nuer.tp.support.nbtapi.NBTItem;
@@ -125,10 +126,16 @@ public class ChunkRemoval {
                     if (indexOfArray < blocksToRemove.size()) {
                         for (int i = 0; i < FileManager.get("chunk_wand_config").getInt("removal-grouping-size"); i++) {
                             try {
+                                //Generate a new block break event for the coming block
                                 BlockBreakEvent blockBreak = new BlockBreakEvent(blocksToRemove.get(indexOfArray), player);
+                                //Check if the tool should affect other plugins for all of the blocks broken, if not then store the block
+                                if (!FileManager.get("config").getBoolean("register-all-block-break.chunk-wands"))
+                                    BlockBreakListener.pendingBlocks.add(blocksToRemove.get(indexOfArray));
+                                //Call the block break event
                                 Bukkit.getPluginManager().callEvent(blockBreak);
-                                if (!blockBreak.isCancelled()) {
-                                    blockBreak.setCancelled(true);
+                                //If the event is cancelled and it is affecting other plugins return, if not affecting the block wont be added to list
+                                if (blockBreak.isCancelled() && FileManager.get("config").getBoolean("register-all-block-break.chunk-wands")) return;
+                                if (!BlockBreakListener.pendingBlocks.contains(blocksToRemove.get(indexOfArray))) {
                                     //Call custom event
                                     Bukkit.getPluginManager().callEvent(new BlockRemovalByChunkToolEvent(blocksToRemove.get(indexOfArray), player));
                                 }

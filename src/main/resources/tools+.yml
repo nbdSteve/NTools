@@ -33,6 +33,16 @@ trench-block-blacklist:
   - ender_chest
   - web
 
+# This toggles if all of the blocks broken by the tool will be registered by other plugins (like McMMO)
+register-all-block-break:
+  harvester-tools: true
+  # multi tools are encompassed by trench / tray
+  trench-tools: true
+  tray-tools: true
+  chunk-wands: false
+  aqua-wands: false
+  sand-wands: false
+
 # Block whitelist for Tray Tools
 tray-block-whitelist:
   - dirt

@@ -30,7 +30,7 @@ public final class ToolsPlus extends JavaPlugin {
     //Create a logger for the plugin
     public static Logger LOGGER = Bukkit.getLogger();
     //Store the plugin version
-    public static String version = "1.6.2.1";
+    public static String version = "1.6.2.2";
 
     /**
      * Method called on plugin start up
@@ -67,6 +67,7 @@ public final class ToolsPlus extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new CustomToolEventsListener(), this);
         getServer().getPluginManager().registerEvents(new CrouchRightClickOpenGui(), this);
         getServer().getPluginManager().registerEvents(new PlayerToolInteractionListener(), this);
+        getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
         getServer().getPluginManager().registerEvents(new GuiClickListener(), this);
         //Check that the plugin is in the latest version
         if (!FileManager.get("config").getBoolean("disable-update-version-message")) {
