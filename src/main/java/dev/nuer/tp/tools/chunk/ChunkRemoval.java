@@ -36,7 +36,7 @@ public class ChunkRemoval {
         if (PlayerToolCooldown.isOnCooldown(player, "chunk")) {
             return;
         } else {
-            DecrementUses.decrementUses(player, "chunk", nbtItem, nbtItem.getInteger("tools+.uses"));
+            DecrementUses.decrementUses(player, "chunk-wand", nbtItem, nbtItem.getInteger("tools+.uses"));
             PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "chunk");
         }
         int chunksAddedToQueue = 0;

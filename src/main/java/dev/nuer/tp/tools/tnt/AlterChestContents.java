@@ -55,7 +55,7 @@ public class AlterChestContents {
             new PlayerMessage("cannot-tnt-bank-without-faction", player);
             return;
         }
-        DecrementUses.decrementUses(player, "tnt", nbtItem, nbtItem.getInteger("tools+.uses"));
+        DecrementUses.decrementUses(player, "tnt-wand", nbtItem, nbtItem.getInteger("tools+.uses"));
         PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "tnt");
         if (bank && usingFactions) {
             Bukkit.getPluginManager().callEvent(new TNTWandBankEvent(chestToAlter, player));

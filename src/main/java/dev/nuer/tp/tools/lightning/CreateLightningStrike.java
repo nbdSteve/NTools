@@ -36,7 +36,7 @@ public class CreateLightningStrike {
             if (PlayerToolCooldown.isOnCooldown(player, "lightning")) {
                 return;
             } else {
-                DecrementUses.decrementUses(player, "lightning", nbtItem, nbtItem.getInteger("tools+.uses"));
+                DecrementUses.decrementUses(player, "lightning-wand", nbtItem, nbtItem.getInteger("tools+.uses"));
                 PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "lightning");
             }
             Bukkit.getPluginManager().callEvent(new LightningWandStrikeEvent(blockToStrike, player));
@@ -66,7 +66,7 @@ public class CreateLightningStrike {
             if (PlayerToolCooldown.isOnCooldown(player, "lightning")) {
                 return;
             } else {
-                DecrementUses.decrementUses(player, "lightning", nbtItem, nbtItem.getInteger("tools+.uses"));
+                DecrementUses.decrementUses(player, "lightning-wand", nbtItem, nbtItem.getInteger("tools+.uses"));
                 PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "lightning");
             }
             Bukkit.getPluginManager().callEvent(new LightningWandStrikeEvent(clickedMob.getLocation().getBlock(), player, clickedMob));

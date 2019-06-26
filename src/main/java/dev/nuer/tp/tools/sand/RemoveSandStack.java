@@ -38,7 +38,7 @@ public class RemoveSandStack {
             if (PlayerToolCooldown.isOnCooldown(player, "sand")) {
                 return;
             } else {
-                DecrementUses.decrementUses(player, "sand", nbtItem, nbtItem.getInteger("tools+.uses"));
+                DecrementUses.decrementUses(player, "sand-wand", nbtItem, nbtItem.getInteger("tools+.uses"));
                 PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "sand");
             }
             int positionX = event.getBlock().getX();

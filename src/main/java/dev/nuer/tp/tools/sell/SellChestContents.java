@@ -62,7 +62,7 @@ public class SellChestContents {
             return;
         }
         //Decrement tool uses
-        DecrementUses.decrementUses(player, "sell", nbtItem, nbtItem.getInteger("tools+.uses"));
+        DecrementUses.decrementUses(player, "sell-wand", nbtItem, nbtItem.getInteger("tools+.uses"));
         //Set the player on cooldown
         PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "sell");
         int slot = 0;

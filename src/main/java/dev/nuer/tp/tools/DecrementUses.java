@@ -35,17 +35,17 @@ public class DecrementUses {
         if (currentUses-- <= 1) {
             player.setItemInHand(new ItemStack(Material.AIR));
             if (FileManager.get("config").getBoolean("wand-break-action-bar.enabled")) {
-                String message = FileManager.get("config").getString("wand-break-action-bar." + typeOfTool + "-message");
+                String message = FileManager.get("config").getString("wand-break-action-bar.break-message").replace("{tool-type}", typeOfTool.split("-")[0] + " " + typeOfTool.split("-")[1]);
                 ActionBarAPI.sendActionBar(player, Chat.applyColor(message));
             } else {
-                new PlayerMessage("wand-uses-break", Bukkit.getPlayer(player.getUniqueId()), "{item}", typeOfTool);
+                new PlayerMessage("wand-uses-break", Bukkit.getPlayer(player.getUniqueId()), "{tool-type}", typeOfTool.split("-")[0] + " " + typeOfTool.split("-")[1]);
             }
             return;
         }
         //Store the unique uses line
-        String usesUniqueLine = Chat.applyColor(FileManager.get(typeOfTool).getString(typeOfTool + "-wands." + item.getInteger("tools+.raw.id") + ".uses.unique"));
+        String usesUniqueLine = Chat.applyColor(FileManager.get(typeOfTool.split("-")[0]).getString(typeOfTool + "s." + item.getInteger("tools+.raw.id") + ".uses.unique"));
         //Store the uses placeholder to update
-        String usesReplaceLine = Chat.applyColor(FileManager.get(typeOfTool).getString(typeOfTool + "-wands." + item.getInteger("tools+.raw.id") + ".uses.update"));
+        String usesReplaceLine = Chat.applyColor(FileManager.get(typeOfTool.split("-")[0]).getString(typeOfTool + "s." + item.getInteger("tools+.raw.id") + ".uses.update"));
         for (int i = 0; i < item.getItem().getItemMeta().getLore().size(); i++) {
             if (item.getItem().getItemMeta().getLore().get(i).contains(usesUniqueLine)) {
                 //Remove the item from their hand

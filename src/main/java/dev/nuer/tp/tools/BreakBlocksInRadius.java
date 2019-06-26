@@ -58,14 +58,10 @@ public class BreakBlocksInRadius {
             //Store the break radius for the tool
             int radiusX = -radiusFromFile;
             int radiusY = -radiusFromFile;
-//            if (!trenchTool && !aquaWand) {
-//                radiusY = radiusFromFile - 1;
-//            }
             int radiusZ = -radiusFromFile;
             int radius = radiusFromFile;
             //Calculate the break area
             while (radiusY < radius + 1) {
-//            while (radiusY < radius) {
                 while (radiusZ < radius + 1) {
                     while (radiusX < radius + 1) {
                         Block currentBlock = event.getBlock().getRelative(radiusX, radiusY, radiusZ);
@@ -99,7 +95,7 @@ public class BreakBlocksInRadius {
                     breakBlock(block, player, item, aquaWand, trenchTool);
                 }
                 if (aquaCodeIsRun) {
-                    DecrementUses.decrementUses(player, "aqua", item, item.getInteger("tools+.uses"));
+                    DecrementUses.decrementUses(player, "aqua-wand", item, item.getInteger("tools+.uses"));
                     PlayerToolCooldown.setPlayerOnCooldown(player, FileManager.get(directory).getInt(filePath + ".cooldown"), "aqua");
                 }
             });

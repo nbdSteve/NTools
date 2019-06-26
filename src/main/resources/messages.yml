@@ -57,7 +57,11 @@ wand-cooldown:
   - "&cCooldown: &7You are on {item} wand cooldown, &c{time} &7second(s) remaining..."
 
 wand-uses-break:
-  - "&cError: &7Your {item} wand has run out of uses, it has been destroyed."
+  - "&7 "
+  - "&6&lTools+ &e&lRecycler&e:"
+  - "&7Your &a{tool-type} &7has run out of uses!"
+  - "&7It has been destroyed and recycled back to the server..."
+  - "&7 "
 
 incremented-modifier:
   - "&6&lTools+&e: &7You have increased your harvester hoes price modifier, &c-${price}&7."

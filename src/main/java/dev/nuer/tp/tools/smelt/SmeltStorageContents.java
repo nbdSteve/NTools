@@ -35,7 +35,7 @@ public class SmeltStorageContents {
             new PlayerMessage("contents-can-not-be-smelted", player);
             return;
         }
-        DecrementUses.decrementUses(player, "smelt", nbtItem, nbtItem.getInteger("tools+.uses"));
+        DecrementUses.decrementUses(player, "smelt-wand", nbtItem, nbtItem.getInteger("tools+.uses"));
         PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "smelt");
         Bukkit.getPluginManager().callEvent(new SmeltWandConversionEvent(chestToAlter, player));
     }
