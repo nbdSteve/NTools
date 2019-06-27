@@ -87,7 +87,9 @@ public class PlayerToolCooldown {
     public static int getCooldownRemaining(Player player, String cooldownToolType, boolean sendPlayerResponse) {
         if (sendPlayerResponse) {
             if (FileManager.get("config").getBoolean("cooldown-action-bar.enabled")) {
-                String message = FileManager.get("config").getString("cooldown-action-bar." + cooldownToolType + "-message").replace("{time}", String.valueOf(getCooldownMap(cooldownToolType).get(player.getUniqueId())));
+                String message = FileManager.get("config").getString("cooldown-action-bar.message")
+                        .replace("{time}", String.valueOf(getCooldownMap(cooldownToolType).get(player.getUniqueId())))
+                                .replace("{tool-type}", cooldownToolType + " wand");
                 ActionBarAPI.sendActionBar(player, Chat.applyColor(message));
             } else {
                 new PlayerMessage("wand-cooldown", Bukkit.getPlayer(player.getUniqueId()), "{time}", String.valueOf(getCooldownMap(cooldownToolType).get(player.getUniqueId())));
