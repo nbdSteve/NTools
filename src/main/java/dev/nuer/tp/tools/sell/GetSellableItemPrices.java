@@ -26,7 +26,7 @@ public class GetSellableItemPrices {
                                       boolean usingShopGuiPlus, HashMap<String, Double> itemPrices) {
         if (usingShopGuiPlus) {
             try {
-                return ShopGuiPlusApi.getItemStackPriceSell(player, item) * item.getAmount() * priceModifier;
+                return ShopGuiPlusApi.getItemStackPriceSell(player, item) * priceModifier;
             } catch (Exception e) {
                 new PlayerMessage("invalid-config", player, "{reason}", "ShopGuiPlus player data not loaded");
             }
@@ -49,7 +49,7 @@ public class GetSellableItemPrices {
         }
         if (usingShopGuiPlus) {
             try {
-                return ShopGuiPlusApi.getItemStackPriceBuy(player, item) > 0;
+                return ShopGuiPlusApi.getItemStackPriceSell(player, item) > 0;
             } catch (Exception e) {
                 new PlayerMessage("invalid-config", player, "{reason}", "ShopGuiPlus player data not loaded");
             }
