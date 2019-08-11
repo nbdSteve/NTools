@@ -5,6 +5,7 @@ import dev.nuer.tp.managers.GuiManager;
 import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.itemCreation.CraftItem;
 import dev.nuer.tp.method.player.PlayerMessage;
+import sun.misc.MessageUtils;
 
 /**
  * Class that handles the standard gui opened with /tools
@@ -30,38 +31,127 @@ public class BuyToolsGenericGui extends AbstractGui {
                         player -> {
                             //Add the respective listeners to items based off the config
                             try {
+                                boolean usePerm = FileManager.get("config").getBoolean("gui-permissions");
                                 if (FileManager.get("config").getBoolean("tool-purchase-gui." + configItem + ".open-multi")) {
-                                    GuiManager.getGui("multi-buy").open(player);
+                                    if (usePerm) {
+                                        if (player.hasPermission("tools+.gui.multi")) {
+                                            GuiManager.getGui("multi-buy").open(player);
+                                        } else {
+                                            new PlayerMessage("no-permission", player);
+                                        }
+                                    } else {
+                                        GuiManager.getGui("multi-buy").open(player);
+                                    }
                                 }
                                 if (FileManager.get("config").getBoolean("tool-purchase-gui." + configItem + ".open-trench")) {
-                                    GuiManager.getGui("trench-buy").open(player);
+                                    if (usePerm) {
+                                        if (player.hasPermission("tools+.gui.trench")) {
+                                            GuiManager.getGui("trench-buy").open(player);
+                                        } else {
+                                            new PlayerMessage("no-permission", player);
+                                        }
+                                    } else {
+                                        GuiManager.getGui("trench-buy").open(player);
+                                    }
                                 }
                                 if (FileManager.get("config").getBoolean("tool-purchase-gui." + configItem + ".open-tray")) {
-                                    GuiManager.getGui("tray-buy").open(player);
+                                    if (usePerm) {
+                                        if (player.hasPermission("tools+.gui.tray")) {
+                                            GuiManager.getGui("tray-buy").open(player);
+                                        } else {
+                                            new PlayerMessage("no-permission", player);
+                                        }
+                                    } else {
+                                        GuiManager.getGui("tray-buy").open(player);
+                                    }
                                 }
                                 if (FileManager.get("config").getBoolean("tool-purchase-gui." + configItem + ".open-sand")) {
-                                    GuiManager.getGui("sand-buy").open(player);
+                                    if (usePerm) {
+                                        if (player.hasPermission("tools+.gui.sand")) {
+                                            GuiManager.getGui("sand-buy").open(player);
+                                        } else {
+                                            new PlayerMessage("no-permission", player);
+                                        }
+                                    } else {
+                                        GuiManager.getGui("sand-buy").open(player);
+                                    }
                                 }
                                 if (FileManager.get("config").getBoolean("tool-purchase-gui." + configItem + ".open-lightning")) {
-                                    GuiManager.getGui("lightning-buy").open(player);
+                                    if (usePerm) {
+                                        if (player.hasPermission("tools+.gui.lightning")) {
+                                            GuiManager.getGui("lightning-buy").open(player);
+                                        } else {
+                                            new PlayerMessage("no-permission", player);
+                                        }
+                                    } else {
+                                        GuiManager.getGui("lightning-buy").open(player);
+                                    }
                                 }
                                 if (FileManager.get("config").getBoolean("tool-purchase-gui." + configItem + ".open-harvester")) {
-                                    GuiManager.getGui("harvester-buy").open(player);
+                                    if (usePerm) {
+                                        if (player.hasPermission("tools+.gui.harvester")) {
+                                            GuiManager.getGui("harvester-buy").open(player);
+                                        } else {
+                                            new PlayerMessage("no-permission", player);
+                                        }
+                                    } else {
+                                        GuiManager.getGui("harvester-buy").open(player);
+                                    }
                                 }
                                 if (FileManager.get("config").getBoolean("tool-purchase-gui." + configItem + ".open-sell")) {
-                                    GuiManager.getGui("sell-buy").open(player);
+                                    if (usePerm) {
+                                        if (player.hasPermission("tools+.gui.sell")) {
+                                            GuiManager.getGui("sell-buy").open(player);
+                                        } else {
+                                            new PlayerMessage("no-permission", player);
+                                        }
+                                    } else {
+                                        GuiManager.getGui("sell-buy").open(player);
+                                    }
                                 }
                                 if (FileManager.get("config").getBoolean("tool-purchase-gui." + configItem + ".open-tnt")) {
-                                    GuiManager.getGui("tnt-buy").open(player);
+                                    if (usePerm) {
+                                        if (player.hasPermission("tools+.gui.tnt")) {
+                                            GuiManager.getGui("tnt-buy").open(player);
+                                        } else {
+                                            new PlayerMessage("no-permission", player);
+                                        }
+                                    } else {
+                                        GuiManager.getGui("tnt-buy").open(player);
+                                    }
                                 }
                                 if (FileManager.get("config").getBoolean("tool-purchase-gui." + configItem + ".open-aqua")) {
-                                    GuiManager.getGui("aqua-buy").open(player);
+                                    if (usePerm) {
+                                        if (player.hasPermission("tools+.gui.aqua")) {
+                                            GuiManager.getGui("aqua-buy").open(player);
+                                        } else {
+                                            new PlayerMessage("no-permission", player);
+                                        }
+                                    } else {
+                                        GuiManager.getGui("aqua-buy").open(player);
+                                    }
                                 }
                                 if (FileManager.get("config").getBoolean("tool-purchase-gui." + configItem + ".open-smelt")) {
-                                    GuiManager.getGui("smelt-buy").open(player);
+                                    if (usePerm) {
+                                        if (player.hasPermission("tools+.gui.smelt")) {
+                                            GuiManager.getGui("smelt-buy").open(player);
+                                        } else {
+                                            new PlayerMessage("no-permission", player);
+                                        }
+                                    } else {
+                                        GuiManager.getGui("smelt-buy").open(player);
+                                    }
                                 }
                                 if (FileManager.get("config").getBoolean("tool-purchase-gui." + configItem + ".open-chunk")) {
-                                    GuiManager.getGui("chunk-buy").open(player);
+                                    if (usePerm) {
+                                        if (player.hasPermission("tools+.gui.chunk")) {
+                                            GuiManager.getGui("chunk-buy").open(player);
+                                        } else {
+                                            new PlayerMessage("no-permission", player);
+                                        }
+                                    } else {
+                                        GuiManager.getGui("chunk-buy").open(player);
+                                    }
                                 }
                                 if (FileManager.get("config").getBoolean("tool-purchase-gui." + configItem + ".exit-gui")) {
                                     player.closeInventory();

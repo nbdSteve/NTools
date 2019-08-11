@@ -33,6 +33,10 @@ public class BuySandWandsGui extends AbstractGui {
                             //Add the respective listeners to items based off the config
                             try {
                                 if (FileManager.get("sand_purchase_gui").getBoolean("sand-wand-purchase-gui." + configItem + ".purchasable")) {
+                                    if (FileManager.get("config").getBoolean("gui-permissions") && !player.hasPermission("tools+.gui.sand." + configItem)) {
+                                        new PlayerMessage("no-permission", player);
+                                        return;
+                                    }
                                     new PurchaseTool(FileManager.get("sand_purchase_gui").getInt("sand-wand-purchase-gui." + configItem + ".price"),
                                             FileManager.get("sand_purchase_gui").getString("sand-wand-purchase-gui." + configItem + ".material"),
                                             FileManager.get("sand").getString("sand-wands." + configItem + ".name"),

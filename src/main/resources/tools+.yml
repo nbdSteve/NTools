@@ -7,6 +7,9 @@ enable-debug: false
 # (Highly recommended that you are always using the latest version!)
 disable-update-version-message: false
 
+# Enable gui permissions
+gui-permissions: false
+
 # How far the lightning will strike if the player right clicks air
 lightning-reach-distance: 3
 

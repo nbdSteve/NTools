@@ -1,5 +1,6 @@
 package dev.nuer.tp.gui.purchase;
 
+import com.sun.imageio.plugins.wbmp.WBMPImageReader;
 import dev.nuer.tp.gui.AbstractGui;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.managers.GuiManager;
@@ -34,6 +35,10 @@ public class BuyAquaWandsGui extends AbstractGui {
                             //Add the respective listeners to items based off the config
                             try {
                                 if (FileManager.get("aqua_purchase_gui").getBoolean("aqua-wand-purchase-gui." + configItem + ".purchasable")) {
+                                    if (FileManager.get("config").getBoolean("gui-permissions") && !player.hasPermission("tools+.gui.aqua." + configItem)) {
+                                        new PlayerMessage("no-permission", player);
+                                        return;
+                                    }
                                     new PurchaseTool(FileManager.get("aqua_purchase_gui").getInt("aqua-wand-purchase-gui." + configItem + ".price"),
                                             FileManager.get("aqua_purchase_gui").getString("aqua-wand-purchase-gui." + configItem + ".material"),
                                             FileManager.get("aqua").getString("aqua-wands." + configItem + ".name"),

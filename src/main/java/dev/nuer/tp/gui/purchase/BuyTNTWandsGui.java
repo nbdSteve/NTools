@@ -34,6 +34,10 @@ public class BuyTNTWandsGui extends AbstractGui {
                             //Add the respective listeners to items based off the config
                             try {
                                 if (FileManager.get("tnt_purchase_gui").getBoolean("tnt-wand-purchase-gui." + configItem + ".purchasable")) {
+                                    if (FileManager.get("config").getBoolean("gui-permissions") && !player.hasPermission("tools+.gui.tnt." + configItem)) {
+                                        new PlayerMessage("no-permission", player);
+                                        return;
+                                    }
                                     String[] modifierParts = ToolsAttributeManager.tntWandModifierUnique.get(configItem).get(FileManager.get("tnt").getInt("tnt-wands." + configItem + ".modifier.starting")).split("-");
                                     new PurchaseTool(FileManager.get("tnt_purchase_gui").getInt("tnt-wand-purchase-gui." + configItem + ".price"),
                                             FileManager.get("tnt_purchase_gui").getString("tnt-wand-purchase-gui." + configItem + ".material"),

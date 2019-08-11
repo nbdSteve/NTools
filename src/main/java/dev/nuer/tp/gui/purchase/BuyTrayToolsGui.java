@@ -33,6 +33,10 @@ public class BuyTrayToolsGui extends AbstractGui {
                             //Add the respective listeners to items based off the config
                             try {
                                 if (FileManager.get("tray_purchase_gui").getBoolean("tray-tool-purchase-gui." + configItem + ".purchasable")) {
+                                    if (FileManager.get("config").getBoolean("gui-permissions") && !player.hasPermission("tools+.gui.tray." + configItem)) {
+                                        new PlayerMessage("no-permission", player);
+                                        return;
+                                    }
                                     new PurchaseTool(FileManager.get("tray_purchase_gui").getInt("tray-tool-purchase-gui." + configItem + ".price"),
                                             FileManager.get("tray_purchase_gui").getString("tray-tool-purchase-gui." + configItem + ".material"),
                                             FileManager.get("tray").getString("tray-tools." + configItem + ".name"),

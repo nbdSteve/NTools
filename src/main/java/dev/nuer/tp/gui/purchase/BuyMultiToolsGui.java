@@ -34,6 +34,10 @@ public class BuyMultiToolsGui extends AbstractGui {
                             //Add the respective listeners to items based off the config
                             try {
                                 if (FileManager.get("multi_purchase_gui").getBoolean("multi-tool-purchase-gui." + configItem + ".purchasable")) {
+                                    if (FileManager.get("config").getBoolean("gui-permissions") && !player.hasPermission("tools+.gui.multi." + configItem)) {
+                                        new PlayerMessage("no-permission", player);
+                                        return;
+                                    }
                                     new PurchaseTool(FileManager.get("multi_purchase_gui").getInt("multi-tool-purchase-gui." + configItem + ".price"),
                                             FileManager.get("multi_purchase_gui").getString("multi-tool-purchase-gui." + configItem + ".material"),
                                             FileManager.get("multi").getString("multi-tools." + configItem + ".name"),

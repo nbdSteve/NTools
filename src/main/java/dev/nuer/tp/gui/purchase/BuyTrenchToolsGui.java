@@ -33,6 +33,10 @@ public class BuyTrenchToolsGui extends AbstractGui {
                             //Add the respective listeners to items based off the config
                             try {
                                 if (FileManager.get("trench_purchase_gui").getBoolean("trench-tool-purchase-gui." + configItem + ".purchasable")) {
+                                    if (FileManager.get("config").getBoolean("gui-permissions") && !player.hasPermission("tools+.gui.trench." + configItem)) {
+                                        new PlayerMessage("no-permission", player);
+                                        return;
+                                    }
                                     new PurchaseTool(FileManager.get("trench_purchase_gui").getInt("trench-tool-purchase-gui." + configItem + ".price"),
                                             FileManager.get("trench_purchase_gui").getString("trench-tool-purchase-gui." + configItem + ".material"),
                                             FileManager.get("trench").getString("trench-tools." + configItem + ".name"),

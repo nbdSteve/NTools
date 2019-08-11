@@ -34,6 +34,10 @@ public class BuySellWandsGui extends AbstractGui {
                             //Add the respective listeners to items based off the config
                             try {
                                 if (FileManager.get("sell_purchase_gui").getBoolean("sell-wand-purchase-gui." + configItem + ".purchasable")) {
+                                    if (FileManager.get("config").getBoolean("gui-permissions") && !player.hasPermission("tools+.gui.sell." + configItem)) {
+                                        new PlayerMessage("no-permission", player);
+                                        return;
+                                    }
                                     String[] modifierParts = ToolsAttributeManager.sellWandModifierUnique.get(configItem).get(FileManager.get("sell").getInt("sell-wands." + configItem + ".modifier.starting")).split("-");
                                     new PurchaseTool(FileManager.get("sell_purchase_gui").getInt("sell-wand-purchase-gui." + configItem + ".price"),
                                             FileManager.get("sell_purchase_gui").getString("sell-wand-purchase-gui." + configItem + ".material"),

@@ -34,6 +34,10 @@ public class BuyChunkWandsGui extends AbstractGui {
                             //Add the respective listeners to items based off the config
                             try {
                                 if (FileManager.get("chunk_purchase_gui").getBoolean("chunk-wand-purchase-gui." + configItem + ".purchasable")) {
+                                    if (FileManager.get("config").getBoolean("gui-permissions") && !player.hasPermission("tools+.gui.chunk." + configItem)) {
+                                        new PlayerMessage("no-permission", player);
+                                        return;
+                                    }
                                     new PurchaseTool(FileManager.get("chunk_purchase_gui").getInt("chunk-wand-purchase-gui." + configItem + ".price"),
                                             FileManager.get("chunk_purchase_gui").getString("chunk-wand-purchase-gui." + configItem + ".material"),
                                             FileManager.get("chunk").getString("chunk-wands." + configItem + ".name"),

@@ -34,6 +34,10 @@ public class BuyHarvesterToolsGui extends AbstractGui {
                             //Add the respective listeners to items based off the config
                             try {
                                 if (FileManager.get("harvester_purchase_gui").getBoolean("harvester-tool-purchase-gui." + configItem + ".purchasable")) {
+                                    if (FileManager.get("config").getBoolean("gui-permissions") && !player.hasPermission("tools+.gui.harvester." + configItem)) {
+                                        new PlayerMessage("no-permission", player);
+                                        return;
+                                    }
                                     String[] modifierParts = ToolsAttributeManager.harvesterModifierUnique.get(configItem).get(FileManager.get("harvester").getInt("harvester-tools." + configItem + ".modifier.starting")).split("-");
                                     new PurchaseTool(FileManager.get("harvester_purchase_gui").getInt("harvester-tool-purchase-gui." + configItem + ".price"),
                                             FileManager.get("harvester_purchase_gui").getString("harvester-tool-purchase-gui." + configItem + ".material"),

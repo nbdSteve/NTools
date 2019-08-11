@@ -33,6 +33,10 @@ public class BuySmeltWandsGui extends AbstractGui {
                             //Add the respective listeners to items based off the config
                             try {
                                 if (FileManager.get("smelt_purchase_gui").getBoolean("smelt-wand-purchase-gui." + configItem + ".purchasable")) {
+                                    if (FileManager.get("config").getBoolean("gui-permissions") && !player.hasPermission("tools+.gui.smelt." + configItem)) {
+                                        new PlayerMessage("no-permission", player);
+                                        return;
+                                    }
                                     new PurchaseTool(FileManager.get("smelt_purchase_gui").getInt("smelt-wand-purchase-gui." + configItem + ".price"),
                                             FileManager.get("smelt_purchase_gui").getString("smelt-wand-purchase-gui." + configItem + ".material"),
                                             FileManager.get("smelt").getString("smelt-wands." + configItem + ".name"),

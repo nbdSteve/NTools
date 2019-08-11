@@ -33,6 +33,10 @@ public class BuyLightningWandsGui extends AbstractGui {
                             //Add the respective listeners to items based off the config
                             try {
                                 if (FileManager.get("lightning_purchase_gui").getBoolean("lightning-wand-purchase-gui." + configItem + ".purchasable")) {
+                                    if (FileManager.get("config").getBoolean("gui-permissions") && !player.hasPermission("tools+.gui.lightning." + configItem)) {
+                                        new PlayerMessage("no-permission", player);
+                                        return;
+                                    }
                                     new PurchaseTool(FileManager.get("lightning_purchase_gui").getInt("lightning-wand-purchase-gui." + configItem + ".price"),
                                             FileManager.get("lightning_purchase_gui").getString("lightning-wand-purchase-gui." + configItem + ".material"),
                                             FileManager.get("lightning").getString("lightning-wands." + configItem + ".name"),
