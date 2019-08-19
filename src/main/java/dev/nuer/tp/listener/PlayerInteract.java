@@ -87,6 +87,7 @@ public class PlayerInteract implements Listener {
     @EventHandler
     public void playerLeftClickInteractWithWand(PlayerInteractEvent event) {
         if (!event.getAction().equals(Action.LEFT_CLICK_BLOCK)) return;
+//        if (!event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) return;
         //Store the player
         Player player = event.getPlayer();
         //If the players item doesn't have meta / lore, return

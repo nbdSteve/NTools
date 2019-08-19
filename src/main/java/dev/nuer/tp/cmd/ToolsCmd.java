@@ -14,7 +14,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 /**
- * Class that handles the /nt command for the plugin
+ * Class that handles the /t+ command for the plugin
  */
 public class ToolsCmd implements CommandExecutor {
 
