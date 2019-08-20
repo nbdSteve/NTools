@@ -30,7 +30,7 @@ public final class ToolsPlus extends JavaPlugin {
     //Create a logger for the plugin
     public static Logger LOGGER = Bukkit.getLogger();
     //Store the plugin version
-    public static String version = "1.6.3.1";
+    public static String version = "1.6.3.2";
 
     /**
      * Method called on plugin start up

@@ -177,6 +177,11 @@ public class Give {
                             "{radius}", ToolsAttributeManager.chunkToolRadiusUnique.get(Integer.parseInt(args[4])).get(toolStartingModifier),
                             "{uses}", startingUses);
                 }
+                if (sender instanceof Player) {
+                    new PlayerMessage("give", (Player) sender, "{player}", target.getName(), "{tool-type}", args[2]);
+                } else {
+                    ToolsPlus.LOGGER.info("You have successfully given " + target.getName() + " 1x " + args[2] + " tool / wand.");
+                }
             } catch (Exception invalidCommandParameters) {
                 if (sender instanceof Player) {
                     invalidCommandParameters.printStackTrace();

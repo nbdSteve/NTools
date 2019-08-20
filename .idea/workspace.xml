@@ -10,14 +10,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/ToolsPlus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/ToolsCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/ToolsCmd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/listener/PlayerInteract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/listener/PlayerInteract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ToolsPlus-1.6.3.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/sub/Give.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/cmd/sub/Give.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/smelt/SmeltContentsOfChest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/nuer/tp/tools/smelt/SmeltContentsOfChest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ToolsPlus-1.6.3.1-shaded.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ToolsPlus-1.6.3.1.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dev/nuer/tp/ToolsPlus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/ToolsPlus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/nuer/tp/listener/PlayerInteract.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/listener/PlayerInteract.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/nuer/tp/cmd/sub/Give.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/cmd/sub/Give.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/nuer/tp/tools/smelt/SmeltContentsOfChest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/nuer/tp/tools/smelt/SmeltContentsOfChest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-ToolsPlus-1.6.3.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-ToolsPlus-1.6.3.1.jar" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -55,6 +55,7 @@ public class SmeltContentsOfChest {
      */
     public static boolean canSmeltContents(Inventory inventory) {
         for (Material material : ToolsAttributeManager.smeltBlockConversions.keySet()) {
+            if (material == null) continue;
             if (inventory.contains(material)) return true;
         }
         return false;
