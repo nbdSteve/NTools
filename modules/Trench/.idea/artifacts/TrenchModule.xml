@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TrenchModule">
+    <output-path>$PROJECT_DIR$/../../../../../test-server/stellar - Copy/plugins/ToolsPlus/modules</output-path>
+    <root id="archive" name="TrenchModule.jar">
+      <element id="module-output" name="Trench" />
+    </root>
+  </artifact>
+</component>
