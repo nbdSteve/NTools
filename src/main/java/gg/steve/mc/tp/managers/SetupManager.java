@@ -1,6 +1,9 @@
 package gg.steve.mc.tp.managers;
 
 import gg.steve.mc.tp.gui.GuiClickListener;
+import gg.steve.mc.tp.player.HoldToolListener;
+import gg.steve.mc.tp.player.PlayerToolListener;
+import gg.steve.mc.tp.player.PlayerToolManager;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -40,6 +43,9 @@ public class SetupManager {
     public static void registerEvents(JavaPlugin instance) {
         PluginManager pm = instance.getServer().getPluginManager();
         pm.registerEvents(new GuiClickListener(), instance);
+        pm.registerEvents(new PlayerToolManager(), instance);
+        pm.registerEvents(new HoldToolListener(), instance);
+        pm.registerEvents(new PlayerToolListener(), instance);
     }
 
     public static void registerEvent(JavaPlugin instance, Listener listener) {

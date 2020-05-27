@@ -1,6 +1,13 @@
 package gg.steve.mc.tp.modules;
 
-import gg.steve.mc.tp.modules.listener.JoinListener;
+import gg.steve.mc.tp.module.ModuleType;
+import gg.steve.mc.tp.module.ToolsPlusModule;
+import gg.steve.mc.tp.modules.tool.TrenchTool;
+import gg.steve.mc.tp.nbt.NBTItem;
+import gg.steve.mc.tp.tool.AbstractTool;
+import gg.steve.mc.tp.tool.ToolType;
+import gg.steve.mc.tp.upgrade.AbstractUpgrade;
+import gg.steve.mc.tp.utils.PluginFile;
 import org.bukkit.event.Listener;
 
 import java.util.ArrayList;
@@ -13,9 +20,15 @@ public class TrenchModule extends ToolsPlusModule {
         return ModuleType.TRENCH;
     }
 
+    @Override
     public List<Listener> getListeners() {
-        List<Listener> listeners = new ArrayList<>();
-        listeners.add(new JoinListener());
-        return listeners;
+        return new ArrayList<>();
+//        List<Listener> listeners = new ArrayList<>();
+//        return listeners;
+    }
+
+    @Override
+    public AbstractTool loadTool(ToolType toolType, AbstractUpgrade abstractUpgrade, NBTItem nbtItem, PluginFile pluginFile) {
+        return new TrenchTool(abstractUpgrade, nbtItem, pluginFile);
     }
 }

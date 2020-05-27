@@ -1,5 +1,6 @@
 package gg.steve.mc.tp.utils;
 
+import gg.steve.mc.tp.module.ModuleType;
 import gg.steve.mc.tp.nbt.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -60,6 +61,7 @@ public class ItemBuilderUtil {
     }
 
     public void addEnchantments(List<String> enchants) {
+//        itemMeta.addEnchant(Enchantment.DIG_SPEED, 1, true);
         for (String enchantment : enchants) {
             String[] enchantmentParts = enchantment.split(":");
             itemMeta.addEnchant(Enchantment.getByName(enchantmentParts[0].toUpperCase()),
@@ -76,9 +78,13 @@ public class ItemBuilderUtil {
         item.setItemMeta(itemMeta);
     }
 
-    public void addNBT(String name) {
+    public void addNBT(ModuleType module, String name, PluginFile file) {
         nbtItem = new NBTItem(item);
-        nbtItem.setString("armor+.set", name);
+        nbtItem.setString("tools+.type", module.name());
+        nbtItem.setString("tools+.name", name);
+        nbtItem.setInteger("tools+.uses", file.get().getInt("uses.starting"));
+        nbtItem.setInteger("tools+.blocks", 0);
+        nbtItem.setDouble("tools+.multiplier", file.get().getDouble("multiplier.starting"));
     }
 
     public void setItemMeta(ItemMeta itemMeta) {
@@ -87,6 +93,10 @@ public class ItemBuilderUtil {
 
     public Material getMaterial() {
         return material;
+    }
+
+    public NBTItem getNbtItem() {
+        return nbtItem;
     }
 
     public ItemStack getItem() {
@@ -110,5 +120,10 @@ public class ItemBuilderUtil {
 
     public Set<ItemFlag> getFlags() {
         return flags;
+    }
+
+    public void setLore(List<String> lore) {
+        this.lore = lore;
+        this.itemMeta.setLore(lore);
     }
 }

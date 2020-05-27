@@ -7,98 +7,139 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb78c922-687b-467c-b416-0ccca3ac4f69" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/artifacts/Tools___v_2_0_0_PR1_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__com_github_MilkBowl_VaultAPI_1_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__com_github_shynixn_headdatabase_hdb_api_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__com_google_code_gson_gson_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__com_google_guava_guava_21_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__junit_junit_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__me_clip_placeholderapi_2_10_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__net_md_5_bungeecord_chat_1_15_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__org_bukkit_bukkit_1_13_1_R0_1_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__org_spigotmc_spigot_api_1_15_2_R0_1_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__org_yaml_snakeyaml_1_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ToolsPlus-v2-Recode.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/TrenchModule.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Trench.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gg/steve/mc/tp/modules/TrenchModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gg/steve/mc/tp/modules/listener/JoinListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/ToolsPlus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/core/Tool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/core/ToolManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/gui/AbstractGui.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/gui/GuiClickListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/managers/FileManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/managers/Files.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/managers/SetupManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/message/CommandDebug.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/message/MessageType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/modules/ModuleLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/modules/ModuleType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/modules/ToolsPlusModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/modules/utils/ModuleClassUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/NBTCompound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/NBTCompoundList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/NBTContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/NBTItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/NBTList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/NBTListCompound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/NBTReflectionUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/NBTStringList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/NBTType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/NbtApiException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/utils/GsonWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/utils/MinecraftVersion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/utils/ReflectionUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/utils/annotations/AvaliableSince.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/utils/annotations/CheckUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/utils/nmsmappings/ClassWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/utils/nmsmappings/ObjectCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/utils/nmsmappings/PackageWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/nbt/utils/nmsmappings/ReflectionMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/papi/ToolsPlusExpansion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/permission/PermissionNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/ColorUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/CommandUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/GuiItemUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/ItemBuilderUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/LogUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/PlayerDirectionUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/PluginFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/SoundUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/YamlFileUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/actionbarapi/ActionBarAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/actionbarapi/ActionBarMessageEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/actionbarapi/ActionBarType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/resources/lang/debug.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/resources/lang/messages.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/resources/permissions.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools+.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/resources/trench/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/modules/ModuleLoader.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/modules/ToolsPlusModule.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/modules/utils/ModuleClassUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/1/c/1c12090044a26694cfe82f981d5dcb98980829fb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/3/a/3a8dc9f5be72297500a8c8ae7d4683a56c4040f4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/4/e/4ef3ea5a908134328322ebc85ff9e3241291fc4c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/5/3/53c40faad3395ae666baa41166c78d763f25c835" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/5/4/54c2c3ba0a1709ecbc0cef4d207994b37479a452" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/5/7/57c720870fc630f5c41b5c4e7cf280e39f2c03e5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/6/0/60670bc1a272e0cbf21a37faac3d41265eeb72dd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/6/3/634b4f94999e4dbeb5740dafc21b6c691dcb8fcd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/8/6/866f50953d112b86cd628186b9d158d254aa6b5a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/9/7/97182c4f4c3af99a3ac7e68b87f24096d19c8888" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/9/7/97b36aa7274347d92b9527b795f05a89fe0b044d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/9/8/983b2981201003ee629c236b2818cc526435e00d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/b/2/b26e3a84c58e98658fa388c31ab1d4daaddbdd3a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/b/9/b9ac12ae788cf9d59450f87e4677111cc5b2d709" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/d/0/d09a7668dc88bf78046494f0e784045ec4d9bc6a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/d/b/db56c6b156b7218cc731c06ebf453503e3ac7d11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/e/0/e0814e3155150e095e6f327779e2aec8d1dcb3a7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/e/7/e74251b0fb65e9e0131d857ae341b8af095087fd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/e/f/efb0424c2dca17d13831bdff2aafd5b0089358a8" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/f/6/f633a1354d0461c5da84725d05c885604886a0e2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/f/c/fce6e321f4321d9f36ae1df12b6edaca17a77387" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/2/72561a644ca44aed3af4759c09df563fe0ae1456" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/8/c84af518a676a9b84ece9df9b745769a38084bd9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gg/steve/mc/tp/modules/tool/TrenchData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gg/steve/mc/tp/modules/tool/TrenchTool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/gg/steve/mc/tp/modules/tool/TrenchData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/gg/steve/mc/tp/modules/tool/TrenchTool.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/module/ModuleManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/player/HoldToolListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/player/PlayerToolListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/player/PlayerToolManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/player/ToolPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/tool/AbstractTool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/tool/LoadedTool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/tool/ToolType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/upgrade/AbstractUpgrade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/upgrade/CurrencyType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/upgrade/VaultUpgradeType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/GetToolHoldingUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/ToolLoaderUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/trench-3x3.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/ToolsPlus.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/gui/AbstractGui$inventoryClickActions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/gui/AbstractGui.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/gui/GuiClickListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/managers/FileManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/managers/Files.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/managers/SetupManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/message/CommandDebug.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/message/MessageType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/module/ModuleManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/module/ModuleType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/module/ToolsPlusModule.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/module/utils/ModuleClassUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/module/utils/ModuleLoaderUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/NBTCompound.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/NBTCompoundList.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/NBTContainer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/NBTItem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/NBTList$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/NBTList$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/NBTList.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/NBTListCompound.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/NBTReflectionUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/NBTStringList.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/NBTType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/NbtApiException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/utils/GsonWrapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/utils/MinecraftVersion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/utils/ReflectionUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/utils/annotations/AvaliableSince.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/utils/annotations/CheckUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/utils/nmsmappings/ClassWrapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/utils/nmsmappings/ObjectCreator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/utils/nmsmappings/PackageWrapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/utils/nmsmappings/ReflectionMethod$Since.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/nbt/utils/nmsmappings/ReflectionMethod.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/papi/ToolsPlusExpansion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/permission/PermissionNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/player/HoldToolListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/player/PlayerToolListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/player/PlayerToolManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/player/ToolPlayer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/tool/AbstractTool.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/tool/LoadedTool.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/tool/ToolData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/tool/ToolType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/tool/ToolsManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/upgrade/AbstractUpgrade.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/upgrade/CurrencyType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/upgrade/VaultUpgradeType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/ColorUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/CommandUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/GetToolHoldingUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/GuiItemUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/ItemBuilderUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/LogUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/PlayerDirectionUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/PluginFile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/SoundUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/ToolLoaderUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/YamlFileUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/actionbarapi/ActionBarAPI$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/actionbarapi/ActionBarAPI$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/actionbarapi/ActionBarAPI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/actionbarapi/ActionBarMessageEvent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/actionbarapi/ActionBarType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/libraries/Maven__net_md_5_bungeecord_chat_1_15_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__net_md_5_bungeecord_chat_1_15_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/libraries/Maven__org_spigotmc_spigot_api_1_15_2_R0_1_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__org_spigotmc_spigot_api_1_15_2_R0_1_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gg/steve/mc/tp/modules/TrenchModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gg/steve/mc/tp/modules/TrenchModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gg/steve/mc/tp/modules/listener/JoinListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/ToolsPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/ToolsPlus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/core/Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/tool/ToolData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/core/ToolManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/tool/ToolsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/gui/AbstractGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/gui/AbstractGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/managers/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/managers/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/managers/SetupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/managers/SetupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/modules/ModuleLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/module/utils/ModuleLoaderUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/modules/ModuleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/module/ModuleType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/modules/ToolsPlusModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/module/ToolsPlusModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/modules/utils/ModuleClassUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/module/utils/ModuleClassUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/ItemBuilderUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/ItemBuilderUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/PluginFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/PluginFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/YamlFileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/YamlFileUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools+.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools+.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/trench/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/trench/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/modules/ModuleLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/modules/ToolsPlusModule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/modules/utils/ModuleClassUtil.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,10 +200,11 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2360" y="114" key="#Project_Structure/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1590488072414" />
-    <state x="2685" y="256" key="#com.intellij.ide.util.MemberChooser" timestamp="1590497411035">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="765" y="247" key="#com.intellij.ide.util.MemberChooser" timestamp="1590592134861">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="2685" y="256" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1590497411035" />
+    <state x="765" y="247" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@0.0.1920.1040" timestamp="1590592134861" />
+    <state x="2685" y="256" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1590579398207" />
     <state x="2710" y="170" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1590488994282">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -171,13 +213,15 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2610" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1590494473044" />
-    <state x="2572" y="281" key="FileChooserDialogImpl" timestamp="1590489017913">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="652" y="271" key="FileChooserDialogImpl" timestamp="1590581940161">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="652" y="271" key="FileChooserDialogImpl/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@0.0.1920.1040" timestamp="1590581940161" />
     <state x="2572" y="281" key="FileChooserDialogImpl/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1590489017913" />
-    <state x="2360" y="114" key="SettingsEditor" timestamp="1590491864070">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="440" y="110" key="SettingsEditor" timestamp="1590581943647">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="440" y="110" key="SettingsEditor/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@0.0.1920.1040" timestamp="1590581943647" />
     <state x="2360" y="114" key="SettingsEditor/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1590491864070" />
   </component>
 </project>

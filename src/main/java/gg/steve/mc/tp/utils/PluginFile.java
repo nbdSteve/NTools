@@ -1,6 +1,6 @@
 package gg.steve.mc.tp.utils;
 
-import gg.steve.mc.tp.modules.ToolsPlusModule;
+import gg.steve.mc.tp.module.ToolsPlusModule;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 

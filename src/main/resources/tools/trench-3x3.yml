@@ -1,0 +1,68 @@
+type: trench
+#
+starting-radius: 1 # 3x3
+#
+upgrade:
+  enabled: true
+  currency: vault
+  track:
+    # syntax: <radius>:<price>:<string for gui>
+    - '2:1000.0:5x5'
+    - '3:1000.0:7x7'
+  lore-update-string: ' &6- Radius&7| &e&l{radius}'
+#
+uses:
+  enabled: true
+  starting: 100
+  lore-update-string: ' &6- Uses&7| &e&l{uses}'
+#
+blocks-mined:
+  enabled: true
+  lore-update-string: ' &6- Blocks Mined&7| &e&l{mined}'
+#
+item:
+  material: diamond_pickaxe
+  data: 0
+  name: '&6&lTrench Tool &7&o((&e&oUpgradeable&7&o))'
+  lore:
+    - ''
+    - '&7An upgradable trench tool with uses.'
+    - ''
+    - '&f&lTOOL INFO'
+    - ' &6- Radius&7| &e&l{radius}'
+    - ' &6- Uses Remaining&7| &e&l{uses}'
+    - ' &6- Blocks Mined&7| &e&l{mined}'
+  enchantments:
+    - dig_speed:5
+    - durability:3
+  item-flags:
+  unbreakable: true
+#
+upgrade-gui:
+  name: "&e&l{player}'s &6&lUpgrade Center"
+  type: hopper
+  size: 5
+  1:
+    slots:
+      - 0
+    material: dye
+    data: 0
+    upgrade:
+      enabled: true
+      amount: 1
+    commands:
+      - 'say example command for {player}'
+    name: "&7Increase your tool's radius"
+    lore:
+      - ''
+      - '&f&lTOOL INFO'
+      - ' &6- Current Radius&7| &e&l{radius}&6&e{max-radius}'
+      - ''
+      - '&f&lUPGRADE INFO'
+      - ' &6- Cost&7| &e$&l{cost}'
+      - ' &6- Next Radius&7| &e&l{next-radius}'
+    enchantments:
+      - lure:1
+    item-flags:
+      - hide_attributes
+    unbreakable: false

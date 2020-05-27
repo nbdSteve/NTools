@@ -1,1 +1,5 @@
-example-string: 'example string'
+block-blacklist:
+  - obsidian
+  - mob_spawner
+  - chest
+  - trapped_chest

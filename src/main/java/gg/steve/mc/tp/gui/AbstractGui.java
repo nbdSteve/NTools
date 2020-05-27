@@ -39,6 +39,8 @@ public abstract class AbstractGui {
         inventoriesByID.put(getInventoryID(), this);
     }
 
+    public abstract void refresh();
+
     /**
      * Get the inventory map
      *
@@ -77,6 +79,7 @@ public abstract class AbstractGui {
      * @param player Player, the player to open the inventory for
      */
     public void open(Player player) {
+        refresh();
         player.openInventory(inventory);
         openInventories.put(player.getUniqueId(), getInventoryID());
     }
