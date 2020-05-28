@@ -1,5 +1,6 @@
 package gg.steve.mc.tp.utils;
 
+import gg.steve.mc.tp.managers.PluginFile;
 import gg.steve.mc.tp.module.ToolsPlusModule;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -52,11 +53,6 @@ public class YamlFileUtil extends PluginFile {
             instance.getServer().getPluginManager().disablePlugin(instance);
         }
         return this;
-    }
-
-    @Override
-    public PluginFile load(File source, JavaPlugin instance, ToolsPlusModule module) {
-        return null;
     }
 
     /**

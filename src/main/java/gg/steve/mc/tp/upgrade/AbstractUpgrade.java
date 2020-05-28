@@ -1,11 +1,9 @@
 package gg.steve.mc.tp.upgrade;
 
-import gg.steve.mc.tp.tool.AbstractTool;
 import gg.steve.mc.tp.tool.LoadedTool;
 import gg.steve.mc.tp.utils.ColorUtil;
-import gg.steve.mc.tp.utils.PluginFile;
+import gg.steve.mc.tp.managers.PluginFile;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,6 +35,11 @@ public abstract class AbstractUpgrade {
     public double getModifierForLevel(int level) {
         if (this.track == null || this.track.isEmpty() || !track.containsKey(level)) return 0.0;
         return Double.parseDouble((String) this.track.get(level).get(0));
+    }
+
+    public int getIntegerModifierForLevel(int level) {
+        if (this.track == null || this.track.isEmpty() || !track.containsKey(level)) return 0;
+        return Integer.parseInt((String) this.track.get(level).get(0));
     }
 
     public double getUpgradePriceForLevel(int level) {

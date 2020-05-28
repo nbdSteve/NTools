@@ -1,15 +1,11 @@
-package gg.steve.mc.tp.utils;
+package gg.steve.mc.tp.managers;
 
-import gg.steve.mc.tp.module.ToolsPlusModule;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.File;
 
 public abstract class PluginFile {
 
     public abstract PluginFile load(String fileName, JavaPlugin instance);
-    public abstract PluginFile load(File source, JavaPlugin instance, ToolsPlusModule module);
 
     public abstract void save();
 

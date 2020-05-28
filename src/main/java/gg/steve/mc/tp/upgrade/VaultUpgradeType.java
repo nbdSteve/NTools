@@ -6,7 +6,7 @@ import gg.steve.mc.tp.tool.LoadedTool;
 import gg.steve.mc.tp.utils.GetToolHoldingUtil;
 import gg.steve.mc.tp.utils.ItemBuilderUtil;
 import gg.steve.mc.tp.utils.LogUtil;
-import gg.steve.mc.tp.utils.PluginFile;
+import gg.steve.mc.tp.managers.PluginFile;
 import org.bukkit.entity.Player;
 
 import java.util.List;
@@ -26,13 +26,13 @@ public class VaultUpgradeType extends AbstractUpgrade {
         }
         int level = tool.getUpgradeLevel();
         if (level == getMaxLevel()) {
-            // max level
+            player.sendMessage("already max level");
             return false;
         }
         int next = level + 1;
         double cost = getUpgradePriceForLevel(next);
         if (ToolsPlus.eco().getBalance(player) < cost) {
-            // no bal
+            player.sendMessage("insufficient balance");
             return false;
         }
         ToolsPlus.eco().withdrawPlayer(player, cost);

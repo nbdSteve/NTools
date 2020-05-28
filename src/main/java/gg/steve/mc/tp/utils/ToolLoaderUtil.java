@@ -1,5 +1,6 @@
 package gg.steve.mc.tp.utils;
 
+import gg.steve.mc.tp.managers.PluginFile;
 import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.module.ModuleType;
 import gg.steve.mc.tp.nbt.NBTItem;

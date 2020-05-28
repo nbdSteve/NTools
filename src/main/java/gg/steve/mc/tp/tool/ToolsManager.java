@@ -6,10 +6,9 @@ import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.module.ModuleType;
 import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.utils.LogUtil;
-import gg.steve.mc.tp.utils.PluginFile;
+import gg.steve.mc.tp.managers.PluginFile;
 import gg.steve.mc.tp.utils.ToolLoaderUtil;
 import gg.steve.mc.tp.utils.YamlFileUtil;
-import org.bukkit.Bukkit;
 
 import java.io.File;
 import java.util.HashMap;

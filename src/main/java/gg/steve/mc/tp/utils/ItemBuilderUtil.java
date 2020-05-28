@@ -1,5 +1,6 @@
 package gg.steve.mc.tp.utils;
 
+import gg.steve.mc.tp.managers.PluginFile;
 import gg.steve.mc.tp.module.ModuleType;
 import gg.steve.mc.tp.nbt.NBTItem;
 import org.bukkit.Material;
@@ -76,6 +77,11 @@ public class ItemBuilderUtil {
             this.flags.add(ItemFlag.valueOf(flag.toUpperCase()));
         }
         item.setItemMeta(itemMeta);
+    }
+
+    public void addNBT(){
+        nbtItem = new NBTItem(item);
+        nbtItem.setBoolean("tools+.gui", true);
     }
 
     public void addNBT(ModuleType module, String name, PluginFile file) {

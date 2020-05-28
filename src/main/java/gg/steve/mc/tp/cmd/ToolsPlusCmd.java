@@ -31,7 +31,8 @@ public class ToolsPlusCmd implements CommandExecutor {
                 ListCmd.list(sender, args);
                 break;
             case "upgrade":
-                PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool().getAbstractTool().getUpgrade().doUpgrade((Player) sender, PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool());
+                PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool().openUpgrade((Player) sender);
+//                PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool().getAbstractTool().getUpgrade().doUpgrade((Player) sender, PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool());
         }
         return true;
     }

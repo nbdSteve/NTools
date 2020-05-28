@@ -1,6 +1,7 @@
 package gg.steve.mc.tp.tool;
 
 import gg.steve.mc.tp.attribute.ToolAttributeType;
+import gg.steve.mc.tp.gui.AbstractGui;
 import gg.steve.mc.tp.nbt.NBTItem;
 import org.bukkit.entity.Player;
 
@@ -11,6 +12,7 @@ public class LoadedTool {
     private UUID toolId;
     private int uses, blocksMined, upgradeLevel;
     private String name;
+    private AbstractGui upgradeGui;
 
     public LoadedTool(UUID toolId, NBTItem item) {
         this.toolId = toolId;
@@ -19,6 +21,7 @@ public class LoadedTool {
         this.upgradeLevel = item.getInteger("tools+.upgrade-level");
         this.name = item.getString("tools+.name");
         this.tool = ToolsManager.getTool(this.name);
+        this.upgradeGui = this.tool.getUpgradeGui();
     }
 
     public boolean decrementUses(Player player) {
@@ -64,5 +67,10 @@ public class LoadedTool {
 
     public int getBlocksMined() {
         return blocksMined;
+    }
+
+    public void openUpgrade(Player player) {
+        this.upgradeGui.refresh(this);
+        this.upgradeGui.open(player);
     }
 }

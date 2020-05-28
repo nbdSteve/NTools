@@ -2,7 +2,7 @@ package gg.steve.mc.tp.module;
 
 import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.managers.SetupManager;
-import gg.steve.mc.tp.utils.PluginFile;
+import gg.steve.mc.tp.managers.PluginFile;
 
 public enum ModuleType {
     TRENCH("TrenchModule");

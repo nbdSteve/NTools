@@ -1,5 +1,7 @@
 package gg.steve.mc.tp.gui;
 
+import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.ToolType;
 import gg.steve.mc.tp.utils.ColorUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
@@ -9,6 +11,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 public abstract class AbstractGui {
@@ -31,7 +34,7 @@ public abstract class AbstractGui {
     public AbstractGui(ConfigurationSection section, String type, Integer size) {
         this.inventoryID = UUID.randomUUID();
         if (!type.equalsIgnoreCase("none")) {
-            this.inventory = Bukkit.createInventory(null, InventoryType.valueOf(type), ColorUtil.colorize(section.getString("name")));
+            this.inventory = Bukkit.createInventory(null, InventoryType.valueOf(type.toUpperCase()), ColorUtil.colorize(section.getString("name")));
         } else {
             this.inventory = Bukkit.createInventory(null, size, ColorUtil.colorize(section.getString("name")));
         }
@@ -39,7 +42,7 @@ public abstract class AbstractGui {
         inventoriesByID.put(getInventoryID(), this);
     }
 
-    public abstract void refresh();
+    public abstract void refresh(LoadedTool tool);
 
     /**
      * Get the inventory map
@@ -79,7 +82,6 @@ public abstract class AbstractGui {
      * @param player Player, the player to open the inventory for
      */
     public void open(Player player) {
-        refresh();
         player.openInventory(inventory);
         openInventories.put(player.getUniqueId(), getInventoryID());
     }

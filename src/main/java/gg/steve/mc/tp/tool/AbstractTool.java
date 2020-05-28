@@ -1,9 +1,10 @@
 package gg.steve.mc.tp.tool;
 
 import gg.steve.mc.tp.attribute.ToolAttributeManager;
+import gg.steve.mc.tp.gui.AbstractGui;
 import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.upgrade.AbstractUpgrade;
-import gg.steve.mc.tp.utils.PluginFile;
+import gg.steve.mc.tp.managers.PluginFile;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 
@@ -16,6 +17,7 @@ public abstract class AbstractTool {
     private NBTItem item;
     private PluginFile config;
     private ToolAttributeManager attributeManager;
+    private AbstractGui upgradeGui;
 
     public AbstractTool(ToolType type, AbstractUpgrade upgrade, NBTItem item, PluginFile config) {
         this.type = type;
@@ -56,6 +58,14 @@ public abstract class AbstractTool {
 
     public int getMaxUpgradeLevel() {
         return this.upgrade.getMaxLevel();
+    }
+
+    public void setUpgradeGui(AbstractGui gui) {
+        this.upgradeGui = gui;
+    }
+
+    public AbstractGui getUpgradeGui() {
+        return upgradeGui;
     }
 
     public ToolAttributeManager getAttributeManager() {

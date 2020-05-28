@@ -5,7 +5,7 @@ import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.tool.AbstractTool;
 import gg.steve.mc.tp.tool.ToolType;
 import gg.steve.mc.tp.upgrade.AbstractUpgrade;
-import gg.steve.mc.tp.utils.PluginFile;
+import gg.steve.mc.tp.managers.PluginFile;
 import org.bukkit.event.Listener;
 
 import java.util.List;
