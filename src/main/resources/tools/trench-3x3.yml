@@ -10,6 +10,14 @@ upgrade:
     - '3:1000.0:7x7'
   lore-update-string: ' &6- Radius&7| &e&l{upgrade}'
 #
+mode:
+  enabled: true
+  sneak-switch: false
+  track:
+    - 'TRENCH:1000.0'
+    - 'TRAY:1000.0'
+  lore-update-string: ' &6- Mode&7| &e&l{mode}'
+#
 uses:
   enabled: true
   starting: 100
@@ -28,6 +36,7 @@ item:
     - '&7An upgradable trench tool with uses.'
     - ''
     - '&f&lTOOL INFO'
+    - ' &6- Mode&7| &e&l{mode}'
     - ' &6- Radius&7| &e&l{upgrade}'
     - ' &6- Uses Remaining&7| &e&l{uses}'
     - ' &6- Blocks Mined&7| &e&l{mined}'

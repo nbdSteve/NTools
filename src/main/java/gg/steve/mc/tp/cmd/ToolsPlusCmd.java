@@ -4,6 +4,7 @@ import gg.steve.mc.tp.cmd.misc.HelpCmd;
 import gg.steve.mc.tp.cmd.misc.ListCmd;
 import gg.steve.mc.tp.cmd.misc.ReloadCmd;
 import gg.steve.mc.tp.player.PlayerToolManager;
+import gg.steve.mc.tp.tool.ToolsManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -32,6 +33,12 @@ public class ToolsPlusCmd implements CommandExecutor {
                 break;
             case "upgrade":
                 PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool().openUpgrade((Player) sender);
+                break;
+            case "mode":
+                PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool().switchMode((Player) sender);
+                break;
+            case "give":
+                ((Player) sender).getInventory().addItem(ToolsManager.getTool("trench-3x3").getItemStack());
 //                PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool().getAbstractTool().getUpgrade().doUpgrade((Player) sender, PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool());
         }
         return true;

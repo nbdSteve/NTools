@@ -48,11 +48,11 @@ public class ToolLoaderUtil {
             builder = new ItemBuilderUtil(section.getString("material"), section.getString("data"));
         }
         builder.addName(section.getString("name"));
-        builder.setLorePlaceholders("{upgrade}", "{uses}", "{mined}");
+        builder.setLorePlaceholders("{upgrade}", "{uses}", "{mined}", "{mode}");
         builder.addLore(section.getStringList("lore"),
                 this.upgrade.getLoreStringForLevel(0),
                 String.valueOf(file.get().getInt("uses.starting")),
-                "0");
+                "0", file.get().getStringList("mode.track").get(0).split(":")[0]);
         builder.addEnchantments(section.getStringList("enchantments"));
         builder.addItemFlags(section.getStringList("item-flags"));
         builder.addNBT(module, this.name, this.file);

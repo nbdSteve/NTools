@@ -91,6 +91,7 @@ public class ItemBuilderUtil {
         nbtItem.setInteger("tools+.uses", file.get().getInt("uses.starting"));
         nbtItem.setInteger("tools+.blocks", 0);
         nbtItem.setInteger("tools+.upgrade-level", 0);
+        nbtItem.setInteger("tools+.mode-level", 0);
     }
 
     public void setItemMeta(ItemMeta itemMeta) {

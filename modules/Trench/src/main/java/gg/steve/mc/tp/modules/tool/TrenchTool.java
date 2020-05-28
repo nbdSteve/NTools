@@ -1,6 +1,8 @@
 package gg.steve.mc.tp.modules.tool;
 
+import gg.steve.mc.tp.attribute.ToolAttributeType;
 import gg.steve.mc.tp.attribute.types.BlocksMinedToolAttribute;
+import gg.steve.mc.tp.attribute.types.ModeSwitchToolAttribute;
 import gg.steve.mc.tp.attribute.types.UsesToolAttribute;
 import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.managers.PluginFile;
@@ -21,6 +23,10 @@ public class TrenchTool extends AbstractTool {
         }
         if (config.getBoolean("blocks-mined.enabled")) {
             getAttributeManager().addToolAttribute(new BlocksMinedToolAttribute(config.getString("blocks-mined.lore-update-string")));
+        }
+        if (config.getBoolean("mode.enabled")) {
+            getAttributeManager().addToolAttribute(new ModeSwitchToolAttribute(config.getString("mode.lore-update-string")));
+            ((ModeSwitchToolAttribute) getAttributeManager().getAttribute(ToolAttributeType.MODE_SWITCH)).loadData(file);
         }
         setUpgradeGui(new UpgradeGui(file.get().getConfigurationSection("upgrade-gui")));
     }
