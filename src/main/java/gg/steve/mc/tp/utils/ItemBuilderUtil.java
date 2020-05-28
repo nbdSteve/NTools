@@ -84,7 +84,7 @@ public class ItemBuilderUtil {
         nbtItem.setString("tools+.name", name);
         nbtItem.setInteger("tools+.uses", file.get().getInt("uses.starting"));
         nbtItem.setInteger("tools+.blocks", 0);
-        nbtItem.setDouble("tools+.multiplier", file.get().getDouble("multiplier.starting"));
+        nbtItem.setInteger("tools+.upgrade-level", 0);
     }
 
     public void setItemMeta(ItemMeta itemMeta) {

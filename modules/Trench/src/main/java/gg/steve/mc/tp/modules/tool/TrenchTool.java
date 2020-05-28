@@ -1,5 +1,7 @@
 package gg.steve.mc.tp.modules.tool;
 
+import gg.steve.mc.tp.attribute.types.BlocksMinedToolAttribute;
+import gg.steve.mc.tp.attribute.types.UsesToolAttribute;
 import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.tool.AbstractTool;
@@ -12,31 +14,13 @@ public class TrenchTool extends AbstractTool {
 
     public TrenchTool(AbstractUpgrade upgrade, NBTItem item, PluginFile file) {
         super(ToolType.TRENCH, upgrade, item, file);
-    }
-
-    @Override
-    public boolean isRadius() {
-        return true;
-    }
-
-    @Override
-    public boolean isUnlimitedUses() {
-        return false;
-    }
-
-    @Override
-    public boolean isMultiplier() {
-        return false;
-    }
-
-    @Override
-    public boolean isUpgradeable() {
-        return false;
-    }
-
-    @Override
-    public boolean isTrackingBlocks() {
-        return true;
+        YamlConfiguration config = file.get();
+        if (config.getBoolean("uses.enabled")) {
+            getAttributeManager().addToolAttribute(new UsesToolAttribute(config.getString("uses.lore-update-string")));
+        }
+        if (config.getBoolean("blocks-mined.enabled")) {
+            getAttributeManager().addToolAttribute(new BlocksMinedToolAttribute(config.getString("blocks-mined.lore-update-string")));
+        }
     }
 
     @Override

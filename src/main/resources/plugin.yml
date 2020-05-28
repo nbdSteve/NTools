@@ -8,3 +8,11 @@ softdepend: [PlaceholderAPI, HeadDatabase]
 authors: [stevegoodhill]
 description: A comprehensive and expandable custom tools plugin developed for Minecraft using the Spigot API. Developed by Steve.
 website: http://steve.gg
+commands:
+  tp:
+    usage: /<command>
+    description: Core command for Tools+ v2, try /tp help.
+    aliases:
+      - t+
+      - tools
+      - toolsplus

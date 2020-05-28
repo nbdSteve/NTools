@@ -1,5 +1,6 @@
 package gg.steve.mc.tp.managers;
 
+import gg.steve.mc.tp.cmd.ToolsPlusCmd;
 import gg.steve.mc.tp.gui.GuiClickListener;
 import gg.steve.mc.tp.player.HoldToolListener;
 import gg.steve.mc.tp.player.PlayerToolListener;
@@ -32,7 +33,7 @@ public class SetupManager {
     }
 
     public static void registerCommands(JavaPlugin instance) {
-//        instance.getCommand("tp").setExecutor();
+        instance.getCommand("tp").setExecutor(new ToolsPlusCmd());
     }
 
     /**

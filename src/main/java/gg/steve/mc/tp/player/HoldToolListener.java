@@ -12,6 +12,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
@@ -137,6 +138,17 @@ public class HoldToolListener implements Listener {
         NBTItem item = new NBTItem(event.getEntity().getItemInHand());
         if (GetToolHoldingUtil.isHoldingTool(item)) {
             PlayerToolManager.removeToolPlayer(event.getEntity().getUniqueId());
+        }
+    }
+
+    @EventHandler
+    public void clear(PlayerCommandPreprocessEvent event) {
+        if (event.getMessage().equalsIgnoreCase("/clear") ||
+                event.getMessage().equalsIgnoreCase("/ci") ||
+                event.getMessage().equalsIgnoreCase("/clearinventory")) {
+            if (PlayerToolManager.isHoldingTool(event.getPlayer().getUniqueId())) {
+                PlayerToolManager.removeToolPlayer(event.getPlayer().getUniqueId());
+            }
         }
     }
 }

@@ -1,0 +1,28 @@
+help:
+  - '&7&m<----------&r &5&lTools&d+ &fv{version} &7&m---------->'
+  - '&7For command & permission help please visit the wiki >'
+  - ' &bhttps://github.com/nbdSteve/ToolsPlus/wiki'
+  - ''
+  - '&7Installed Tool Modules (&f{modules-number}&7) >'
+  - ' &e- &6{modules-list}&7.'
+  - ''
+  - '&7Loaded Abstract Tools (&f{tools-number}&7) >'
+  - ' &e- &6{tools-list}&7.'
+  - ''
+  - '&7Loaded Player Tools (&f{player-tools-number}&7).'
+  - '&7&m<---------------------------->'
+
+reload:
+  - '&5&lTools&d+&7| You have successfully reloaded the plugin, there are &f{modules-number} &7modules installed.'
+
+module-list:
+  - '&5&lTools&d+&7| Module list>'
+  - '&7Installed Tool Modules (&f{modules-number}&7) >'
+  - ' &e- &6{modules-list}&7.'
+
+tool-list:
+  - '&5&lTools&d+&7| Tool list >'
+  - '&7Loaded Abstract Tools (&f{tools-number}&7) >'
+  - ' &e- &6{tools-list}&7.'
+  - ''
+  - '&7Loaded Player Tools (&f{player-tools-number}&7).'

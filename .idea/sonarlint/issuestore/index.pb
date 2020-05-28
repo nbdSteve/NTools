@@ -87,3 +87,13 @@ g
 7src/main/java/gg/steve/mc/tp/utils/ItemBuilderUtil.java,0\1\01634605fbc0cd568afc385341bd59c40dc1fc07
 a
 1src/main/java/gg/steve/mc/tp/tool/LoadedTool.java,0\7\07b6bb690c381804ed4e9a0afb9c1939b7ac7ff6
+m
+=src/main/java/gg/steve/mc/tp/attribute/ToolAttributeType.java,4\1\415a9353c11448a791c11fd13ba1166b950f9b65
+q
+Asrc/main/java/gg/steve/mc/tp/attribute/AbstractToolAttribute.java,4\0\40b24202f3c55b0fd8262ea31c41fd4e95d6be9f
+s
+Csrc/main/java/gg/steve/mc/tp/attribute/types/UsesToolAttribute.java,6\e\6e7bf5f7ac3755b90d86e9a01bd4930cf9d280f4
+z
+Jsrc/main/java/gg/steve/mc/tp/attribute/types/BlocksMinedToolAttribute.java,f\4\f45ecdaf3929db9695a5e16400ae3ba7cb193bb8
+p
+@src/main/java/gg/steve/mc/tp/attribute/ToolAttributeManager.java,1\a\1ac572e6abf78cb4dec3266e16b2a9d4386225a1

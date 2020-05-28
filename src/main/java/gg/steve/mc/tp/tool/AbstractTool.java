@@ -1,8 +1,8 @@
 package gg.steve.mc.tp.tool;
 
+import gg.steve.mc.tp.attribute.ToolAttributeManager;
 import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.upgrade.AbstractUpgrade;
-import gg.steve.mc.tp.utils.LogUtil;
 import gg.steve.mc.tp.utils.PluginFile;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
@@ -15,12 +15,14 @@ public abstract class AbstractTool {
     private AbstractUpgrade upgrade;
     private NBTItem item;
     private PluginFile config;
+    private ToolAttributeManager attributeManager;
 
     public AbstractTool(ToolType type, AbstractUpgrade upgrade, NBTItem item, PluginFile config) {
         this.type = type;
         this.upgrade = upgrade;
         this.item = item;
         this.config = config;
+        this.attributeManager = new ToolAttributeManager();
     }
 
     public ToolType getType() {
@@ -56,15 +58,9 @@ public abstract class AbstractTool {
         return this.upgrade.getMaxLevel();
     }
 
-    public abstract boolean isRadius();
-
-    public abstract boolean isUnlimitedUses();
-
-    public abstract boolean isMultiplier();
-
-    public abstract boolean isUpgradeable();
-
-    public abstract boolean isTrackingBlocks();
+    public ToolAttributeManager getAttributeManager() {
+        return attributeManager;
+    }
 
     public abstract YamlConfiguration getModuleConfig();
 

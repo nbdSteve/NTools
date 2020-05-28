@@ -74,4 +74,8 @@ public final class ToolsPlus extends JavaPlugin {
     public static String formatNumber(float amount) {
         return numberFormat.format(amount);
     }
+
+    public static String getVersion() {
+        return version;
+    }
 }

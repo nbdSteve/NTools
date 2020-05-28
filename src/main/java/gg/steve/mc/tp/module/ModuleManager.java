@@ -72,4 +72,23 @@ public class ModuleManager {
             uninstallModule(modules.get(type));
         }
     }
+
+    public static String getModulesAsList() {
+        StringBuilder message = new StringBuilder();
+        if (modules.size() > 0) {
+            int i = 0;
+            for (ModuleType type : modules.keySet()) {
+                message.append(type.name());
+                if (i != modules.size() - 1) {
+                    message.append(", ");
+                }
+                i++;
+            }
+        }
+        return message.toString();
+    }
+
+    public static String getModuleCount() {
+        return String.valueOf(modules.size());
+    }
 }

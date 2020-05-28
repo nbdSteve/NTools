@@ -1,20 +1,19 @@
 type: trench
 #
-starting-radius: 1 # 3x3
-#
 upgrade:
   enabled: true
   currency: vault
   track:
-    # syntax: <radius>:<price>:<string for gui>
+    # syntax: <radius>:<price>:<string for gui / tool>
+    - '1:0.0:3x3'
     - '2:1000.0:5x5'
     - '3:1000.0:7x7'
-  lore-update-string: ' &6- Radius&7| &e&l{radius}'
+  lore-update-string: ' &6- Radius&7| &e&l{upgrade}'
 #
 uses:
   enabled: true
   starting: 100
-  lore-update-string: ' &6- Uses&7| &e&l{uses}'
+  lore-update-string: ' &6- Uses Remaining&7| &e&l{uses}'
 #
 blocks-mined:
   enabled: true

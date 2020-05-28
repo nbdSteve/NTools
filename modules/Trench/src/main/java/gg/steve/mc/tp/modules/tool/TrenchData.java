@@ -12,5 +12,6 @@ public class TrenchData implements ToolData {
     @Override
     public void onBlockBreak(BlockBreakEvent event, LoadedTool tool) {
         if (!tool.decrementUses(event.getPlayer())) return;
+        if (!tool.incrementBlocksMined(event.getPlayer(), 1)) return;
     }
 }

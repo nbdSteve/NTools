@@ -10,12 +10,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum MessageType {
-    PURCHASE("purchase", "{piece}", "{set-name}"),
-    RELOAD("reload"),
-    HELP("help"),
-    GIVE_GIVER("give-piece-giver", "{player}", "{piece}", "{set-name}", "{amount}"),
-    GIVE_RECEIVER("give-piece-receiver", "{piece}", "{set-name}", "{amount}"),
-    UNSAFE_WARP_LOCATION("unsafe-warp-location"),
+    RELOAD("reload", "{modules-number}"),
+    HELP("help", "{version}", "{modules-number}", "{modules-list}", "{tools-number}", "{tools-list}", "{player-tools-number}"),
+    MODULE_LIST("module-list", "{modules-number}", "{modules-list}"),
+    TOOL_LIST("tool-list", "{tools-number}", "{tools-list}", "{player-tools-number}"),
     INSUFFICIENT_FUNDS("insufficient-funds");
 
     private String path;

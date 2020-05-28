@@ -30,7 +30,7 @@ public class ToolLoaderUtil {
     }
 
     public void loadItem(ModuleType module) {
-        ConfigurationSection section = file.get().getConfigurationSection("item");
+        ConfigurationSection section = this.file.get().getConfigurationSection("item");
         ItemBuilderUtil builder;
         if (section.getString("material").startsWith("hdb")) {
             String[] parts = section.getString("material").split("-");
@@ -47,19 +47,24 @@ public class ToolLoaderUtil {
             builder = new ItemBuilderUtil(section.getString("material"), section.getString("data"));
         }
         builder.addName(section.getString("name"));
-        builder.setLorePlaceholders("{radius}", "{uses}", "{mined}");
+        builder.setLorePlaceholders("{upgrade}", "{uses}", "{mined}");
         builder.addLore(section.getStringList("lore"),
-                String.valueOf(file.get().getInt("starting-radius")),
+                this.upgrade.getLoreStringForLevel(0),
                 String.valueOf(file.get().getInt("uses.starting")),
                 "0");
         builder.addEnchantments(section.getStringList("enchantments"));
         builder.addItemFlags(section.getStringList("item-flags"));
-        builder.addNBT(module, this.name, file);
+        builder.addNBT(module, this.name, this.file);
         this.item = builder.getNbtItem();
     }
 
     public void loadUpgrade() {
-        this.upgrade = new VaultUpgradeType();
+        boolean enabled = this.file.get().getBoolean("upgrade.enabled");
+        switch (this.file.get().getString("upgrade.currency")) {
+            case "vault":
+                this.upgrade = new VaultUpgradeType(this.file, enabled);
+                break;
+        }
     }
 
     public void loadToolData() {

@@ -4,9 +4,14 @@ import gg.steve.mc.tp.managers.Files;
 import org.bukkit.command.CommandSender;
 
 public enum PermissionNode {
+    // cmd
     RELOAD("command.reload"),
     GIVE("command.give"),
-    HELP("command.help");
+    HELP("command.help"),
+    LIST("command.list"),
+    // gui
+    USE("gui.use"),
+    TRENCH("gui.trench");
 
     private String path;
 

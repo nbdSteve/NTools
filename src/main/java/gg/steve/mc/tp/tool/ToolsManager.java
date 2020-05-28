@@ -64,4 +64,27 @@ public class ToolsManager {
         if (!isLoadedToolRegistered(toolId)) return null;
         return serverTools.get(toolId);
     }
+
+    public static String getAbstractToolCount() {
+        return String.valueOf(tools.size());
+    }
+
+    public static String getPlayerToolCount() {
+        return String.valueOf(serverTools.size());
+    }
+
+    public static String getAbstractToolsAsList() {
+        StringBuilder message = new StringBuilder();
+        if (tools.size() > 0) {
+            int i = 0;
+            for (String name : tools.keySet()) {
+                message.append(name);
+                if (i != tools.size() - 1) {
+                    message.append(", ");
+                }
+                i++;
+            }
+        }
+        return message.toString();
+    }
 }
