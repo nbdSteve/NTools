@@ -7,7 +7,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
 
 public class PlayerToolListener implements Listener {
 
@@ -20,10 +19,5 @@ public class PlayerToolListener implements Listener {
         ModuleType module = ModuleType.valueOf(player.getToolType().name());
         if (!ModuleManager.isInstalled(module)) return;
         ToolsManager.getTool(player.getToolName()).getData().onBlockBreak(event, player.getLoadedTool());
-    }
-
-    @EventHandler
-    public void onJoin(PlayerJoinEvent event) {
-        event.getPlayer().getInventory().addItem(ToolsManager.getTool("trench-3x3").getItemStack());
     }
 }

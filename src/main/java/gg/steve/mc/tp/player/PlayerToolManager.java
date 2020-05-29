@@ -2,7 +2,7 @@ package gg.steve.mc.tp.player;
 
 import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.tool.LoadedTool;
-import gg.steve.mc.tp.utils.GetToolHoldingUtil;
+import gg.steve.mc.tp.tool.utils.GetToolHoldingUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

@@ -1,15 +1,0 @@
-
-V
-java:S1128"9Remove this unused import 'gg.steve.mc.tp.utils.LogUtil'.(Øº§“8Õûß¥.
-u
-java:S1128"SRemove this unused import 'com.sun.java.accessibility.util.GUIInitializedListener'.(Ôó¯÷ÿÿÿÿÿ8Õûß¥.
-W
-java:S1191"5Use classes from the Java API instead of Sun classes.(Ôó¯÷ÿÿÿÿÿ8Õûß¥.
-W
-java:S1128
-"5Remove this unused import 'org.bukkit.entity.Player'.(Î©Øüúÿÿÿÿ8½ÁøÕ¥.
-z	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(›™¢ÿşÿÿÿÿ8Õûß¥.
-f
-java:S1128"DRemove this unused import 'gg.steve.mc.tp.player.PlayerToolManager'.(Õ•®Öøÿÿÿÿ8½ÁøÕ¥.
-o
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(Ø¸Õ‹8½ÁøÕ¥.

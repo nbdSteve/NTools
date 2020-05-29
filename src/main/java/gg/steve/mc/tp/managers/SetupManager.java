@@ -1,10 +1,14 @@
 package gg.steve.mc.tp.managers;
 
+import com.sun.java.accessibility.util.GUIInitializedMulticaster;
 import gg.steve.mc.tp.cmd.ToolsPlusCmd;
 import gg.steve.mc.tp.gui.GuiClickListener;
+import gg.steve.mc.tp.gui.GuiManager;
+import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.player.HoldToolListener;
 import gg.steve.mc.tp.player.PlayerToolListener;
 import gg.steve.mc.tp.player.PlayerToolManager;
+import gg.steve.mc.tp.tool.ToolsManager;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -51,6 +55,22 @@ public class SetupManager {
 
     public static void registerEvent(JavaPlugin instance, Listener listener) {
         instance.getServer().getPluginManager().registerEvents(listener, instance);
+    }
+
+    public static void loadPluginCache() {
+        ModuleManager.loadInstalledModules();
+        GuiManager.initialise();
+        ToolsManager.initialiseTools();
+        PlayerToolManager.initialise();
+        ToolConfigDataManager.initialise();
+    }
+
+    public static void shutdownPluginCache() {
+        ToolConfigDataManager.shutdown();
+        PlayerToolManager.shutdown();
+        ToolsManager.shutdown();
+        GuiManager.shutdown();
+        ModuleManager.uninstalledAllModules();
     }
 
     public static FileManager getFileManager() {

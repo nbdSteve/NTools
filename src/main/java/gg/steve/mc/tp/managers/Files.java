@@ -13,7 +13,9 @@ public enum Files {
     DEBUG("lang" + File.separator + "debug.yml"),
     MESSAGES("lang" + File.separator + "messages.yml"),
     // trench
-    TRENCH_CONFIG("trench" + File.separator + "config.yml");
+    TRENCH_CONFIG("trench" + File.separator + "config.yml"),
+    // tray
+    TRAY_CONFIG("tray" + File.separator + "config.yml");
 
     private final String path;
 

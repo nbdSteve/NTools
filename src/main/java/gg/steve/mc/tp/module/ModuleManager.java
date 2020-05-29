@@ -24,7 +24,7 @@ public class ModuleManager {
             message.append(", (");
             int i = 0;
             for (ModuleType type : modules.keySet()) {
-                message.append(type.name());
+                message.append(type.getNiceName());
                 if (i != modules.size() - 1) {
                     message.append(", ");
                 } else {
@@ -68,9 +68,7 @@ public class ModuleManager {
 
     public static void uninstalledAllModules() {
         if (modules == null || modules.isEmpty()) return;
-        for (ModuleType type : modules.keySet()) {
-            uninstallModule(modules.get(type));
-        }
+        modules.clear();
     }
 
     public static String getModulesAsList() {
@@ -78,7 +76,7 @@ public class ModuleManager {
         if (modules.size() > 0) {
             int i = 0;
             for (ModuleType type : modules.keySet()) {
-                message.append(type.name());
+                message.append(type.getNiceName());
                 if (i != modules.size() - 1) {
                     message.append(", ");
                 }

@@ -5,6 +5,8 @@ import gg.steve.mc.tp.managers.SetupManager;
 import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.module.ToolsPlusModule;
 import gg.steve.mc.tp.utils.LogUtil;
+import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 
 import java.io.File;
@@ -35,6 +37,9 @@ public class ModuleLoaderUtil {
             ToolsPlusModule module = createInstance(klass);
             for (Listener listener : module.getListeners()) {
                 SetupManager.registerEvent(ToolsPlus.get(), listener);
+            }
+            if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+                // register papi expansions
             }
             module.getModuleType().loadModuleFiles();
             ModuleManager.installToolModule(module.getModuleType(), module);

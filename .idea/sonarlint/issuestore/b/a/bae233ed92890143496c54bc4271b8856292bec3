@@ -1,0 +1,7 @@
+
+\
+java:S1118
+":Add a private constructor to hide the implicit public one.(ÏÓîÜùÿÿÿÿ8ÕŠà¥.
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(‡çÏØ8¦İ¡ô¥.
+u	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(×ö–Ñ8¢¨Çó¥.

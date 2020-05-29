@@ -1,0 +1,11 @@
+
+o
+java:S1128"RRemove this unused import 'me.clip.placeholderapi.expansion.PlaceholderExpansion'.(£È¶Ÿ8áñÿ¥.
+P
+java:S1874<"3Remove this use of "newInstance"; it is deprecated.(äŒù¹8®¨¼ƒ¥.
+P
+java:S1874@"3Remove this use of "newInstance"; it is deprecated.(äŒù¹8®¨¼ƒ¥.
+f
+java:S2259&"DA "NullPointerException" could be thrown; "module" is nullable here.(¡¬éúşÿÿÿÿ8âÒ‡¥.
+G
+java:S1181E"%Catch Exception instead of Throwable.(•”ø¾øÿÿÿÿ8®¨¼ƒ¥.

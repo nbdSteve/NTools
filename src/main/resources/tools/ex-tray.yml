@@ -1,0 +1,49 @@
+type: tray
+#
+upgrade:
+  enabled: true
+  currency: blocks-mined
+  gui: 'basic-gui'
+  track:
+    # syntax: <radius>:<price>:<string for lore>
+    - '1:0.0:3x3'
+    - '2:1000.0:5x5'
+    - '3:1000.0:7x7'
+  lore-update-string: ' &6- Radius&7| &e&l{upgrade}'
+#
+mode:
+  sneak-switch: false
+  currency: xp-raw
+  gui: 'basic-gui'
+  track:
+    # syntax: <mode type>:<price>:<string for lore>
+    - 'tray:0.0:TRAY'
+  lore-update-string: ' &6- Mode&7| &e&l{mode}'
+#
+uses:
+  enabled: true
+  starting: 100
+  lore-update-string: ' &6- Uses Remaining&7| &e&l{uses}'
+#
+blocks-mined:
+  enabled: true
+  lore-update-string: ' &6- Blocks Mined&7| &e&l{mined}'
+#
+item:
+  material: diamond_pickaxe
+  data: 0
+  name: '&6&lTray Tool &7&o((&e&oUpgradeable&7&o))'
+  lore:
+    - ''
+    - '&7An upgradable tray tool with uses.'
+    - ''
+    - '&f&lTOOL INFO'
+    - ' &6- Mode&7| &e&l{mode}'
+    - ' &6- Radius&7| &e&l{upgrade}'
+    - ' &6- Uses Remaining&7| &e&l{uses}'
+    - ' &6- Blocks Mined&7| &e&l{mined}'
+  enchantments:
+    - dig_speed:5
+    - durability:3
+  item-flags:
+  unbreakable: true

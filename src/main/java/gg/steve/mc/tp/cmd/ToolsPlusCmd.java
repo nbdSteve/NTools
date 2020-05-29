@@ -5,6 +5,7 @@ import gg.steve.mc.tp.cmd.misc.ListCmd;
 import gg.steve.mc.tp.cmd.misc.ReloadCmd;
 import gg.steve.mc.tp.player.PlayerToolManager;
 import gg.steve.mc.tp.tool.ToolsManager;
+import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -32,13 +33,15 @@ public class ToolsPlusCmd implements CommandExecutor {
                 ListCmd.list(sender, args);
                 break;
             case "upgrade":
-                PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool().openUpgrade((Player) sender);
+                LogUtil.info(PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool().getName());
+                PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool().openUpgradeGui((Player) sender);
                 break;
             case "mode":
                 PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool().switchMode((Player) sender);
                 break;
             case "give":
-                ((Player) sender).getInventory().addItem(ToolsManager.getTool("trench-3x3").getItemStack());
+                ((Player) sender).getInventory().addItem(ToolsManager.getTool("ex-trench").getItemStack());
+                ((Player) sender).getInventory().addItem(ToolsManager.getTool("ex-tray").getItemStack());
 //                PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool().getAbstractTool().getUpgrade().doUpgrade((Player) sender, PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool());
         }
         return true;

@@ -5,7 +5,8 @@ import gg.steve.mc.tp.managers.SetupManager;
 import gg.steve.mc.tp.managers.PluginFile;
 
 public enum ModuleType {
-    TRENCH("TrenchModule");
+    TRENCH("TrenchModule"),
+    TRAY("TrayModule");
 
     private String moduleName;
 
@@ -27,5 +28,12 @@ public enum ModuleType {
                 file.load(SetupManager.getFileManager());
             }
         }
+    }
+
+    public String getNiceName() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(name(), 0, 1);
+        builder.append(name().substring(1).toLowerCase());
+        return builder.toString();
     }
 }

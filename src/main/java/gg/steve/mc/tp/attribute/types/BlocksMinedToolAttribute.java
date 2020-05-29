@@ -4,12 +4,12 @@ import gg.steve.mc.tp.ToolsPlus;
 import gg.steve.mc.tp.attribute.AbstractToolAttribute;
 import gg.steve.mc.tp.attribute.ToolAttributeType;
 import gg.steve.mc.tp.nbt.NBTItem;
-import gg.steve.mc.tp.utils.GetToolHoldingUtil;
-import gg.steve.mc.tp.utils.ItemBuilderUtil;
+import gg.steve.mc.tp.tool.utils.GetToolHoldingUtil;
 import gg.steve.mc.tp.utils.LogUtil;
+import gg.steve.mc.tp.tool.utils.LoreUpdaterUtil;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
-import java.util.List;
 import java.util.UUID;
 
 public class BlocksMinedToolAttribute extends AbstractToolAttribute {
@@ -24,23 +24,11 @@ public class BlocksMinedToolAttribute extends AbstractToolAttribute {
             LogUtil.warning("Tried to increment blocks mined for a tool that doesn't have any lore! Aborting.");
             return false;
         }
-        String currentLore = getUpdateString().replace("{mined}", ToolsPlus.formatNumber(current));
-        current += change;
-        String replacementLore = getUpdateString().replace("{mined}", ToolsPlus.formatNumber(current));
-        item.setInteger("tools+.blocks", current);
-        ItemBuilderUtil builder = new ItemBuilderUtil(item.getItem());
-        List<String> lore = builder.getLore();
-        for (int i = 0; i < lore.size(); i++) {
-            if (lore.get(i).contains(currentLore)) {
-                String line = lore.get(i).replace(currentLore, replacementLore);
-                lore.set(i, line);
-                break;
-            }
-        }
-        builder.setLore(lore);
-        item.getItem().setItemMeta(builder.getItemMeta());
+        ItemStack updated = LoreUpdaterUtil.updateLore(item, "blocks", current + change,
+                getUpdateString().replace("{mined}", ToolsPlus.formatNumber(current)),
+                getUpdateString().replace("{mined}", ToolsPlus.formatNumber(current + change)));
         if (GetToolHoldingUtil.isStillHoldingTool(toolId, player.getItemInHand())) {
-            player.setItemInHand(item.getItem());
+            player.setItemInHand(updated);
             player.updateInventory();
             return true;
         } else {

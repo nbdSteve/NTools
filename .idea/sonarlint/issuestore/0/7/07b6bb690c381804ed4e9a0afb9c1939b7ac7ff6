@@ -1,0 +1,19 @@
+
+K
+java:S1659")Declare "blocksMined" on a separate line.(¹‘öŠøÿÿÿÿ8µ°¿³¥.
+I
+java:S1659"'Declare "modeLevel" on a separate line.(¹‘öŠøÿÿÿÿ8ÊÙ¡ß¥.
+p
+java:S1128"SRemove this unused import 'gg.steve.mc.tp.attribute.types.ModeSwitchToolAttribute'.(•¸º‹8Ä±„¦.
+W
+java:S1874,"5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8ÊŒ³Æ¥.
+L
+java:S1659"*Declare "upgradeLevel" on a separate line.(¹‘öŠøÿÿÿÿ8Ş¡ŞÑ¥.
+W
+java:S1874#"5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8® ş·¥.
+G
+java:S1659"%Declare "modeGui" on a separate line.(øˆóÒüÿÿÿÿ8ìœ‡û¥.
+W
+java:S18744"5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8Ÿê£ß¥.
+G
+java:S1659"%Declare "usesGui" on a separate line.(øˆóÒüÿÿÿÿ8ìœ‡û¥.

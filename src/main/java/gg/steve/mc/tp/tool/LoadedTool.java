@@ -3,9 +3,9 @@ package gg.steve.mc.tp.tool;
 import gg.steve.mc.tp.attribute.ToolAttributeType;
 import gg.steve.mc.tp.attribute.types.ModeSwitchToolAttribute;
 import gg.steve.mc.tp.gui.AbstractGui;
-import gg.steve.mc.tp.managers.PluginFile;
+import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.nbt.NBTItem;
-import gg.steve.mc.tp.utils.LogUtil;
+import gg.steve.mc.tp.upgrade.CurrencyType;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
@@ -15,7 +15,7 @@ public class LoadedTool {
     private UUID toolId;
     private int uses, blocksMined, upgradeLevel, modeLevel;
     private String name;
-    private AbstractGui upgradeGui;
+    private AbstractGui upgradeGui, usesGui, modeGui;
 
     public LoadedTool(UUID toolId, NBTItem item) {
         this.toolId = toolId;
@@ -26,6 +26,8 @@ public class LoadedTool {
         this.name = item.getString("tools+.name");
         this.tool = ToolsManager.getTool(this.name);
         this.upgradeGui = this.tool.getUpgradeGui();
+        this.usesGui = this.tool.getUsesGui();
+        this.modeGui = this.tool.getModeGui();
     }
 
     public boolean decrementUses(Player player) {
@@ -46,11 +48,16 @@ public class LoadedTool {
     }
 
     public boolean switchMode(Player player) {
-        if (!tool.getAttributeManager().isAttributeEnabled(ToolAttributeType.MODE_SWITCH)) return true;
+        if (!tool.getModeAttribute().isChangingEnabled()) return true;
         NBTItem nbtItem = new NBTItem(player.getItemInHand());
         int current = this.modeLevel;
-        this.modeLevel = ((ModeSwitchToolAttribute) tool.getAttributeManager().getAttribute(ToolAttributeType.MODE_SWITCH)).getNextMode(this.modeLevel);
-        return tool.getAttributeManager().getAttribute(ToolAttributeType.MODE_SWITCH).doUpdate(player, nbtItem, this.toolId, current, this.modeLevel);
+        int next = tool.getModeAttribute().getNextMode(this.modeLevel);
+        if (!tool.getAttributeManager().getAttribute(ToolAttributeType.MODE_SWITCH).doUpdate(player, nbtItem, this.toolId, current, next)) {
+            return false;
+        } else {
+            this.modeLevel = next;
+            return true;
+        }
     }
 
     public AbstractTool getAbstractTool() {
@@ -81,8 +88,51 @@ public class LoadedTool {
         return blocksMined;
     }
 
-    public void openUpgrade(Player player) {
+    public String getModeTypeString() {
+        return tool.getModeAttribute().getCurrentModeString(this.modeLevel);
+    }
+
+    public String getCurrentModeLore() {
+        return tool.getModeAttribute().getCurrentModeLore(this.modeLevel);
+    }
+
+    public String getNextModeLore() {
+        if (!tool.getModeAttribute().isChangingEnabled()) return Files.CONFIG.get().getString("no-mode-change-placeholder");
+        return tool.getModeAttribute().getNextModeLore(this.modeLevel);
+    }
+
+    public CurrencyType getModeCurrency() {
+        if (!tool.getModeAttribute().isChangingEnabled()) return CurrencyType.NONE;
+        return tool.getModeAttribute().getCurrency();
+    }
+
+    public double getModeChangePrice() {
+        if (!tool.getModeAttribute().isChangingEnabled()) return 0;
+        return tool.getModeAttribute().getSwitchPriceForMode(this.modeLevel);
+    }
+
+    public int getIntegerModifier() {
+        return tool.getUpgrade().getIntegerModifierForLevel(this.upgradeLevel);
+    }
+
+    public boolean openUpgradeGui(Player player) {
+        if (this.upgradeGui == null) return false;
         this.upgradeGui.refresh(this);
         this.upgradeGui.open(player);
+        return true;
+    }
+
+    public boolean openUsesGui(Player player) {
+        if (this.usesGui == null) return false;
+        this.usesGui.refresh(this);
+        this.usesGui.open(player);
+        return true;
+    }
+
+    public boolean openModeGui(Player player) {
+        if (this.modeGui == null) return false;
+        this.modeGui.refresh(this);
+        this.modeGui.open(player);
+        return true;
     }
 }

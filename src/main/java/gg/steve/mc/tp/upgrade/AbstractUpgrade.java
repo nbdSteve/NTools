@@ -1,5 +1,6 @@
 package gg.steve.mc.tp.upgrade;
 
+import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.tool.LoadedTool;
 import gg.steve.mc.tp.utils.ColorUtil;
 import gg.steve.mc.tp.managers.PluginFile;
@@ -49,7 +50,11 @@ public abstract class AbstractUpgrade {
 
     public String getLoreStringForLevel(int level) {
         if (this.track == null || this.track.isEmpty() || !track.containsKey(level)) return "debug";
-        return (String) this.track.get(level).get(2);
+        try {
+            return (String) this.track.get(level).get(2);
+        } catch (Exception e) {
+            return ColorUtil.colorize(Files.CONFIG.get().getString("max-upgrade-placeholder"));
+        }
     }
 
     public CurrencyType getCurrency() {

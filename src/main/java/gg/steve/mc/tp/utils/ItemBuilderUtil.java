@@ -3,6 +3,8 @@ package gg.steve.mc.tp.utils;
 import gg.steve.mc.tp.managers.PluginFile;
 import gg.steve.mc.tp.module.ModuleType;
 import gg.steve.mc.tp.nbt.NBTItem;
+import me.arcaniax.hdb.api.HeadDatabaseAPI;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -23,6 +25,31 @@ public class ItemBuilderUtil {
     private Set<ItemFlag> flags = new HashSet<>();
     private List<String> placeholders = new ArrayList<>();
     private NBTItem nbtItem;
+
+    public static ItemBuilderUtil getBuilderForMaterial(String material, String data) {
+        if (material.startsWith("hdb")) {
+            String[] parts = material.split("-");
+            if (Bukkit.getPluginManager().getPlugin("HeadDatabase") != null) {
+                try {
+                    return new ItemBuilderUtil(new HeadDatabaseAPI().getItemHead(parts[1]));
+                } catch (NullPointerException e) {
+                    try {
+                        return new ItemBuilderUtil(new ItemStack(Material.valueOf("SKULL_ITEM")));
+                    } catch (Exception e1) {
+                        return new ItemBuilderUtil(new ItemStack(Material.valueOf("LEGACY_SKULL_ITEM")));
+                    }
+                }
+            } else {
+                LogUtil.warning("Tried to create a custom head but the plugin HeadDatabase is not installed, setting to default skull.");
+                try {
+                    return new ItemBuilderUtil(new ItemStack(Material.valueOf("SKULL_ITEM")));
+                } catch (Exception e1) {
+                    return new ItemBuilderUtil(new ItemStack(Material.valueOf("LEGACY_SKULL_ITEM")));
+                }
+            }
+        }
+        return new ItemBuilderUtil(material, data);
+    }
 
     public ItemBuilderUtil(ItemStack item) {
         this.item = item;
@@ -50,6 +77,7 @@ public class ItemBuilderUtil {
     }
 
     public void addLore(List<String> lore, String... replacement) {
+        if (this.lore == null) this.lore = new ArrayList<>();
         List<String> replacements = Arrays.asList(replacement);
         for (String line : lore) {
             for (int i = 0; i < this.placeholders.size(); i++) {
@@ -62,7 +90,6 @@ public class ItemBuilderUtil {
     }
 
     public void addEnchantments(List<String> enchants) {
-//        itemMeta.addEnchant(Enchantment.DIG_SPEED, 1, true);
         for (String enchantment : enchants) {
             String[] enchantmentParts = enchantment.split(":");
             itemMeta.addEnchant(Enchantment.getByName(enchantmentParts[0].toUpperCase()),
@@ -79,7 +106,7 @@ public class ItemBuilderUtil {
         item.setItemMeta(itemMeta);
     }
 
-    public void addNBT(){
+    public void addNBT() {
         nbtItem = new NBTItem(item);
         nbtItem.setBoolean("tools+.gui", true);
     }

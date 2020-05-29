@@ -1,4 +1,24 @@
 loaded-tools:
-  - trench-3x3
+  - ex-trench
+  - ex-tray
 
-gui:
+loaded-guis:
+  - basic-gui
+
+max-upgrade-placeholder: 'MAX'
+
+no-mode-change-placeholder: 'Can not be changed'
+
+currency:
+  vault:
+    prefix: '$'
+    suffix: ''
+  xp-raw:
+    prefix: ''
+    suffix: ' EXP'
+  xp-level:
+    prefix: ''
+    suffix: ' XP Levels'
+  blocks-mined:
+    prefix: ''
+    suffix: ' Blocks Mined'
