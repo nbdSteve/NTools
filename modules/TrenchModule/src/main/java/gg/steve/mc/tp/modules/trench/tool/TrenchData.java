@@ -19,7 +19,7 @@ public class TrenchData implements ToolData {
 
     @Override
     public void onBlockBreak(BlockBreakEvent blockBreakEvent, LoadedTool loadedTool) {
-        List<Block> blocks = CubeUtil.getCube(blockBreakEvent.getBlock(), loadedTool.getIntegerModifier(), loadedTool.getModeTypeString());
+        List<Block> blocks = CubeUtil.getCube(blockBreakEvent.getBlock(), loadedTool.getRadius(), "trench");
         if (!blocks.contains(blockBreakEvent.getBlock())) blockBreakEvent.setCancelled(true);
         if (blocks.isEmpty()) return;
         if (!loadedTool.decrementUses(blockBreakEvent.getPlayer())) return;

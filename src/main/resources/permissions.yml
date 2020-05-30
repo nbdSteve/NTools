@@ -2,7 +2,8 @@ command:
   help: tools+.cmd.help
   reload: tools+.cmd.reload
   give: tools+.cmd.give
-  list: tools+.cmd.list
+  module-list: tools+.cmd.module-list
+  tool-list: tools+.cmd.tool-list
 
 gui:
   use: tools+.gui.use

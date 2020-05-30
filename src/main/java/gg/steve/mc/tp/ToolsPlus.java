@@ -44,10 +44,7 @@ public final class ToolsPlus extends JavaPlugin {
             economy = null;
         }
         // Check that the server is running PAPI and register all expansions
-        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
-            LogUtil.info("PlaceholderAPI found, registering expansions with it now...");
-            new ToolsPlusExpansion(instance).register();
-        }
+        SetupManager.registerPlaceholderExpansions(instance);
         LogUtil.info("Thanks for using Tools+ v" + version + ", please contact nbdSteve#0583 on discord if you find any bugs.");
     }
 

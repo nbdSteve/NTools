@@ -1,13 +1,13 @@
 package gg.steve.mc.tp.papi;
 
-import gg.steve.mc.tp.ToolsPlus;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class ToolsPlusExpansion extends PlaceholderExpansion {
-    private ToolsPlus instance;
+    private JavaPlugin instance;
 
-    public ToolsPlusExpansion(ToolsPlus instance) {
+    public ToolsPlusExpansion(JavaPlugin instance) {
         this.instance = instance;
     }
 

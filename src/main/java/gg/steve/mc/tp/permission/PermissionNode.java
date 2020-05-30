@@ -8,7 +8,8 @@ public enum PermissionNode {
     RELOAD("command.reload"),
     GIVE("command.give"),
     HELP("command.help"),
-    LIST("command.list"),
+    MODULE_LIST("command.module-list"),
+    TOOL_LIST("command.tool-list"),
     // gui
     USE("gui.use"),
     TRENCH("gui.trench");

@@ -1,19 +1,29 @@
 
-K
-java:S1659")Declare "blocksMined" on a separate line.(¹‘öŠøÿÿÿÿ8µ°¿³¥.
+R
+java:S1659"0Declare "radiusUpgradeLevel" on a separate line.(ô™Ü–üÿÿÿÿ8‰“™¡¦.
+W
+java:S1874."5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8ÊŒ³Æ¥.
 I
-java:S1659"'Declare "modeLevel" on a separate line.(¹‘öŠøÿÿÿÿ8ÊÙ¡ß¥.
-p
-java:S1128"SRemove this unused import 'gg.steve.mc.tp.attribute.types.ModeSwitchToolAttribute'.(•¸º‹8Ä±„¦.
+java:S1659"'Declare "modeLevel" on a separate line.(ô™Ü–üÿÿÿÿ8ÊÙ¡ß¥.
+V
+java:S1659"4Declare "peakRadiusUpgradeLevel" on a separate line.(ô™Ü–üÿÿÿÿ8·¿¦¦.
 W
-java:S1874,"5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8ÊŒ³Æ¥.
-L
-java:S1659"*Declare "upgradeLevel" on a separate line.(¹‘öŠøÿÿÿÿ8Ş¡ŞÑ¥.
+java:S1874%"5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8® ş·¥.
+z	java:S131U"YComplete cases by adding the missing enum constants or add a default case to this switch.(°Âë¶úÿÿÿÿ8›­¦¦.
+z	java:S131i"YComplete cases by adding the missing enum constants or add a default case to this switch.(°Âë¶úÿÿÿÿ8É­Å¦¦.
+X
+java:S1659"6Declare "peakModifierUpgradeLevel" on a separate line.(ô™Ü–üÿÿÿÿ8·¿¦¦.
 W
-java:S1874#"5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8® ş·¥.
+java:S18746"5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8Ÿê£ß¥.
+m
+java:S1301i"KReplace this "switch" statement by "if" statements to increase readability.(°Âë¶úÿÿÿÿ8É­Å¦¦.
+h	java:S128V"LEnd this switch case with an unconditional break, return or throw statement.(ñèÛ8›­¦¦.
+m
+java:S1301U"KReplace this "switch" statement by "if" statements to increase readability.(°Âë¶úÿÿÿÿ8›­¦¦.
+K
+java:S1659")Declare "blocksMined" on a separate line.(ô™Ü–üÿÿÿÿ8µ°¿³¥.
+T
+java:S1659"2Declare "modifierUpgradeLevel" on a separate line.(ô™Ü–üÿÿÿÿ8¬Ó™¡¦.
 G
-java:S1659"%Declare "modeGui" on a separate line.(øˆóÒüÿÿÿÿ8ìœ‡û¥.
-W
-java:S18744"5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8Ÿê£ß¥.
-G
-java:S1659"%Declare "usesGui" on a separate line.(øˆóÒüÿÿÿÿ8ìœ‡û¥.
+java:S1659"%Declare "modeGui" on a separate line.(ŠˆºÂøÿÿÿÿ8ìœ‡û¥.
+h	java:S128j"LEnd this switch case with an unconditional break, return or throw statement.(ñèÛ8É­Å¦¦.

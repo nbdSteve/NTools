@@ -1,11 +1,11 @@
 package gg.steve.mc.tp.tool;
 
 import gg.steve.mc.tp.attribute.ToolAttributeType;
-import gg.steve.mc.tp.attribute.types.ModeSwitchToolAttribute;
 import gg.steve.mc.tp.gui.AbstractGui;
-import gg.steve.mc.tp.managers.Files;
+import gg.steve.mc.tp.mode.AbstractModeChange;
+import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.nbt.NBTItem;
-import gg.steve.mc.tp.upgrade.CurrencyType;
+import gg.steve.mc.tp.upgrade.UpgradeType;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
@@ -13,21 +13,23 @@ import java.util.UUID;
 public class LoadedTool {
     private AbstractTool tool;
     private UUID toolId;
-    private int uses, blocksMined, upgradeLevel, modeLevel;
+    private int uses, blocksMined, radiusUpgradeLevel, modifierUpgradeLevel, peakRadiusUpgradeLevel, peakModifierUpgradeLevel, toolModeLevel, sellModeLevel;
     private String name;
-    private AbstractGui upgradeGui, usesGui, modeGui;
+    private AbstractGui usesGui;
 
     public LoadedTool(UUID toolId, NBTItem item) {
         this.toolId = toolId;
         this.uses = item.getInteger("tools+.uses");
         this.blocksMined = item.getInteger("tools+.blocks");
-        this.upgradeLevel = item.getInteger("tools+.upgrade-level");
-        this.modeLevel = item.getInteger("tools+.mode-level");
+        this.radiusUpgradeLevel = item.getInteger("tools+.radius-upgrade-level");
+        this.peakRadiusUpgradeLevel = item.getInteger("tools+.peak-radius-upgrade-level");
+        this.modifierUpgradeLevel = item.getInteger("tools+.modifier-upgrade-level");
+        this.peakModifierUpgradeLevel = item.getInteger("tools+.peak-modifier-upgrade-level");
+        this.toolModeLevel = item.getInteger("tools+.tool-mode-level");
+        this.sellModeLevel = item.getInteger("tools+.sell-mode-level");
         this.name = item.getString("tools+.name");
         this.tool = ToolsManager.getTool(this.name);
-        this.upgradeGui = this.tool.getUpgradeGui();
         this.usesGui = this.tool.getUsesGui();
-        this.modeGui = this.tool.getModeGui();
     }
 
     public boolean decrementUses(Player player) {
@@ -47,19 +49,6 @@ public class LoadedTool {
         return tool.getAttributeManager().getAttribute(ToolAttributeType.BLOCKS_MINED).doUpdate(player, nbtItem, this.toolId, current, amount);
     }
 
-    public boolean switchMode(Player player) {
-        if (!tool.getModeAttribute().isChangingEnabled()) return true;
-        NBTItem nbtItem = new NBTItem(player.getItemInHand());
-        int current = this.modeLevel;
-        int next = tool.getModeAttribute().getNextMode(this.modeLevel);
-        if (!tool.getAttributeManager().getAttribute(ToolAttributeType.MODE_SWITCH).doUpdate(player, nbtItem, this.toolId, current, next)) {
-            return false;
-        } else {
-            this.modeLevel = next;
-            return true;
-        }
-    }
-
     public AbstractTool getAbstractTool() {
         return tool;
     }
@@ -68,12 +57,64 @@ public class LoadedTool {
         return name;
     }
 
-    public int getUpgradeLevel() {
-        return upgradeLevel;
+    public int getUpgradeLevel(UpgradeType upgrade) {
+        switch (upgrade) {
+            case RADIUS:
+                return this.radiusUpgradeLevel;
+            case MODIFIER:
+                return this.modifierUpgradeLevel;
+            default:
+                return 0;
+        }
     }
 
-    public void setUpgradeLevel(int upgradeLevel) {
-        this.upgradeLevel = upgradeLevel;
+    public int getCurrentMode(ModeType mode) {
+        switch (mode) {
+            case TOOL:
+                return this.toolModeLevel;
+            case SELL:
+                return this.sellModeLevel;
+            default:
+                return 0;
+        }
+    }
+
+    public void setUpgradeLevel(UpgradeType upgrade, int level) {
+        switch (upgrade) {
+            case RADIUS:
+                this.radiusUpgradeLevel = level;
+            case MODIFIER:
+                this.modifierUpgradeLevel = level;
+        }
+    }
+
+    public void setModeLevel(ModeType mode, int level) {
+        switch (mode) {
+            case TOOL:
+                this.toolModeLevel = level;
+            case SELL:
+                this.sellModeLevel = level;
+        }
+    }
+
+    public int getPeakUpgradeLevel(UpgradeType upgrade) {
+        switch (upgrade) {
+            case RADIUS:
+                return this.peakRadiusUpgradeLevel;
+            case MODIFIER:
+                return this.peakModifierUpgradeLevel;
+            default:
+                return 0;
+        }
+    }
+
+    public void setPeakUpgradeLevel(UpgradeType upgrade, int level) {
+        switch (upgrade) {
+            case RADIUS:
+                this.peakRadiusUpgradeLevel = level;
+            case MODIFIER:
+                this.peakModifierUpgradeLevel = level;
+        }
     }
 
     public UUID getToolId() {
@@ -88,37 +129,33 @@ public class LoadedTool {
         return blocksMined;
     }
 
-    public String getModeTypeString() {
-        return tool.getModeAttribute().getCurrentModeString(this.modeLevel);
+    public AbstractModeChange getModeChange(ModeType type) {
+        return this.tool.getModeChange(type);
     }
 
-    public String getCurrentModeLore() {
-        return tool.getModeAttribute().getCurrentModeLore(this.modeLevel);
+    public int getRadius() {
+        if (this.tool.getUpgradeManager().isUpgradeEnabled(UpgradeType.RADIUS))
+            return this.tool.getUpgradeManager().getUpgrade(UpgradeType.RADIUS).getIntegerForLevel(this.radiusUpgradeLevel);
+        return 0;
     }
 
-    public String getNextModeLore() {
-        if (!tool.getModeAttribute().isChangingEnabled()) return Files.CONFIG.get().getString("no-mode-change-placeholder");
-        return tool.getModeAttribute().getNextModeLore(this.modeLevel);
+    public double getModifier() {
+        if (this.tool.getUpgradeManager().isUpgradeEnabled(UpgradeType.MODIFIER))
+            return this.tool.getUpgradeManager().getUpgrade(UpgradeType.MODIFIER).getDoubleForLevel(this.modifierUpgradeLevel);
+        return 0;
     }
 
-    public CurrencyType getModeCurrency() {
-        if (!tool.getModeAttribute().isChangingEnabled()) return CurrencyType.NONE;
-        return tool.getModeAttribute().getCurrency();
+    public boolean openUpgradeGui(Player player, UpgradeType type) {
+        if (!this.tool.getUpgradeManager().isUpgradeEnabled(type)) return false;
+        this.tool.getUpgradeManager().getUpgrade(type).getGui().refresh(this);
+        this.tool.getUpgradeManager().getUpgrade(type).getGui().open(player);
+        return true;
     }
 
-    public double getModeChangePrice() {
-        if (!tool.getModeAttribute().isChangingEnabled()) return 0;
-        return tool.getModeAttribute().getSwitchPriceForMode(this.modeLevel);
-    }
-
-    public int getIntegerModifier() {
-        return tool.getUpgrade().getIntegerModifierForLevel(this.upgradeLevel);
-    }
-
-    public boolean openUpgradeGui(Player player) {
-        if (this.upgradeGui == null) return false;
-        this.upgradeGui.refresh(this);
-        this.upgradeGui.open(player);
+    public boolean openModeGui(Player player, ModeType mode) {
+        if (!this.tool.getModeChangeManager().isModeChangeEnabled(mode)) return false;
+        this.tool.getModeChange(mode).getGui().refresh(this);
+        this.tool.getModeChange(mode).getGui().open(player);
         return true;
     }
 
@@ -126,13 +163,6 @@ public class LoadedTool {
         if (this.usesGui == null) return false;
         this.usesGui.refresh(this);
         this.usesGui.open(player);
-        return true;
-    }
-
-    public boolean openModeGui(Player player) {
-        if (this.modeGui == null) return false;
-        this.modeGui.refresh(this);
-        this.modeGui.open(player);
         return true;
     }
 }

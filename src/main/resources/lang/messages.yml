@@ -55,6 +55,11 @@ upgrade:
   text:
     - '&e&l<> &7You upgraded your &6&l{tool-type} Tool &7for &c-{currency-prefix}&l{cost}&c{currency-suffix} &7(&6{level}&e/&6{max}&7) &e&l<>'
 
+downgrade:
+  action-bar: true
+  text:
+    - '&e&l<> &7You downgraded your &6&l{tool-type} Tool &7for &c-{currency-prefix}&l{cost}&c{currency-suffix} &7(&6{level}&e/&6{max}&7) &e&l<>'
+
 mode-change:
   action-bar: true
   text:
@@ -64,3 +69,8 @@ tool-max-level:
   action-bar: true
   text:
     - '&e&l<> &7Unable to upgrade, your tool is already at the max level &e&l<>'
+
+tool-min-level:
+  action-bar: true
+  text:
+    - '&e&l<> &7Unable to downgrade, your tool is already at the lowest level &e&l<>'

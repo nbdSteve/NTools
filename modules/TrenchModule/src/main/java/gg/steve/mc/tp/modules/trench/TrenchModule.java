@@ -7,7 +7,7 @@ import gg.steve.mc.tp.modules.trench.tool.TrenchTool;
 import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.tool.AbstractTool;
 import gg.steve.mc.tp.tool.ToolType;
-import gg.steve.mc.tp.upgrade.AbstractUpgrade;
+import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.event.Listener;
 
 import java.util.ArrayList;
@@ -28,7 +28,12 @@ public class TrenchModule extends ToolsPlusModule {
     }
 
     @Override
-    public AbstractTool loadTool(ToolType toolType, AbstractUpgrade abstractUpgrade, NBTItem nbtItem, PluginFile pluginFile) {
-        return new TrenchTool(abstractUpgrade, nbtItem, pluginFile);
+    public PlaceholderExpansion getPlaceholderExpansion() {
+        return null;
+    }
+
+    @Override
+    public AbstractTool loadTool(ToolType toolType, NBTItem nbtItem, PluginFile pluginFile) {
+        return new TrenchTool(nbtItem, pluginFile);
     }
 }

@@ -16,8 +16,10 @@ public enum GeneralMessage {
     TOOL_LIST("tool-list", "{tools-number}", "{tools-list}", "{player-tools-number}"),
     OUT_OF_USES("out-of-uses", "{tool-type}"),
     UPGRADE("upgrade", "{tool-type}", "{level}", "{max}", "{cost}", "{currency-prefix}", "{currency-suffix}"),
+    DOWNGRADE("downgrade", "{tool-type}", "{level}", "{max}", "{cost}", "{currency-prefix}", "{currency-suffix}"),
     INVENTORY_FULL("inventory-full"),
     TOOL_MAX_LEVEL("tool-max-level"),
+    TOOL_MIN_LEVEL("tool-min-level"),
     MODE_CHANGE("mode-change", "{change}", "{cost}", "{currency-prefix}", "{currency-suffix}"),
     INSUFFICIENT_FUNDS("insufficient-funds", "{balance}", "{cost}", "{currency-prefix}", "{currency-suffix}");
 

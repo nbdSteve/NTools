@@ -1,23 +1,30 @@
 package gg.steve.mc.tp.managers;
 
-import com.sun.java.accessibility.util.GUIInitializedMulticaster;
 import gg.steve.mc.tp.cmd.ToolsPlusCmd;
 import gg.steve.mc.tp.gui.GuiClickListener;
 import gg.steve.mc.tp.gui.GuiManager;
 import gg.steve.mc.tp.module.ModuleManager;
+import gg.steve.mc.tp.papi.ToolsPlusExpansion;
 import gg.steve.mc.tp.player.HoldToolListener;
 import gg.steve.mc.tp.player.PlayerToolListener;
 import gg.steve.mc.tp.player.PlayerToolManager;
 import gg.steve.mc.tp.tool.ToolsManager;
+import gg.steve.mc.tp.utils.LogUtil;
+import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class that handles setting up the plugin on start
  */
 public class SetupManager {
     private static FileManager fileManager;
+    private static List<PlaceholderExpansion> placeholderExpansions;
 
     private SetupManager() throws IllegalAccessException {
         throw new IllegalAccessException("Manager class cannot be instantiated.");
@@ -25,8 +32,6 @@ public class SetupManager {
 
     /**
      * Loads the files into the file manager
-     *
-     * @param fileManager FileManager, the plugins file manager
      */
     public static void setupFiles(FileManager fm) {
         fileManager = fm;
@@ -57,7 +62,22 @@ public class SetupManager {
         instance.getServer().getPluginManager().registerEvents(listener, instance);
     }
 
+    public static void registerPlaceholderExpansions(JavaPlugin instance) {
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            LogUtil.info("PlaceholderAPI found, registering expansions with it now...");
+            new ToolsPlusExpansion(instance).register();
+            for (PlaceholderExpansion expansion : placeholderExpansions) {
+                expansion.register();
+            }
+        }
+    }
+
+    public static void addPlaceholderExpansion(PlaceholderExpansion expansion) {
+        placeholderExpansions.add(expansion);
+    }
+
     public static void loadPluginCache() {
+        placeholderExpansions = new ArrayList<>();
         ModuleManager.loadInstalledModules();
         GuiManager.initialise();
         ToolsManager.initialiseTools();
@@ -71,6 +91,7 @@ public class SetupManager {
         ToolsManager.shutdown();
         GuiManager.shutdown();
         ModuleManager.uninstalledAllModules();
+        if (placeholderExpansions != null && !placeholderExpansions.isEmpty()) placeholderExpansions.clear();
     }
 
     public static FileManager getFileManager() {

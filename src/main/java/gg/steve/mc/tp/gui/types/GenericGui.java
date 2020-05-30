@@ -1,9 +1,11 @@
 package gg.steve.mc.tp.gui.types;
 
 import gg.steve.mc.tp.gui.AbstractGui;
-import gg.steve.mc.tp.tool.LoadedTool;
-import gg.steve.mc.tp.utils.CommandUtil;
 import gg.steve.mc.tp.gui.utils.GuiItemUtil;
+import gg.steve.mc.tp.mode.ModeType;
+import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.upgrade.UpgradeType;
+import gg.steve.mc.tp.utils.CommandUtil;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
@@ -35,26 +37,56 @@ public class GenericGui extends AbstractGui {
             List<Integer> slots = section.getIntegerList(entry + ".slots");
             switch (section.getString(entry + ".action").split(":")[0]) {
                 case "condition":
-                    item = GuiItemUtil.createConditionalItem(section.getConfigurationSection(entry), tool);
-                    for (Integer slot : slots) {
-                        setItemInSlot(slot, item, player -> {
-                            CommandUtil.execute(section.getStringList(entry + ".commands"), player);
-                            if (tool.getUpgradeLevel() + 1 != GuiItemUtil.getConditionLevel(section.getConfigurationSection(entry)))
-                                return;
-                            if (!tool.getAbstractTool().getUpgrade().doUpgrade(player, tool)) {
-                                player.closeInventory();
-                                return;
+                    switch (section.getString(entry + ".action").split(":")[1]) {
+                        case "upgrade":
+                            UpgradeType upgrade = UpgradeType.valueOf(section.getString(entry + ".action").split(":")[2].toUpperCase());
+                            item = GuiItemUtil.createConditionalItem(section.getConfigurationSection(entry), tool, upgrade);
+                            for (Integer slot : slots) {
+                                setItemInSlot(slot, item, player -> {
+                                    CommandUtil.execute(section.getStringList(entry + ".commands"), player);
+                                    if (tool.getPeakUpgradeLevel(upgrade) > GuiItemUtil.getConditionLevel(section.getConfigurationSection(entry))
+                                    || tool.getPeakUpgradeLevel(upgrade) >= tool.getAbstractTool().getUpgrade(upgrade).getMaxLevel()) {
+                                        if (!tool.getAbstractTool().getUpgrade(upgrade).doUpgrade(player, tool)) {
+                                            player.closeInventory();
+                                            return;
+                                        }
+                                    }
+                                    if (tool.getPeakUpgradeLevel(upgrade) + 1 != GuiItemUtil.getConditionLevel(section.getConfigurationSection(entry)))
+                                        return;
+                                    if (!tool.getAbstractTool().getUpgrade(upgrade).doUpgrade(player, tool)) {
+                                        player.closeInventory();
+                                        return;
+                                    }
+                                    refresh(tool);
+                                });
                             }
-                            refresh(tool);
-                        });
+                            break;
+                        case "permission":
+                            break;
                     }
                     break;
                 case "mode-switch":
+                    ModeType mode =ModeType.valueOf(section.getString(entry + ".action").split(":")[1].toUpperCase());
                     item = GuiItemUtil.createItem(section.getConfigurationSection(entry), tool);
                     for (Integer slot : slots) {
                         setItemInSlot(slot, item, player -> {
                             CommandUtil.execute(section.getStringList(entry + ".commands"), player);
-                            if (!tool.switchMode(player)) {
+                            if (!tool.getModeChange(mode).changeMode(player, tool)) {
+                                player.closeInventory();
+                            } else {
+                                refresh(tool);
+                            }
+                        });
+                    }
+                    break;
+                case "downgrade":
+                    UpgradeType upgrade = UpgradeType.valueOf(section.getString(entry + ".action").split(":")[1].toUpperCase());
+                    item = GuiItemUtil.createItem(section.getConfigurationSection(entry), tool);
+                    for (Integer slot : slots) {
+                        setItemInSlot(slot, item, player -> {
+                            CommandUtil.execute(section.getStringList(entry + ".commands"), player);
+                            if (!tool.getAbstractTool().getUpgrade(upgrade).isDowngrade()) return;
+                            if (!tool.getAbstractTool().getUpgradeManager().getUpgrade(upgrade).doDowngrade(player, tool)) {
                                 player.closeInventory();
                             } else {
                                 refresh(tool);

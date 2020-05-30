@@ -87,6 +87,7 @@ public class ModuleManager {
     }
 
     public static String getModuleCount() {
+        if (modules == null) return "0";
         return String.valueOf(modules.size());
     }
 }

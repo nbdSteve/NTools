@@ -4,10 +4,10 @@ import gg.steve.mc.tp.ToolsPlus;
 import gg.steve.mc.tp.message.GeneralMessage;
 import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.tool.LoadedTool;
-import gg.steve.mc.tp.upgrade.AbstractUpgrade;
 import gg.steve.mc.tp.tool.utils.GetToolHoldingUtil;
-import gg.steve.mc.tp.utils.LogUtil;
 import gg.steve.mc.tp.tool.utils.LoreUpdaterUtil;
+import gg.steve.mc.tp.upgrade.AbstractUpgrade;
+import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -31,7 +31,7 @@ public class UpgradeHelper {
             LogUtil.warning("Tried to upgrade a tool that doesn't have any lore! Aborting.");
             return false;
         }
-        this.level = this.tool.getUpgradeLevel();
+        this.level = this.tool.getUpgradeLevel(this.upgrade.getType());
         if (this.level == this.upgrade.getMaxLevel()) {
             GeneralMessage.TOOL_MAX_LEVEL.message(player);
             return false;
@@ -42,26 +42,46 @@ public class UpgradeHelper {
     }
 
     public boolean isUpgradeSuccess() {
-        this.tool.setUpgradeLevel(this.next);
-        ItemStack updated = LoreUpdaterUtil.updateLore(this.item, "upgrade-level", this.next,
-                this.upgrade.getUpdateString().replace("{upgrade}", this.upgrade.getLoreStringForLevel(this.level)),
-                this.upgrade.getUpdateString().replace("{upgrade}", this.upgrade.getLoreStringForLevel(this.next)));
+        this.tool.setUpgradeLevel(this.upgrade.getType(), this.next);
+        if (this.tool.getPeakUpgradeLevel(this.upgrade.getType()) < this.next) {
+            this.tool.setPeakUpgradeLevel(this.upgrade.getType(), this.next);
+        }
+        ItemStack updated = LoreUpdaterUtil.updateLore(this.item, this.upgrade.getType().getLowerCaseName() + "-upgrade-level", this.next,
+                this.upgrade.getUpdateString().replace("{" + this.upgrade.getType().getLowerCaseName() + "-upgrade}", this.upgrade.getLoreStringForLevel(this.level)),
+                this.upgrade.getUpdateString().replace("{" + this.upgrade.getType().getLowerCaseName() + "-upgrade}", this.upgrade.getLoreStringForLevel(this.next)),
+                this.tool.getPeakUpgradeLevel(this.upgrade.getType()));
         if (GetToolHoldingUtil.isStillHoldingTool(this.tool.getToolId(), this.player.getItemInHand())) {
             this.player.setItemInHand(updated);
             this.player.updateInventory();
-            GeneralMessage.UPGRADE.message(this.player,
-                    this.tool.getAbstractTool().getType().getNiceName(),
-                    ToolsPlus.formatNumber(this.next + 1),
-                    ToolsPlus.formatNumber(this.upgrade.getMaxLevel() + 1),
-                    ToolsPlus.formatNumber(cost),
-                    this.upgrade.getCurrency().getPrefix(),
-                    this.upgrade.getCurrency().getSuffix());
+            if (this.tool.getPeakUpgradeLevel(this.upgrade.getType()) > this.next
+                    || this.tool.getPeakUpgradeLevel(upgrade.getType()) >=
+                    this.tool.getAbstractTool().getUpgrade(upgrade.getType()).getMaxLevel()) {
+                GeneralMessage.UPGRADE.message(this.player,
+                        this.tool.getAbstractTool().getType().getNiceName(),
+                        ToolsPlus.formatNumber(this.next + 1),
+                        ToolsPlus.formatNumber(this.upgrade.getMaxLevel() + 1),
+                        ToolsPlus.formatNumber(0),
+                        this.upgrade.getCurrency().getPrefix(),
+                        this.upgrade.getCurrency().getSuffix());
+            } else {
+                GeneralMessage.UPGRADE.message(this.player,
+                        this.tool.getAbstractTool().getType().getNiceName(),
+                        ToolsPlus.formatNumber(this.next + 1),
+                        ToolsPlus.formatNumber(this.upgrade.getMaxLevel() + 1),
+                        ToolsPlus.formatNumber(cost),
+                        this.upgrade.getCurrency().getPrefix(),
+                        this.upgrade.getCurrency().getSuffix());
+            }
             return true;
         } else {
             LogUtil.warning("Upgrade dupe attempted by player: " + this.player.getName() + ", Tools+ has stopped the tool action from happening.");
             ToolsPlus.eco().depositPlayer(this.player, this.cost);
             return false;
         }
+    }
+
+    public boolean hasAlreadyPayedForLevel() {
+        return this.tool.getPeakUpgradeLevel(this.upgrade.getType()) >= this.next;
     }
 
     public double getCost() {
