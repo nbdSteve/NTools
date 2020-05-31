@@ -42,9 +42,11 @@ public class UpgradeHelper {
     }
 
     public boolean isUpgradeSuccess() {
+        boolean peakAlreadySet = true;
         this.tool.setUpgradeLevel(this.upgrade.getType(), this.next);
         if (this.tool.getPeakUpgradeLevel(this.upgrade.getType()) < this.next) {
             this.tool.setPeakUpgradeLevel(this.upgrade.getType(), this.next);
+            peakAlreadySet = false;
         }
         ItemStack updated = LoreUpdaterUtil.updateLore(this.item, this.upgrade.getType().getLowerCaseName() + "-upgrade-level", this.next,
                 this.upgrade.getUpdateString().replace("{" + this.upgrade.getType().getLowerCaseName() + "-upgrade}", this.upgrade.getLoreStringForLevel(this.level)),
@@ -53,9 +55,9 @@ public class UpgradeHelper {
         if (GetToolHoldingUtil.isStillHoldingTool(this.tool.getToolId(), this.player.getItemInHand())) {
             this.player.setItemInHand(updated);
             this.player.updateInventory();
-            if (this.tool.getPeakUpgradeLevel(this.upgrade.getType()) > this.next
+            if ((this.tool.getPeakUpgradeLevel(this.upgrade.getType()) > this.next
                     || this.tool.getPeakUpgradeLevel(upgrade.getType()) >=
-                    this.tool.getAbstractTool().getUpgrade(upgrade.getType()).getMaxLevel()) {
+                    this.tool.getAbstractTool().getUpgrade(upgrade.getType()).getMaxLevel()) && peakAlreadySet) {
                 GeneralMessage.UPGRADE.message(this.player,
                         this.tool.getAbstractTool().getType().getNiceName(),
                         ToolsPlus.formatNumber(this.next + 1),

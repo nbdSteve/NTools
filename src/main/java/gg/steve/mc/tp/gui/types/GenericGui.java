@@ -1,11 +1,15 @@
 package gg.steve.mc.tp.gui.types;
 
+import gg.steve.mc.tp.attribute.ToolAttributeType;
+import gg.steve.mc.tp.currency.AbstractCurrency;
+import gg.steve.mc.tp.currency.CurrencyType;
 import gg.steve.mc.tp.gui.AbstractGui;
 import gg.steve.mc.tp.gui.utils.GuiItemUtil;
 import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.tool.LoadedTool;
 import gg.steve.mc.tp.upgrade.UpgradeType;
 import gg.steve.mc.tp.utils.CommandUtil;
+import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
@@ -44,14 +48,7 @@ public class GenericGui extends AbstractGui {
                             for (Integer slot : slots) {
                                 setItemInSlot(slot, item, player -> {
                                     CommandUtil.execute(section.getStringList(entry + ".commands"), player);
-                                    if (tool.getPeakUpgradeLevel(upgrade) > GuiItemUtil.getConditionLevel(section.getConfigurationSection(entry))
-                                    || tool.getPeakUpgradeLevel(upgrade) >= tool.getAbstractTool().getUpgrade(upgrade).getMaxLevel()) {
-                                        if (!tool.getAbstractTool().getUpgrade(upgrade).doUpgrade(player, tool)) {
-                                            player.closeInventory();
-                                            return;
-                                        }
-                                    }
-                                    if (tool.getPeakUpgradeLevel(upgrade) + 1 != GuiItemUtil.getConditionLevel(section.getConfigurationSection(entry)))
+                                    if (tool.getUpgradeLevel(upgrade) + 1 != GuiItemUtil.getConditionLevel(section.getConfigurationSection(entry)))
                                         return;
                                     if (!tool.getAbstractTool().getUpgrade(upgrade).doUpgrade(player, tool)) {
                                         player.closeInventory();
@@ -66,11 +63,12 @@ public class GenericGui extends AbstractGui {
                     }
                     break;
                 case "mode-switch":
-                    ModeType mode =ModeType.valueOf(section.getString(entry + ".action").split(":")[1].toUpperCase());
+                    ModeType mode = ModeType.valueOf(section.getString(entry + ".action").split(":")[1].toUpperCase());
                     item = GuiItemUtil.createItem(section.getConfigurationSection(entry), tool);
                     for (Integer slot : slots) {
                         setItemInSlot(slot, item, player -> {
                             CommandUtil.execute(section.getStringList(entry + ".commands"), player);
+                            if (!tool.getModeChange(mode).isChangingEnabled()) return;
                             if (!tool.getModeChange(mode).changeMode(player, tool)) {
                                 player.closeInventory();
                             } else {
@@ -95,6 +93,21 @@ public class GenericGui extends AbstractGui {
                     }
                     break;
                 case "uses":
+                    AbstractCurrency currency = CurrencyType.getCurrencyFromString(section.getString(entry + ".action").split(":")[1].toLowerCase());
+                    int amount = Integer.parseInt(section.getString(entry + ".action").split(":")[2]);
+                    double cost = Double.parseDouble(section.getString(entry + ".action").split(":")[3]);
+                    item = GuiItemUtil.createItem(section.getConfigurationSection(entry), tool);
+                    for (Integer slot : slots) {
+                        setItemInSlot(slot, item, player -> {
+                            CommandUtil.execute(section.getStringList(entry + ".commands"), player);
+                            if (!tool.getAbstractTool().getAttributeManager().isAttributeEnabled(ToolAttributeType.USES)) return;
+                            if (!tool.getAbstractTool().getAttributeManager().getAttribute(ToolAttributeType.USES).doIncrease(player, tool, currency, amount, cost)) {
+                                player.closeInventory();
+                            } else {
+                                refresh(tool);
+                            }
+                        });
+                    }
                     break;
                 case "back":
                     break;

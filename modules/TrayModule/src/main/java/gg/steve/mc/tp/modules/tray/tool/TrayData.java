@@ -3,6 +3,7 @@ package gg.steve.mc.tp.modules.tray.tool;
 import gg.steve.mc.tp.message.GeneralMessage;
 import gg.steve.mc.tp.tool.LoadedTool;
 import gg.steve.mc.tp.tool.ToolData;
+import gg.steve.mc.tp.tool.ToolType;
 import gg.steve.mc.tp.utils.CubeUtil;
 import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.Material;
@@ -20,7 +21,7 @@ public class TrayData implements ToolData {
 
     @Override
     public void onBlockBreak(BlockBreakEvent blockBreakEvent, LoadedTool loadedTool) {
-        List<Block> blocks = CubeUtil.getCube(blockBreakEvent.getBlock(), loadedTool.getRadius(), "tray");
+        List<Block> blocks = CubeUtil.getCube(blockBreakEvent.getBlock(), loadedTool.getRadius(), ToolType.TRAY);
         if (!blocks.contains(blockBreakEvent.getBlock())) blockBreakEvent.setCancelled(true);
         if (blocks.isEmpty()) return;
         if (!loadedTool.decrementUses(blockBreakEvent.getPlayer())) return;

@@ -21,7 +21,7 @@ public class ModuleManager {
         loader.registerAllModules();
         StringBuilder message = new StringBuilder();
         if (modules.size() > 0) {
-            message.append(", (");
+            message.append(": (");
             int i = 0;
             for (ModuleType type : modules.keySet()) {
                 message.append(type.getNiceName());

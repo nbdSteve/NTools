@@ -6,6 +6,7 @@ import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.managers.PluginFile;
 import gg.steve.mc.tp.utils.LogUtil;
 import gg.steve.mc.tp.utils.YamlFileUtil;
+import jdk.nashorn.internal.objects.annotations.Getter;
 
 import java.io.File;
 import java.util.HashMap;
@@ -26,7 +27,7 @@ public class GuiManager {
                 LogUtil.warning("Error while initialising gui: " + gui + ", please check your configuration and verify it is correct.");
             }
         }
-        LogUtil.info("Successfully loaded " + loaded + " guis into the plugins cache.");
+        LogUtil.info("Successfully loaded " + loaded + " gui(s) into the plugins cache.");
     }
 
     public static void shutdown() {

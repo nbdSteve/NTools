@@ -3,7 +3,9 @@ package gg.steve.mc.tp.attribute.types;
 import gg.steve.mc.tp.ToolsPlus;
 import gg.steve.mc.tp.attribute.AbstractToolAttribute;
 import gg.steve.mc.tp.attribute.ToolAttributeType;
+import gg.steve.mc.tp.currency.AbstractCurrency;
 import gg.steve.mc.tp.nbt.NBTItem;
+import gg.steve.mc.tp.tool.LoadedTool;
 import gg.steve.mc.tp.tool.utils.GetToolHoldingUtil;
 import gg.steve.mc.tp.utils.LogUtil;
 import gg.steve.mc.tp.tool.utils.LoreUpdaterUtil;
@@ -16,6 +18,11 @@ public class BlocksMinedToolAttribute extends AbstractToolAttribute {
 
     public BlocksMinedToolAttribute(String updateString) {
         super(ToolAttributeType.BLOCKS_MINED, updateString);
+    }
+
+    @Override
+    public boolean doIncrease(Player player, LoadedTool tool, AbstractCurrency currency, int amount, double cost) {
+        return false;
     }
 
     @Override

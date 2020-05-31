@@ -1,6 +1,7 @@
 package gg.steve.mc.tp.utils;
 
 import gg.steve.mc.tp.managers.ToolConfigDataManager;
+import gg.steve.mc.tp.tool.ToolType;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 
@@ -9,16 +10,16 @@ import java.util.List;
 
 public class CubeUtil {
 
-    public static List<Block> getCube(Block start, int radius, String type) {
+    public static List<Block> getCube(Block start, int radius, ToolType type) {
         if (radius <= 0) return new ArrayList<>();
         List<Block> blockList = new ArrayList<>();
         switch (type) {
-            case "trench":
+            case TRENCH:
                 if (!ToolConfigDataManager.getTrenchBlacklist().contains(start.getType())) {
                     blockList.add(start);
                 }
                 break;
-            case "tray":
+            case TRAY:
                 if (ToolConfigDataManager.getTrayWhitelist().contains(start.getType())) {
                     blockList.add(start);
                 }
@@ -32,11 +33,11 @@ public class CubeUtil {
                     Block block = start.getRelative(x, y, z);
                     if (block.getType().equals(Material.AIR)) continue;
                     switch (type) {
-                        case "trench":
+                        case TRENCH:
                             if (ToolConfigDataManager.getTrenchBlacklist().contains(block.getType()))
                                 continue;
                             break;
-                        case "tray":
+                        case TRAY:
                             if (!ToolConfigDataManager.getTrayWhitelist().contains(block.getType())) continue;
                             break;
                         default:

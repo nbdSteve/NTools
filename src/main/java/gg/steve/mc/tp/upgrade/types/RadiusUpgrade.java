@@ -1,7 +1,5 @@
 package gg.steve.mc.tp.upgrade.types;
 
-import gg.steve.mc.tp.currency.AbstractCurrency;
-import gg.steve.mc.tp.gui.AbstractGui;
 import gg.steve.mc.tp.managers.PluginFile;
 import gg.steve.mc.tp.tool.LoadedTool;
 import gg.steve.mc.tp.upgrade.AbstractUpgrade;

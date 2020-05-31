@@ -2,7 +2,6 @@ package gg.steve.mc.tp.player;
 
 import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.module.ModuleType;
-import gg.steve.mc.tp.tool.ToolsManager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -18,6 +17,6 @@ public class PlayerToolListener implements Listener {
         if (player == null) return;
         ModuleType module = ModuleType.valueOf(player.getToolType().name());
         if (!ModuleManager.isInstalled(module)) return;
-        ToolsManager.getTool(player.getToolName()).getData().onBlockBreak(event, player.getLoadedTool());
+        player.getLoadedTool().getCurrentModeData().onBlockBreak(event, player.getLoadedTool());
     }
 }

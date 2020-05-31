@@ -1,25 +1,22 @@
 package gg.steve.mc.tp.mode.types;
 
 import gg.steve.mc.tp.ToolsPlus;
-import gg.steve.mc.tp.gui.AbstractGui;
 import gg.steve.mc.tp.managers.PluginFile;
 import gg.steve.mc.tp.message.GeneralMessage;
 import gg.steve.mc.tp.mode.AbstractModeChange;
 import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.nbt.NBTItem;
-import gg.steve.mc.tp.tool.AbstractTool;
 import gg.steve.mc.tp.tool.LoadedTool;
-import gg.steve.mc.tp.tool.ToolsManager;
 import gg.steve.mc.tp.tool.utils.GetToolHoldingUtil;
 import gg.steve.mc.tp.tool.utils.LoreUpdaterUtil;
 import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class ToolTypeModeChange extends AbstractModeChange {
+public class SellModeChange extends AbstractModeChange {
 
-    public ToolTypeModeChange(PluginFile file) {
-        super(ModeType.TOOL, file);
+    public SellModeChange(PluginFile file) {
+        super(ModeType.SELL, file);
     }
 
     @Override
@@ -34,9 +31,9 @@ public class ToolTypeModeChange extends AbstractModeChange {
         int next = getNextMode(current);
         if (!getCurrency().isSufficientFunds(player, tool, getChangePriceForMode(current))) return false;
         tool.setModeLevel(getType(), next);
-        ItemStack updated = LoreUpdaterUtil.updateLore(item, "tool-mode-level", next,
-                getUpdateString().replace("{tool-mode}", (String) getTrack().get(current).get(2)),
-                getUpdateString().replace("{tool-mode}", (String) getTrack().get(next).get(2)));
+        ItemStack updated = LoreUpdaterUtil.updateLore(item, "sell-mode-level", next,
+                getUpdateString().replace("{sell-mode}", (String) getTrack().get(current).get(2)),
+                getUpdateString().replace("{sell-mode}", (String) getTrack().get(next).get(2)));
         if (GetToolHoldingUtil.isStillHoldingTool(tool.getToolId(), player.getItemInHand())) {
             player.setItemInHand(updated);
             player.updateInventory();

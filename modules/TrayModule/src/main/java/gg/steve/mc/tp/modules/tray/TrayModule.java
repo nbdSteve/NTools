@@ -6,7 +6,6 @@ import gg.steve.mc.tp.module.ToolsPlusModule;
 import gg.steve.mc.tp.modules.tray.tool.TrayTool;
 import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.tool.AbstractTool;
-import gg.steve.mc.tp.tool.ToolType;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.event.Listener;
 
@@ -14,10 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TrayModule extends ToolsPlusModule {
-    
-    @Override
-    public ModuleType getModuleType() {
-        return ModuleType.TRAY;
+
+    public TrayModule() {
+        super(ModuleType.TRAY);
     }
 
     @Override
@@ -29,8 +27,8 @@ public class TrayModule extends ToolsPlusModule {
     public PlaceholderExpansion getPlaceholderExpansion() {
         return null;
     }
-    
-    public AbstractTool loadTool(ToolType toolType, NBTItem nbtItem, PluginFile pluginFile) {
+
+    public AbstractTool loadTool(NBTItem nbtItem, PluginFile pluginFile) {
         return new TrayTool(nbtItem, pluginFile);
     }
 }

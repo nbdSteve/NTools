@@ -54,12 +54,20 @@ public abstract class AbstractUpgrade {
 
     public double getUpgradePriceForLevel(int level) {
         if (this.track == null || this.track.isEmpty() || !track.containsKey(level)) return 0.0;
-        return Double.parseDouble((String) this.track.get(level).get(1));
+        try {
+            return Double.parseDouble((String) this.track.get(level + 1).get(1));
+        } catch (Exception e) {
+            return Double.parseDouble((String) this.track.get(level).get(1));
+        }
     }
 
     public double getDowngradePriceForLevel(int level) {
         if (this.track == null || this.track.isEmpty() || !track.containsKey(level)) return 0.0;
-        return Double.parseDouble((String) this.track.get(level).get(2));
+        try {
+            return Double.parseDouble((String) this.track.get(level - 1).get(2));
+        } catch (Exception e) {
+            return Double.parseDouble((String) this.track.get(level).get(2));
+        }
     }
 
     public String getLoreStringForLevel(int level) {

@@ -32,7 +32,7 @@ public class ToolsManager {
             ToolLoaderUtil loader = new ToolLoaderUtil(file, tool);
             tools.put(tool, loader.getTool());
         }
-        LogUtil.info("Successfully loaded " + tools.size() + " tool(s) into the plugins internal map.");
+        LogUtil.info("Successfully loaded " + tools.size() + " tool(s) into the plugins cache.");
     }
 
     public static void shutdown() {

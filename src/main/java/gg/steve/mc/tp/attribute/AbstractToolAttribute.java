@@ -1,6 +1,8 @@
 package gg.steve.mc.tp.attribute;
 
+import gg.steve.mc.tp.currency.AbstractCurrency;
 import gg.steve.mc.tp.nbt.NBTItem;
+import gg.steve.mc.tp.tool.LoadedTool;
 import gg.steve.mc.tp.utils.ColorUtil;
 import org.bukkit.entity.Player;
 
@@ -22,6 +24,8 @@ public abstract class AbstractToolAttribute {
     public String getUpdateString() {
         return updateString;
     }
+
+    public abstract boolean doIncrease(Player player, LoadedTool tool, AbstractCurrency currency, int amount, double cost);
 
     public abstract boolean doUpdate(Player player, NBTItem item, UUID toolId, int current, int change);
 }

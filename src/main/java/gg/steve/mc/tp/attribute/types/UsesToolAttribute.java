@@ -3,12 +3,14 @@ package gg.steve.mc.tp.attribute.types;
 import gg.steve.mc.tp.ToolsPlus;
 import gg.steve.mc.tp.attribute.AbstractToolAttribute;
 import gg.steve.mc.tp.attribute.ToolAttributeType;
+import gg.steve.mc.tp.currency.AbstractCurrency;
 import gg.steve.mc.tp.message.GeneralMessage;
 import gg.steve.mc.tp.nbt.NBTItem;
+import gg.steve.mc.tp.tool.LoadedTool;
 import gg.steve.mc.tp.tool.ToolsManager;
 import gg.steve.mc.tp.tool.utils.GetToolHoldingUtil;
-import gg.steve.mc.tp.utils.LogUtil;
 import gg.steve.mc.tp.tool.utils.LoreUpdaterUtil;
+import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -19,6 +21,28 @@ public class UsesToolAttribute extends AbstractToolAttribute {
 
     public UsesToolAttribute(String updateString) {
         super(ToolAttributeType.USES, updateString);
+    }
+
+    @Override
+    public boolean doIncrease(Player player, LoadedTool tool, AbstractCurrency currency, int amount, double cost) {
+        NBTItem item = new NBTItem(player.getItemInHand());
+        if (!item.getItem().hasItemMeta() || item.getItem().getItemMeta().getLore().isEmpty()) {
+            LogUtil.warning("Tried to increases uses for a tool that doesn't have any lore! Aborting.");
+            return false;
+        }
+        if (!currency.isSufficientFunds(player, tool, cost)) return false;
+        ItemStack updated = LoreUpdaterUtil.updateLore(item, "uses", tool.getUses() + amount,
+                getUpdateString().replace("{uses}", ToolsPlus.formatNumber(tool.getUses())),
+                getUpdateString().replace("{uses}", ToolsPlus.formatNumber(tool.getUses() + amount)));
+        tool.setUses(tool.getUses() + amount);
+        if (GetToolHoldingUtil.isStillHoldingTool(tool.getToolId(), player.getItemInHand())) {
+            player.setItemInHand(updated);
+            player.updateInventory();
+            return true;
+        } else {
+            LogUtil.warning("Uses dupe attempted by player: " + player.getName() + ", Tools+ has stopped the tool action from happening.");
+            return false;
+        }
     }
 
     @Override

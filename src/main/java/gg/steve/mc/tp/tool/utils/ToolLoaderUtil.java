@@ -20,7 +20,7 @@ public class ToolLoaderUtil {
         this.name = name;
         ModuleType module = ModuleType.getModuleForTool(file);
         loadItem(module);
-        tool = ModuleManager.getInstalledModule(module).loadTool(ToolType.valueOf(module.name()), this.item, file);
+        tool = ModuleManager.getInstalledModule(module).loadTool(this.item, file);
 //        tool.setUsesGui(GuiManager.getGui(file.get().getString("uses.gui")));
 //        tool.setModeGui(GuiManager.getGui(file.get().getString("mode.gui")));
         loadToolData();

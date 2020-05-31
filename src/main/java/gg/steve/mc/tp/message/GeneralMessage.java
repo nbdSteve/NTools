@@ -61,7 +61,7 @@ public enum GeneralMessage {
         if (this.actionBar && receiver instanceof Player) {
             for (String line : Files.MESSAGES.get().getStringList(this.path + ".text")) {
                 for (int i = 0; i < this.placeholders.size(); i++) {
-                    line = line.replaceAll(this.placeholders.get(i), data.get(i));
+                    line = line.replace(this.placeholders.get(i), data.get(i));
                 }
                 ActionBarAPI.sendActionBar((Player) receiver, ColorUtil.colorize(line));
             }

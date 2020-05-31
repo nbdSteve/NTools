@@ -8,7 +8,6 @@ import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.managers.PluginFile;
 import gg.steve.mc.tp.tool.LoadedTool;
 import gg.steve.mc.tp.utils.ColorUtil;
-import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -60,7 +59,11 @@ public abstract class AbstractModeChange {
     }
 
     public String getCurrentModeLore(int current) {
-        return (String) track.get(current).get(2);
+        try {
+            return (String) track.get(current).get(2);
+        } catch (NullPointerException e) {
+            return "debug";
+        }
     }
 
     public String getNextModeLore(int current) {

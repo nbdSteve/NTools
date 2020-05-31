@@ -1,6 +1,6 @@
 name: '&6&lUpgrade Center'
 type: none
-size: 27
+size: 36
 fillers:
   slots:
     - 0
@@ -14,15 +14,16 @@ fillers:
     - 8
     - 9
     - 15
-    - 17
     - 18
-    - 19
-    - 20
-    - 21
-    - 22
-    - 23
     - 24
-    - 25
+    - 27
+    - 28
+    - 29
+    - 30
+    - 31
+    - 32
+    - 33
+    - 34
   material: 'stained_glass_pane'
   data: 7
   name: ' '
@@ -32,14 +33,14 @@ fillers:
     - hide_attributes
 1:
   slots:
-    - 1
+    - 10
   action: 'condition:upgrade:radius:0'
   true:
     action: 'downgrade'
     material: ink_sack
     data: 5
     commands:
-    name: '&e&l3x3 Radius AbstractUpgrade'
+    name: '&e&l3x3 Radius Upgrade'
     lore:
       - ''
       - '&7&o((You have already purchased this upgrade.))'
@@ -55,29 +56,29 @@ fillers:
     data: 8
     commands:
       - 'say {player} has upgraded their trench tool to 3x3'
-    name: '&e&l3x3 Radius AbstractUpgrade'
+    name: '&e&l3x3 Radius Upgrade'
     lore:
       - ''
       - '&7&o((left click to upgrade your tool.))'
       - ''
       - '&f&lTOOL INFO'
-      - ' &6- AbstractUpgrade Progress&7| &e{upgrade-level}&7/&e{upgrade-max}'
-      - ' &6- Current AbstractUpgrade&7| &e{current-upgrade}'
-      - ' &6- Next AbstractUpgrade&7| &e{next-upgrade}'
-      - ' &6- AbstractUpgrade Cost&7| &e{upgrade-currency-prefix}{upgrade-cost}{upgrade-currency-suffix}'
+      - ' &6- Upgrade Progress&7| &e{radius-upgrade-level}&7/&e{radius-upgrade-max}'
+      - ' &6- Current Upgrade&7| &e{radius-current-upgrade}'
+      - ' &6- Next Upgrade&7| &e{radius-next-upgrade}'
+      - ' &6- Upgrade Cost&7| &e{radius-upgrade-currency-prefix}{radius-upgrade-cost}{radius-upgrade-currency-suffix}'
     enchantments:
     item-flags:
     unbreakable: false
 2:
   slots:
-    - 3
+    - 12
   action: 'condition:upgrade:radius:1'
   true:
     action: 'downgrade'
     material: ink_sack
     data: 5
     commands:
-    name: '&e&l5x5 Radius AbstractUpgrade'
+    name: '&e&l5x5 Radius Upgrade'
     lore:
       - ''
       - '&7&o((You have already purchased this upgrade.))'
@@ -93,29 +94,29 @@ fillers:
     data: 8
     commands:
       - 'say {player} has upgraded their trench tool to 3x3'
-    name: '&e&l5x5 Radius AbstractUpgrade'
+    name: '&e&l5x5 Radius Upgrade'
     lore:
       - ''
       - '&7&o((left click to upgrade your tool.))'
       - ''
       - '&f&lTOOL INFO'
-      - ' &6- AbstractUpgrade Progress&7| &e{upgrade-level}&7/&e{upgrade-max}'
-      - ' &6- Current AbstractUpgrade&7| &e{current-upgrade}'
-      - ' &6- Next AbstractUpgrade&7| &e{next-upgrade}'
-      - ' &6- AbstractUpgrade Cost&7| &e{upgrade-currency-prefix}{upgrade-cost}{upgrade-currency-suffix}'
+      - ' &6- Upgrade Progress&7| &e{radius-upgrade-level}&7/&e{radius-upgrade-max}'
+      - ' &6- Current Upgrade&7| &e{radius-current-upgrade}'
+      - ' &6- Next Upgrade&7| &e{radius-next-upgrade}'
+      - ' &6- Upgrade Cost&7| &e{radius-upgrade-currency-prefix}{radius-upgrade-cost}{radius-upgrade-currency-suffix}'
     enchantments:
     item-flags:
     unbreakable: false
 3:
   slots:
-    - 5
+    - 14
   action: 'condition:upgrade:radius:2'
   true:
     action: 'downgrade'
     material: ink_sack
     data: 5
     commands:
-    name: '&e&l7x7 Radius AbstractUpgrade'
+    name: '&e&l7x7 Radius Upgrade'
     lore:
       - ''
       - '&7&o((You have already purchased this upgrade.))'
@@ -131,23 +132,25 @@ fillers:
     data: 8
     commands:
       - 'say {player} has upgraded their trench tool to 7x7'
-    name: '&e&l7x7 Radius AbstractUpgrade'
+    name: '&e&l7x7 Radius Upgrade'
     lore:
       - ''
       - '&7&o((left click to upgrade your tool.))'
       - ''
       - '&f&lTOOL INFO'
-      - ' &6- AbstractUpgrade Progress&7| &e{upgrade-level}&7/&e{upgrade-max}'
-      - ' &6- Current AbstractUpgrade&7| &e{current-upgrade}'
-      - ' &6- Next AbstractUpgrade&7| &e{next-upgrade}'
-      - ' &6- AbstractUpgrade Cost&7| &e{upgrade-currency-prefix}{upgrade-cost}{upgrade-currency-suffix}'
+      - ' &6- Upgrade Progress&7| &e{radius-upgrade-level}&7/&e{radius-upgrade-max}'
+      - ' &6- Current Upgrade&7| &e{radius-current-upgrade}'
+      - ' &6- Next Upgrade&7| &e{radius-next-upgrade}'
+      - ' &6- Upgrade Cost&7| &e{radius-upgrade-currency-prefix}{radius-upgrade-cost}{radius-upgrade-currency-suffix}'
     enchantments:
     item-flags:
     unbreakable: false
 4:
   slots:
-    - 2
-    - 4
+    - 11
+    - 13
+    - 20
+    - 22
   action: 'none'
   material: arrow
   data: 0
@@ -162,7 +165,7 @@ fillers:
   action: 'mode-switch:tool'
   material: hdb-19883
   data: 0
-  name: '&e&lMODE CHANGE'
+  name: '&e&lTOOL TYPE CHANGE'
   lore:
     - ''
     - '&7&o((Left-click to change your tools mode.))'
@@ -176,7 +179,7 @@ fillers:
   unbreakable: false
 6:
   slots:
-    - 26
+    - 35
   conditional:
     enabled: false
   action: 'close'
@@ -193,7 +196,7 @@ fillers:
   unbreakable: false
 7:
   slots:
-    - 7
+    - 25
   conditional:
     enabled: false
   action: 'downgrade:radius'
@@ -207,4 +210,150 @@ fillers:
   enchantments:
   item-flags:
     - hide_attributes
+  unbreakable: false
+8:
+  slots:
+    - 19
+  action: 'condition:upgrade:modifier:0'
+  true:
+    action: 'downgrade'
+    material: ink_sack
+    data: 5
+    commands:
+    name: '&e&l1.0 Modifier Upgrade'
+    lore:
+      - ''
+      - '&7&o((You have already purchased this upgrade.))'
+      - ''
+    enchantments:
+      - lure:1
+    item-flags:
+      - hide_enchants
+    unbreakable: false
+  false:
+    action: 'upgrade'
+    material: ink_sack
+    data: 8
+    commands:
+      - 'say {player} has upgraded their trench tool to 3x3'
+    name: '&e&l1.0 Modifier Upgrade'
+    lore:
+      - ''
+      - '&7&o((left click to upgrade your tool.))'
+      - ''
+      - '&f&lTOOL INFO'
+      - ' &6- Upgrade Progress&7| &e{modifier-upgrade-level}&7/&e{modifier-upgrade-max}'
+      - ' &6- Current Upgrade&7| &e{modifier-current-upgrade}'
+      - ' &6- Next Upgrade&7| &e{modifier-next-upgrade}'
+      - ' &6- Upgrade Cost&7| &e{modifier-upgrade-currency-prefix}{modifier-upgrade-cost}{modifier-upgrade-currency-suffix}'
+    enchantments:
+    item-flags:
+    unbreakable: false
+9:
+  slots:
+    - 21
+  action: 'condition:upgrade:modifier:1'
+  true:
+    action: 'downgrade'
+    material: ink_sack
+    data: 5
+    commands:
+    name: '&e&l2.0 Modifier Upgrade'
+    lore:
+      - ''
+      - '&7&o((You have already purchased this upgrade.))'
+      - ''
+    enchantments:
+      - lure:1
+    item-flags:
+      - hide_enchants
+    unbreakable: false
+  false:
+    action: 'upgrade'
+    material: ink_sack
+    data: 8
+    commands:
+      - 'say {player} has upgraded their trench tool to 3x3'
+    name: '&e&l2.0 Modifier Upgrade'
+    lore:
+      - ''
+      - '&7&o((left click to upgrade your tool.))'
+      - ''
+      - '&f&lTOOL INFO'
+      - ' &6- Upgrade Progress&7| &e{modifier-upgrade-level}&7/&e{modifier-upgrade-max}'
+      - ' &6- Current Upgrade&7| &e{modifier-current-upgrade}'
+      - ' &6- Next Upgrade&7| &e{modifier-next-upgrade}'
+      - ' &6- Upgrade Cost&7| &e{modifier-upgrade-currency-prefix}{modifier-upgrade-cost}{modifier-upgrade-currency-suffix}'
+    enchantments:
+    item-flags:
+    unbreakable: false
+10:
+  slots:
+    - 23
+  action: 'condition:upgrade:modifier:2'
+  true:
+    action: 'downgrade'
+    material: ink_sack
+    data: 5
+    commands:
+    name: '&e&l3.0 Modifier Upgrade'
+    lore:
+      - ''
+      - '&7&o((You have already purchased this upgrade.))'
+      - ''
+    enchantments:
+      - lure:1
+    item-flags:
+      - hide_enchants
+    unbreakable: false
+  false:
+    action: 'upgrade'
+    material: ink_sack
+    data: 8
+    commands:
+      - 'say {player} has upgraded their trench tool to 7x7'
+    name: '&e&l3.0 Modifier Upgrade'
+    lore:
+      - ''
+      - '&7&o((left click to upgrade your tool.))'
+      - ''
+      - '&f&lTOOL INFO'
+      - ' &6- Upgrade Progress&7| &e{modifier-upgrade-level}&7/&e{modifier-upgrade-max}'
+      - ' &6- Current Upgrade&7| &e{modifier-current-upgrade}'
+      - ' &6- Next Upgrade&7| &e{modifier-next-upgrade}'
+      - ' &6- Upgrade Cost&7| &e{modifier-upgrade-currency-prefix}{modifier-upgrade-cost}{modifier-upgrade-currency-suffix}'
+    enchantments:
+    item-flags:
+    unbreakable: false
+11:
+  slots:
+    - 17
+  action: 'mode-switch:sell'
+  material: hdb-324
+  data: 0
+  name: '&e&lSELL MODE CHANGE'
+  lore:
+    - ''
+    - '&7&o((Left-click to change your tools mode.))'
+    - ''
+    - '&f&lTOOL INFO'
+    - ' &6- Current Mode&7| &e{sell-current-mode}'
+    - ' &6- Next Mode&7| &e{sell-next-mode}'
+    - ' &6- Switch Cost&7| &e{sell-mode-currency-prefix}{sell-mode-change-cost}{sell-mode-currency-suffix}'
+  enchantments:
+  item-flags:
+  unbreakable: false
+12:
+  slots:
+    - 26
+  action: 'uses:vault:100:1000.0'
+  material: hdb-424
+  data: 0
+  name: '&e&lPURCHASE USES'
+  lore:
+    - ''
+    - '&7&o((Left-click to purchase 100 uses for your tool.))'
+    - ''
+  enchantments:
+  item-flags:
   unbreakable: false

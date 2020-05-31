@@ -83,8 +83,10 @@ public class LoadedTool {
         switch (upgrade) {
             case RADIUS:
                 this.radiusUpgradeLevel = level;
+                break;
             case MODIFIER:
                 this.modifierUpgradeLevel = level;
+                break;
         }
     }
 
@@ -92,8 +94,10 @@ public class LoadedTool {
         switch (mode) {
             case TOOL:
                 this.toolModeLevel = level;
+                break;
             case SELL:
                 this.sellModeLevel = level;
+                break;
         }
     }
 
@@ -112,8 +116,10 @@ public class LoadedTool {
         switch (upgrade) {
             case RADIUS:
                 this.peakRadiusUpgradeLevel = level;
+                break;
             case MODIFIER:
                 this.peakModifierUpgradeLevel = level;
+                break;
         }
     }
 
@@ -123,6 +129,10 @@ public class LoadedTool {
 
     public int getUses() {
         return uses;
+    }
+
+    public void setUses(int uses) {
+        this.uses = uses;
     }
 
     public int getBlocksMined() {
@@ -164,5 +174,15 @@ public class LoadedTool {
         this.usesGui.refresh(this);
         this.usesGui.open(player);
         return true;
+    }
+
+    public ToolData getCurrentModeData() {
+        if (!this.tool.getModeChange(ModeType.TOOL).isChangingEnabled()) return this.tool.getData();
+        return ToolsManager.getTool(this.tool.getModeChange(ModeType.TOOL).getCurrentModeString(this.toolModeLevel)).getData();
+    }
+
+    public double getNextUpgradePrice(UpgradeType upgrade, int level) {
+        if (getPeakUpgradeLevel(upgrade) >= level && getPeakUpgradeLevel(upgrade) != 0) return 0.0;
+        return tool.getUpgrade(upgrade).getUpgradePriceForLevel(level);
     }
 }
