@@ -50,7 +50,7 @@ blocks-mined:
   lore-update-string: ' &6- Items Sold&7| &e&l{mined}'
 #
 omni:
-  enabled: true
+  enabled: false
 #
 item:
   material: diamond_hoe

@@ -30,7 +30,7 @@ public class TrenchData implements ToolData {
         boolean full = blockBreakEvent.getPlayer().getInventory().firstEmpty() == -1,
                 autoSell = loadedTool.getModeChange(ModeType.SELL).getCurrentModeString(loadedTool.getCurrentMode(ModeType.SELL)).equalsIgnoreCase("sell"),
                 silk = blockBreakEvent.getPlayer().getItemInHand().getEnchantments().containsKey(Enchantment.SILK_TOUCH);
-        if (full && !autoSell) {
+        if (full) {
             GeneralMessage.INVENTORY_FULL.message(blockBreakEvent.getPlayer());
         } else if (autoSell) {
             SellIntegrationManager.doBlockSale(blockBreakEvent.getPlayer(), blocks, loadedTool, silk);

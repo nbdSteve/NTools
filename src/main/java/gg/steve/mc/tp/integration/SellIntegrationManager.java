@@ -38,10 +38,19 @@ public class SellIntegrationManager {
         double deposit = 0, amount = 0;
         for (Block block : blocks) {
             if (silk) {
-                deposit += sellItem(player, (new ItemStack(block.getType(), 1, block.getData())), tool);
+                ItemStack item = new ItemStack(block.getType(), 1, block.getData());
+                if (getItemPrice(player, item) == -1) {
+                    player.getInventory().addItem(item);
+                    continue;
+                }
+                deposit += sellItem(player, item, tool);
                 amount++;
             } else {
                 for (ItemStack item : block.getDrops(player.getItemInHand())) {
+                    if (getItemPrice(player, item) == -1) {
+                        player.getInventory().addItem(item);
+                        continue;
+                    }
                     deposit += sellItem(player, item, tool);
                     amount += item.getAmount();
                 }
