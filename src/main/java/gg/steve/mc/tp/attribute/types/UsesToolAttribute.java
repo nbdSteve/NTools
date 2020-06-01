@@ -34,10 +34,15 @@ public class UsesToolAttribute extends AbstractToolAttribute {
         ItemStack updated = LoreUpdaterUtil.updateLore(item, "uses", tool.getUses() + amount,
                 getUpdateString().replace("{uses}", ToolsPlus.formatNumber(tool.getUses())),
                 getUpdateString().replace("{uses}", ToolsPlus.formatNumber(tool.getUses() + amount)));
-        tool.setUses(tool.getUses() + amount);
         if (GetToolHoldingUtil.isStillHoldingTool(tool.getToolId(), player.getItemInHand())) {
+            tool.setUses(tool.getUses() + amount);
             player.setItemInHand(updated);
             player.updateInventory();
+            GeneralMessage.USES_PURCHASE.message(player,
+                    ToolsPlus.formatNumber(amount),
+                    ToolsPlus.formatNumber(cost),
+                    currency.getPrefix(),
+                    currency.getSuffix());
             return true;
         } else {
             LogUtil.warning("Uses dupe attempted by player: " + player.getName() + ", Tools+ has stopped the tool action from happening.");

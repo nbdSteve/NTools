@@ -6,7 +6,6 @@ import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.managers.PluginFile;
 import gg.steve.mc.tp.utils.LogUtil;
 import gg.steve.mc.tp.utils.YamlFileUtil;
-import jdk.nashorn.internal.objects.annotations.Getter;
 
 import java.io.File;
 import java.util.HashMap;
@@ -14,6 +13,10 @@ import java.util.Map;
 
 public class GuiManager {
     private static Map<String, AbstractGui> guis;
+
+    private GuiManager() throws IllegalAccessException {
+        throw new IllegalAccessException("Manager class cannot be instantiated.");
+    }
 
     public static void initialise() {
         guis = new HashMap<>();

@@ -19,6 +19,10 @@ public class ToolsManager {
     private static Map<String, AbstractTool> tools;
     private static Map<UUID, LoadedTool> serverTools;
 
+    private ToolsManager() throws IllegalAccessException {
+        throw new IllegalAccessException("Manager class cannot be instantiated.");
+    }
+
     public static void initialiseTools() {
         tools = new HashMap<>();
         serverTools = new HashMap<>();

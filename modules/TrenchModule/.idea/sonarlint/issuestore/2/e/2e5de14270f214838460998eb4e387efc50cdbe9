@@ -1,17 +1,21 @@
 
-P
-java:S1121".Extract the assignment out of this expression.(İÓûÿÿÿÿ8íÎù¥.
-Q
-java:S1874#"/Remove this use of "getData"; it is deprecated.(Üğ¶Åúÿÿÿÿ8íÎù¥.
-8
-java:S3626."Remove this redundant jump.(×¥œ×8íÎù¥.
-W
-java:S1874%"5Remove this use of "getItemInHand"; it is deprecated.(Õ¬ƒÖıÿÿÿÿ8íÎù¥.
-S
-java:S1874#"1Remove this use of "ItemStack"; it is deprecated.(Üğ¶Åúÿÿÿÿ8íÎù¥.
-t
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(¯à¦“üÿÿÿÿ8íÎù¥.
-W
-java:S1874""5Remove this use of "getItemInHand"; it is deprecated.(†ı¶¢şÿÿÿÿ8íÎù¥.
+Y
+java:S2589'"7Remove this expression which always evaluates to "true"(ÎË§Ôúÿÿÿÿ8÷å®ı¦.
 œ
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(­­•¶øÿÿÿÿ
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(­­•¶øÿÿÿÿ
+R
+java:S1874"5Remove this use of "getItemInHand"; it is deprecated.(†Š¿ú8Ê‘ü¦.
+H
+java:S1659"&Declare "autoSell" on a separate line.(åĞÛ£úÿÿÿÿ8Ê‘ü¦.
+?
+java:S1659""Declare "silk" on a separate line.(†Š¿ú8Ê‘ü¦.
+Q
+java:S1874)"/Remove this use of "getData"; it is deprecated.(Üğ¶Åúÿÿÿÿ8íÎù¥.
+S
+java:S1874)"1Remove this use of "ItemStack"; it is deprecated.(Üğ¶Åúÿÿÿÿ8íÎù¥.
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(¯à¦“üÿÿÿÿ8íÎù¥.
+W
+java:S1874+"5Remove this use of "getItemInHand"; it is deprecated.(Õ¬ƒÖıÿÿÿÿ8Ê‘ü¦.
+=
+java:S36265"Remove this redundant jump.(‡ï¼íÿÿÿÿÿ8íÎù¥.

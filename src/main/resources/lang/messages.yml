@@ -74,3 +74,13 @@ tool-min-level:
   action-bar: true
   text:
     - '&e&l<> &7Unable to downgrade, your tool is already at the lowest level &e&l<>'
+
+uses-purchase:
+  action-bar: true
+  text:
+    - '&e&l<> &7You purchased &6&l{amount} &7tool uses for &c-{currency-prefix}&l{cost}&c{currency-suffix} &e&l<>'
+
+sale:
+  action-bar: true
+  text:
+    - '&e&l<> &7Your &6&l{tool-type} Tool &7automatically sold &ex{amount} &7items for &a+$&l{deposit} &e&l<>'

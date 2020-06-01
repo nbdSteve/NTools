@@ -42,6 +42,10 @@ public abstract class AbstractUpgrade {
         this.isDowngrade = file.get().getBoolean("upgrades." + type.getLowerCaseName() + ".allow-downgrade");
     }
 
+    public boolean isUpgradeable() {
+        return this.track.size() > 1;
+    }
+
     public double getDoubleForLevel(int level) {
         if (this.track == null || this.track.isEmpty() || !track.containsKey(level)) return 0.0;
         return Double.parseDouble((String) this.track.get(level).get(0));
@@ -71,7 +75,7 @@ public abstract class AbstractUpgrade {
     }
 
     public String getLoreStringForLevel(int level) {
-        if (this.track == null || this.track.isEmpty() || !track.containsKey(level)) return "debug";
+        if (this.track == null || this.track.isEmpty() || !track.containsKey(level)) return "Not upgradeable";
         try {
             return (String) this.track.get(level).get(3);
         } catch (Exception e) {
@@ -93,7 +97,7 @@ public abstract class AbstractUpgrade {
         return 0;
     }
 
-    public boolean isDowngrade() {
+    public boolean isDegradable() {
         return isDowngrade;
     }
 

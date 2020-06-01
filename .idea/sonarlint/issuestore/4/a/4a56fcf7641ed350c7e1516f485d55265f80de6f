@@ -1,0 +1,14 @@
+
+_
+java:S1128
+"=Remove this unused import 'gg.steve.mc.tp.tool.AbstractTool'.(ÿÌˆŞûÿÿÿÿ8ß¸¸¦.
+W
+java:S1874"5Remove this use of "getItemInHand"; it is deprecated.(ƒï©êûÿÿÿÿ8­Ôˆ²¦.
+R
+java:S1874("5Remove this use of "getItemInHand"; it is deprecated.(Ñ»êô8âœµ±¦.
+_
+java:S1128"=Remove this unused import 'gg.steve.mc.tp.tool.ToolsManager'.(æğèûÿÿÿÿ8ß¸¸¦.
+W
+java:S1874)"5Remove this use of "setItemInHand"; it is deprecated.(šñÒÂúÿÿÿÿ8âœµ±¦.
+]
+java:S1128";Remove this unused import 'gg.steve.mc.tp.gui.AbstractGui'.(À¡™ÿÿÿÿÿÿ8°™Š³¦.

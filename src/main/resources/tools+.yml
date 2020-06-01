@@ -1,6 +1,8 @@
 loaded-tools:
   - ex-trench
+  - ex-trench-1
   - ex-tray
+  - ex-sell
 
 loaded-guis:
   - basic-gui
@@ -8,6 +10,12 @@ loaded-guis:
 max-upgrade-placeholder: 'MAX'
 
 no-mode-change-placeholder: 'Can not be changed'
+
+# if the price for an item is 0, the next entry will be used. entries: shopgui+, essentials, internal
+price-provider-hierarchy:
+  - 'shopgui+'
+  - 'essentials'
+  - 'internal'
 
 currency:
   vault:
@@ -22,3 +30,20 @@ currency:
   blocks-mined:
     prefix: ''
     suffix: ' Blocks Mined'
+
+commands: # these will be run if a player is holding a tool, will open the assigned gui if there is one
+  radius-upgrade:
+    - /upgrade
+  modifier-upgrade:
+    - /upgrade
+  sell-mode:
+    - /mode
+  tool-mode:
+    - /mode
+  uses:
+    - /uses
+
+price-map:
+  # syntax: <material name>:<byte id>:<sell price>
+  - 'stone:0:0.5'
+  - 'dirt:0:0.3'

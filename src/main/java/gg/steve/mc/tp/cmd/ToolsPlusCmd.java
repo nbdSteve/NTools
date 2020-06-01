@@ -41,7 +41,9 @@ public class ToolsPlusCmd implements CommandExecutor {
                 break;
             case "give":
                 ((Player) sender).getInventory().addItem(ToolsManager.getTool("ex-trench").getItemStack());
+                ((Player) sender).getInventory().addItem(ToolsManager.getTool("ex-trench-1").getItemStack());
                 ((Player) sender).getInventory().addItem(ToolsManager.getTool("ex-tray").getItemStack());
+                ((Player) sender).getInventory().addItem(ToolsManager.getTool("ex-sell").getItemStack());
 //                PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool().getAbstractTool().getUpgrade().doUpgrade((Player) sender, PlayerToolManager.getToolPlayer(((Player) sender).getUniqueId()).getLoadedTool());
         }
         return true;

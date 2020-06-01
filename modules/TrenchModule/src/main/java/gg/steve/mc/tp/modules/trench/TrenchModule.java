@@ -19,6 +19,16 @@ public class TrenchModule extends ToolsPlusModule {
     }
 
     @Override
+    public String getVersion() {
+        return "2.0.0-PR1";
+    }
+
+    @Override
+    public String getAuthor() {
+        return "nbdSteve";
+    }
+
+    @Override
     public List<Listener> getListeners() {
         return new ArrayList<>();
 //        List<Listener> listeners = new ArrayList<>();

@@ -1,6 +1,7 @@
 package gg.steve.mc.tp.modules.trench.tool;
 
 import gg.steve.mc.tp.attribute.types.BlocksMinedToolAttribute;
+import gg.steve.mc.tp.attribute.types.OmniToolAttribute;
 import gg.steve.mc.tp.attribute.types.UsesToolAttribute;
 import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.managers.PluginFile;
@@ -23,6 +24,9 @@ public class TrenchTool extends AbstractTool {
         }
         if (config.getBoolean("blocks-mined.enabled")) {
             getAttributeManager().addToolAttribute(new BlocksMinedToolAttribute(config.getString("blocks-mined.lore-update-string")));
+        }
+        if (config.getBoolean("omni.enabled")) {
+            getAttributeManager().addToolAttribute(new OmniToolAttribute(""));
         }
         getUpgradeManager().addToolUpgrade(new RadiusUpgrade(file));
         getUpgradeManager().addToolUpgrade(new ModifierUpgrade(file));

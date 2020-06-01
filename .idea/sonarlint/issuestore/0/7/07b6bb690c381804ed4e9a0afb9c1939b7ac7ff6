@@ -1,28 +1,28 @@
 
-X
-java:S1659"6Declare "peakModifierUpgradeLevel" on a separate line.(£…ôúÿÿÿÿ8·¿¦¦.
-z	java:S131^"YComplete cases by adding the missing enum constants or add a default case to this switch.(©Øûºûÿÿÿÿ8÷ç²¦.
+K
+java:S1659")Declare "blocksMined" on a separate line.(£…ôúÿÿÿÿ8µ°¿³¥.
 W
 java:S1874%"5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8® ş·¥.
+z	java:S131t"YComplete cases by adding the missing enum constants or add a default case to this switch.(°Âë¶úÿÿÿÿ8É­Å¦¦.
+m
+java:S1301S"KReplace this "switch" statement by "if" statements to increase readability.(°Âë¶úÿÿÿÿ8›­¦¦.
+X
+java:S1659"6Declare "peakModifierUpgradeLevel" on a separate line.(£…ôúÿÿÿÿ8·¿¦¦.
+R
+java:S1659"0Declare "radiusUpgradeLevel" on a separate line.(£…ôúÿÿÿÿ8‰“™¡¦.
 M
 java:S1659"+Declare "toolModeLevel" on a separate line.(£…ôúÿÿÿÿ8Ç€ƒ²¦.
+W
+java:S1874."5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8ÊŒ³Æ¥.
+V
+java:S1659"4Declare "peakRadiusUpgradeLevel" on a separate line.(£…ôúÿÿÿÿ8·¿¦¦.
+z	java:S131^"YComplete cases by adding the missing enum constants or add a default case to this switch.(©Øûºûÿÿÿÿ8÷ç²¦.
+M
+java:S1659"+Declare "sellModeLevel" on a separate line.(£…ôúÿÿÿÿ8Ç€ƒ²¦.
+m
+java:S1301^"KReplace this "switch" statement by "if" statements to increase readability.(©Øûºûÿÿÿÿ8÷ç²¦.
+z	java:S131S"YComplete cases by adding the missing enum constants or add a default case to this switch.(°Âë¶úÿÿÿÿ8›­¦¦.
 T
 java:S1659"2Declare "modifierUpgradeLevel" on a separate line.(£…ôúÿÿÿÿ8¬Ó™¡¦.
 m
-java:S1301^"KReplace this "switch" statement by "if" statements to increase readability.(©Øûºûÿÿÿÿ8÷ç²¦.
-K
-java:S1659")Declare "blocksMined" on a separate line.(£…ôúÿÿÿÿ8µ°¿³¥.
-z	java:S131t"YComplete cases by adding the missing enum constants or add a default case to this switch.(°Âë¶úÿÿÿÿ8É­Å¦¦.
-R
-java:S1659"0Declare "radiusUpgradeLevel" on a separate line.(£…ôúÿÿÿÿ8‰“™¡¦.
-V
-java:S1659"4Declare "peakRadiusUpgradeLevel" on a separate line.(£…ôúÿÿÿÿ8·¿¦¦.
-m
 java:S1301t"KReplace this "switch" statement by "if" statements to increase readability.(°Âë¶úÿÿÿÿ8É­Å¦¦.
-z	java:S131S"YComplete cases by adding the missing enum constants or add a default case to this switch.(°Âë¶úÿÿÿÿ8›­¦¦.
-m
-java:S1301S"KReplace this "switch" statement by "if" statements to increase readability.(°Âë¶úÿÿÿÿ8›­¦¦.
-M
-java:S1659"+Declare "sellModeLevel" on a separate line.(£…ôúÿÿÿÿ8Ç€ƒ²¦.
-W
-java:S1874."5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8ÊŒ³Æ¥.

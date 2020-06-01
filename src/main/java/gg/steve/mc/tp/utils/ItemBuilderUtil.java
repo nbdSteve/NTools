@@ -48,7 +48,11 @@ public class ItemBuilderUtil {
                 }
             }
         }
-        return new ItemBuilderUtil(material, data);
+        try {
+            return new ItemBuilderUtil(material, data);
+        } catch (Exception e) {
+            return new ItemBuilderUtil("LEGACY_" + material, data);
+        }
     }
 
     public ItemBuilderUtil(ItemStack item) {

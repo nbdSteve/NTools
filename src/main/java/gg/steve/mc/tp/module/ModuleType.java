@@ -6,7 +6,8 @@ import gg.steve.mc.tp.managers.PluginFile;
 
 public enum ModuleType {
     TRENCH("TrenchModule"),
-    TRAY("TrayModule");
+    TRAY("TrayModule"),
+    SELL("SellModule");
 
     private String moduleName;
 

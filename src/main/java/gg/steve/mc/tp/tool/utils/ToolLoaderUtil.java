@@ -5,7 +5,6 @@ import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.module.ModuleType;
 import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.tool.AbstractTool;
-import gg.steve.mc.tp.tool.ToolType;
 import gg.steve.mc.tp.utils.ItemBuilderUtil;
 import org.bukkit.configuration.ConfigurationSection;
 

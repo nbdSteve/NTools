@@ -39,7 +39,6 @@ fillers:
     action: 'downgrade'
     material: ink_sack
     data: 5
-    commands:
     name: '&e&l3x3 Radius Upgrade'
     lore:
       - ''
@@ -54,12 +53,15 @@ fillers:
     action: 'upgrade'
     material: ink_sack
     data: 8
-    commands:
-      - 'say {player} has upgraded their trench tool to 3x3'
     name: '&e&l3x3 Radius Upgrade'
     lore:
       - ''
       - '&7&o((left click to upgrade your tool.))'
+      - ''
+      - '&f&lUPGRADE INFO'
+      - ' &6- Upgrade Cost&7| &e{radius-upgrade-currency-prefix}{condition-radius-upgrade-cost}{radius-upgrade-currency-suffix}'
+      - ' &6- Compounded Cost&7| &e{radius-upgrade-currency-prefix}{condition-radius-upgrade-cost-compounded}{radius-upgrade-currency-suffix}'
+      - ' &6- Upgrade Level&7| &e{condition-radius-upgrade-level}'
       - ''
       - '&f&lTOOL INFO'
       - ' &6- Upgrade Progress&7| &e{radius-upgrade-level}&7/&e{radius-upgrade-max}'
@@ -77,7 +79,6 @@ fillers:
     action: 'downgrade'
     material: ink_sack
     data: 5
-    commands:
     name: '&e&l5x5 Radius Upgrade'
     lore:
       - ''
@@ -90,14 +91,19 @@ fillers:
     unbreakable: false
   false:
     action: 'upgrade'
+    commands:
+      - say {player} has upgraded their tools radius to 5x5
     material: ink_sack
     data: 8
-    commands:
-      - 'say {player} has upgraded their trench tool to 3x3'
     name: '&e&l5x5 Radius Upgrade'
     lore:
       - ''
       - '&7&o((left click to upgrade your tool.))'
+      - ''
+      - '&f&lUPGRADE INFO'
+      - ' &6- Upgrade Cost&7| &e{radius-upgrade-currency-prefix}{condition-radius-upgrade-cost}{radius-upgrade-currency-suffix}'
+      - ' &6- Compounded Cost&7| &e{radius-upgrade-currency-prefix}{condition-radius-upgrade-cost-compounded}{radius-upgrade-currency-suffix}'
+      - ' &6- Upgrade Level&7| &e{condition-radius-upgrade-level}'
       - ''
       - '&f&lTOOL INFO'
       - ' &6- Upgrade Progress&7| &e{radius-upgrade-level}&7/&e{radius-upgrade-max}'
@@ -115,7 +121,6 @@ fillers:
     action: 'downgrade'
     material: ink_sack
     data: 5
-    commands:
     name: '&e&l7x7 Radius Upgrade'
     lore:
       - ''
@@ -128,14 +133,19 @@ fillers:
     unbreakable: false
   false:
     action: 'upgrade'
+    commands:
+      - say {player} has upgraded their tools radius to 7x7
     material: ink_sack
     data: 8
-    commands:
-      - 'say {player} has upgraded their trench tool to 7x7'
     name: '&e&l7x7 Radius Upgrade'
     lore:
       - ''
       - '&7&o((left click to upgrade your tool.))'
+      - ''
+      - '&f&lUPGRADE INFO'
+      - ' &6- Upgrade Cost&7| &e{radius-upgrade-currency-prefix}{condition-radius-upgrade-cost}{radius-upgrade-currency-suffix}'
+      - ' &6- Compounded Cost&7| &e{radius-upgrade-currency-prefix}{condition-radius-upgrade-cost-compounded}{radius-upgrade-currency-suffix}'
+      - ' &6- Upgrade Level&7| &e{condition-radius-upgrade-level}'
       - ''
       - '&f&lTOOL INFO'
       - ' &6- Upgrade Progress&7| &e{radius-upgrade-level}&7/&e{radius-upgrade-max}'
@@ -180,8 +190,6 @@ fillers:
 6:
   slots:
     - 35
-  conditional:
-    enabled: false
   action: 'close'
   material: hdb-187
   data: 0
@@ -197,10 +205,8 @@ fillers:
 7:
   slots:
     - 25
-  conditional:
-    enabled: false
   action: 'downgrade:radius'
-  material: hdb-187
+  material: hdb-1881
   data: 0
   name: '&c&lDowngrade Radius'
   lore:
@@ -219,7 +225,6 @@ fillers:
     action: 'downgrade'
     material: ink_sack
     data: 5
-    commands:
     name: '&e&l1.0 Modifier Upgrade'
     lore:
       - ''
@@ -234,12 +239,15 @@ fillers:
     action: 'upgrade'
     material: ink_sack
     data: 8
-    commands:
-      - 'say {player} has upgraded their trench tool to 3x3'
     name: '&e&l1.0 Modifier Upgrade'
     lore:
       - ''
       - '&7&o((left click to upgrade your tool.))'
+      - ''
+      - '&f&lUPGRADE INFO'
+      - ' &6- Upgrade Cost&7| &e{modifier-upgrade-currency-prefix}{condition-modifier-upgrade-cost}{modifier-upgrade-currency-suffix}'
+      - ' &6- Compounded Cost&7| &e{modifier-upgrade-currency-prefix}{condition-modifier-upgrade-cost-compounded}{modifier-upgrade-currency-suffix}'
+      - ' &6- Upgrade Level&7| &e{condition-modifier-upgrade-level}'
       - ''
       - '&f&lTOOL INFO'
       - ' &6- Upgrade Progress&7| &e{modifier-upgrade-level}&7/&e{modifier-upgrade-max}'
@@ -257,7 +265,6 @@ fillers:
     action: 'downgrade'
     material: ink_sack
     data: 5
-    commands:
     name: '&e&l2.0 Modifier Upgrade'
     lore:
       - ''
@@ -270,14 +277,19 @@ fillers:
     unbreakable: false
   false:
     action: 'upgrade'
+    commands:
+      - say {player} has upgraded their tool modifier to 2.0
     material: ink_sack
     data: 8
-    commands:
-      - 'say {player} has upgraded their trench tool to 3x3'
     name: '&e&l2.0 Modifier Upgrade'
     lore:
       - ''
       - '&7&o((left click to upgrade your tool.))'
+      - ''
+      - '&f&lUPGRADE INFO'
+      - ' &6- Upgrade Cost&7| &e{modifier-upgrade-currency-prefix}{condition-modifier-upgrade-cost}{modifier-upgrade-currency-suffix}'
+      - ' &6- Compounded Cost&7| &e{modifier-upgrade-currency-prefix}{condition-modifier-upgrade-cost-compounded}{modifier-upgrade-currency-suffix}'
+      - ' &6- Upgrade Level&7| &e{condition-modifier-upgrade-level}'
       - ''
       - '&f&lTOOL INFO'
       - ' &6- Upgrade Progress&7| &e{modifier-upgrade-level}&7/&e{modifier-upgrade-max}'
@@ -295,7 +307,6 @@ fillers:
     action: 'downgrade'
     material: ink_sack
     data: 5
-    commands:
     name: '&e&l3.0 Modifier Upgrade'
     lore:
       - ''
@@ -308,14 +319,19 @@ fillers:
     unbreakable: false
   false:
     action: 'upgrade'
+    commands:
+      - say {player} has upgraded their tool modifier to 3.0
     material: ink_sack
     data: 8
-    commands:
-      - 'say {player} has upgraded their trench tool to 7x7'
     name: '&e&l3.0 Modifier Upgrade'
     lore:
       - ''
       - '&7&o((left click to upgrade your tool.))'
+      - ''
+      - '&f&lUPGRADE INFO'
+      - ' &6- Upgrade Cost&7| &e{modifier-upgrade-currency-prefix}{condition-modifier-upgrade-cost}{modifier-upgrade-currency-suffix}'
+      - ' &6- Compounded Cost&7| &e{modifier-upgrade-currency-prefix}{condition-modifier-upgrade-cost-compounded}{modifier-upgrade-currency-suffix}'
+      - ' &6- Upgrade Level&7| &e{condition-modifier-upgrade-level}'
       - ''
       - '&f&lTOOL INFO'
       - ' &6- Upgrade Progress&7| &e{modifier-upgrade-level}&7/&e{modifier-upgrade-max}'
@@ -354,6 +370,11 @@ fillers:
     - ''
     - '&7&o((Left-click to purchase 100 uses for your tool.))'
     - ''
+    - '&f&lUPGRADE INFO'
+    - ' &6- Cost&7| &$1000'
+    - ''
+    - '&f&lTOOL INFO'
+    - ' &6- Current Uses&7| &e{uses}'
   enchantments:
   item-flags:
   unbreakable: false

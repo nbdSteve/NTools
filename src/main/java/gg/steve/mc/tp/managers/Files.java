@@ -7,15 +7,19 @@ import java.io.File;
 public enum Files {
     // generic
     CONFIG("tools+.yml"),
+    // omni
+    OMNI_CONFIG("omni.yml"),
     // permissions
     PERMISSIONS("permissions.yml"),
     // lang
     DEBUG("lang" + File.separator + "debug.yml"),
     MESSAGES("lang" + File.separator + "messages.yml"),
     // trench
-    TRENCH_CONFIG("trench" + File.separator + "config.yml"),
+    TRENCH_CONFIG("configs" + File.separator + "trench.yml"),
+    // sell
+    SELL_CONFIG("configs" + File.separator + "sell.yml"),
     // tray
-    TRAY_CONFIG("tray" + File.separator + "config.yml");
+    TRAY_CONFIG("configs" + File.separator + "tray.yml");
 
     private final String path;
 

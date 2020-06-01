@@ -1,12 +1,16 @@
 package gg.steve.mc.tp.managers;
 
+import gg.steve.mc.tp.attribute.types.OmniToolAttribute;
 import gg.steve.mc.tp.cmd.ToolsPlusCmd;
 import gg.steve.mc.tp.gui.GuiClickListener;
 import gg.steve.mc.tp.gui.GuiManager;
+import gg.steve.mc.tp.integration.SellIntegrationManager;
+import gg.steve.mc.tp.integration.sell.InternalPriceProvider;
 import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.papi.ToolsPlusExpansion;
-import gg.steve.mc.tp.player.HoldToolListener;
-import gg.steve.mc.tp.player.PlayerToolListener;
+import gg.steve.mc.tp.player.listener.HoldToolListener;
+import gg.steve.mc.tp.player.listener.PlayerCommandListener;
+import gg.steve.mc.tp.player.listener.PlayerToolListener;
 import gg.steve.mc.tp.player.PlayerToolManager;
 import gg.steve.mc.tp.tool.ToolsManager;
 import gg.steve.mc.tp.utils.LogUtil;
@@ -36,6 +40,7 @@ public class SetupManager {
     public static void setupFiles(FileManager fm) {
         fileManager = fm;
         Files.CONFIG.load(fm);
+        Files.OMNI_CONFIG.load(fm);
         Files.PERMISSIONS.load(fm);
         Files.DEBUG.load(fm);
         Files.MESSAGES.load(fm);
@@ -56,6 +61,7 @@ public class SetupManager {
         pm.registerEvents(new PlayerToolManager(), instance);
         pm.registerEvents(new HoldToolListener(), instance);
         pm.registerEvents(new PlayerToolListener(), instance);
+        pm.registerEvents(new PlayerCommandListener(), instance);
     }
 
     public static void registerEvent(JavaPlugin instance, Listener listener) {
@@ -77,19 +83,39 @@ public class SetupManager {
     }
 
     public static void loadPluginCache() {
+        // modules
         placeholderExpansions = new ArrayList<>();
         ModuleManager.loadInstalledModules();
+        // gui
         GuiManager.initialise();
+        // tools
         ToolsManager.initialiseTools();
         PlayerToolManager.initialise();
         ToolConfigDataManager.initialise();
+        // conditional commands
+        PlayerCommandListener.initialiseCommands();
+        // price
+        InternalPriceProvider.loadPriceMap();
+        SellIntegrationManager.initialiseProviderHierarchy();
+        // omni
+        OmniToolAttribute.loadOmniConfig();
     }
 
     public static void shutdownPluginCache() {
+        // omni
+        OmniToolAttribute.shutdown();
+        // price
+        SellIntegrationManager.shutdown();
+        InternalPriceProvider.shutdown();
+        // commands
+        PlayerCommandListener.shutdown();
+        // tools
         ToolConfigDataManager.shutdown();
         PlayerToolManager.shutdown();
         ToolsManager.shutdown();
+        // gui
         GuiManager.shutdown();
+        // modules
         ModuleManager.uninstalledAllModules();
         if (placeholderExpansions != null && !placeholderExpansions.isEmpty()) placeholderExpansions.clear();
     }

@@ -45,15 +45,20 @@ public class GenericGui extends AbstractGui {
                         case "upgrade":
                             UpgradeType upgrade = UpgradeType.valueOf(section.getString(entry + ".action").split(":")[2].toUpperCase());
                             item = GuiItemUtil.createConditionalItem(section.getConfigurationSection(entry), tool, upgrade);
+                            String condition = "true";
+                            if (!GuiItemUtil.isConditionMet(section.getConfigurationSection(entry), tool, upgrade))
+                                condition = "false";
                             for (Integer slot : slots) {
+                                String finalCondition = condition;
                                 setItemInSlot(slot, item, player -> {
-                                    CommandUtil.execute(section.getStringList(entry + ".commands"), player);
-                                    if (tool.getUpgradeLevel(upgrade) + 1 != GuiItemUtil.getConditionLevel(section.getConfigurationSection(entry)))
+                                    if (tool.getUpgradeLevel(upgrade) + 1 != GuiItemUtil.getConditionLevel(section.getConfigurationSection(entry))) {
                                         return;
+                                    }
                                     if (!tool.getAbstractTool().getUpgrade(upgrade).doUpgrade(player, tool)) {
                                         player.closeInventory();
                                         return;
                                     }
+                                    CommandUtil.execute(section.getStringList(entry + "." + finalCondition + ".commands"), player);
                                     refresh(tool);
                                 });
                             }
@@ -67,11 +72,11 @@ public class GenericGui extends AbstractGui {
                     item = GuiItemUtil.createItem(section.getConfigurationSection(entry), tool);
                     for (Integer slot : slots) {
                         setItemInSlot(slot, item, player -> {
-                            CommandUtil.execute(section.getStringList(entry + ".commands"), player);
                             if (!tool.getModeChange(mode).isChangingEnabled()) return;
                             if (!tool.getModeChange(mode).changeMode(player, tool)) {
                                 player.closeInventory();
                             } else {
+                                CommandUtil.execute(section.getStringList(entry + ".commands"), player);
                                 refresh(tool);
                             }
                         });
@@ -83,7 +88,7 @@ public class GenericGui extends AbstractGui {
                     for (Integer slot : slots) {
                         setItemInSlot(slot, item, player -> {
                             CommandUtil.execute(section.getStringList(entry + ".commands"), player);
-                            if (!tool.getAbstractTool().getUpgrade(upgrade).isDowngrade()) return;
+                            if (!tool.getAbstractTool().getUpgrade(upgrade).isDegradable()) return;
                             if (!tool.getAbstractTool().getUpgradeManager().getUpgrade(upgrade).doDowngrade(player, tool)) {
                                 player.closeInventory();
                             } else {
@@ -100,7 +105,8 @@ public class GenericGui extends AbstractGui {
                     for (Integer slot : slots) {
                         setItemInSlot(slot, item, player -> {
                             CommandUtil.execute(section.getStringList(entry + ".commands"), player);
-                            if (!tool.getAbstractTool().getAttributeManager().isAttributeEnabled(ToolAttributeType.USES)) return;
+                            if (!tool.getAbstractTool().getAttributeManager().isAttributeEnabled(ToolAttributeType.USES))
+                                return;
                             if (!tool.getAbstractTool().getAttributeManager().getAttribute(ToolAttributeType.USES).doIncrease(player, tool, currency, amount, cost)) {
                                 player.closeInventory();
                             } else {

@@ -24,13 +24,17 @@ public abstract class ToolsPlusModule {
         return moduleType;
     }
 
+    public ToolsPlus getToolsPlus() {
+        return ToolsPlus.get();
+    }
+
+    public abstract String getVersion();
+
+    public abstract String getAuthor();
+
     public abstract List<Listener> getListeners();
 
     public abstract PlaceholderExpansion getPlaceholderExpansion();
 
     public abstract AbstractTool loadTool(NBTItem item, PluginFile file);
-
-    public ToolsPlus getToolsPlus() {
-        return ToolsPlus.get();
-    }
 }

@@ -20,6 +20,8 @@ public enum GeneralMessage {
     INVENTORY_FULL("inventory-full"),
     TOOL_MAX_LEVEL("tool-max-level"),
     TOOL_MIN_LEVEL("tool-min-level"),
+    USES_PURCHASE("uses-purchase", "{amount}", "{cost}", "{currency-prefix}", "{currency-suffix}"),
+    SALE("sale", "{tool-type}", "{amount}", "{deposit}"),
     MODE_CHANGE("mode-change", "{change}", "{cost}", "{currency-prefix}", "{currency-suffix}"),
     INSUFFICIENT_FUNDS("insufficient-funds", "{balance}", "{cost}", "{currency-prefix}", "{currency-suffix}");
 

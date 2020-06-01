@@ -1,0 +1,27 @@
+
+V
+java:S1128"9Remove this unused import 'gg.steve.mc.tp.utils.LogUtil'.(Øº§“8Ï–İ¦.
+P
+java:S1118":Add a private constructor to hide the implicit public one.(Üâ§º
+_
+java:S2184r"BCast one of the operands of this addition operation to a "double".(¿ıª­8•‡Ü¦.
+_
+java:S2184j"BCast one of the operands of this addition operation to a "double".(‚µÖÃ8•‡Ü¦.
+_
+java:S2184@"BCast one of the operands of this addition operation to a "double".(¿ıª­8şÉœ£¦.
+X	java:S125„"<This block of commented-out lines of code should be removed.(ÇŠğ8²Ã’¸¦.
+m
+java:S1301|"KReplace this "switch" statement by "if" statements to increase readability.(å¿€œüÿÿÿÿ8 °¸¦.
+d
+java:S21849"BCast one of the operands of this addition operation to a "double".(“Úãûÿÿÿÿ8şÉœ£¦.
+C	java:S131|""Add a default case to this switch.(å¿€œüÿÿÿÿ8 °¸¦.
+_
+java:S2184?"BCast one of the operands of this addition operation to a "double".(“Óíğ8şÉœ£¦.
+d
+java:S2184k"BCast one of the operands of this addition operation to a "double".(“Úãûÿÿÿÿ8•‡Ü¦.
+_
+java:S2184q"BCast one of the operands of this addition operation to a "double".(“Óíğ8•‡Ü¦.
+^
+java:S1126~"AReplace this if-then-else statement by a single return statement.(à¦£˜8´‡óÜ¦.
+_
+java:S21848"BCast one of the operands of this addition operation to a "double".(‚µÖÃ8şÉœ£¦.
