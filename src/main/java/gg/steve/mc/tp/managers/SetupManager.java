@@ -1,5 +1,6 @@
 package gg.steve.mc.tp.managers;
 
+import gg.steve.mc.tp.attribute.types.CooldownToolAttribute;
 import gg.steve.mc.tp.attribute.types.OmniToolAttribute;
 import gg.steve.mc.tp.cmd.ToolsPlusCmd;
 import gg.steve.mc.tp.gui.GuiClickListener;
@@ -99,9 +100,13 @@ public class SetupManager {
         SellIntegrationManager.initialiseProviderHierarchy();
         // omni
         OmniToolAttribute.loadOmniConfig();
+        // cooldown
+        CooldownToolAttribute.initialise();
     }
 
     public static void shutdownPluginCache() {
+        //cooldown
+        CooldownToolAttribute.shutdown();
         // omni
         OmniToolAttribute.shutdown();
         // price

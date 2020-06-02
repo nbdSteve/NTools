@@ -46,6 +46,12 @@ blocks-mined:
   enabled: false
   lore-update-string: ' &6- Blocks Mined&7| &e&l{mined}'
 #
+omni:
+  enabled: false
+#
+cooldown:
+  enbaled: false
+#
 item:
   material: diamond_pickaxe
   data: 0

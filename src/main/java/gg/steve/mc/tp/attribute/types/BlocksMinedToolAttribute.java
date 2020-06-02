@@ -43,4 +43,9 @@ public class BlocksMinedToolAttribute extends AbstractToolAttribute {
             return false;
         }
     }
+
+    @Override
+    public boolean isOnCooldown(Player player, LoadedTool tool) {
+        return false;
+    }
 }

@@ -50,6 +50,11 @@ public class LoadedTool {
         return tool.getAttributeManager().getAttribute(ToolAttributeType.BLOCKS_MINED).doUpdate(player, nbtItem, this.toolId, current, amount);
     }
 
+    public boolean isOnCooldown(Player player) {
+        if (!tool.getAttributeManager().isAttributeEnabled(ToolAttributeType.COOLDOWN)) return false;
+        return tool.getAttributeManager().getAttribute(ToolAttributeType.COOLDOWN).isOnCooldown(player, this);
+    }
+
     public AbstractTool getAbstractTool() {
         return tool;
     }

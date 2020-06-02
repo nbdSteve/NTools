@@ -92,4 +92,9 @@ public class OmniToolAttribute extends AbstractToolAttribute {
     public boolean doUpdate(Player player, NBTItem item, UUID toolId, int current, int change) {
         return false;
     }
+
+    @Override
+    public boolean isOnCooldown(Player player, LoadedTool tool) {
+        return false;
+    }
 }

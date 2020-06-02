@@ -47,8 +47,6 @@ _
 /src/main/java/gg/steve/mc/tp/tool/ToolData.java,b\5\b5c99a259128453f6895538e3085de14c3b7df8a
 _
 /src/main/java/gg/steve/mc/tp/tool/ToolType.java,9\6\96f7f9675b702dfe6a9e9022c15b76eb090a3b1b
-i
-9src/main/java/gg/steve/mc/tp/player/HoldToolListener.java,2\4\24e2c209ecfa81e3c700cb178cf1eb2bea4abce9
 f
 6src/main/java/gg/steve/mc/tp/module/ModuleManager.java,d\0\d05be9f6884eccf93ed988a79675bccc7a41af6e
 c
@@ -59,8 +57,6 @@ c
 3src/main/java/gg/steve/mc/tp/tool/AbstractTool.java,d\5\d5c209360b01ba45765acdf213705a36441b9306
 h
 8src/main/java/gg/steve/mc/tp/module/ToolsPlusModule.java,b\4\b4736a4f32394051b4ddcef7361f1028b45f5da1
-k
-;src/main/java/gg/steve/mc/tp/player/PlayerToolListener.java,4\0\40ce9e310a286ac206d34a0f3ab440aecf485c10
 c
 3src/main/java/gg/steve/mc/tp/tool/ToolsManager.java,e\4\e4de0abfa5b3abe7c68541a7e7e3d5582a41b6d5
 j

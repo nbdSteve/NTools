@@ -81,7 +81,10 @@ public class SellIntegrationManager {
             }
         }
         if (deposit > 0) {
-            player.sendMessage("Sold x" + ToolsPlus.formatNumber(amount) + " items for $" + ToolsPlus.formatNumber(deposit));
+            GeneralMessage.SALE.message(player,
+                    tool.getAbstractTool().getType().getNiceName(),
+                    ToolsPlus.formatNumber(amount),
+                    ToolsPlus.formatNumber(deposit));
         }
         return amount;
     }

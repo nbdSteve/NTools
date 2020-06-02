@@ -1,6 +1,7 @@
 package gg.steve.mc.tp.modules.sell.tool;
 
 import gg.steve.mc.tp.attribute.types.BlocksMinedToolAttribute;
+import gg.steve.mc.tp.attribute.types.CooldownToolAttribute;
 import gg.steve.mc.tp.attribute.types.OmniToolAttribute;
 import gg.steve.mc.tp.attribute.types.UsesToolAttribute;
 import gg.steve.mc.tp.managers.PluginFile;
@@ -14,7 +15,7 @@ import gg.steve.mc.tp.upgrade.types.RadiusUpgrade;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 public class SellWand extends AbstractTool {
-    
+
     public SellWand(NBTItem item, PluginFile file) {
         super(ToolType.SELL, item, file);
         YamlConfiguration config = file.get();
@@ -26,6 +27,9 @@ public class SellWand extends AbstractTool {
         }
         if (config.getBoolean("omni.enabled")) {
             getAttributeManager().addToolAttribute(new OmniToolAttribute(""));
+        }
+        if (config.getBoolean("cooldown.enabled")) {
+            getAttributeManager().addToolAttribute(new CooldownToolAttribute(config.getInt("cooldown.duration")));
         }
         getUpgradeManager().addToolUpgrade(new RadiusUpgrade(file));
         getUpgradeManager().addToolUpgrade(new ModifierUpgrade(file));

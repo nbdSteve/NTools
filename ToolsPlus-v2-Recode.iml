@@ -77,7 +77,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.httpcomponents:httpcore:4.4.9" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: commons-codec:commons-codec:1.10" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: commons-logging:commons-logging:1.2" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: me.glaremasters:guilds:VERSION" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.github.Angeschossen:LandsAPI:4.5.9.9" level="project" />
   </component>
 </module>

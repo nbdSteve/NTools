@@ -4,4 +4,5 @@ public enum ToolAttributeType {
     USES,
     BLOCKS_MINED,
     OMNI,
+    COOLDOWN,
 }

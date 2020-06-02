@@ -74,4 +74,9 @@ public class UsesToolAttribute extends AbstractToolAttribute {
             return false;
         }
     }
+
+    @Override
+    public boolean isOnCooldown(Player player, LoadedTool tool) {
+        return false;
+    }
 }

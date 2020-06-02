@@ -37,6 +37,7 @@ public class SellData implements ToolData {
             if (!inventories.contains(inventory)) inventories.add(inventory);
         }
         if (inventories.isEmpty()) return;
+        if (tool.isOnCooldown(event.getPlayer())) return;
         int amount = SellIntegrationManager.doInventorySale(event.getPlayer(), inventories, tool);
         if (amount == 0) return;
         if (!tool.decrementUses(event.getPlayer())) return;

@@ -84,3 +84,8 @@ sale:
   action-bar: true
   text:
     - '&e&l<> &7Your &6&l{tool-type} Tool &7automatically sold &ex{amount} &7items for &a+$&l{deposit} &e&l<>'
+
+cooldown-query:
+  action-bar: true
+  text:
+    - '&e&l<> &7Your &6&l{tool-type} Tool &7is on cooldown, &e{seconds} &7seconds remaining &e&l<>'

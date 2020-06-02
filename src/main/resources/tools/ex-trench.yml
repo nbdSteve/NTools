@@ -54,6 +54,9 @@ blocks-mined:
 omni:
   enabled: true
 #
+cooldown:
+  enbaled: false
+#
 item:
   material: diamond_pickaxe
   data: 0
