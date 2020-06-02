@@ -58,7 +58,7 @@ public class UsesToolAttribute extends AbstractToolAttribute {
         }
         if (current + change < 1) {
             player.setItemInHand(new ItemStack(Material.AIR));
-            GeneralMessage.OUT_OF_USES.message(player, ToolsManager.getLoadedTool(toolId).getAbstractTool().getType().getNiceName());
+            GeneralMessage.OUT_OF_USES.message(player, ToolsManager.getLoadedTool(toolId).getAbstractTool().getModule().getNiceName());
             ToolsManager.removeLoadedTool(toolId);
             return true;
         }

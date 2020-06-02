@@ -8,20 +8,39 @@ import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.event.Listener;
 
 import java.util.List;
+import java.util.Map;
 
 public abstract class ToolsPlusModule {
-    private ModuleType moduleType;
+    private String identifier;
 
-    public ToolsPlusModule(ModuleType moduleType) {
-        this.moduleType = moduleType;
+//    public ToolsPlusModule(ModuleType moduleType) {
+//        this.moduleType = moduleType;
+//    }
+
+    public ToolsPlusModule(String identifier) {
+        this.identifier = identifier;
     }
 
     public String getName() {
-        return getModuleType().getModuleName();
+        StringBuilder builder = new StringBuilder();
+        builder.append(identifier, 0, 1);
+        builder.append(identifier.substring(1).toLowerCase());
+        builder.append("Module");
+        return builder.toString();
     }
 
-    public ModuleType getModuleType() {
-        return moduleType;
+    public String getNiceName() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(identifier, 0, 1);
+        builder.append(identifier.substring(1).toLowerCase());
+        return builder.toString();
+    }
+
+    //    public ModuleType getModuleType() {
+//        return moduleType;
+//    }
+    public String getIdentifier() {
+        return identifier;
     }
 
     public ToolsPlus getToolsPlus() {
@@ -37,4 +56,8 @@ public abstract class ToolsPlusModule {
     public abstract PlaceholderExpansion getPlaceholderExpansion();
 
     public abstract AbstractTool loadTool(NBTItem item, PluginFile file);
+
+    public abstract Map<String, String> getModuleFiles();
+
+    public abstract void onLoad();
 }

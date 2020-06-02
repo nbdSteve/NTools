@@ -3,7 +3,6 @@ package gg.steve.mc.tp.tool;
 import gg.steve.mc.tp.ToolsPlus;
 import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.module.ModuleManager;
-import gg.steve.mc.tp.module.ModuleType;
 import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.utils.LogUtil;
 import gg.steve.mc.tp.managers.PluginFile;
@@ -28,9 +27,8 @@ public class ToolsManager {
         serverTools = new HashMap<>();
         for (String tool : Files.CONFIG.get().getStringList("loaded-tools")) {
             PluginFile file = new YamlFileUtil().load("tools" + File.separator + tool + ".yml", ToolsPlus.get());
-            ModuleType module = ModuleType.valueOf(file.get().getString("type").toUpperCase());
-            if (!ModuleManager.isInstalled(module)) {
-                LogUtil.info("Error while loading tool: " + tool + ", the required module (" + module.getModuleName() + ") is not installed.");
+            if (!ModuleManager.isInstalled(file.get().getString("type").toUpperCase())) {
+                LogUtil.info("Error while loading tool: " + tool + ", the required module (" + file.get().getString("type").toUpperCase() + ") is not installed.");
                 continue;
             }
             ToolLoaderUtil loader = new ToolLoaderUtil(file, tool);

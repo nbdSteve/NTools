@@ -2,7 +2,6 @@ package gg.steve.mc.tp.utils;
 
 import gg.steve.mc.tp.integration.region.RegionProviderType;
 import gg.steve.mc.tp.managers.ToolConfigDataManager;
-import gg.steve.mc.tp.tool.ToolType;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -12,27 +11,10 @@ import java.util.List;
 
 public class CubeUtil {
 
-    public static List<Block> getCube(Player player, Block start, int radius, ToolType type) {
+    public static List<Block> getCube(Player player, Block start, int radius, String moduleId, boolean required) {
         List<Block> blockList = new ArrayList<>();
-        switch (type) {
-            case TRENCH:
-                if (!ToolConfigDataManager.getTrenchBlacklist().contains(start.getType())) {
-                    blockList.add(start);
-                }
-                break;
-            case TRAY:
-                if (ToolConfigDataManager.getTrayWhitelist().contains(start.getType())) {
-                    blockList.add(start);
-                }
-                break;
-            case SELL:
-                if (ToolConfigDataManager.getSellableContainers().contains(start.getType())) {
-                    blockList.add(start);
-                }
-                break;
-            default:
-                break;
-        }
+        if (ToolConfigDataManager.queryMaterialList(moduleId, start.getType(), required))
+            blockList.add(start);
         if (radius <= 0) return blockList;
         for (int x = -radius; x <= radius; x++) {
             for (int y = -radius; y <= radius; y++) {
@@ -44,19 +26,8 @@ public class CubeUtil {
                         if (!regionProvider.isBreakAllowed(player, block)) breakAllowed = false;
                     }
                     if (!breakAllowed) continue;
-                    switch (type) {
-                        case TRENCH:
-                            if (ToolConfigDataManager.getTrenchBlacklist().contains(block.getType()))
-                                continue;
-                            break;
-                        case TRAY:
-                            if (!ToolConfigDataManager.getTrayWhitelist().contains(block.getType())) continue;
-                            break;
-                        case SELL:
-                            if (!ToolConfigDataManager.getSellableContainers().contains(block.getType())) continue;
-                        default:
-                            break;
-                    }
+                    if (!ToolConfigDataManager.queryMaterialList(moduleId, start.getType(), required))
+                        continue;
                     blockList.add(block);
                 }
             }

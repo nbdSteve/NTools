@@ -6,7 +6,6 @@ import gg.steve.mc.tp.mode.AbstractModeChange;
 import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.upgrade.UpgradeType;
-import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;

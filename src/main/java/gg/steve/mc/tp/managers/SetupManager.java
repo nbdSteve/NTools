@@ -86,13 +86,13 @@ public class SetupManager {
     public static void loadPluginCache() {
         // modules
         placeholderExpansions = new ArrayList<>();
+        ToolConfigDataManager.initialise();
         ModuleManager.loadInstalledModules();
         // gui
         GuiManager.initialise();
         // tools
         ToolsManager.initialiseTools();
         PlayerToolManager.initialise();
-        ToolConfigDataManager.initialise();
         // conditional commands
         PlayerCommandListener.initialiseCommands();
         // price

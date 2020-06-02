@@ -13,13 +13,13 @@ public enum Files {
     PERMISSIONS("permissions.yml"),
     // lang
     DEBUG("lang" + File.separator + "debug.yml"),
-    MESSAGES("lang" + File.separator + "messages.yml"),
+    MESSAGES("lang" + File.separator + "messages.yml");
     // trench
-    TRENCH_CONFIG("configs" + File.separator + "trench.yml"),
-    // sell
-    SELL_CONFIG("configs" + File.separator + "sell.yml"),
-    // tray
-    TRAY_CONFIG("configs" + File.separator + "tray.yml");
+//    TRENCH_CONFIG("configs" + File.separator + "trench.yml"),
+//    // sell
+//    SELL_CONFIG("configs" + File.separator + "sell.yml"),
+//    // tray
+//    TRAY_CONFIG("configs" + File.separator + "tray.yml");
 
     private final String path;
 

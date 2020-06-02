@@ -4,12 +4,13 @@ import gg.steve.mc.tp.ToolsPlus;
 import gg.steve.mc.tp.module.utils.ModuleLoaderUtil;
 import gg.steve.mc.tp.utils.LogUtil;
 import org.apache.commons.lang.Validate;
+import sun.plugin2.main.client.WMozillaServiceDelegate;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ModuleManager {
-    private static Map<ModuleType, ToolsPlusModule> modules;
+    private static Map<String, ToolsPlusModule> modules;
     private static ModuleLoaderUtil loader;
 
     public static void initialise(ToolsPlus instance) {
@@ -23,8 +24,8 @@ public class ModuleManager {
         if (modules.size() > 0) {
             message.append(": (");
             int i = 0;
-            for (ModuleType type : modules.keySet()) {
-                message.append(type.getNiceName());
+            for (String identifier : modules.keySet()) {
+                message.append(modules.get(identifier).getNiceName());
                 if (i != modules.size() - 1) {
                     message.append(", ");
                 } else {
@@ -41,29 +42,29 @@ public class ModuleManager {
         }
     }
 
-    public static boolean installToolModule(ModuleType type, ToolsPlusModule module) {
-        Validate.notNull(type, "ModuleType can not be null");
+    public static boolean installToolModule(ToolsPlusModule module) {
+        Validate.notNull(module.getIdentifier(), "Module identifier can not be null");
         Validate.notNull(module, "ToolsPlusModule can not be null");
-        if (modules.containsKey(type)) {
+        if (modules.containsKey(module.getIdentifier())) {
             return false;
         }
-        modules.put(type, module);
+        modules.put(module.getIdentifier(), module);
         return true;
     }
 
-    public static boolean isInstalled(ModuleType type) {
+    public static boolean isInstalled(String identifier) {
         if (modules == null || modules.isEmpty()) return false;
-        return modules.get(type) != null;
+        return modules.get(identifier) != null;
     }
 
-    public static ToolsPlusModule getInstalledModule(ModuleType type) {
-        if (!isInstalled(type)) return null;
-        return modules.get(type);
+    public static ToolsPlusModule getInstalledModule(String identifier) {
+        if (!isInstalled(identifier)) return null;
+        return modules.get(identifier);
     }
 
     public static boolean uninstallModule(ToolsPlusModule module) {
         if (modules == null || modules.isEmpty()) return false;
-        return modules.remove(module.getModuleType()) != null;
+        return modules.remove(module.getIdentifier()) != null;
     }
 
     public static void uninstalledAllModules() {
@@ -75,8 +76,8 @@ public class ModuleManager {
         StringBuilder message = new StringBuilder();
         if (modules.size() > 0) {
             int i = 0;
-            for (ModuleType type : modules.keySet()) {
-                message.append(type.getNiceName());
+            for (String identifier : modules.keySet()) {
+                message.append(modules.get(identifier).getName());
                 if (i != modules.size() - 1) {
                     message.append(", ");
                 }

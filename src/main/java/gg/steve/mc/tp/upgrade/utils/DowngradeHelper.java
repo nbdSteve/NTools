@@ -50,7 +50,7 @@ public class DowngradeHelper {
             this.player.setItemInHand(updated);
             this.player.updateInventory();
             GeneralMessage.DOWNGRADE.message(this.player,
-                    this.tool.getAbstractTool().getType().getNiceName(),
+                    this.tool.getAbstractTool().getModule().getNiceName(),
                     ToolsPlus.formatNumber(this.next + 1),
                     ToolsPlus.formatNumber(this.upgrade.getMaxLevel() + 1),
                     ToolsPlus.formatNumber(cost),

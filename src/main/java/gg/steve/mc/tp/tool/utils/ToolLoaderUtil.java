@@ -2,7 +2,6 @@ package gg.steve.mc.tp.tool.utils;
 
 import gg.steve.mc.tp.managers.PluginFile;
 import gg.steve.mc.tp.module.ModuleManager;
-import gg.steve.mc.tp.module.ModuleType;
 import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.tool.AbstractTool;
 import gg.steve.mc.tp.utils.ItemBuilderUtil;
@@ -17,15 +16,15 @@ public class ToolLoaderUtil {
     public ToolLoaderUtil(PluginFile file, String name) {
         this.file = file;
         this.name = name;
-        ModuleType module = ModuleType.getModuleForTool(file);
-        loadItem(module);
-        tool = ModuleManager.getInstalledModule(module).loadTool(this.item, file);
+        String moduleId = file.get().getString("type").toUpperCase();
+        loadItem(moduleId);
+        tool = ModuleManager.getInstalledModule(moduleId).loadTool(this.item, file);
 //        tool.setUsesGui(GuiManager.getGui(file.get().getString("uses.gui")));
 //        tool.setModeGui(GuiManager.getGui(file.get().getString("mode.gui")));
         loadToolData();
     }
 
-    public void loadItem(ModuleType module) {
+    public void loadItem(String moduleId) {
         ConfigurationSection section = this.file.get().getConfigurationSection("item");
         ItemBuilderUtil builder = ItemBuilderUtil.getBuilderForMaterial(section.getString("material"), section.getString("data"));
         builder.addName(section.getString("name"));
@@ -38,7 +37,7 @@ public class ToolLoaderUtil {
                 file.get().getStringList("modes.sell.track").get(0).split(":")[2]);
         builder.addEnchantments(section.getStringList("enchantments"));
         builder.addItemFlags(section.getStringList("item-flags"));
-        builder.addNBT(module, this.name, this.file);
+        builder.addNBT(moduleId, this.name, this.file);
         this.item = builder.getNbtItem();
     }
 

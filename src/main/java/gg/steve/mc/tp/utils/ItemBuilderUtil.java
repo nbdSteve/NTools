@@ -1,7 +1,6 @@
 package gg.steve.mc.tp.utils;
 
 import gg.steve.mc.tp.managers.PluginFile;
-import gg.steve.mc.tp.module.ModuleType;
 import gg.steve.mc.tp.nbt.NBTItem;
 import me.arcaniax.hdb.api.HeadDatabaseAPI;
 import org.bukkit.Bukkit;
@@ -115,9 +114,9 @@ public class ItemBuilderUtil {
         nbtItem.setBoolean("tools+.gui", true);
     }
 
-    public void addNBT(ModuleType module, String name, PluginFile file) {
+    public void addNBT(String moduleId, String name, PluginFile file) {
         nbtItem = new NBTItem(item);
-        nbtItem.setString("tools+.type", module.name());
+        nbtItem.setString("tools+.type", moduleId);
         nbtItem.setString("tools+.name", name);
         nbtItem.setInteger("tools+.uses", file.get().getInt("uses.starting"));
         nbtItem.setInteger("tools+.blocks", 0);

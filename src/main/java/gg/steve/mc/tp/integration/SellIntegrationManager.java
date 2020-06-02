@@ -40,9 +40,11 @@ public class SellIntegrationManager {
             if (silk) {
                 ItemStack item = new ItemStack(block.getType(), 1, block.getData());
                 if (getItemPrice(player, item) == -1) {
+                    if (tool.isOnCooldown(player)) return;
                     player.getInventory().addItem(item);
                     continue;
                 }
+                if (tool.isOnCooldown(player)) return;
                 deposit += sellItem(player, item, tool);
                 amount++;
             } else {
@@ -60,7 +62,7 @@ public class SellIntegrationManager {
         }
         if (deposit > 0) {
             GeneralMessage.SALE.message(player,
-                    tool.getAbstractTool().getType().getNiceName(),
+                    tool.getAbstractTool().getModule().getNiceName(),
                     ToolsPlus.formatNumber(amount),
                     ToolsPlus.formatNumber(deposit));
         }
@@ -75,6 +77,7 @@ public class SellIntegrationManager {
                 ItemStack item = inventory.getItem(slot);
                 if (item.hasItemMeta()) continue;
                 if (getItemPrice(player, item) == -1) continue;
+                if (tool.isOnCooldown(player)) return 0;
                 inventory.clear(slot);
                 deposit += sellItem(player, item, tool);
                 amount += item.getAmount();
@@ -82,7 +85,7 @@ public class SellIntegrationManager {
         }
         if (deposit > 0) {
             GeneralMessage.SALE.message(player,
-                    tool.getAbstractTool().getType().getNiceName(),
+                    tool.getAbstractTool().getModule().getNiceName(),
                     ToolsPlus.formatNumber(amount),
                     ToolsPlus.formatNumber(deposit));
         }

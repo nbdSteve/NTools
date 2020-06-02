@@ -74,9 +74,9 @@ public class OmniToolAttribute extends AbstractToolAttribute {
      * Clears the tools blocks lists
      */
     public static void shutdown() {
-        spadeBlockTypes.clear();
-        pickaxeBlockTypes.clear();
-        axeBlockTypes.clear();
+        if (spadeBlockTypes != null && !spadeBlockTypes.isEmpty()) spadeBlockTypes.clear();
+        if (pickaxeBlockTypes != null && !pickaxeBlockTypes.isEmpty()) pickaxeBlockTypes.clear();
+        if (axeBlockTypes != null && !axeBlockTypes.isEmpty()) axeBlockTypes.clear();
     }
 
     public OmniToolAttribute(String updateString) {

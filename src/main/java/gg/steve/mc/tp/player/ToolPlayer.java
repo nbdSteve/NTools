@@ -2,7 +2,6 @@ package gg.steve.mc.tp.player;
 
 import gg.steve.mc.tp.gui.AbstractGui;
 import gg.steve.mc.tp.tool.LoadedTool;
-import gg.steve.mc.tp.tool.ToolType;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -27,8 +26,8 @@ public class ToolPlayer {
         this.upgradeGui = upgradeGui;
     }
 
-    public ToolType getToolType() {
-        return tool.getAbstractTool().getType();
+    public String getToolType() {
+        return tool.getAbstractTool().getModuleId();
     }
 
     public void setTool(LoadedTool tool) {

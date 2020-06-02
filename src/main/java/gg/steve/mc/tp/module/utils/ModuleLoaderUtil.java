@@ -1,6 +1,7 @@
 package gg.steve.mc.tp.module.utils;
 
 import gg.steve.mc.tp.ToolsPlus;
+import gg.steve.mc.tp.managers.FileManager;
 import gg.steve.mc.tp.managers.SetupManager;
 import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.module.ToolsPlusModule;
@@ -33,13 +34,18 @@ public class ModuleLoaderUtil {
         }
         for (Class<?> klass : subs) {
             ToolsPlusModule module = createInstance(klass);
+            // load files for the module
+            for (String file : module.getModuleFiles().keySet()) {
+                SetupManager.getFileManager().add(file, module.getModuleFiles().get(file));
+            }
             for (Listener listener : module.getListeners()) {
                 SetupManager.registerEvent(ToolsPlus.get(), listener);
             }
-            if (module.getPlaceholderExpansion() != null)
+            if (module.getPlaceholderExpansion() != null) {
                 SetupManager.addPlaceholderExpansion(module.getPlaceholderExpansion());
-            module.getModuleType().loadModuleFiles();
-            ModuleManager.installToolModule(module.getModuleType(), module);
+            }
+            module.onLoad();
+            ModuleManager.installToolModule(module);
         }
     }
 

@@ -2,7 +2,6 @@ package gg.steve.mc.tp.tool.utils;
 
 import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.tool.LoadedTool;
-import gg.steve.mc.tp.tool.ToolType;
 import gg.steve.mc.tp.tool.ToolsManager;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

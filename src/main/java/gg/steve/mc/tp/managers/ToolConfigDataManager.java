@@ -1,29 +1,45 @@
 package gg.steve.mc.tp.managers;
 
 import gg.steve.mc.tp.module.ModuleManager;
-import gg.steve.mc.tp.module.ModuleType;
 import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.Material;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ToolConfigDataManager {
     private static List<Material> trenchBlacklist;
     private static List<Material> trayWhitelist;
     private static List<Material> sellableContainers;
+    private static Map<String, List<Material>> lists;
 
     private ToolConfigDataManager() throws IllegalAccessException {
         throw new IllegalAccessException("Manager class cannot be instantiated.");
     }
 
     public static void initialise() {
-        if (ModuleManager.isInstalled(ModuleType.TRENCH))
-            trenchBlacklist = new ArrayList<>(convertStringsToMaterials(Files.TRENCH_CONFIG.get().getStringList("blacklist")));
-        if (ModuleManager.isInstalled(ModuleType.TRAY))
-            trayWhitelist = new ArrayList<>(convertStringsToMaterials(Files.TRAY_CONFIG.get().getStringList("whitelist")));
-        if (ModuleManager.isInstalled(ModuleType.SELL))
-            sellableContainers = new ArrayList<>(convertStringsToMaterials(Files.SELL_CONFIG.get().getStringList("sellable-containers")));
+        lists = new HashMap<>();
+//        if (ModuleManager.isInstalled(ModuleType.TRENCH))
+//            trenchBlacklist = new ArrayList<>(convertStringsToMaterials(Files.TRENCH_CONFIG.get().getStringList("blacklist")));
+//        if (ModuleManager.isInstalled(ModuleType.TRAY))
+//            trayWhitelist = new ArrayList<>(convertStringsToMaterials(Files.TRAY_CONFIG.get().getStringList("whitelist")));
+//        if (ModuleManager.isInstalled(ModuleType.SELL))
+//            sellableContainers = new ArrayList<>(convertStringsToMaterials(Files.SELL_CONFIG.get().getStringList("sellable-containers")));
+    }
+
+    public static void addMaterialList(String moduleId, List<String> list) {
+        if (lists != null && !lists.containsKey(moduleId)) lists.put(moduleId, convertStringsToMaterials(list));
+    }
+
+    public static boolean queryMaterialList(String moduleId, Material check, boolean required) {
+        if (lists == null || lists.isEmpty()) return required;
+        if (!lists.containsKey(moduleId)) {
+            LogUtil.warning("Tried to query material list for " + moduleId + ", but it was not in the map, returning default required.");
+            return required;
+        }
+        return lists.get(moduleId).contains(check) == required;
     }
 
     public static void shutdown() {

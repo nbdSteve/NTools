@@ -1,7 +1,6 @@
 package gg.steve.mc.tp.gui;
 
 import gg.steve.mc.tp.tool.LoadedTool;
-import gg.steve.mc.tp.tool.ToolType;
 import gg.steve.mc.tp.utils.ColorUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
@@ -11,7 +10,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 public abstract class AbstractGui {

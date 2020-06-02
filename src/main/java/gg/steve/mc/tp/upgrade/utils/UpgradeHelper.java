@@ -59,7 +59,7 @@ public class UpgradeHelper {
                     || this.tool.getPeakUpgradeLevel(upgrade.getType()) >=
                     this.tool.getAbstractTool().getUpgrade(upgrade.getType()).getMaxLevel()) && peakAlreadySet) {
                 GeneralMessage.UPGRADE.message(this.player,
-                        this.tool.getAbstractTool().getType().getNiceName(),
+                        this.tool.getAbstractTool().getModule().getNiceName(),
                         ToolsPlus.formatNumber(this.next + 1),
                         ToolsPlus.formatNumber(this.upgrade.getMaxLevel() + 1),
                         ToolsPlus.formatNumber(0),
@@ -67,7 +67,7 @@ public class UpgradeHelper {
                         this.upgrade.getCurrency().getSuffix());
             } else {
                 GeneralMessage.UPGRADE.message(this.player,
-                        this.tool.getAbstractTool().getType().getNiceName(),
+                        this.tool.getAbstractTool().getModule().getNiceName(),
                         ToolsPlus.formatNumber(this.next + 1),
                         ToolsPlus.formatNumber(this.upgrade.getMaxLevel() + 1),
                         ToolsPlus.formatNumber(cost),

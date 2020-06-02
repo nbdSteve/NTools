@@ -52,7 +52,7 @@ public class CooldownToolAttribute extends AbstractToolAttribute {
         for (CooldownUtil cooldown : playersOnCooldown.get(playerId)) {
             if (cooldown.getTool().equalsIgnoreCase(tool.getName())) {
                 if (cooldown.isActive()) {
-                    GeneralMessage.COOLDOWN.message(player, tool.getAbstractTool().getType().getNiceName(), ToolsPlus.formatNumber(cooldown.getRemaining()));
+                    GeneralMessage.COOLDOWN.message(player, tool.getAbstractTool().getModule().getNiceName(), ToolsPlus.formatNumber(cooldown.getRemaining()));
                     return true;
                 }
                 // if the players cooldown has ended, remove them from the list
