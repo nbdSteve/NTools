@@ -13,8 +13,10 @@ public class CubeUtil {
 
     public static List<Block> getCube(Player player, Block start, int radius, String moduleId, boolean required) {
         List<Block> blockList = new ArrayList<>();
-        if (ToolConfigDataManager.queryMaterialList(moduleId, start.getType(), required))
+        // check if the block is whitelisted / blacklisted based on the module
+        if (ToolConfigDataManager.queryMaterialList(moduleId, start.getType(), required)) {
             blockList.add(start);
+        }
         if (radius <= 0) return blockList;
         for (int x = -radius; x <= radius; x++) {
             for (int y = -radius; y <= radius; y++) {
@@ -22,11 +24,13 @@ public class CubeUtil {
                     Block block = start.getRelative(x, y, z);
                     if (block.getType().equals(Material.AIR)) continue;
                     boolean breakAllowed = true;
+                    // check if the player can break this specific block
                     for (RegionProviderType regionProvider : RegionProviderType.values()) {
                         if (!regionProvider.isBreakAllowed(player, block)) breakAllowed = false;
                     }
                     if (!breakAllowed) continue;
-                    if (!ToolConfigDataManager.queryMaterialList(moduleId, start.getType(), required))
+                    // check if the block is whitelisted / blacklisted based on the module
+                    if (!ToolConfigDataManager.queryMaterialList(moduleId, block.getType(), required))
                         continue;
                     blockList.add(block);
                 }

@@ -1,7 +1,7 @@
 package gg.steve.mc.tp.cmd;
 
 import gg.steve.mc.tp.cmd.misc.HelpSubCmd;
-import gg.steve.mc.tp.cmd.misc.ModuleSubCmd;
+import gg.steve.mc.tp.cmd.module.ModuleSubCmd;
 import gg.steve.mc.tp.cmd.misc.ReloadSubCmd;
 import gg.steve.mc.tp.cmd.misc.ToolSubCmd;
 

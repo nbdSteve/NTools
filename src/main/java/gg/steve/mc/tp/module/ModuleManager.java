@@ -4,9 +4,10 @@ import gg.steve.mc.tp.ToolsPlus;
 import gg.steve.mc.tp.module.utils.ModuleLoaderUtil;
 import gg.steve.mc.tp.utils.LogUtil;
 import org.apache.commons.lang.Validate;
-import sun.plugin2.main.client.WMozillaServiceDelegate;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ModuleManager {
@@ -77,7 +78,7 @@ public class ModuleManager {
         if (modules.size() > 0) {
             int i = 0;
             for (String identifier : modules.keySet()) {
-                message.append(modules.get(identifier).getName());
+                message.append(modules.get(identifier).getNiceName());
                 if (i != modules.size() - 1) {
                     message.append(", ");
                 }
@@ -90,5 +91,9 @@ public class ModuleManager {
     public static String getModuleCount() {
         if (modules == null) return "0";
         return String.valueOf(modules.size());
+    }
+
+    public static Collection<ToolsPlusModule> getInstalledModules() {
+        return modules.values();
     }
 }

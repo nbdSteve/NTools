@@ -33,18 +33,17 @@ public class TrenchData implements ToolData {
                 silk = blockBreakEvent.getPlayer().getItemInHand().getEnchantments().containsKey(Enchantment.SILK_TOUCH);
         if (full) {
             GeneralMessage.INVENTORY_FULL.message(blockBreakEvent.getPlayer());
-        } else if (autoSell) {
+        }
+        if (autoSell) {
             SellIntegrationManager.doBlockSale(blockBreakEvent.getPlayer(), blocks, loadedTool, silk);
         } else {
             for (Block block : blocks) {
                 // if the player is using silk touch give them items accordingly, adds items straight to inventory
-                if (!full) {
-                    if (silk) {
-                        blockBreakEvent.getPlayer().getInventory().addItem(new ItemStack(block.getType(), 1, block.getData()));
-                    } else {
-                        for (ItemStack item : block.getDrops(blockBreakEvent.getPlayer().getItemInHand())) {
-                            blockBreakEvent.getPlayer().getInventory().addItem(item);
-                        }
+                if (silk) {
+                    blockBreakEvent.getPlayer().getInventory().addItem(new ItemStack(block.getType(), 1, block.getData()));
+                } else {
+                    for (ItemStack item : block.getDrops(blockBreakEvent.getPlayer().getItemInHand())) {
+                        blockBreakEvent.getPlayer().getInventory().addItem(item);
                     }
                 }
                 // clear drops and remove the block

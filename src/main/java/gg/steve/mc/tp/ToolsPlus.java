@@ -3,7 +3,6 @@ package gg.steve.mc.tp;
 import gg.steve.mc.tp.managers.FileManager;
 import gg.steve.mc.tp.managers.SetupManager;
 import gg.steve.mc.tp.module.ModuleManager;
-import gg.steve.mc.tp.papi.ToolsPlusExpansion;
 import gg.steve.mc.tp.utils.LogUtil;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;

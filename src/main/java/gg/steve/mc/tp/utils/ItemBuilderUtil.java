@@ -109,13 +109,19 @@ public class ItemBuilderUtil {
         item.setItemMeta(itemMeta);
     }
 
-    public void addNBT() {
+    public void addNBT(boolean unbreakable) {
         nbtItem = new NBTItem(item);
+        if (unbreakable) {
+            nbtItem.setBoolean("Unbreakable", true);
+        }
         nbtItem.setBoolean("tools+.gui", true);
     }
 
     public void addNBT(String moduleId, String name, PluginFile file) {
         nbtItem = new NBTItem(item);
+        if (file.get().getBoolean("item.unbreakable")) {
+            nbtItem.setBoolean("Unbreakable", true);
+        }
         nbtItem.setString("tools+.type", moduleId);
         nbtItem.setString("tools+.name", name);
         nbtItem.setInteger("tools+.uses", file.get().getInt("uses.starting"));

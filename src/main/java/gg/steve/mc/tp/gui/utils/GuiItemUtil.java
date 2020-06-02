@@ -19,7 +19,7 @@ public class GuiItemUtil {
         builder.addLore(section.getStringList("lore"));
         builder.addEnchantments(section.getStringList("enchantments"));
         builder.addItemFlags(section.getStringList("item-flags"));
-        builder.addNBT();
+        builder.addNBT(section.getBoolean("unbreakable"));
         return builder.getItem();
     }
 
@@ -80,7 +80,7 @@ public class GuiItemUtil {
                 ToolsPlus.formatNumber(tool.getUses()));
         builder.addEnchantments(section.getStringList("enchantments"));
         builder.addItemFlags(section.getStringList("item-flags"));
-        builder.addNBT();
+        builder.addNBT(section.getBoolean("unbreakable"));
         return builder.getItem();
     }
 
@@ -139,7 +139,7 @@ public class GuiItemUtil {
                 tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getLoreStringForLevel(level));
         builder.addEnchantments(section.getStringList(condition + ".enchantments"));
         builder.addItemFlags(section.getStringList(condition + ".item-flags"));
-        builder.addNBT();
+        builder.addNBT(section.getBoolean(condition + ".unbreakable"));
         return builder.getItem();
     }
 

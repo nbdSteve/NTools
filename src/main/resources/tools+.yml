@@ -7,6 +7,8 @@ loaded-tools:
 loaded-guis:
   - basic-gui
 
+per-tool-cooldowns: false
+
 max-upgrade-placeholder: 'MAX'
 
 no-mode-change-placeholder: 'Can not be changed'

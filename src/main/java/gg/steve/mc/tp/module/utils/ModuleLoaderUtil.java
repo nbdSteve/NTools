@@ -28,7 +28,7 @@ public class ModuleLoaderUtil {
         if (instance == null) {
             return;
         }
-        List<Class<?>> subs = ModuleClassUtil.getClasses("modules", null, ToolsPlusModule.class);
+        List<Class<?>> subs = ModuleClassUtil.getClasses("modules", ToolsPlusModule.class);
         if (subs == null || subs.isEmpty()) {
             return;
         }

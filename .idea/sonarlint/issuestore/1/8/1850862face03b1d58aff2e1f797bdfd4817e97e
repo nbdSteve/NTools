@@ -1,19 +1,23 @@
 
-N
-java:S1874)"1Remove this use of "ItemStack"; it is deprecated.(¿¶ûµ8×—‡§.
-L
-java:S1874)"/Remove this use of "getData"; it is deprecated.(¿¶ûµ8×—‡§.
-z	java:S135H"YReduce the total number of break and continue statements in this loop to use at most one.(«†í¸ùÿÿÿÿ8İàó…§.
-u	java:S135c"YReduce the total number of break and continue statements in this loop to use at most one.(áñßµ8¥õ¸ú¦.
 t
-java:S3776b"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(÷ßÆìüÿÿÿÿ8üÎĞû¦.
-F
-java:S1659F"$Declare "amount" on a separate line.(ü«ÆÌÿÿÿÿÿ8‰î…§.
-h
-java:S3252q"KUse static access with "org.bukkit.plugin.java.JavaPlugin" for "getPlugin".(ºÿ’¨8Ê«Õú¦.
-R
-java:S18741"5Remove this use of "getItemInHand"; it is deprecated.(è­íí8©ãòû¦.
+java:S3776h"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(÷ßÆìüÿÿÿÿ8üÎĞû¦.
 @
 java:S1659&"$Declare "amount" on a separate line.(ØŒêj8À›ü¦.
+L
+java:S1874)"/Remove this use of "getData"; it is deprecated.(¿¶ûµ8×—‡§.
+N
+java:S1874)"1Remove this use of "ItemStack"; it is deprecated.(¿¶ûµ8×—‡§.
 \
 java:S1118":Add a private constructor to hide the implicit public one.(‹µÁ»ıÿÿÿÿ8÷û¦.
+F
+java:S1659H"$Declare "amount" on a separate line.(ü«ÆÌÿÿÿÿÿ8‰î…§.
+R
+java:S18743"5Remove this use of "getItemInHand"; it is deprecated.(è­íí8©ãòû¦.
+h
+java:S3252w"KUse static access with "org.bukkit.plugin.java.JavaPlugin" for "getPlugin".(ºÿ’¨8Ê«Õú¦.
+o
+java:S3776G"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Šâ¹Ë8‡ìú™§.
+z	java:S135J"YReduce the total number of break and continue statements in this loop to use at most one.(«†í¸ùÿÿÿÿ8İàó…§.
+t
+java:S3776%"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(‡¼¶Úùÿÿÿÿ8¯µÿ™§.
+u	java:S135i"YReduce the total number of break and continue statements in this loop to use at most one.(áñßµ8¥õ¸ú¦.

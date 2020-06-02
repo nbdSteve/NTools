@@ -1,6 +1,8 @@
 package gg.steve.mc.tp.modules.tray.tool;
 
+import gg.steve.mc.tp.integration.SellIntegrationManager;
 import gg.steve.mc.tp.message.GeneralMessage;
+import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.modules.tray.TrayModule;
 import gg.steve.mc.tp.tool.LoadedTool;
 import gg.steve.mc.tp.tool.ToolData;
@@ -27,24 +29,28 @@ public class TrayData implements ToolData {
         if (blocks.isEmpty()) return;
         if (loadedTool.isOnCooldown(blockBreakEvent.getPlayer())) return;
         if (!loadedTool.decrementUses(blockBreakEvent.getPlayer())) return;
-        boolean full;
-        if (full = (blockBreakEvent.getPlayer().getInventory().firstEmpty() == -1)) {
+        boolean full = blockBreakEvent.getPlayer().getInventory().firstEmpty() == -1,
+                autoSell = loadedTool.getModeChange(ModeType.SELL).getCurrentModeString(loadedTool.getCurrentMode(ModeType.SELL)).equalsIgnoreCase("sell"),
+                silk = blockBreakEvent.getPlayer().getItemInHand().getEnchantments().containsKey(Enchantment.SILK_TOUCH);
+        if (full) {
             GeneralMessage.INVENTORY_FULL.message(blockBreakEvent.getPlayer());
         }
-        for (Block block : blocks) {
-            // if the player is using silk touch give them items accordingly, adds items straight to inventory
-            if (!full) {
-                if (blockBreakEvent.getPlayer().getItemInHand().getEnchantments().containsKey(Enchantment.SILK_TOUCH)) {
+        if (autoSell) {
+            SellIntegrationManager.doBlockSale(blockBreakEvent.getPlayer(), blocks, loadedTool, silk);
+        } else {
+            for (Block block : blocks) {
+                // if the player is using silk touch give them items accordingly, adds items straight to inventory
+                if (silk) {
                     blockBreakEvent.getPlayer().getInventory().addItem(new ItemStack(block.getType(), 1, block.getData()));
                 } else {
                     for (ItemStack item : block.getDrops(blockBreakEvent.getPlayer().getItemInHand())) {
                         blockBreakEvent.getPlayer().getInventory().addItem(item);
                     }
                 }
+                // clear drops and remove the block
+                block.getDrops().clear();
+                block.setType(Material.AIR);
             }
-            // clear drops and remove the block
-            block.getDrops().clear();
-            block.setType(Material.AIR);
         }
         if (!loadedTool.incrementBlocksMined(blockBreakEvent.getPlayer(), blocks.size())) return;
     }

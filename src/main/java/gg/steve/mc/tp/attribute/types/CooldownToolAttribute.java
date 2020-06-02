@@ -5,6 +5,7 @@ import gg.steve.mc.tp.attribute.AbstractToolAttribute;
 import gg.steve.mc.tp.attribute.ToolAttributeType;
 import gg.steve.mc.tp.attribute.utils.CooldownUtil;
 import gg.steve.mc.tp.currency.AbstractCurrency;
+import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.message.GeneralMessage;
 import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.tool.LoadedTool;
@@ -46,11 +47,15 @@ public class CooldownToolAttribute extends AbstractToolAttribute {
         if (!playersOnCooldown.containsKey(playerId)) {
             // add a new cooldown since the only way to query is by using the tool
             playersOnCooldown.put(playerId, new ArrayList<>());
-            playersOnCooldown.get(playerId).add(new CooldownUtil(tool.getName(), getDuration()));
+            if (Files.CONFIG.get().getBoolean("per-tool-cooldowns")) {
+                playersOnCooldown.get(playerId).add(new CooldownUtil(tool.getName(), getDuration()));
+            } else {
+                playersOnCooldown.get(playerId).add(new CooldownUtil(tool.getAbstractTool().getModuleId(), getDuration()));
+            }
             return false;
         }
         for (CooldownUtil cooldown : playersOnCooldown.get(playerId)) {
-            if (cooldown.getTool().equalsIgnoreCase(tool.getName())) {
+            if (cooldown.getTool().equalsIgnoreCase(tool.getName()) || cooldown.getTool().equalsIgnoreCase(tool.getAbstractTool().getModuleId())) {
                 if (cooldown.isActive()) {
                     GeneralMessage.COOLDOWN.message(player, tool.getAbstractTool().getModule().getNiceName(), ToolsPlus.formatNumber(cooldown.getRemaining()));
                     return true;

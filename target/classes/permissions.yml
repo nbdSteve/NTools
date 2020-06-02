@@ -5,6 +5,13 @@ command:
   module-list: tools+.cmd.module-list
   tool-list: tools+.cmd.tool-list
 
+module:
+  list: tools+.module.list
+  reload: tools+.module.list
+  info: tools+.module.info
+  un-install: tools+.module.un-install
+  install: tools+.module.install
+
 gui:
   use: tools+.gui.use
   trench: tools+.gui.trench

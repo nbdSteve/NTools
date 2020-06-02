@@ -1,9 +1,11 @@
 
-P
-java:S1874="3Remove this use of "newInstance"; it is deprecated.(äŒù¹8®¨¼ƒ¥.
-f
-java:S2259$"DA "NullPointerException" could be thrown; "module" is nullable here.(¡¬éúşÿÿÿÿ8âÒ‡¥.
-P
-java:S18749"3Remove this use of "newInstance"; it is deprecated.(äŒù¹8®¨¼ƒ¥.
+]
+java:S1128"@Remove this unused import 'gg.steve.mc.tp.managers.FileManager'.(¾Š­×8²¾Ï˜§.
 G
-java:S1181B"%Catch Exception instead of Throwable.(•”ø¾øÿÿÿÿ8®¨¼ƒ¥.
+java:S1181H"%Catch Exception instead of Throwable.(•”ø¾øÿÿÿÿ8®¨¼ƒ¥.
+`
+java:S2259&"DA "NullPointerException" could be thrown; "module" is nullable here.(­Ï8…€Ì˜§.
+P
+java:S1874C"3Remove this use of "newInstance"; it is deprecated.(äŒù¹8®¨¼ƒ¥.
+P
+java:S1874?"3Remove this use of "newInstance"; it is deprecated.(äŒù¹8®¨¼ƒ¥.

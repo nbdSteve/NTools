@@ -19,13 +19,6 @@ reload:
   text:
   - '&5&lTools&d+&7| You have successfully reloaded the plugin, there are &f{modules-number} &7modules installed.'
 
-module-list:
-  action-bar: false
-  text:
-  - '&5&lTools&d+&7| Module list>'
-  - '&7Installed Tool Modules (&f{modules-number}&7) >'
-  - ' &e- &6{modules-list}&7.'
-
 tool-list:
   action-bar: false
   text:

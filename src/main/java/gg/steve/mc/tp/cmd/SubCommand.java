@@ -2,6 +2,7 @@ package gg.steve.mc.tp.cmd;
 
 import gg.steve.mc.tp.message.DebugMessage;
 import gg.steve.mc.tp.permission.PermissionNode;
+import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -42,7 +43,7 @@ public abstract class SubCommand {
             return false;
         }
         if (!isArgLengthValid(args)) {
-            // do message
+            DebugMessage.INCORRECT_ARGS.message(sender);
             return false;
         }
         return true;

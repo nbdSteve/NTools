@@ -10,6 +10,17 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum DebugMessage {
+    INVALID_COMMAND("invalid-command"),
+    INCORRECT_ARGS("incorrect-args"),
+    RELOAD_ALL_MODULES("reload-all-modules", "{module-count}"),
+    RELOAD_MODULE("reload-module", "{module}"),
+    LIST_MODULES("list-modules", "{modules-number}", "{modules-list}"),
+    MODULE_INFO("module-info", "{module}", "{author}", "{version}", "{identifier}", "{tool-amount}"),
+    MODULE_NOT_INSTALLED("module-not-installed"),
+    MODULE_ALREADY_INSTALLED("module-already-installed"),
+    INVALID_MODULE("invalid-module"),
+    MODULE_INSTALLED("module-installed", "{module}"),
+    MODULE_UN_INSTALLED("module-un-installed", "{module}"),
     INSUFFICIENT_PERMISSION("insufficient-permission", "{node}");
 
     private String path;

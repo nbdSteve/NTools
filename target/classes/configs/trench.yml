@@ -1,4 +1,4 @@
-block-blacklist:
+blacklist:
   - obsidian
   - mob_spawner
   - chest

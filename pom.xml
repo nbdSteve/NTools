@@ -91,8 +91,8 @@
             <url>https://repo.glaremasters.me/repository/public/</url>
         </repository>
         <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
+            <id>savagelabs</id>
+            <url>https://nexus.savagelabs.net/repository/maven-public/</url>
         </repository>
     </repositories>
 
@@ -166,6 +166,12 @@
             <groupId>com.github.Angeschossen</groupId>
             <artifactId>LandsAPI</artifactId>
             <version>4.5.9.9</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.prosavage.factionsx</groupId>
+            <artifactId>FactionsX</artifactId>
+            <version>0.4.2-PATREON</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

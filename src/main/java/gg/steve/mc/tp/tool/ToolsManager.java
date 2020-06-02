@@ -3,6 +3,7 @@ package gg.steve.mc.tp.tool;
 import gg.steve.mc.tp.ToolsPlus;
 import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.module.ModuleManager;
+import gg.steve.mc.tp.module.ToolsPlusModule;
 import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.utils.LogUtil;
 import gg.steve.mc.tp.managers.PluginFile;
@@ -87,5 +88,13 @@ public class ToolsManager {
             }
         }
         return message.toString();
+    }
+
+    public static String getToolAmount(ToolsPlusModule module) {
+        int amount = 0;
+        for (AbstractTool tool : tools.values()) {
+            if (tool.getModuleId().equalsIgnoreCase(module.getIdentifier())) amount++;
+        }
+        return ToolsPlus.formatNumber(amount);
     }
 }

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: net.prosavage.factionsx:FactionsX:0.4.2-PATREON">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/prosavage/factionsx/FactionsX/0.4.2-PATREON/FactionsX-0.4.2-PATREON.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/net/prosavage/factionsx/FactionsX/0.4.2-PATREON/FactionsX-0.4.2-PATREON-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/prosavage/factionsx/FactionsX/0.4.2-PATREON/FactionsX-0.4.2-PATREON-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -61,4 +61,8 @@ public class FileManager {
     public static void reload() {
         for (PluginFile file : files.values()) file.reload();
     }
+
+    public static HashMap<String, PluginFile> getFiles() {
+        return files;
+    }
 }
