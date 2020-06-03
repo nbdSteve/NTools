@@ -1,0 +1,13 @@
+
+d
+java:S1192"HDefine a constant instead of duplicating this literal "config" 20 times.(Ε· j8¥Ενε•.
+p
+java:S3776"SRefactor this method to reduce its Cognitive Complexity from 163 to the 15 allowed.(„¶η8¥Ενε•.
+W
+java:S1191"5Use classes from the Java API instead of Sun classes.(βΟ΅§ϋÿÿÿÿ8¥Ενε•.
+T
+java:S1128"2Remove this unused import 'sun.misc.MessageUtils'.(βΟ΅§ϋÿÿÿÿ8¥Ενε•.
+v
+java:S1192"TDefine a constant instead of duplicating this literal "tool-purchase-gui." 17 times.(Η¥λ«ώÿÿÿÿ8¥Ενε•.
+q
+java:S1192("ODefine a constant instead of duplicating this literal "no-permission" 11 times.(λτη§ώÿÿÿÿ8¥Ενε•.

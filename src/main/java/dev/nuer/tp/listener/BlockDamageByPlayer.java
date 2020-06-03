@@ -1,6 +1,6 @@
 package dev.nuer.tp.listener;
 
-import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbt.NBTItem;
 import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.tools.BreakBlocksInRadius;
 import dev.nuer.tp.tools.ChangeMode;
@@ -75,7 +75,7 @@ public class BlockDamageByPlayer implements Listener {
         try {
             if (nbtItem.getBoolean("tools+.sand")) {
                 event.setCancelled(true);
-                new RemoveSandStack(event, player, "sand", "sand-wands." +
+                new RemoveSandStack(event.getBlock(), player, "sand", "sand-wands." +
                         nbtItem.getInteger("tools+.raw.id"), nbtItem);
             }
         } catch (NullPointerException e) {

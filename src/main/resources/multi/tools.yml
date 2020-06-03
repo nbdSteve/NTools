@@ -21,6 +21,9 @@ multi-tools:
       2: 515000
       3: 590000
     #
+    blocked-worlds:
+      - world
+    #
     uses:
       starting: -1
     #
@@ -64,6 +67,9 @@ multi-tools:
       1: 485000 #upgrading from tier 1 to tier 2
       2: 515000
       3: 590000
+    #
+    blocked-worlds:
+      - world_the_end
     #
     uses:
       unique: "&7Uses Remaining:"

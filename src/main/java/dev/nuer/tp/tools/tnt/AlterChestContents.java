@@ -3,7 +3,7 @@ package dev.nuer.tp.tools.tnt;
 import dev.nuer.tp.events.TNTWandBankEvent;
 import dev.nuer.tp.events.TNTWandCraftEvent;
 import dev.nuer.tp.support.FactionIntegration;
-import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbt.NBTItem;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.player.PlayerMessage;
 import dev.nuer.tp.tools.DecrementUses;

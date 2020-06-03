@@ -1,7 +1,7 @@
 package dev.nuer.tp.tools;
 
 import dev.nuer.tp.ToolsPlus;
-import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbt.NBTItem;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.itemCreation.UpdateItem;
 import dev.nuer.tp.method.player.PlayerMessage;

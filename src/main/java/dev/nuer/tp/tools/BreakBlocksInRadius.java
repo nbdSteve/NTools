@@ -9,7 +9,7 @@ import dev.nuer.tp.listener.BlockBreakListener;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
-import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbt.NBTItem;
 import dev.nuer.tp.tools.multi.ChangeToolRadius;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -43,6 +43,10 @@ public class BreakBlocksInRadius {
                                String filePath, boolean multiTool, boolean trenchTool, boolean aquaWand) {
         //Verify that the player is not on cooldown
         if (PlayerToolCooldown.isOnCooldown(player, "aqua")) return;
+        //Make sure that the world is valid
+        if (!aquaWand) {
+            if (FileManager.get(directory).getStringList(filePath + ".blocked-worlds").contains(event.getPlayer().getWorld().getName())) return;
+        }
         //Create a new array of block coordinates in relation to the source block
         long start = System.currentTimeMillis();
         //Calculate the total area that needs to be removed, run this async for better performance on main

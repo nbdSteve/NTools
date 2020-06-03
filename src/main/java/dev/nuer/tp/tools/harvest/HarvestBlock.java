@@ -8,7 +8,7 @@ import dev.nuer.tp.method.Chat;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
 import dev.nuer.tp.method.player.PlayerMessage;
 import dev.nuer.tp.support.actionbarapi.ActionBarAPI;
-import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbt.NBTItem;
 import dev.nuer.tp.tools.DecrementUses;
 import org.bukkit.Bukkit;
 import org.bukkit.CropState;

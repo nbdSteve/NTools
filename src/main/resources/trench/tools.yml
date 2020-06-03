@@ -4,6 +4,9 @@ trench-tools:
     # 3x3 trench pick
     break-radius: 1
     #
+    blocked-worlds:
+      - world
+    #
     uses:
       starting: -1
     #
@@ -25,6 +28,9 @@ trench-tools:
     # 5x5 trench pick
     break-radius: 2
     #
+    blocked-worlds:
+      - world_the_end
+    #
     uses:
       starting: -1
     #
@@ -45,6 +51,9 @@ trench-tools:
     omni-tool: false
     # 7x7 trench pick
     break-radius: 3
+    #
+    blocked-worlds:
+      - world_nether
     #
     uses:
       unique: "&7Uses Remaining:"

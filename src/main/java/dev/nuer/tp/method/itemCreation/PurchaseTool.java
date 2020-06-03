@@ -22,6 +22,7 @@ public class PurchaseTool {
      * @param enchantments        List<String>, list of enchantments to add to the item
      * @param typeOfTool          String, the type of tool being created
      * @param idFromConfig        Integer, the raw tool ID from the configuration files
+     * @param idFromConfig        Integer, the raw tool ID from the configuration files
      * @param player              Player, the player to give the new item to - can be null
      * @param modePlaceholder     String, placeholder for the tools mode
      * @param modeReplacement     String, replacement for the mode placeholder
