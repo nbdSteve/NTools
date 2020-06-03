@@ -107,8 +107,6 @@ e
 0src/main/java/gg/steve/mc/tp/cmd/SubCommand.java,1\0\10366817a54646a22a8f2905d56c9c963f5150b5
 e
 5src/main/java/gg/steve/mc/tp/cmd/misc/ToolSubCmd.java,2\f\2f6e3b096368989939b5f0b689b45549b0c0b18c
-g
-7src/main/java/gg/steve/mc/tp/cmd/misc/ModuleSubCmd.java,5\7\57e1404a1c7585255f92094ca70f771e837b279f
 d
 4src/main/java/gg/steve/mc/tp/cmd/SubCommandType.java,d\8\d8b0e695a4674ce2980d8c2a44bd41e4f617eddd
 e
@@ -195,3 +193,5 @@ o
 ?src/main/java/gg/steve/mc/tp/cmd/module/ModuleReloadSubCmd.java,f\7\f7ed5f40407b6b4cc057796efe87f439e6c29d6f
 r
 Bsrc/main/java/gg/steve/mc/tp/cmd/module/ModuleUnInstallSubCmd.java,0\2\0216fe081254722c945833d181e541f21bf71857
+e
+5src/main/java/gg/steve/mc/tp/cmd/tool/ToolSubCmd.java,9\f\9fb1b8168e212428dcbbaaa4edd00fcda43f73ca

@@ -1,13 +1,13 @@
 
 W	java:S125%"<This block of commented-out lines of code should be removed.(Ôüà#8®ßËœ¦.
-t	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(ÏòÕ8×Î­œ¦.
-C	java:S131""Add a default case to this switch.(ÌÓğûÿÿÿÿ8Ê±¹œ¦.
-V
-java:S1128"9Remove this unused import 'gg.steve.mc.tp.utils.LogUtil'.(Øº§“8Ô÷Á§¦.
 m
 java:S1301"KReplace this "switch" statement by "if" statements to increase readability.(ÌÓğûÿÿÿÿ8ƒıë²¦.
+C	java:S131""Add a default case to this switch.(ÌÓğûÿÿÿÿ8Ê±¹œ¦.
+W	java:S125/"<This block of commented-out lines of code should be removed.(õ½{8Ê±¹œ¦.
+V
+java:S1128"9Remove this unused import 'gg.steve.mc.tp.utils.LogUtil'.(Øº§“8Ô÷Á§¦.
+]	java:S125"<This block of commented-out lines of code should be removed.(êß¸®øÿÿÿÿ8åÄºœ¦.
 ]	java:S125!"<This block of commented-out lines of code should be removed.(ÊŒœ½üÿÿÿÿ8åÄºœ¦.
+t	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(ÏòÕ8×Î­œ¦.
 [
 java:S3516"9Refactor this method to not always return the same value.(¼ß…ıüÿÿÿÿ8Ê±¹œ¦.
-W	java:S125/"<This block of commented-out lines of code should be removed.(õ½{8Ê±¹œ¦.
-]	java:S125"<This block of commented-out lines of code should be removed.(êß¸®øÿÿÿÿ8åÄºœ¦.

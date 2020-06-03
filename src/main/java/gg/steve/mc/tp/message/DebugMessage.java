@@ -10,8 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum DebugMessage {
-    INVALID_COMMAND("invalid-command"),
-    INCORRECT_ARGS("incorrect-args"),
+    // module
     RELOAD_ALL_MODULES("reload-all-modules", "{module-count}"),
     RELOAD_MODULE("reload-module", "{module}"),
     LIST_MODULES("list-modules", "{modules-number}", "{modules-list}"),
@@ -21,6 +20,21 @@ public enum DebugMessage {
     INVALID_MODULE("invalid-module"),
     MODULE_INSTALLED("module-installed", "{module}"),
     MODULE_UN_INSTALLED("module-un-installed", "{module}"),
+    // tools
+    LIST_TOOLS("list-tools", "{tools-number}", "{tools-list}", "{player-tools-number}"),
+    PLAYER_TOOL_INFO("player-tool-info", "{target}", "{tool-uuid}", "{radius-current}",
+            "{radius-max}", "{modifier-current}", "{modifier-max}", "{active-abstract}", "{dig-mode}",
+            "{uses}", "{blocks-mined}"),
+    NOT_HOLDING_TOOL("not-holding-tool"),
+    // give
+    INVALID_AMOUNT("invalid-amount"),
+    INVALID_TOOL("invalid-tool"),
+    PLAYER_NOT_ONLINE("player-not-online"),
+    GIVE_GIVER("give-giver", "{target}", "{amount}", "{tool-type}"),
+    GIVE_RECEIVER("give-receiver", "{amount}", "{tool-type}"),
+    // msic
+    INVALID_COMMAND("invalid-command"),
+    INCORRECT_ARGS("incorrect-args"),
     INSUFFICIENT_PERMISSION("insufficient-permission", "{node}");
 
     private String path;

@@ -17,7 +17,9 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SellIntegrationManager {
     private static List<PriceProviderType> providerHierarchy;
@@ -36,6 +38,31 @@ public class SellIntegrationManager {
 
     public static void doBlockSale(Player player, List<Block> blocks, LoadedTool tool, boolean silk) {
         double deposit = 0, amount = 0;
+        Map<ItemStack, List<Double>> saleCache = new HashMap<>();
+//        for (Block block : blocks) {
+//            if (silk) {
+//
+//            } else {
+//                for (ItemStack item : block.getDrops(player.getItemInHand())) {
+//                    if (!saleCache.containsKey(item)) {
+//                        saleCache.put(item, new ArrayList<>());
+//                        saleCache.get(item).add(getItemPrice(player, item));
+//                        saleCache.get(item).add((double) item.getAmount());
+//                    }
+//                    if (saleCache.get(item).get(0) == -1) {
+//                        player.getInventory().addItem(item);
+//                        continue;
+//                    }
+//                    saleCache.get(item).set(0, saleCache.get(item).get(0) + item.getAmount());
+//                    if (getItemPrice(player, item) == -1) {
+//                        player.getInventory().addItem(item);
+//                        continue;
+//                    }
+//                    deposit += sellItem(player, item, tool);
+//                    amount += item.getAmount();
+//                }
+//            }
+//        }
         for (Block block : blocks) {
             if (silk) {
                 ItemStack item = new ItemStack(block.getType(), 1, block.getData());

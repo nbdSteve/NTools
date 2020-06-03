@@ -12,6 +12,10 @@ module:
   un-install: tools+.module.un-install
   install: tools+.module.install
 
+tool:
+  list: tools+.tool.info
+  info: tools+.tool.info
+
 gui:
   use: tools+.gui.use
   trench: tools+.gui.trench

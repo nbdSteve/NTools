@@ -4,7 +4,6 @@ import gg.steve.mc.tp.cmd.SubCommand;
 import gg.steve.mc.tp.message.DebugMessage;
 import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.permission.PermissionNode;
-import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ public class ModuleSubCmd extends SubCommand {
     private List<SubCommand> moduleSubs = new ArrayList<>();
 
     public ModuleSubCmd() {
-        super("module", 1, 4, false, PermissionNode.MODULE_LIST);
+        super("module", 1, 3, false, PermissionNode.MODULE_LIST);
         addAlias("m");
         addAlias("mods");
         addAlias("modules");

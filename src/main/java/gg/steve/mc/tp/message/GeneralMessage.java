@@ -12,7 +12,6 @@ import java.util.List;
 public enum GeneralMessage {
     RELOAD("reload", "{modules-number}"),
     HELP("help", "{version}", "{modules-number}", "{modules-list}", "{tools-number}", "{tools-list}", "{player-tools-number}"),
-    TOOL_LIST("tool-list", "{tools-number}", "{tools-list}", "{player-tools-number}"),
     OUT_OF_USES("out-of-uses", "{tool-type}"),
     UPGRADE("upgrade", "{tool-type}", "{level}", "{max}", "{cost}", "{currency-prefix}", "{currency-suffix}"),
     DOWNGRADE("downgrade", "{tool-type}", "{level}", "{max}", "{cost}", "{currency-prefix}", "{currency-suffix}"),
