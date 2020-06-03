@@ -1,0 +1,12 @@
+
+V
+java:S1128"9Remove this unused import 'gg.steve.mc.tp.utils.LogUtil'.(Øº§“8Ô´†§.
+o
+java:S3776!"RRefactor this method to reduce its Cognitive Complexity from 76 to the 15 allowed.(Ø¸Õ‹8“‘Óù¥.
+j
+java:S1192*"HDefine a constant instead of duplicating this literal ".action" 8 times.(Ôíşÿÿÿÿ8Ä÷§¦.
+m
+java:S1301,"KReplace this "switch" statement by "if" statements to increase readability.(Ï³÷øüÿÿÿÿ8Ä÷§¦.
+C	java:S131,""Add a default case to this switch.(Ï³÷øüÿÿÿÿ8Ä÷§¦.
+g
+java:S1192="JDefine a constant instead of duplicating this literal ".commands" 6 times.(±ÎŞû8Ô´†§.
