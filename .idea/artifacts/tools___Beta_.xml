@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="tools+ [Beta]">
-    <output-path>$PROJECT_DIR$/../../../server stuff/Server Files/plugins</output-path>
-    <root id="archive" name="tools+ [Beta].jar">
-      <element id="module-output" name="NTools" />
-    </root>
-  </artifact>
-</component>

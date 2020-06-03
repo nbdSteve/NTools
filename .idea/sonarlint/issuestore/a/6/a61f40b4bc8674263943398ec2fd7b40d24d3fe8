@@ -1,15 +1,0 @@
-
-f
-java:S1128"IRemove this unused import 'com.sun.imageio.plugins.wbmp.WBMPImageReader'.(ΡΈ¤8ΆΕνε•.
-u
-java:S1192"XDefine a constant instead of duplicating this literal "aqua-wand-purchase-gui." 9 times.(κ›„Η8ΆΕνε•.
-R
-java:S1191"5Use classes from the Java API instead of Sun classes.(ΡΈ¤8ΆΕνε•.
-E
-java:S11487"#Use a logger to log this exception.(Ά¤’όÿÿÿÿ8ΆΕνε•.
-p
-java:S1192"SDefine a constant instead of duplicating this literal "aqua_purchase_gui" 11 times.(®ξί8ΆΕνε•.
-n
-java:S1192,"LDefine a constant instead of duplicating this literal "aqua-wands." 5 times.(ΤΞ³ϋÿÿÿÿ8ΆΕνε•.
-t
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(τΗ›ÿÿÿÿÿ8ΆΕνε•.
