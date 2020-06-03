@@ -1,0 +1,14 @@
+
+R	java:S125"<This block of commented-out lines of code should be removed.( €€Õ
+•
+java:S1319d"zThe type of the "blocksToHarvest" object should be an interface such as "List" rather than the implementation "ArrayList".(Ô¼„¯úÿÿÿÿ
+R
+java:S1128"<Remove this unused import 'dev.nuer.tp.tools.DecrementUses'.(ùÉáŸ
+Q	java:S125t"<This block of commented-out lines of code should be removed.(ï„Š
+b
+java:S1192@"GDefine a constant instead of duplicating this literal "config" 4 times.(ğÈ¥êùÿÿÿÿ
+U
+java:S1118":Add a private constructor to hide the implicit public one.(ÉòÃıÿÿÿÿ
+h
+java:S3776&"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(˜–ş´
+R	java:S125„"<This block of commented-out lines of code should be removed.(¤¡Òö

@@ -1,0 +1,11 @@
+shop-gui-plus-hook: false
+
+prices: # Use this if you do not wish to use shopguiplus
+  # {material name}:{damage value}:{price}
+  - stone:0:1.01
+  - stone:1:1.11
+  - stone:2:1.11
+  - stone:3:1.11
+  - dirt:0:1.23
+  - tnt:0:16.07
+  - leather:0:3.40

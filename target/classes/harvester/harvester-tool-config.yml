@@ -1,0 +1,18 @@
+# -- Not implemented yet --
+# Change this to "wheat_seeds" if you are using a version after 1.8
+# seeds-replant-name: "seeds"
+
+# Harvester Hoe block price list, use doubles
+block-prices:
+  - sugar_cane_block:10.78
+  - cactus:13.44
+  - melon_block:18.93
+  - pumpkin:23.48
+  - crops:12.54
+  - carrot:8.63
+  - potato:8.74
+
+crop-types:
+  - carrot
+  - potato
+  - ink_sack
