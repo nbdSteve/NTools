@@ -1,0 +1,15 @@
+
+h
+java:S1192)"FDefine a constant instead of duplicating this literal "debug" 6 times.(Œóşıÿÿÿÿ8Ûè÷½.
+^	java:S107A"BConstructor has 13 parameters, which is greater than 7 authorized.(‡ºµ¥8Ûè÷½.
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÀÀŠãøÿÿÿÿ8Ûè÷½.
+E
+java:S1148k"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ûè÷½.
+M
+java:S1874d"1Remove this use of "ItemStack"; it is deprecated.(ìŒ¹]8Ûè÷½.
+Q
+java:S1874e"5Remove this use of "setDurability"; it is deprecated.(ÅÆ‡=8Ûè÷½.
+N
+java:S1874h"1Remove this use of "ItemStack"; it is deprecated.(«Íâ·8Ûè÷½.
+T
+java:S1874’"1Remove this use of "getByName"; it is deprecated.(·éÁ˜üÿÿÿÿ8Ûè÷½.

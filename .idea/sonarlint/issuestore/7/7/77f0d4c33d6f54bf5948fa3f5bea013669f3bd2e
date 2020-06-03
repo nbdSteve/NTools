@@ -1,0 +1,33 @@
+
+w
+java:S1104"UMake debugMode a static final constant or non-public and provide accessors if needed.(°Ω£§ϊÿÿÿÿ8΅Ενε•.
+T
+java:S1444"2Make this "public static numberFormat" field final(δύ―ύόÿÿÿÿ8΅Ενε•.
+v
+java:S1104"TMake instance a static final constant or non-public and provide accessors if needed.(α‚φώÿÿÿÿ8΅Ενε•.
+z
+java:S1104"XMake numberFormat a static final constant or non-public and provide accessors if needed.(δύ―ύόÿÿÿÿ8΅Ενε•.
+u
+java:S1104"SMake economy a static final constant or non-public and provide accessors if needed.(δΕΟϊÿÿÿÿ8΅Ενε•.
+P
+java:S1444".Make this "public static instance" field final(α‚φώÿÿÿÿ8΅Ενε•.
+Q
+java:S1444"/Make this "public static debugMode" field final(°Ω£§ϊÿÿÿÿ8΅Ενε•.
+I
+java:S1444",Make this "public static LOGGER" field final(Ό§ΖΖ8΅Ενε•.
+O
+java:S1444"-Make this "public static economy" field final(δΕΟϊÿÿÿÿ8΅Ενε•.
+u
+java:S1104!"SMake version a static final constant or non-public and provide accessors if needed.(’ΑΊψÿÿÿÿÿ8΅Ενε•.
+n
+java:S3008"QRename this field "LOGGER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ό§ΖΖ8΅Ενε•.
+X
+java:S26966"6Make the enclosing method "static" or remove this set.(Ή¤‚ρώÿÿÿÿ8΅Ενε•.
+o
+java:S1104"RMake LOGGER a static final constant or non-public and provide accessors if needed.(Ό§ΖΖ8΅Ενε•.
+X
+java:S2696+"6Make the enclosing method "static" or remove this set.(ρυξΩώÿÿÿÿ8΅Ενε•.
+O
+java:S1444!"-Make this "public static version" field final(’ΑΊψÿÿÿÿÿ8΅Ενε•.
+S
+java:S26969"6Make the enclosing method "static" or remove this set.(ά¦ξ8΅Ενε•.

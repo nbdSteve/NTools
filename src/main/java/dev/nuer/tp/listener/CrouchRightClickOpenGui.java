@@ -1,7 +1,7 @@
 package dev.nuer.tp.listener;
 
 import dev.nuer.tp.method.player.PlayerMessage;
-import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbt.NBTItem;
 import dev.nuer.tp.managers.GuiManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

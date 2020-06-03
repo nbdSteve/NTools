@@ -1,0 +1,69 @@
+
+h
+java:S11920"FDefine a constant instead of duplicating this literal "chunk" 8 times.(ΡΙΝψÿÿÿÿ8¦Ενε•.
+i
+java:S1192k"LDefine a constant instead of duplicating this literal "tray-tools." 3 times.(Ρκ΅Ι8¦Ενε•.
+l
+java:S1192H"JDefine a constant instead of duplicating this literal "lightning" 6 times.(ΎφΊόÿÿÿÿ8¦Ενε•.
+r
+java:S1192!"PDefine a constant instead of duplicating this literal "invalid-command" 3 times.(ζτΡΪψÿÿÿÿ8¦Ενε•.
+d
+java:S1192["GDefine a constant instead of duplicating this literal ".name" 11 times.(Α—›8¦Ενε•.
+b
+java:S1128"@Remove this unused import 'javax.xml.transform.stax.StAXResult'.(©ςψÿÿÿÿ8¦Ενε•.
+i
+java:S1192•"KDefine a constant instead of duplicating this literal "tnt-wands." 3 times.(Ωψ”8¦Ενε•.
+i
+java:S1192f"GDefine a constant instead of duplicating this literal "debug" 24 times.(ρ¨μΆόÿÿÿÿ8¦Ενε•.
+p
+java:S1192c"NDefine a constant instead of duplicating this literal "trench-tools." 3 times.(ΦΝ§αωÿÿÿÿ8¦Ενε•.
+i
+java:S1192†"KDefine a constant instead of duplicating this literal "{modifier}" 3 times.(ΧπΖψ8¦Ενε•.
+\
+java:S1118":Add a private constructor to hide the implicit public one.(β‡λ­ώÿÿÿÿ8¦Ενε•.
+Z
+java:S2629·"7Use the built-in formatting to construct this argument.(”ξΜΔψÿÿÿÿ8¦Ενε•.
+j
+java:S1192_"HDefine a constant instead of duplicating this literal "{uses}" 11 times.(δρ¬‚ώÿÿÿÿ8¦Ενε•.
+k
+java:S1192_"IDefine a constant instead of duplicating this literal "{radius}" 3 times.(δρ¬‚ώÿÿÿÿ8¦Ενε•.
+k
+java:S1192¥"MDefine a constant instead of duplicating this literal "smelt-wands." 3 times.( –›½8¦Ενε•.
+h
+java:S1192-"KDefine a constant instead of duplicating this literal "harvester" 10 times.(‘§‰Ύ8¦Ενε•.
+Z
+java:S2629έ"7Use the built-in formatting to construct this argument.(ΊΡά›ϊÿÿÿÿ8¦Ενε•.
+k
+java:S1192!"IDefine a constant instead of duplicating this literal "{reason}" 3 times.(ζτΡΪψÿÿÿÿ8¦Ενε•.
+l
+java:S1192]"ODefine a constant instead of duplicating this literal ".enchantments" 11 times.(ªγά‰8¦Ενε•.
+A
+java:S1148»"#Use a logger to log this exception.(ΞµΒ”8¦Ενε•.
+i
+java:S1192+"GDefine a constant instead of duplicating this literal "multi" 10 times.(–ªθζϋÿÿÿÿ8¦Ενε•.
+o
+java:S1192‹"LDefine a constant instead of duplicating this literal "sell-wands." 3 times.(ΫΧ½®ύÿÿÿÿ8¦Ενε•.
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 63 to the 15 allowed.(οΊΒ“ϋÿÿÿÿ8¦Ενε•.
+d
+java:S1192<"GDefine a constant instead of duplicating this literal "trench" 7 times.(ξÒω”8¦Ενε•.
+h
+java:S1192J"FDefine a constant instead of duplicating this literal "smelt" 6 times.(φόςωÿÿÿÿ8¦Ενε•.
+d
+java:S1192\"GDefine a constant instead of duplicating this literal ".lore" 11 times.(Ή¨8¦Ενε•.
+n
+java:S1192s"LDefine a constant instead of duplicating this literal "sand-wands." 3 times.(›«ί±ώÿÿÿÿ8¦Ενε•.
+W
+java:S1141F"5Extract this nested try block into a separate method.(΅»Άόωÿÿÿÿ8¦Ενε•.
+o
+java:S1192"LDefine a constant instead of duplicating this literal "aqua-wands." 3 times.(μν²Λύÿÿÿÿ8¦Ενε•.
+c
+java:S2259Ω"EA "NullPointerException" could be thrown; "getMap()" can return null.(ΌΠϋ€8¦Ενε•.
+d
+java:S1192^"GDefine a constant instead of duplicating this literal "{mode}" 4 times.(—΅¶ª8¦Ενε•.
+‹
+java:S1319κ"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(Ό―„8¦Ενε•.
+j
+java:S1192["MDefine a constant instead of duplicating this literal "multi-tools." 3 times.(Α—›8¦Ενε•.
+k
+java:S1192­"MDefine a constant instead of duplicating this literal "chunk-wands." 3 times.(‹‡λ8¦Ενε•.

@@ -4,6 +4,9 @@ tray-tools:
     # 3x3 tray pick
     break-radius: 1
     #
+    blocked-worlds:
+      - world
+    #
     uses:
       starting: -1
     #
@@ -25,6 +28,9 @@ tray-tools:
     # 5x5 tray pick
     break-radius: 2
     #
+    blocked-worlds:
+      - world_nether
+    #
     uses:
       starting: -1
     #
@@ -45,6 +51,9 @@ tray-tools:
     omni-tool: false
     # 7x7 tray pick
     break-radius: 3
+    #
+    blocked-worlds:
+      - world_the_end
     #
     uses:
       unique: "&7Uses Remaining:"

@@ -6,7 +6,7 @@ import dev.nuer.tp.listener.BlockBreakListener;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.method.player.AddBlocksToPlayerInventory;
-import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbt.NBTItem;
 import dev.nuer.tp.tools.DecrementUses;
 import dev.nuer.tp.tools.PlayerToolCooldown;
 import org.bukkit.Bukkit;
@@ -32,7 +32,7 @@ public class RemoveSandStack {
      * @param filePath  String, the internal file path to get values from
      * @param nbtItem   NBTItem, the item used
      */
-    public RemoveSandStack(BlockDamageEvent event, Player player, String directory,
+    public RemoveSandStack(Block block, Player player, String directory,
                            String filePath, NBTItem nbtItem) {
         int cooldownFromConfig = FileManager.get(directory).getInt(filePath + ".cooldown");
         Bukkit.getScheduler().runTaskAsynchronously(ToolsPlus.instance, () -> {
@@ -42,9 +42,9 @@ public class RemoveSandStack {
                 DecrementUses.decrementUses(player, "sand-wand", nbtItem, nbtItem.getInteger("tools+.uses"));
                 PlayerToolCooldown.setPlayerOnCooldown(player, cooldownFromConfig, "sand");
             }
-            int positionX = event.getBlock().getX();
+            int positionX = block.getX();
             int positionY = 255;
-            int positionZ = event.getBlock().getZ();
+            int positionZ = block.getZ();
             ArrayList<Block> blocksToRemove = new ArrayList<>();
             while (positionY >= 1) {
                 String currentBlockType =

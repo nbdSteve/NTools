@@ -1,6 +1,6 @@
 package dev.nuer.tp.method;
 
-import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbt.NBTItem;
 
 public class VerifyTool {
 

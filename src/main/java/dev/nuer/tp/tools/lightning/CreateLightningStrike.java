@@ -1,7 +1,7 @@
 package dev.nuer.tp.tools.lightning;
 
 import dev.nuer.tp.events.LightningWandStrikeEvent;
-import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbt.NBTItem;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.method.player.PlayerMessage;
 import dev.nuer.tp.tools.DecrementUses;

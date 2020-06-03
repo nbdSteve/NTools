@@ -1,6 +1,7 @@
 package dev.nuer.tp.listener;
 
-import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.ToolsPlus;
+import dev.nuer.tp.support.nbt.NBTItem;
 import dev.nuer.tp.managers.FileManager;
 import dev.nuer.tp.managers.ToolsAttributeManager;
 import dev.nuer.tp.tools.AlterToolModifier;
@@ -9,6 +10,7 @@ import dev.nuer.tp.tools.chunk.ChunkQueueManipulation;
 import dev.nuer.tp.tools.chunk.ChunkRemoval;
 import dev.nuer.tp.tools.lightning.CreateLightningStrike;
 import dev.nuer.tp.tools.multi.ChangeToolRadius;
+import dev.nuer.tp.tools.sand.RemoveSandStack;
 import dev.nuer.tp.tools.sell.SellChestContents;
 import dev.nuer.tp.tools.smelt.SmeltStorageContents;
 import dev.nuer.tp.tools.tnt.AlterChestContents;
@@ -86,7 +88,8 @@ public class PlayerInteract implements Listener {
      */
     @EventHandler
     public void playerLeftClickInteractWithWand(PlayerInteractEvent event) {
-        if (!event.getAction().equals(Action.LEFT_CLICK_BLOCK)) return;
+        if (!(event.getAction().equals(Action.LEFT_CLICK_BLOCK) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK))) return;
+        ToolsPlus.LOGGER.info("running");
 //        if (!event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) return;
         //Store the player
         Player player = event.getPlayer();
@@ -101,6 +104,7 @@ public class PlayerInteract implements Listener {
                         || event.getClickedBlock().getType().equals(Material.TRAPPED_CHEST))) {
                     return;
                 }
+                event.setCancelled(true);
                 //Create a new block break event to ensure that the player can sell that chest
                 BlockBreakEvent chestSell = new BlockBreakEvent(event.getClickedBlock(), player);
                 Bukkit.getPluginManager().callEvent(chestSell);
@@ -116,12 +120,22 @@ public class PlayerInteract implements Listener {
             //NBT tag is null because this is not a sell wand
         }
         try {
+            if (nbtItem.getBoolean("tools+.sand")) {
+                event.setCancelled(true);
+                new RemoveSandStack(event.getClickedBlock(), player, "sand", "sand-wands." +
+                        nbtItem.getInteger("tools+.raw.id"), nbtItem);
+            }
+        } catch (Exception e) {
+
+        }
+        try {
             if (nbtItem.getBoolean("tools+.tnt")) {
                 if (!(event.getClickedBlock().getType().equals(Material.CHEST)
                         || event.getClickedBlock().getType().equals(Material.TRAPPED_CHEST))) {
                     return;
                 }
                 //Create a new block break event to ensure that the player can modify that chest
+                event.setCancelled(true);
                 BlockBreakEvent tntCraft = new BlockBreakEvent(event.getClickedBlock(), player);
                 Bukkit.getPluginManager().callEvent(tntCraft);
                 //Check if the event is cancelled
@@ -143,6 +157,7 @@ public class PlayerInteract implements Listener {
                         || event.getClickedBlock().getType().equals(Material.TRAPPED_CHEST))) {
                     return;
                 }
+                event.setCancelled(true);
                 BlockBreakEvent smeltConvert = new BlockBreakEvent(event.getClickedBlock(), player);
                 Bukkit.getPluginManager().callEvent(smeltConvert);
                 if (smeltConvert.isCancelled()) return;

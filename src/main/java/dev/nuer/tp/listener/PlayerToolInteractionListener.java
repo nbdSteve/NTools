@@ -1,7 +1,7 @@
 package dev.nuer.tp.listener;
 
 import dev.nuer.tp.method.VerifyTool;
-import dev.nuer.tp.support.nbtapi.NBTItem;
+import dev.nuer.tp.support.nbt.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
