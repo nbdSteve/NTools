@@ -67,7 +67,7 @@ fillers:
       - ' &6- Upgrade Progress&7| &e{radius-upgrade-level}&7/&e{radius-upgrade-max}'
       - ' &6- Current Upgrade&7| &e{radius-current-upgrade}'
       - ' &6- Next Upgrade&7| &e{radius-next-upgrade}'
-      - ' &6- Upgrade Cost&7| &e{radius-upgrade-currency-prefix}{radius-upgrade-cost}{radius-upgrade-currency-suffix}'
+      - ' &6- Upgrade Cost&7| &e{radius-upgrade-cost-relative}'
     enchantments:
     item-flags:
     unbreakable: false
@@ -109,7 +109,7 @@ fillers:
       - ' &6- Upgrade Progress&7| &e{radius-upgrade-level}&7/&e{radius-upgrade-max}'
       - ' &6- Current Upgrade&7| &e{radius-current-upgrade}'
       - ' &6- Next Upgrade&7| &e{radius-next-upgrade}'
-      - ' &6- Upgrade Cost&7| &e{radius-upgrade-currency-prefix}{radius-upgrade-cost}{radius-upgrade-currency-suffix}'
+      - ' &6- Upgrade Cost&7| &e{radius-upgrade-cost-relative}'
     enchantments:
     item-flags:
     unbreakable: false
@@ -151,7 +151,7 @@ fillers:
       - ' &6- Upgrade Progress&7| &e{radius-upgrade-level}&7/&e{radius-upgrade-max}'
       - ' &6- Current Upgrade&7| &e{radius-current-upgrade}'
       - ' &6- Next Upgrade&7| &e{radius-next-upgrade}'
-      - ' &6- Upgrade Cost&7| &e{radius-upgrade-currency-prefix}{radius-upgrade-cost}{radius-upgrade-currency-suffix}'
+      - ' &6- Upgrade Cost&7| &e{radius-upgrade-cost-relative}'
     enchantments:
     item-flags:
     unbreakable: false
@@ -253,7 +253,7 @@ fillers:
       - ' &6- Upgrade Progress&7| &e{modifier-upgrade-level}&7/&e{modifier-upgrade-max}'
       - ' &6- Current Upgrade&7| &e{modifier-current-upgrade}'
       - ' &6- Next Upgrade&7| &e{modifier-next-upgrade}'
-      - ' &6- Upgrade Cost&7| &e{modifier-upgrade-currency-prefix}{modifier-upgrade-cost}{modifier-upgrade-currency-suffix}'
+      - ' &6- Upgrade Cost&7| &e{modifier-upgrade-cost-relative}'
     enchantments:
     item-flags:
     unbreakable: false
@@ -295,7 +295,7 @@ fillers:
       - ' &6- Upgrade Progress&7| &e{modifier-upgrade-level}&7/&e{modifier-upgrade-max}'
       - ' &6- Current Upgrade&7| &e{modifier-current-upgrade}'
       - ' &6- Next Upgrade&7| &e{modifier-next-upgrade}'
-      - ' &6- Upgrade Cost&7| &e{modifier-upgrade-currency-prefix}{modifier-upgrade-cost}{modifier-upgrade-currency-suffix}'
+      - ' &6- Upgrade Cost&7| &e{modifier-upgrade-cost-relative}'
     enchantments:
     item-flags:
     unbreakable: false
@@ -337,7 +337,7 @@ fillers:
       - ' &6- Upgrade Progress&7| &e{modifier-upgrade-level}&7/&e{modifier-upgrade-max}'
       - ' &6- Current Upgrade&7| &e{modifier-current-upgrade}'
       - ' &6- Next Upgrade&7| &e{modifier-next-upgrade}'
-      - ' &6- Upgrade Cost&7| &e{modifier-upgrade-currency-prefix}{modifier-upgrade-cost}{modifier-upgrade-currency-suffix}'
+      - ' &6- Upgrade Cost&7| &e{modifier-upgrade-cost-relative}'
     enchantments:
     item-flags:
     unbreakable: false

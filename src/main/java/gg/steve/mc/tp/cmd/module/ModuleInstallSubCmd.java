@@ -11,7 +11,6 @@ public class ModuleInstallSubCmd extends SubCommand {
 
     public ModuleInstallSubCmd() {
         super("install", 2, 3, false, PermissionNode.MODULE_INSTALL);
-        addAlias("i");
         addAlias("add");
         addAlias("ins");
     }
@@ -24,13 +23,15 @@ public class ModuleInstallSubCmd extends SubCommand {
             return;
         }
         ToolsPlusModule module;
-        try {
-            module = ModuleManager.getInstalledModule(args[2].toUpperCase());
-        } catch (Exception e) {
+        if (ModuleManager.getInstalledModule(args[2].toUpperCase()) != null) {
+            DebugMessage.MODULE_ALREADY_INSTALLED.message(sender);
+            return;
+        }
+        if (!ModuleManager.installModule(args[2])) {
             DebugMessage.INVALID_MODULE.message(sender);
             return;
         }
-        ModuleManager.installToolModule(module);
+        module = ModuleManager.getInstalledModule(args[2].toUpperCase());
         DebugMessage.MODULE_INSTALLED.message(sender, module.getNiceName());
     }
 }

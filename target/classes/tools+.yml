@@ -6,12 +6,15 @@ loaded-tools:
 
 loaded-guis:
   - basic-gui
-
+#
+# cooldowns will be done by module type rather than by per tool
 per-tool-cooldowns: false
 
 max-upgrade-placeholder: 'MAX'
 
 no-mode-change-placeholder: 'Can not be changed'
+
+not-holding-tool-placeholder: 'N/A'
 
 # if the price for an item is 0, the next entry will be used. entries: shopgui+, essentials, internal
 price-provider-hierarchy:

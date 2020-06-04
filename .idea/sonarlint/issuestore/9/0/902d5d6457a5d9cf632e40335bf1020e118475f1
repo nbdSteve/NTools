@@ -1,13 +1,13 @@
 
-c
-java:S1192-"FDefine a constant instead of duplicating this literal ".text" 4 times.(Ç†‘÷8­ ö¥.
-t
-java:S1192"RDefine a constant instead of duplicating this literal "{currency-prefix}" 5 times.(¹—Œ­ùÿÿÿÿ8×Šœ€¦.
 i
-java:S1192"GDefine a constant instead of duplicating this literal "{cost}" 5 times.(¹—Œ­ùÿÿÿÿ8×Šœ€¦.
+java:S1192"GDefine a constant instead of duplicating this literal "{cost}" 5 times.(¹—Œ­ùÿÿÿÿ8×Šœ€¦.
 R
-java:S3066&"<Lower the visibility of this setter or remove it altogether.(ÇşüØ
-t
-java:S1192"RDefine a constant instead of duplicating this literal "{currency-suffix}" 5 times.(¹—Œ­ùÿÿÿÿ8×Šœ€¦.
+java:S3066%"<Lower the visibility of this setter or remove it altogether.(ÇşüØ
+c
+java:S1192,"FDefine a constant instead of duplicating this literal ".text" 4 times.(Ç†‘÷8­ ö¥.
 n
-java:S1192"LDefine a constant instead of duplicating this literal "{tool-type}" 5 times.(‰Í¼¶şÿÿÿÿ8 ñ×°¦.
+java:S1192"LDefine a constant instead of duplicating this literal "{tool-type}" 5 times.(‰Í¼¶şÿÿÿÿ8 ñ×°¦.
+t
+java:S1192"RDefine a constant instead of duplicating this literal "{currency-suffix}" 5 times.(¹—Œ­ùÿÿÿÿ8×Šœ€¦.
+t
+java:S1192"RDefine a constant instead of duplicating this literal "{currency-prefix}" 5 times.(¹—Œ­ùÿÿÿÿ8×Šœ€¦.

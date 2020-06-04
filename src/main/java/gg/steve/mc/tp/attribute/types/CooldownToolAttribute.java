@@ -27,6 +27,24 @@ public class CooldownToolAttribute extends AbstractToolAttribute {
         if (playersOnCooldown != null && !playersOnCooldown.isEmpty()) playersOnCooldown.clear();
     }
 
+    public static boolean isCooldownActive(Player player, LoadedTool tool) {
+        UUID playerId = player.getUniqueId();
+        if (!playersOnCooldown.containsKey(playerId)) {
+            return false;
+        }
+        for (CooldownUtil cooldown : playersOnCooldown.get(playerId)) {
+            if (cooldown.getTool().equalsIgnoreCase(tool.getName()) || cooldown.getTool().equalsIgnoreCase(tool.getAbstractTool().getModuleId())) {
+                if (cooldown.isActive()) {
+                    GeneralMessage.COOLDOWN.message(player, tool.getAbstractTool().getModule().getNiceName(), ToolsPlus.formatNumber(cooldown.getRemaining()));
+                    return true;
+                }
+                // if the players cooldown has ended, remove them from the list
+                return false;
+            }
+        }
+        return false;
+    }
+
     public CooldownToolAttribute(int duration) {
         super(ToolAttributeType.COOLDOWN, duration);
     }

@@ -1,7 +1,6 @@
 package gg.steve.mc.tp.module.utils;
 
 import gg.steve.mc.tp.ToolsPlus;
-import gg.steve.mc.tp.managers.FileManager;
 import gg.steve.mc.tp.managers.SetupManager;
 import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.module.ToolsPlusModule;
@@ -34,19 +33,37 @@ public class ModuleLoaderUtil {
         }
         for (Class<?> klass : subs) {
             ToolsPlusModule module = createInstance(klass);
-            // load files for the module
-            for (String file : module.getModuleFiles().keySet()) {
-                SetupManager.getFileManager().add(file, module.getModuleFiles().get(file));
-            }
-            for (Listener listener : module.getListeners()) {
-                SetupManager.registerEvent(ToolsPlus.get(), listener);
-            }
-            if (module.getPlaceholderExpansion() != null) {
-                SetupManager.addPlaceholderExpansion(module.getPlaceholderExpansion());
-            }
-            module.onLoad();
-            ModuleManager.installToolModule(module);
+            loadModule(module);
         }
+    }
+
+    public boolean registerModule(String moduleName) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(moduleName.toUpperCase(), 0, 1);
+        builder.append(moduleName.substring(1).toLowerCase());
+        builder.append("Module");
+        List<Class<?>> subs = ModuleClassUtil.getClasses("modules", builder.toString(), ToolsPlusModule.class);
+        if (subs == null || subs.isEmpty()) {
+            return false;
+        }
+        ToolsPlusModule module = createInstance(subs.get(0));
+        loadModule(module);
+        return true;
+    }
+
+    public void loadModule(ToolsPlusModule module) {
+        // load files for the module
+        for (String file : module.getModuleFiles().keySet()) {
+            SetupManager.getFileManager().add(file, module.getModuleFiles().get(file));
+        }
+        for (Listener listener : module.getListeners()) {
+            SetupManager.registerEvent(ToolsPlus.get(), listener);
+        }
+        if (module.getPlaceholderExpansion() != null) {
+            SetupManager.addPlaceholderExpansion(module.getPlaceholderExpansion());
+        }
+        module.onLoad();
+        ModuleManager.installToolModule(module);
     }
 
     private ToolsPlusModule createInstance(Class<?> klass) {

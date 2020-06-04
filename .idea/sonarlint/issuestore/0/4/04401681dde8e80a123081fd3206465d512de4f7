@@ -1,12 +1,12 @@
 
-R
-java:S1874E"5Remove this use of "getItemInHand"; it is deprecated.(¯†¬Ê8Ë¢¬¥.
-£
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(„“Àòüÿÿÿÿ8Àş¥¬¥.
 W
 java:S1874"5Remove this use of "getItemInHand"; it is deprecated.(ãÒÈÜÿÿÿÿÿ8¹ìø«¥.
 W
-java:S1874"5Remove this use of "getItemInHand"; it is deprecated.(ƒï©êûÿÿÿÿ8åÂ£µ¥.
+java:S1874F"5Remove this use of "getItemInHand"; it is deprecated.(ƒï©êûÿÿÿÿ8Ë¢¬¥.
+R
+java:S1874E"5Remove this use of "getItemInHand"; it is deprecated.(¯†¬Ê8Ë¢¬¥.
 u	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(²ĞµŠ8Àö£µ¥.
 W
-java:S1874F"5Remove this use of "getItemInHand"; it is deprecated.(ƒï©êûÿÿÿÿ8Ë¢¬¥.
+java:S1874"5Remove this use of "getItemInHand"; it is deprecated.(ƒï©êûÿÿÿÿ8åÂ£µ¥.
+£
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(„“Àòüÿÿÿÿ8Àş¥¬¥.

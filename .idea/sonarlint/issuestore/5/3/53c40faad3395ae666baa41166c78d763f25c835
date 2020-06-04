@@ -1,0 +1,16 @@
+
+_
+java:S2184?"BCast one of the operands of this addition operation to a "double".(€†¡À8ÈıÃï§.
+o
+java:S37761"RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(§¤µĞ8««ÿî§.
+_
+java:S2184Q"BCast one of the operands of this addition operation to a "double".(¤¡»8ÿÔÄï§.
+d
+java:S2184E"BCast one of the operands of this addition operation to a "double".(Ü£ç™øÿÿÿÿ8ÍÄï§.
+i
+java:S1128"GRemove this unused import 'com.sun.imageio.spi.RAFImageInputStreamSpi'.(÷î’¢úÿÿÿÿ8««ÿî§.
+r	java:S1173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ‘Íüùÿÿÿÿ8««ÿî§.
+W
+java:S1191"5Use classes from the Java API instead of Sun classes.(÷î’¢úÿÿÿÿ8««ÿî§.
+d
+java:S2184K"BCast one of the operands of this addition operation to a "double".(¬Èéüÿÿÿÿÿ8ÿÔÄï§.

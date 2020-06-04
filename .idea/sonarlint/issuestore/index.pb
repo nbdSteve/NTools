@@ -105,8 +105,6 @@ e
 5src/main/java/gg/steve/mc/tp/cmd/misc/HelpSubCmd.java,6\0\608b3ae674e4a2c60f1d1470e71690403d33aa07
 `
 0src/main/java/gg/steve/mc/tp/cmd/SubCommand.java,1\0\10366817a54646a22a8f2905d56c9c963f5150b5
-e
-5src/main/java/gg/steve/mc/tp/cmd/misc/ToolSubCmd.java,2\f\2f6e3b096368989939b5f0b689b45549b0c0b18c
 d
 4src/main/java/gg/steve/mc/tp/cmd/SubCommandType.java,d\8\d8b0e695a4674ce2980d8c2a44bd41e4f617eddd
 e
@@ -195,3 +193,7 @@ r
 Bsrc/main/java/gg/steve/mc/tp/cmd/module/ModuleUnInstallSubCmd.java,0\2\0216fe081254722c945833d181e541f21bf71857
 e
 5src/main/java/gg/steve/mc/tp/cmd/tool/ToolSubCmd.java,9\f\9fb1b8168e212428dcbbaaa4edd00fcda43f73ca
+e
+5src/main/java/gg/steve/mc/tp/cmd/give/GiveSubCmd.java,b\9\b9259993c4926322ff018f0e7ba945255a88cd68
+i
+9src/main/java/gg/steve/mc/tp/cmd/tool/ToolInfoSubCmd.java,7\c\7cb750643690dcb4498eca26cdb2bc1fea467c4a

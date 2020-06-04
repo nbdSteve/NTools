@@ -43,6 +43,13 @@ public class ModuleManager {
         }
     }
 
+    public static boolean installModule(String moduleName) {
+        if (modules.containsKey(moduleName.toUpperCase())) {
+            return false;
+        }
+        return loader.registerModule(moduleName);
+    }
+
     public static boolean installToolModule(ToolsPlusModule module) {
         Validate.notNull(module.getIdentifier(), "Module identifier can not be null");
         Validate.notNull(module, "ToolsPlusModule can not be null");

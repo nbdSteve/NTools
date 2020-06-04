@@ -97,4 +97,8 @@ public class ToolsManager {
         }
         return ToolsPlus.formatNumber(amount);
     }
+
+    public static Map<String, AbstractTool> getTools() {
+        return tools;
+    }
 }

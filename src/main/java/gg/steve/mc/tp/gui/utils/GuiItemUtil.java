@@ -1,15 +1,13 @@
 package gg.steve.mc.tp.gui.utils;
 
 import gg.steve.mc.tp.ToolsPlus;
+import gg.steve.mc.tp.currency.AbstractCurrency;
 import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.tool.LoadedTool;
 import gg.steve.mc.tp.upgrade.UpgradeType;
 import gg.steve.mc.tp.utils.ItemBuilderUtil;
-import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
-
-import javax.tools.Tool;
 
 public class GuiItemUtil {
 
@@ -93,6 +91,7 @@ public class GuiItemUtil {
         builder.setLorePlaceholders("{radius-current-upgrade}",
                 "{radius-next-upgrade}",
                 "{radius-upgrade-cost}",
+                "{radius-upgrade-cost-relative}",
                 "{radius-upgrade-level}",
                 "{radius-upgrade-max}",
                 "{radius-upgrade-currency-prefix}",
@@ -100,6 +99,7 @@ public class GuiItemUtil {
                 "{modifier-current-upgrade}",
                 "{modifier-next-upgrade}",
                 "{modifier-upgrade-cost}",
+                "{modifier-upgrade-cost-relative}",
                 "{modifier-upgrade-level}",
                 "{modifier-upgrade-max}",
                 "{modifier-upgrade-currency-prefix}",
@@ -113,22 +113,20 @@ public class GuiItemUtil {
         builder.addLore(section.getStringList(condition + ".lore"),
                 tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getLoreStringForLevel(tool.getUpgradeLevel(UpgradeType.RADIUS)),
                 tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getLoreStringForLevel(tool.getUpgradeLevel(UpgradeType.RADIUS) + 1),
-//                ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getUpgradePriceForLevel(tool.getUpgradeLevel(UpgradeType.RADIUS))),
-                getRelativeString(tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getUpgradePriceForLevel(tool.getUpgradeLevel(UpgradeType.RADIUS)), tool, "radius", level),
+                ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getUpgradePriceForLevel(tool.getUpgradeLevel(UpgradeType.RADIUS))),
+                getRelativeString(tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getUpgradePriceForLevel(tool.getUpgradeLevel(UpgradeType.RADIUS)),
+                        tool, "radius", level, tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getCurrency()),
                 ToolsPlus.formatNumber(tool.getUpgradeLevel(UpgradeType.RADIUS) + 1),
                 ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getMaxLevel() + 1),
-//                getRelativeString((tool.getUpgradeLevel(UpgradeType.RADIUS) + 1), tool, "radius", level),
-//                getRelativeString((tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getMaxLevel() + 1), tool, "radius", level),
                 tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getCurrency().getPrefix(),
                 tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getCurrency().getSuffix(),
                 tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getLoreStringForLevel(tool.getUpgradeLevel(UpgradeType.MODIFIER)),
                 tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getLoreStringForLevel(tool.getUpgradeLevel(UpgradeType.MODIFIER) + 1),
-//                ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getUpgradePriceForLevel(tool.getUpgradeLevel(UpgradeType.MODIFIER))),
-                getRelativeString(tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getUpgradePriceForLevel(tool.getUpgradeLevel(UpgradeType.MODIFIER)), tool, "modifier", level),
+                ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getUpgradePriceForLevel(tool.getUpgradeLevel(UpgradeType.MODIFIER))),
+                getRelativeString(tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getUpgradePriceForLevel(tool.getUpgradeLevel(UpgradeType.MODIFIER)),
+                        tool, "modifier", level, tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getCurrency()),
                 ToolsPlus.formatNumber(tool.getUpgradeLevel(UpgradeType.MODIFIER) + 1),
                 ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getMaxLevel() + 1),
-//                getRelativeString((tool.getUpgradeLevel(UpgradeType.MODIFIER) + 1), tool, "modifier", level),
-//                getRelativeString((tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getMaxLevel() + 1), tool, "modifier", level),
                 tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getCurrency().getPrefix(),
                 tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getCurrency().getSuffix(),
                 ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getUpgradePriceForLevel(level)),
@@ -175,27 +173,37 @@ public class GuiItemUtil {
         return total;
     }
 
-    public static String getRelativeString(double amount, LoadedTool tool, String type, int condition) {
+    public static String getRelativeString(double amount, LoadedTool tool, String type, int condition, AbstractCurrency currency) {
         switch (type) {
             case "radius":
-                if (!tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).isUpgradeable()) return "Not upgradeable";
-                if (tool.getPeakUpgradeLevel(UpgradeType.RADIUS) >= condition
-                        || tool.getNextUpgradePrice(UpgradeType.RADIUS, tool.getUpgradeLevel(UpgradeType.RADIUS)) == 0) return "Free";
+                if (!tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).isUpgradeable())
+                    return "Not upgradeable";
+                if (tool.getPeakUpgradeLevel(UpgradeType.RADIUS) > condition
+                        || (tool.getPeakUpgradeLevel(UpgradeType.RADIUS) == condition && condition == tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getMaxLevel())
+                        || tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getUpgradePriceForLevel(condition) == 0)
+                    return "Free";
                 break;
             case "modifier":
-                if (!tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).isUpgradeable()) return "Not upgradeable";
-                if (tool.getPeakUpgradeLevel(UpgradeType.MODIFIER) >= condition
-                        || tool.getNextUpgradePrice(UpgradeType.MODIFIER, tool.getUpgradeLevel(UpgradeType.MODIFIER)) == 0) return "Free";
+                if (!tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).isUpgradeable())
+                    return "Not upgradeable";
+                if (tool.getPeakUpgradeLevel(UpgradeType.MODIFIER) > condition
+                        || (tool.getPeakUpgradeLevel(UpgradeType.MODIFIER) == condition && condition == tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getMaxLevel())
+                        || tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getUpgradePriceForLevel(condition) == 0)
+                    return "Free";
                 break;
             case "tool":
-                if (!tool.getAbstractTool().getModeChange(ModeType.TOOL).isChangingEnabled()) return "Not changeable";
-                if (tool.getModeChange(ModeType.TOOL).getChangePriceForMode(tool.getCurrentMode(ModeType.TOOL) + 1) == 0) return "Free";
+                if (!tool.getAbstractTool().getModeChange(ModeType.TOOL).isChangingEnabled())
+                    return "Not changeable";
+                if (tool.getModeChange(ModeType.TOOL).getChangePriceForMode(tool.getCurrentMode(ModeType.TOOL) + 1) == 0)
+                    return "Free";
                 break;
             case "sell":
-                if (!tool.getAbstractTool().getModeChange(ModeType.SELL).isChangingEnabled()) return "Not changeable";
-                if (tool.getModeChange(ModeType.SELL).getChangePriceForMode(tool.getCurrentMode(ModeType.SELL) + 1) == 0) return "Free";
+                if (!tool.getAbstractTool().getModeChange(ModeType.SELL).isChangingEnabled())
+                    return "Not changeable";
+                if (tool.getModeChange(ModeType.SELL).getChangePriceForMode(tool.getCurrentMode(ModeType.SELL) + 1) == 0)
+                    return "Free";
                 break;
         }
-        return ToolsPlus.formatNumber(amount);
+        return currency.getPrefix() + ToolsPlus.formatNumber(amount) + currency.getSuffix();
     }
 }

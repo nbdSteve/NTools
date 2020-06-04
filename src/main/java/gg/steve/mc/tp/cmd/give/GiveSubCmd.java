@@ -24,6 +24,7 @@ public class GiveSubCmd extends SubCommand {
     @Override
     public void onCommand(CommandSender sender, String[] args) {
         // /t+ give player tool amount
+        // /t+ give player all 1
         int amount = 1;
         if (args.length == 4) {
             try {
@@ -34,8 +35,9 @@ public class GiveSubCmd extends SubCommand {
                 return;
             }
         }
-        AbstractTool tool;
-        if ((tool = ToolsManager.getTool(args[2])) == null) {
+        AbstractTool tool = null;
+        if (!args[2].equalsIgnoreCase("all")
+                && (tool = ToolsManager.getTool(args[2])) == null) {
             DebugMessage.INVALID_TOOL.message(sender);
             return;
         }
@@ -45,7 +47,13 @@ public class GiveSubCmd extends SubCommand {
             return;
         }
         for (int i = 0; i < amount; i++) {
-            target.getInventory().addItem(tool.getItemStack());
+            if (args[2].equalsIgnoreCase("all")) {
+                for (AbstractTool tools : ToolsManager.getTools().values()) {
+                    target.getInventory().addItem(tools.getItemStack());
+                }
+            } else if (tool != null) {
+                target.getInventory().addItem(tool.getItemStack());
+            }
         }
         if (!target.getItemInHand().getType().equals(Material.AIR)) {
             NBTItem hand = new NBTItem(target.getItemInHand());
@@ -57,9 +65,16 @@ public class GiveSubCmd extends SubCommand {
         if (sender instanceof Player && !target.getUniqueId().equals(((Player) sender).getUniqueId())) {
             player = (Player) sender;
         }
-        DebugMessage.GIVE_RECEIVER.message(target, ToolsPlus.formatNumber(amount), tool.getModule().getNiceName());
-        if (!(sender instanceof Player) || player != null) {
-            DebugMessage.GIVE_GIVER.message(sender, target.getName(), ToolsPlus.formatNumber(amount), tool.getModule().getNiceName());
+        if (args[2].equalsIgnoreCase("all")) {
+            DebugMessage.GIVE_RECEIVER.message(target, ToolsPlus.formatNumber(amount), args[2]);
+            if (!(sender instanceof Player) || player != null) {
+                DebugMessage.GIVE_GIVER.message(sender, target.getName(), ToolsPlus.formatNumber(amount), args[2]);
+            }
+        } else {
+            DebugMessage.GIVE_RECEIVER.message(target, ToolsPlus.formatNumber(amount), tool.getModule().getNiceName());
+            if (!(sender instanceof Player) || player != null) {
+                DebugMessage.GIVE_GIVER.message(sender, target.getName(), ToolsPlus.formatNumber(amount), tool.getModule().getNiceName());
+            }
         }
     }
 }

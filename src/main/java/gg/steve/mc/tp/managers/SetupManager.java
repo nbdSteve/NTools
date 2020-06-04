@@ -48,7 +48,7 @@ public class SetupManager {
     }
 
     public static void registerCommands(JavaPlugin instance) {
-        instance.getCommand("tp").setExecutor(new ToolsPlusCmd());
+        instance.getCommand("t+").setExecutor(new ToolsPlusCmd());
     }
 
     /**

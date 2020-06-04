@@ -73,3 +73,8 @@ cooldown-query:
   action-bar: true
   text:
     - '&e&l<> &7Your &6&l{tool-type} Tool &7is on cooldown, &e{seconds} &7seconds remaining &e&l<>'
+
+no-sale:
+  action-bar: true
+  text:
+    - '&e&l<> &7Your &6&l{tool-type} Tool &7could not sell any items from those container(s) &e&l<>'

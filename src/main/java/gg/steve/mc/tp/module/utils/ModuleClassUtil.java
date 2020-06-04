@@ -25,29 +25,23 @@ public class ModuleClassUtil {
             if (!f.exists()) {
                 return list;
             }
-
             FilenameFilter fileNameFilter = (dir, name) -> {
                 if (fileName != null) {
                     return name.endsWith(".jar") && name.replace(".jar", "")
                             .equalsIgnoreCase(fileName.replace(".jar", ""));
                 }
-
                 return name.endsWith(".jar");
             };
-
             File[] jars = f.listFiles(fileNameFilter);
             if (jars == null) {
                 return list;
             }
-
             for (File file : jars) {
                 list = gather(file.toURI().toURL(), list, type);
             }
-
             return list;
         } catch (Throwable t) {
         }
-
         return null;
     }
 
