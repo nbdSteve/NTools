@@ -175,4 +175,11 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub nbdSteve Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/nbdSteve/ToolsPlus-development</url>
+        </repository>
+    </distributionManagement>
 </project>

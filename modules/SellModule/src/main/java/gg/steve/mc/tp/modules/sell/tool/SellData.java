@@ -2,7 +2,8 @@ package gg.steve.mc.tp.modules.sell.tool;
 
 import gg.steve.mc.tp.integration.SellIntegrationManager;
 import gg.steve.mc.tp.modules.sell.SellModule;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.modules.sell.utils.ContainerSaleUtil;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.tool.ToolData;
 import gg.steve.mc.tp.utils.CubeUtil;
 import org.bukkit.Material;
@@ -21,11 +22,11 @@ public class SellData implements ToolData {
     }
 
     @Override
-    public void onBlockBreak(BlockBreakEvent blockBreakEvent, LoadedTool loadedTool) {
+    public void onBlockBreak(BlockBreakEvent event, PlayerTool tool) {
     }
 
     @Override
-    public void onInteract(PlayerInteractEvent event, LoadedTool tool) {
+    public void onInteract(PlayerInteractEvent event, PlayerTool tool) {
         if (event.getClickedBlock() == null || event.getClickedBlock().getType().equals(Material.AIR)) return;
         event.setCancelled(true);
         List<Block> blocks = CubeUtil.getCube(event.getPlayer(), event.getClickedBlock(), tool.getRadius(), SellModule.moduleId, true);
@@ -37,7 +38,7 @@ public class SellData implements ToolData {
             if (!inventories.contains(inventory)) inventories.add(inventory);
         }
         if (inventories.isEmpty()) return;
-        int amount = SellIntegrationManager.doInventorySale(event.getPlayer(), inventories, tool);
+        int amount = ContainerSaleUtil.doInventorySale(event.getPlayer(), inventories, tool);
         if (amount == 0) return;
         if (!tool.decrementUses(event.getPlayer())) return;
         if (!tool.incrementBlocksMined(event.getPlayer(), amount)) return;
