@@ -1,7 +1,7 @@
 package gg.steve.mc.tp.currency;
 
 import gg.steve.mc.tp.currency.types.DefaultCurrencyType;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import org.bukkit.entity.Player;
 
 public abstract class AbstractCurrency {
@@ -29,5 +29,5 @@ public abstract class AbstractCurrency {
         return currency.getNiceName();
     }
 
-    public abstract boolean isSufficientFunds(Player player, LoadedTool tool, double cost);
+    public abstract boolean isSufficientFunds(Player player, PlayerTool tool, double cost);
 }

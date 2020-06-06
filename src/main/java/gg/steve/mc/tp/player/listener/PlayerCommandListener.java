@@ -5,13 +5,12 @@ import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.message.DebugMessage;
 import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.player.PlayerToolManager;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.upgrade.UpgradeType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,7 +45,7 @@ public class PlayerCommandListener implements Listener {
         }
         if (type.equalsIgnoreCase("")) return;
         event.setCancelled(true);
-        LoadedTool tool = PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId()).getLoadedTool();
+        PlayerTool tool = PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId()).getPlayerTool();
         switch (type) {
             case "radius-upgrade":
                 if (!tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).isUpgradeable()) {

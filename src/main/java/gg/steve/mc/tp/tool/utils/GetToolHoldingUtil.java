@@ -1,7 +1,7 @@
 package gg.steve.mc.tp.tool.utils;
 
 import gg.steve.mc.tp.nbt.NBTItem;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.tool.ToolsManager;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -10,15 +10,15 @@ import java.util.UUID;
 
 public class GetToolHoldingUtil {
 
-    public static LoadedTool getHoldingTool(NBTItem item) {
+    public static PlayerTool getHoldingTool(NBTItem item) {
         UUID toolId = UUID.fromString(item.getString("tools+.uuid"));
-        return ToolsManager.getLoadedTool(toolId);
+        return ToolsManager.getPlayerTool(toolId);
     }
 
     public static boolean isHoldingTool(NBTItem item) {
         if (item.getString("tools+.uuid").equalsIgnoreCase("")) return false;
         UUID toolId = UUID.fromString(item.getString("tools+.uuid"));
-        if (!ToolsManager.isLoadedToolRegistered(toolId)) ToolsManager.addLoadedTool(toolId, item);
+        if (!ToolsManager.isPlayerToolRegistered(toolId)) ToolsManager.addPlayerTool(toolId, item);
         return true;
     }
 

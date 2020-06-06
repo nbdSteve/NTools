@@ -1,6 +1,6 @@
 package gg.steve.mc.tp.gui;
 
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.utils.ColorUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
@@ -40,7 +40,7 @@ public abstract class AbstractGui {
         inventoriesByID.put(getInventoryID(), this);
     }
 
-    public abstract void refresh(LoadedTool tool);
+    public abstract void refresh(PlayerTool tool);
 
     /**
      * Get the inventory map

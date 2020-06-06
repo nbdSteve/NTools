@@ -17,7 +17,7 @@ import java.util.UUID;
 
 public class ToolsManager {
     private static Map<String, AbstractTool> tools;
-    private static Map<UUID, LoadedTool> serverTools;
+    private static Map<UUID, PlayerTool> serverTools;
 
     private ToolsManager() throws IllegalAccessException {
         throw new IllegalAccessException("Manager class cannot be instantiated.");
@@ -47,23 +47,23 @@ public class ToolsManager {
         return tools.get(name);
     }
 
-    public static boolean isLoadedToolRegistered(UUID toolId) {
+    public static boolean isPlayerToolRegistered(UUID toolId) {
         if (serverTools == null || serverTools.isEmpty()) return false;
         return serverTools.containsKey(toolId);
     }
 
-    public static boolean addLoadedTool(UUID toolId, NBTItem item) {
-        if (isLoadedToolRegistered(toolId)) return false;
-        return serverTools.put(toolId, new LoadedTool(toolId, item)) != null;
+    public static boolean addPlayerTool(UUID toolId, NBTItem item) {
+        if (isPlayerToolRegistered(toolId)) return false;
+        return serverTools.put(toolId, new PlayerTool(toolId, item)) != null;
     }
 
-    public static boolean removeLoadedTool(UUID toolId) {
-        if (!isLoadedToolRegistered(toolId)) return false;
+    public static boolean removePlayerTool(UUID toolId) {
+        if (!isPlayerToolRegistered(toolId)) return false;
         return serverTools.remove(toolId) != null;
     }
 
-    public static LoadedTool getLoadedTool(UUID toolId) {
-        if (!isLoadedToolRegistered(toolId)) return null;
+    public static PlayerTool getPlayerTool(UUID toolId) {
+        if (!isPlayerToolRegistered(toolId)) return null;
         return serverTools.get(toolId);
     }
 

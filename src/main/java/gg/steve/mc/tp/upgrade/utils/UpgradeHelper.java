@@ -3,7 +3,7 @@ package gg.steve.mc.tp.upgrade.utils;
 import gg.steve.mc.tp.ToolsPlus;
 import gg.steve.mc.tp.message.GeneralMessage;
 import gg.steve.mc.tp.nbt.NBTItem;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.tool.utils.GetToolHoldingUtil;
 import gg.steve.mc.tp.tool.utils.LoreUpdaterUtil;
 import gg.steve.mc.tp.upgrade.AbstractUpgrade;
@@ -16,10 +16,10 @@ public class UpgradeHelper {
     private double cost;
     private NBTItem item;
     private Player player;
-    private LoadedTool tool;
+    private PlayerTool tool;
     private AbstractUpgrade upgrade;
 
-    public UpgradeHelper(Player player, LoadedTool tool, AbstractUpgrade upgrade) {
+    public UpgradeHelper(Player player, PlayerTool tool, AbstractUpgrade upgrade) {
         this.player = player;
         this.tool = tool;
         this.upgrade = upgrade;

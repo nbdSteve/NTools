@@ -6,7 +6,7 @@ import gg.steve.mc.tp.attribute.ToolAttributeType;
 import gg.steve.mc.tp.currency.AbstractCurrency;
 import gg.steve.mc.tp.message.GeneralMessage;
 import gg.steve.mc.tp.nbt.NBTItem;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.tool.ToolsManager;
 import gg.steve.mc.tp.tool.utils.GetToolHoldingUtil;
 import gg.steve.mc.tp.tool.utils.LoreUpdaterUtil;
@@ -24,7 +24,7 @@ public class UsesToolAttribute extends AbstractToolAttribute {
     }
 
     @Override
-    public boolean doIncrease(Player player, LoadedTool tool, AbstractCurrency currency, int amount, double cost) {
+    public boolean doIncrease(Player player, PlayerTool tool, AbstractCurrency currency, int amount, double cost) {
         NBTItem item = new NBTItem(player.getItemInHand());
         if (!item.getItem().hasItemMeta() || item.getItem().getItemMeta().getLore().isEmpty()) {
             LogUtil.warning("Tried to increases uses for a tool that doesn't have any lore! Aborting.");
@@ -58,8 +58,8 @@ public class UsesToolAttribute extends AbstractToolAttribute {
         }
         if (current + change < 1) {
             player.setItemInHand(new ItemStack(Material.AIR));
-            GeneralMessage.OUT_OF_USES.message(player, ToolsManager.getLoadedTool(toolId).getAbstractTool().getModule().getNiceName());
-            ToolsManager.removeLoadedTool(toolId);
+            GeneralMessage.OUT_OF_USES.message(player, ToolsManager.getPlayerTool(toolId).getAbstractTool().getModule().getNiceName());
+            ToolsManager.removePlayerTool(toolId);
             return true;
         }
         ItemStack updated = LoreUpdaterUtil.updateLore(item, "uses", current + change,
@@ -76,7 +76,7 @@ public class UsesToolAttribute extends AbstractToolAttribute {
     }
 
     @Override
-    public boolean isOnCooldown(Player player, LoadedTool tool) {
+    public boolean isOnCooldown(Player player, PlayerTool tool) {
         return false;
     }
 }

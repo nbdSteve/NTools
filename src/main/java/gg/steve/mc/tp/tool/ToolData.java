@@ -5,7 +5,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 public interface ToolData {
 
-    void onBlockBreak(BlockBreakEvent event, LoadedTool tool);
+    void onBlockBreak(BlockBreakEvent event, PlayerTool tool);
 
-    void onInteract(PlayerInteractEvent event, LoadedTool tool);
+    void onInteract(PlayerInteractEvent event, PlayerTool tool);
 }

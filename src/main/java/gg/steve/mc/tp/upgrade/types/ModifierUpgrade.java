@@ -1,7 +1,7 @@
 package gg.steve.mc.tp.upgrade.types;
 
 import gg.steve.mc.tp.managers.PluginFile;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.upgrade.AbstractUpgrade;
 import gg.steve.mc.tp.upgrade.UpgradeType;
 import gg.steve.mc.tp.upgrade.utils.DowngradeHelper;
@@ -15,7 +15,7 @@ public class ModifierUpgrade extends AbstractUpgrade {
     }
 
     @Override
-    public boolean doUpgrade(Player player, LoadedTool tool) {
+    public boolean doUpgrade(Player player, PlayerTool tool) {
         UpgradeHelper helper = new UpgradeHelper(player, tool, this);
         if (!helper.isUpgradeable()) return false;
         if (!helper.hasAlreadyPayedForLevel()) {
@@ -27,7 +27,7 @@ public class ModifierUpgrade extends AbstractUpgrade {
     }
 
     @Override
-    public boolean doDowngrade(Player player, LoadedTool tool) {
+    public boolean doDowngrade(Player player, PlayerTool tool) {
         DowngradeHelper helper = new DowngradeHelper(player, tool, this);
         if (!helper.isDowngradeable()) return false;
         if (!getCurrency().isSufficientFunds(player, tool, helper.getCost())) {

@@ -5,7 +5,7 @@ import gg.steve.mc.tp.attribute.AbstractToolAttribute;
 import gg.steve.mc.tp.attribute.ToolAttributeType;
 import gg.steve.mc.tp.currency.AbstractCurrency;
 import gg.steve.mc.tp.nbt.NBTItem;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.tool.utils.GetToolHoldingUtil;
 import gg.steve.mc.tp.utils.LogUtil;
 import gg.steve.mc.tp.tool.utils.LoreUpdaterUtil;
@@ -21,7 +21,7 @@ public class BlocksMinedToolAttribute extends AbstractToolAttribute {
     }
 
     @Override
-    public boolean doIncrease(Player player, LoadedTool tool, AbstractCurrency currency, int amount, double cost) {
+    public boolean doIncrease(Player player, PlayerTool tool, AbstractCurrency currency, int amount, double cost) {
         return false;
     }
 
@@ -45,7 +45,7 @@ public class BlocksMinedToolAttribute extends AbstractToolAttribute {
     }
 
     @Override
-    public boolean isOnCooldown(Player player, LoadedTool tool) {
+    public boolean isOnCooldown(Player player, PlayerTool tool) {
         return false;
     }
 }

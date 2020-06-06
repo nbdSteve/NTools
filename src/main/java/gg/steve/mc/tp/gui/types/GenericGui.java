@@ -6,10 +6,9 @@ import gg.steve.mc.tp.currency.CurrencyType;
 import gg.steve.mc.tp.gui.AbstractGui;
 import gg.steve.mc.tp.gui.utils.GuiItemUtil;
 import gg.steve.mc.tp.mode.ModeType;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.upgrade.UpgradeType;
 import gg.steve.mc.tp.utils.CommandUtil;
-import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
@@ -30,7 +29,7 @@ public class GenericGui extends AbstractGui {
     }
 
     @Override
-    public void refresh(LoadedTool tool) {
+    public void refresh(PlayerTool tool) {
         for (String entry : section.getKeys(false)) {
             try {
                 Integer.parseInt(entry);

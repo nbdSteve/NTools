@@ -1,13 +1,12 @@
 package gg.steve.mc.tp.cmd.tool;
 
-import com.sun.imageio.spi.RAFImageInputStreamSpi;
 import gg.steve.mc.tp.ToolsPlus;
 import gg.steve.mc.tp.cmd.SubCommand;
 import gg.steve.mc.tp.message.DebugMessage;
 import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.permission.PermissionNode;
 import gg.steve.mc.tp.player.PlayerToolManager;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.upgrade.UpgradeType;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -32,9 +31,9 @@ public class ToolInfoSubCmd extends SubCommand {
             DebugMessage.NOT_HOLDING_TOOL.message(sender);
             return;
         }
-        LoadedTool tool;
+        PlayerTool tool;
         try {
-            tool = PlayerToolManager.getToolPlayer(target.getUniqueId()).getLoadedTool();
+            tool = PlayerToolManager.getToolPlayer(target.getUniqueId()).getPlayerTool();
         } catch (Exception e) {
             DebugMessage.NOT_HOLDING_TOOL.message(sender);
             return;

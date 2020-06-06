@@ -4,10 +4,9 @@ import gg.steve.mc.tp.ToolsPlus;
 import gg.steve.mc.tp.currency.AbstractCurrency;
 import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.mode.ModeType;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.upgrade.UpgradeType;
 import gg.steve.mc.tp.utils.ItemBuilderUtil;
-import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
@@ -23,7 +22,7 @@ public class GuiItemUtil {
         return builder.getItem();
     }
 
-    public static ItemStack createItem(ConfigurationSection section, LoadedTool tool) {
+    public static ItemStack createItem(ConfigurationSection section, PlayerTool tool) {
         ItemBuilderUtil builder = ItemBuilderUtil.getBuilderForMaterial(section.getString("material"), section.getString("data"));
         builder.addName(section.getString("name"));
         builder.setLorePlaceholders("{radius-current-upgrade}",
@@ -95,7 +94,7 @@ public class GuiItemUtil {
         return builder.getItem();
     }
 
-    public static ItemStack createConditionalItem(ConfigurationSection section, LoadedTool tool, UpgradeType upgrade) {
+    public static ItemStack createConditionalItem(ConfigurationSection section, PlayerTool tool, UpgradeType upgrade) {
         String condition = "false";
         if (isConditionMet(section, tool, upgrade)) condition = "true";
         int level = getConditionLevel(section);
@@ -182,7 +181,7 @@ public class GuiItemUtil {
         return builder.getItem();
     }
 
-    public static boolean isConditionMet(ConfigurationSection section, LoadedTool tool, UpgradeType upgrade) {
+    public static boolean isConditionMet(ConfigurationSection section, PlayerTool tool, UpgradeType upgrade) {
         switch (section.getString("action").split(":")[1]) {
             case "upgrade":
                 if (tool.getUpgradeLevel(upgrade) >= getConditionLevel(section)) {
@@ -204,7 +203,7 @@ public class GuiItemUtil {
         }
     }
 
-    public static double getCompoundPrice(LoadedTool tool, UpgradeType upgrade, ConfigurationSection section) {
+    public static double getCompoundPrice(PlayerTool tool, UpgradeType upgrade, ConfigurationSection section) {
         int current = tool.getUpgradeLevel(upgrade) + 1;
         double total = 0;
         while (current <= getConditionLevel(section)) {
@@ -214,7 +213,7 @@ public class GuiItemUtil {
         return total;
     }
 
-    public static String getRelativeString(double amount, LoadedTool tool, String type, int condition, AbstractCurrency currency) {
+    public static String getRelativeString(double amount, PlayerTool tool, String type, int condition, AbstractCurrency currency) {
         switch (type) {
             case "radius":
                 if (!tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).isUpgradeable())

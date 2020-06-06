@@ -7,7 +7,7 @@ import gg.steve.mc.tp.gui.AbstractGui;
 import gg.steve.mc.tp.gui.GuiManager;
 import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.managers.PluginFile;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.upgrade.types.DefaultUpgradeType;
 import gg.steve.mc.tp.utils.ColorUtil;
 import org.bukkit.entity.Player;
@@ -124,7 +124,7 @@ public abstract class AbstractUpgrade {
         return gui;
     }
 
-    public abstract boolean doUpgrade(Player player, LoadedTool tool);
+    public abstract boolean doUpgrade(Player player, PlayerTool tool);
 
-    public abstract boolean doDowngrade(Player player, LoadedTool tool);
+    public abstract boolean doDowngrade(Player player, PlayerTool tool);
 }

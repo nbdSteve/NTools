@@ -6,7 +6,7 @@ import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.player.PlayerToolManager;
 import gg.steve.mc.tp.player.ToolPlayer;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -25,7 +25,7 @@ public class PlayerToolListener implements Listener {
         ToolPlayer player = PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId());
         if (player == null) return;
         if (!ModuleManager.isInstalled(player.getToolType())) return;
-        player.getLoadedTool().getCurrentModeData().onBlockBreak(event, player.getLoadedTool());
+        player.getPlayerTool().getCurrentModeData().onBlockBreak(event, player.getPlayerTool());
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
@@ -34,7 +34,7 @@ public class PlayerToolListener implements Listener {
         ToolPlayer player = PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId());
         if (player == null) return;
         if (!ModuleManager.isInstalled(player.getToolType())) return;
-        if (!player.getLoadedTool().getAbstractTool().getAttributeManager().isAttributeEnabled(ToolAttributeType.OMNI))
+        if (!player.getPlayerTool().getAbstractTool().getAttributeManager().isAttributeEnabled(ToolAttributeType.OMNI))
             return;
         OmniToolAttribute.changeToolType(event.getBlock(), event.getPlayer());
     }
@@ -46,7 +46,7 @@ public class PlayerToolListener implements Listener {
         ToolPlayer player = PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId());
         if (player == null) return;
         if (!ModuleManager.isInstalled(player.getToolType())) return;
-        player.getLoadedTool().getCurrentModeData().onInteract(event, player.getLoadedTool());
+        player.getPlayerTool().getCurrentModeData().onInteract(event, player.getPlayerTool());
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
@@ -55,7 +55,7 @@ public class PlayerToolListener implements Listener {
             return;
         Player player = event.getPlayer();
         if (!PlayerToolManager.isHoldingTool(player.getUniqueId())) return;
-        LoadedTool tool = PlayerToolManager.getToolPlayer(player.getUniqueId()).getLoadedTool();
+        PlayerTool tool = PlayerToolManager.getToolPlayer(player.getUniqueId()).getPlayerTool();
         if (tool.getModeChange(ModeType.TOOL).isSneakSwitch()) {
             tool.openModeGui(event.getPlayer(), ModeType.TOOL);
             return;

@@ -10,14 +10,14 @@ import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
-public class LoadedTool {
+public class PlayerTool {
     private AbstractTool tool;
     private UUID toolId;
     private int uses, blocksMined, radiusUpgradeLevel, modifierUpgradeLevel, peakRadiusUpgradeLevel, peakModifierUpgradeLevel, toolModeLevel, sellModeLevel;
     private String name;
     private AbstractGui usesGui;
 
-    public LoadedTool(UUID toolId, NBTItem item) {
+    public PlayerTool(UUID toolId, NBTItem item) {
         this.toolId = toolId;
         this.uses = item.getInteger("tools+.uses");
         this.blocksMined = item.getInteger("tools+.blocks");

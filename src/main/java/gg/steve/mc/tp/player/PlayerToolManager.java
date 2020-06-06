@@ -1,7 +1,7 @@
 package gg.steve.mc.tp.player;
 
 import gg.steve.mc.tp.nbt.NBTItem;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.tool.utils.GetToolHoldingUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -35,7 +35,7 @@ public class PlayerToolManager implements Listener {
         if (playerToolMap != null && !playerToolMap.isEmpty()) playerToolMap.clear();
     }
 
-    public static boolean addToolPlayer(UUID playerId, LoadedTool tool) {
+    public static boolean addToolPlayer(UUID playerId, PlayerTool tool) {
         if (playerToolMap.containsKey(playerId)) return false;
         return playerToolMap.put(playerId, new ToolPlayer(playerId, tool)) != null;
     }
@@ -45,7 +45,7 @@ public class PlayerToolManager implements Listener {
         return playerToolMap.remove(playerId) != null;
     }
 
-    public static void updateToolType(UUID playerId, LoadedTool tool) {
+    public static void updateToolType(UUID playerId, PlayerTool tool) {
         if (!playerToolMap.containsKey(playerId)) {
             addToolPlayer(playerId, tool);
         } else {

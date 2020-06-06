@@ -1,7 +1,7 @@
 package gg.steve.mc.tp.player;
 
 import gg.steve.mc.tp.gui.AbstractGui;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -10,10 +10,10 @@ import java.util.UUID;
 
 public class ToolPlayer {
     private UUID playerId;
-    private LoadedTool tool;
+    private PlayerTool tool;
     private AbstractGui upgradeGui;
 
-    public ToolPlayer(UUID playerId, LoadedTool tool) {
+    public ToolPlayer(UUID playerId, PlayerTool tool) {
         this.playerId = playerId;
         this.tool = tool;
     }
@@ -30,7 +30,7 @@ public class ToolPlayer {
         return tool.getAbstractTool().getModuleId();
     }
 
-    public void setTool(LoadedTool tool) {
+    public void setTool(PlayerTool tool) {
         this.tool = tool;
     }
 
@@ -50,7 +50,7 @@ public class ToolPlayer {
         return Bukkit.getOfflinePlayer(this.playerId);
     }
 
-    public LoadedTool getLoadedTool() {
+    public PlayerTool getPlayerTool() {
         return tool;
     }
 }

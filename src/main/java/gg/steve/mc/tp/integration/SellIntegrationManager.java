@@ -7,7 +7,7 @@ import gg.steve.mc.tp.integration.sell.InternalPriceProvider;
 import gg.steve.mc.tp.integration.sell.PriceProviderType;
 import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.message.GeneralMessage;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.utils.LogUtil;
 import net.brcdev.shopgui.ShopGuiPlusApi;
 import org.bukkit.Bukkit;
@@ -37,7 +37,7 @@ public class SellIntegrationManager {
         if (providerHierarchy != null && !providerHierarchy.isEmpty()) providerHierarchy.clear();
     }
 
-    public static void doBlockSale(Player player, List<Block> blocks, LoadedTool tool, boolean silk) {
+    public static void doBlockSale(Player player, List<Block> blocks, PlayerTool tool, boolean silk) {
         double deposit = 0, amount = 0;
         Map<Material, Map<Byte, Integer>> saleCache = new HashMap<>();
         for (Block block : blocks) {
@@ -89,7 +89,7 @@ public class SellIntegrationManager {
         }
     }
 
-    public static int doInventorySale(Player player, List<Inventory> inventories, LoadedTool tool) {
+    public static int doInventorySale(Player player, List<Inventory> inventories, PlayerTool tool) {
         int deposit = 0, amount = 0;
         boolean hasSold = false;
         if (CooldownToolAttribute.isCooldownActive(player, tool)) return 0;
@@ -120,7 +120,7 @@ public class SellIntegrationManager {
         return amount;
     }
 
-    public static double sellItem(Player player, ItemStack item, LoadedTool tool) {
+    public static double sellItem(Player player, ItemStack item, PlayerTool tool) {
         if (ToolsPlus.eco() == null) {
             LogUtil.warning("Tried to auto sell an item for " + player.getName() + ", but there is no economy loaded.");
             return 0;
@@ -159,7 +159,7 @@ public class SellIntegrationManager {
         return 0;
     }
 
-    public static double sellItem(Player player, Material material, Byte data, int amount, LoadedTool tool) {
+    public static double sellItem(Player player, Material material, Byte data, int amount, PlayerTool tool) {
         if (ToolsPlus.eco() == null) {
             LogUtil.warning("Tried to auto sell an item for " + player.getName() + ", but there is no economy loaded.");
             return 0;

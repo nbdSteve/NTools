@@ -6,7 +6,7 @@ import gg.steve.mc.tp.gui.AbstractGui;
 import gg.steve.mc.tp.gui.GuiManager;
 import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.managers.PluginFile;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.utils.ColorUtil;
 import org.bukkit.entity.Player;
 
@@ -95,5 +95,5 @@ public abstract class AbstractModeChange {
         return gui;
     }
 
-    public abstract boolean changeMode(Player player, LoadedTool tool);
+    public abstract boolean changeMode(Player player, PlayerTool tool);
 }

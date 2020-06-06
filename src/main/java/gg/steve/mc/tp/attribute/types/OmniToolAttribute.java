@@ -5,7 +5,7 @@ import gg.steve.mc.tp.attribute.ToolAttributeType;
 import gg.steve.mc.tp.currency.AbstractCurrency;
 import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.nbt.NBTItem;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -84,7 +84,7 @@ public class OmniToolAttribute extends AbstractToolAttribute {
     }
 
     @Override
-    public boolean doIncrease(Player player, LoadedTool tool, AbstractCurrency currency, int amount, double cost) {
+    public boolean doIncrease(Player player, PlayerTool tool, AbstractCurrency currency, int amount, double cost) {
         return false;
     }
 
@@ -94,7 +94,7 @@ public class OmniToolAttribute extends AbstractToolAttribute {
     }
 
     @Override
-    public boolean isOnCooldown(Player player, LoadedTool tool) {
+    public boolean isOnCooldown(Player player, PlayerTool tool) {
         return false;
     }
 }

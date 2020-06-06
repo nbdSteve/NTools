@@ -6,7 +6,7 @@ import gg.steve.mc.tp.message.GeneralMessage;
 import gg.steve.mc.tp.mode.AbstractModeChange;
 import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.nbt.NBTItem;
-import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.tool.utils.GetToolHoldingUtil;
 import gg.steve.mc.tp.tool.utils.LoreUpdaterUtil;
 import gg.steve.mc.tp.utils.LogUtil;
@@ -20,7 +20,7 @@ public class SellModeChange extends AbstractModeChange {
     }
 
     @Override
-    public boolean changeMode(Player player, LoadedTool tool) {
+    public boolean changeMode(Player player, PlayerTool tool) {
         NBTItem item = new NBTItem(player.getItemInHand());
         if (!item.getItem().hasItemMeta() || item.getItem().getItemMeta().getLore().isEmpty()) {
             LogUtil.warning("Tried to switch mode for a tool that doesn't have any lore! Aborting.");
