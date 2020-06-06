@@ -2,10 +2,12 @@ package gg.steve.mc.tp.gui.utils;
 
 import gg.steve.mc.tp.ToolsPlus;
 import gg.steve.mc.tp.currency.AbstractCurrency;
+import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.tool.LoadedTool;
 import gg.steve.mc.tp.upgrade.UpgradeType;
 import gg.steve.mc.tp.utils.ItemBuilderUtil;
+import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
@@ -24,10 +26,10 @@ public class GuiItemUtil {
     public static ItemStack createItem(ConfigurationSection section, LoadedTool tool) {
         ItemBuilderUtil builder = ItemBuilderUtil.getBuilderForMaterial(section.getString("material"), section.getString("data"));
         builder.addName(section.getString("name"));
-        builder.addName(section.getString("name"));
         builder.setLorePlaceholders("{radius-current-upgrade}",
                 "{radius-next-upgrade}",
                 "{radius-upgrade-cost}",
+                "{radius-upgrade-cost-relative}",
                 "{radius-upgrade-level}",
                 "{radius-upgrade-max}",
                 "{radius-upgrade-currency-prefix}",
@@ -35,6 +37,7 @@ public class GuiItemUtil {
                 "{modifier-current-upgrade}",
                 "{modifier-next-upgrade}",
                 "{modifier-upgrade-cost}",
+                "{modifier-upgrade-cost-relative}",
                 "{modifier-upgrade-level}",
                 "{modifier-upgrade-max}",
                 "{modifier-upgrade-currency-prefix}",
@@ -42,11 +45,13 @@ public class GuiItemUtil {
                 "{tool-current-mode}",
                 "{tool-next-mode}",
                 "{tool-mode-change-cost}",
+                "{tool-mode-change-cost-relative}",
                 "{tool-mode-currency-prefix}",
                 "{tool-mode-currency-suffix}",
                 "{sell-current-mode}",
                 "{sell-next-mode}",
                 "{sell-mode-change-cost}",
+                "{sell-mode-change-cost-relative}",
                 "{sell-mode-currency-prefix}",
                 "{sell-mode-currency-suffix}",
                 "{uses}");
@@ -54,6 +59,8 @@ public class GuiItemUtil {
                 tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getLoreStringForLevel(tool.getUpgradeLevel(UpgradeType.RADIUS)),
                 tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getLoreStringForLevel(tool.getUpgradeLevel(UpgradeType.RADIUS) + 1),
                 ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getUpgradePriceForLevel(tool.getUpgradeLevel(UpgradeType.RADIUS))),
+                getRelativeString(tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getUpgradePriceForLevel(tool.getUpgradeLevel(UpgradeType.RADIUS)),
+                        tool, "radius", tool.getUpgradeLevel(UpgradeType.RADIUS) + 1, tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getCurrency()),
                 ToolsPlus.formatNumber(tool.getUpgradeLevel(UpgradeType.RADIUS) + 1),
                 ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getMaxLevel() + 1),
                 tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getCurrency().getPrefix(),
@@ -61,6 +68,8 @@ public class GuiItemUtil {
                 tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getLoreStringForLevel(tool.getUpgradeLevel(UpgradeType.MODIFIER)),
                 tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getLoreStringForLevel(tool.getUpgradeLevel(UpgradeType.MODIFIER) + 1),
                 ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getUpgradePriceForLevel(tool.getUpgradeLevel(UpgradeType.MODIFIER))),
+                getRelativeString(tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getUpgradePriceForLevel(tool.getUpgradeLevel(UpgradeType.MODIFIER)),
+                        tool, "modifier", tool.getUpgradeLevel(UpgradeType.MODIFIER) + 1, tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getCurrency()),
                 ToolsPlus.formatNumber(tool.getUpgradeLevel(UpgradeType.MODIFIER) + 1),
                 ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getMaxLevel() + 1),
                 tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getCurrency().getPrefix(),
@@ -68,11 +77,15 @@ public class GuiItemUtil {
                 tool.getModeChange(ModeType.TOOL).getCurrentModeLore(tool.getCurrentMode(ModeType.TOOL)),
                 tool.getModeChange(ModeType.TOOL).getNextModeLore(tool.getCurrentMode(ModeType.TOOL)),
                 ToolsPlus.formatNumber(tool.getModeChange(ModeType.TOOL).getChangePriceForMode(tool.getCurrentMode(ModeType.TOOL))),
+                getRelativeString(tool.getModeChange(ModeType.TOOL).getChangePriceForMode(tool.getCurrentMode(ModeType.TOOL)),
+                        tool, "tool", tool.getModeChange(ModeType.TOOL).getNextMode(tool.getCurrentMode(ModeType.TOOL)), tool.getModeChange(ModeType.TOOL).getCurrency()),
                 tool.getModeChange(ModeType.TOOL).getCurrency().getPrefix(),
                 tool.getModeChange(ModeType.TOOL).getCurrency().getSuffix(),
                 tool.getModeChange(ModeType.SELL).getCurrentModeLore(tool.getCurrentMode(ModeType.SELL)),
                 tool.getModeChange(ModeType.SELL).getNextModeLore(tool.getCurrentMode(ModeType.SELL)),
                 ToolsPlus.formatNumber(tool.getModeChange(ModeType.SELL).getChangePriceForMode(tool.getCurrentMode(ModeType.SELL))),
+                getRelativeString(tool.getModeChange(ModeType.SELL).getChangePriceForMode(tool.getCurrentMode(ModeType.SELL)),
+                        tool, "sell", tool.getModeChange(ModeType.SELL).getNextMode(tool.getCurrentMode(ModeType.SELL)), tool.getModeChange(ModeType.SELL).getCurrency()),
                 tool.getModeChange(ModeType.SELL).getCurrency().getPrefix(),
                 tool.getModeChange(ModeType.SELL).getCurrency().getSuffix(),
                 ToolsPlus.formatNumber(tool.getUses()));
@@ -109,7 +122,20 @@ public class GuiItemUtil {
                 "{condition-radius-upgrade-level}",
                 "{condition-modifier-upgrade-cost}",
                 "{condition-modifier-upgrade-cost-compounded}",
-                "{condition-modifier-upgrade-level}");
+                "{condition-modifier-upgrade-level}",
+                "{tool-current-mode}",
+                "{tool-next-mode}",
+                "{tool-mode-change-cost}",
+                "{tool-mode-change-cost-relative}",
+                "{tool-mode-currency-prefix}",
+                "{tool-mode-currency-suffix}",
+                "{sell-current-mode}",
+                "{sell-next-mode}",
+                "{sell-mode-change-cost}",
+                "{sell-mode-change-cost-relative}",
+                "{sell-mode-currency-prefix}",
+                "{sell-mode-currency-suffix}",
+                "{uses}");
         builder.addLore(section.getStringList(condition + ".lore"),
                 tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getLoreStringForLevel(tool.getUpgradeLevel(UpgradeType.RADIUS)),
                 tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getLoreStringForLevel(tool.getUpgradeLevel(UpgradeType.RADIUS) + 1),
@@ -134,7 +160,22 @@ public class GuiItemUtil {
                 tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getLoreStringForLevel(level),
                 ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getUpgradePriceForLevel(level)),
                 ToolsPlus.formatNumber(getCompoundPrice(tool, UpgradeType.MODIFIER, section)),
-                tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getLoreStringForLevel(level));
+                tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getLoreStringForLevel(level),
+                tool.getModeChange(ModeType.TOOL).getCurrentModeLore(tool.getCurrentMode(ModeType.TOOL)),
+                tool.getModeChange(ModeType.TOOL).getNextModeLore(tool.getCurrentMode(ModeType.TOOL)),
+                ToolsPlus.formatNumber(tool.getModeChange(ModeType.TOOL).getChangePriceForMode(tool.getCurrentMode(ModeType.TOOL))),
+                getRelativeString(tool.getModeChange(ModeType.TOOL).getChangePriceForMode(tool.getCurrentMode(ModeType.TOOL)),
+                        tool, "tool", level, tool.getModeChange(ModeType.TOOL).getCurrency()),
+                tool.getModeChange(ModeType.TOOL).getCurrency().getPrefix(),
+                tool.getModeChange(ModeType.TOOL).getCurrency().getSuffix(),
+                tool.getModeChange(ModeType.SELL).getCurrentModeLore(tool.getCurrentMode(ModeType.SELL)),
+                tool.getModeChange(ModeType.SELL).getNextModeLore(tool.getCurrentMode(ModeType.SELL)),
+                ToolsPlus.formatNumber(tool.getModeChange(ModeType.SELL).getChangePriceForMode(tool.getCurrentMode(ModeType.SELL))),
+                getRelativeString(tool.getModeChange(ModeType.SELL).getChangePriceForMode(tool.getCurrentMode(ModeType.SELL)),
+                        tool, "sell", level, tool.getModeChange(ModeType.SELL).getCurrency()),
+                tool.getModeChange(ModeType.SELL).getCurrency().getPrefix(),
+                tool.getModeChange(ModeType.SELL).getCurrency().getSuffix(),
+                ToolsPlus.formatNumber(tool.getUses()));
         builder.addEnchantments(section.getStringList(condition + ".enchantments"));
         builder.addItemFlags(section.getStringList(condition + ".item-flags"));
         builder.addNBT(section.getBoolean(condition + ".unbreakable"));
@@ -177,31 +218,31 @@ public class GuiItemUtil {
         switch (type) {
             case "radius":
                 if (!tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).isUpgradeable())
-                    return "Not upgradeable";
+                    return Files.CONFIG.get().getString("not-upgradeable-placeholder");
                 if (tool.getPeakUpgradeLevel(UpgradeType.RADIUS) > condition
                         || (tool.getPeakUpgradeLevel(UpgradeType.RADIUS) == condition && condition == tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getMaxLevel())
                         || tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getUpgradePriceForLevel(condition) == 0)
-                    return "Free";
+                    return Files.CONFIG.get().getString("free-placeholder");
                 break;
             case "modifier":
                 if (!tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).isUpgradeable())
-                    return "Not upgradeable";
+                    return Files.CONFIG.get().getString("not-upgradeable-placeholder");
                 if (tool.getPeakUpgradeLevel(UpgradeType.MODIFIER) > condition
                         || (tool.getPeakUpgradeLevel(UpgradeType.MODIFIER) == condition && condition == tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getMaxLevel())
                         || tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getUpgradePriceForLevel(condition) == 0)
-                    return "Free";
+                    return Files.CONFIG.get().getString("free-placeholder");
                 break;
             case "tool":
                 if (!tool.getAbstractTool().getModeChange(ModeType.TOOL).isChangingEnabled())
-                    return "Not changeable";
+                    return Files.CONFIG.get().getString("no-mode-change-placeholder");
                 if (tool.getModeChange(ModeType.TOOL).getChangePriceForMode(tool.getCurrentMode(ModeType.TOOL) + 1) == 0)
-                    return "Free";
+                    return Files.CONFIG.get().getString("free-placeholder");
                 break;
             case "sell":
                 if (!tool.getAbstractTool().getModeChange(ModeType.SELL).isChangingEnabled())
-                    return "Not changeable";
+                    return Files.CONFIG.get().getString("no-mode-change-placeholder");
                 if (tool.getModeChange(ModeType.SELL).getChangePriceForMode(tool.getCurrentMode(ModeType.SELL) + 1) == 0)
-                    return "Free";
+                    return Files.CONFIG.get().getString("free-placeholder");
                 break;
         }
         return currency.getPrefix() + ToolsPlus.formatNumber(amount) + currency.getSuffix();

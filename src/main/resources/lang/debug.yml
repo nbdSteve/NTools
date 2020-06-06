@@ -118,3 +118,28 @@ not-holding-tool:
   action-bar: false
   text:
     - '&5&lTools&d+ &4(&c&lERROR&4)&7| The target player is not holding a Tools+ tool at the moment.'
+
+radius-upgrade-not-enabled:
+  action-bar: false
+  text:
+    - '&5&lTools&d+ &4(&c&lERROR&4)&7| The tool you are currently holding does not have radius upgrades enabled.'
+
+modifier-upgrade-not-enabled:
+  action-bar: false
+  text:
+    - '&5&lTools&d+ &4(&c&lERROR&4)&7| The tool you are currently holding does not have modifier upgrades enabled.'
+
+tool-mode-not-enabled:
+  action-bar: false
+  text:
+    - '&5&lTools&d+ &4(&c&lERROR&4)&7| The tool you are currently holding does not have tool mode switching enabled.'
+
+sell-mode-not-enabled:
+  action-bar: false
+  text:
+    - '&5&lTools&d+ &4(&c&lERROR&4)&7| The tool you are currently holding does not have sell mode switching enabled.'
+
+uses-not-enabled:
+  action-bar: false
+  text:
+    - '&5&lTools&d+ &4(&c&lERROR&4)&7| The tool you are currently holding does not have uses enabled.'

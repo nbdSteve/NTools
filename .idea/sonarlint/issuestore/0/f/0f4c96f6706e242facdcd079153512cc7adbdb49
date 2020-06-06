@@ -1,30 +1,28 @@
 
-d
-java:S2184w"BCast one of the operands of this addition operation to a "double".(“Úãûÿÿÿÿ8¹Ú©ù¦.
+D	java:S131‘""Add a default case to this switch.(å¿€œüÿÿÿÿ8š‹¤ù¦.
 _
-java:S2184C"BCast one of the operands of this addition operation to a "double".(¿ıª­8şÉœ£¦.
-X	java:S125›"<This block of commented-out lines of code should be removed.(ÇŠğ8š‹¤ù¦.
+java:S1126“"AReplace this if-then-else statement by a single return statement.(à¦£˜8š‹¤ù¦.
+d
+java:S2184x"BCast one of the operands of this addition operation to a "double".(“Úãûÿÿÿÿ8¹Ú©ù¦.
+_
+java:S2184@"BCast one of the operands of this addition operation to a "double".(“Óíğ8şÉœ£¦.
 `
 java:S2184€"BCast one of the operands of this addition operation to a "double".(“Óíğ8Ôšªù¦.
-V
-java:S1128"9Remove this unused import 'gg.steve.mc.tp.utils.LogUtil'.(Øº§“8Ï–İ¦.
-u
-java:S3776²"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(§¢Ô€üÿÿÿÿ8š‹¤ù¦.
-?	java:S131³""Add a default case to this switch.(ÜŸ•8š‹¤ù¦.
-_
-java:S2184v"BCast one of the operands of this addition operation to a "double".(‚µÖÃ8¹Ú©ù¦.
-P
-java:S1118":Add a private constructor to hide the implicit public one.(Üâ§º
-_
-java:S2184;"BCast one of the operands of this addition operation to a "double".(‚µÖÃ8şÉœ£¦.
-D	java:S131“""Add a default case to this switch.(å¿€œüÿÿÿÿ8š‹¤ù¦.
-_
-java:S1126•"AReplace this if-then-else statement by a single return statement.(à¦£˜8š‹¤ù¦.
-_
-java:S2184B"BCast one of the operands of this addition operation to a "double".(“Óíğ8şÉœ£¦.
-n
-java:S1301“"KReplace this "switch" statement by "if" statements to increase readability.(å¿€œüÿÿÿÿ8š‹¤ù¦.
 `
 java:S2184"BCast one of the operands of this addition operation to a "double".(¿ıª­8Ôšªù¦.
+_
+java:S2184w"BCast one of the operands of this addition operation to a "double".(‚µÖÃ8¹Ú©ù¦.
+P
+java:S1118":Add a private constructor to hide the implicit public one.(Üâ§º
+_
+java:S21849"BCast one of the operands of this addition operation to a "double".(‚µÖÃ8şÉœ£¦.
+_
+java:S2184A"BCast one of the operands of this addition operation to a "double".(¿ıª­8şÉœ£¦.
+n
+java:S1301‘"KReplace this "switch" statement by "if" statements to increase readability.(å¿€œüÿÿÿÿ8š‹¤ù¦.
+?	java:S131±""Add a default case to this switch.(ÜŸ•8š‹¤ù¦.
+u
+java:S3776°"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(ÎÓÈõûÿÿÿÿ8š‹¤ù¦.
+X	java:S125™"<This block of commented-out lines of code should be removed.(ÇŠğ8š‹¤ù¦.
 d
-java:S2184<"BCast one of the operands of this addition operation to a "double".(“Úãûÿÿÿÿ8şÉœ£¦.
+java:S2184:"BCast one of the operands of this addition operation to a "double".(“Úãûÿÿÿÿ8şÉœ£¦.

@@ -44,6 +44,6 @@ public enum CurrencyType {
             case "xp-level":
                 return new XpLevelCurrencyType();
         }
-        return new DefaultCurrencyType();
+        return AbstractCurrency.defaultCurrency;
     }
 }

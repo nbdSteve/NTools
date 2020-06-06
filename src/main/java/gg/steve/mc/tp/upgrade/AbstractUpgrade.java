@@ -2,11 +2,13 @@ package gg.steve.mc.tp.upgrade;
 
 import gg.steve.mc.tp.currency.AbstractCurrency;
 import gg.steve.mc.tp.currency.CurrencyType;
+import gg.steve.mc.tp.currency.types.DefaultCurrencyType;
 import gg.steve.mc.tp.gui.AbstractGui;
 import gg.steve.mc.tp.gui.GuiManager;
 import gg.steve.mc.tp.managers.Files;
 import gg.steve.mc.tp.managers.PluginFile;
 import gg.steve.mc.tp.tool.LoadedTool;
+import gg.steve.mc.tp.upgrade.types.DefaultUpgradeType;
 import gg.steve.mc.tp.utils.ColorUtil;
 import org.bukkit.entity.Player;
 
@@ -16,12 +18,20 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class AbstractUpgrade {
+    public static DefaultUpgradeType defaultUpgrade = new DefaultUpgradeType();
+
     private UpgradeType type;
     private AbstractCurrency currency;
     private Map<Integer, List<Object>> track;
     private String updateString;
     private AbstractGui gui;
     private boolean isDowngrade;
+
+    public AbstractUpgrade() {
+        this.type = UpgradeType.NONE;
+        this.currency = AbstractCurrency.defaultCurrency;
+        this.isDowngrade = false;
+    }
 
     public AbstractUpgrade(UpgradeType type, PluginFile file) {
         this.type = type;
@@ -106,6 +116,7 @@ public abstract class AbstractUpgrade {
     }
 
     public AbstractCurrency getCurrency() {
+        if (currency == null) return new DefaultCurrencyType();
         return currency;
     }
 

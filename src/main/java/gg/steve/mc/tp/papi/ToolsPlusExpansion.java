@@ -63,7 +63,8 @@ public class ToolsPlusExpansion extends PlaceholderExpansion {
                 return ToolsPlus.formatNumber(toolPlayer.getLoadedTool().getUpgradeLevel(UpgradeType.RADIUS) + 1);
             }
             if (identifier.equalsIgnoreCase("player_radius_next_price")) {
-                return ToolsPlus.formatNumber(toolPlayer.getLoadedTool().getNextUpgradePrice(UpgradeType.RADIUS, toolPlayer.getLoadedTool().getUpgradeLevel(UpgradeType.RADIUS)));
+//                return ToolsPlus.formatNumber(toolPlayer.getLoadedTool().getNextUpgradePrice(UpgradeType.RADIUS, toolPlayer.getLoadedTool().getUpgradeLevel(UpgradeType.RADIUS)));
+                return ToolsPlus.formatNumber(toolPlayer.getLoadedTool().getAbstractTool().getUpgrade(UpgradeType.RADIUS).getUpgradePriceForLevel(toolPlayer.getLoadedTool().getUpgradeLevel(UpgradeType.RADIUS)));
             }
             if (identifier.equalsIgnoreCase("player_radius_max")) {
                 return ToolsPlus.formatNumber(toolPlayer.getLoadedTool().getAbstractTool().getUpgrade(UpgradeType.RADIUS).getMaxLevel() + 1);
@@ -75,7 +76,7 @@ public class ToolsPlusExpansion extends PlaceholderExpansion {
                 return ToolsPlus.formatNumber(toolPlayer.getLoadedTool().getUpgradeLevel(UpgradeType.MODIFIER) + 1);
             }
             if (identifier.equalsIgnoreCase("player_modifier_next_price")) {
-                return ToolsPlus.formatNumber(toolPlayer.getLoadedTool().getNextUpgradePrice(UpgradeType.MODIFIER, toolPlayer.getLoadedTool().getUpgradeLevel(UpgradeType.MODIFIER)));
+                return ToolsPlus.formatNumber(toolPlayer.getLoadedTool().getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getUpgradePriceForLevel(toolPlayer.getLoadedTool().getUpgradeLevel(UpgradeType.MODIFIER)));
             }
             if (identifier.equalsIgnoreCase("player_modifier_max")) {
                 return ToolsPlus.formatNumber(toolPlayer.getLoadedTool().getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getMaxLevel() + 1);

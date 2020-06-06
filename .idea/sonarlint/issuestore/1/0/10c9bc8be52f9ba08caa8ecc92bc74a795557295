@@ -1,9 +1,9 @@
 
+e
+java:S1192"HDefine a constant instead of duplicating this literal "modules" 3 times.(ÈˆçÜ8ƒÔ ê§.
+P
+java:S1874T"3Remove this use of "newInstance"; it is deprecated.(äŒù¹8®¨¼ƒ¥.
 G
 java:S1181Y"%Catch Exception instead of Throwable.(•”ø¾øÿÿÿÿ8®¨¼ƒ¥.
 P
 java:S1874P"3Remove this use of "newInstance"; it is deprecated.(äŒù¹8®¨¼ƒ¥.
-P
-java:S1874T"3Remove this use of "newInstance"; it is deprecated.(äŒù¹8®¨¼ƒ¥.
-e
-java:S1192"HDefine a constant instead of duplicating this literal "modules" 3 times.(ÈˆçÜ8ƒÔ ê§.

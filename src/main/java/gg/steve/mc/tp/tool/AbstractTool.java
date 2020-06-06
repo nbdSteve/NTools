@@ -68,7 +68,7 @@ public abstract class AbstractTool {
 
     public AbstractUpgrade getUpgrade(UpgradeType type) {
         if (upgradeManager.isUpgradeEnabled(type)) return upgradeManager.getUpgrade(type);
-        return upgradeManager.getUpgrade(UpgradeType.NONE);
+        return AbstractUpgrade.defaultUpgrade;
     }
 
     public ItemStack getItemStack() {

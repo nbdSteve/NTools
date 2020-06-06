@@ -1,13 +1,17 @@
 package gg.steve.mc.tp.player.listener;
 
+import gg.steve.mc.tp.attribute.ToolAttributeType;
 import gg.steve.mc.tp.managers.Files;
+import gg.steve.mc.tp.message.DebugMessage;
 import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.player.PlayerToolManager;
+import gg.steve.mc.tp.tool.LoadedTool;
 import gg.steve.mc.tp.upgrade.UpgradeType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -42,21 +46,42 @@ public class PlayerCommandListener implements Listener {
         }
         if (type.equalsIgnoreCase("")) return;
         event.setCancelled(true);
+        LoadedTool tool = PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId()).getLoadedTool();
         switch (type) {
             case "radius-upgrade":
-                PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId()).getLoadedTool().openUpgradeGui(event.getPlayer(), UpgradeType.RADIUS);
+                if (!tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).isUpgradeable()) {
+                    DebugMessage.RADIUS_NOT_ENABLED.message(event.getPlayer());
+                } else {
+                    tool.openUpgradeGui(event.getPlayer(), UpgradeType.RADIUS);
+                }
                 break;
             case "modifier-upgrade":
-                PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId()).getLoadedTool().openUpgradeGui(event.getPlayer(), UpgradeType.MODIFIER);
+                if (!tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).isUpgradeable()) {
+                    DebugMessage.MODIFIER_NOT_ENABLED.message(event.getPlayer());
+                } else {
+                    tool.openUpgradeGui(event.getPlayer(), UpgradeType.MODIFIER);
+                }
                 break;
             case "tool-mode":
-                PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId()).getLoadedTool().openModeGui(event.getPlayer(), ModeType.TOOL);
+                if (!tool.getModeChange(ModeType.TOOL).isChangingEnabled()) {
+                    DebugMessage.TOOL_NOT_ENABLED.message(event.getPlayer());
+                } else {
+                    tool.openModeGui(event.getPlayer(), ModeType.TOOL);
+                }
                 break;
             case "sell-mode":
-                PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId()).getLoadedTool().openModeGui(event.getPlayer(), ModeType.SELL);
+                if (!tool.getModeChange(ModeType.SELL).isChangingEnabled()) {
+                    DebugMessage.SELL_NOT_ENABLED.message(event.getPlayer());
+                } else {
+                    tool.openModeGui(event.getPlayer(), ModeType.SELL);
+                }
                 break;
             case "uses":
-                PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId()).getLoadedTool().openUsesGui(event.getPlayer());
+                if (!tool.getAbstractTool().getAttributeManager().isAttributeEnabled(ToolAttributeType.USES)) {
+                    DebugMessage.USES_NOT_ENABLED.message(event.getPlayer());
+                } else {
+                    tool.openUsesGui(event.getPlayer());
+                }
                 break;
         }
     }

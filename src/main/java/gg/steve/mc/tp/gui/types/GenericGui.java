@@ -87,11 +87,11 @@ public class GenericGui extends AbstractGui {
                     item = GuiItemUtil.createItem(section.getConfigurationSection(entry), tool);
                     for (Integer slot : slots) {
                         setItemInSlot(slot, item, player -> {
-                            CommandUtil.execute(section.getStringList(entry + ".commands"), player);
                             if (!tool.getAbstractTool().getUpgrade(upgrade).isDegradable()) return;
                             if (!tool.getAbstractTool().getUpgradeManager().getUpgrade(upgrade).doDowngrade(player, tool)) {
                                 player.closeInventory();
                             } else {
+                                CommandUtil.execute(section.getStringList(entry + ".commands"), player);
                                 refresh(tool);
                             }
                         });
@@ -104,12 +104,13 @@ public class GenericGui extends AbstractGui {
                     item = GuiItemUtil.createItem(section.getConfigurationSection(entry), tool);
                     for (Integer slot : slots) {
                         setItemInSlot(slot, item, player -> {
-                            CommandUtil.execute(section.getStringList(entry + ".commands"), player);
-                            if (!tool.getAbstractTool().getAttributeManager().isAttributeEnabled(ToolAttributeType.USES))
+                            if (!tool.getAbstractTool().getAttributeManager().isAttributeEnabled(ToolAttributeType.USES)) {
                                 return;
+                            }
                             if (!tool.getAbstractTool().getAttributeManager().getAttribute(ToolAttributeType.USES).doIncrease(player, tool, currency, amount, cost)) {
                                 player.closeInventory();
                             } else {
+                                CommandUtil.execute(section.getStringList(entry + ".commands"), player);
                                 refresh(tool);
                             }
                         });

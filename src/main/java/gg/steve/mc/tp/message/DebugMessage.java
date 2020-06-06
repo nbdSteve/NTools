@@ -32,7 +32,13 @@ public enum DebugMessage {
     PLAYER_NOT_ONLINE("player-not-online"),
     GIVE_GIVER("give-giver", "{target}", "{amount}", "{tool-type}"),
     GIVE_RECEIVER("give-receiver", "{amount}", "{tool-type}"),
-    // msic
+    // command debug
+    RADIUS_NOT_ENABLED("radius-upgrade-not-enabled"),
+    MODIFIER_NOT_ENABLED("modifier-upgrade-not-enabled"),
+    TOOL_NOT_ENABLED("tool-mode-not-enabled"),
+    SELL_NOT_ENABLED("sell-mode-not-enabled"),
+    USES_NOT_ENABLED("uses-not-enabled"),
+    // misc
     INVALID_COMMAND("invalid-command"),
     INCORRECT_ARGS("incorrect-args"),
     INSUFFICIENT_PERMISSION("insufficient-permission", "{node}");
