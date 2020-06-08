@@ -61,8 +61,6 @@ e
 5src/main/java/gg/steve/mc/tp/nbt/NbtApiException.java,8\8\8885629c346962b108dcd49b201950ca4a49c2b8
 g
 7src/main/java/gg/steve/mc/tp/utils/ItemBuilderUtil.java,0\1\01634605fbc0cd568afc385341bd59c40dc1fc07
-a
-1src/main/java/gg/steve/mc/tp/tool/LoadedTool.java,0\7\07b6bb690c381804ed4e9a0afb9c1939b7ac7ff6
 m
 =src/main/java/gg/steve/mc/tp/attribute/ToolAttributeType.java,4\1\415a9353c11448a791c11fd13ba1166b950f9b65
 q
@@ -197,3 +195,11 @@ e
 5src/main/java/gg/steve/mc/tp/cmd/give/GiveSubCmd.java,b\9\b9259993c4926322ff018f0e7ba945255a88cd68
 i
 9src/main/java/gg/steve/mc/tp/cmd/tool/ToolInfoSubCmd.java,7\c\7cb750643690dcb4498eca26cdb2bc1fea467c4a
+a
+1src/main/java/gg/steve/mc/tp/tool/PlayerTool.java,b\d\bdac2d436389f5b0c92e6c123f5ac207e30c3952
+r
+Bsrc/main/java/gg/steve/mc/tp/upgrade/types/DefaultUpgradeType.java,b\4\b40122cc1dec3cbf33307dd075334d3edd0fe2ea
+^
+.src/main/java/gg/steve/mc/tp/ToolsPlusApi.java,c\5\c55ee06f15ba7c67da465c4da476a869d4beb7db
+e
+5src/main/java/gg/steve/mc/tp/utils/InventoryUtil.java,6\9\693db32463bf74da215d09d789ee0fa87f2ca091

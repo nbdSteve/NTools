@@ -12,13 +12,11 @@ import java.util.Map;
 
 public abstract class ToolsPlusModule {
     private String identifier;
-
-//    public ToolsPlusModule(ModuleType moduleType) {
-//        this.moduleType = moduleType;
-//    }
+    private String niceName;
 
     public ToolsPlusModule(String identifier) {
         this.identifier = identifier;
+        this.niceName = "";
     }
 
     public String getName() {
@@ -30,21 +28,23 @@ public abstract class ToolsPlusModule {
     }
 
     public String getNiceName() {
+        if (!this.niceName.equalsIgnoreCase("")) return this.niceName;
         StringBuilder builder = new StringBuilder();
         builder.append(identifier, 0, 1);
         builder.append(identifier.substring(1).toLowerCase());
         return builder.toString();
     }
 
-    //    public ModuleType getModuleType() {
-//        return moduleType;
-//    }
     public String getIdentifier() {
         return identifier;
     }
 
     public ToolsPlus getToolsPlus() {
         return ToolsPlus.get();
+    }
+
+    public void setNiceName(String niceName) {
+        this.niceName = niceName;
     }
 
     public abstract String getVersion();

@@ -1,5 +1,11 @@
 
-l
-java:S1192"JDefine a constant instead of duplicating this literal "upgrades." 5 times.(»ìÔÌúÿÿÿÿ8ÅÁã¦¦.
+|
+java:S1104"ZMake defaultUpgrade a static final constant or non-public and provide accessors if needed.(‚ÃÒ„ùÿÿÿÿ8Ÿ€ÅÅ¨.
 V
-java:S3400a"9Remove this method and declare a constant for this value.(”·³›8¥´í¦¦.
+java:S1444"4Make this "public static defaultUpgrade" field final(‚ÃÒ„ùÿÿÿÿ8Ÿ€ÅÅ¨.
+V
+java:S3400k"9Remove this method and declare a constant for this value.(”·³›8¥´í¦¦.
+P
+java:S2390".Remove this reference to "DefaultUpgradeType".(‚ÃÒ„ùÿÿÿÿ8Û£ÏÅ¨.
+l
+java:S1192&"JDefine a constant instead of duplicating this literal "upgrades." 5 times.(»ìÔÌúÿÿÿÿ8ÅÁã¦¦.

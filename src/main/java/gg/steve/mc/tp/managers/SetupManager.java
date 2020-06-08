@@ -9,20 +9,23 @@ import gg.steve.mc.tp.integration.SellIntegrationManager;
 import gg.steve.mc.tp.integration.sell.InternalPriceProvider;
 import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.papi.ToolsPlusExpansion;
+import gg.steve.mc.tp.player.PlayerToolManager;
 import gg.steve.mc.tp.player.listener.HoldToolListener;
 import gg.steve.mc.tp.player.listener.PlayerCommandListener;
 import gg.steve.mc.tp.player.listener.PlayerToolListener;
-import gg.steve.mc.tp.player.PlayerToolManager;
 import gg.steve.mc.tp.tool.ToolsManager;
 import gg.steve.mc.tp.utils.LogUtil;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Class that handles setting up the plugin on start
@@ -123,6 +126,16 @@ public class SetupManager {
         // modules
         ModuleManager.uninstalledAllModules();
         if (placeholderExpansions != null && !placeholderExpansions.isEmpty()) placeholderExpansions.clear();
+    }
+
+    public static void setupMetrics(JavaPlugin instance, int id) {
+        Metrics metrics = new Metrics(instance, id);
+        metrics.addCustomChart(new Metrics.MultiLineChart("players_and_servers", () -> {
+            Map<String, Integer> valueMap = new HashMap<>();
+            valueMap.put("servers", 1);
+            valueMap.put("players", Bukkit.getOnlinePlayers().size());
+            return valueMap;
+        }));
     }
 
     public static FileManager getFileManager() {

@@ -21,12 +21,6 @@ public class ToolConfigDataManager {
 
     public static void initialise() {
         lists = new HashMap<>();
-//        if (ModuleManager.isInstalled(ModuleType.TRENCH))
-//            trenchBlacklist = new ArrayList<>(convertStringsToMaterials(Files.TRENCH_CONFIG.get().getStringList("blacklist")));
-//        if (ModuleManager.isInstalled(ModuleType.TRAY))
-//            trayWhitelist = new ArrayList<>(convertStringsToMaterials(Files.TRAY_CONFIG.get().getStringList("whitelist")));
-//        if (ModuleManager.isInstalled(ModuleType.SELL))
-//            sellableContainers = new ArrayList<>(convertStringsToMaterials(Files.SELL_CONFIG.get().getStringList("sellable-containers")));
     }
 
     public static void addMaterialList(String moduleId, List<String> list) {

@@ -27,7 +27,7 @@ public class ToolLoaderUtil {
     public void loadItem(String moduleId) {
         ConfigurationSection section = this.file.get().getConfigurationSection("item");
         ItemBuilderUtil builder = ItemBuilderUtil.getBuilderForMaterial(section.getString("material"), section.getString("data"));
-        builder.addName(section.getString("name"));
+        builder.addName(section.getString("name").replace("{tool-mode}", file.get().getStringList("modes.tool.track").get(0).split(":")[2]));
         builder.setLorePlaceholders("{radius-upgrade}", "{modifier-upgrade}", "{uses}", "{mined}", "{tool-mode}", "{sell-mode}");
         builder.addLore(section.getStringList("lore"),
                 file.get().getStringList("upgrades.radius.track").get(0).split(":")[3],

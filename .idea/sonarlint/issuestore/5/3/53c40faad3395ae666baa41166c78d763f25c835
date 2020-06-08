@@ -1,16 +1,13 @@
 
-r	java:S1173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ‘Íüùÿÿÿÿ8««ÿî§.
 _
-java:S2184Q"BCast one of the operands of this addition operation to a "double".(¤¡»8ÿÔÄï§.
+java:S2184>"BCast one of the operands of this addition operation to a "double".(Ð¥Õà8Á·øæ¨.
 o
-java:S37761"RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(§¤µÐ8««ÿî§.
+java:S37760"RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(§¤µÐ8««ÿî§.
+r	java:S1172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ‘Íüùÿÿÿÿ8««ÿî§.
 _
-java:S2184?"BCast one of the operands of this addition operation to a "double".(€†¡À8ÈýÃï§.
+java:S2184E"BCast one of the operands of this addition operation to a "double".(€†Î×8Á·øæ¨.
 d
-java:S2184E"BCast one of the operands of this addition operation to a "double".(Ü£ç™øÿÿÿÿ8ÍžÄï§.
-W
-java:S1191"5Use classes from the Java API instead of Sun classes.(÷î’¢úÿÿÿÿ8««ÿî§.
+java:S2184K"BCast one of the operands of this addition operation to a "double".(¿ÑÜ¢üÿÿÿÿ8Á·øæ¨.
 d
-java:S2184K"BCast one of the operands of this addition operation to a "double".(¬Èéüÿÿÿÿÿ8ÿÔÄï§.
-i
-java:S1128"GRemove this unused import 'com.sun.imageio.spi.RAFImageInputStreamSpi'.(÷î’¢úÿÿÿÿ8««ÿî§.
+java:S2184Q"BCast one of the operands of this addition operation to a "double".(èàïºüÿÿÿÿ8Á·øæ¨.
+W	java:S125A"<This block of commented-out lines of code should be removed.(Ù“Â 8¤¼È¨.
