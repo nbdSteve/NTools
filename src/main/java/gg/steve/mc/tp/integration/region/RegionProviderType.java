@@ -10,6 +10,7 @@ public enum RegionProviderType {
 //    GUILDS,
     FACTIONS_X(new FactionsXRegionProvider()),
     LANDS(new LandsRegionProvider()),
+    MASSIVE_FACTIONS(new MassiveFactionsRegionProvider()),
     GRIEF_PREVENTION(new GriefPreventionRegionProvider());
 
     private AbstractRegionProvider regionProvider;

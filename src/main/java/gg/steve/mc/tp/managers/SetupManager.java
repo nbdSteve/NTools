@@ -5,7 +5,8 @@ import gg.steve.mc.tp.attribute.types.OmniToolAttribute;
 import gg.steve.mc.tp.cmd.ToolsPlusCmd;
 import gg.steve.mc.tp.gui.GuiClickListener;
 import gg.steve.mc.tp.gui.GuiManager;
-import gg.steve.mc.tp.integration.SellIntegrationManager;
+import gg.steve.mc.tp.integration.libs.ToolsPlusLibManager;
+import gg.steve.mc.tp.integration.sell.SellIntegrationManager;
 import gg.steve.mc.tp.integration.sell.InternalPriceProvider;
 import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.papi.ToolsPlusExpansion;
@@ -88,6 +89,8 @@ public class SetupManager {
         placeholderExpansions = new ArrayList<>();
         ToolConfigDataManager.initialise();
         ModuleManager.loadInstalledModules();
+        // libs
+        ToolsPlusLibManager.loadInstalledLibs();
         // gui
         GuiManager.initialise();
         // tools
@@ -120,6 +123,8 @@ public class SetupManager {
         ToolsManager.shutdown();
         // gui
         GuiManager.shutdown();
+        // libs
+        ToolsPlusLibManager.uninstalledAllLibs();
         // modules
         ModuleManager.uninstalledAllModules();
         if (placeholderExpansions != null && !placeholderExpansions.isEmpty()) placeholderExpansions.clear();

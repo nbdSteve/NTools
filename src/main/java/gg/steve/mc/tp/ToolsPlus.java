@@ -1,5 +1,6 @@
 package gg.steve.mc.tp;
 
+import gg.steve.mc.tp.integration.libs.ToolsPlusLibManager;
 import gg.steve.mc.tp.managers.FileManager;
 import gg.steve.mc.tp.managers.SetupManager;
 import gg.steve.mc.tp.module.ModuleManager;
@@ -20,6 +21,7 @@ public final class ToolsPlus extends JavaPlugin {
     public void onLoad() {
         instance = this;
         ModuleManager.initialise(instance);
+        ToolsPlusLibManager.initialise(instance);
     }
 
     @Override

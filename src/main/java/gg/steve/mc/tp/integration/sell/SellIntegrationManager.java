@@ -1,4 +1,4 @@
-package gg.steve.mc.tp.integration;
+package gg.steve.mc.tp.integration.sell;
 
 import com.earth2me.essentials.Essentials;
 import gg.steve.mc.tp.ToolsPlus;
