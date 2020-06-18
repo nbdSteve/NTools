@@ -1,5 +1,4 @@
 
-R
-java:S1128"0Remove this unused import 'org.bukkit.Material'.(ÜÎ¬©ùÿÿÿÿ8…“šõ¨.
 \
-java:S1118":Add a private constructor to hide the implicit public one.(Ş¥¢úÿÿÿÿ8ºŸ÷ô¨.
+java:S1118
+":Add a private constructor to hide the implicit public one.(Ş¥¢úÿÿÿÿ8ºŸ÷ô¨.

@@ -1,19 +1,19 @@
 
 W
-java:S1874E"5Remove this use of "setItemInHand"; it is deprecated.(šñÒÂúÿÿÿÿ8™¢ÿò¥.
-d
-java:S1192#"GDefine a constant instead of duplicating this literal "{uses}" 4 times.(—ïÒÙ8ñîÊ¹¦.
-R
-java:S1874%"5Remove this use of "getItemInHand"; it is deprecated.(Ñ»êô8ŞÀÊ¹¦.
+java:S1874("5Remove this use of "setItemInHand"; it is deprecated.(šñÒÂúÿÿÿÿ8ŞÀÊ¹¦.
 W
-java:S1874<"5Remove this use of "setItemInHand"; it is deprecated.(æ¥šûÿÿÿÿ8ÒÆÅ¥.
-W
-java:S1874'"5Remove this use of "setItemInHand"; it is deprecated.(šñÒÂúÿÿÿÿ8ŞÀÊ¹¦.
+java:S1874="5Remove this use of "setItemInHand"; it is deprecated.(æ¥šûÿÿÿÿ8ÒÆÅ¥.
 _
-java:S2184C"BCast one of the operands of this addition operation to a "double".(¿Úˆ8âÿ™§.
-_
-java:S2184$"BCast one of the operands of this addition operation to a "double".(ôş’å8âÿ™§.
+java:S2184E"BCast one of the operands of this addition operation to a "double".(¿Úˆ8âÿ™§.
 W
-java:S1874"5Remove this use of "getItemInHand"; it is deprecated.(ƒï©êûÿÿÿÿ8ŞÀÊ¹¦.
+java:S1874"5Remove this use of "getItemInHand"; it is deprecated.(ƒï©êûÿÿÿÿ8ŞÀÊ¹¦.
 Q
-java:S1874D"5Remove this use of "getItemInHand"; it is deprecated.(ßËñn8™¢ÿò¥.
+java:S1874F"5Remove this use of "getItemInHand"; it is deprecated.(ßËñn8™¢ÿò¥.
+d
+java:S1192$"GDefine a constant instead of duplicating this literal "{uses}" 4 times.(—ïÒÙ8ñîÊ¹¦.
+W
+java:S1874G"5Remove this use of "setItemInHand"; it is deprecated.(šñÒÂúÿÿÿÿ8™¢ÿò¥.
+_
+java:S2184%"BCast one of the operands of this addition operation to a "double".(ôş’å8âÿ™§.
+R
+java:S1874&"5Remove this use of "getItemInHand"; it is deprecated.(Ñ»êô8ŞÀÊ¹¦.

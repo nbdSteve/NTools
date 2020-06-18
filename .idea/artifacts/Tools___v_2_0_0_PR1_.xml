@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/../../../test-server/stellar - Copy/plugins</output-path>
     <root id="archive" name="Tools+ [v 2.0.0-PR1].jar">
       <element id="module-output" name="ToolsPlus-v2-Recode" />
+      <element id="library" level="project" name="Maven: org.bstats:bstats-bukkit:1.7" />
     </root>
   </artifact>
 </component>

@@ -1,24 +1,23 @@
 
-£
-java:S1186;"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÓğÃâûÿÿÿÿ8¸Ú¶™§.
-S
-java:S1874,"1Remove this use of "ItemStack"; it is deprecated.(Üğ¶Åúÿÿÿÿ8ó·˜û¥.
-8
-java:S36267"Remove this redundant jump.(×¥œ×8ó·˜û¥.
-t
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(¯à¦“üÿÿÿÿ8ó·˜û¥.
-W
-java:S1874."5Remove this use of "getItemInHand"; it is deprecated.(Õ¬ƒÖıÿÿÿÿ8ó·˜û¥.
-Q
-java:S1874,"/Remove this use of "getData"; it is deprecated.(Üğ¶Åúÿÿÿÿ8ó·˜û¥.
-
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«ÇÜ¥8ó·˜û¥.
-V
-java:S1128
-"9Remove this unused import 'gg.steve.mc.tp.utils.LogUtil'.(Øº§“8¸øù¢¦.
 H
-java:S1659!"&Declare "autoSell" on a separate line.(åĞÛ£úÿÿÿÿ8‚ÕÌÊ¨.
-?
-java:S1659"""Declare "silk" on a separate line.(†Š¿ú8‚ÕÌÊ¨.
-R
-java:S1874""5Remove this use of "getItemInHand"; it is deprecated.(†Š¿ú8‚ÕÌÊ¨.
+java:S1659 "&Declare "autoSell" on a separate line.(å‰®ãşÿÿÿÿ8‚ÕÌÊ¨.
+N
+java:S1874-"1Remove this use of "ItemStack"; it is deprecated.(¶ö¿8ó·˜û¥.
+W
+java:S1874/"5Remove this use of "getItemInHand"; it is deprecated.(ÄĞÃüûÿÿÿÿ8ó·˜û¥.
+
+java:S1186="€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÔŞ‰·8¸Ú¶™§.
+T
+java:S1128"9Remove this unused import 'gg.steve.mc.tp.utils.LogUtil'.(Øº§“8¸øù¢¦.
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ş­µ…úÿÿÿÿ8ó·˜û¥.
+W
+java:S1874!"5Remove this use of "getItemInHand"; it is deprecated.(¢£ùÿÿÿÿ8‚ÕÌÊ¨.
+L
+java:S1874-"/Remove this use of "getData"; it is deprecated.(¶ö¿8ó·˜û¥.
+
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«ÇÜ¥8ó·˜û¥.
+7
+java:S36269"Remove this redundant jump.(Ä¾çp8ó·˜û¥.
+D
+java:S1659!""Declare "silk" on a separate line.(¢£ùÿÿÿÿ8‚ÕÌÊ¨.

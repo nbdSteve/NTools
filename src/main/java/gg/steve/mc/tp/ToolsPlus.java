@@ -31,7 +31,7 @@ public final class ToolsPlus extends JavaPlugin {
         // this method loads things like modules, tools, maps and data lists
         SetupManager.loadPluginCache();
         // setup the metrics for the plugin
-        SetupManager.setupMetrics(instance, 7794);
+//        SetupManager.setupMetrics(instance, 7794);
         // verify that the server is running vault so that eco features can be used
         if (Bukkit.getPluginManager().getPlugin("Vault") != null) {
             try {

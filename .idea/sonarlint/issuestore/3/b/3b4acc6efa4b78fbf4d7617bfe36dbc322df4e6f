@@ -1,10 +1,10 @@
 
-j
-java:S1192)"HDefine a constant instead of duplicating this literal ".action" 8 times.(Ôíşÿÿÿÿ8Ä÷§¦.
-g
-java:S1192<"JDefine a constant instead of duplicating this literal ".commands" 6 times.(±ÎŞû8Ô´†§.
 m
 java:S1301+"KReplace this "switch" statement by "if" statements to increase readability.(Ï³÷øüÿÿÿÿ8Ä÷§¦.
+g
+java:S1192<"JDefine a constant instead of duplicating this literal ".commands" 6 times.(±ÎŞû8Ô´†§.
+C	java:S131+""Add a default case to this switch.(Ï³÷øüÿÿÿÿ8Ä÷§¦.
 t
 java:S3776 "RRefactor this method to reduce its Cognitive Complexity from 76 to the 15 allowed.(±ÇÆøÿÿÿÿ8“‘Óù¥.
-C	java:S131+""Add a default case to this switch.(Ï³÷øüÿÿÿÿ8Ä÷§¦.
+j
+java:S1192)"HDefine a constant instead of duplicating this literal ".action" 8 times.(Ôíşÿÿÿÿ8Ä÷§¦.
