@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class ToolsPlusModule {
-    private String identifier;
+    private final String identifier;
     private String niceName;
 
     public ToolsPlusModule(String identifier) {
@@ -29,6 +29,13 @@ public abstract class ToolsPlusModule {
 
     public String getNiceName() {
         if (!this.niceName.equalsIgnoreCase("")) return this.niceName;
+        StringBuilder builder = new StringBuilder();
+        builder.append(identifier, 0, 1);
+        builder.append(identifier.substring(1).toLowerCase());
+        return builder.toString();
+    }
+
+    public String getModuleName() {
         StringBuilder builder = new StringBuilder();
         builder.append(identifier, 0, 1);
         builder.append(identifier.substring(1).toLowerCase());
@@ -60,4 +67,6 @@ public abstract class ToolsPlusModule {
     public abstract Map<String, String> getModuleFiles();
 
     public abstract void onLoad();
+
+    public abstract void onShutdown();
 }

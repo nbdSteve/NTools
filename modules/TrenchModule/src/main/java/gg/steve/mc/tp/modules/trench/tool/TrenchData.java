@@ -1,6 +1,6 @@
 package gg.steve.mc.tp.modules.trench.tool;
 
-import gg.steve.mc.tp.integration.SellIntegrationManager;
+import gg.steve.mc.tp.integration.sell.SellIntegrationManager;
 import gg.steve.mc.tp.message.GeneralMessage;
 import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.modules.trench.TrenchModule;

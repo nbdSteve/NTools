@@ -1,9 +1,9 @@
 
-£
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ş­µ…úÿÿÿÿ8ğ¾Øƒ§.
 
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Îş¼N8ğ¾Øƒ§.
-p
-java:S1128"NRemove this unused import 'gg.steve.mc.tp.integration.SellIntegrationManager'.(øÃÀóúÿÿÿÿ8‹½Ùå¨.
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Îş¼N8ğ¾Øƒ§.
+£
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ş­µ…úÿÿÿÿ8ğ¾Øƒ§.
+n
+java:S1128"NRemove this unused import 'gg.steve.mc.tp.integration.SellIntegrationManager'.(øÃÀóúÿÿÿÿ8‹½Ùå¨.
 =
-java:S3626,"Remove this redundant jump.(ğå°¢ıÿÿÿÿ8ÿ à—§.
+java:S3626+"Remove this redundant jump.(ğå°¢ıÿÿÿÿ8ÿ à—§.

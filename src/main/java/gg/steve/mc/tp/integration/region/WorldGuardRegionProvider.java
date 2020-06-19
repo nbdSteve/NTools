@@ -2,7 +2,6 @@ package gg.steve.mc.tp.integration.region;
 
 import gg.steve.mc.tp.integration.libs.ToolsPlusLibManager;
 import gg.steve.mc.tp.integration.libs.ToolsPlusLibType;
-import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;

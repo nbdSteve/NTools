@@ -1,11 +1,0 @@
-
-W
-java:S1118":Add a private constructor to hide the implicit public one.(Š»öš8Ÿ€½¿¬.
-W
-java:S1854"5Remove this useless assignment to local variable "v".(“ÛÑ™şÿÿÿÿ8ÁÌé¿¬.
-V
-java:S1854"9Remove this useless assignment to local variable "world".(¹¬áŸ8ÁÌé¿¬.
-G
-java:S1481"*Remove this unused "world" local variable.(¹¬áŸ8ÁÌé¿¬.
-H
-java:S1481"&Remove this unused "v" local variable.(“ÛÑ™şÿÿÿÿ8ÁÌé¿¬.

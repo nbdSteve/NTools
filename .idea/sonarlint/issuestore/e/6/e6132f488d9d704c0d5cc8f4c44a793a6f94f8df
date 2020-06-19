@@ -1,0 +1,46 @@
+
+5
+java:S1640("Convert this Map to an EnumMap.(¨¢Šæ
+n	java:S135s"YReduce the total number of break and continue statements in this loop to use at most one.(áñßµ
+o
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(ºÄ¢ğúÿÿÿÿ
+o
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(¤ÖÖ¿ùÿÿÿÿ
+U
+java:S1118":Add a private constructor to hide the implicit public one.(‹µÁ»ıÿÿÿÿ
+m
+java:S3776&"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(É±Ù©ıÿÿÿÿ
+9
+java:S1659'"$Declare "amount" on a separate line.(ØŒêj
+E
+java:S1874,"/Remove this use of "getData"; it is deprecated.(Ëøà
+E
+java:S1874-"/Remove this use of "getData"; it is deprecated.(ô™Àè
+E
+java:S1874-"/Remove this use of "getData"; it is deprecated.(ô™Àè
+E
+java:S1874/"/Remove this use of "getData"; it is deprecated.(š„èˆ
+E
+java:S18743"/Remove this use of "getData"; it is deprecated.(š„èˆ
+K
+java:S18746"5Remove this use of "getItemInHand"; it is deprecated.(è­íí
+P
+java:S18748"5Remove this use of "getDurability"; it is deprecated.(ŠÔ©®üÿÿÿÿ
+P
+java:S18749"5Remove this use of "getDurability"; it is deprecated.(ÅÂØëúÿÿÿÿ
+P
+java:S18749"5Remove this use of "getDurability"; it is deprecated.(ÅÂØëúÿÿÿÿ
+P
+java:S1874;"5Remove this use of "getDurability"; it is deprecated.(ŠÌÌÓúÿÿÿÿ
+P
+java:S1874?"5Remove this use of "getDurability"; it is deprecated.(ŠÌÌÓúÿÿÿÿ
+J
+java:S2864F"4Iterate over the "entrySet" instead of the "keySet".(ìƒÙƒ
+L
+java:S1874N"1Remove this use of "ItemStack"; it is deprecated.(€•¦Øÿÿÿÿÿ
+L
+java:S1874o"1Remove this use of "ItemStack"; it is deprecated.(µ™€–øÿÿÿÿ
+m
+java:S3776r"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(÷ßÆìüÿÿÿÿ
+b
+java:S3252"KUse static access with "org.bukkit.plugin.java.JavaPlugin" for "getPlugin".(ºÿ’¨

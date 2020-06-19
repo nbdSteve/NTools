@@ -35,8 +35,6 @@ g
 7src/main/java/gg/steve/mc/tp/managers/SetupManager.java,d\0\d09a7668dc88bf78046494f0e784045ec4d9bc6a
 [
 +src/main/java/gg/steve/mc/tp/ToolsPlus.java,9\7\97b36aa7274347d92b9527b795f05a89fe0b044d
-n
->src/main/java/gg/steve/mc/tp/module/utils/ModuleClassUtil.java,f\8\f8cf1ba688819ffadd44b03ba25d29c37dba28dd
 o
 ?src/main/java/gg/steve/mc/tp/module/utils/ModuleLoaderUtil.java,1\0\10c9bc8be52f9ba08caa8ecc92bc74a795557295
 i
@@ -163,8 +161,6 @@ x
 Hsrc/main/java/gg/steve/mc/tp/integration/region/LandsRegionProvider.java,f\1\f117dc568878d72c08fd31d593d341e8e41d120e
 t
 Dsrc/main/java/gg/steve/mc/tp/player/listener/PlayerToolListener.java,a\4\a4868a2d01070b6b046a4149dd73c3cdc00bad7c
-t
-Dsrc/main/java/gg/steve/mc/tp/integration/SellIntegrationManager.java,1\8\1850862face03b1d58aff2e1f797bdfd4817e97e
 n
 >src/main/java/gg/steve/mc/tp/attribute/utils/CooldownUtil.java,b\0\b07065893db6e6863b6ba5a29eba1d3113e094c4
 a
@@ -199,16 +195,8 @@ Bsrc/main/java/gg/steve/mc/tp/upgrade/types/DefaultUpgradeType.java,b\4\b40122c
 .src/main/java/gg/steve/mc/tp/ToolsPlusApi.java,c\5\c55ee06f15ba7c67da465c4da476a869d4beb7db
 e
 5src/main/java/gg/steve/mc/tp/utils/InventoryUtil.java,6\9\693db32463bf74da215d09d789ee0fa87f2ca091
-t
-Dsrc/main/java/gg/steve/mc/tp/integration/AbstractRegionProvider.java,f\9\f9e82d029eafd5b1fa94ca93d2408fad673083c4
-p
-@src/main/java/gg/steve/mc/tp/integration/RegionProviderType.java,2\d\2dad3ae8bb5924c81d1bd9b35bb1850d0448e38b
 ‚
 Rsrc/main/java/gg/steve/mc/tp/integration/region/MassiveFactionsRegionProvider.java,2\f\2fbce00ad5bb6e4166f2435d6e5aa2ec2686890d
-
-Osrc/main/java/gg/steve/mc/tp/integration/region/utils/WorldGuardLegacyUtil.java,6\3\63a370fc6530423cf4117fe116406da8a4529cba
-z
-Jsrc/main/java/gg/steve/mc/tp/integration/region/utils/WorldGuard7Util.java,4\0\40453882b02289f0b26251e7ba4f0d3131565e27
 y
 Isrc/main/java/gg/steve/mc/tp/integration/sell/SellIntegrationManager.java,e\6\e6132f488d9d704c0d5cc8f4c44a793a6f94f8df
 {

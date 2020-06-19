@@ -13,7 +13,6 @@ import java.text.DecimalFormat;
 
 public final class ToolsPlus extends JavaPlugin {
     private static ToolsPlus instance;
-    private static String version = "2.0.0-PR1";
     private static Economy economy;
     private static DecimalFormat numberFormat = new DecimalFormat("#,###.##");
 
@@ -48,14 +47,14 @@ public final class ToolsPlus extends JavaPlugin {
         }
         // Check that the server is running PAPI and register all expansions
         SetupManager.registerPlaceholderExpansions(instance);
-        LogUtil.info("Thanks for using Tools+ v" + version + ", please contact nbdSteve#0583 on discord if you find any bugs.");
+        LogUtil.info("Thanks for using Tools+ v" + getDescription().getVersion() + ", please contact nbdSteve#0583 on discord if you find any bugs.");
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
         SetupManager.shutdownPluginCache();
-        LogUtil.info("Thanks for using Tools+ v" + version + ", please contact nbdSteve#0583 on discord if you find any bugs.");
+        LogUtil.info("Thanks for using Tools+ v" + getDescription().getVersion() + ", please contact nbdSteve#0583 on discord if you find any bugs.");
     }
 
     public static ToolsPlus get() {
@@ -68,9 +67,5 @@ public final class ToolsPlus extends JavaPlugin {
 
     public static String formatNumber(double amount) {
         return numberFormat.format(amount);
-    }
-
-    public static String getVersion() {
-        return version;
     }
 }

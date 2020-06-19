@@ -7,6 +7,7 @@ loaded-tools:
   - ex-trench-1
   - ex-tray
   - ex-sell
+  - ex-sand
 #
 loaded-guis:
   - basic-gui
