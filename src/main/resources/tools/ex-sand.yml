@@ -9,8 +9,8 @@ upgrades:
     gui: ''
     track:
       # syntax: <radius>:<upgrade price>:<downgrade price>:<string for lore>
-      - '0:0.0:0.0:1x1'
-    lore-update-string: ''
+      - '1:0.0:0.0:3x3'
+    lore-update-string: '&7Radius: &e&n{radius-upgrade}'
   modifier:
     allow-downgrade: false
     currency: vault
@@ -28,7 +28,7 @@ modes:
     gui: ''
     track:
       # syntax: <mode type>:<price>:<string for lore>
-      - 'sand:1000.0:Sand'
+      - 'sand:0.0:Sand'
     lore-update-string: ''
   sell:
     right-click-switch: false
@@ -43,7 +43,8 @@ modes:
 uses:
   enabled: true
   starting: 10
-  lore-update-string: '&7Uses: &c&n{uses}'
+  gui: 'basic-gui'
+  lore-update-string: '&7Uses: &e&n{uses}'
 #
 blocks-mined:
   enabled: false
@@ -65,6 +66,8 @@ item:
     - '&esand stacks from your walls!'
     - ''
     - '&7Uses: &e&n{uses}'
+    - ''
+    - '&7Radius: &e&n{radius-upgrade}'
     - ''
   enchantments:
     - dig_speed:10

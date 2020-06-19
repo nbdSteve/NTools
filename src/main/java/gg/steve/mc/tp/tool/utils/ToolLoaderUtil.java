@@ -1,5 +1,7 @@
 package gg.steve.mc.tp.tool.utils;
 
+import gg.steve.mc.tp.ToolsPlus;
+import gg.steve.mc.tp.gui.GuiManager;
 import gg.steve.mc.tp.managers.PluginFile;
 import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.nbt.NBTItem;
@@ -19,8 +21,7 @@ public class ToolLoaderUtil {
         String moduleId = file.get().getString("type").toUpperCase();
         loadItem(moduleId);
         tool = ModuleManager.getInstalledModule(moduleId).loadTool(this.item, file);
-//        tool.setUsesGui(GuiManager.getGui(file.get().getString("uses.gui")));
-//        tool.setModeGui(GuiManager.getGui(file.get().getString("mode.gui")));
+        tool.setUsesGui(GuiManager.getGui(file.get().getString("uses.gui")));
         loadToolData();
     }
 
@@ -32,7 +33,7 @@ public class ToolLoaderUtil {
         builder.addLore(section.getStringList("lore"),
                 file.get().getStringList("upgrades.radius.track").get(0).split(":")[3],
                 file.get().getStringList("upgrades.modifier.track").get(0).split(":")[3],
-                String.valueOf(file.get().getInt("uses.starting")),
+                ToolsPlus.formatNumber(file.get().getInt("uses.starting")),
                 "0", file.get().getStringList("modes.tool.track").get(0).split(":")[2],
                 file.get().getStringList("modes.sell.track").get(0).split(":")[2]);
         builder.addEnchantments(section.getStringList("enchantments"));
