@@ -5,6 +5,7 @@ D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\tool\AbstractTool.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\upgrade\types\ModifierUpgrade.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\player\ToolPlayer.java
+D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\attribute\types\CaneTrackingToolAttribute.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\cmd\module\ModuleUnInstallSubCmd.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\integration\sell\PriceProviderType.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\tool\utils\ToolLoaderUtil.java
@@ -15,6 +16,7 @@ D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\tool\ToolsManager.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\upgrade\UpgradeType.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\nbt\NBTReflectionUtil.java
+D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\attribute\types\AutoReplantToolAttribute.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\utils\SoundUtil.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\utils\InventoryUtil.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\module\ModuleManager.java

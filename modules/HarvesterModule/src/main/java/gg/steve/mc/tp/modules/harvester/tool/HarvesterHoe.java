@@ -1,9 +1,6 @@
 package gg.steve.mc.tp.modules.harvester.tool;
 
-import gg.steve.mc.tp.attribute.types.BlocksMinedToolAttribute;
-import gg.steve.mc.tp.attribute.types.CooldownToolAttribute;
-import gg.steve.mc.tp.attribute.types.OmniToolAttribute;
-import gg.steve.mc.tp.attribute.types.UsesToolAttribute;
+import gg.steve.mc.tp.attribute.types.*;
 import gg.steve.mc.tp.managers.PluginFile;
 import gg.steve.mc.tp.mode.types.SellModeChange;
 import gg.steve.mc.tp.mode.types.ToolTypeModeChange;
@@ -30,6 +27,12 @@ public class HarvesterHoe extends AbstractTool {
         }
         if (config.getBoolean("cooldown.enabled")) {
             getAttributeManager().addToolAttribute(new CooldownToolAttribute(config.getInt("cooldown.duration")));
+        }
+        if (config.getBoolean("auto-replant.enabled")) {
+            getAttributeManager().addToolAttribute(new AutoReplantToolAttribute(""));
+        }
+        if (config.getBoolean("cane-mined.enabled")) {
+            getAttributeManager().addToolAttribute(new CaneTrackingToolAttribute(config.getString("cane-mined.lore-update-string")));
         }
         getUpgradeManager().addToolUpgrade(new RadiusUpgrade(file));
         getUpgradeManager().addToolUpgrade(new ModifierUpgrade(file));

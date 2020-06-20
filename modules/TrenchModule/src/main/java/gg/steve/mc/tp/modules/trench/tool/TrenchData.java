@@ -36,7 +36,7 @@ public class TrenchData implements ToolData {
             GeneralMessage.INVENTORY_FULL.message(event.getPlayer());
         }
         if (autoSell) {
-            SellIntegrationManager.doBlockSale(event.getPlayer(), blocks, tool, silk);
+            SellIntegrationManager.doBlockSale(event.getPlayer(), blocks, tool, silk, true);
         } else {
             for (Block block : blocks) {
                 // if the player is using silk touch give them items accordingly, adds items straight to inventory

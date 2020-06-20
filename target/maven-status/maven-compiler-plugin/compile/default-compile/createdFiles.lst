@@ -28,6 +28,7 @@ gg\steve\mc\tp\nbt\NBTList.class
 gg\steve\mc\tp\integration\sell\InternalPriceProvider.class
 gg\steve\mc\tp\cmd\module\ModuleSubCmd.class
 gg\steve\mc\tp\gui\types\GenericGui.class
+gg\steve\mc\tp\attribute\types\CaneTrackingToolAttribute.class
 gg\steve\mc\tp\utils\actionbarapi\ActionBarAPI.class
 gg\steve\mc\tp\integration\sell\PriceProviderType.class
 gg\steve\mc\tp\mode\AbstractModeChange.class
@@ -49,6 +50,7 @@ gg\steve\mc\tp\module\ToolsPlusModule.class
 gg\steve\mc\tp\player\ToolPlayer.class
 gg\steve\mc\tp\upgrade\UpgradeType.class
 gg\steve\mc\tp\gui\GuiClickListener.class
+gg\steve\mc\tp\attribute\types\AutoReplantToolAttribute.class
 gg\steve\mc\tp\nbt\utils\nmsmappings\PackageWrapper.class
 gg\steve\mc\tp\managers\ToolConfigDataManager.class
 gg\steve\mc\tp\tool\ToolData.class

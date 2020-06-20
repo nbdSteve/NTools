@@ -29,13 +29,13 @@ public class ToolLoaderUtil {
         ConfigurationSection section = this.file.get().getConfigurationSection("item");
         ItemBuilderUtil builder = ItemBuilderUtil.getBuilderForMaterial(section.getString("material"), section.getString("data"));
         builder.addName(section.getString("name").replace("{tool-mode}", file.get().getStringList("modes.tool.track").get(0).split(":")[2]));
-        builder.setLorePlaceholders("{radius-upgrade}", "{modifier-upgrade}", "{uses}", "{mined}", "{tool-mode}", "{sell-mode}");
+        builder.setLorePlaceholders("{radius-upgrade}", "{modifier-upgrade}", "{uses}", "{mined}", "{tool-mode}", "{sell-mode}", "{cane-mined}");
         builder.addLore(section.getStringList("lore"),
                 file.get().getStringList("upgrades.radius.track").get(0).split(":")[3],
                 file.get().getStringList("upgrades.modifier.track").get(0).split(":")[3],
                 ToolsPlus.formatNumber(file.get().getInt("uses.starting")),
                 "0", file.get().getStringList("modes.tool.track").get(0).split(":")[2],
-                file.get().getStringList("modes.sell.track").get(0).split(":")[2]);
+                file.get().getStringList("modes.sell.track").get(0).split(":")[2], "0");
         builder.addEnchantments(section.getStringList("enchantments"));
         builder.addItemFlags(section.getStringList("item-flags"));
         builder.addNBT(moduleId, this.name, this.file);

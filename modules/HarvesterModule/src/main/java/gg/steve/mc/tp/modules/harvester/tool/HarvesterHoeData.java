@@ -1,5 +1,6 @@
 package gg.steve.mc.tp.modules.harvester.tool;
 
+import gg.steve.mc.tp.attribute.ToolAttributeType;
 import gg.steve.mc.tp.integration.sell.SellIntegrationManager;
 import gg.steve.mc.tp.message.GeneralMessage;
 import gg.steve.mc.tp.mode.ModeType;
@@ -7,8 +8,6 @@ import gg.steve.mc.tp.modules.harvester.utils.CollectionUtil;
 import gg.steve.mc.tp.modules.harvester.utils.HarvestableBlockType;
 import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.tool.ToolData;
-import gg.steve.mc.tp.utils.LogUtil;
-import org.bukkit.CropState;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
@@ -17,8 +16,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.material.CocoaPlant;
-import org.bukkit.material.Crops;
 
 import java.util.HashMap;
 import java.util.List;
@@ -56,11 +53,13 @@ public class HarvesterHoeData implements ToolData {
         if (full) {
             GeneralMessage.INVENTORY_FULL.message(event.getPlayer());
         }
+        if (autoSell) SellIntegrationManager.doBlockSale(event.getPlayer(), blocks, tool, silk, false);
         for (Block block : blocks) {
             // clear drops and remove the block
             BlockState crop = block.getState();
             HarvestableBlockType cropType = HarvestableBlockType.getTypeFromBlock(block);
-            if (cropType.getAttributes().isAutoReplant()) {
+            if (cropType.getAttributes().isAutoReplant()
+                    && tool.getAbstractTool().getAttributeManager().isAttributeEnabled(ToolAttributeType.AUTO_REPLANT)) {
                 switch (cropType) {
                     case CROPS:
                     case POTATO:
@@ -81,9 +80,7 @@ public class HarvesterHoeData implements ToolData {
                 block.getDrops().clear();
                 block.setType(Material.AIR);
             }
-            if (autoSell) {
-
-            } else if (playersGetDrops) {
+            if (playersGetDrops && !autoSell) {
                 if (silk && cropType == HarvestableBlockType.MELON) {
                     event.getPlayer().getInventory().addItem(new ItemStack(Material.valueOf("MELON_BLOCK")));
                 } else {
@@ -91,6 +88,8 @@ public class HarvesterHoeData implements ToolData {
                 }
             }
         }
+        if (!tool.incrementCaneMined(event.getPlayer(), getCollectionUtil(event.getPlayer(), tool).getCaneMined()))
+            return;
         if (!tool.incrementBlocksMined(event.getPlayer(), blocks.size() - 1)) return;
     }
 

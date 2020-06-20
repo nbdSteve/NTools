@@ -17,7 +17,7 @@ upgrades:
     gui: ''
     track:
       # syntax: <modifier>:<upgrade price>:<downgrade price>:<string for lore>
-      - '0.0:0.0:0.0:0.0'
+      - '1.0:0.0:0.0:1.0'
     lore-update-string: ''
 #
 modes:
@@ -39,7 +39,7 @@ modes:
       # syntax: <mode type>:<price>:<string for lore>
       - 'mine:0.0:HARVEST'
       - 'sell:0.0:AUTO SELL'
-    lore-update-string: ''
+    lore-update-string: '&7Mode: &e&n{sell-mode}'
 #
 uses:
   enabled: true
@@ -51,8 +51,15 @@ blocks-mined:
   enabled: false
   lore-update-string: ''
 #
+cane-mined:
+  enabled: true
+  lore-update-string: '&7Cane Mined: &e&n{cane-mined}'
+#
 omni:
   enabled: false
+#
+auto-replant:
+  enabled: true
 #
 cooldown:
   enabled: false
@@ -68,6 +75,10 @@ item:
     - '&7Uses: &e&n{uses}'
     - ''
     - '&7Radius: &e&n{radius-upgrade}'
+    - ''
+    - '&7Cane Mined: &e&n{cane-mined}'
+    - ''
+    - '&7Mode: &e&n{sell-mode}'
     - ''
   enchantments:
     - dig_speed:10
