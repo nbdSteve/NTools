@@ -101,10 +101,6 @@
             <url>https://maven.enginehub.org/repo/</url>
         </repository>
         <repository>
-            <id>factions-uuid</id>
-            <url>https://ci.ender.zone/plugin/repository/everything/</url>
-        </repository>
-        <repository>
             <id>glares-repo</id>
             <url>https://repo.glaremasters.me/repository/public/</url>
         </repository>
@@ -176,12 +172,6 @@
             <version>16.7.1</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.massivecraft</groupId>
-            <artifactId>Factions</artifactId>
-            <version>1.6.9.5-U0.5.13</version>
-            <scope>provided</scope>
-        </dependency>
 <!--        <dependency>-->
 <!--            <groupId>me.glaremasters</groupId>-->
 <!--            <artifactId>guilds</artifactId>-->
@@ -204,20 +194,6 @@
         <!--WorldGuard region support is now handled with the libs folder-->
 
         <!--local repositories because people don't like maven-->
-        <dependency>
-            <groupId>com.massivecraft</groupId>
-            <artifactId>MassiveCore</artifactId>
-            <version>2.14.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/lib/MassiveCore.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.massivecraft</groupId>
-            <artifactId>MassiveFactions</artifactId>
-            <version>2.14.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/lib/MassiveFactions.jar</systemPath>
-        </dependency>
     </dependencies>
 
     <!--used for deploying packages to the GitHub repository-->
