@@ -1,9 +1,7 @@
 
+E
+java:S1148?"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8š¥È¦­.
 Y
-java:S2629&"7Use the built-in formatting to construct this argument.(éş»ƒùÿÿÿÿ8ÕÓ¹„¥.
->
-java:S1148B"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+java:S2629#"7Use the built-in formatting to construct this argument.(éş»ƒùÿÿÿÿ8ÕÓ¹„¥.
 n
-java:S1192,"SDefine a constant instead of duplicating this literal "The supplied file " 6 times.(öµŞüÿÿÿÿ
-^
-java:S1128"BRemove this unused import 'gg.steve.mc.tp.module.ToolsPlusModule'.(ùÕ˜S8ÚêçÔ¥.
+java:S1192)"SDefine a constant instead of duplicating this literal "The supplied file " 6 times.(öµŞüÿÿÿÿ

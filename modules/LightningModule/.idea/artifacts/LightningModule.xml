@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="LightningModule">
+    <output-path>$PROJECT_DIR$/../../../../../test-server/spigot-server/plugins/ToolsPlus/modules</output-path>
+    <root id="archive" name="LightningModule.jar">
+      <element id="module-output" name="LightningModule" />
+    </root>
+  </artifact>
+</component>

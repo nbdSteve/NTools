@@ -1,8 +1,13 @@
 package gg.steve.mc.tp.integration.libs;
 
 public enum ToolsPlusLibType {
-    WORLDGUARD_v7("WorldGuard-7"),
-    WORLDGUARD_LEGACY("WorldGuard-Legacy");
+    WORLDGUARD_v7("WorldGuard-v7-Lib"),
+    WORLDGUARD_LEGACY("WorldGuard-Legacy-Lib"),
+    MASSIVE_FACTIONS("MassiveFactions-Lib"),
+    FACTIONS_UUID("FactionsUUID-Lib"),
+//    FACTIONS_X("FactionsX-Lib"),
+    SABER_FACTIONS("SaberFactions-Lib"),
+    SAVAGE_FACTIONS("SavageFactions-Lib");
 
     private String libName;
 

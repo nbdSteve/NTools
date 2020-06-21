@@ -1,0 +1,14 @@
+
+o
+java:S3776 "RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(úà’ˆ8Î†Ùæ¬.
+B
+java:S1659"%Declare "maxDrop" on a separate line.(“ã¬8Î†Ùæ¬.
+K
+java:S1659")Declare "autoReplant" on a separate line.(Àÿğóúÿÿÿÿ8Î†Ùæ¬.
+I
+java:S1659"'Declare "multiDrop" on a separate line.(Àÿğóúÿÿÿÿ8Î†Ùæ¬.
+S
+java:S18746"1Remove this use of "ItemStack"; it is deprecated.(—ÙÑÈıÿÿÿÿ8Î†Ùæ¬.
+S
+java:S18744"1Remove this use of "ItemStack"; it is deprecated.(™ıÉŒúÿÿÿÿ8Î†Ùæ¬.
+u	java:S135!"YReduce the total number of break and continue statements in this loop to use at most one.(ôôñ8Î†Ùæ¬.

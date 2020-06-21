@@ -1,4 +1,3 @@
-D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\integration\region\FactionsUuidRegionProvider.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\gui\utils\GuiItemUtil.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\integration\region\AbstractRegionProvider.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\tool\PlayerTool.java
@@ -18,6 +17,7 @@ D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\nbt\NBTReflectionUtil.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\attribute\types\AutoReplantToolAttribute.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\utils\SoundUtil.java
+D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\integration\region\FactionsRegionProvider.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\utils\InventoryUtil.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\module\ModuleManager.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\cmd\ToolsPlusCmd.java
@@ -72,6 +72,7 @@ D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\utils\actionbarapi\ActionBarMessageEvent.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\gui\GuiClickListener.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\nbt\utils\nmsmappings\ClassWrapper.java
+D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\integration\providers\FactionsProvider.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\cmd\SubCommandType.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\attribute\types\CooldownToolAttribute.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\currency\types\DefaultCurrencyType.java
@@ -89,7 +90,6 @@ D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\nbt\utils\annotations\CheckUtil.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\utils\FileClassUtil.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\integration\region\GuildsRegionProvider.java
-D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\integration\region\MassiveFactionsRegionProvider.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\integration\region\FactionsXRegionProvider.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\utils\XpUtil.java
 D:\Java\minecraft\premium\ToolsPlus-v2-Recode\ToolsPlus-v2-Recode\src\main\java\gg\steve\mc\tp\permission\PermissionNode.java

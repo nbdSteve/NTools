@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="FactionsUUID-Lib" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="58076674-dcba-4e68-a341-41ea464bf57d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/FactionsUUID_Lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/5/95a709b0ff73d6d78943e30259aa50b13109c469" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FactionsUUIDLib.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gg/steve/mc/tp/libs/factionsuuid/FactionsUUIDLib.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/gg/steve/mc/tp/libs/factionsuuid/FactionsUUIDLib.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SavageFactionsLib/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SavageFactionsLib/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SavageFactionsLib/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SavageFactionsLib/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SavageFactionsLib/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SavageFactionsLib/SavageFactions-Lib.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SavageFactionsLib/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SavageFactionsLib/src/lib/SavageFactions-2.5-RC-9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SavageFactionsLib/src/main/java/gg/steve/mc/tp/libs/savagefactions/SavageFactionsLib.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/HarvesterModule/.idea/sonarlint/issuestore/0/b/0b077208a50746a3b0beb7d84d825420ae2e2382" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/HarvesterModule/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/HarvesterModule/.idea/sonarlint/issuestore/6/f/6fc4fff443713641c87d25c3d6720c82666b3e73" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/HarvesterModule/.idea/sonarlint/issuestore/7/5/754ab6d3c71c57d5634d0552c0e6c061662e5203" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/HarvesterModule/.idea/sonarlint/issuestore/9/f/9fbfb63f7798ea1facaa8630cb0279cf3993ebda" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/HarvesterModule/.idea/sonarlint/issuestore/a/e/aea2591af1e635d8368344dee53aa9afea14f955" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/HarvesterModule/.idea/sonarlint/issuestore/f/8/f8a49052fe5e36461c69cd447f1609f437197368" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/HarvesterModule/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/HarvesterModule/target/classes/test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/.idea/artifacts/LightningModule.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/.idea/sonarlint/issuestore/0/1/01c93296e8963402871f9ba589d8105fe380b766" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/.idea/sonarlint/issuestore/1/f/1fe3d5e67c4d16e09ff72e286677df7f05a0a4c9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/.idea/sonarlint/issuestore/3/e/3e112b3945dd707c872746ea2942a97c568af459" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/.idea/sonarlint/issuestore/a/b/abd20aee70a85ec9434d339bbd4c56410bebea17" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/src/main/java/gg/steve/mc/tp/modules/lightning/LightningModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/src/main/java/gg/steve/mc/tp/modules/lightning/tool/LightningWand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/src/main/java/gg/steve/mc/tp/modules/lightning/tool/LightningWandData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/src/main/java/gg/steve/mc/tp/modules/lightning/utils/StrikeUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/target/LightningModule-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/target/classes/gg/steve/mc/tp/modules/lightning/LightningModule.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/target/classes/gg/steve/mc/tp/modules/lightning/tool/LightningWand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/target/classes/gg/steve/mc/tp/modules/lightning/tool/LightningWandData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/target/classes/gg/steve/mc/tp/modules/lightning/utils/StrikeUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/LightningModule/target/original-LightningModule-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/TntModule/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/TntModule/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/TntModule/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/TntModule/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/TntModule/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/TntModule/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/TntModule/TntModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/TntModule/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/TntModule/src/main/java/gg/steve/mc/tp/modules/tnt/TntModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/TntModule/src/main/java/gg/steve/mc/tp/modules/tnt/tool/TntWand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/TntModule/src/main/java/gg/steve/mc/tp/modules/tnt/tool/TntWandData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/TntModule/src/main/java/gg/steve/mc/tp/modules/tnt/utils/TntBankUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/TntModule/src/main/java/gg/steve/mc/tp/modules/tnt/utils/TntMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/providers/FactionsProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/region/FactionsRegionProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/configs/lightning.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/configs/tnt.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/ex-lightning.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/artifacts/Tools___v_2_0_0_PR1_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/artifacts/Tools___v_2_0_0_PR1_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/libraries/Maven__org_spigotmc_spigot_api_1_15_2_R0_1_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/libraries/Maven__org_spigotmc_spigot_api_1_15_2_R0_1_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/3/b/3b49951ff41f6936a33e52bcc6f7ab6ca0781dbf" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/3/b/3b49951ff41f6936a33e52bcc6f7ab6ca0781dbf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/5/4/54c2c3ba0a1709ecbc0cef4d207994b37479a452" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/5/4/54c2c3ba0a1709ecbc0cef4d207994b37479a452" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/9/7/97b36aa7274347d92b9527b795f05a89fe0b044d" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/9/7/97b36aa7274347d92b9527b795f05a89fe0b044d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/a/4/a4868a2d01070b6b046a4149dd73c3cdc00bad7c" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/a/4/a4868a2d01070b6b046a4149dd73c3cdc00bad7c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/b/d/bdac2d436389f5b0c92e6c123f5ac207e30c3952" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/b/d/bdac2d436389f5b0c92e6c123f5ac207e30c3952" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/e/6/e6132f488d9d704c0d5cc8f4c44a793a6f94f8df" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/e/6/e6132f488d9d704c0d5cc8f4c44a793a6f94f8df" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/e/7/e74251b0fb65e9e0131d857ae341b8af095087fd" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/e/7/e74251b0fb65e9e0131d857ae341b8af095087fd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/f/9/f997ae9360cd422ec529b2e890015a479c3884ec" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/f/9/f997ae9360cd422ec529b2e890015a479c3884ec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorldGuard-Legacy/.idea/artifacts/WorldGuard_Legacy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WorldGuard-Legacy/.idea/artifacts/WorldGuard_Legacy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorldGuard-Legacy/.idea/sonarlint/issuestore/f/1/f1002ebd47cbd3a859db8df0d7c36e0328c094c6" beforeDir="false" afterPath="$PROJECT_DIR$/../WorldGuard-Legacy/.idea/sonarlint/issuestore/f/1/f1002ebd47cbd3a859db8df0d7c36e0328c094c6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorldGuard-Legacy/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WorldGuard-Legacy/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorldGuard-Legacy/src/main/java/gg/steve/mc/tp/libs/wgl/WorldGuardLegacyLib.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WorldGuard-Legacy/src/main/java/gg/steve/mc/tp/libs/wgl/WorldGuardLegacyLib.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorldGuard-Legacy/target/classes/gg/steve/mc/tp/libs/wgl/WorldGuardLegacyLib.class" beforeDir="false" afterPath="$PROJECT_DIR$/../WorldGuard-Legacy/target/classes/gg/steve/mc/tp/libs/wgl/WorldGuardLegacyLib.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorldGuard-v7/.idea/artifacts/WorldGuard_v7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WorldGuard-v7/.idea/artifacts/WorldGuard_v7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorldGuard-v7/.idea/sonarlint/issuestore/d/0/d08760fc6765382c5372abfa81c69b428798d2ff" beforeDir="false" afterPath="$PROJECT_DIR$/../WorldGuard-v7/.idea/sonarlint/issuestore/d/0/d08760fc6765382c5372abfa81c69b428798d2ff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorldGuard-v7/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WorldGuard-v7/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorldGuard-v7/src/main/java/gg/steve/mc/tp/libs/wg7/WorldGuard_v7.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WorldGuard-v7/src/main/java/gg/steve/mc/tp/libs/wg7/WorldGuard_v7.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorldGuard-v7/target/classes/gg/steve/mc/tp/libs/wg7/WorldGuard_v7.class" beforeDir="false" afterPath="$PROJECT_DIR$/../WorldGuard-v7/target/classes/gg/steve/mc/tp/libs/wg7/WorldGuard_v7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SavageFactionsLib/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled/untitled.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/LightningModule/LightningModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/HarvesterModule/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/HarvesterModule/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/HarvesterModule/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/HarvesterModule/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/libs/ToolsPlusLib.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/libs/ToolsPlusLib.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/libs/ToolsPlusLibManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/libs/ToolsPlusLibManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/libs/ToolsPlusLibType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/libs/ToolsPlusLibType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/region/FactionsUuidRegionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/region/FactionsUuidRegionProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/region/MassiveFactionsRegionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/region/MassiveFactionsRegionProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/region/RegionProviderType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/region/RegionProviderType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/region/WorldGuardRegionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/region/WorldGuardRegionProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/managers/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/managers/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/managers/PluginFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/managers/PluginFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/managers/SetupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/managers/SetupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/player/listener/PlayerToolListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/player/listener/PlayerToolListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/FileClassUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/FileClassUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/YamlFileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/utils/YamlFileUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/lang/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/lang/messages.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools+.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools+.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/integration/region/FactionsUuidRegionProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/integration/region/FactionsUuidRegionProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/integration/region/RegionProviderType.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/integration/region/RegionProviderType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/integration/region/WorldGuardRegionProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/integration/region/WorldGuardRegionProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/managers/FileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/managers/FileManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/managers/PluginFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/managers/PluginFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/managers/SetupManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/managers/SetupManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/player/listener/PlayerToolListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/player/listener/PlayerToolListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/YamlFileUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/gg/steve/mc/tp/utils/YamlFileUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/lang/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/lang/messages.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/tools+.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/tools+.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1dcrS3WqNO0mW721ZeQct6QhmC5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="58076674-dcba-4e68-a341-41ea464bf57d" name="Default Changelist" comment="" />
+      <created>1592735218258</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592735218258</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2685" y="243" key="#com.intellij.ide.util.MemberChooser" timestamp="1592735346044">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2685" y="243" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592735346044" />
+    <state x="2659" y="295" key="FileChooserDialogImpl" timestamp="1592735576674">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2659" y="295" key="FileChooserDialogImpl/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592735576674" />
+    <state x="2097" y="139" key="SettingsEditor" timestamp="1592735512314">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2097" y="139" key="SettingsEditor/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592735512314" />
+    <state x="2315" y="115" key="new project wizard" timestamp="1592735589591">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2315" y="115" key="new project wizard/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592735589591" />
+  </component>
+</project>

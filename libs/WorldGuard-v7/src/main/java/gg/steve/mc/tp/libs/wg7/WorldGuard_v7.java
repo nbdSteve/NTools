@@ -9,6 +9,7 @@ import com.sk89q.worldguard.protection.flags.StateFlag;
 import gg.steve.mc.tp.integration.libs.ToolsPlusLib;
 import gg.steve.mc.tp.integration.libs.ToolsPlusLibType;
 import org.bukkit.Location;
+import org.bukkit.entity.Player;
 
 public class WorldGuard_v7 extends ToolsPlusLib {
 
@@ -17,7 +18,7 @@ public class WorldGuard_v7 extends ToolsPlusLib {
     }
 
     @Override
-    public boolean isBreakAllowed(Location location) {
+    public boolean isBreakAllowed(Player player, Location location) {
         BukkitWorld world = new BukkitWorld(location.getWorld());
         BlockVector3 v = BlockVector3.at(location.getX(), location.getY(), location.getZ());
         try {
@@ -26,5 +27,10 @@ public class WorldGuard_v7 extends ToolsPlusLib {
         } catch (NullPointerException e) {
             return true;
         }
+    }
+
+    @Override
+    public boolean doTntDeposit(Player player, int i) {
+        return false;
     }
 }

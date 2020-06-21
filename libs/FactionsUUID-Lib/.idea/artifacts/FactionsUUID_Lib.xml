@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="FactionsUUID-Lib">
+    <output-path>$PROJECT_DIR$/../../../../../test-server/spigot-server/plugins/ToolsPlus/libs</output-path>
+    <root id="archive" name="FactionsUUID-Lib.jar">
+      <element id="module-output" name="FactionsUUIDLib" />
+    </root>
+  </artifact>
+</component>

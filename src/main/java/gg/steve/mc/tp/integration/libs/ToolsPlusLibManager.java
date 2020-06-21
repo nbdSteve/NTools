@@ -25,13 +25,6 @@ public class ToolsPlusLibManager {
         libs.clear();
     }
 
-    public static boolean installLib(ToolsPlusLibType libType) {
-        if (libs.containsKey(libType)) {
-            return false;
-        }
-        return loader.registerLib(libType);
-    }
-
     public static boolean installLib(ToolsPlusLib lib) {
         Validate.notNull(lib, "ToolsPlusLib can not be null");
         if (libs.containsKey(lib.getLibType())) {

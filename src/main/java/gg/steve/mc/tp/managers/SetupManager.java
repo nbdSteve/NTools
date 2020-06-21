@@ -6,6 +6,7 @@ import gg.steve.mc.tp.cmd.ToolsPlusCmd;
 import gg.steve.mc.tp.gui.GuiClickListener;
 import gg.steve.mc.tp.gui.GuiManager;
 import gg.steve.mc.tp.integration.libs.ToolsPlusLibManager;
+import gg.steve.mc.tp.integration.providers.FactionsProvider;
 import gg.steve.mc.tp.integration.sell.SellIntegrationManager;
 import gg.steve.mc.tp.integration.sell.InternalPriceProvider;
 import gg.steve.mc.tp.module.ModuleManager;
@@ -91,6 +92,7 @@ public class SetupManager {
         ModuleManager.loadInstalledModules();
         // libs
         ToolsPlusLibManager.loadInstalledLibs();
+        FactionsProvider.loadProvider();
         // gui
         GuiManager.initialise();
         // tools

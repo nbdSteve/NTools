@@ -43,7 +43,6 @@ gg\steve\mc\tp\upgrade\utils\UpgradeHelper.class
 gg\steve\mc\tp\upgrade\types\ModifierUpgrade.class
 gg\steve\mc\tp\ToolsPlus.class
 gg\steve\mc\tp\cmd\give\GiveSubCmd.class
-gg\steve\mc\tp\integration\region\MassiveFactionsRegionProvider.class
 gg\steve\mc\tp\nbt\utils\ReflectionUtil.class
 gg\steve\mc\tp\attribute\types\BlocksMinedToolAttribute.class
 gg\steve\mc\tp\module\ToolsPlusModule.class
@@ -89,7 +88,6 @@ gg\steve\mc\tp\cmd\module\ModuleListSubCmd.class
 gg\steve\mc\tp\message\GeneralMessage.class
 gg\steve\mc\tp\nbt\NBTType.class
 gg\steve\mc\tp\nbt\NBTCompound.class
-gg\steve\mc\tp\integration\region\FactionsUuidRegionProvider.class
 gg\steve\mc\tp\upgrade\utils\DowngradeHelper.class
 gg\steve\mc\tp\utils\ColorUtil.class
 gg\steve\mc\tp\cmd\misc\HelpSubCmd.class

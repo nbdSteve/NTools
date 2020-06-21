@@ -1,6 +1,8 @@
 package gg.steve.mc.tp.utils;
 
 import gg.steve.mc.tp.ToolsPlus;
+import gg.steve.mc.tp.managers.FileManager;
+import gg.steve.mc.tp.managers.SetupManager;
 
 import java.io.File;
 import java.io.FilenameFilter;

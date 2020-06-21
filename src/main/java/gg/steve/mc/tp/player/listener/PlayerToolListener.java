@@ -7,7 +7,6 @@ import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.player.PlayerToolManager;
 import gg.steve.mc.tp.player.ToolPlayer;
 import gg.steve.mc.tp.tool.PlayerTool;
-import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -29,7 +28,7 @@ public class PlayerToolListener implements Listener {
         player.getPlayerTool().getCurrentModeData().onBlockBreak(event, player.getPlayerTool());
     }
 
-    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void omniProc(BlockDamageEvent event) {
         if (!PlayerToolManager.isHoldingTool(event.getPlayer().getUniqueId())) return;
         ToolPlayer player = PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId());
@@ -42,7 +41,6 @@ public class PlayerToolListener implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void interact(PlayerInteractEvent event) {
-        if (event.isCancelled()) return;
         if (!PlayerToolManager.isHoldingTool(event.getPlayer().getUniqueId())) return;
         ToolPlayer player = PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId());
         if (player == null) return;
@@ -50,21 +48,22 @@ public class PlayerToolListener implements Listener {
         player.getPlayerTool().getCurrentModeData().onInteract(event, player.getPlayerTool());
     }
 
-    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void sneakSwitch(PlayerInteractEvent event) {
-        if (!(event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)) return;
+        if (!(event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK))
+            return;
         Player player = event.getPlayer();
         if (!PlayerToolManager.isHoldingTool(player.getUniqueId())) return;
         PlayerTool tool = PlayerToolManager.getToolPlayer(player.getUniqueId()).getPlayerTool();
         if (player.isSneaking()) {
             if (tool.getModeChange(ModeType.TOOL).isSneakSwitch()) {
                 event.setCancelled(true);
-                tool.openModeGui(event.getPlayer(), ModeType.TOOL);
+                tool.getModeChange(ModeType.TOOL).changeMode(player, tool);
                 return;
             }
             if (tool.getModeChange(ModeType.SELL).isSneakSwitch()) {
                 event.setCancelled(true);
-                tool.openModeGui(event.getPlayer(), ModeType.SELL);
+                tool.getModeChange(ModeType.SELL).changeMode(player, tool);
             }
         } else {
             if (tool.getModeChange(ModeType.TOOL).isRightClickSwitch()) {

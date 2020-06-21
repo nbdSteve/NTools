@@ -9,6 +9,8 @@ loaded-tools:
   - ex-sell
   - ex-sand
   - ex-harvester
+  - ex-lightning
+  - ex-tnt
 #
 loaded-guis:
   - basic-gui

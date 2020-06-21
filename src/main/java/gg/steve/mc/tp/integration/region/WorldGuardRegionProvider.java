@@ -21,9 +21,9 @@ public class WorldGuardRegionProvider extends AbstractRegionProvider {
     public boolean isBreakAllowed(Player player, Block block) {
         if (!isEnabled()) return true;
         if (version.contains("7.")) {
-            return ToolsPlusLibManager.getLibByType(ToolsPlusLibType.WORLDGUARD_v7).isBreakAllowed(block.getLocation());
+            return ToolsPlusLibManager.getLibByType(ToolsPlusLibType.WORLDGUARD_v7).isBreakAllowed(player, block.getLocation());
         } else {
-            return ToolsPlusLibManager.getLibByType(ToolsPlusLibType.WORLDGUARD_LEGACY).isBreakAllowed(block.getLocation());
+            return ToolsPlusLibManager.getLibByType(ToolsPlusLibType.WORLDGUARD_LEGACY).isBreakAllowed(player, block.getLocation());
         }
     }
 
@@ -31,9 +31,9 @@ public class WorldGuardRegionProvider extends AbstractRegionProvider {
     public boolean isBreakAllowed(Player player, Location location) {
         if (!isEnabled()) return true;
         if (version.contains("7.")) {
-            return ToolsPlusLibManager.getLibByType(ToolsPlusLibType.WORLDGUARD_v7).isBreakAllowed(location);
+            return ToolsPlusLibManager.getLibByType(ToolsPlusLibType.WORLDGUARD_v7).isBreakAllowed(player, location);
         } else {
-            return ToolsPlusLibManager.getLibByType(ToolsPlusLibType.WORLDGUARD_LEGACY).isBreakAllowed(location);
+            return ToolsPlusLibManager.getLibByType(ToolsPlusLibType.WORLDGUARD_LEGACY).isBreakAllowed(player, location);
         }
     }
 }

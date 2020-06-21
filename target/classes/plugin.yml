@@ -1,10 +1,10 @@
 name: ToolsPlus
-version: 2.0.0-PR1-DV11
+version: 2.0.0-PR1-DV12
 main: gg.steve.mc.tp.ToolsPlus
 api-version: 1.13
 prefix: Tools+ v2
 depend: [Vault]
-softdepend: [PlaceholderAPI, HeadDatabase, Factions, ShopGUIPlus, Essentials, Guilds, Lands, WorldEdit, WorldGuard, GriefPrevention,]
+softdepend: [PlaceholderAPI, HeadDatabase, Factions, ShopGUIPlus, Essentials, Guilds, Lands, WorldEdit, WorldGuard, GriefPrevention, FactionsX]
 authors: [stevegoodhill]
 description: A comprehensive and expandable custom tools plugin developed for Minecraft using the Spigot API. Developed by Steve.
 website: http://steve.gg

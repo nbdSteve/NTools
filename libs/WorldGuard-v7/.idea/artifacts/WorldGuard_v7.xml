@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="WorldGuard-v7">
-    <output-path>$PROJECT_DIR$/../../../../../test-server/stellar - Copy/plugins/ToolsPlus/libs</output-path>
+    <output-path>$PROJECT_DIR$/../../../../../test-server/spigot-server/plugins/ToolsPlus/libs</output-path>
     <root id="archive" name="WorldGuard-v7.jar">
       <element id="module-output" name="WorldGuard-v7" />
     </root>

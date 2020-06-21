@@ -1,6 +1,7 @@
 package gg.steve.mc.tp.integration.libs;
 
 import org.bukkit.Location;
+import org.bukkit.entity.Player;
 
 public abstract class ToolsPlusLib {
     private ToolsPlusLibType libType;
@@ -13,5 +14,7 @@ public abstract class ToolsPlusLib {
         return libType;
     }
 
-    public abstract boolean isBreakAllowed(Location location);
+    public abstract boolean isBreakAllowed(Player player, Location location);
+
+    public abstract boolean doTntDeposit(Player player, int amount);
 }

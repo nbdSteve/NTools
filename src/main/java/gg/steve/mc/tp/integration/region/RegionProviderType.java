@@ -6,11 +6,10 @@ import org.bukkit.entity.Player;
 
 public enum RegionProviderType {
     WORLDGUARD(new WorldGuardRegionProvider()),
-    FACTIONS_UUID(new FactionsUuidRegionProvider()),
+    FACTIONS(new FactionsRegionProvider()),
 //    GUILDS,
     FACTIONS_X(new FactionsXRegionProvider()),
     LANDS(new LandsRegionProvider()),
-    MASSIVE_FACTIONS(new MassiveFactionsRegionProvider()),
     GRIEF_PREVENTION(new GriefPreventionRegionProvider());
 
     private AbstractRegionProvider regionProvider;
