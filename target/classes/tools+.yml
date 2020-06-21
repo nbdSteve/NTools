@@ -11,6 +11,7 @@ loaded-tools:
   - ex-harvester
   - ex-lightning
   - ex-tnt
+  - ex-craft
 #
 loaded-guis:
   - basic-gui

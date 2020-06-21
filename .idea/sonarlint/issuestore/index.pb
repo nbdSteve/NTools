@@ -149,8 +149,6 @@ s
 Csrc/main/java/gg/steve/mc/tp/attribute/types/OmniToolAttribute.java,5\0\50ffca4b215ea4c6013cd2f780014afe524eada2
 }
 Msrc/main/java/gg/steve/mc/tp/integration/region/WorldGuardRegionProvider.java,e\5\e5268cfcba84defe89ed68f59543dcb215027c09
-
-Osrc/main/java/gg/steve/mc/tp/integration/region/FactionsUuidRegionProvider.java,c\a\cac9ed74013f8c1bd7a6e4ba7393fd0ea8a0d25d
 ‚
 Rsrc/main/java/gg/steve/mc/tp/integration/region/GriefPreventionRegionProvider.java,8\7\87f9771e7c12a1834009193c59cbca6d5287f01f
 t
@@ -195,8 +193,6 @@ Bsrc/main/java/gg/steve/mc/tp/upgrade/types/DefaultUpgradeType.java,b\4\b40122c
 .src/main/java/gg/steve/mc/tp/ToolsPlusApi.java,c\5\c55ee06f15ba7c67da465c4da476a869d4beb7db
 e
 5src/main/java/gg/steve/mc/tp/utils/InventoryUtil.java,6\9\693db32463bf74da215d09d789ee0fa87f2ca091
-‚
-Rsrc/main/java/gg/steve/mc/tp/integration/region/MassiveFactionsRegionProvider.java,2\f\2fbce00ad5bb6e4166f2435d6e5aa2ec2686890d
 y
 Isrc/main/java/gg/steve/mc/tp/integration/sell/SellIntegrationManager.java,e\6\e6132f488d9d704c0d5cc8f4c44a793a6f94f8df
 {
@@ -213,3 +209,7 @@ e
 Osrc/main/java/gg/steve/mc/tp/integration/libs/utils/ToolsPlusLibLoaderUtil.java,7\1\71538ac44796274636d533fb802fa9fde12d9ebb
 v
 Fsrc/main/java/gg/steve/mc/tp/integration/libs/ToolsPlusLibManager.java,7\8\7817875c80b3614cf823c21c18ac92dd60acfe92
+{
+Ksrc/main/java/gg/steve/mc/tp/integration/region/FactionsRegionProvider.java,4\9\496a78cc3edf79c059c1c32ff70988783d5b0715
+x
+Hsrc/main/java/gg/steve/mc/tp/integration/providers/FactionsProvider.java,8\5\85e978f08f07947879dbae1b3981c76b12cb5a16
