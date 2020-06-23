@@ -7,6 +7,7 @@ import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.player.PlayerToolManager;
 import gg.steve.mc.tp.player.ToolPlayer;
 import gg.steve.mc.tp.tool.PlayerTool;
+import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -25,7 +26,11 @@ public class PlayerToolListener implements Listener {
         ToolPlayer player = PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId());
         if (player == null) return;
         if (!ModuleManager.isInstalled(player.getToolType())) return;
-        player.getPlayerTool().getCurrentModeData().onBlockBreak(event, player.getPlayerTool());
+        try {
+            player.getPlayerTool().getCurrentModeData().onBlockBreak(event, player.getPlayerTool());
+        } catch (Exception e) {
+            player.getPlayerTool().getAbstractTool().getData().onBlockBreak(event, player.getPlayerTool());
+        }
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -45,7 +50,11 @@ public class PlayerToolListener implements Listener {
         ToolPlayer player = PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId());
         if (player == null) return;
         if (!ModuleManager.isInstalled(player.getToolType())) return;
-        player.getPlayerTool().getCurrentModeData().onInteract(event, player.getPlayerTool());
+        try {
+            player.getPlayerTool().getCurrentModeData().onInteract(event, player.getPlayerTool());
+        } catch (Exception e) {
+            player.getPlayerTool().getAbstractTool().getData().onInteract(event, player.getPlayerTool());
+        }
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)

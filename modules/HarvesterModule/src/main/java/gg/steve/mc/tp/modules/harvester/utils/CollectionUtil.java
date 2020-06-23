@@ -2,6 +2,7 @@ package gg.steve.mc.tp.modules.harvester.utils;
 
 import gg.steve.mc.tp.integration.region.RegionProviderType;
 import gg.steve.mc.tp.tool.PlayerTool;
+import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
@@ -36,6 +37,7 @@ public class CollectionUtil {
                     // check if the player can break this specific block
                     for (RegionProviderType regionProvider : RegionProviderType.values()) {
                         try {
+                            LogUtil.info(regionProvider.name());
                             if (!regionProvider.isBreakAllowed(player, block)) breakAllowed = false;
                         } catch (NoClassDefFoundError e) {
                             continue;

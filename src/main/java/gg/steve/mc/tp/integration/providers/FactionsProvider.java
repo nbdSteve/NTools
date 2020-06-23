@@ -3,6 +3,7 @@ package gg.steve.mc.tp.integration.providers;
 import gg.steve.mc.tp.integration.libs.ToolsPlusLib;
 import gg.steve.mc.tp.integration.libs.ToolsPlusLibManager;
 import gg.steve.mc.tp.integration.libs.ToolsPlusLibType;
+import gg.steve.mc.tp.utils.LogUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -18,6 +19,7 @@ public class FactionsProvider {
         if (factions.getDescription().getMain().contains("FactionsPlugin")) {
             factionsPlugin = ToolsPlusLibType.SABER_FACTIONS;
         } else if (factions.getDescription().getWebsite().contains("prosavage.net")) {
+            LogUtil.info("SavageFactions found");
             factionsPlugin = ToolsPlusLibType.SAVAGE_FACTIONS;
         } else if (factions.getDescription().getWebsite().contains("massivecraft.com")) {
             factionsPlugin = ToolsPlusLibType.MASSIVE_FACTIONS;

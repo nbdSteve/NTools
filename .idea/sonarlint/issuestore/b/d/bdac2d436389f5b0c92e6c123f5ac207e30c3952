@@ -1,35 +1,35 @@
 
-m
-java:S1301e"KReplace this "switch" statement by "if" statements to increase readability.(°Âë¶úÿÿÿÿ8›­¦¦.
-W
-java:S1874("5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8® ş·¥.
+D
+java:S1659"'Declare "caneMined" on a separate line.(äÁ×È8Íâ¥­.
+H
+java:S1659"+Declare "sellModeLevel" on a separate line.(äÁ×È8Íâ¥­.
+S
+java:S1659"6Declare "peakModifierUpgradeLevel" on a separate line.(äÁ×È8Íâ¥­.
 n
 java:S1301†"KReplace this "switch" statement by "if" statements to increase readability.(°Âë¶úÿÿÿÿ8É­Å¦¦.
-W
-java:S18742"5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8ÊŒ³Æ¥.
-{	java:S131†"YComplete cases by adding the missing enum constants or add a default case to this switch.(°Âë¶úÿÿÿÿ8É­Å¦¦.
-z	java:S131e"YComplete cases by adding the missing enum constants or add a default case to this switch.(°Âë¶úÿÿÿÿ8›­¦¦.
-m
-java:S1301p"KReplace this "switch" statement by "if" statements to increase readability.(©Øûºûÿÿÿÿ8÷ç²¦.
-z	java:S131p"YComplete cases by adding the missing enum constants or add a default case to this switch.(©Øûºûÿÿÿÿ8÷ç²¦.
 R
 java:S1128
 "0Remove this unused import 'org.bukkit.Material'.(ÜÎ¬©ùÿÿÿÿ8Íâ¥­.
-F
-java:S1659")Declare "blocksMined" on a separate line.(äÁ×È8Íâ¥­.
-D
-java:S1659"'Declare "caneMined" on a separate line.(äÁ×È8Íâ¥­.
+W
+java:S18742"5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8ÊŒ³Æ¥.
 M
 java:S1659"0Declare "radiusUpgradeLevel" on a separate line.(äÁ×È8Íâ¥­.
-O
-java:S1659"2Declare "modifierUpgradeLevel" on a separate line.(äÁ×È8Íâ¥­.
-Q
-java:S1659"4Declare "peakRadiusUpgradeLevel" on a separate line.(äÁ×È8Íâ¥­.
-S
-java:S1659"6Declare "peakModifierUpgradeLevel" on a separate line.(äÁ×È8Íâ¥­.
-H
-java:S1659"+Declare "toolModeLevel" on a separate line.(äÁ×È8Íâ¥­.
-H
-java:S1659"+Declare "sellModeLevel" on a separate line.(äÁ×È8Íâ¥­.
+z	java:S131p"YComplete cases by adding the missing enum constants or add a default case to this switch.(©Øûºûÿÿÿÿ8÷ç²¦.
+{	java:S131†"YComplete cases by adding the missing enum constants or add a default case to this switch.(°Âë¶úÿÿÿÿ8É­Å¦¦.
 W
 java:S1874;"5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8Íâ¥­.
+O
+java:S1659"2Declare "modifierUpgradeLevel" on a separate line.(äÁ×È8Íâ¥­.
+m
+java:S1301p"KReplace this "switch" statement by "if" statements to increase readability.(©Øûºûÿÿÿÿ8÷ç²¦.
+F
+java:S1659")Declare "blocksMined" on a separate line.(äÁ×È8Íâ¥­.
+H
+java:S1659"+Declare "toolModeLevel" on a separate line.(äÁ×È8Íâ¥­.
+m
+java:S1301e"KReplace this "switch" statement by "if" statements to increase readability.(°Âë¶úÿÿÿÿ8›­¦¦.
+z	java:S131e"YComplete cases by adding the missing enum constants or add a default case to this switch.(°Âë¶úÿÿÿÿ8›­¦¦.
+Q
+java:S1659"4Declare "peakRadiusUpgradeLevel" on a separate line.(äÁ×È8Íâ¥­.
+W
+java:S1874("5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ8® ş·¥.

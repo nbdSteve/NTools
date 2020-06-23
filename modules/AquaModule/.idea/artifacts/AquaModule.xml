@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AquaModule">
+    <output-path>$PROJECT_DIR$/../../../../../test-server/spigot-server/plugins/ToolsPlus/modules</output-path>
+    <root id="archive" name="AquaModule.jar">
+      <element id="module-output" name="AquaModule" />
+    </root>
+  </artifact>
+</component>

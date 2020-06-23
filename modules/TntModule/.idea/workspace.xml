@@ -6,41 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d9c9dc7-cd59-4a92-ab89-4aa5ba0b56b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../CraftModule/.idea/artifacts/CraftModule.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CraftModule/CraftModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CraftModule/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CraftModule/src/main/java/gg/steve/mc/tp/modules/craft/CraftModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CraftModule/src/main/java/gg/steve/mc/tp/modules/craft/recipes/Recipe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CraftModule/src/main/java/gg/steve/mc/tp/modules/craft/recipes/RecipeManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CraftModule/src/main/java/gg/steve/mc/tp/modules/craft/tool/CraftWand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CraftModule/src/main/java/gg/steve/mc/tp/modules/craft/tool/CraftWandData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CraftModule/src/main/java/gg/steve/mc/tp/modules/craft/utils/CraftMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CraftModule/target/classes/gg/steve/mc/tp/modules/craft/CraftModule.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CraftModule/target/classes/gg/steve/mc/tp/modules/craft/recipes/Recipe.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CraftModule/target/classes/gg/steve/mc/tp/modules/craft/recipes/RecipeManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CraftModule/target/classes/gg/steve/mc/tp/modules/craft/tool/CraftWand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CraftModule/target/classes/gg/steve/mc/tp/modules/craft/tool/CraftWandData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CraftModule/target/classes/gg/steve/mc/tp/modules/craft/utils/CraftMessage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/resources/configs/craft.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/ex-craft.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/2/8/28e918510361fb006714d03f5622931027c2471c" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/2/8/28e918510361fb006714d03f5622931027c2471c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/2/f/2fbce00ad5bb6e4166f2435d6e5aa2ec2686890d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/5/4/54c2c3ba0a1709ecbc0cef4d207994b37479a452" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/5/4/54c2c3ba0a1709ecbc0cef4d207994b37479a452" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/a/4/a4868a2d01070b6b046a4149dd73c3cdc00bad7c" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/a/4/a4868a2d01070b6b046a4149dd73c3cdc00bad7c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/c/a/cac9ed74013f8c1bd7a6e4ba7393fd0ea8a0d25d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/d/0/d09a7668dc88bf78046494f0e784045ec4d9bc6a" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/d/0/d09a7668dc88bf78046494f0e784045ec4d9bc6a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/f/9/f997ae9360cd422ec529b2e890015a479c3884ec" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/f/9/f997ae9360cd422ec529b2e890015a479c3884ec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/d/2d98947bb78fa3fc77216436e297bb017528077d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/d/2d98947bb78fa3fc77216436e297bb017528077d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/c/6c07fecbf7e74f98eba3b98e24e016ac5e132f37" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/c/6c07fecbf7e74f98eba3b98e24e016ac5e132f37" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/9/7929ff106a07e40a5ae233275fefebcd8a2a70f9" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/9/7929ff106a07e40a5ae233275fefebcd8a2a70f9" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/d/cd869a275fffd71bbbfe41eef91fae876df1588d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/d/cd869a275fffd71bbbfe41eef91fae876df1588d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools+.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools+.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../target/classes/tools+.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/tools+.yml" afterDir="false" />
-    </list>
+    <list default="true" id="0d9c9dc7-cd59-4a92-ab89-4aa5ba0b56b1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

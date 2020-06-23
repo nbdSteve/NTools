@@ -76,6 +76,7 @@ public class Recipe {
             for (int slot : slots.get(getItemString(part))) {
                 inventory.clear(slot);
             }
+            if ((compound.get(getItemString(part)) - (getMaxCraftable(compound) * part.getAmount())) == 0) continue;
             inventory.addItem(new ItemStack(part.getType(), (compound.get(getItemString(part)) - (getMaxCraftable(compound) * part.getAmount())), part.getDurability()));
         }
         for (int i = 0; i < amount; i++) {

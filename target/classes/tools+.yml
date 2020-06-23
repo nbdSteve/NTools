@@ -12,6 +12,7 @@ loaded-tools:
   - ex-lightning
   - ex-tnt
   - ex-craft
+  - ex-aqua
 #
 loaded-guis:
   - basic-gui

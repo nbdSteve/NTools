@@ -1,21 +1,23 @@
 
-T
-java:S1874H"2Remove this use of "getRawData"; it is deprecated.(«€¦‘ÿÿÿÿÿ8Í†Ùæ¬.
-
-java:S1186a"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÃÅŒ”8Í†Ùæ¬.
-T
-java:S1874D"2Remove this use of "setRawData"; it is deprecated.(ë¨Üõşÿÿÿÿ8Í†Ùæ¬.
-T
-java:S1874H"2Remove this use of "setRawData"; it is deprecated.(«€¦‘ÿÿÿÿÿ8Í†Ùæ¬.
 W
-java:S18743"5Remove this use of "getItemInHand"; it is deprecated.(ºÇá¤øÿÿÿÿ8Í†Ùæ¬.
+java:S18744"5Remove this use of "getItemInHand"; it is deprecated.(ºÇá¤øÿÿÿÿ8Í†Ùæ¬.
+
+java:S1186b"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÃÅŒ”8Í†Ùæ¬.
+T
+java:S1874E"2Remove this use of "setRawData"; it is deprecated.(ë¨Üõşÿÿÿÿ8Í†Ùæ¬.
 H
-java:S16592"&Declare "autoSell" on a separate line.(å‰®ãşÿÿÿÿ8Í†Ùæ¬.
-t
-java:S3776+"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(Ş­µ…úÿÿÿÿ8Í†Ùæ¬.
-8
-java:S3626]"Remove this redundant jump.(¥àôå8Í†Ùæ¬.
-D
-java:S16593""Declare "silk" on a separate line.(µáÎüÿÿÿÿ8Æâ¥­.
+java:S16593"&Declare "autoSell" on a separate line.(å‰®ãşÿÿÿÿ8Í†Ùæ¬.
+T
+java:S1874I"2Remove this use of "getRawData"; it is deprecated.(«€¦‘ÿÿÿÿÿ8Í†Ùæ¬.
 O
-java:S16594"-Declare "playersGetDrops" on a separate line.(ÔÀ°Óûÿÿÿÿ8Æâ¥­.
+java:S16595"-Declare "playersGetDrops" on a separate line.(Éñ‰®ıÿÿÿÿ8Æâ¥­.
+t
+java:S3776,"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(Ş­µ…úÿÿÿÿ8Í†Ùæ¬.
+8
+java:S3626^"Remove this redundant jump.(¥àôå8Í†Ùæ¬.
+D
+java:S16594""Declare "silk" on a separate line.(ºÇá¤øÿÿÿÿ8Æâ¥­.
+T
+java:S1874I"2Remove this use of "setRawData"; it is deprecated.(«€¦‘ÿÿÿÿÿ8Í†Ùæ¬.
+V
+java:S1128"9Remove this unused import 'gg.steve.mc.tp.utils.LogUtil'.(Øº§“8‰—øú­.

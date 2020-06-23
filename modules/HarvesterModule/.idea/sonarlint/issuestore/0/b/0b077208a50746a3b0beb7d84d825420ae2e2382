@@ -1,6 +1,6 @@
 
+z	java:S135 "YReduce the total number of break and continue statements in this loop to use at most one.(ÅÜÄãûÿÿÿÿ8Î†Ùæ¬.
 o
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 38 to the 15 allowed.(“µ¾œ8Î†Ùæ¬.
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 38 to the 15 allowed.(“µ¾œ8Î†Ùæ¬.
 8
-java:S3626)"Remove this redundant jump.(ÉŠ©ƒ8Î†Ùæ¬.
-z	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(ÅÜÄãûÿÿÿÿ8Î†Ùæ¬.
+java:S3626+"Remove this redundant jump.(ÉŠ©ƒ8Î†Ùæ¬.
