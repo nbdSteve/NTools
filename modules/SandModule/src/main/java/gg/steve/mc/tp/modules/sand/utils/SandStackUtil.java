@@ -5,7 +5,7 @@ import gg.steve.mc.tp.integration.region.RegionProviderType;
 import gg.steve.mc.tp.managers.ToolConfigDataManager;
 import gg.steve.mc.tp.modules.sand.SandModule;
 import gg.steve.mc.tp.tool.PlayerTool;
-import gg.steve.mc.tp.utils.InventoryUtil;
+import gg.steve.mc.tp.framework.utils.InventoryUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

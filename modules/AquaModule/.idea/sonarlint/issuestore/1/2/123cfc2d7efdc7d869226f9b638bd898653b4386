@@ -1,3 +1,11 @@
 
-_
-java:S2094"BRemove this empty class, write its code or make it an "interface".(£¹ŠÌ8É…÷ù­.
+P
+java:S1444".Make this "public static moduleId" field final(ÌÖÜİÿÿÿÿÿ8¦Øâ®.
+V
+java:S1444"4Make this "public static moduleConfigId" field final(°ÜŠìûÿÿÿÿ8¦Øâ®.
+v
+java:S1104"TMake moduleId a static final constant or non-public and provide accessors if needed.(ÌÖÜİÿÿÿÿÿ8¦Øâ®.
+|
+java:S1104"ZMake moduleConfigId a static final constant or non-public and provide accessors if needed.(°ÜŠìûÿÿÿÿ8¦Øâ®.
+
+java:S1186B"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(œäÏÅ8¦Øâ®.

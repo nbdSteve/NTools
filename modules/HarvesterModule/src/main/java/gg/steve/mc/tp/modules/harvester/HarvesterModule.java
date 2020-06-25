@@ -1,10 +1,10 @@
 package gg.steve.mc.tp.modules.harvester;
 
-import gg.steve.mc.tp.managers.PluginFile;
+import gg.steve.mc.tp.framework.yml.PluginFile;
 import gg.steve.mc.tp.module.ToolsPlusModule;
+import gg.steve.mc.tp.framework.nbt.NBTItem;
 import gg.steve.mc.tp.modules.harvester.tool.HarvesterHoe;
 import gg.steve.mc.tp.modules.harvester.tool.HarvesterHoeData;
-import gg.steve.mc.tp.nbt.NBTItem;
 import gg.steve.mc.tp.tool.AbstractTool;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.event.Listener;

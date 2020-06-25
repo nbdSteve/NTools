@@ -1,7 +1,7 @@
 package gg.steve.mc.tp.tool.utils;
 
-import gg.steve.mc.tp.nbt.NBTItem;
-import gg.steve.mc.tp.utils.ItemBuilderUtil;
+import gg.steve.mc.tp.framework.nbt.NBTItem;
+import gg.steve.mc.tp.framework.utils.ItemBuilderUtil;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;

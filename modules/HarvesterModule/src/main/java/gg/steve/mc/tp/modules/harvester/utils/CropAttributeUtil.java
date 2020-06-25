@@ -1,6 +1,6 @@
 package gg.steve.mc.tp.modules.harvester.utils;
 
-import gg.steve.mc.tp.managers.FileManager;
+import gg.steve.mc.tp.framework.yml.utils.FileManagerUtil;
 import gg.steve.mc.tp.modules.harvester.HarvesterModule;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -18,7 +18,7 @@ public class CropAttributeUtil {
     private List<String> drops;
 
     public CropAttributeUtil(String name, String... drops) {
-        YamlConfiguration config = FileManager.get(HarvesterModule.moduleConfigId);
+        YamlConfiguration config = FileManagerUtil.get(HarvesterModule.moduleConfigId);
         this.ripeData = (byte) config.getInt(name + ".ripe-data");
         this.enabled = config.getBoolean(name + ".enabled");
         this.multiDrop = config.getBoolean(name + ".multi-drop.enabled");

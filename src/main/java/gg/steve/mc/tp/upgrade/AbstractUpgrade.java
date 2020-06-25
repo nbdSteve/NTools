@@ -3,13 +3,13 @@ package gg.steve.mc.tp.upgrade;
 import gg.steve.mc.tp.currency.AbstractCurrency;
 import gg.steve.mc.tp.currency.CurrencyType;
 import gg.steve.mc.tp.currency.types.DefaultCurrencyType;
-import gg.steve.mc.tp.gui.AbstractGui;
-import gg.steve.mc.tp.gui.GuiManager;
-import gg.steve.mc.tp.managers.Files;
-import gg.steve.mc.tp.managers.PluginFile;
+import gg.steve.mc.tp.framework.gui.AbstractGui;
+import gg.steve.mc.tp.framework.gui.GuiManager;
+import gg.steve.mc.tp.framework.yml.Files;
+import gg.steve.mc.tp.framework.yml.PluginFile;
 import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.upgrade.types.DefaultUpgradeType;
-import gg.steve.mc.tp.utils.ColorUtil;
+import gg.steve.mc.tp.framework.utils.ColorUtil;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 
-z	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(«†í¸ùÿÿÿÿ8¨Éé´­.
 V
 java:S1118":Add a private constructor to hide the implicit public one.(£ûí~8¨Éé´­.
 t
 java:S3776"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(šÒƒáüÿÿÿÿ8¨Éé´­.
+z	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(«†í¸ùÿÿÿÿ8¨Éé´­.

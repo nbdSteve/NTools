@@ -1,10 +1,10 @@
 package gg.steve.mc.tp.modules.lightning.tool;
 
 import gg.steve.mc.tp.attribute.types.*;
-import gg.steve.mc.tp.managers.PluginFile;
+import gg.steve.mc.tp.framework.yml.PluginFile;
 import gg.steve.mc.tp.mode.types.SellModeChange;
 import gg.steve.mc.tp.mode.types.ToolTypeModeChange;
-import gg.steve.mc.tp.nbt.NBTItem;
+import gg.steve.mc.tp.framework.nbt.NBTItem;
 import gg.steve.mc.tp.tool.AbstractTool;
 import gg.steve.mc.tp.upgrade.types.ModifierUpgrade;
 import gg.steve.mc.tp.upgrade.types.RadiusUpgrade;

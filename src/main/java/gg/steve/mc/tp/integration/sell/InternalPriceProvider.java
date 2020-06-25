@@ -1,7 +1,7 @@
 package gg.steve.mc.tp.integration.sell;
 
-import gg.steve.mc.tp.managers.Files;
-import gg.steve.mc.tp.utils.LogUtil;
+import gg.steve.mc.tp.framework.yml.Files;
+import gg.steve.mc.tp.framework.utils.LogUtil;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

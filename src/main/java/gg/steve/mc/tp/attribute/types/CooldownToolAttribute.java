@@ -5,9 +5,9 @@ import gg.steve.mc.tp.attribute.AbstractToolAttribute;
 import gg.steve.mc.tp.attribute.ToolAttributeType;
 import gg.steve.mc.tp.attribute.utils.CooldownUtil;
 import gg.steve.mc.tp.currency.AbstractCurrency;
-import gg.steve.mc.tp.managers.Files;
-import gg.steve.mc.tp.message.GeneralMessage;
-import gg.steve.mc.tp.nbt.NBTItem;
+import gg.steve.mc.tp.framework.yml.Files;
+import gg.steve.mc.tp.framework.message.GeneralMessage;
+import gg.steve.mc.tp.framework.nbt.NBTItem;
 import gg.steve.mc.tp.tool.PlayerTool;
 import org.bukkit.entity.Player;
 

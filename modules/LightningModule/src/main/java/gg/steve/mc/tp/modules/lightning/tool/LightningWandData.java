@@ -3,7 +3,7 @@ package gg.steve.mc.tp.modules.lightning.tool;
 import gg.steve.mc.tp.modules.lightning.utils.StrikeUtil;
 import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.tool.ToolData;
-import gg.steve.mc.tp.utils.LogUtil;
+import gg.steve.mc.tp.framework.utils.LogUtil;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;

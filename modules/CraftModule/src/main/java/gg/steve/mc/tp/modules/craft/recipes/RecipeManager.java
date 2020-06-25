@@ -1,7 +1,6 @@
 package gg.steve.mc.tp.modules.craft.recipes;
 
-import gg.steve.mc.tp.attribute.types.CooldownToolAttribute;
-import gg.steve.mc.tp.managers.FileManager;
+import gg.steve.mc.tp.framework.yml.utils.FileManagerUtil;
 import gg.steve.mc.tp.modules.craft.CraftModule;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.Inventory;
@@ -14,7 +13,7 @@ public class RecipeManager {
 
     public static void loadRecipes() {
         recipes = new ArrayList<>();
-        YamlConfiguration config = FileManager.get(CraftModule.moduleConfigId);
+        YamlConfiguration config = FileManagerUtil.get(CraftModule.moduleConfigId);
         for (String recipe : config.getStringList("recipes")) {
             recipes.add(new Recipe(recipe));
         }

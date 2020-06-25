@@ -1,12 +1,12 @@
 package gg.steve.mc.tp.tool.utils;
 
 import gg.steve.mc.tp.ToolsPlus;
-import gg.steve.mc.tp.gui.GuiManager;
-import gg.steve.mc.tp.managers.PluginFile;
+import gg.steve.mc.tp.framework.gui.GuiManager;
+import gg.steve.mc.tp.framework.yml.PluginFile;
 import gg.steve.mc.tp.module.ModuleManager;
-import gg.steve.mc.tp.nbt.NBTItem;
+import gg.steve.mc.tp.framework.nbt.NBTItem;
 import gg.steve.mc.tp.tool.AbstractTool;
-import gg.steve.mc.tp.utils.ItemBuilderUtil;
+import gg.steve.mc.tp.framework.utils.ItemBuilderUtil;
 import org.bukkit.configuration.ConfigurationSection;
 
 public class ToolLoaderUtil {

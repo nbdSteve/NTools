@@ -1,14 +1,14 @@
 package gg.steve.mc.tp.tool;
 
 import gg.steve.mc.tp.attribute.ToolAttributeManager;
-import gg.steve.mc.tp.gui.AbstractGui;
-import gg.steve.mc.tp.managers.PluginFile;
+import gg.steve.mc.tp.framework.gui.AbstractGui;
+import gg.steve.mc.tp.framework.yml.PluginFile;
 import gg.steve.mc.tp.mode.AbstractModeChange;
 import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.mode.ToolModeChangeManager;
 import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.module.ToolsPlusModule;
-import gg.steve.mc.tp.nbt.NBTItem;
+import gg.steve.mc.tp.framework.nbt.NBTItem;
 import gg.steve.mc.tp.upgrade.AbstractUpgrade;
 import gg.steve.mc.tp.upgrade.ToolUpgradeManager;
 import gg.steve.mc.tp.upgrade.UpgradeType;

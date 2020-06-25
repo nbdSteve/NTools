@@ -1,13 +1,12 @@
 package gg.steve.mc.tp.tool;
 
 import gg.steve.mc.tp.attribute.ToolAttributeType;
-import gg.steve.mc.tp.gui.AbstractGui;
+import gg.steve.mc.tp.framework.gui.AbstractGui;
 import gg.steve.mc.tp.mode.AbstractModeChange;
 import gg.steve.mc.tp.mode.ModeType;
-import gg.steve.mc.tp.nbt.NBTItem;
+import gg.steve.mc.tp.framework.nbt.NBTItem;
 import gg.steve.mc.tp.player.PlayerToolManager;
 import gg.steve.mc.tp.upgrade.UpgradeType;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;

@@ -5,7 +5,7 @@ import gg.steve.mc.tp.modules.tnt.utils.TntBankUtil;
 import gg.steve.mc.tp.modules.tnt.utils.TntMessage;
 import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.tool.ToolData;
-import gg.steve.mc.tp.utils.CubeUtil;
+import gg.steve.mc.tp.framework.utils.CubeUtil;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;

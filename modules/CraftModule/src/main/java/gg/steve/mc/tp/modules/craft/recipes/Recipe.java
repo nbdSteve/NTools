@@ -1,12 +1,11 @@
 package gg.steve.mc.tp.modules.craft.recipes;
 
-import gg.steve.mc.tp.utils.LogUtil;
+import gg.steve.mc.tp.framework.utils.LogUtil;
 import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.*;
-import java.util.concurrent.ExecutionException;
 
 public class Recipe {
     private ItemStack crafted;
@@ -76,7 +75,8 @@ public class Recipe {
             for (int slot : slots.get(getItemString(part))) {
                 inventory.clear(slot);
             }
-            if ((compound.get(getItemString(part)) - (getMaxCraftable(compound) * part.getAmount())) == 0) continue;
+            if ((compound.get(getItemString(part)) - (getMaxCraftable(compound) * part.getAmount())) == 0)
+                continue;
             inventory.addItem(new ItemStack(part.getType(), (compound.get(getItemString(part)) - (getMaxCraftable(compound) * part.getAmount())), part.getDurability()));
         }
         for (int i = 0; i < amount; i++) {

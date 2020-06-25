@@ -13,6 +13,7 @@ loaded-tools:
   - ex-tnt
   - ex-craft
   - ex-aqua
+  - ex-smelt
 #
 loaded-guis:
   - basic-gui

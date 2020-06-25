@@ -1,7 +1,7 @@
 package gg.steve.mc.tp.papi;
 
 import gg.steve.mc.tp.ToolsPlus;
-import gg.steve.mc.tp.managers.Files;
+import gg.steve.mc.tp.framework.yml.Files;
 import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.player.PlayerToolManager;

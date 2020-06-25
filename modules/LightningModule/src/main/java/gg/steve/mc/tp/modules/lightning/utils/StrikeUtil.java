@@ -1,6 +1,6 @@
 package gg.steve.mc.tp.modules.lightning.utils;
 
-import gg.steve.mc.tp.managers.FileManager;
+import gg.steve.mc.tp.framework.yml.utils.FileManagerUtil;
 import gg.steve.mc.tp.modules.lightning.LightningModule;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
@@ -14,7 +14,7 @@ public class StrikeUtil {
 
     public static void doStrike(Player player, Block target) {
         target.getWorld().strikeLightningEffect(target.getLocation());
-        double damage = FileManager.get(LightningModule.moduleConfigId).getDouble("strike-damage");
+        double damage = FileManagerUtil.get(LightningModule.moduleConfigId).getDouble("strike-damage");
         for (Entity entity : target.getWorld().getNearbyEntities(target.getLocation(), 1, 2, 1)) {
             if (entity instanceof Creeper) {
                 Creeper creeper = (Creeper) entity;
@@ -31,7 +31,7 @@ public class StrikeUtil {
     }
 
     public static Block getTargetBlock(Player player) {
-        int distance = FileManager.get(LightningModule.moduleConfigId).getInt("strike-distance");
+        int distance = FileManagerUtil.get(LightningModule.moduleConfigId).getInt("strike-distance");
         try {
             return player.getWorld().getHighestBlockAt(player.getLineOfSight(null, distance).get(distance).getLocation());
         } catch (Exception e) {

@@ -1,6 +1,6 @@
 package gg.steve.mc.tp.modules.sand.tool;
 
-import gg.steve.mc.tp.message.GeneralMessage;
+import gg.steve.mc.tp.framework.message.GeneralMessage;
 import gg.steve.mc.tp.modules.sand.utils.SandStackUtil;
 import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.tool.ToolData;

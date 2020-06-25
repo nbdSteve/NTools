@@ -1,11 +1,11 @@
 
+e
+java:S1128"QRemove this unused import 'gg.steve.mc.tp.attribute.types.CooldownToolAttribute'.(ÚÉ¶
 i
-java:S1104"SMake recipes a static final constant or non-public and provide accessors if needed.(Ì›œ¥
+java:S1104"SMake recipes a static final constant or non-public and provide accessors if needed.(Ì›œ¥
 C
-java:S1444"-Make this "public static recipes" field final(Ì›œ¥
-8
-java:S2386""Make member "recipes" "protected".(Ø†€
-g
-java:S1128"QRemove this unused import 'gg.steve.mc.tp.attribute.types.CooldownToolAttribute'.(ÚÉ¶
+java:S1444"-Make this "public static recipes" field final(Ì›œ¥
 P
-java:S1118":Add a private constructor to hide the implicit public one.(˜”Ğ‚
+java:S1118":Add a private constructor to hide the implicit public one.(˜”Ğ‚
+?
+java:S2386""Make member "recipes" "protected".(Ø†€8Ö‰šá®.

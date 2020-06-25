@@ -4,7 +4,7 @@ import gg.steve.mc.tp.ToolsPlus;
 import gg.steve.mc.tp.attribute.types.CooldownToolAttribute;
 import gg.steve.mc.tp.integration.providers.FactionsProvider;
 import gg.steve.mc.tp.tool.PlayerTool;
-import gg.steve.mc.tp.utils.LogUtil;
+import gg.steve.mc.tp.framework.utils.LogUtil;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
