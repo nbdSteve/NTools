@@ -5,6 +5,7 @@ import gg.steve.mc.tp.attribute.types.CooldownToolAttribute;
 import gg.steve.mc.tp.attribute.types.OmniToolAttribute;
 import gg.steve.mc.tp.attribute.types.UsesToolAttribute;
 import gg.steve.mc.tp.framework.nbt.NBTItem;
+import gg.steve.mc.tp.framework.utils.LogUtil;
 import gg.steve.mc.tp.framework.yml.PluginFile;
 import gg.steve.mc.tp.mode.types.SellModeChange;
 import gg.steve.mc.tp.mode.types.ToolTypeModeChange;
@@ -43,6 +44,6 @@ public class ChunkWand extends AbstractTool {
 
     @Override
     public void loadToolData(PluginFile pluginFile) {
-
+        setData(new ChunkWandData());
     }
 }

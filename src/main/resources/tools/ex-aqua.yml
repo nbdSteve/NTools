@@ -57,7 +57,7 @@ omni:
   enabled: true
 #
 cooldown:
-  enbaled: true
+  enabled: true
   duration: 10
 #
 item:

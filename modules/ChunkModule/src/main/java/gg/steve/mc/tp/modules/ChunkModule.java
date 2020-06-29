@@ -2,12 +2,15 @@ package gg.steve.mc.tp.modules;
 
 import gg.steve.mc.tp.framework.nbt.NBTItem;
 import gg.steve.mc.tp.framework.yml.PluginFile;
+import gg.steve.mc.tp.framework.yml.utils.FileManagerUtil;
+import gg.steve.mc.tp.managers.ToolConfigDataManager;
 import gg.steve.mc.tp.module.ToolsPlusModule;
+import gg.steve.mc.tp.modules.constants.ConfigConstants;
+import gg.steve.mc.tp.modules.mangers.ConfirmationGuiManager;
 import gg.steve.mc.tp.modules.tool.ChunkWand;
-import gg.steve.mc.tp.modules.utils.ChunkRemovalManager;
+import gg.steve.mc.tp.modules.mangers.ChunkRemovalManager;
 import gg.steve.mc.tp.tool.AbstractTool;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import org.bukkit.Chunk;
 import org.bukkit.event.Listener;
 
 import java.io.File;
@@ -58,11 +61,15 @@ public class ChunkModule extends ToolsPlusModule {
 
     @Override
     public void onLoad() {
+        ToolConfigDataManager.addMaterialList(moduleId, FileManagerUtil.get(moduleConfigId).getStringList("block-blacklist"));
         ChunkRemovalManager.initialise();
+        ConfigConstants.initialise();
+        ConfirmationGuiManager.initialise();
     }
 
     @Override
     public void onShutdown() {
+        ConfirmationGuiManager.shutdown();
         ChunkRemovalManager.shutdown();
     }
 }

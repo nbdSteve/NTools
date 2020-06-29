@@ -3,8 +3,12 @@ package gg.steve.mc.tp.modules.gui;
 import gg.steve.mc.tp.framework.gui.AbstractGui;
 import gg.steve.mc.tp.framework.gui.utils.GuiItemUtil;
 import gg.steve.mc.tp.framework.utils.CommandUtil;
+import gg.steve.mc.tp.framework.utils.TPSUtil;
 import gg.steve.mc.tp.framework.yml.utils.FileManagerUtil;
 import gg.steve.mc.tp.modules.ChunkModule;
+import gg.steve.mc.tp.modules.constants.ConfigConstants;
+import gg.steve.mc.tp.modules.message.ChunkMessage;
+import gg.steve.mc.tp.modules.mangers.ChunkRemovalManager;
 import gg.steve.mc.tp.player.PlayerToolManager;
 import gg.steve.mc.tp.tool.PlayerTool;
 import org.bukkit.block.Block;
@@ -43,22 +47,41 @@ public class ConfirmationGui extends AbstractGui {
                     for (Integer slot : slots) {
                         setItemInSlot(slot, item, player -> {
                             if (PlayerToolManager.isHoldingTool(player.getUniqueId()) && PlayerToolManager.getToolPlayer(player.getUniqueId()).getPlayerTool().getToolId().equals(tool.getToolId())) {
-                                
-                            } else {
-                                // not holding same tool, return
+                                if (TPSUtil.getTPS() < ConfigConstants.minTPS) {
+                                    player.closeInventory();
+                                    ChunkMessage.TPS_TOO_LOW.message(player);
+                                    return;
+                                }
+                                if (!ChunkRemovalManager.canAddTask(player.getUniqueId())) {
+                                    player.closeInventory();
+                                    ChunkMessage.MAX_TASKS_ACTIVE.message(player);
+                                    return;
+                                }
+                                ChunkRemovalManager.doChunkRemoval(player, clicked, tool);
                                 player.closeInventory();
+                            } else {
+                                player.closeInventory();
+                                ChunkMessage.NOT_HOLDING_SAME_TOOL.message(player);
                                 return;
                             }
                         });
                     }
                     break;
                 case "decline":
+                    item = GuiItemUtil.createItem(section.getConfigurationSection(entry));
+                    for (Integer slot : slots) {
+                        setItemInSlot(slot, item, player -> {
+                            player.closeInventory();
+                            ChunkMessage.DECLINE.message(player);
+                            return;
+                        });
+                    }
                     break;
                 case "none":
                 default:
                     item = GuiItemUtil.createItem(section.getConfigurationSection(entry));
                     for (Integer slot : slots) {
-                        setItemInSlot(slot, item, player -> CommandUtil.execute(section.getStringList(entry + ".commands"), player));
+                        setItemInSlot(slot, item, player -> {});
                     }
                     break;
             }
