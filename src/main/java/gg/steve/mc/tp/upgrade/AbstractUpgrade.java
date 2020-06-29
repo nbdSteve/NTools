@@ -24,7 +24,7 @@ public abstract class AbstractUpgrade {
     private AbstractCurrency currency;
     private Map<Integer, List<Object>> track;
     private String updateString;
-    private AbstractGui gui;
+    private String guiName;
     private boolean isDowngrade;
 
     public AbstractUpgrade() {
@@ -36,7 +36,7 @@ public abstract class AbstractUpgrade {
     public AbstractUpgrade(UpgradeType type, PluginFile file) {
         this.type = type;
         this.currency = CurrencyType.getCurrencyFromString(file.get().getString("upgrades." + type.getLowerCaseName() + ".currency"));
-        this.gui = GuiManager.getGui(file.get().getString("upgrades." + type.getLowerCaseName() + ".gui"));
+        this.guiName = file.get().getString("upgrades." + type.getLowerCaseName() + ".gui");
         this.track = new HashMap<>();
         int pos = 0;
         for (String entry : file.get().getStringList("upgrades." + type.getLowerCaseName() + ".track")) {
@@ -120,8 +120,8 @@ public abstract class AbstractUpgrade {
         return currency;
     }
 
-    public AbstractGui getGui() {
-        return gui;
+    public String getGuiName() {
+        return guiName;
     }
 
     public abstract boolean doUpgrade(Player player, PlayerTool tool);

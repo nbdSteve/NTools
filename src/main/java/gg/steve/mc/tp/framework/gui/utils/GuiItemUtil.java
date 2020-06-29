@@ -181,18 +181,73 @@ public class GuiItemUtil {
         return builder.getItem();
     }
 
+    public static ItemStack createConditionalItem(ConfigurationSection section, PlayerTool tool, String condition) {
+        ItemBuilderUtil builder = ItemBuilderUtil.getBuilderForMaterial(section.getString(condition + ".material"), section.getString(condition + ".data"));
+        builder.addName(section.getString(condition + ".name"));
+        builder.setLorePlaceholders("{radius-current-upgrade}",
+                "{radius-next-upgrade}",
+                "{radius-upgrade-cost}",
+                "{radius-upgrade-level}",
+                "{radius-upgrade-max}",
+                "{radius-upgrade-currency-prefix}",
+                "{radius-upgrade-currency-suffix}",
+                "{modifier-current-upgrade}",
+                "{modifier-next-upgrade}",
+                "{modifier-upgrade-cost}",
+                "{modifier-upgrade-level}",
+                "{modifier-upgrade-max}",
+                "{modifier-upgrade-currency-prefix}",
+                "{modifier-upgrade-currency-suffix}",
+                "{tool-current-mode}",
+                "{tool-next-mode}",
+                "{tool-mode-change-cost}",
+                "{tool-mode-currency-prefix}",
+                "{tool-mode-currency-suffix}",
+                "{sell-current-mode}",
+                "{sell-next-mode}",
+                "{sell-mode-change-cost}",
+                "{sell-mode-currency-prefix}",
+                "{sell-mode-currency-suffix}",
+                "{uses}");
+        builder.addLore(section.getStringList(condition + ".lore"),
+                tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getLoreStringForLevel(tool.getUpgradeLevel(UpgradeType.RADIUS)),
+                tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getLoreStringForLevel(tool.getUpgradeLevel(UpgradeType.RADIUS) + 1),
+                ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getUpgradePriceForLevel(tool.getUpgradeLevel(UpgradeType.RADIUS))),
+                ToolsPlus.formatNumber(tool.getUpgradeLevel(UpgradeType.RADIUS) + 1),
+                ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getMaxLevel() + 1),
+                tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getCurrency().getPrefix(),
+                tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getCurrency().getSuffix(),
+                tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getLoreStringForLevel(tool.getUpgradeLevel(UpgradeType.MODIFIER)),
+                tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getLoreStringForLevel(tool.getUpgradeLevel(UpgradeType.MODIFIER) + 1),
+                ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getUpgradePriceForLevel(tool.getUpgradeLevel(UpgradeType.MODIFIER))),
+                ToolsPlus.formatNumber(tool.getUpgradeLevel(UpgradeType.MODIFIER) + 1),
+                ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getMaxLevel() + 1),
+                tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getCurrency().getPrefix(),
+                tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getCurrency().getSuffix(),
+                tool.getModeChange(ModeType.TOOL).getCurrentModeLore(tool.getCurrentMode(ModeType.TOOL)),
+                tool.getModeChange(ModeType.TOOL).getNextModeLore(tool.getCurrentMode(ModeType.TOOL)),
+                ToolsPlus.formatNumber(tool.getModeChange(ModeType.TOOL).getChangePriceForMode(tool.getCurrentMode(ModeType.TOOL))),
+                tool.getModeChange(ModeType.TOOL).getCurrency().getPrefix(),
+                tool.getModeChange(ModeType.TOOL).getCurrency().getSuffix(),
+                tool.getModeChange(ModeType.SELL).getCurrentModeLore(tool.getCurrentMode(ModeType.SELL)),
+                tool.getModeChange(ModeType.SELL).getNextModeLore(tool.getCurrentMode(ModeType.SELL)),
+                ToolsPlus.formatNumber(tool.getModeChange(ModeType.SELL).getChangePriceForMode(tool.getCurrentMode(ModeType.SELL))),
+                tool.getModeChange(ModeType.SELL).getCurrency().getPrefix(),
+                tool.getModeChange(ModeType.SELL).getCurrency().getSuffix(),
+                ToolsPlus.formatNumber(tool.getUses()));
+        builder.addEnchantments(section.getStringList(condition + ".enchantments"));
+        builder.addItemFlags(section.getStringList(condition + ".item-flags"));
+        builder.addNBT(section.getBoolean(condition + ".unbreakable"));
+        return builder.getItem();
+    }
+
     public static boolean isConditionMet(ConfigurationSection section, PlayerTool tool, UpgradeType upgrade) {
         switch (section.getString("action").split(":")[1]) {
             case "upgrade":
-                if (tool.getUpgradeLevel(upgrade) >= getConditionLevel(section)) {
-                    return true;
-                } else {
-                    return false;
-                }
-//            case "permission":
-//                return player.hasPermission(section.getString("action").split(":")[2]);
+                return tool.getUpgradeLevel(upgrade) >= getConditionLevel(section);
+            default:
+                return true;
         }
-        return true;
     }
 
     public static int getConditionLevel(ConfigurationSection section) {

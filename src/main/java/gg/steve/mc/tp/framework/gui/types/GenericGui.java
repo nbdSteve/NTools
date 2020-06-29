@@ -4,26 +4,33 @@ import gg.steve.mc.tp.attribute.ToolAttributeType;
 import gg.steve.mc.tp.currency.AbstractCurrency;
 import gg.steve.mc.tp.currency.CurrencyType;
 import gg.steve.mc.tp.framework.gui.AbstractGui;
+import gg.steve.mc.tp.framework.gui.GuiManager;
 import gg.steve.mc.tp.framework.gui.utils.GuiItemUtil;
+import gg.steve.mc.tp.framework.utils.CommandUtil;
 import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.tool.PlayerTool;
 import gg.steve.mc.tp.upgrade.UpgradeType;
-import gg.steve.mc.tp.framework.utils.CommandUtil;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
 public class GenericGui extends AbstractGui {
     private ConfigurationSection section;
+    private Player owner;
+    private String name;
 
-    public GenericGui(ConfigurationSection section) {
-        super(section, section.getString("type"), section.getInt("size"));
+    public GenericGui(ConfigurationSection section, Player owner, String name) {
+        super(section, section.getString("type"), section.getInt("size"), owner, name);
         this.section = section;
+        this.owner = owner;
+        this.name = name;
         List<Integer> slots = section.getIntegerList("fillers.slots");
         ItemStack filler = GuiItemUtil.createItem(section.getConfigurationSection("fillers"));
         for (Integer slot : slots) {
-            setItemInSlot(slot, filler, player -> {});
+            setItemInSlot(slot, filler, player -> {
+            });
         }
     }
 
@@ -62,6 +69,16 @@ public class GenericGui extends AbstractGui {
                             }
                             break;
                         case "permission":
+                            String hasPerm = "false";
+                            if (this.owner.hasPermission(section.getString(entry + ".action").split(":")[2])) hasPerm = "true";
+                            item = GuiItemUtil.createConditionalItem(section.getConfigurationSection(entry), tool, hasPerm);
+                            for (Integer slot : slots) {
+                                String finalHasPerm = hasPerm;
+                                setItemInSlot(slot, item, player -> {
+                                    CommandUtil.execute(section.getStringList(entry + "." + finalHasPerm + ".commands"), player);
+                                    refresh(tool);
+                                });
+                            }
                             break;
                     }
                     break;
@@ -114,11 +131,16 @@ public class GenericGui extends AbstractGui {
                         });
                     }
                     break;
-                case "back":
-                    break;
                 case "gui":
-                    break;
-                case "purchase":
+                    AbstractGui target = GuiManager.getGui(section.getString(entry + ".action").split(":")[1], this.owner);
+                    item = GuiItemUtil.createItem(section.getConfigurationSection(entry), tool);
+                    for (Integer slot : slots) {
+                        setItemInSlot(slot, item, player -> {
+                            CommandUtil.execute(section.getStringList(entry + ".commands"), player);
+                            player.closeInventory();
+                            target.open(player);
+                        });
+                    }
                     break;
                 case "close":
                     item = GuiItemUtil.createItem(section.getConfigurationSection(entry), tool);

@@ -3,18 +3,17 @@
 #
 # When you create a new tool add it here so it can be loaded by the plugin
 loaded-tools:
-  - ex-trench
-  - ex-trench-1
-  - ex-tray
-  - ex-sell
-  - ex-sand
-  - ex-harvester
-  - ex-lightning
-  - ex-tnt
-  - ex-craft
-  - ex-aqua
-  - ex-smelt
-  - ex-chunk
+  - multi11
+  - tray3
+  - tray5
+  - tray7
+  - tray9
+  - tray11
+  - trench3
+  - trench5
+  - trench7
+  - trench9
+  - trench11
 #
 loaded-guis:
   - basic-gui

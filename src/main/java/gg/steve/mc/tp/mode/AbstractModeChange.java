@@ -21,7 +21,7 @@ public abstract class AbstractModeChange {
     private HashMap<Integer, List<Object>> track;
     private boolean sneakSwitch, rightClickSwitch;
     private String updateString;
-    private AbstractGui gui;
+    private String guiName;
 
     public AbstractModeChange(ModeType type, PluginFile file) {
         this.type = type;
@@ -39,7 +39,7 @@ public abstract class AbstractModeChange {
         this.rightClickSwitch = file.get().getBoolean("modes." + type.name().toLowerCase() + ".right-click-switch");
         this.currency = CurrencyType.getCurrencyFromString(file.get().getString("modes." + type.name().toLowerCase() + ".currency"));
         this.updateString = ColorUtil.colorize(file.get().getString("modes." + type.name().toLowerCase() + ".lore-update-string"));
-        this.gui = GuiManager.getGui(file.get().getString("modes." + type.name().toLowerCase() + ".gui"));
+        this.guiName = file.get().getString("modes." + type.name().toLowerCase() + ".gui");
     }
 
     public boolean isChangingEnabled() {
@@ -96,8 +96,8 @@ public abstract class AbstractModeChange {
         return updateString;
     }
 
-    public AbstractGui getGui() {
-        return gui;
+    public String getGuiName() {
+        return guiName;
     }
 
     public abstract boolean changeMode(Player player, PlayerTool tool);

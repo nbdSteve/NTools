@@ -2,6 +2,7 @@ package gg.steve.mc.tp.tool;
 
 import gg.steve.mc.tp.attribute.ToolAttributeType;
 import gg.steve.mc.tp.framework.gui.AbstractGui;
+import gg.steve.mc.tp.framework.gui.GuiManager;
 import gg.steve.mc.tp.mode.AbstractModeChange;
 import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.framework.nbt.NBTItem;
@@ -15,8 +16,7 @@ public class PlayerTool {
     private AbstractTool tool;
     private UUID toolId;
     private int uses, blocksMined, caneMined, radiusUpgradeLevel, modifierUpgradeLevel, peakRadiusUpgradeLevel, peakModifierUpgradeLevel, toolModeLevel, sellModeLevel;
-    private String name;
-    private AbstractGui usesGui;
+    private String name, usesGuiName;
 
     public PlayerTool(UUID toolId, NBTItem item) {
         this.toolId = toolId;
@@ -31,7 +31,7 @@ public class PlayerTool {
         this.sellModeLevel = item.getInteger("tools+.sell-mode-level");
         this.name = item.getString("tools+.name");
         this.tool = ToolsManager.getTool(this.name);
-        this.usesGui = this.tool.getUsesGui();
+        this.usesGuiName = this.tool.getUsesGuiName();
     }
 
     public boolean decrementUses(Player player) {
@@ -174,22 +174,19 @@ public class PlayerTool {
 
     public boolean openUpgradeGui(Player player, UpgradeType type) {
         if (!this.tool.getUpgradeManager().isUpgradeEnabled(type)) return false;
-        this.tool.getUpgradeManager().getUpgrade(type).getGui().refresh(this);
-        this.tool.getUpgradeManager().getUpgrade(type).getGui().open(player);
+        GuiManager.open(this.tool.getUpgradeManager().getUpgrade(type).getGuiName(), player, this);
         return true;
     }
 
     public boolean openModeGui(Player player, ModeType mode) {
         if (!this.tool.getModeChangeManager().isModeChangeEnabled(mode)) return false;
-        this.tool.getModeChange(mode).getGui().refresh(this);
-        this.tool.getModeChange(mode).getGui().open(player);
+        GuiManager.open(this.tool.getModeChange(mode).getGuiName(), player, this);
         return true;
     }
 
     public boolean openUsesGui(Player player) {
-        if (this.usesGui == null) return false;
-        this.usesGui.refresh(this);
-        this.usesGui.open(player);
+        if (this.usesGuiName == null || this.usesGuiName.equalsIgnoreCase("")) return false;
+        GuiManager.open(this.usesGuiName, player, this);
         return true;
     }
 

@@ -20,7 +20,6 @@ public class LoreUpdaterUtil {
             if (lore.get(i).contains(current)) {
                 String line = lore.get(i).replace(current, replacement);
                 lore.set(i, line);
-                break;
             }
         }
         builder.setLore(lore);
@@ -39,7 +38,6 @@ public class LoreUpdaterUtil {
             if (lore.get(i).contains(current)) {
                 String line = lore.get(i).replace(current, replacement);
                 lore.set(i, line);
-                break;
             }
         }
         builder.setLore(lore);

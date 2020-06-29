@@ -26,6 +26,8 @@ public abstract class AbstractGui {
     //Store the map of actions to be called in the InventoryClickEvent
     private HashMap<Integer, inventoryClickActions> clickActions;
 
+    private String name;
+
     /**
      * Constructor the create a new Gui
      */
@@ -40,7 +42,22 @@ public abstract class AbstractGui {
         inventoriesByID.put(getInventoryID(), this);
     }
 
+    public AbstractGui(ConfigurationSection section, String type, Integer size, Player player, String name) {
+        this.inventoryID = UUID.randomUUID();
+        if (!type.equalsIgnoreCase("none")) {
+            this.inventory = Bukkit.createInventory(null, InventoryType.valueOf(type.toUpperCase()), ColorUtil.colorize(section.getString("name")));
+        } else {
+            this.inventory = Bukkit.createInventory(null, size, ColorUtil.colorize(section.getString("name")));
+        }
+        this.clickActions = new HashMap<>();
+        inventoriesByID.put(getInventoryID(), this);
+    }
+
     public abstract void refresh(PlayerTool tool);
+
+    public String getName() {
+        return name;
+    }
 
     /**
      * Get the inventory map
