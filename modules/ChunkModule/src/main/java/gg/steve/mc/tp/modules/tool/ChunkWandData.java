@@ -1,9 +1,6 @@
 package gg.steve.mc.tp.modules.tool;
 
-import gg.steve.mc.tp.ToolsPlus;
 import gg.steve.mc.tp.attribute.types.CooldownToolAttribute;
-import gg.steve.mc.tp.framework.utils.LogUtil;
-import gg.steve.mc.tp.framework.utils.TPSUtil;
 import gg.steve.mc.tp.integration.region.RegionProviderType;
 import gg.steve.mc.tp.modules.mangers.ConfirmationGuiManager;
 import gg.steve.mc.tp.modules.message.ChunkMessage;
@@ -23,6 +20,7 @@ public class ChunkWandData implements ToolData {
 
     @Override
     public void onInteract(PlayerInteractEvent event, PlayerTool tool) {
+        event.setCancelled(true);
         Block start = event.getClickedBlock();
         if (event.getClickedBlock() == null || event.getClickedBlock().getType() == Material.AIR) {
             start = event.getPlayer().getWorld().getHighestBlockAt(event.getPlayer().getLocation());

@@ -17,7 +17,7 @@ public class ChunkUtil {
 
     public static List<Chunk> getChunksInRadius(Chunk start, Player player, PlayerTool tool) {
         int radius = tool.getRadius();
-        if (radius <= 0) return Collections.emptyList();
+        if (radius < 0) return Collections.emptyList();
         List<Chunk> removeableChunks = new ArrayList<>();
         for (int x = -radius; x <= radius; x++) {
             for (int z = -radius; z <= radius; z++) {

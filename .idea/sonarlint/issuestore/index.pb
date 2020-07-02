@@ -187,3 +187,11 @@ p
 @src/main/java/gg/steve/mc/tp/framework/gui/types/GenericGui.java,0\0\00f5b1e760c34bdb793478f3b8ed9572582cad1a
 i
 9src/main/java/gg/steve/mc/tp/framework/utils/TPSUtil.java,b\0\b014a3eed416751322f7e13cb8d6dabb9f5f188e
+q
+Asrc/main/java/gg/steve/mc/tp/framework/gui/utils/GuiItemUtil.java,6\0\6047e91a20528e02c56ce41b6ae461912cecf7c0
+k
+;src/main/java/gg/steve/mc/tp/framework/gui/AbstractGui.java,f\f\ff5deaca8bc8040132e3d6b651838922d83b65ed
+j
+:src/main/java/gg/steve/mc/tp/framework/gui/GuiManager.java,1\f\1fbcc451b4d0f6722418e038c5390574cf359e4a
+u
+Esrc/main/java/gg/steve/mc/tp/framework/permission/PermissionNode.java,3\d\3d28665eab4a583b4c17e19badc3df38df18b6ef

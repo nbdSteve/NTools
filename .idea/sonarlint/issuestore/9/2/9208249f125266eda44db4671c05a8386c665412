@@ -1,5 +1,9 @@
 
-P
-java:S1659".Declare "rightClickSwitch" on a separate line.(õàÚ”ıÿÿÿÿ8˜ùáŒ©.
+g
+java:S1128"ERemove this unused import 'gg.steve.mc.tp.framework.gui.AbstractGui'.(’¢ÙÖÿÿÿÿÿ8Òï¥°.
+f
+java:S1128"DRemove this unused import 'gg.steve.mc.tp.framework.gui.GuiManager'.(×Æ›µùÿÿÿÿ8•Â¥°.
 i
 java:S1192"GDefine a constant instead of duplicating this literal "modes." 6 times.(Ñíìıüÿÿÿÿ8·«²¦.
+P
+java:S1659".Declare "rightClickSwitch" on a separate line.(õàÚ”ıÿÿÿÿ8˜ùáŒ©.

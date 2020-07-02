@@ -1,32 +1,32 @@
 
-Q
-java:S1444	"4Make this "public static maxPlayerTasks" field final(ÎşÙ8—ˆÇ÷¯.
-n
-java:S1104
-"QMake delay a static final constant or non-public and provide accessors if needed.(ü¦¨ğ8ÎóĞ÷¯.
 I
 java:S1444
 ",Make this "public static period" field final(ü¦¨ğ8ÎóĞ÷¯.
-w
-java:S1104	"ZMake maxPlayerTasks a static final constant or non-public and provide accessors if needed.(ÎşÙ8—ˆÇ÷¯.
-W
-java:S1118":Add a private constructor to hide the implicit public one.(¬°Ÿ‘8›ûÅ÷¯.
-Q
-java:S1659	"4Declare "blocksRemovedPerPeriod" on a separate line.(ÎşÙ8ÎóĞ÷¯.
 n
-java:S1104"RMake minTPS a static final constant or non-public and provide accessors if needed.(ô±Ì 8›ûÅ÷¯.
+java:S1104
+"QMake delay a static final constant or non-public and provide accessors if needed.(ü¦¨ğ8ÎóĞ÷¯.
 Y
 java:S1444	"<Make this "public static blocksRemovedPerPeriod" field final(ÎşÙ8ÎóĞ÷¯.
 H
 java:S1444
 "+Make this "public static delay" field final(ü¦¨ğ8ÎóĞ÷¯.
+H
+java:S1444",Make this "public static minTPS" field final(ô±Ì 8›ûÅ÷¯.
+n
+java:S1104"RMake minTPS a static final constant or non-public and provide accessors if needed.(ô±Ì 8›ûÅ÷¯.
+o
+java:S1104
+"RMake period a static final constant or non-public and provide accessors if needed.(ü¦¨ğ8ÎóĞ÷¯.
+W
+java:S1118":Add a private constructor to hide the implicit public one.(¬°Ÿ‘8›ûÅ÷¯.
+w
+java:S1104	"ZMake maxPlayerTasks a static final constant or non-public and provide accessors if needed.(ÎşÙ8—ˆÇ÷¯.
+Q
+java:S1659	"4Declare "blocksRemovedPerPeriod" on a separate line.(ÎşÙ8ÎóĞ÷¯.
 
 java:S1104	"bMake blocksRemovedPerPeriod a static final constant or non-public and provide accessors if needed.(ÎşÙ8ÎóĞ÷¯.
 A
 java:S1659
 "$Declare "period" on a separate line.(ü¦¨ğ8ÎóĞ÷¯.
-H
-java:S1444",Make this "public static minTPS" field final(ô±Ì 8›ûÅ÷¯.
-o
-java:S1104
-"RMake period a static final constant or non-public and provide accessors if needed.(ü¦¨ğ8ÎóĞ÷¯.
+Q
+java:S1444	"4Make this "public static maxPlayerTasks" field final(ÎşÙ8—ˆÇ÷¯.

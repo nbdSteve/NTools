@@ -1,13 +1,9 @@
 
-i
-java:S1128"GRemove this unused import 'com.sun.imageio.spi.RAFImageInputStreamSpi'.(÷î’¢úÿÿÿÿ8ç’ğØ§.
-W
-java:S1191"5Use classes from the Java API instead of Sun classes.(÷î’¢úÿÿÿÿ8ç’ğØ§.
-_
-java:S2184,"BCast one of the operands of this addition operation to a "double".(‚µÖÃ8ª‹üØ§.
 d
-java:S2184-"BCast one of the operands of this addition operation to a "double".(“Úãûÿÿÿÿ8ïÃüØ§.
+java:S2184,"BCast one of the operands of this addition operation to a "double".(“Úãûÿÿÿÿ8ª‹üØ§.
 _
-java:S2184."BCast one of the operands of this addition operation to a "double".(“Óíğ8ïÃüØ§.
+java:S2184."BCast one of the operands of this addition operation to a "double".(¿ıª­8ïÃüØ§.
 _
-java:S2184/"BCast one of the operands of this addition operation to a "double".(¿ıª­8ïÃüØ§.
+java:S2184-"BCast one of the operands of this addition operation to a "double".(“Óíğ8ïÃüØ§.
+_
+java:S2184+"BCast one of the operands of this addition operation to a "double".(‚µÖÃ8€¦ö›°.

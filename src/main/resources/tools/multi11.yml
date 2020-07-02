@@ -6,7 +6,7 @@ upgrades:
   radius:
     allow-downgrade: true
     currency: 'vault'
-    gui: 'basic-gui'
+    gui: 'upgrade-gui'
     track:
       # syntax: <radius>:<upgrade price>:<downgrade price>:<string for lore>
       - '3:0.0:0.0:7x7'
@@ -16,7 +16,7 @@ upgrades:
   modifier:
     allow-downgrade: false
     currency: 'vault'
-    gui: 'basic-gui'
+    gui: 'upgrade-gui'
     track:
       # syntax: <modifier>:<upgrade price>:<downgrade price>:<string for lore>
       - '1.0:0.0:0.0:1.0'

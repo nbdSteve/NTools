@@ -25,6 +25,7 @@ public class ChunkModule extends ToolsPlusModule {
 
     public ChunkModule() {
         super(moduleId);
+        setNiceName("Chunk Wand");
     }
 
     @Override
