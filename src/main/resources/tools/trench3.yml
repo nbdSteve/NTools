@@ -55,13 +55,13 @@ omni:
   enabled: false
 #
 cooldown:
-  enbaled: false
+  enabled: false
   duration: 0
 #
 item:
   material: 'diamond_pickaxe'
   data: 0
-  name: '&2&l╰ &a&nTrench Tool&r &7(&f3x3&7) &2&l╯'
+  name: '&2&l⋉ &a&nTrench Tool&r &7(&f3x3&7) &2&l⋊'
   lore:
     - ''
     - '&a&m---&7&m(->&r &fInformation &7&m<-)&a&m---'

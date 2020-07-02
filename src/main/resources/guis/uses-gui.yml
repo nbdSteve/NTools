@@ -21,7 +21,7 @@ fillers:
   name: '&b&nPurchase Uses&r &7(&f100&7)'
   lore:
     - ''
-    - '&7(Left-click to purchase 100 uses for your tool)'
+    - '&7(Left-click to purchase 25 uses for your tool)'
     - ''
     - ' &7* &bCost: &c$1,000'
     - ' &7* &bCurrent Uses: &3&n{uses}'

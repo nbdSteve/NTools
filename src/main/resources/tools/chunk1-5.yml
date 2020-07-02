@@ -15,8 +15,8 @@ upgrades:
     lore-update-string: ' &7▏ &cRadius &8» &4{radius-upgrade}'
   modifier:
     allow-downgrade: false
-    currency: ''
-    gui: ''
+    currency: 'vault'
+    gui: 'upgrade-gui'
     track:
       # syntax: <modifier>:<upgrade price>:<downgrade price>:<string for lore>
       - '1.0:0.0:0.0:1'
@@ -56,13 +56,13 @@ omni:
   enabled: false
 #
 cooldown:
-  enbaled: true
+  enabled: true
   duration: 15
 #
 item:
   material: 'ender_portal_frame'
   data: 0
-  name: '&4&l╰ &c&nChunk Wand&r &7(&fUpgradeable&7) &4&l╯'
+  name: '&4&l⋉ &c&nChunk Wand&r &7(&fUpgradeable&7) &4&l⋊'
   lore:
     - ''
     - '&7(Use &f/upgrade &7to upgrade the radius)'

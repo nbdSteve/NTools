@@ -54,13 +54,13 @@ omni:
   enabled: false
 #
 cooldown:
-  enbaled: true
+  enabled: true
   duration: 30
 #
 item:
   material: 'ender_portal_frame'
   data: 0
-  name: '&4&l╰ &c&nChunk Wand&r &7(&f1x1&7) &4&l╯'
+  name: '&4&l⋉ &c&nChunk Wand&r &7(&f1x1&7) &4&l⋊'
   lore:
     - ''
     - '&c&m---&7&m(->&r &fInformation &7&m<-)&c&m---'

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: gg.steve.mc.tp:ToolsPlus:2.0.0-PR1-DV16">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/gg/steve/mc/tp/ToolsPlus/2.0.0-PR1-DV16/ToolsPlus-2.0.0-PR1-DV16.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/gg/steve/mc/tp/ToolsPlus/2.0.0-PR1-DV16/ToolsPlus-2.0.0-PR1-DV16-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/gg/steve/mc/tp/ToolsPlus/2.0.0-PR1-DV16/ToolsPlus-2.0.0-PR1-DV16-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

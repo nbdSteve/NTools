@@ -17,9 +17,6 @@ import java.util.List;
 
 public class SellData implements ToolData {
 
-    public SellData() {
-    }
-
     @Override
     public void onBlockBreak(BlockBreakEvent event, PlayerTool tool) {
     }

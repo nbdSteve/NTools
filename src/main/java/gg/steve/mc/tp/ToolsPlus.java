@@ -1,10 +1,10 @@
 package gg.steve.mc.tp;
 
-import gg.steve.mc.tp.integration.libs.ToolsPlusLibManager;
-import gg.steve.mc.tp.framework.yml.utils.FileManagerUtil;
 import gg.steve.mc.tp.framework.SetupManager;
-import gg.steve.mc.tp.module.ModuleManager;
 import gg.steve.mc.tp.framework.utils.LogUtil;
+import gg.steve.mc.tp.framework.yml.utils.FileManagerUtil;
+import gg.steve.mc.tp.integration.libs.ToolsPlusLibManager;
+import gg.steve.mc.tp.module.ModuleManager;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;

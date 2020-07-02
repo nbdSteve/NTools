@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8a61d694-2e1b-4a67-be63-3091250f6c3f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/sell/AbstractPriceProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/sell/providers/EssentialsPriceProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/sell/providers/ShopGuiPlusPriceProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/craft1-5.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/craft1.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/craft3.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/craft5.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/lightning1.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/sand1-5.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/sand1.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/sand3.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/sand5.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/sell1-5.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/sell1.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/sell3.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/sell5.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/smelt1-5.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/smelt1.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/smelt3.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/resources/tools/smelt5.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gg/steve/mc/tp/modules/sell/tool/SellData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gg/steve/mc/tp/modules/sell/tool/SellData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/ToolsPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/ToolsPlus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/attribute/utils/CooldownUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/attribute/utils/CooldownUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/framework/SetupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/framework/SetupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/sell/InternalPriceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/sell/providers/InternalPriceProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/sell/PriceProviderType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/sell/PriceProviderType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/sell/SellIntegrationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/sell/SellIntegrationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/guis/uses-gui.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/guis/uses-gui.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools+.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools+.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/chunk1-5.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools/chunk1-5.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/chunk1.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools/chunk1.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/chunk3.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools/chunk3.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/chunk5.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools/chunk5.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/ex-chunk.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/ex-craft.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/ex-lightning.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/ex-sand.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/ex-sell.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/ex-smelt.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/ex-tray.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/ex-trench-1.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/ex-trench.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/multi3-11.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools/multi3-11.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/tray11.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools/tray11.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/tray3.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools/tray3.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/tray5.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools/tray5.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/tray7.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools/tray7.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/tray9.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools/tray9.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/trench11.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools/trench11.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/trench3.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools/trench3.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/trench5.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools/trench5.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/trench7.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools/trench7.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools/trench9.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/tools/trench9.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1e8eREbzC7mwV0vE7fNeG6pTyvH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8a61d694-2e1b-4a67-be63-3091250f6c3f" name="Default Changelist" comment="" />
+      <created>1593707636827</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1593707636827</updated>
+    </task>
+    <servers />
+  </component>
+</project>

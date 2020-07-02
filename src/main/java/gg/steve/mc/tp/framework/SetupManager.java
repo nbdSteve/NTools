@@ -10,7 +10,8 @@ import gg.steve.mc.tp.framework.yml.Files;
 import gg.steve.mc.tp.framework.yml.utils.FileManagerUtil;
 import gg.steve.mc.tp.integration.libs.ToolsPlusLibManager;
 import gg.steve.mc.tp.integration.providers.FactionsProvider;
-import gg.steve.mc.tp.integration.sell.InternalPriceProvider;
+import gg.steve.mc.tp.integration.sell.PriceProviderType;
+import gg.steve.mc.tp.integration.sell.providers.InternalPriceProvider;
 import gg.steve.mc.tp.integration.sell.SellIntegrationManager;
 import gg.steve.mc.tp.managers.ToolConfigDataManager;
 import gg.steve.mc.tp.module.ModuleManager;
@@ -107,7 +108,6 @@ public class SetupManager {
         // conditional commands
         PlayerCommandListener.initialiseCommands();
         // price
-        InternalPriceProvider.loadPriceMap();
         SellIntegrationManager.initialiseProviderHierarchy();
         // omni
         OmniToolAttribute.loadOmniConfig();
@@ -122,7 +122,7 @@ public class SetupManager {
         OmniToolAttribute.shutdown();
         // price
         SellIntegrationManager.shutdown();
-        InternalPriceProvider.shutdown();
+        PriceProviderType.INTERNAL.getPriceProvider().shutdown();
         // commands
         PlayerCommandListener.shutdown();
         // tools

@@ -37,7 +37,7 @@ public class UpgradeHelper {
             return false;
         }
         this.next = this.level + 1;
-        this.cost = this.upgrade.getUpgradePriceForLevel(next);
+        this.cost = this.upgrade.getUpgradePriceForLevel(level);
         return true;
     }
 

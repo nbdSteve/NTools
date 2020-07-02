@@ -17,8 +17,8 @@ upgrades:
     lore-update-string: ' &7▏ &dRadius &8» &5{radius-upgrade}'
   modifier:
     allow-downgrade: true
-    currency: ''
-    gui: ''
+    currency: 'vault'
+    gui: 'upgrade-gui'
     track:
       # syntax: <modifier>:<upgrade price>:<downgrade price>:<string for lore>
       - '1.0:0.0:0.0:1'
@@ -32,8 +32,8 @@ modes:
   tool:
     right-click-switch: true
     sneak-switch: false
-    currency: ''
-    gui: ''
+    currency: 'vault'
+    gui: 'mode-switch-gui'
     track:
       # syntax: <mode type>:<price>:<string for lore>
       - 'trench3:0.0:Trench'
@@ -64,13 +64,13 @@ omni:
   enabled: true
 #
 cooldown:
-  enbaled: false
+  enabled: false
   duration: 0
 #
 item:
   material: 'diamond_pickaxe'
   data: 0
-  name: '&5&l╰ &d&nMulti Tool&r &7(&f{tool-mode}&7) &5&l╯'
+  name: '&5&l⋉ &d&nMulti Tool&r &7(&f{tool-mode}&7) &5&l⋊'
   lore:
     - ''
     - '&7(Right-click to switch your tools mode)'

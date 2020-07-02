@@ -154,10 +154,10 @@ public class GuiItemUtil {
                 ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getMaxLevel() + 1),
                 tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getCurrency().getPrefix(),
                 tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getCurrency().getSuffix(),
-                ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getUpgradePriceForLevel(level)),
+                ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getUpgradePriceForLevel(level - 1)),
                 ToolsPlus.formatNumber(getCompoundPrice(tool, UpgradeType.RADIUS, section)),
                 tool.getAbstractTool().getUpgrade(UpgradeType.RADIUS).getLoreStringForLevel(level),
-                ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getUpgradePriceForLevel(level)),
+                ToolsPlus.formatNumber(tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getUpgradePriceForLevel(level - 1)),
                 ToolsPlus.formatNumber(getCompoundPrice(tool, UpgradeType.MODIFIER, section)),
                 tool.getAbstractTool().getUpgrade(UpgradeType.MODIFIER).getLoreStringForLevel(level),
                 tool.getModeChange(ModeType.TOOL).getCurrentModeLore(tool.getCurrentMode(ModeType.TOOL)),
@@ -259,12 +259,13 @@ public class GuiItemUtil {
     }
 
     public static double getCompoundPrice(PlayerTool tool, UpgradeType upgrade, ConfigurationSection section) {
-        int current = tool.getUpgradeLevel(upgrade) + 1;
+        int current = tool.getUpgradeLevel(upgrade);
         double total = 0;
-        while (current <= getConditionLevel(section)) {
+        while (current < getConditionLevel(section)) {
             total += tool.getAbstractTool().getUpgrade(upgrade).getUpgradePriceForLevel(current);
             current++;
         }
+        if (total == 0) return tool.getAbstractTool().getUpgrade(upgrade).getUpgradePriceForLevel(tool.getUpgradeLevel(upgrade));
         return total;
     }
 
