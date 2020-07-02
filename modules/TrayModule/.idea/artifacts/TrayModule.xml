@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="TrayModule">
-    <output-path>$PROJECT_DIR$/../../../../../test-server/spigot-server/plugins</output-path>
-    <root id="archive" name="TrayModule.jar">
-      <element id="module-output" name="TrayModule" />
-    </root>
-  </artifact>
-</component>

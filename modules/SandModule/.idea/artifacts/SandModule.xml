@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="SandModule">
-    <output-path>$PROJECT_DIR$/../../../../../test-server/spigot-server/plugins</output-path>
-    <root id="archive" name="SandModule.jar">
-      <element id="module-output" name="SandModule" />
-    </root>
-  </artifact>
-</component>

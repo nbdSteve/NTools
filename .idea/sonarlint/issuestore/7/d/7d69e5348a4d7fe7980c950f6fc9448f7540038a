@@ -1,7 +1,0 @@
-
-W
-java:S1444"5Make this "public static defaultCurrency" field final(‚ØÙ²øÿÿÿÿ8§‡ÉÅ¨.
-}
-java:S1104"[Make defaultCurrency a static final constant or non-public and provide accessors if needed.(‚ØÙ²øÿÿÿÿ8§‡ÉÅ¨.
-Q
-java:S2390"/Remove this reference to "DefaultCurrencyType".(‚ØÙ²øÿÿÿÿ8§‡ÉÅ¨.

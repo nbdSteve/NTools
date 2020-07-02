@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="MassiveFactions-Lib">
-    <output-path>$PROJECT_DIR$/../../../../../test-server/spigot-server/plugins/ToolsPlus/libs</output-path>
-    <root id="archive" name="MassiveFactions-Lib.jar">
-      <element id="module-output" name="MassiveFactionsLib" />
-    </root>
-  </artifact>
-</component>

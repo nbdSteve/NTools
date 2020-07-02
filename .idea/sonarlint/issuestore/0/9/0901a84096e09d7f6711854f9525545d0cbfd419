@@ -1,17 +1,0 @@
-
-_
-java:S2184G"BCast one of the operands of this addition operation to a "double".(Í›‘Ş8çÒş‚¦.
-R
-java:S18748"5Remove this use of "setItemInHand"; it is deprecated.(èàö–8çÒş‚¦.
-R
-java:S18747"5Remove this use of "getItemInHand"; it is deprecated.(î¶Õ§8çÒş‚¦.
-d
-java:S2184@"BCast one of the operands of this addition operation to a "double".(îŠíğüÿÿÿÿ8›£í§¦.
-D
-java:S1659""Declare "next" on a separate line.(ÂÈÔ‘úÿÿÿÿ8’­õ‚¦.
-d
-java:S2184H"BCast one of the operands of this addition operation to a "double".(îŠíğüÿÿÿÿ8“ƒ©£¦.
-_
-java:S2184?"BCast one of the operands of this addition operation to a "double".(Í›‘Ş8›£í§¦.
-W
-java:S1874"5Remove this use of "getItemInHand"; it is deprecated.(î€ôûÿÿÿÿÿ8§‰õ‚¦.

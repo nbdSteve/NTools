@@ -1,9 +1,0 @@
-
-u	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(×ö–Ñ8ŸØâ®.
-\
-java:S1118
-":Add a private constructor to hide the implicit public one.(Â€­Şøÿÿÿÿ8ŸØâ®.
-8
-java:S3626"Remove this redundant jump.(ÉŠ©ƒ8ŸØâ®.
-o
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(÷ó¹8ŸØâ®.
