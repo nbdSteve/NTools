@@ -28,7 +28,7 @@ modes:
     gui: ''
     track:
       # syntax: <mode type>:<price>:<string for lore>
-      - 'trench3:0.0:Trench'
+      - 'trench7:0.0:Trench'
     lore-update-string: ' &7▏ &aTool &8» &7{tool-mode}'
   sell:
     right-click-switch: false

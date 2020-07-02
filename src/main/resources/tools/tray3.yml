@@ -43,7 +43,7 @@ modes:
 #
 uses:
   enabled: true
-  starting: 2500
+  starting: 750
   gui: 'uses-gui'
   lore-update-string: ' &7▏ &bUses &8» &3&n{uses}'
 #

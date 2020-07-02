@@ -9,7 +9,7 @@ upgrades:
     gui: ''
     track:
       # syntax: <radius>:<upgrade price>:<downgrade price>:<string for lore>
-      - '0:0.0:0.0:1x1'
+      - '1:0.0:0.0:3x3'
     lore-update-string: ' &7▏ &cRadius &8» &4{radius-upgrade}'
   modifier:
     allow-downgrade: false
@@ -28,7 +28,7 @@ modes:
     gui: ''
     track:
       # syntax: <mode type>:<price>:<string for lore>
-      - 'chunk1:0.0:Chunk Buster'
+      - 'chunk3:0.0:Chunk Buster'
     lore-update-string: ' &7▏ &cTool &8» &7{tool-mode}'
   sell:
     right-click-switch: false
@@ -42,8 +42,8 @@ modes:
 #
 uses:
   enabled: true
-  starting: 1
-  gui: ''
+  starting: 5
+  gui: 'uses-gui'
   lore-update-string: ' &7▏ &cUses &8» &4&n{uses}'
 #
 blocks-mined:
@@ -55,12 +55,12 @@ omni:
 #
 cooldown:
   enbaled: true
-  duration: 30
+  duration: 25
 #
 item:
   material: 'ender_portal_frame'
   data: 0
-  name: '&4&l╰ &c&nChunk Wand&r &7(&f1x1&7) &4&l╯'
+  name: '&4&l╰ &c&nChunk Wand&r &7(&f3x3&7) &4&l╯'
   lore:
     - ''
     - '&c&m---&7&m(->&r &fInformation &7&m<-)&c&m---'
@@ -72,9 +72,9 @@ item:
     - ''
     - ' &7▏ &cChunks Busted &8» &4&n{mined}'
     - ' &7▏ &cUses &8» &4&n{uses}'
-    - ' &7▏ &cCooldown &8» &4&n30 Seconds'
+    - ' &7▏ &cCooldown &8» &4&n25 Seconds'
     - ''
-    - ' &7▏ &cRarity &8» &c✪&7✪✪✪✪'
+    - ' &7▏ &cRarity &8» &c✪✪&7✪✪✪'
     - '&c&m---&7&m(->&r &f&m+--------+&r &7&m<-)&c&m---'
   enchantments:
     - 'lure:10'
