@@ -70,8 +70,10 @@ cooldown:
 item:
   material: 'diamond_pickaxe'
   data: 0
-  name: '&5&l⋉ &d&nMulti Tool&r &7(&f{tool-mode}&7) &5&l⋊'
+  name: '&5&l⋉ &d&nMulti Tool&r &7[&f{tool-mode}&7] (&fUpgradeable&7) &5&l⋊'
   lore:
+    - ''
+    - '&7(Use &f/upgrade &7to upgrade the radius)'
     - ''
     - '&7(Right-click to switch your tools mode)'
     - ''

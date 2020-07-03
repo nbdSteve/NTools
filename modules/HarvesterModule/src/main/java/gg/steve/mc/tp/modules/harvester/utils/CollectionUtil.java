@@ -14,6 +14,7 @@ public class CollectionUtil {
     private PlayerTool tool;
     private List<Block> primed;
     private int caneMined;
+    private int blocksMined;
 
     public CollectionUtil(Player player, PlayerTool tool) {
         this.player = player;
@@ -25,6 +26,7 @@ public class CollectionUtil {
     public List<Block> getCropBlocks(Block start) {
         if (!this.primed.isEmpty()) this.primed.clear();
         this.caneMined = 0;
+        this.blocksMined = 0;
         int radius = tool.getRadius();
         for (int x = -radius; x <= radius; x++) {
             for (int z = -radius; z <= radius; z++) {
@@ -55,6 +57,7 @@ public class CollectionUtil {
                 }
             }
         }
+        this.blocksMined += primed.size();
         return this.primed;
     }
 
@@ -79,5 +82,9 @@ public class CollectionUtil {
 
     public int getCaneMined() {
         return caneMined;
+    }
+
+    public int getBlocksMined() {
+        return blocksMined;
     }
 }

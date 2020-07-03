@@ -42,7 +42,7 @@ modes:
     lore-update-string: ' &7▏ &bMode &8» &7&n{sell-mode}'
 #
 uses:
-  enabled: true
+  enabled: false
   starting: 0
   gui: ''
   lore-update-string: ''

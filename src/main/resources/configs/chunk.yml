@@ -28,12 +28,12 @@ messages:
   confirm:
     action-bar: true
     text:
-      - '&e&l<> &7The selected chunk(s) will be busted in 10 seconds &e&l<>'
+      - '&5&lTools&d+&7| The selected chunk(s) will be busted in &e10 &7seconds.'
 
   decline:
     action-bar: true
     text:
-      - '&e&l<> &7Chunk busting action aborted &e&l<>'
+      - '&5&lTools&d+&7| Chunk busting action aborted.'
 
   not-holding-same-tool:
     action-bar: false
@@ -56,7 +56,7 @@ messages:
       - '&5&lTools&d+&7| Chunk busting has started with the origin chunk at &eX&7: &e{chunk-x}&7, &eZ&7: &e{chunk-z}&7.'
 
 confirmation-gui:
-  name: '&e&lConfirm Chunk Busting'
+  name: '&5&lTools&d+ &7&o(Confirm Chunk Busting)'
   type: 'hopper'
   size: 5
   fillers:
@@ -76,10 +76,10 @@ confirmation-gui:
     action: 'confirm'
     material: 'stained_glass_pane'
     data: 5
-    name: '&a&lCONFIRM'
+    name: '&a&nConfirm'
     lore:
       - ''
-      - '&7&o((left-click to confirm this action.))'
+      - '&7(Left-click to confirm this action)'
       - ''
     enchantments:
     item-flags:
@@ -91,10 +91,10 @@ confirmation-gui:
     action: 'decline'
     material: 'stained_glass_pane'
     data: 14
-    name: '&c&lDECLINE'
+    name: '&c&nDecline'
     lore:
       - ''
-      - '&7&o((left-click to decline this action.))'
+      - '&7(Left-click to decline this action)'
       - ''
     enchantments:
     item-flags:

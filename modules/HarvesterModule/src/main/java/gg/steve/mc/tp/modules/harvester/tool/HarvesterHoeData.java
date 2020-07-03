@@ -1,8 +1,8 @@
 package gg.steve.mc.tp.modules.harvester.tool;
 
 import gg.steve.mc.tp.attribute.ToolAttributeType;
-import gg.steve.mc.tp.integration.sell.SellIntegrationManager;
 import gg.steve.mc.tp.framework.message.GeneralMessage;
+import gg.steve.mc.tp.integration.sell.SellIntegrationManager;
 import gg.steve.mc.tp.mode.ModeType;
 import gg.steve.mc.tp.modules.harvester.utils.CollectionUtil;
 import gg.steve.mc.tp.modules.harvester.utils.HarvestableBlockType;
@@ -90,7 +90,8 @@ public class HarvesterHoeData implements ToolData {
         }
         if (!tool.incrementCaneMined(event.getPlayer(), getCollectionUtil(event.getPlayer(), tool).getCaneMined()))
             return;
-        if (!tool.incrementBlocksMined(event.getPlayer(), blocks.size() - 1)) return;
+        if (!tool.incrementBlocksMined(event.getPlayer(), getCollectionUtil(event.getPlayer(), tool).getBlocksMined()))
+            return;
     }
 
     @Override

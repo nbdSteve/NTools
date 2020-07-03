@@ -11,7 +11,6 @@ import gg.steve.mc.tp.framework.yml.utils.FileManagerUtil;
 import gg.steve.mc.tp.integration.libs.ToolsPlusLibManager;
 import gg.steve.mc.tp.integration.providers.FactionsProvider;
 import gg.steve.mc.tp.integration.sell.PriceProviderType;
-import gg.steve.mc.tp.integration.sell.providers.InternalPriceProvider;
 import gg.steve.mc.tp.integration.sell.SellIntegrationManager;
 import gg.steve.mc.tp.managers.ToolConfigDataManager;
 import gg.steve.mc.tp.module.ModuleManager;
