@@ -43,7 +43,7 @@ public class PlayerToolListener implements Listener {
         OmniToolAttribute.changeToolType(event.getBlock(), event.getPlayer());
     }
 
-    @EventHandler(priority = EventPriority.MONITOR)
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void interact(PlayerInteractEvent event) {
         if (!PlayerToolManager.isHoldingTool(event.getPlayer().getUniqueId())) return;
         ToolPlayer player = PlayerToolManager.getToolPlayer(event.getPlayer().getUniqueId());

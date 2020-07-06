@@ -6,7 +6,7 @@
 
     <groupId>gg.steve.mc.tp</groupId>
     <artifactId>ToolsPlus</artifactId>
-    <version>2.0.0-FR1</version>
+    <version>2.0.4</version>
     <packaging>jar</packaging>
 
     <name>ToolsPlus</name>
