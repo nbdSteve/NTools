@@ -23,8 +23,8 @@ public class ChunkUtil {
             for (int z = -radius; z <= radius; z++) {
                 Chunk chunk = start.getWorld().getChunkAt(start.getX() + x, start.getZ() + z);
                 boolean isRemovableChunk = true;
-                for (int blockX = 0; blockX <= 16; blockX++) {
-                    for (int blockZ = 0; blockZ <= 16; blockZ++) {
+                for (int blockX = 0; blockX < 16; blockX++) {
+                    for (int blockZ = 0; blockZ < 16; blockZ++) {
                         Block block = chunk.getBlock(blockX, 100, blockZ);
                         if (block.getType().equals(Material.AIR)) continue;
                         // check if the player can break this specific block
@@ -49,8 +49,8 @@ public class ChunkUtil {
         Bukkit.getScheduler().runTaskAsynchronously(ToolsPlus.get(), () -> {
             for (Chunk chunk : chunks) {
                 blocksInChunks.put(chunk, new ArrayList<>());
-                for (int blockX = 0; blockX <= 16; blockX++) {
-                    for (int blockZ = 0; blockZ <= 16; blockZ++) {
+                for (int blockX = 0; blockX < 16; blockX++) {
+                    for (int blockZ = 0; blockZ < 16; blockZ++) {
                         for (int blockY = chunk.getWorld().getHighestBlockYAt(chunk.getBlock(blockX, 100, blockZ).getLocation()); blockY > 0; blockY--) {
                             Block block = chunk.getBlock(blockX, blockY, blockZ);
                             if (block.getType().equals(Material.AIR)) continue;

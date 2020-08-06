@@ -29,6 +29,7 @@ public class ToolsManager {
         for (String tool : Files.CONFIG.get().getStringList("loaded-tools")) {
             PluginFile file = new YamlFileUtil().load("tools" + File.separator + tool + ".yml", ToolsPlus.get());
             if (!ModuleManager.isInstalled(file.get().getString("type").toUpperCase())) {
+                ((YamlFileUtil) file).delete();
                 LogUtil.info("Error while loading tool: " + tool + ", the required module (" + file.get().getString("type").toUpperCase() + ") is not installed.");
                 continue;
             }

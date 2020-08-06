@@ -4,6 +4,8 @@ import gg.steve.mc.tp.framework.yml.utils.FileManagerUtil;
 import gg.steve.mc.tp.modules.tnt.TntModule;
 import gg.steve.mc.tp.framework.utils.ColorUtil;
 import gg.steve.mc.tp.framework.utils.actionbarapi.ActionBarAPI;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.entity.Player;
 
 import java.util.Arrays;
@@ -32,7 +34,9 @@ public enum TntMessage {
                 for (int i = 0; i < this.placeholders.size(); i++) {
                     line = line.replace(this.placeholders.get(i), data.get(i));
                 }
-                ActionBarAPI.sendActionBar(receiver, ColorUtil.colorize(line));
+                if (!ActionBarAPI.sendActionBar(receiver, ColorUtil.colorize(line))) {
+                    receiver.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ColorUtil.colorize(line)));
+                }
             }
         } else {
             for (String line : FileManagerUtil.get(TntModule.moduleConfigId).getStringList("messages." + this.path + ".text")) {
