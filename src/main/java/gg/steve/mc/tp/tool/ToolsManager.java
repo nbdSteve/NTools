@@ -99,6 +99,13 @@ public class ToolsManager {
         return ToolsPlus.formatNumber(amount);
     }
 
+    public static String getAbstractName(AbstractTool tool) {
+        for (Map.Entry entry : tools.entrySet()) {
+            if (entry.getValue().equals(tool)) return (String) entry.getKey();
+        }
+        return "Error";
+    }
+
     public static Map<String, AbstractTool> getTools() {
         return tools;
     }
