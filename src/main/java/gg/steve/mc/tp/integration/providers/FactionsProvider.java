@@ -26,7 +26,8 @@ public class FactionsProvider {
             factionsPlugin = ToolsPlusLibType.SAVAGE_FACTIONS;
         } else if (factions.getDescription().getWebsite().contains("massivecraft.com")) {
             factionsPlugin = ToolsPlusLibType.MASSIVE_FACTIONS;
-        } else if (factions.getDescription().getWebsite().contains("factions.support")) {
+        } else if (factions.getDescription().getWebsite().contains("factions.support")
+        || factions.getDescription().getWebsite().contains("factionsuuid.1035")) {
             factionsPlugin = ToolsPlusLibType.FACTIONS_UUID;
         }
     }
