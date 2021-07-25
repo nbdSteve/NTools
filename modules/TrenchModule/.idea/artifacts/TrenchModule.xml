@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TrenchModule">
+    <output-path>$PROJECT_DIR$/out/artifacts/TrenchModule</output-path>
+    <root id="archive" name="TrenchModule.jar">
+      <element id="module-output" name="TrenchModule" />
+    </root>
+  </artifact>
+</component>

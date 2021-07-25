@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SaberFactions-Lib" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fe13d1d6-f1a4-49d7-8124-4c154d9d259b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SupremeFactions-Lib/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SupremeFactions-Lib/src/main/java/gg/steve/mc/tp/libs/supremefactions/SupremeFactionsLib.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/a/d/ad84218ab6fd80f9124f73de2c0532047e3578bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/ToolsPlus-v2-Recode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/ToolsPlus-v2-Recode.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FactionsX-Lib/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FactionsX-Lib/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FactionsX-Lib/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FactionsX-Lib/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FactionsX-Lib/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FactionsX-Lib/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" afterPath="$PROJECT_DIR$/../FactionsX-Lib/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FactionsX-Lib/.idea/sonarlint/issuestore/d/8/d8af1bd5ee6b08189ff7bf16b83f821400700232" beforeDir="false" afterPath="$PROJECT_DIR$/../FactionsX-Lib/.idea/sonarlint/issuestore/d/8/d8af1bd5ee6b08189ff7bf16b83f821400700232" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FactionsX-Lib/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FactionsX-Lib/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FactionsX-Lib/FactionsX-Lib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FactionsX-Lib/FactionsX-Lib.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SavageFactionsLib/.idea/SavageFactionsLib.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SavageFactionsLib/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SavageFactionsLib/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/7/7/77054b725e55b90894b01dab8c271103e90d38e3" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/7/7/77054b725e55b90894b01dab8c271103e90d38e3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/a/0/a057af84c9e472b46f19775e8f2ea8e4c7696064" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/a/0/a057af84c9e472b46f19775e8f2ea8e4c7696064" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/SellModule/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/SellModule/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/SellModule/SellModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/SellModule/SellModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/SellModule/target/classes/gg/steve/mc/tp/modules/sell/tool/SellData.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/SellModule/target/classes/gg/steve/mc/tp/modules/sell/tool/SellData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/SellModule/target/classes/gg/steve/mc/tp/modules/sell/utils/ChunkCollectorUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/SellModule/target/classes/gg/steve/mc/tp/modules/sell/utils/ChunkCollectorUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/providers/FactionsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/providers/FactionsProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools.zip" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1dctGxEldnEcYAWJO6JRZt6HZq1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fe13d1d6-f1a4-49d7-8124-4c154d9d259b" name="Default Changelist" comment="" />
+      <created>1592736116277</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592736116277</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2685" y="243" key="#com.intellij.ide.util.MemberChooser" timestamp="1592736315452">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2685" y="243" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592736315452" />
+    <state x="739" y="284" key="FileChooserDialogImpl" timestamp="1594210100262">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="739" y="284" key="FileChooserDialogImpl/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@0.0.1920.1040" timestamp="1594210100262" />
+    <state x="2659" y="295" key="FileChooserDialogImpl/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592736440501" />
+    <state x="2360" y="114" key="SettingsEditor" timestamp="1592736394936">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2360" y="114" key="SettingsEditor/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592736394936" />
+    <state x="2315" y="115" key="new project wizard" timestamp="1592736455790">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2315" y="115" key="new project wizard/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592736455790" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594210112565">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@0.0.1920.1040" timestamp="1594210112565" />
+  </component>
+</project>

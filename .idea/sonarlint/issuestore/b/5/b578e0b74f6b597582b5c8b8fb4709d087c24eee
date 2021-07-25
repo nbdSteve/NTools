@@ -1,0 +1,20 @@
+
+l
+java:S1192&"VDefine a constant instead of duplicating this literal "net.minecraft.server." 7 times.(‡º»û
+S
+java:S3878;"8Remove this array creation and simply pass the elements.(åĞ‘·ÿÿÿÿÿ
+W
+java:S11411"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8Çë€è».
+S
+java:S3878="8Remove this array creation and simply pass the elements.(ößƒÚøÿÿÿÿ
+X	java:S125H"<This block of commented-out lines of code should be removed.(†€éˆ8«°„è».
+S
+java:S3878-"8Remove this array creation and simply pass the elements.(²¯®¹úÿÿÿÿ
+U
+java:S1118":Add a private constructor to hide the implicit public one.(õæ‚òûÿÿÿÿ
+[
+java:S2184W"@Cast one of the operands of this addition operation to a "long".(Üº‡üÿÿÿÿ
+S
+java:S3878>"8Remove this array creation and simply pass the elements.(–ÉÌúÿÿÿÿ
+S
+java:S3878:"8Remove this array creation and simply pass the elements.(ößƒÚøÿÿÿÿ

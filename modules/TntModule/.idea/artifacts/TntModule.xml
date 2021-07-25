@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TntModule">
+    <output-path>$PROJECT_DIR$/../../../../../test-server/1.16-server/plugins/ToolsPlus/modules</output-path>
+    <root id="archive" name="TntModule.jar">
+      <element id="module-output" name="TntModule" />
+    </root>
+  </artifact>
+</component>

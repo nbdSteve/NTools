@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SmeltModule">
+    <output-path>$PROJECT_DIR$/../../../../../test-server/1.16-server/plugins/ToolsPlus/modules</output-path>
+    <root id="archive" name="SmeltModule.jar">
+      <element id="module-output" name="SmeltModule" />
+    </root>
+  </artifact>
+</component>

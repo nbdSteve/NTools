@@ -1,0 +1,10 @@
+
+`	java:S112 "FDefine and throw a dedicated exception instead of using a generic one.(øÁ©‘ùÿÿÿÿ
+m
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(„İ‘Åÿÿÿÿÿ
+]
+java:S2259J"BA "NullPointerException" could be thrown; "tool" is nullable here.(œ•È•üÿÿÿÿ
+K
+java:S1874;"5Remove this use of "getItemInHand"; it is deprecated.(Ç›³¦
+P
+java:S1874:"5Remove this use of "getItemInHand"; it is deprecated.(ƒ¶Øøÿÿÿÿ

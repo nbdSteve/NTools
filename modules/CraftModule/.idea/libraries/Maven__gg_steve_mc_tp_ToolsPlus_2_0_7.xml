@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: gg.steve.mc.tp:ToolsPlus:2.0.7">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/gg/steve/mc/tp/ToolsPlus/2.0.7/ToolsPlus-2.0.7.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/gg/steve/mc/tp/ToolsPlus/2.0.7/ToolsPlus-2.0.7-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/gg/steve/mc/tp/ToolsPlus/2.0.7/ToolsPlus-2.0.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,64 @@
+
+P
+java:S1118":Add a private constructor to hide the implicit public one.(Üâ§º
+p
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(º•8œá€°.
+?	java:S131‘""Add a default case to this switch.(ÜŸ•8œá€°.
+v
+java:S1192"YDefine a constant instead of duplicating this literal "{radius-current-upgrade}" 3 times.(×Ô·8ØÙ‰€°.
+d
+java:S1192G"IDefine a constant instead of duplicating this literal "modifier" 3 times.(ñóËÏûÿÿÿÿ
+v
+java:S1192("YDefine a constant instead of duplicating this literal "{modifier-upgrade-level}" 3 times.(ÂöŸÏ8ØÙ‰€°.
+y
+java:S1192 "WDefine a constant instead of duplicating this literal "{radius-upgrade-level}" 3 times.(‡²ÿ§şÿÿÿÿ8ØÙ‰€°.
+y
+java:S1192)"WDefine a constant instead of duplicating this literal "{modifier-upgrade-max}" 3 times.(¦æışÿÿÿÿ8ØÙ‰€°.
+b
+java:S1192>"GDefine a constant instead of duplicating this literal "radius" 3 times.(„èĞşÿÿÿÿ
+d
+java:S11928"GDefine a constant instead of duplicating this literal "{uses}" 3 times.(êú´ª8ØÙ‰€°.
+u
+java:S1192&"XDefine a constant instead of duplicating this literal "{modifier-upgrade-cost}" 3 times.(ì¾÷ƒ8ØÙ‰€°.
+v
+java:S11922"TDefine a constant instead of duplicating this literal "{sell-current-mode}" 3 times.(ââì™øÿÿÿÿ8ØÙ‰€°.
+s
+java:S11923"QDefine a constant instead of duplicating this literal "{sell-next-mode}" 3 times.(’Ÿ“Üşÿÿÿÿ8ØÙ‰€°.
+~
+java:S11927"\Define a constant instead of duplicating this literal "{sell-mode-currency-suffix}" 3 times.(øğÚşÿÿÿÿ8ØÙ‰€°.
+~
+java:S11926"\Define a constant instead of duplicating this literal "{sell-mode-currency-prefix}" 3 times.(ŠßØ½úÿÿÿÿ8ØÙ‰€°.
+€
+java:S1192*"cDefine a constant instead of duplicating this literal "{modifier-upgrade-currency-prefix}" 3 times.(ì˜áÛ8ØÙ‰€°.
+y
+java:S11920"\Define a constant instead of duplicating this literal "{tool-mode-currency-prefix}" 3 times.(ığŞ¥8ØÙ‰€°.
+€
+java:S1192+"cDefine a constant instead of duplicating this literal "{modifier-upgrade-currency-suffix}" 3 times.(Í­Äß8ØÙ‰€°.
+s
+java:S1192"VDefine a constant instead of duplicating this literal "{radius-upgrade-cost}" 3 times.(û©ÿÔ8ØÙ‰€°.
+u
+java:S1192%"XDefine a constant instead of duplicating this literal "{modifier-next-upgrade}" 3 times.(Ïµß¢8ØÙ‰€°.
+w
+java:S1192!"UDefine a constant instead of duplicating this literal "{radius-upgrade-max}" 3 times.(ó¤ú§ÿÿÿÿÿ8ØÙ‰€°.
+}
+java:S1192$"[Define a constant instead of duplicating this literal "{modifier-current-upgrade}" 3 times.(Œ¡¡Òûÿÿÿÿ8ØÙ‰€°.
+s
+java:S1192"VDefine a constant instead of duplicating this literal "{radius-next-upgrade}" 3 times.(æµèŞ8ØÙ‰€°.
+z
+java:S11924"XDefine a constant instead of duplicating this literal "{sell-mode-change-cost}" 3 times.(¼‚¨†úÿÿÿÿ8ØÙ‰€°.
+q
+java:S1192,"TDefine a constant instead of duplicating this literal "{tool-current-mode}" 3 times.(û¥©¿8ØÙ‰€°.
+n
+java:S1192-"QDefine a constant instead of duplicating this literal "{tool-next-mode}" 3 times.(¡äñí8ØÙ‰€°.
+u
+java:S1192."XDefine a constant instead of duplicating this literal "{tool-mode-change-cost}" 3 times.(ôÀ«á8ØÙ‰€°.
+y
+java:S11921"\Define a constant instead of duplicating this literal "{tool-mode-currency-suffix}" 3 times.(‘˜ÿ8ØÙ‰€°.
+o
+java:S1192˜"QDefine a constant instead of duplicating this literal "free-placeholder" 4 times.(Ø—‰ü8œá€°.
+~
+java:S1192#"aDefine a constant instead of duplicating this literal "{radius-upgrade-currency-suffix}" 3 times.(Ö»íô8ØÙ‰€°.
+~
+java:S1192""aDefine a constant instead of duplicating this literal "{radius-upgrade-currency-prefix}" 3 times.(šÃªË8ØÙ‰€°.
+n
+java:S1301õ"KReplace this "switch" statement by "if" statements to increase readability.(å¿€œüÿÿÿÿ8œá€°.

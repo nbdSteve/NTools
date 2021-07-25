@@ -26,6 +26,7 @@ public class ToolsPlusLibManager {
     }
 
     public static boolean installLib(ToolsPlusLib lib) {
+        if (lib == null) return false;
         Validate.notNull(lib, "ToolsPlusLib can not be null");
         if (libs.containsKey(lib.getLibType())) {
             return false;

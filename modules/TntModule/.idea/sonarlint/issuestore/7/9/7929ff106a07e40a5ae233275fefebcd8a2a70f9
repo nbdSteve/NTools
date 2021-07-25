@@ -1,0 +1,11 @@
+
+C
+java:S1444".Make this "public static moduleId" field final(âú“W
+J
+java:S1444"4Make this "public static moduleConfigId" field final(“ëÝ¯
+i
+java:S1104"TMake moduleId a static final constant or non-public and provide accessors if needed.(âú“W
+p
+java:S1104"ZMake moduleConfigId a static final constant or non-public and provide accessors if needed.(“ëÝ¯
+—
+java:S1186B"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(œäÏÅ

@@ -41,13 +41,13 @@ public class TrenchData implements ToolData {
             for (Block block : blocks) {
                 // if the player is using silk touch give them items accordingly, adds items straight to inventory
                 if (playersGetDrops) {
-                    if (silk) {
-                        event.getPlayer().getInventory().addItem(new ItemStack(block.getType(), 1, block.getData()));
-                    } else {
+//                    if (silk) {
+//                        event.getPlayer().getInventory().addItem(new ItemStack(block.getType(), 1, block.getData()));
+//                    } else {
                         for (ItemStack item : block.getDrops(event.getPlayer().getItemInHand())) {
                             event.getPlayer().getInventory().addItem(item);
                         }
-                    }
+//                    }
                 }
                 // clear drops and remove the block
                 block.getDrops().clear();

@@ -85,10 +85,6 @@
             <version>2.10.3</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>gg.steve.mc.tp</groupId>
-            <artifactId>ToolsPlus</artifactId>
-            <version>2.0.0-PR1-DV15</version>
-        </dependency>
     </dependencies>
+
 </project>

@@ -1,0 +1,18 @@
+containers:
+  - chest
+  - trapped_chest
+
+messages:
+  craft:
+    action-bar: true
+    text:
+      - '&5&lTools&d+&7| You have crafted &6x{amount} Items.'
+
+  none-crafted:
+    action-bar: true
+    text:
+      - '&5&lTools&d+&7| The container(s) selected do not contain any items to craft.'
+
+recipes:
+  # syntax: tnt:0:1-sand:0:5-sulphur:0:5
+  - 'tnt:0:1-sand:0:5-sulphur:0:5'

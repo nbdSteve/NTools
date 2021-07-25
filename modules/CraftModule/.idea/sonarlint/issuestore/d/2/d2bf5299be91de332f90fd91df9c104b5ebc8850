@@ -1,0 +1,19 @@
+
+^
+java:S2184i"BCast one of the operands of this division operation to a "double".(ÆÜé8Ð®ç˜±.
+S
+java:S1874,"1Remove this use of "ItemStack"; it is deprecated.(á‹±‰øÿÿÿÿ8Ð®ç˜±.
+N
+java:S1874P"1Remove this use of "ItemStack"; it is deprecated.(ÆÓÓ‘8Ð®ç˜±.
+R
+java:S1874Y"5Remove this use of "getDurability"; it is deprecated.(ÇÃ…Ð8Ð®ç˜±.
+R
+java:S1874]"5Remove this use of "getDurability"; it is deprecated.(•…§¤8Ð®ç˜±.
+R
+java:S1874P"5Remove this use of "getDurability"; it is deprecated.(ÆÓÓ‘8Ð®ç˜±.
+m
+java:S37765"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(±¦¬ãøÿÿÿÿ
+B
+java:S2185i"&Remove this silly call to "Math.floor"(ÆÜé8Ð®ç˜±.
+R
+java:S1874Y"5Remove this use of "getDurability"; it is deprecated.(ÇÃ…Ð8Ð®ç˜±.

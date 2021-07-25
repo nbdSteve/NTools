@@ -1,0 +1,15 @@
+
+i
+java:S1192"GDefine a constant instead of duplicating this literal "{cost}" 5 times.(¹—Œ­ùÿÿÿÿ8¡‚ùç».
+Y
+java:S3066("<Lower the visibility of this setter or remove it altogether.(ÇþüØ8¡‚ùç».
+c
+java:S1192/"FDefine a constant instead of duplicating this literal ".text" 4 times.(Ç†‘÷8¡‚ùç».
+g
+java:S1192"LDefine a constant instead of duplicating this literal "{tool-type}" 6 times.(‰Í¼¶þÿÿÿÿ
+t
+java:S1192"RDefine a constant instead of duplicating this literal "{currency-suffix}" 5 times.(¹—Œ­ùÿÿÿÿ8¡‚ùç».
+t
+java:S1192"RDefine a constant instead of duplicating this literal "{currency-prefix}" 5 times.(¹—Œ­ùÿÿÿÿ8¡‚ùç».
+n
+java:S3776A"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(„üB8È‰úç».

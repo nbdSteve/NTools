@@ -1,21 +1,21 @@
 
+P
+java:S18743"5Remove this use of "getItemInHand"; it is deprecated.(ºÇá¤øÿÿÿÿ
 —
 java:S1186b"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÃÅŒ”
-1
-java:S3626^"Remove this redundant jump.(¥àôå
+H
+java:S16594"-Declare "playersGetDrops" on a separate line.(Éñ‰®ýÿÿÿÿ
 m
 java:S3776+"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(Þ­µ…úÿÿÿÿ
+M
+java:S1874D"2Remove this use of "setRawData"; it is deprecated.(ë¨Üõþÿÿÿÿ
+M
+java:S1874H"2Remove this use of "getRawData"; it is deprecated.(«€¦‘ÿÿÿÿÿ
 A
 java:S16592"&Declare "autoSell" on a separate line.(å‰®ãþÿÿÿÿ
 =
 java:S16593""Declare "silk" on a separate line.(ºÇá¤øÿÿÿÿ
-H
-java:S16594"-Declare "playersGetDrops" on a separate line.(Éñ‰®ýÿÿÿÿ
-P
-java:S18743"5Remove this use of "getItemInHand"; it is deprecated.(ºÇá¤øÿÿÿÿ
-M
-java:S1874D"2Remove this use of "setRawData"; it is deprecated.(ë¨Üõþÿÿÿÿ
 M
 java:S1874H"2Remove this use of "setRawData"; it is deprecated.(«€¦‘ÿÿÿÿÿ
-M
-java:S1874H"2Remove this use of "getRawData"; it is deprecated.(«€¦‘ÿÿÿÿÿ
+1
+java:S3626^"Remove this redundant jump.(ûÁÝ…

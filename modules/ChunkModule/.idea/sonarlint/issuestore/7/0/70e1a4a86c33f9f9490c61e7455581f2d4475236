@@ -1,0 +1,32 @@
+
+A
+java:S1444
+"+Make this "public static delay" field final(ü¦¨ğ
+:
+java:S1659
+"$Declare "period" on a separate line.(ü¦¨ğ
+J
+java:S1659	"4Declare "blocksRemovedPerPeriod" on a separate line.(ÎşÙ
+h
+java:S1104
+"RMake period a static final constant or non-public and provide accessors if needed.(ü¦¨ğ
+A
+java:S1444",Make this "public static minTPS" field final(ô±Ì 
+p
+java:S1104	"ZMake maxPlayerTasks a static final constant or non-public and provide accessors if needed.(ÎşÙ
+x
+java:S1104	"bMake blocksRemovedPerPeriod a static final constant or non-public and provide accessors if needed.(ÎşÙ
+g
+java:S1104"RMake minTPS a static final constant or non-public and provide accessors if needed.(ô±Ì 
+g
+java:S1104
+"QMake delay a static final constant or non-public and provide accessors if needed.(ü¦¨ğ
+P
+java:S1118":Add a private constructor to hide the implicit public one.(¬°Ÿ‘
+R
+java:S1444	"<Make this "public static blocksRemovedPerPeriod" field final(ÎşÙ
+B
+java:S1444
+",Make this "public static period" field final(ü¦¨ğ
+J
+java:S1444	"4Make this "public static maxPlayerTasks" field final(ÎşÙ

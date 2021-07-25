@@ -1,0 +1,10 @@
+
+m
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 36 to the 15 allowed.(İÛ¿†ûÿÿÿÿ
+P
+java:S1118":Add a private constructor to hide the implicit public one.(û€ÍÉ
+1
+java:S3626#"Remove this redundant jump.(ÉŠ©ƒ
+n	java:S1356"YReduce the total number of break and continue statements in this loop to use at most one.(Õâî
+m
+java:S3776."RRefactor this method to reduce its Cognitive Complexity from 52 to the 15 allowed.(Ù­‚®ÿÿÿÿÿ

@@ -1,0 +1,43 @@
+
+\	java:S112Á"FDefine and throw a dedicated exception instead of using a generic one.(ñ·õ‰
+h
+java:S3776F"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(—úãð
+=
+java:S3010s"'Remove this assignment of "serverUUID".(““ç®
+I
+java:S3010t".Remove this assignment of "logFailedRequests".(üüêÃøÿÿÿÿ
+>
+java:S3010v"(Remove this assignment of "logSentData".(™æŸº
+M
+java:S3010w"2Remove this assignment of "logResponseStatusText".(‚„·åùÿÿÿÿ
+C	java:S108o")Either remove or fill this block of code.(õ÷£ðúÿÿÿÿ
+C	java:S108")Either remove or fill this block of code.(ýÞ•ûùÿÿÿÿ
+D	java:S108„")Either remove or fill this block of code.(ýÞ•ûùÿÿÿÿ
+C
+java:S1612³",Replace this lambda with a method reference.(ÀÜ¹ñ
+R	java:S125Õ"<This block of commented-out lines of code should be removed.(ÀãÅÌ
+i
+java:S3776ý"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(î¹“Æ
+2
+java:S3626œ"Remove this redundant jump.(£õ…ð
+V
+java:S1117ˆ":Rename "plugin" which hides the field declared at line 64.(äøÔÚûÿÿÿÿ
+C
+java:S3011",This accessibility update should be removed.(”™ÖÙ
+R	java:S125š"<This block of commented-out lines of code should be removed.(ïÚœò
+D	java:S108Ÿ")Either remove or fill this block of code.(èÜåûÿÿÿÿ
+D	java:S108¢")Either remove or fill this block of code.(ýÞ•ûùÿÿÿÿ
+W	java:S125³"<This block of commented-out lines of code should be removed.(áÓòÕýÿÿÿÿ
+D
+java:S1172Á"-Remove this unused method parameter "plugin".(ñ·õ‰
+O	java:S106É"9Replace this use of System.out or System.err by a logger.(ðì‰Á
+W	java:S125Ë"<This block of commented-out lines of code should be removed.(ù¸Øëøÿÿÿÿ
+R	java:S125î"<This block of commented-out lines of code should be removed.(¥«²Ÿ
+a
+java:S1192Y"KDefine a constant instead of duplicating this literal "serverUuid" 3 times.(×‡¶–
+Q
+java:S1141‡"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+Q
+java:S1141Œ"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+?
+java:S1604¨"(Make this anonymous inner class a lambda(ÉãÃ®

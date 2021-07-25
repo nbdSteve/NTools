@@ -1,0 +1,4 @@
+sellable-containers:
+  - chest
+  - trapped_chest
+  - hopper

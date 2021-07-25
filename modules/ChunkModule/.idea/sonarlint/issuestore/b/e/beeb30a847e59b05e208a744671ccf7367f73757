@@ -1,0 +1,11 @@
+
+V
+java:S2864Q"4Iterate over the "entrySet" instead of the "keySet".(–‡‰¿ùÿÿÿÿ8Å¢Ÿ¼.
+m
+java:S3776/"RRefactor this method to reduce its Cognitive Complexity from 33 to the 15 allowed.(ãëÊöúÿÿÿÿ
+U
+java:S1118":Add a private constructor to hide the implicit public one.(¾„ß§ûÿÿÿÿ
+6
+java:S3626a"Remove this redundant jump.(Ó®Îëıÿÿÿÿ
+Q
+java:S2864"4Iterate over the "entrySet" instead of the "keySet".(¾ıĞ8Å¢Ÿ¼.

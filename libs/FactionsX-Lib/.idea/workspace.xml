@@ -1,13 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="FactionsX-Lib" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="baa79ee8-92f5-48b0-8c4b-2bbb6705c9c2" name="Default Changelist" comment="" />
+    <list default="true" id="baa79ee8-92f5-48b0-8c4b-2bbb6705c9c2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SupremeFactions-Lib/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SupremeFactions-Lib/src/main/java/gg/steve/mc/tp/libs/supremefactions/SupremeFactionsLib.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/a/d/ad84218ab6fd80f9124f73de2c0532047e3578bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/ToolsPlus-v2-Recode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/ToolsPlus-v2-Recode.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FactionsX-Lib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FactionsX-Lib.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SavageFactionsLib/.idea/SavageFactionsLib.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SavageFactionsLib/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SavageFactionsLib/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/7/7/77054b725e55b90894b01dab8c271103e90d38e3" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/7/7/77054b725e55b90894b01dab8c271103e90d38e3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/a/0/a057af84c9e472b46f19775e8f2ea8e4c7696064" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/a/0/a057af84c9e472b46f19775e8f2ea8e4c7696064" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/SellModule/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/SellModule/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/SellModule/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/SellModule/SellModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/SellModule/SellModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/SellModule/target/classes/gg/steve/mc/tp/modules/sell/tool/SellData.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/SellModule/target/classes/gg/steve/mc/tp/modules/sell/tool/SellData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../modules/SellModule/target/classes/gg/steve/mc/tp/modules/sell/utils/ChunkCollectorUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../modules/SellModule/target/classes/gg/steve/mc/tp/modules/sell/utils/ChunkCollectorUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/providers/FactionsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/gg/steve/mc/tp/integration/providers/FactionsProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/tools.zip" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
   <component name="ProjectId" id="1eA1SFDYVIXfhlTgoUfqZVJqqQF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -15,6 +55,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -28,5 +72,15 @@
       <updated>1593749580933</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2685" y="243" key="#com.intellij.ide.util.MemberChooser" timestamp="1593749851449">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2685" y="243" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593749851449" />
+    <state x="2360" y="114" key="SettingsEditor" timestamp="1593751732270">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2360" y="114" key="SettingsEditor/0.0.1920.1040/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593751732270" />
   </component>
 </project>

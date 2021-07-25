@@ -27,7 +27,16 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.md-5:bungeecord-chat:1.15-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.yaml:snakeyaml:1.25" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: me.clip:placeholderapi:2.10.3" level="project" />
-    <orderEntry type="library" name="Maven: gg.steve.mc.tp:ToolsPlus:2.0.0-PR1-DV15" level="project" />
+    <orderEntry type="library" name="Maven: gg.steve.mc.tp:ToolsPlus:2.0.0-FR1" level="project" />
     <orderEntry type="library" name="Maven: org.bstats:bstats-bukkit:1.7" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: com.cloth:ChunkCollectors:2.9.3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/lib/ChunkCollectors.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

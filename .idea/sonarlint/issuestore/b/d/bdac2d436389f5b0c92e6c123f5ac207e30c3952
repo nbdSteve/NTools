@@ -1,0 +1,38 @@
+
+L
+java:S1659"6Declare "peakModifierUpgradeLevel" on a separate line.(äÁ×È
+F
+java:S1659"0Declare "radiusUpgradeLevel" on a separate line.(äÁ×È
+A
+java:S1659"+Declare "toolModeLevel" on a separate line.(äÁ×È
+?
+java:S1659")Declare "usesGuiName" on a separate line.(ñÄİ
+g
+java:S1301†"KReplace this "switch" statement by "if" statements to increase readability.(°Âë¶úÿÿÿÿ
+s	java:S131p"YComplete cases by adding the missing enum constants or add a default case to this switch.(©Øûºûÿÿÿÿ
+t	java:S131†"YComplete cases by adding the missing enum constants or add a default case to this switch.(°Âë¶úÿÿÿÿ
+H
+java:S1659"2Declare "modifierUpgradeLevel" on a separate line.(äÁ×È
+=
+java:S1659"'Declare "caneMined" on a separate line.(äÁ×È
+A
+java:S1659"+Declare "sellModeLevel" on a separate line.(äÁ×È
+P
+java:S1874;"5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ
+`
+java:S1128"ERemove this unused import 'gg.steve.mc.tp.framework.gui.AbstractGui'.(’¢ÙÖÿÿÿÿÿ
+f
+java:S1301p"KReplace this "switch" statement by "if" statements to increase readability.(©Øûºûÿÿÿÿ
+`
+java:S1128"CRemove this unused import 'gg.steve.mc.tp.framework.utils.LogUtil'.(ÿÇ‰Ù8¯Ê¥…±.
+f
+java:S1301e"KReplace this "switch" statement by "if" statements to increase readability.(°Âë¶úÿÿÿÿ
+?
+java:S1659")Declare "blocksMined" on a separate line.(äÁ×È
+s	java:S131e"YComplete cases by adding the missing enum constants or add a default case to this switch.(°Âë¶úÿÿÿÿ
+P
+java:S1874("5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ
+J
+java:S1659"4Declare "peakRadiusUpgradeLevel" on a separate line.(äÁ×È
+P
+java:S18742"5Remove this use of "getItemInHand"; it is deprecated.(êµ‰ÿÿÿÿÿ

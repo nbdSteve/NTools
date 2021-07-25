@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.codemc.worldguardwrapper:worldguardwrapper:1.1.6-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/codemc/worldguardwrapper/worldguardwrapper/1.1.6-SNAPSHOT/worldguardwrapper-1.1.6-20200510.140617-11.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/codemc/worldguardwrapper/worldguardwrapper/1.1.6-SNAPSHOT/worldguardwrapper-1.1.6-20200510.140617-11-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/codemc/worldguardwrapper/worldguardwrapper/1.1.6-SNAPSHOT/worldguardwrapper-1.1.6-20200510.140617-11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
