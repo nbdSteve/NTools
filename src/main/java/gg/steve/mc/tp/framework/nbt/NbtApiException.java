@@ -1,4 +1,4 @@
-package gg.steve.mc.dazzer.mt.nbt;
+package gg.steve.mc.tp.framework.nbt;
 
 /**
  * A generic {@link RuntimeException} that can be thrown by most methods in the

@@ -1,7 +1,7 @@
-package gg.steve.mc.dazzer.mt.nbt.utils.annotations;
+package gg.steve.mc.tp.framework.nbt.utils.annotations;
 
-import gg.steve.mc.dazzer.mt.nbt.NbtApiException;
-import gg.steve.mc.dazzer.mt.nbt.utils.MinecraftVersion;
+import gg.steve.mc.tp.framework.nbt.NbtApiException;
+import gg.steve.mc.tp.framework.nbt.utils.MinecraftVersion;
 
 import java.lang.reflect.Method;
 

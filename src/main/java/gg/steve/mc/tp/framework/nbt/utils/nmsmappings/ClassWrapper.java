@@ -1,11 +1,11 @@
-package gg.steve.mc.dazzer.mt.nbt.utils.nmsmappings;
+package gg.steve.mc.tp.framework.nbt.utils.nmsmappings;
 
-import gg.steve.mc.dazzer.mt.nbt.utils.MinecraftVersion;
+import gg.steve.mc.tp.framework.nbt.utils.MinecraftVersion;
 import org.bukkit.Bukkit;
 
 import java.util.logging.Level;
 
-import static gg.steve.mc.dazzer.mt.nbt.utils.MinecraftVersion.getLogger;
+import static gg.steve.mc.tp.framework.nbt.utils.MinecraftVersion.getLogger;
 
 /**
  * Wraps NMS and CRAFT classes

@@ -1,4 +1,4 @@
-package gg.steve.mc.dazzer.mt.nbt.utils.nmsmappings;
+package gg.steve.mc.tp.framework.nbt.utils.nmsmappings;
 
 /**
  * Package enum
